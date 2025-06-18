@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Soenneker.Fixtures.Unit;
 using Soenneker.Utils.Test;
-using Soenneker.Instantly.OpenApiClient.Registrars;
 
 namespace Soenneker.Instantly.OpenApiClient.Tests;
 
@@ -25,7 +24,5 @@ public sealed class Fixture : UnitFixture
 
         IConfiguration config = TestUtil.BuildConfig();
         services.AddSingleton(config);
-
-        services.AddInstantlyOpenApiClientAsScoped();
     }
 }
