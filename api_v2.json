@@ -33,14 +33,14 @@
             "description": "Timestamp when the account was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.907Z"
+            "example": "2025-07-12T12:17:51.174Z"
           },
           "timestamp_updated": {
             "type": "string",
             "description": "Timestamp when the account was last updated",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.907Z"
+            "example": "2025-07-12T12:17:51.174Z"
           },
           "first_name": {
             "type": "string",
@@ -138,7 +138,7 @@
             "description": "User ID who added the account",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61db-7091-8167-7ef68354e2a2"
+            "example": "0197fe92-0246-79b4-b498-640b963b0308"
           },
           "daily_limit": {
             "type": [
@@ -156,7 +156,7 @@
             "description": "User ID who last modified the account",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61db-7091-8167-7ef70a3c2ecc"
+            "example": "0197fe92-0246-79b4-b498-640c170c8e28"
           },
           "tracking_domain_name": {
             "type": [
@@ -215,7 +215,7 @@
             "description": "Organization ID that owns this account",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61db-7091-8167-7ef89d325c16"
+            "example": "0197fe92-0246-79b4-b498-640d489432c8"
           },
           "timestamp_last_used": {
             "type": [
@@ -225,7 +225,7 @@
             "description": "Timestamp when the account was last used",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.907Z"
+            "example": "2025-07-12T12:17:51.174Z"
           },
           "warmup_status": {
             "type": "number",
@@ -283,7 +283,7 @@
             "description": "Timestamp when warmup was started",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.907Z"
+            "example": "2025-07-12T12:17:51.174Z"
           },
           "provider_code": {
             "type": "number",
@@ -316,7 +316,7 @@
             "description": "ID of the warmup pool this account belongs to",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61db-7091-8167-7ef96818b085"
+            "example": "0197fe92-0246-79b4-b498-640e18fb2ac7"
           },
           "is_managed_account": {
             "type": "boolean",
@@ -378,7 +378,7 @@
             "description": "Unique identifier for the campaign",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61c8-7fbf-9f43-f7b363c398c7"
+            "example": "0197fe92-0234-765b-853a-ea7f570b7f12"
           },
           "name": {
             "type": "string",
@@ -434,12 +434,12 @@
               "start_date": {
                 "type": "string",
                 "format": "date-time",
-                "example": "2025-07-11T21:16:02.888Z"
+                "example": "2025-07-12T12:17:51.156Z"
               },
               "end_date": {
                 "type": "string",
                 "format": "date-time",
-                "example": "2025-07-11T21:16:02.888Z"
+                "example": "2025-07-12T12:17:51.156Z"
               },
               "schedules": {
                 "type": "array",
@@ -696,13 +696,13 @@
             "type": "string",
             "description": "Timestamp when the campaign was created",
             "readOnly": true,
-            "example": "2025-07-11T21:16:02.888Z"
+            "example": "2025-07-12T12:17:51.156Z"
           },
           "timestamp_updated": {
             "type": "string",
             "description": "Timestamp when the campaign was last updated",
             "readOnly": true,
-            "example": "2025-07-11T21:16:02.888Z"
+            "example": "2025-07-12T12:17:51.156Z"
           },
           "email_gap": {
             "type": [
@@ -758,7 +758,7 @@
             "items": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-61c8-7fbf-9f43-f7b403db2bb9"
+              "example": "0197fe92-0234-765b-853a-ea80778bb901"
             }
           },
           "link_tracking": {
@@ -885,7 +885,7 @@
             "description": "Organization ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61c8-7fbf-9f43-f7b5a471817b"
+            "example": "0197fe92-0234-765b-853a-ea813a1115c5"
           }
         },
         "required": [
@@ -912,21 +912,21 @@
             "description": "A Unique identifier",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f10764478cfe"
+            "example": "0197fe92-024a-788d-9e19-f42d8dbae7d4"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the email was added to our database. This is not the timestamp of the email itself, since the email could have been sent at a different time. Please check the \u0060timestamp_email\u0060 field for the timestamp of the email.",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.910Z"
+            "example": "2025-07-12T12:17:51.178Z"
           },
           "timestamp_email": {
             "type": "string",
             "description": "The timestamp of the email, as provided by the email server. Please note that the timestamp is not always accurate, as it can be manipulated by the sender or the email server.",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.910Z"
+            "example": "2025-07-12T12:17:51.178Z"
           },
           "message_id": {
             "type": "string",
@@ -1000,7 +1000,7 @@
             "description": "The workspace ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f10818a3af34"
+            "example": "0197fe92-024a-788d-9e19-f42ec5dd8a7a"
           },
           "campaign_id": {
             "type": [
@@ -1009,7 +1009,7 @@
             ],
             "description": "The id of the campaign that the email is associated with (it can be null for manually sent emails)",
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f109ffcf0069"
+            "example": "0197fe92-024a-788d-9e19-f42f7f34f650"
           },
           "subsequence_id": {
             "type": [
@@ -1018,7 +1018,7 @@
             ],
             "description": "The id of the campaign subsequence that the email is associated with (it can be null for manually sent emails)",
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f10a664cd368"
+            "example": "0197fe92-024a-788d-9e19-f430fa1ae69e"
           },
           "list_id": {
             "type": [
@@ -1027,7 +1027,7 @@
             ],
             "description": "The id of the list (if the lead is part of a list)",
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f10b0584af6f"
+            "example": "0197fe92-024a-788d-9e19-f43116ecce96"
           },
           "lead": {
             "type": [
@@ -1044,7 +1044,7 @@
             ],
             "description": "The lead id (if any)",
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f10c4fd7f2ab"
+            "example": "0197fe92-024a-788d-9e19-f4322b679810"
           },
           "eaccount": {
             "type": "string",
@@ -1103,7 +1103,7 @@
             ],
             "description": "Timestamp for the reminder.",
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.910Z"
+            "example": "2025-07-12T12:17:51.178Z"
           },
           "ai_interest_value": {
             "type": [
@@ -1144,7 +1144,7 @@
             ],
             "description": "Identifier for the email thread. All the emails in the same thread have the same thread ID",
             "format": "uuid",
-            "example": "0197fb58-61de-777f-97fc-f10de594613a"
+            "example": "0197fe92-024a-788d-9e19-f43312491a7a"
           },
           "content_preview": {
             "type": [
@@ -1294,14 +1294,14 @@
             "description": "Unique identifier for the lead list",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d3-72b1-b7f1-26b4666d60dc"
+            "example": "0197fe92-023f-7c07-a426-1fc3725ba848"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID that owns this lead list",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d3-72b1-b7f1-26b5933ac6ff"
+            "example": "0197fe92-023f-7c07-a426-1fc433c1664b"
           },
           "has_enrichment_task": {
             "type": [
@@ -1318,7 +1318,7 @@
             ],
             "description": "User ID of the owner of this lead list. Defaults to the user that created the list",
             "format": "uuid",
-            "example": "0197fb58-61d3-72b1-b7f1-26b63ed8810e"
+            "example": "0197fe92-023f-7c07-a426-1fc5ee288d67"
           },
           "name": {
             "type": "string",
@@ -1330,7 +1330,7 @@
             "description": "Timestamp when the lead list was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.899Z"
+            "example": "2025-07-12T12:17:51.167Z"
           }
         },
         "required": [
@@ -1355,14 +1355,14 @@
             "description": "Unique identifier for the inbox placement test",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d0-796e-84fe-5b2f99ff820b"
+            "example": "0197fe92-023c-72cc-93d5-6c72991371ec"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d0-796e-84fe-5b30631842c7"
+            "example": "0197fe92-023c-72cc-93d5-6c73a51ee951"
           },
           "name": {
             "type": "string",
@@ -1578,7 +1578,7 @@
             ],
             "description": "Campaign ID",
             "format": "uuid",
-            "example": "0197fb58-61d0-796e-84fe-5b3130ddd920"
+            "example": "0197fe92-023c-72cc-93d5-6c748ed4fb32"
           },
           "email_subject": {
             "type": "string",
@@ -1609,7 +1609,7 @@
               "string"
             ],
             "description": "Code for identifying the inbox placement tests in the email body from outside Instantly",
-            "example": "ptid_3xySw9fu4UC_phCvnUAtS"
+            "example": "ptid_AcsG1opLfl9x93YuWvFIR"
           },
           "tags": {
             "type": [
@@ -1621,7 +1621,7 @@
               "type": "string",
               "format": "uuid",
               "examples": [
-                "0197fb58-61d0-796e-84fe-5b32cdbc7172"
+                "0197fe92-023c-72cc-93d5-6c753536f4ad"
               ]
             }
           },
@@ -1680,7 +1680,7 @@
             "type": "string",
             "description": "Timestamp when the inbox placement test was created",
             "readOnly": true,
-            "example": "2025-07-11T21:16:02.896Z"
+            "example": "2025-07-12T12:17:51.164Z"
           },
           "timestamp_next_run": {
             "type": [
@@ -1688,7 +1688,7 @@
               "string"
             ],
             "description": "Timestamp when the inbox placement test will run next",
-            "example": "2025-07-11T21:16:02.896Z"
+            "example": "2025-07-12T12:17:51.164Z"
           },
           "automations": {
             "type": [
@@ -1773,7 +1773,7 @@
                       },
                       "examples": [
                         [
-                          "0197fb58-61d0-796e-84fe-5b33db6283c2"
+                          "0197fe92-023c-72cc-93d5-6c763ad8e51b"
                         ]
                       ]
                     },
@@ -1785,7 +1785,7 @@
                       },
                       "examples": [
                         [
-                          "0197fb58-61d0-796e-84fe-5b34f9431220"
+                          "0197fe92-023c-72cc-93d5-6c775912a15e"
                         ]
                       ]
                     }
@@ -1861,32 +1861,32 @@
             "description": "Unique identifier for the inbox placement analytics entry",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61ca-70d6-b5d3-b2e03dfde7c8"
+            "example": "0197fe92-0237-7a2d-b21f-fdae0e76705d"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the inbox placement analytics was created",
             "readOnly": true,
-            "example": "2025-07-11T21:16:02.890Z"
+            "example": "2025-07-12T12:17:51.159Z"
           },
           "timestamp_created_date": {
             "type": "string",
             "description": "Date when the inbox placement analytics was created",
             "readOnly": true,
-            "example": "2025-07-11"
+            "example": "2025-07-12"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61ca-70d6-b5d3-b2e1a826ac1e"
+            "example": "0197fe92-0237-7a2d-b21f-fdaf189e186e"
           },
           "test_id": {
             "type": "string",
             "description": "Inbox Placement Test ID",
             "format": "uuid",
-            "example": "0197fb58-61ca-70d6-b5d3-b2e23cb4e231"
+            "example": "0197fe92-0237-7a2d-b21f-fdb09b26e2dd"
           },
           "is_spam": {
             "type": [
@@ -2081,33 +2081,33 @@
             "description": "Unique identifier for the inbox placement report entry",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61cb-78df-96e7-af1c589765fd"
+            "example": "0197fe92-0238-7e87-ae4f-0c93e4036c10"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the inbox placement report was created",
             "readOnly": true,
-            "example": "2025-07-11T21:16:02.891Z"
+            "example": "2025-07-12T12:17:51.160Z"
           },
           "timestamp_created_date": {
             "type": "string",
             "description": "Date when the inbox placement report was created",
             "readOnly": true,
-            "example": "2025-07-11"
+            "example": "2025-07-12"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61cb-78df-96e7-af1d3fcf0aa9"
+            "example": "0197fe92-0238-7e87-ae4f-0c94d79dac67"
           },
           "test_id": {
             "type": "string",
             "description": "Inbox Placement Test ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61cb-78df-96e7-af1e8b72a531"
+            "example": "0197fe92-0238-7e87-ae4f-0c9582117a46"
           },
           "domain_blacklist_count": {
             "type": [
@@ -2273,7 +2273,7 @@
             "type": "string",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61c3-7e08-81c4-66786a7c2c1c"
+            "example": "0197fe92-022f-711f-a48c-33556b4db184"
           },
           "name": {
             "type": "string",
@@ -2420,19 +2420,19 @@
             "type": "string",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61c4-7dd8-9f84-6726edad8783"
+            "example": "0197fe92-0231-7d56-abe6-933ca564754e"
           },
           "timestamp_created": {
             "type": "string",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.884Z"
+            "example": "2025-07-12T12:17:51.153Z"
           },
           "timestamp_updated": {
             "type": "string",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.884Z"
+            "example": "2025-07-12T12:17:51.153Z"
           }
         },
         "required": [
@@ -2458,7 +2458,7 @@
           "campaign_id": {
             "type": "string",
             "format": "uuid",
-            "example": "0197fb58-61c1-7c28-9c42-785be5bab0c1"
+            "example": "0197fe92-022e-7a73-9ad0-c9b1ea42e469"
           },
           "campaign_name": {
             "type": "string",
@@ -2468,7 +2468,7 @@
             "type": "string",
             "description": "Timestamp when the campaign was created",
             "readOnly": true,
-            "example": "2025-07-11T21:16:02.881Z"
+            "example": "2025-07-12T12:17:51.150Z"
           },
           "status": {
             "type": "number",
@@ -2517,28 +2517,28 @@
             "description": "Unique identifier for the lead",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-5fd6-7395-a9cf-e372f5603391"
+            "example": "0197fe92-0093-7f87-bf8c-d2a34efb7e13"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the lead was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.740Z"
           },
           "timestamp_updated": {
             "type": "string",
             "description": "Timestamp when the lead was last updated",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "organization": {
             "type": "string",
             "description": "Organization ID associated with the lead",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-5fd7-7425-9289-6bcc0c23260d"
+            "example": "0197fe92-0095-7385-bac6-03e92d3005e6"
           },
           "campaign": {
             "type": [
@@ -2547,7 +2547,7 @@
             ],
             "description": "Campaign ID associated with the lead",
             "format": "uuid",
-            "example": "0197fb58-5fd7-7425-9289-6bcdafd84938"
+            "example": "0197fe92-0095-7385-bac6-03ea0cdc5bd6"
           },
           "status": {
             "type": "number",
@@ -2662,12 +2662,12 @@
               },
               "stepID": {
                 "type": "string",
-                "example": "0197fb58-5fd7-7425-9289-6bce641e6541"
+                "example": "0197fe92-0095-7385-bac6-03eb499dd54d"
               },
               "timestamp_executed": {
                 "type": "string",
                 "format": "date-time",
-                "example": "2025-07-11T21:16:02.391Z"
+                "example": "2025-07-12T12:17:50.741Z"
               }
             }
           },
@@ -2737,12 +2737,12 @@
               },
               "stepID": {
                 "type": "string",
-                "example": "0197fb58-5fd7-7425-9289-6bcf923c696f"
+                "example": "0197fe92-0095-7385-bac6-03ecf16c2b05"
               },
               "timestampExecuted": {
                 "type": "string",
                 "format": "date-time",
-                "example": "2025-07-11T21:16:02.391Z"
+                "example": "2025-07-12T12:17:50.741Z"
               }
             }
           },
@@ -2763,7 +2763,7 @@
             "description": "ID of the last step",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-5fd7-7425-9289-6bd0375eafc9"
+            "example": "0197fe92-0095-7385-bac6-03edfa4d2140"
           },
           "last_step_timestamp_executed": {
             "type": [
@@ -2773,7 +2773,7 @@
             "description": "Timestamp when the last step was executed",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "email_opened_step": {
             "type": [
@@ -2861,7 +2861,7 @@
             ],
             "description": "ID of the subsequence",
             "readOnly": true,
-            "example": "0197fb58-5fd7-7425-9289-6bd138a9d617"
+            "example": "0197fe92-0095-7385-bac6-03eec2228936"
           },
           "verification_status": {
             "type": "number",
@@ -2903,7 +2903,7 @@
             "description": "Timestamp when the lead was added to the subsequence",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "timestamp_last_contact": {
             "type": [
@@ -2913,7 +2913,7 @@
             "description": "Timestamp of the last contact with the lead",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "timestamp_last_open": {
             "type": [
@@ -2923,7 +2923,7 @@
             "description": "Timestamp of the last email open",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "timestamp_last_reply": {
             "type": [
@@ -2933,7 +2933,7 @@
             "description": "Timestamp of the last email reply",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "timestamp_last_interest_change": {
             "type": [
@@ -2943,7 +2943,7 @@
             "description": "Timestamp of the last interest status change",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "timestamp_last_click": {
             "type": [
@@ -2953,7 +2953,7 @@
             "description": "Timestamp of the last email click",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.391Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "enrichment_status": {
             "type": "number",
@@ -2980,7 +2980,7 @@
             ],
             "description": "List ID associated with the lead",
             "format": "uuid",
-            "example": "0197fb58-5fd7-7425-9289-6bd234669f46"
+            "example": "0197fe92-0095-7385-bac6-03ef979d0231"
           },
           "last_contacted_from": {
             "type": [
@@ -2999,7 +2999,7 @@
             "description": "ID of the user who uploaded the lead",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-5fd7-7425-9289-6bd3d2f90114"
+            "example": "0197fe92-0095-7385-bac6-03f0db5fc975"
           },
           "upload_method": {
             "type": "string",
@@ -3024,7 +3024,7 @@
             ],
             "description": "ID of the user assigned to the lead",
             "format": "uuid",
-            "example": "0197fb58-5fd8-7573-a1fa-09c4190f1ed8"
+            "example": "0197fe92-0095-7385-bac6-03f11daebea6"
           },
           "is_website_visitor": {
             "type": [
@@ -3043,7 +3043,7 @@
             "description": "Timestamp of the last touch with the lead",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.392Z"
+            "example": "2025-07-12T12:17:50.741Z"
           },
           "esp_code": {
             "type": "number",
@@ -3110,7 +3110,7 @@
             "description": "Workspace ID",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d5-7197-945d-3e32c52d3346"
+            "example": "0197fe92-0241-7c5b-80ba-b40180d63af9"
           },
           "user_id": {
             "type": [
@@ -3120,7 +3120,7 @@
             "description": "The id of the user that triggered the action that created the job",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d5-7197-945d-3e33e5f28a77"
+            "example": "0197fe92-0241-7c5b-80ba-b40220ad7775"
           },
           "type": {
             "type": "string",
@@ -3144,7 +3144,7 @@
             ],
             "description": "The id of the entity that the job is related to",
             "format": "uuid",
-            "example": "0197fb58-61d5-7197-945d-3e344ca95cea"
+            "example": "0197fe92-0241-7c5b-80ba-b4035acf6633"
           },
           "entity_type": {
             "type": "string",
@@ -3191,12 +3191,12 @@
           "created_at": {
             "type": "string",
             "description": "Timestamp when the job was created",
-            "example": "2025-07-11T21:16:02.901Z"
+            "example": "2025-07-12T12:17:51.169Z"
           },
           "updated_at": {
             "type": "string",
             "description": "Timestamp when the job was last updated",
-            "example": "2025-07-11T21:16:02.901Z"
+            "example": "2025-07-12T12:17:51.169Z"
           }
         },
         "required": [
@@ -3224,28 +3224,28 @@
             "description": "Unique identifier for the custom tag",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d7-7189-81b4-beabf58ce532"
+            "example": "0197fe92-0242-78fe-8d26-6a934ada53a3"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the custom tag was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.903Z"
+            "example": "2025-07-12T12:17:51.170Z"
           },
           "timestamp_updated": {
             "type": "string",
             "description": "Timestamp when the custom tag was last updated",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.903Z"
+            "example": "2025-07-12T12:17:51.170Z"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID that owns this custom tag",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61d7-7189-81b4-beacf4391646"
+            "example": "0197fe92-0242-78fe-8d26-6a94e1c4a8fe"
           },
           "label": {
             "type": "string",
@@ -3284,21 +3284,21 @@
             "description": "Unique identifier for the block list entry",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61dc-7d53-95b6-d19ce59a09a0"
+            "example": "0197fe92-0248-77c7-b0b6-0ec0e2aa06f6"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the block list entry was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.908Z"
+            "example": "2025-07-12T12:17:51.176Z"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID that owns this block list entry",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61dc-7d53-95b6-d19dc2ff0e0b"
+            "example": "0197fe92-0248-77c7-b0b6-0ec1c9864213"
           },
           "bl_value": {
             "type": "string",
@@ -3335,28 +3335,28 @@
             "description": "Unique identifier for the custom lead label",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e0-7bac-aa14-24f441943d22"
+            "example": "0197fe92-024c-76c4-a704-fccdb0641e1c"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the custom lead label was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.912Z"
+            "example": "2025-07-12T12:17:51.180Z"
           },
           "created_by": {
             "type": "string",
             "description": "User ID of the creator of this label",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e0-7bac-aa14-24f5d62ab28d"
+            "example": "0197fe92-024c-76c4-a704-fcce4faf5554"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID that owns this custom lead label",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e0-7bac-aa14-24f646d0b8d0"
+            "example": "0197fe92-024c-76c4-a704-fccf5845bf3f"
           },
           "label": {
             "type": "string",
@@ -3426,27 +3426,27 @@
             "description": "Unique identifier for the workspace",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e3-798d-b524-970bbfd21a36"
+            "example": "0197fe92-024e-72ea-bd61-7962a51a831d"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the workspace was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.915Z"
+            "example": "2025-07-12T12:17:51.182Z"
           },
           "timestamp_updated": {
             "type": "string",
             "description": "Timestamp when the workspace was last updated",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.915Z"
+            "example": "2025-07-12T12:17:51.182Z"
           },
           "owner": {
             "type": "string",
             "description": "User ID of the workspace owner",
             "format": "uuid",
-            "example": "0197fb58-61e3-798d-b524-970c04f6995d"
+            "example": "0197fe92-024e-72ea-bd61-7963e49aa3ca"
           },
           "name": {
             "type": "string",
@@ -3576,20 +3576,20 @@
             "description": "The unique identifier of the workspace group member",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e7-7b42-975c-0f0f58828885"
+            "example": "0197fe92-0253-740a-9cc6-56562e6925d6"
           },
           "admin_workspace_id": {
             "type": "string",
             "description": "The id of the admin workspace",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e7-7b42-975c-0f10ce7973f4"
+            "example": "0197fe92-0253-740a-9cc6-56578c287168"
           },
           "sub_workspace_id": {
             "type": "string",
             "description": "The id of the sub workspace",
             "format": "uuid",
-            "example": "0197fb58-61e7-7b42-975c-0f118f69517b"
+            "example": "0197fe92-0253-740a-9cc6-5658869d13fc"
           },
           "status": {
             "type": "string",
@@ -3609,13 +3609,13 @@
             "type": "string",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.919Z"
+            "example": "2025-07-12T12:17:51.187Z"
           },
           "timestamp_updated": {
             "type": "string",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.919Z"
+            "example": "2025-07-12T12:17:51.187Z"
           },
           "sub_workspace_name": {
             "type": [
@@ -3660,7 +3660,7 @@
             "description": "Unique identifier for the workspace member",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e9-7656-9ef0-ce71d08aa37c"
+            "example": "0197fe92-0254-785b-83fc-5ee383e8240c"
           },
           "email": {
             "type": "string",
@@ -3673,7 +3673,7 @@
             "description": "User ID of the workspace member",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e9-7656-9ef0-ce72bf86f9a1"
+            "example": "0197fe92-0254-785b-83fc-5ee4159492d0"
           },
           "role": {
             "type": "string",
@@ -3699,14 +3699,14 @@
             "description": "Timestamp when the workspace member was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.921Z"
+            "example": "2025-07-12T12:17:51.188Z"
           },
           "workspace_id": {
             "type": "string",
             "description": "ID of the workspace this member belongs to",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e9-7656-9ef0-ce7383558a30"
+            "example": "0197fe92-0254-785b-83fc-5ee5a941104c"
           },
           "accepted": {
             "type": "boolean",
@@ -3722,7 +3722,7 @@
             "description": "ID of the user who added this member to the workspace",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61e9-7656-9ef0-ce74dbc0f031"
+            "example": "0197fe92-0254-785b-83fc-5ee6c5b70e4b"
           }
         },
         "required": [
@@ -3750,27 +3750,27 @@
             "description": "Unique identifier for the subsequence",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61ea-7842-88e9-ef398689a3fb"
+            "example": "0197fe92-0256-7f7e-a9c8-abd4baa961a9"
           },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the subsequence was created",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.922Z"
+            "example": "2025-07-12T12:17:51.190Z"
           },
           "parent_campaign": {
             "type": "string",
             "description": "ID of the parent campaign",
             "format": "uuid",
-            "example": "0197fb58-61ea-7842-88e9-ef3ae6193984"
+            "example": "0197fe92-0256-7f7e-a9c8-abd58b6ad54d"
           },
           "workspace": {
             "type": "string",
             "description": "ID of the workspace this subsequence belongs to",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61ea-7842-88e9-ef3b574983a8"
+            "example": "0197fe92-0256-7f7e-a9c8-abd61cf831ff"
           },
           "status": {
             "type": "number",
@@ -3803,7 +3803,7 @@
             "description": "Timestamp when the leads were last updated",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.922Z"
+            "example": "2025-07-12T12:17:51.190Z"
           },
           "name": {
             "type": "string",
@@ -3838,12 +3838,12 @@
               "start_date": {
                 "type": "string",
                 "format": "date-time",
-                "example": "2025-07-11T21:16:02.888Z"
+                "example": "2025-07-12T12:17:51.156Z"
               },
               "end_date": {
                 "type": "string",
                 "format": "date-time",
-                "example": "2025-07-11T21:16:02.888Z"
+                "example": "2025-07-12T12:17:51.156Z"
               },
               "schedules": {
                 "type": "array",
@@ -4124,21 +4124,21 @@
             "type": "string",
             "readOnly": true,
             "format": "uuid",
-            "example": "68717f12faf38f498d33ac29"
+            "example": "6872526f98aca2f8b8103805"
           },
           "timestamp": {
             "type": "string",
             "description": "When the activity occurred",
             "readOnly": true,
             "format": "date-time",
-            "example": "2025-07-11T21:16:02.933Z"
+            "example": "2025-07-12T12:17:51.201Z"
           },
           "organization_id": {
             "type": "string",
             "description": "Organization ID associated with the activity",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61f5-768f-87a1-ab62f526ab28"
+            "example": "0197fe92-0261-7ec7-a85f-638d26e1240a"
           },
           "activity_type": {
             "type": "number",
@@ -4191,7 +4191,7 @@
             "description": "ID of the user who performed the activity",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61f5-768f-87a1-ab6341755409"
+            "example": "0197fe92-0261-7ec7-a85f-638ef981d9b7"
           },
           "ip_address": {
             "type": "string",
@@ -4222,7 +4222,7 @@
             "description": "Associated campaign ID if applicable",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61f5-768f-87a1-ab645893c0cd"
+            "example": "0197fe92-0261-7ec7-a85f-638fe2e9d982"
           },
           "subsequence_id": {
             "type": [
@@ -4232,7 +4232,7 @@
             "description": "Associated subsequence ID if applicable",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61f5-768f-87a1-ab650d3e083d"
+            "example": "0197fe92-0261-7ec7-a85f-6390a2fbc2a7"
           },
           "list_id": {
             "type": [
@@ -4242,7 +4242,7 @@
             "description": "Associated list ID if applicable",
             "readOnly": true,
             "format": "uuid",
-            "example": "0197fb58-61f5-768f-87a1-ab66be9982be"
+            "example": "0197fe92-0261-7ec7-a85f-6391e10355ed"
           },
           "audit_metadata": {
             "type": "object",
@@ -4328,7 +4328,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-7234-7429-a094-e555f8c82fbf"
+                      "example": "0197fe92-1117-76bc-a4c5-0cbf6a927dab"
                     }
                   },
                   "additionalProperties": false,
@@ -4855,7 +4855,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0197fb58-7239-7dca-82e2-be3e64ed464c, 0197fb58-7239-7dca-82e2-be3ff39f5f9b"
+              "example": "0197fe92-111c-74bc-be90-9287cffd6038, 0197fe92-111c-74bc-be90-9288831cb458"
             },
             "in": "query",
             "name": "tag_ids",
@@ -4880,7 +4880,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-7239-7dca-82e2-be408f459119"
+                      "example": "0197fe92-111c-74bc-be90-9289ebc8d599"
                     }
                   },
                   "additionalProperties": false,
@@ -6748,7 +6748,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-7265-74f6-8270-6195e90cf19e"
+                      "example": "0197fe92-113c-75f0-820d-309d6a452239"
                     }
                   },
                   "additionalProperties": false,
@@ -6854,7 +6854,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7266-741d-ab2b-98e2551e71c7"
+              "example": "0197fe92-113c-75f0-820d-309e582891dc"
             },
             "in": "path",
             "name": "id",
@@ -7050,7 +7050,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-726a-799d-9f40-9d0ff2c5189f"
+                      "example": "0197fe92-113f-7ca5-b109-688c4c724282"
                     }
                   },
                   "additionalProperties": false,
@@ -7297,7 +7297,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-726e-72a9-98e6-2c3288aad46e"
+                      "example": "0197fe92-1142-7534-874e-926417df6a25"
                     }
                   },
                   "additionalProperties": false,
@@ -7393,7 +7393,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "68717f17faf38f498d33ac2a"
+              "example": "6872527398aca2f8b8103806"
             },
             "in": "path",
             "name": "id",
@@ -7738,7 +7738,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-7275-746a-b2cd-8d68d2052712"
+                      "example": "0197fe92-1146-7b98-b15e-eba0c964af33"
                     }
                   },
                   "additionalProperties": false,
@@ -7835,7 +7835,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7274-7c0b-bc6f-9606193e24c9"
+              "example": "0197fe92-1146-7b98-b15e-eb9f00688794"
             },
             "in": "path",
             "name": "id",
@@ -7992,7 +7992,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7276-707b-a5c7-b6a60219494e"
+              "example": "0197fe92-1147-799b-8049-52a2865157dc"
             },
             "in": "path",
             "name": "id",
@@ -8139,7 +8139,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7277-7ad7-a87f-a979ffe660df"
+              "example": "0197fe92-1147-799b-8049-52a375bf40df"
             },
             "in": "path",
             "name": "id",
@@ -8310,12 +8310,12 @@
                       "start_date": {
                         "type": "string",
                         "format": "date-time",
-                        "example": "2025-07-11T21:16:02.888Z"
+                        "example": "2025-07-12T12:17:51.156Z"
                       },
                       "end_date": {
                         "type": "string",
                         "format": "date-time",
-                        "example": "2025-07-11T21:16:02.888Z"
+                        "example": "2025-07-12T12:17:51.156Z"
                       },
                       "schedules": {
                         "type": "array",
@@ -8622,7 +8622,7 @@
                     "items": {
                       "type": "string",
                       "format": "uuid",
-                      "example": "0197fb58-61c8-7fbf-9f43-f7b403db2bb9"
+                      "example": "0197fe92-0234-765b-853a-ea80778bb901"
                     }
                   },
                   "link_tracking": {
@@ -8914,7 +8914,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0197fb58-727f-71a7-b389-d20f1ec603d7,0197fb58-727f-71a7-b389-d21040a281de"
+              "example": "0197fe92-114d-7f74-9d39-31eb4cde6bbe,0197fe92-114d-7f74-9d39-31ec8d42812a"
             },
             "in": "query",
             "name": "tag_ids",
@@ -8939,7 +8939,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-727f-71a7-b389-d2119959a2e1"
+                      "example": "0197fe92-114d-7f74-9d39-31ed3269ddd5"
                     }
                   },
                   "additionalProperties": false,
@@ -9036,7 +9036,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-727d-76fe-bbe7-c6f0fefcc58a"
+              "example": "0197fe92-114c-7536-8633-2b588450b7ab"
             },
             "in": "path",
             "name": "id",
@@ -9176,7 +9176,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-727e-76ea-8683-dd093304633a"
+              "example": "0197fe92-114c-7536-8633-2b59c5a2fcc5"
             },
             "in": "path",
             "name": "id",
@@ -9316,7 +9316,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-727e-76ea-8683-dd0a4ca9d7e9"
+              "example": "0197fe92-114d-7f74-9d39-31ea397277e4"
             },
             "in": "path",
             "name": "id",
@@ -9483,12 +9483,12 @@
                       "start_date": {
                         "type": "string",
                         "format": "date-time",
-                        "example": "2025-07-11T21:16:02.888Z"
+                        "example": "2025-07-12T12:17:51.156Z"
                       },
                       "end_date": {
                         "type": "string",
                         "format": "date-time",
-                        "example": "2025-07-11T21:16:02.888Z"
+                        "example": "2025-07-12T12:17:51.156Z"
                       },
                       "schedules": {
                         "type": "array",
@@ -9795,7 +9795,7 @@
                     "items": {
                       "type": "string",
                       "format": "uuid",
-                      "example": "0197fb58-61c8-7fbf-9f43-f7b403db2bb9"
+                      "example": "0197fe92-0234-765b-853a-ea80778bb901"
                     }
                   },
                   "link_tracking": {
@@ -9927,7 +9927,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7283-746a-a053-41526f1eafab"
+              "example": "0197fe92-1150-7928-ba79-099f72c90aca"
             },
             "in": "path",
             "name": "id",
@@ -10074,7 +10074,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7284-7815-b624-c59e9294e0f6"
+              "example": "0197fe92-1151-7bb0-b358-4086abd2e69e"
             },
             "in": "path",
             "name": "id",
@@ -10215,7 +10215,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7280-7a4c-9440-0d9e3601fd36"
+              "example": "0197fe92-114e-7a36-9ce3-d5da0ce494aa"
             },
             "in": "query",
             "name": "id",
@@ -10229,7 +10229,7 @@
                 "type": "string",
                 "description": "A list of campaign IDs to get the analytics for. Leave this field empty to get the analytics for all campaigns. You can specify multiple IDs by adding the same parameter multiple times, for instance: \u0060/campaigns/analytics?ids=123\u0026ids=456\u0060",
                 "format": "uuid",
-                "example": "0197fb58-7280-7a4c-9440-0d9fa6f56cc1"
+                "example": "0197fe92-114e-7a36-9ce3-d5dbf9b5a341"
               }
             },
             "in": "query",
@@ -10287,7 +10287,7 @@
                         "type": "string",
                         "description": "The ID of the campaign",
                         "format": "uuid",
-                        "example": "0197fb58-7280-7a4c-9440-0da032e39b86"
+                        "example": "0197fe92-114e-7a36-9ce3-d5dc4f34ed3f"
                       },
                       "campaign_status": {
                         "type": "number",
@@ -10532,7 +10532,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7280-7a4c-9440-0da1e1bfea10"
+              "example": "0197fe92-114e-7a36-9ce3-d5ddf045e19e"
             },
             "in": "query",
             "name": "id",
@@ -10546,7 +10546,7 @@
                 "type": "string",
                 "description": "A list of campaign IDs to get the analytics overview for. Leave this field empty to get the analytics overview for all campaigns. You can specify multiple IDs by adding the same parameter multiple times, for instance: \u0060/campaigns/analytics/overview?ids=123\u0026ids=456\u0060",
                 "format": "uuid",
-                "example": "0197fb58-7280-7a4c-9440-0da22a3f945c"
+                "example": "0197fe92-114e-7a36-9ce3-d5de33a803f7"
               }
             },
             "in": "query",
@@ -10856,7 +10856,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7281-7a26-9b54-219008876a98"
+              "example": "0197fe92-114f-72f8-ac17-2ad13150efca"
             },
             "in": "query",
             "name": "campaign_id",
@@ -11109,7 +11109,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7282-7d3a-829c-e0618ec134c8"
+              "example": "0197fe92-1150-7928-ba79-099e968f0ceb"
             },
             "in": "query",
             "name": "campaign_id",
@@ -11336,7 +11336,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-7284-7815-b624-c59f212171f3"
+              "example": "0197fe92-1151-7bb0-b358-4087ae99f656"
             },
             "in": "path",
             "name": "id",
@@ -11659,7 +11659,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72a4-7d8c-b1e2-16f759de441f"
+                      "example": "0197fe92-1163-7509-8dab-c8dd56aeafd6"
                     }
                   },
                   "additionalProperties": false,
@@ -11756,7 +11756,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72a4-7d8c-b1e2-16f8d6f9e2cc"
+              "example": "0197fe92-1163-7509-8dab-c8de41124184"
             },
             "in": "path",
             "name": "id",
@@ -11921,7 +11921,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72a5-7ef8-9473-2600f39872a2"
+              "example": "0197fe92-1164-7f7d-8d17-027c12be451c"
             },
             "in": "path",
             "name": "id",
@@ -12068,7 +12068,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72a6-7a1c-9b1c-6264e2d9f1da"
+              "example": "0197fe92-1165-7272-aa83-88efa5d8bd18"
             },
             "in": "path",
             "name": "id",
@@ -12216,7 +12216,7 @@
                       "format": "uuid"
                     },
                     "example": [
-                      "0197fb58-72a5-7ef8-9473-2601c299d29b"
+                      "0197fe92-1164-7f7d-8d17-027d92dea835"
                     ]
                   },
                   "resource_type": {
@@ -12272,7 +12272,7 @@
                           "tag_id": {
                             "type": "string",
                             "format": "uuid",
-                            "example": "0197fb58-72a5-7ef8-9473-2602e4b5f187"
+                            "example": "0197fe92-1164-7f7d-8d17-027ebdbf1871"
                           },
                           "search": {
                             "type": "string",
@@ -12442,13 +12442,13 @@
                   "reminder_ts": {
                     "type": "string",
                     "description": "Timestamp for the reminder. If this field is included, then this email will be added to the database, but will be sent at the specified timestamp",
-                    "example": "2025-07-11T21:16:07.209Z"
+                    "example": "2025-07-12T12:17:55.048Z"
                   },
                   "assigned_to": {
                     "type": "string",
                     "format": "uuid",
                     "description": "The user id assigned to the lead",
-                    "example": "0197fb58-72a9-706f-b44a-6d7d408590c7"
+                    "example": "0197fe92-1168-7a64-b4a7-969fb20f2661"
                   }
                 },
                 "required": [
@@ -12570,7 +12570,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0197fb58-72aa-7aa6-a7f1-3cda3d6fa889"
+              "example": "0197fe92-1168-7a64-b4a7-96a078606b42"
             },
             "in": "query",
             "name": "starting_after",
@@ -12746,7 +12746,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72aa-7aa6-a7f1-3cdbbd3faf74"
+                      "example": "0197fe92-1168-7a64-b4a7-96a1de3ff68a"
                     }
                   },
                   "additionalProperties": false,
@@ -12843,7 +12843,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72aa-7aa6-a7f1-3cdc7cfcaea6"
+              "example": "0197fe92-1168-7a64-b4a7-96a25b318852"
             },
             "in": "path",
             "name": "id",
@@ -12997,7 +12997,7 @@
                     ],
                     "description": "Timestamp for the reminder.",
                     "format": "date-time",
-                    "example": "2025-07-11T21:16:02.910Z"
+                    "example": "2025-07-12T12:17:51.178Z"
                   }
                 },
                 "required": [],
@@ -13012,7 +13012,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72aa-7aa6-a7f1-3cddc8e500be"
+              "example": "0197fe92-1169-78ac-9387-c93de67c3f28"
             },
             "in": "path",
             "name": "id",
@@ -13159,7 +13159,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72ab-7202-9b14-f80f55e70fdd"
+              "example": "0197fe92-116a-750c-bd3d-a203b7220a97"
             },
             "in": "path",
             "name": "id",
@@ -13528,7 +13528,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72af-7729-ad77-49caf21d67bf"
+              "example": "0197fe92-116e-7d3f-be28-1a7224b3a78b"
             },
             "in": "query",
             "name": "test_id",
@@ -13537,7 +13537,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "2025-07-11T21:16:07.215Z"
+              "example": "2025-07-12T12:17:55.054Z"
             },
             "in": "query",
             "name": "date_from",
@@ -13546,7 +13546,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "2025-07-11T21:16:07.215Z"
+              "example": "2025-07-12T12:17:55.054Z"
             },
             "in": "query",
             "name": "date_to",
@@ -13609,7 +13609,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72b0-79df-9d17-d1c225432181"
+                      "example": "0197fe92-116e-7d3f-be28-1a73101ead8c"
                     }
                   },
                   "additionalProperties": false,
@@ -13706,7 +13706,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72b0-79df-9d17-d1c398edaeb0"
+              "example": "0197fe92-116e-7d3f-be28-1a74189e568e"
             },
             "in": "path",
             "name": "id",
@@ -13856,11 +13856,11 @@
                   },
                   "date_from": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.216Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "date_to": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.216Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "recipient_geo": {
                     "type": "array",
@@ -13948,7 +13948,7 @@
                       "test_id": {
                         "type": "string",
                         "format": "uuid",
-                        "example": "0197fb58-72b0-79df-9d17-d1c4b7b45d0d"
+                        "example": "0197fe92-116f-7150-b23c-3acb6abbf22e"
                       },
                       "count": {
                         "type": "number",
@@ -14084,23 +14084,23 @@
                   "test_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72b1-7387-a7bc-bd2f60009fb1"
+                    "example": "0197fe92-116f-7150-b23c-3acc40663aa4"
                   },
                   "date_from": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.217Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "date_to": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.217Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "previous_date_from": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.217Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "previous_date_to": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.217Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "show_previous": {
                     "type": "boolean",
@@ -14188,7 +14188,7 @@
                       "test_id": {
                         "type": "string",
                         "format": "uuid",
-                        "example": "0197fb58-72b1-7387-a7bc-bd30186e4b7e"
+                        "example": "0197fe92-116f-7150-b23c-3acd745a995d"
                       },
                       "from": {
                         "type": [
@@ -14388,15 +14388,15 @@
                   "test_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72b1-7387-a7bc-bd31d58debca"
+                    "example": "0197fe92-116f-7150-b23c-3ace556e74f5"
                   },
                   "date_from": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.217Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "date_to": {
                     "type": "string",
-                    "example": "2025-07-11T21:16:07.217Z"
+                    "example": "2025-07-12T12:17:55.055Z"
                   },
                   "recipient_geo": {
                     "type": "array",
@@ -14483,7 +14483,7 @@
                     "properties": {
                       "timestamp_created_date": {
                         "type": "string",
-                        "example": "2025-07-11T21:16:07.217Z"
+                        "example": "2025-07-12T12:17:55.055Z"
                       },
                       "spam_count": {
                         "type": "number",
@@ -14626,7 +14626,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "2025-07-11T21:16:07.221Z"
+              "example": "2025-07-12T12:17:55.058Z"
             },
             "in": "query",
             "name": "date_from",
@@ -14635,7 +14635,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "2025-07-11T21:16:07.221Z"
+              "example": "2025-07-12T12:17:55.058Z"
             },
             "in": "query",
             "name": "date_to",
@@ -14679,7 +14679,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72b5-78e0-8c43-12b825ea6432"
+                      "example": "0197fe92-1172-7f53-b40f-20fc632cf2ce"
                     }
                   },
                   "additionalProperties": false,
@@ -14776,7 +14776,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72b5-78e0-8c43-12b9b39dd232"
+              "example": "0197fe92-1173-738c-a079-6e0ff7b106f4"
             },
             "in": "path",
             "name": "id",
@@ -15123,7 +15123,7 @@
                     ],
                     "description": "Campaign ID",
                     "format": "uuid",
-                    "example": "0197fb58-61d0-796e-84fe-5b3130ddd920"
+                    "example": "0197fe92-023c-72cc-93d5-6c748ed4fb32"
                   },
                   "email_subject": {
                     "type": "string",
@@ -15152,7 +15152,7 @@
                       "null"
                     ],
                     "description": "Code for identifying the inbox placement tests in the email body from outside Instantly",
-                    "example": "ptid_3xySw9fu4UC_phCvnUAtS"
+                    "example": "ptid_AcsG1opLfl9x93YuWvFIR"
                   },
                   "tags": {
                     "type": [
@@ -15163,7 +15163,7 @@
                     "items": {
                       "type": "string",
                       "format": "uuid",
-                      "example": "0197fb58-61d0-796e-84fe-5b32cdbc7172"
+                      "example": "0197fe92-023c-72cc-93d5-6c753536f4ad"
                     }
                   },
                   "text_only": {
@@ -15215,7 +15215,7 @@
                       "null"
                     ],
                     "description": "Timestamp when the inbox placement test will run next",
-                    "example": "2025-07-11T21:16:02.896Z"
+                    "example": "2025-07-12T12:17:51.164Z"
                   },
                   "automations": {
                     "type": [
@@ -15285,7 +15285,7 @@
                                 "format": "uuid"
                               },
                               "example": [
-                                "0197fb58-61d0-796e-84fe-5b33db6283c2"
+                                "0197fe92-023c-72cc-93d5-6c763ad8e51b"
                               ]
                             },
                             "remove_tags": {
@@ -15295,7 +15295,7 @@
                                 "format": "uuid"
                               },
                               "example": [
-                                "0197fb58-61d0-796e-84fe-5b34f9431220"
+                                "0197fe92-023c-72cc-93d5-6c775912a15e"
                               ]
                             }
                           },
@@ -15569,7 +15569,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72b9-73e2-a9c5-b4f54dfc6970"
+                      "example": "0197fe92-1178-7039-acd6-762b9b1ff6dd"
                     }
                   },
                   "additionalProperties": false,
@@ -15676,7 +15676,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72ba-7737-bcf1-26df8f06cf36"
+              "example": "0197fe92-1179-7ee2-9815-16083baa353e"
             },
             "in": "path",
             "name": "id",
@@ -15696,14 +15696,14 @@
                       "description": "Unique identifier for the inbox placement test",
                       "readOnly": true,
                       "format": "uuid",
-                      "example": "0197fb58-61d0-796e-84fe-5b2f99ff820b"
+                      "example": "0197fe92-023c-72cc-93d5-6c72991371ec"
                     },
                     "organization_id": {
                       "type": "string",
                       "description": "Organization ID",
                       "readOnly": true,
                       "format": "uuid",
-                      "example": "0197fb58-61d0-796e-84fe-5b30631842c7"
+                      "example": "0197fe92-023c-72cc-93d5-6c73a51ee951"
                     },
                     "name": {
                       "type": "string",
@@ -15909,7 +15909,7 @@
                       ],
                       "description": "Campaign ID",
                       "format": "uuid",
-                      "example": "0197fb58-61d0-796e-84fe-5b3130ddd920"
+                      "example": "0197fe92-023c-72cc-93d5-6c748ed4fb32"
                     },
                     "email_subject": {
                       "type": "string",
@@ -15938,7 +15938,7 @@
                         "string"
                       ],
                       "description": "Code for identifying the inbox placement tests in the email body from outside Instantly",
-                      "example": "ptid_3xySw9fu4UC_phCvnUAtS"
+                      "example": "ptid_AcsG1opLfl9x93YuWvFIR"
                     },
                     "tags": {
                       "type": [
@@ -15949,7 +15949,7 @@
                       "items": {
                         "type": "string",
                         "format": "uuid",
-                        "example": "0197fb58-61d0-796e-84fe-5b32cdbc7172"
+                        "example": "0197fe92-023c-72cc-93d5-6c753536f4ad"
                       }
                     },
                     "text_only": {
@@ -16007,7 +16007,7 @@
                       "type": "string",
                       "description": "Timestamp when the inbox placement test was created",
                       "readOnly": true,
-                      "example": "2025-07-11T21:16:02.896Z"
+                      "example": "2025-07-12T12:17:51.164Z"
                     },
                     "timestamp_next_run": {
                       "type": [
@@ -16015,7 +16015,7 @@
                         "string"
                       ],
                       "description": "Timestamp when the inbox placement test will run next",
-                      "example": "2025-07-11T21:16:02.896Z"
+                      "example": "2025-07-12T12:17:51.164Z"
                     },
                     "automations": {
                       "type": [
@@ -16085,7 +16085,7 @@
                                   "format": "uuid"
                                 },
                                 "example": [
-                                  "0197fb58-61d0-796e-84fe-5b33db6283c2"
+                                  "0197fe92-023c-72cc-93d5-6c763ad8e51b"
                                 ]
                               },
                               "remove_tags": {
@@ -16095,7 +16095,7 @@
                                   "format": "uuid"
                                 },
                                 "example": [
-                                  "0197fb58-61d0-796e-84fe-5b34f9431220"
+                                  "0197fe92-023c-72cc-93d5-6c775912a15e"
                                 ]
                               }
                             },
@@ -16330,7 +16330,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72bb-7800-9090-c941db466e23"
+              "example": "0197fe92-117a-78d2-8f88-81ed33e0e01e"
             },
             "in": "path",
             "name": "id",
@@ -16684,7 +16684,7 @@
                                 "format": "uuid"
                               },
                               "example": [
-                                "0197fb58-61d0-796e-84fe-5b33db6283c2"
+                                "0197fe92-023c-72cc-93d5-6c763ad8e51b"
                               ]
                             },
                             "remove_tags": {
@@ -16694,7 +16694,7 @@
                                 "format": "uuid"
                               },
                               "example": [
-                                "0197fb58-61d0-796e-84fe-5b34f9431220"
+                                "0197fe92-023c-72cc-93d5-6c775912a15e"
                               ]
                             }
                           },
@@ -16739,7 +16739,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72bb-7800-9090-c942bb7990ff"
+              "example": "0197fe92-117a-78d2-8f88-81eeda3d9498"
             },
             "in": "path",
             "name": "id",
@@ -17237,7 +17237,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72bf-7228-a9c5-45261e539639"
+                      "example": "0197fe92-117d-7b48-8fb0-ec2d04f4b3ee"
                     }
                   },
                   "additionalProperties": false,
@@ -17334,7 +17334,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72bf-7228-a9c5-452787f405bb"
+              "example": "0197fe92-117d-7b48-8fb0-ec2ec029de93"
             },
             "in": "path",
             "name": "id",
@@ -17522,7 +17522,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72bf-7228-a9c5-452871598443"
+              "example": "0197fe92-117e-7fde-9449-6a3f06210d56"
             },
             "in": "path",
             "name": "id",
@@ -17674,7 +17674,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72c0-7aa8-af10-98aef7ca6067"
+              "example": "0197fe92-117e-7fde-9449-6a408491bf0f"
             },
             "in": "path",
             "name": "id",
@@ -17832,7 +17832,7 @@
                     ],
                     "description": "User ID of the owner of this lead list. Defaults to the user that created the list",
                     "format": "uuid",
-                    "example": "0197fb58-61d3-72b1-b7f1-26b63ed8810e"
+                    "example": "0197fe92-023f-7c07-a426-1fc5ee288d67"
                   },
                   "name": {
                     "type": "string",
@@ -18034,7 +18034,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72c3-7b71-a327-bb37c9a1ed06"
+                      "example": "0197fe92-1181-7ed2-bb4d-61bff83348a6"
                     }
                   },
                   "additionalProperties": false,
@@ -18131,7 +18131,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72c4-7722-b289-24ca2c1d1e4b"
+              "example": "0197fe92-1181-7ed2-bb4d-61c0cdded8c6"
             },
             "in": "path",
             "name": "id",
@@ -18285,7 +18285,7 @@
                     ],
                     "description": "User ID of the owner of this lead list. Defaults to the user that created the list",
                     "format": "uuid",
-                    "example": "0197fb58-61d3-72b1-b7f1-26b63ed8810e"
+                    "example": "0197fe92-023f-7c07-a426-1fc5ee288d67"
                   },
                   "name": {
                     "type": "string",
@@ -18305,7 +18305,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72c4-7722-b289-24cbabe146b5"
+              "example": "0197fe92-1182-72f1-bfc7-71e054275548"
             },
             "in": "path",
             "name": "id",
@@ -18452,7 +18452,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72c5-752d-8fe8-02b05c59c107"
+              "example": "0197fe92-1182-72f1-bfc7-71e1905d1764"
             },
             "in": "path",
             "name": "id",
@@ -18602,7 +18602,7 @@
                     ],
                     "description": "Campaign ID associated with the lead",
                     "format": "uuid",
-                    "example": "0197fb58-5fd7-7425-9289-6bcdafd84938"
+                    "example": "0197fe92-0095-7385-bac6-03ea0cdc5bd6"
                   },
                   "email": {
                     "type": [
@@ -18700,7 +18700,7 @@
                     ],
                     "description": "List ID associated with the lead",
                     "format": "uuid",
-                    "example": "0197fb58-5fd7-7425-9289-6bd234669f46"
+                    "example": "0197fe92-0095-7385-bac6-03ef979d0231"
                   },
                   "assigned_to": {
                     "type": [
@@ -18709,7 +18709,7 @@
                     ],
                     "description": "ID of the user assigned to the lead",
                     "format": "uuid",
-                    "example": "0197fb58-5fd8-7573-a1fa-09c4190f1ed8"
+                    "example": "0197fe92-0095-7385-bac6-03f11daebea6"
                   },
                   "skip_if_in_workspace": {
                     "type": "boolean",
@@ -18726,7 +18726,7 @@
                   "blocklist_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d1-70ea-b22b-3df2cc4eeb2d"
+                    "example": "0197fe92-1189-7252-a03c-d43dc53f8cd5"
                   },
                   "verify_leads_for_lead_finder": {
                     "type": "boolean",
@@ -18935,13 +18935,13 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "Campaign ID to filter leads",
-                    "example": "0197fb58-6f7d-7df0-b18f-908da5a1cf98"
+                    "example": "0197fe92-0ec0-727a-a8f3-b33f85de6caa"
                   },
                   "list_id": {
                     "type": "string",
                     "format": "uuid",
                     "description": "List ID to filter leads",
-                    "example": "0197fb58-6f7d-7df0-b18f-908e6d0a19a0"
+                    "example": "0197fe92-0ec0-727a-a8f3-b340a7ff2608"
                   },
                   "in_campaign": {
                     "type": "boolean",
@@ -19076,7 +19076,7 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "Smart view ID to filter leads",
-                    "example": "0197fb58-72d1-70ea-b22b-3df37408e4ed"
+                    "example": "0197fe92-1189-7252-a03c-d43eea45c6aa"
                   },
                   "is_website_visitor": {
                     "type": "boolean",
@@ -19127,7 +19127,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72d1-70ea-b22b-3df4637e4881"
+                      "example": "0197fe92-1189-7252-a03c-d43f29ec6fc5"
                     }
                   },
                   "additionalProperties": false,
@@ -19224,7 +19224,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72d2-7c42-8e1c-f58ab9a85a14"
+              "example": "0197fe92-118a-77b1-9ac6-238c8dc7abc0"
             },
             "in": "path",
             "name": "id",
@@ -19451,7 +19451,7 @@
                     ],
                     "description": "ID of the user assigned to the lead",
                     "format": "uuid",
-                    "example": "0197fb58-5fd8-7573-a1fa-09c4190f1ed8"
+                    "example": "0197fe92-0095-7385-bac6-03f11daebea6"
                   },
                   "custom_variables": {
                     "type": "object",
@@ -19482,7 +19482,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72d3-77bb-b914-04a339bd4cf0"
+              "example": "0197fe92-118b-7ca4-bf66-9b8500c577c2"
             },
             "in": "path",
             "name": "id",
@@ -19629,7 +19629,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72d4-752a-9c95-b9ede4d141ee"
+              "example": "0197fe92-118c-7800-aa67-14cec26d6c3c"
             },
             "in": "path",
             "name": "id",
@@ -19773,12 +19773,12 @@
                   "lead_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d2-7c42-8e1c-f58b0c0d001a"
+                    "example": "0197fe92-118a-77b1-9ac6-238d052b9e5e"
                   },
                   "destination_lead_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d2-7c42-8e1c-f58cea592f55"
+                    "example": "0197fe92-118a-77b1-9ac6-238e3c32d007"
                   }
                 },
                 "required": [
@@ -19902,7 +19902,7 @@
                   },
                   "campaign_id": {
                     "type": "string",
-                    "example": "0197fb58-72d3-77bb-b914-04a10fe5f56d"
+                    "example": "0197fe92-118a-77b1-9ac6-238f570a1640"
                   },
                   "ai_interest_value": {
                     "type": "number",
@@ -19914,7 +19914,7 @@
                   },
                   "list_id": {
                     "type": "string",
-                    "example": "0197fb58-72d3-77bb-b914-04a2a4adde02"
+                    "example": "0197fe92-118a-77b1-9ac6-2390445410b0"
                   }
                 },
                 "required": [
@@ -20049,7 +20049,7 @@
                   "id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d3-77bb-b914-04a40e9759ce"
+                    "example": "0197fe92-118b-7ca4-bf66-9b86d64bc46b"
                   }
                 },
                 "required": [
@@ -20169,12 +20169,12 @@
                   "campaign": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d4-752a-9c95-b9e98650a6b8"
+                    "example": "0197fe92-118b-7ca4-bf66-9b8774b1a3b9"
                   },
                   "list_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d4-752a-9c95-b9ea98a889c2"
+                    "example": "0197fe92-118b-7ca4-bf66-9b882d61bf95"
                   },
                   "in_campaign": {
                     "type": "boolean",
@@ -20195,14 +20195,14 @@
                   "smart_view_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d4-752a-9c95-b9eb65270a2b"
+                    "example": "0197fe92-118b-7ca4-bf66-9b895e1f68cb"
                   },
                   "ids": {
                     "type": "array",
                     "items": {
                       "type": "string",
                       "format": "uuid",
-                      "example": "0197fb58-72d4-752a-9c95-b9ecce7509a3"
+                      "example": "0197fe92-118b-7ca4-bf66-9b8a91645054"
                     }
                   },
                   "limit": {
@@ -20470,13 +20470,13 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "Campaign ID to filter leads",
-                    "example": "0197fb58-6f7d-7df0-b18f-908da5a1cf98"
+                    "example": "0197fe92-0ec0-727a-a8f3-b33f85de6caa"
                   },
                   "list_id": {
                     "type": "string",
                     "format": "uuid",
                     "description": "List ID to filter leads",
-                    "example": "0197fb58-6f7d-7df0-b18f-908e6d0a19a0"
+                    "example": "0197fe92-0ec0-727a-a8f3-b340a7ff2608"
                   },
                   "in_campaign": {
                     "type": "boolean",
@@ -20590,12 +20590,12 @@
                   "to_campaign_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d4-752a-9c95-b9ee9b3f14ca"
+                    "example": "0197fe92-118c-7800-aa67-14cfa8e813a9"
                   },
                   "to_list_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d4-752a-9c95-b9ef70d6160c"
+                    "example": "0197fe92-118c-7800-aa67-14d0afd98bd8"
                   },
                   "check_duplicates_in_campaigns": {
                     "type": "boolean",
@@ -20612,7 +20612,7 @@
                   "assigned_to": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d4-752a-9c95-b9f019f5015c"
+                    "example": "0197fe92-118c-7800-aa67-14d17dbca1a7"
                   },
                   "esp_code": {
                     "type": "number",
@@ -20756,12 +20756,12 @@
                   "subsequence_id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d5-7e30-97c6-d3d85cf96397"
+                    "example": "0197fe92-118d-79a8-abbd-a3d1df46fb4e"
                   },
                   "id": {
                     "type": "string",
                     "format": "uuid",
-                    "example": "0197fb58-72d5-7e30-97c6-d3d9aa6ea3fb"
+                    "example": "0197fe92-118d-79a8-abbd-a3d2b51aed5e"
                   }
                 },
                 "required": [
@@ -20877,7 +20877,7 @@
                     "type": "string",
                     "description": "ID of the parent campaign",
                     "format": "uuid",
-                    "example": "0197fb58-61ea-7842-88e9-ef3ae6193984"
+                    "example": "0197fe92-0256-7f7e-a9c8-abd58b6ad54d"
                   },
                   "name": {
                     "type": "string",
@@ -20912,12 +20912,12 @@
                       "start_date": {
                         "type": "string",
                         "format": "date-time",
-                        "example": "2025-07-11T21:16:02.888Z"
+                        "example": "2025-07-12T12:17:51.156Z"
                       },
                       "end_date": {
                         "type": "string",
                         "format": "date-time",
-                        "example": "2025-07-11T21:16:02.888Z"
+                        "example": "2025-07-12T12:17:51.156Z"
                       },
                       "schedules": {
                         "type": "array",
@@ -21370,7 +21370,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72e1-7e9e-9b43-e434b5e980ab"
+                      "example": "0197fe92-1198-7733-9a12-3b2555f23f26"
                     }
                   },
                   "additionalProperties": false,
@@ -21805,7 +21805,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72e1-7e9e-9b43-e435401968e9"
+              "example": "0197fe92-1198-7733-9a12-3b26a8239341"
             },
             "in": "path",
             "name": "id",
@@ -21962,7 +21962,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72e2-7bc1-bb0f-e723bd83d341"
+              "example": "0197fe92-1198-7733-9a12-3b27474da26f"
             },
             "in": "path",
             "name": "id",
@@ -22109,7 +22109,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72e2-7bc1-bb0f-e724e21fcf2d"
+              "example": "0197fe92-1199-7feb-b675-a81331a305b1"
             },
             "in": "path",
             "name": "id",
@@ -22517,7 +22517,7 @@
                     "type": "string",
                     "description": "The id of the sub workspace",
                     "format": "uuid",
-                    "example": "0197fb58-61e7-7b42-975c-0f118f69517b"
+                    "example": "0197fe92-0253-740a-9cc6-5658869d13fc"
                   }
                 },
                 "required": [
@@ -22696,7 +22696,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72f8-75ca-9099-d96dd5fd1fbb"
+                      "example": "0197fe92-11ac-7d34-ab35-38f5364dba41"
                     }
                   },
                   "additionalProperties": false,
@@ -22793,7 +22793,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72f7-7d6e-ba0b-1779585aff37"
+              "example": "0197fe92-11ab-7970-9904-25d95dbdf802"
             },
             "in": "path",
             "name": "id",
@@ -22940,7 +22940,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72f9-73ac-9779-6dbc39dafffd"
+              "example": "0197fe92-11ae-70cf-bb3b-608013aa7ce4"
             },
             "in": "path",
             "name": "id",
@@ -23096,7 +23096,7 @@
                     "workspace_group_member_id": {
                       "description": "The id of the workspace group member. You can use it to leave the admin workspace by calling the DELETE /workspace-group-members/:id endpoint",
                       "type": "string",
-                      "example": "0197fb58-72f8-75ca-9099-d96edb5ea54f"
+                      "example": "0197fe92-11ad-776c-b313-bc32b39c1c28"
                     }
                   },
                   "required": [
@@ -23399,7 +23399,7 @@
                     "next_starting_after": {
                       "type": "string",
                       "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
-                      "example": "0197fb58-72fd-72d8-a72b-daaf17ea12ed"
+                      "example": "0197fe92-11b6-7d0a-a221-4772a5935675"
                     }
                   },
                   "additionalProperties": false,
@@ -23496,7 +23496,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72fe-716f-ade6-92c7b3f4cee7"
+              "example": "0197fe92-11b7-7779-b7ef-0dff8bf02b4c"
             },
             "in": "path",
             "name": "id",
@@ -23667,7 +23667,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72fe-716f-ade6-92c84c082a53"
+              "example": "0197fe92-11b7-7779-b7ef-0e001e2b6458"
             },
             "in": "path",
             "name": "id",
@@ -23814,7 +23814,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0197fb58-72ff-7be3-b5c3-82e21d36bbb8"
+              "example": "0197fe92-11b8-7411-ba6c-1ed58529ab8a"
             },
             "in": "path",
             "name": "id",
