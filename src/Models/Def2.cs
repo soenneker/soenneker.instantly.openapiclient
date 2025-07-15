@@ -13,6 +13,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def2 : IParsable
     {
+        /// <summary>ID of the AI agent that sent this email (if applicable)</summary>
+        public Guid? AiAgentId { get; set; }
         /// <summary>Indicates if AI assistance was used</summary>
         public double? AiAssisted { get; set; }
         /// <summary>AI interest value</summary>
@@ -185,6 +187,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_agent_id", n => { AiAgentId = n.GetGuidValue(); } },
                 { "ai_assisted", n => { AiAssisted = n.GetDoubleValue(); } },
                 { "ai_interest_value", n => { AiInterestValue = n.GetDoubleValue(); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
@@ -226,6 +229,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteGuidValue("ai_agent_id", AiAgentId);
             writer.WriteDoubleValue("ai_assisted", AiAssisted);
             writer.WriteDoubleValue("ai_interest_value", AiInterestValue);
             writer.WriteStringValue("bcc_address_email_list", BccAddressEmailList);
