@@ -4864,7 +4864,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0198339d-a4ee-7ab9-88b8-042d832d31d5, 0198339d-a4ef-7d93-8b9a-af474d5c9911"
+              "example": "01983320-dc9a-7fb4-935d-04b8a53125f5, 01983320-dc9a-7fb4-935d-04b94f07f964"
             },
             "in": "query",
             "name": "tag_ids",
@@ -8923,7 +8923,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0198339d-a54e-7f32-99d9-a80b4ff3c92d,0198339d-a54e-7f32-99d9-a80c3dd5270d"
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
             },
             "in": "query",
             "name": "tag_ids",
