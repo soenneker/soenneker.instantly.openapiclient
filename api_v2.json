@@ -1630,7 +1630,7 @@
               "type": "string",
               "format": "uuid",
               "examples": [
-                "0198331f-04e2-764f-a54a-fa17f287a520"
+                "f9cc070d-8dba-4341-b847-f083c358e460"
               ]
             }
           },
@@ -1782,7 +1782,7 @@
                       },
                       "examples": [
                         [
-                          "0198331f-04e2-764f-a54a-fa180ce1d298"
+                          "f9cc070d-8dba-4341-b847-f083c358e460"
                         ]
                       ]
                     },
@@ -1794,7 +1794,7 @@
                       },
                       "examples": [
                         [
-                          "0198331f-04e2-764f-a54a-fa1983d5876e"
+                          "f9cc070d-8dba-4341-b847-f083c358e460"
                         ]
                       ]
                     }
@@ -3112,7 +3112,7 @@
             "type": "string",
             "description": "Unique identifier for the background job",
             "readOnly": true,
-            "example": "675266e304a8e55b17f0228b"
+            "example": "000000000000000000000000"
           },
           "workspace_id": {
             "type": "string",
@@ -4133,7 +4133,7 @@
             "type": "string",
             "readOnly": true,
             "format": "uuid",
-            "example": "687fc6678b328dd6fe9f7e19"
+            "example": "000000000000000000000000"
           },
           "timestamp": {
             "type": "string",
@@ -4864,7 +4864,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0198331f-1b9a-7809-bef8-bd1ea72d28d7, 0198331f-1b9a-7809-bef8-bd1fc0bd6da4"
+              "example": "0198339d-a4ee-7ab9-88b8-042d832d31d5, 0198339d-a4ef-7d93-8b9a-af474d5c9911"
             },
             "in": "query",
             "name": "tag_ids",
@@ -7167,7 +7167,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "507f1f77bcf86cd799439011"
+              "example": "000000000000000000000000"
             },
             "in": "query",
             "name": "starting_after",
@@ -7176,7 +7176,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "676f3caadedbfe9abea3bab4"
+              "example": "000000000000000000000000"
             },
             "in": "query",
             "name": "ids",
@@ -7186,7 +7186,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "676f3caadedbfe9abea3bab4"
+              "example": "000000000000000000000000"
             },
             "in": "query",
             "name": "included_ids",
@@ -7196,7 +7196,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "676f3caadedbfe9abea3bab4"
+              "example": "000000000000000000000000"
             },
             "in": "query",
             "name": "excluded_ids",
@@ -7235,7 +7235,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "676f3caadedbfe9abea3bab4"
+              "example": "000000000000000000000000"
             },
             "in": "query",
             "name": "entity_id",
@@ -7402,7 +7402,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "687fc66d8b328dd6fe9f7e1a"
+              "example": "000000000000000000000000"
             },
             "in": "path",
             "name": "id",
@@ -8923,7 +8923,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0198331f-1bd3-744a-b2c0-d5d514f99248,0198331f-1bd3-744a-b2c0-d5d6cf2ec5f0"
+              "example": "0198339d-a54e-7f32-99d9-a80b4ff3c92d,0198339d-a54e-7f32-99d9-a80c3dd5270d"
             },
             "in": "query",
             "name": "tag_ids",
