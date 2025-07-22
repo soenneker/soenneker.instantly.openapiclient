@@ -1550,7 +1550,7 @@
                 "3": true
               },
               "timing": {
-                "from": "02:30"
+                "from": "1970-01-01T00:00:00.000Z"
               },
               "timezone": "America/Chihuahua"
             }
@@ -1630,7 +1630,7 @@
               "type": "string",
               "format": "uuid",
               "examples": [
-                "0198331f-aba5-764d-a0d0-a6a1abe0d698"
+                "0198331f-04e2-764f-a54a-fa17f287a520"
               ]
             }
           },
@@ -1782,7 +1782,7 @@
                       },
                       "examples": [
                         [
-                          "0198331f-aba6-7d14-bfff-e840151dfa49"
+                          "0198331f-04e2-764f-a54a-fa180ce1d298"
                         ]
                       ]
                     },
@@ -1794,7 +1794,7 @@
                       },
                       "examples": [
                         [
-                          "0198331f-aba6-7d14-bfff-e841b5cad279"
+                          "0198331f-04e2-764f-a54a-fa1983d5876e"
                         ]
                       ]
                     }
@@ -4133,7 +4133,7 @@
             "type": "string",
             "readOnly": true,
             "format": "uuid",
-            "example": "687fc692266d9c514ec53fc5"
+            "example": "687fc6678b328dd6fe9f7e19"
           },
           "timestamp": {
             "type": "string",
@@ -4864,7 +4864,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0198331f-daaf-7dab-a6b6-9fde98d8e348, 0198331f-daaf-7dab-a6b6-9fdff498a84d"
+              "example": "0198331f-1b9a-7809-bef8-bd1ea72d28d7, 0198331f-1b9a-7809-bef8-bd1fc0bd6da4"
             },
             "in": "query",
             "name": "tag_ids",
@@ -7402,7 +7402,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "687fc69e266d9c514ec53fc6"
+              "example": "687fc66d8b328dd6fe9f7e1a"
             },
             "in": "path",
             "name": "id",
@@ -8923,7 +8923,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "0198331f-daea-7b0d-8b37-550fcfa32d57,0198331f-daea-7b0d-8b37-55107c90f68c"
+              "example": "0198331f-1bd3-744a-b2c0-d5d514f99248,0198331f-1bd3-744a-b2c0-d5d6cf2ec5f0"
             },
             "in": "query",
             "name": "tag_ids",
