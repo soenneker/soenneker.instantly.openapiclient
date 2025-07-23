@@ -4864,7 +4864,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "01983837-f72c-76b6-be83-e8aecd3ee4ab, 01983837-f72c-76b6-be83-e8afef4642e4"
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
             },
             "in": "query",
             "name": "tag_ids",
