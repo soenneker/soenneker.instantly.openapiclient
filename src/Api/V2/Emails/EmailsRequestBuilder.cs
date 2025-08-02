@@ -181,7 +181,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("company_domain")]
             public string CompanyDomain { get; set; }
 #endif
-            /// <summary>The email account that was used to send this email</summary>
+            /// <summary>The email account that was used to send this email. You can filter by multiple email accounts by providing a comma-separated list of email addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("eaccount")]

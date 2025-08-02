@@ -12622,7 +12622,7 @@
             "in": "query",
             "name": "eaccount",
             "required": false,
-            "description": "The email account that was used to send this email"
+            "description": "The email account that was used to send this email. You can filter by multiple email accounts by providing a comma-separated list of email addresses."
           },
           {
             "schema": {
