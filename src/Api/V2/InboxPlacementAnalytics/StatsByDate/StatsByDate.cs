@@ -18,6 +18,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
         public double? CategoryCount { get; set; }
         /// <summary>The inbox_count property</summary>
         public double? InboxCount { get; set; }
+        /// <summary>The received_count property</summary>
+        public double? ReceivedCount { get; set; }
+        /// <summary>The sent_count property</summary>
+        public double? SentCount { get; set; }
         /// <summary>The spam_count property</summary>
         public double? SpamCount { get; set; }
         /// <summary>The timestamp_created_date property</summary>
@@ -55,6 +59,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
             {
                 { "category_count", n => { CategoryCount = n.GetDoubleValue(); } },
                 { "inbox_count", n => { InboxCount = n.GetDoubleValue(); } },
+                { "received_count", n => { ReceivedCount = n.GetDoubleValue(); } },
+                { "sent_count", n => { SentCount = n.GetDoubleValue(); } },
                 { "spam_count", n => { SpamCount = n.GetDoubleValue(); } },
                 { "timestamp_created_date", n => { TimestampCreatedDate = n.GetStringValue(); } },
             };
@@ -68,6 +74,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("category_count", CategoryCount);
             writer.WriteDoubleValue("inbox_count", InboxCount);
+            writer.WriteDoubleValue("received_count", ReceivedCount);
+            writer.WriteDoubleValue("sent_count", SentCount);
             writer.WriteDoubleValue("spam_count", SpamCount);
             writer.WriteStringValue("timestamp_created_date", TimestampCreatedDate);
             writer.WriteAdditionalData(AdditionalData);

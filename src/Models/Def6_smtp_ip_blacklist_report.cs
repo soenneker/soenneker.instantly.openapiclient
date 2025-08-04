@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Blacklist report for the SMTP IP address
+    /// Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def6_smtp_ip_blacklist_report : IAdditionalDataHolder, IParsable

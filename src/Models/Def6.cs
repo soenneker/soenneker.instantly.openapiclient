@@ -13,7 +13,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def6 : IParsable
     {
-        /// <summary>Details of authentication failures for SPF, DKIM, and DMARC</summary>
+        /// <summary>Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results? AuthenticationFailureResults { get; set; }
@@ -21,16 +21,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results AuthenticationFailureResults { get; set; }
 #endif
-        /// <summary>Indicates if the email passed DKIM validation (1 for pass, 0 otherwise)</summary>
-        public double? DkimPass { get; set; }
-        /// <summary>Indicates if the email passed DMARC validation (1 for pass, 0 otherwise)</summary>
-        public double? DmarcPass { get; set; }
-        /// <summary>Indicates if the email was categorized like promotions, social, etc.</summary>
-        public double? HasCategory { get; set; }
+        /// <summary>Indicates if the email passed DKIM validation. Only present when record_type is 2 (received).</summary>
+        public bool? DkimPass { get; set; }
+        /// <summary>Indicates if the email passed DMARC validation. Only present when record_type is 2 (received).</summary>
+        public bool? DmarcPass { get; set; }
+        /// <summary>Indicates if the email was categorized like promotions, social, etc. (null if not determined). Only present when record_type is 2 (received).</summary>
+        public bool? HasCategory { get; set; }
         /// <summary>Unique identifier for the inbox placement analytics entry</summary>
         public Guid? Id { get; private set; }
-        /// <summary>Indicates if the email landed in spam (1 for spam, 0 otherwise)</summary>
-        public double? IsSpam { get; set; }
+        /// <summary>Indicates if the email landed in spam (null if not determined). Only present when record_type is 2 (received).</summary>
+        public bool? IsSpam { get; set; }
         /// <summary>Organization ID</summary>
         public Guid? OrganizationId { get; private set; }
         /// <summary>Email address of the recipient</summary>
@@ -47,6 +47,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? RecipientGeo { get; set; }
         /// <summary>The type of recipient</summary>
         public double? RecipientType { get; set; }
+        /// <summary>The type of record (sent or received)</summary>
+        public double? RecordType { get; set; }
         /// <summary>Email address of the sender</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,9 +57,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string SenderEmail { get; set; }
 #endif
-        /// <summary>The sender ESP (Email Service Provider)</summary>
+        /// <summary>The sender ESP (Email Service Provider). Only present when record_type is 2 (received).</summary>
         public double? SenderEsp { get; set; }
-        /// <summary>Blacklist report for the SMTP IP address</summary>
+        /// <summary>Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report? SmtpIpBlacklistReport { get; set; }
@@ -65,8 +67,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report SmtpIpBlacklistReport { get; set; }
 #endif
-        /// <summary>Indicates if the email passed SPF validation (1 for pass, 0 otherwise)</summary>
-        public double? SpfPass { get; set; }
+        /// <summary>Indicates if the email passed SPF validation. Only present when record_type is 2 (received).</summary>
+        public bool? SpfPass { get; set; }
         /// <summary>Inbox Placement Test ID</summary>
         public Guid? TestId { get; set; }
         /// <summary>Timestamp when the inbox placement analytics was created</summary>
@@ -104,20 +106,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "authentication_failure_results", n => { AuthenticationFailureResults = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results>(global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results.CreateFromDiscriminatorValue); } },
-                { "dkim_pass", n => { DkimPass = n.GetDoubleValue(); } },
-                { "dmarc_pass", n => { DmarcPass = n.GetDoubleValue(); } },
-                { "has_category", n => { HasCategory = n.GetDoubleValue(); } },
+                { "dkim_pass", n => { DkimPass = n.GetBoolValue(); } },
+                { "dmarc_pass", n => { DmarcPass = n.GetBoolValue(); } },
+                { "has_category", n => { HasCategory = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "is_spam", n => { IsSpam = n.GetDoubleValue(); } },
+                { "is_spam", n => { IsSpam = n.GetBoolValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "recipient_email", n => { RecipientEmail = n.GetStringValue(); } },
                 { "recipient_esp", n => { RecipientEsp = n.GetDoubleValue(); } },
                 { "recipient_geo", n => { RecipientGeo = n.GetDoubleValue(); } },
                 { "recipient_type", n => { RecipientType = n.GetDoubleValue(); } },
+                { "record_type", n => { RecordType = n.GetDoubleValue(); } },
                 { "sender_email", n => { SenderEmail = n.GetStringValue(); } },
                 { "sender_esp", n => { SenderEsp = n.GetDoubleValue(); } },
                 { "smtp_ip_blacklist_report", n => { SmtpIpBlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report>(global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report.CreateFromDiscriminatorValue); } },
-                { "spf_pass", n => { SpfPass = n.GetDoubleValue(); } },
+                { "spf_pass", n => { SpfPass = n.GetBoolValue(); } },
                 { "test_id", n => { TestId = n.GetGuidValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
                 { "timestamp_created_date", n => { TimestampCreatedDate = n.GetStringValue(); } },
@@ -131,18 +134,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results>("authentication_failure_results", AuthenticationFailureResults);
-            writer.WriteDoubleValue("dkim_pass", DkimPass);
-            writer.WriteDoubleValue("dmarc_pass", DmarcPass);
-            writer.WriteDoubleValue("has_category", HasCategory);
-            writer.WriteDoubleValue("is_spam", IsSpam);
+            writer.WriteBoolValue("dkim_pass", DkimPass);
+            writer.WriteBoolValue("dmarc_pass", DmarcPass);
+            writer.WriteBoolValue("has_category", HasCategory);
+            writer.WriteBoolValue("is_spam", IsSpam);
             writer.WriteStringValue("recipient_email", RecipientEmail);
             writer.WriteDoubleValue("recipient_esp", RecipientEsp);
             writer.WriteDoubleValue("recipient_geo", RecipientGeo);
             writer.WriteDoubleValue("recipient_type", RecipientType);
+            writer.WriteDoubleValue("record_type", RecordType);
             writer.WriteStringValue("sender_email", SenderEmail);
             writer.WriteDoubleValue("sender_esp", SenderEsp);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
-            writer.WriteDoubleValue("spf_pass", SpfPass);
+            writer.WriteBoolValue("spf_pass", SpfPass);
             writer.WriteGuidValue("test_id", TestId);
         }
     }

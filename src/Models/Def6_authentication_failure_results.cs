@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Details of authentication failures for SPF, DKIM, and DMARC
+    /// Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def6_authentication_failure_results : IAdditionalDataHolder, IParsable

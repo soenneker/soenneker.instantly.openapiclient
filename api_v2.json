@@ -1900,18 +1900,18 @@
           "is_spam": {
             "type": [
               "null",
-              "number"
+              "boolean"
             ],
-            "description": "Indicates if the email landed in spam (1 for spam, 0 otherwise)",
-            "example": 1
+            "description": "Indicates if the email landed in spam (null if not determined). Only present when record_type is 2 (received).",
+            "example": true
           },
           "has_category": {
             "type": [
               "null",
-              "number"
+              "boolean"
             ],
-            "description": "Indicates if the email was categorized like promotions, social, etc.",
-            "example": 1
+            "description": "Indicates if the email was categorized like promotions, social, etc. (null if not determined). Only present when record_type is 2 (received).",
+            "example": true
           },
           "sender_email": {
             "type": [
@@ -1926,7 +1926,7 @@
               "null",
               "number"
             ],
-            "description": "The sender ESP (Email Service Provider)",
+            "description": "The sender ESP (Email Service Provider). Only present when record_type is 2 (received).",
             "enum": [
               1,
               2,
@@ -2008,40 +2008,40 @@
           "spf_pass": {
             "type": [
               "null",
-              "number"
+              "boolean"
             ],
-            "description": "Indicates if the email passed SPF validation (1 for pass, 0 otherwise)",
-            "example": 1
+            "description": "Indicates if the email passed SPF validation. Only present when record_type is 2 (received).",
+            "example": true
           },
           "dkim_pass": {
             "type": [
               "null",
-              "number"
+              "boolean"
             ],
-            "description": "Indicates if the email passed DKIM validation (1 for pass, 0 otherwise)",
-            "example": 1
+            "description": "Indicates if the email passed DKIM validation. Only present when record_type is 2 (received).",
+            "example": true
           },
           "dmarc_pass": {
             "type": [
               "null",
-              "number"
+              "boolean"
             ],
-            "description": "Indicates if the email passed DMARC validation (1 for pass, 0 otherwise)",
-            "example": 1
+            "description": "Indicates if the email passed DMARC validation. Only present when record_type is 2 (received).",
+            "example": true
           },
           "smtp_ip_blacklist_report": {
             "type": [
               "null",
               "object"
             ],
-            "description": "Blacklist report for the SMTP IP address"
+            "description": "Blacklist report for the SMTP IP address. Only present when record_type is 2 (received)."
           },
           "authentication_failure_results": {
             "type": [
               "null",
               "object"
             ],
-            "description": "Details of authentication failures for SPF, DKIM, and DMARC",
+            "description": "Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).",
             "properties": {
               "authentication_results": {
                 "type": "string",
@@ -2065,6 +2065,22 @@
                 ]
               }
             }
+          },
+          "record_type": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The type of record (sent or received)",
+            "enum": [
+              1,
+              2
+            ],
+            "x-enumDescriptions": {
+              "1": "Sent",
+              "2": "Received"
+            },
+            "example": 1
           }
         },
         "required": [
@@ -14494,6 +14510,14 @@
                         "type": "string",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
+                      "sent_count": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "received_count": {
+                        "type": "number",
+                        "example": 1
+                      },
                       "spam_count": {
                         "type": "number",
                         "example": 1
@@ -14509,6 +14533,8 @@
                     },
                     "required": [
                       "timestamp_created_date",
+                      "sent_count",
+                      "received_count",
                       "spam_count",
                       "inbox_count",
                       "category_count"
