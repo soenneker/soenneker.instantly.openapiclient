@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Duplicate
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>The name of the duplicate subsequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Duplicate
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The parent_campaign property</summary>
+        /// <summary>The ID of the campaign to duplicate the subsequence to.</summary>
         public Guid? ParentCampaign { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Duplicate.DuplicatePostRequestBody"/> and sets the default values.

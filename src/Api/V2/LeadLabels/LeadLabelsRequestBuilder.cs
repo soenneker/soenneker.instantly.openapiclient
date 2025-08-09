@@ -195,6 +195,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LeadLabelsRequestBuilderGetQueryParameters 
         {
+            /// <summary>The interest status to filter lead labels by.</summary>
             [Obsolete("This property is deprecated, use InterestStatusAsGetInterestStatusQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -205,11 +206,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
             [QueryParameter("interest_status")]
             public string InterestStatus { get; set; }
 #endif
+            /// <summary>The interest status to filter lead labels by.</summary>
             [QueryParameter("interest_status")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.GetInterest_statusQueryParameterType? InterestStatusAsGetInterestStatusQueryParameterType { get; set; }
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>The search query to filter lead labels.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]
@@ -219,6 +222,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
+            /// <summary>The starting after timestamp to filter lead labels by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("starting_after")]

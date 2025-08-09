@@ -204,6 +204,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>The list of resource ids to filter custom tags by. A resource id is the id of an account or a campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("resource_ids")]
@@ -213,6 +214,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             [QueryParameter("resource_ids")]
             public string ResourceIds { get; set; }
 #endif
+            /// <summary>The search query to filter custom tags.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]
@@ -232,6 +234,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
 #endif
+            /// <summary>The list of tag ids to filter custom tags by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("tag_ids")]

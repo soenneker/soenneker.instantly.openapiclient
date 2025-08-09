@@ -15,7 +15,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
     {
         /// <summary>ID of the user assigned to the lead</summary>
         public Guid? AssignedTo { get; set; }
-        /// <summary>The blocklist_id property</summary>
+        /// <summary>The ID of the blocklist to check for the lead.</summary>
         public Guid? BlocklistId { get; set; }
         /// <summary>Campaign ID associated with the lead</summary>
         public Guid? Campaign { get; set; }
@@ -87,15 +87,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
 #else
         public string PlValueLead { get; set; }
 #endif
-        /// <summary>The skip_if_in_campaign property</summary>
+        /// <summary>Whether to skip if the lead is already in the campaign.</summary>
         public bool? SkipIfInCampaign { get; set; }
-        /// <summary>The skip_if_in_list property</summary>
+        /// <summary>Whether to skip if the lead is already in the list.</summary>
         public bool? SkipIfInList { get; set; }
-        /// <summary>The skip_if_in_workspace property</summary>
+        /// <summary>Whether to skip if the lead is already in the workspace.</summary>
         public bool? SkipIfInWorkspace { get; set; }
-        /// <summary>The verify_leads_for_lead_finder property</summary>
+        /// <summary>Whether to verify the leads for the lead finder.</summary>
         public bool? VerifyLeadsForLeadFinder { get; set; }
-        /// <summary>The verify_leads_on_import property</summary>
+        /// <summary>Whether to verify the leads on import.</summary>
         public bool? VerifyLeadsOnImport { get; set; }
         /// <summary>Website of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

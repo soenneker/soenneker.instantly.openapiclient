@@ -14,17 +14,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The campaign property</summary>
+        /// <summary>The ID of the campaign to filter leads by.</summary>
         public Guid? Campaign { get; set; }
-        /// <summary>The filter property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Filter { get; set; }
-#nullable restore
-#else
-        public string Filter { get; set; }
-#endif
-        /// <summary>The ids property</summary>
+        /// <summary>The filter to apply to the leads.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign.BulkAssignPostRequestBody_filter? Filter { get; set; }
+        /// <summary>The IDs of the leads to filter by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Ids { get; set; }
@@ -32,13 +26,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
 #else
         public List<Guid?> Ids { get; set; }
 #endif
-        /// <summary>The in_campaign property</summary>
+        /// <summary>Whether the leads are in the campaign.</summary>
         public bool? InCampaign { get; set; }
-        /// <summary>The in_list property</summary>
+        /// <summary>Whether the leads are in the list.</summary>
         public bool? InList { get; set; }
-        /// <summary>The limit property</summary>
+        /// <summary>The limit of the number of leads to return.</summary>
         public int? Limit { get; set; }
-        /// <summary>The list_id property</summary>
+        /// <summary>The ID of the list to filter leads by.</summary>
         public Guid? ListId { get; set; }
         /// <summary>The organization_user_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +50,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign.BulkAssignPostRequestBody_queries> Queries { get; set; }
 #endif
-        /// <summary>The search property</summary>
+        /// <summary>The search query to filter leads by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Search { get; set; }
@@ -64,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
 #else
         public string Search { get; set; }
 #endif
-        /// <summary>The smart_view_id property</summary>
+        /// <summary>The ID of the smart view to filter leads by.</summary>
         public Guid? SmartViewId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign.BulkAssignPostRequestBody"/> and sets the default values.
@@ -92,7 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "campaign", n => { Campaign = n.GetGuidValue(); } },
-                { "filter", n => { Filter = n.GetStringValue(); } },
+                { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign.BulkAssignPostRequestBody_filter>(); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "in_campaign", n => { InCampaign = n.GetBoolValue(); } },
                 { "in_list", n => { InList = n.GetBoolValue(); } },
@@ -112,7 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("campaign", Campaign);
-            writer.WriteStringValue("filter", Filter);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign.BulkAssignPostRequestBody_filter>("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
             writer.WriteBoolValue("in_campaign", InCampaign);
             writer.WriteBoolValue("in_list", InList);

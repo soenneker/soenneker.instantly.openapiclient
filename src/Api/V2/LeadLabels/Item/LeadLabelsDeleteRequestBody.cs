@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The reassigned_status property</summary>
+        /// <summary>The interest status to reassign leads and emails to.</summary>
         public double? ReassignedStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item.LeadLabelsDeleteRequestBody"/> and sets the default values.

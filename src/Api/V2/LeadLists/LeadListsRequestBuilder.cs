@@ -195,12 +195,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LeadListsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Whether the list has an enrichment task.</summary>
             [QueryParameter("has_enrichment_task")]
             public bool? HasEnrichmentTask { get; set; }
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Search by list name</summary>
+            /// <summary>The search query to filter lead lists by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]
@@ -210,6 +211,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
+            /// <summary>The starting after timestamp to filter lead lists by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("starting_after")]

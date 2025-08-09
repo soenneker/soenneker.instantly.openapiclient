@@ -198,8 +198,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>The ID of the campaign to list the subsequences of.</summary>
             [QueryParameter("parent_campaign")]
             public Guid? ParentCampaign { get; set; }
+            /// <summary>The search query to filter the subsequences by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]

@@ -14,13 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The assigned_to property</summary>
+        /// <summary>The ID of the user to assign the leads to.</summary>
         public Guid? AssignedTo { get; set; }
         /// <summary>Campaign ID to filter leads</summary>
         public Guid? Campaign { get; set; }
-        /// <summary>The check_duplicates property</summary>
+        /// <summary>Whether to check duplicates.</summary>
         public bool? CheckDuplicates { get; set; }
-        /// <summary>The check_duplicates_in_campaigns property</summary>
+        /// <summary>Whether to check duplicates in campaigns.</summary>
         public bool? CheckDuplicatesInCampaigns { get; set; }
         /// <summary>Array of emails the leads needs to have</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,9 +30,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #else
         public List<string> Contacts { get; set; }
 #endif
-        /// <summary>The copy_leads property</summary>
+        /// <summary>Whether to copy the leads.</summary>
         public bool? CopyLeads { get; set; }
-        /// <summary>The esp_code property</summary>
+        /// <summary>The ESP code to move the leads to.</summary>
         public double? EspCode { get; set; }
         /// <summary>Array of lead IDs to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
         public bool? InCampaign { get; set; }
         /// <summary>Whether the lead is in a list</summary>
         public bool? InList { get; set; }
-        /// <summary>The limit property</summary>
+        /// <summary>The limit of the number of leads to move.</summary>
         public double? Limit { get; set; }
         /// <summary>List ID to filter leads</summary>
         public Guid? ListId { get; set; }
@@ -82,11 +82,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #else
         public string Search { get; set; }
 #endif
-        /// <summary>The skip_leads_in_verification property</summary>
+        /// <summary>Whether to skip leads in verification.</summary>
         public bool? SkipLeadsInVerification { get; set; }
-        /// <summary>The to_campaign_id property</summary>
+        /// <summary>The ID of the campaign to move the leads to.</summary>
         public Guid? ToCampaignId { get; set; }
-        /// <summary>The to_list_id property</summary>
+        /// <summary>The ID of the list to move the leads to.</summary>
         public Guid? ToListId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody"/> and sets the default values.

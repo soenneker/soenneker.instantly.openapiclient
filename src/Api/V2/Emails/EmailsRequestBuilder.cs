@@ -161,6 +161,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EmailsRequestBuilderGetQueryParameters 
         {
+            /// <summary>The ID of the user to filter emails by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("assigned_to")]
@@ -170,8 +171,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("assigned_to")]
             public string AssignedTo { get; set; }
 #endif
+            /// <summary>The ID of the campaign to filter emails by.</summary>
             [QueryParameter("campaign_id")]
             public Guid? CampaignId { get; set; }
+            /// <summary>The domain of the company to filter emails by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("company_domain")]
@@ -191,6 +194,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("eaccount")]
             public string Eaccount { get; set; }
 #endif
+            /// <summary>The type of the email to filter by.</summary>
             [Obsolete("This property is deprecated, use EmailTypeAsGetEmailTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -201,14 +205,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("email_type")]
             public string EmailType { get; set; }
 #endif
+            /// <summary>The type of the email to filter by.</summary>
             [QueryParameter("email_type")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetEmail_typeQueryParameterType? EmailTypeAsGetEmailTypeQueryParameterType { get; set; }
             [QueryParameter("has_reminder")]
             public bool? HasReminder { get; set; }
+            /// <summary>The status of the emails to filter by.</summary>
             [QueryParameter("i_status")]
             public double? IStatus { get; set; }
+            /// <summary>Whether the email is unread.</summary>
             [QueryParameter("is_unread")]
             public bool? IsUnread { get; set; }
+            /// <summary>The ID of the lead to filter emails by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("lead")]
@@ -221,8 +229,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>Whether the email is marked as done.</summary>
             [QueryParameter("marked_as_done")]
             public bool? MarkedAsDone { get; set; }
+            /// <summary>The mode to filter emails by.</summary>
             [Obsolete("This property is deprecated, use ModeAsGetModeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -233,12 +243,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("mode")]
             public string Mode { get; set; }
 #endif
+            /// <summary>The mode to filter emails by.</summary>
             [QueryParameter("mode")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetModeQueryParameterType? ModeAsGetModeQueryParameterType { get; set; }
+            /// <summary>Whether to only return the preview of the emails.</summary>
             [QueryParameter("preview_only")]
             public bool? PreviewOnly { get; set; }
+            /// <summary>Whether to only return the scheduled emails.</summary>
             [QueryParameter("scheduled_only")]
             public bool? ScheduledOnly { get; set; }
+            /// <summary>The search query to filter emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]
@@ -248,6 +262,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
+            /// <summary>The order to sort the emails by.</summary>
             [Obsolete("This property is deprecated, use SortOrderAsGetSortOrderQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -258,6 +273,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("sort_order")]
             public string SortOrder { get; set; }
 #endif
+            /// <summary>The order to sort the emails by.</summary>
             [QueryParameter("sort_order")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetSort_orderQueryParameterType? SortOrderAsGetSortOrderQueryParameterType { get; set; }
             /// <summary>The id of the email to start the list from (use the &quot;next_starting_after&quot; field you got in a previous request to paginate)</summary>

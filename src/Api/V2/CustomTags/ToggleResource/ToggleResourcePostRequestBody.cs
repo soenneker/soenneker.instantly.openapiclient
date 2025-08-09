@@ -14,9 +14,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The assign property</summary>
+        /// <summary>Whether to assign the tags to the resources.</summary>
         public bool? Assign { get; set; }
-        /// <summary>The filter property</summary>
+        /// <summary>The filter to apply to the resources. These are only used when `selected_all` is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody.ToggleResourcePostRequestBody_filter? Filter { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
 #else
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody.ToggleResourcePostRequestBody_filter Filter { get; set; }
 #endif
-        /// <summary>The resource_ids property</summary>
+        /// <summary>The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ResourceIds { get; set; }
@@ -34,9 +34,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
 #endif
         /// <summary>The resource type to assign or unassign the tags to</summary>
         public double? ResourceType { get; set; }
-        /// <summary>The selected_all property</summary>
+        /// <summary>Whether to select all resources.</summary>
         public bool? SelectedAll { get; set; }
-        /// <summary>The tag_ids property</summary>
+        /// <summary>The list of tag ids to assign or unassign</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? TagIds { get; set; }

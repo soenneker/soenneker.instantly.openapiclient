@@ -11646,7 +11646,8 @@
             },
             "in": "query",
             "name": "search",
-            "required": false
+            "required": false,
+            "description": "The search query to filter custom tags."
           },
           {
             "schema": {
@@ -11655,7 +11656,8 @@
             },
             "in": "query",
             "name": "resource_ids",
-            "required": false
+            "required": false,
+            "description": "The list of resource ids to filter custom tags by. A resource id is the id of an account or a campaign."
           },
           {
             "schema": {
@@ -11664,7 +11666,8 @@
             },
             "in": "query",
             "name": "tag_ids",
-            "required": false
+            "required": false,
+            "description": "The list of tag ids to filter custom tags by."
           }
         ],
         "responses": {
@@ -12240,6 +12243,7 @@
                       "type": "string",
                       "format": "uuid"
                     },
+                    "description": "The list of tag ids to assign or unassign",
                     "example": [
                       "f9cc070d-8dba-4341-b847-f083c358e460"
                     ]
@@ -12262,6 +12266,7 @@
                     "items": {
                       "type": "string"
                     },
+                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign.",
                     "example": [
                       "resource-1",
                       "resource-2"
@@ -12269,14 +12274,17 @@
                   },
                   "assign": {
                     "type": "boolean",
+                    "description": "Whether to assign the tags to the resources.",
                     "example": true
                   },
                   "selected_all": {
                     "type": "boolean",
+                    "description": "Whether to select all resources.",
                     "example": false
                   },
                   "filter": {
                     "type": "object",
+                    "description": "The filter to apply to the resources. These are only used when \u0060selected_all\u0060 is true.",
                     "oneOf": [
                       {
                         "type": "string",
@@ -12609,7 +12617,8 @@
             },
             "in": "query",
             "name": "search",
-            "required": false
+            "required": false,
+            "description": "The search query to filter emails."
           },
           {
             "schema": {
@@ -12619,7 +12628,8 @@
             },
             "in": "query",
             "name": "campaign_id",
-            "required": false
+            "required": false,
+            "description": "The ID of the campaign to filter emails by."
           },
           {
             "schema": {
@@ -12628,7 +12638,8 @@
             },
             "in": "query",
             "name": "i_status",
-            "required": false
+            "required": false,
+            "description": "The status of the emails to filter by."
           },
           {
             "schema": {
@@ -12647,7 +12658,8 @@
             },
             "in": "query",
             "name": "is_unread",
-            "required": false
+            "required": false,
+            "description": "Whether the email is unread."
           },
           {
             "schema": {
@@ -12670,7 +12682,8 @@
             },
             "in": "query",
             "name": "mode",
-            "required": false
+            "required": false,
+            "description": "The mode to filter emails by."
           },
           {
             "schema": {
@@ -12679,7 +12692,8 @@
             },
             "in": "query",
             "name": "preview_only",
-            "required": false
+            "required": false,
+            "description": "Whether to only return the preview of the emails."
           },
           {
             "schema": {
@@ -12692,7 +12706,8 @@
             },
             "in": "query",
             "name": "sort_order",
-            "required": false
+            "required": false,
+            "description": "The order to sort the emails by."
           },
           {
             "schema": {
@@ -12701,7 +12716,8 @@
             },
             "in": "query",
             "name": "scheduled_only",
-            "required": false
+            "required": false,
+            "description": "Whether to only return the scheduled emails."
           },
           {
             "schema": {
@@ -12710,7 +12726,8 @@
             },
             "in": "query",
             "name": "assigned_to",
-            "required": false
+            "required": false,
+            "description": "The ID of the user to filter emails by."
           },
           {
             "schema": {
@@ -12719,7 +12736,8 @@
             },
             "in": "query",
             "name": "lead",
-            "required": false
+            "required": false,
+            "description": "The ID of the lead to filter emails by."
           },
           {
             "schema": {
@@ -12728,7 +12746,8 @@
             },
             "in": "query",
             "name": "company_domain",
-            "required": false
+            "required": false,
+            "description": "The domain of the company to filter emails by."
           },
           {
             "schema": {
@@ -12737,7 +12756,8 @@
             },
             "in": "query",
             "name": "marked_as_done",
-            "required": false
+            "required": false,
+            "description": "Whether the email is marked as done."
           },
           {
             "schema": {
@@ -12751,7 +12771,8 @@
             },
             "in": "query",
             "name": "email_type",
-            "required": false
+            "required": false,
+            "description": "The type of the email to filter by."
           }
         ],
         "responses": {
@@ -17229,7 +17250,8 @@
             },
             "in": "query",
             "name": "starting_after",
-            "required": false
+            "required": false,
+            "description": "The starting after timestamp to filter lead labels by."
           },
           {
             "schema": {
@@ -17238,7 +17260,8 @@
             },
             "in": "query",
             "name": "search",
-            "required": false
+            "required": false,
+            "description": "The search query to filter lead labels."
           },
           {
             "schema": {
@@ -17252,7 +17275,8 @@
             },
             "in": "query",
             "name": "interest_status",
-            "required": false
+            "required": false,
+            "description": "The interest status to filter lead labels by."
           }
         ],
         "responses": {
@@ -17697,6 +17721,7 @@
                 "properties": {
                   "reassigned_status": {
                     "type": "number",
+                    "description": "The interest status to reassign leads and emails to.",
                     "example": 1
                   }
                 }
@@ -18030,7 +18055,8 @@
             },
             "in": "query",
             "name": "starting_after",
-            "required": false
+            "required": false,
+            "description": "The starting after timestamp to filter lead lists by."
           },
           {
             "schema": {
@@ -18039,7 +18065,8 @@
             },
             "in": "query",
             "name": "has_enrichment_task",
-            "required": false
+            "required": false,
+            "description": "Whether the list has an enrichment task."
           },
           {
             "schema": {
@@ -18049,7 +18076,7 @@
             "in": "query",
             "name": "search",
             "required": false,
-            "description": "Search by list name"
+            "description": "The search query to filter lead lists by."
           }
         ],
         "responses": {
@@ -18748,27 +18775,33 @@
                   },
                   "skip_if_in_workspace": {
                     "type": "boolean",
+                    "description": "Whether to skip if the lead is already in the workspace.",
                     "example": true
                   },
                   "skip_if_in_campaign": {
                     "type": "boolean",
+                    "description": "Whether to skip if the lead is already in the campaign.",
                     "example": true
                   },
                   "skip_if_in_list": {
                     "type": "boolean",
+                    "description": "Whether to skip if the lead is already in the list.",
                     "example": true
                   },
                   "blocklist_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the blocklist to check for the lead.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "verify_leads_for_lead_finder": {
                     "type": "boolean",
+                    "description": "Whether to verify the leads for the lead finder.",
                     "example": true
                   },
                   "verify_leads_on_import": {
                     "type": "boolean",
+                    "description": "Whether to verify the leads on import.",
                     "example": true
                   },
                   "custom_variables": {
@@ -19808,11 +19841,13 @@
                   "lead_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the lead to merge.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "destination_lead_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the destination lead to merge into.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   }
                 },
@@ -19925,6 +19960,7 @@
                 "properties": {
                   "lead_email": {
                     "type": "string",
+                    "description": "The email of the lead to update the interest status of.",
                     "example": "test@test.com"
                   },
                   "interest_value": {
@@ -19937,18 +19973,22 @@
                   },
                   "campaign_id": {
                     "type": "string",
+                    "description": "The ID of the campaign to update the interest status of.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "ai_interest_value": {
                     "type": "number",
+                    "description": "The AI interest value to set for the lead.",
                     "example": 1
                   },
                   "disable_auto_interest": {
                     "type": "boolean",
+                    "description": "Whether to disable the auto interest.",
                     "example": true
                   },
                   "list_id": {
                     "type": "string",
+                    "description": "The ID of the list to update the interest status of.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   }
                 },
@@ -20084,6 +20124,7 @@
                   "id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the lead to remove from the subsequence.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   }
                 },
@@ -20195,28 +20236,62 @@
                 "properties": {
                   "search": {
                     "type": "string",
+                    "description": "The search query to filter leads by.",
                     "example": "test"
                   },
                   "filter": {
                     "type": "string",
-                    "example": "test"
+                    "enum": [
+                      "FILTER_VAL_CONTACTED",
+                      "FILTER_VAL_NOT_CONTACTED",
+                      "FILTER_VAL_COMPLETED",
+                      "FILTER_VAL_UNSUBSCRIBED",
+                      "FILTER_VAL_ACTIVE",
+                      "FILTER_LEAD_INTERESTED",
+                      "FILTER_LEAD_NOT_INTERESTED",
+                      "FILTER_LEAD_MEETING_BOOKED",
+                      "FILTER_LEAD_MEETING_COMPLETED",
+                      "FILTER_LEAD_CLOSED",
+                      "FILTER_LEAD_OUT_OF_OFFICE",
+                      "FILTER_LEAD_WRONG_PERSON",
+                      "FILTER_LEAD_LOST",
+                      "FILTER_LEAD_CUSTOM_LABEL_POSITIVE",
+                      "FILTER_LEAD_CUSTOM_LABEL_NEGATIVE",
+                      "FILTER_VAL_BOUNCED",
+                      "FILTER_VAL_SKIPPED",
+                      "FILTER_VAL_RISKY",
+                      "FILTER_VAL_INVALID",
+                      "FILTER_VAL_VALID",
+                      "FILTER_VAL_IN_SUBSEQUENCE",
+                      "FILTER_VAL_OPENED_NO_REPLY",
+                      "FILTER_VAL_COMPLETED_NO_REPLY",
+                      "FILTER_VAL_NO_OPENS",
+                      "FILTER_VAL_REPLIED",
+                      "FILTER_VAL_LINK_CLICKED"
+                    ],
+                    "description": "The filter to apply to the leads.",
+                    "example": "FILTER_LEAD_CLOSED"
                   },
                   "campaign": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the campaign to filter leads by.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "list_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the list to filter leads by.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "in_campaign": {
                     "type": "boolean",
+                    "description": "Whether the leads are in the campaign.",
                     "example": true
                   },
                   "in_list": {
                     "type": "boolean",
+                    "description": "Whether the leads are in the list.",
                     "example": true
                   },
                   "organization_user_ids": {
@@ -20230,6 +20305,7 @@
                   "smart_view_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the smart view to filter leads by.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "ids": {
@@ -20238,11 +20314,13 @@
                       "type": "string",
                       "format": "uuid",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-                    }
+                    },
+                    "description": "The IDs of the leads to filter by."
                   },
                   "limit": {
                     "type": "integer",
                     "minimum": 0,
+                    "description": "The limit of the number of leads to return.",
                     "example": 10
                   },
                   "queries": {
@@ -20625,28 +20703,34 @@
                   "to_campaign_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the campaign to move the leads to.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "to_list_id": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the list to move the leads to.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "check_duplicates_in_campaigns": {
                     "type": "boolean",
+                    "description": "Whether to check duplicates in campaigns.",
                     "example": true
                   },
                   "skip_leads_in_verification": {
                     "type": "boolean",
+                    "description": "Whether to skip leads in verification.",
                     "example": true
                   },
                   "limit": {
                     "type": "number",
+                    "description": "The limit of the number of leads to move.",
                     "example": 10
                   },
                   "assigned_to": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the user to assign the leads to.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "esp_code": {
@@ -20675,14 +20759,17 @@
                       "999": "Other",
                       "1000": "Not Found"
                     },
+                    "description": "The ESP code to move the leads to.",
                     "example": 1
                   },
                   "copy_leads": {
                     "type": "boolean",
+                    "description": "Whether to copy the leads.",
                     "example": true
                   },
                   "check_duplicates": {
                     "type": "boolean",
+                    "description": "Whether to check duplicates.",
                     "example": true
                   }
                 }
@@ -21376,7 +21463,8 @@
             },
             "in": "query",
             "name": "parent_campaign",
-            "required": true
+            "required": true,
+            "description": "The ID of the campaign to list the subsequences of."
           },
           {
             "schema": {
@@ -21385,7 +21473,8 @@
             },
             "in": "query",
             "name": "search",
-            "required": false
+            "required": false,
+            "description": "The search query to filter the subsequences by."
           }
         ],
         "responses": {
@@ -21506,10 +21595,12 @@
                   "parent_campaign": {
                     "type": "string",
                     "format": "uuid",
+                    "description": "The ID of the campaign to duplicate the subsequence to.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "name": {
                     "type": "string",
+                    "description": "The name of the duplicate subsequence.",
                     "example": "My Duplicate Subsequence"
                   }
                 },
@@ -21531,7 +21622,8 @@
             },
             "in": "path",
             "name": "id",
-            "required": true
+            "required": true,
+            "description": "The ID of the subsequence to duplicate."
           }
         ],
         "responses": {
@@ -21740,7 +21832,8 @@
             },
             "in": "path",
             "name": "id",
-            "required": true
+            "required": true,
+            "description": "The ID of the subsequence to resume."
           }
         ],
         "responses": {

@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Subsequence.Remove
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>The ID of the lead to remove from the subsequence.</summary>
         public Guid? Id { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Subsequence.Remove.RemovePostRequestBody"/> and sets the default values.

@@ -14,9 +14,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Merge
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The destination_lead_id property</summary>
+        /// <summary>The ID of the destination lead to merge into.</summary>
         public Guid? DestinationLeadId { get; set; }
-        /// <summary>The lead_id property</summary>
+        /// <summary>The ID of the lead to merge.</summary>
         public Guid? LeadId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Merge.MergePostRequestBody"/> and sets the default values.
