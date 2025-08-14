@@ -12618,7 +12618,7 @@
             "in": "query",
             "name": "search",
             "required": false,
-            "description": "The search query to filter emails."
+            "description": "The search query to filter emails. It can be an email address (the lead email address), or a special string that starts with \u0022thread:\u0022 to search for emails in a specific thread. If you want to search for emails in a specific thread, use the \u0022thread:\u0022 prefix followed by the thread ID (e.g., \u0022thread:123e4567-e89b-12d3-a456-426614174000\u0022)."
           },
           {
             "schema": {
@@ -12707,7 +12707,7 @@
             "in": "query",
             "name": "sort_order",
             "required": false,
-            "description": "The order to sort the emails by."
+            "description": "The order to sort the emails by (based on the email creation date). Default is \u0022desc\u0022."
           },
           {
             "schema": {

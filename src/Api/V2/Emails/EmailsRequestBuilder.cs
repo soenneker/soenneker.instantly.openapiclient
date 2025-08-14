@@ -252,7 +252,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>Whether to only return the scheduled emails.</summary>
             [QueryParameter("scheduled_only")]
             public bool? ScheduledOnly { get; set; }
-            /// <summary>The search query to filter emails.</summary>
+            /// <summary>The search query to filter emails. It can be an email address (the lead email address), or a special string that starts with &quot;thread:&quot; to search for emails in a specific thread. If you want to search for emails in a specific thread, use the &quot;thread:&quot; prefix followed by the thread ID (e.g., &quot;thread:123e4567-e89b-12d3-a456-426614174000&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]
@@ -262,7 +262,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
-            /// <summary>The order to sort the emails by.</summary>
+            /// <summary>The order to sort the emails by (based on the email creation date). Default is &quot;desc&quot;.</summary>
             [Obsolete("This property is deprecated, use SortOrderAsGetSortOrderQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -273,7 +273,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("sort_order")]
             public string SortOrder { get; set; }
 #endif
-            /// <summary>The order to sort the emails by.</summary>
+            /// <summary>The order to sort the emails by (based on the email creation date). Default is &quot;desc&quot;.</summary>
             [QueryParameter("sort_order")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetSort_orderQueryParameterType? SortOrderAsGetSortOrderQueryParameterType { get; set; }
             /// <summary>The id of the email to start the list from (use the &quot;next_starting_after&quot; field you got in a previous request to paginate)</summary>
