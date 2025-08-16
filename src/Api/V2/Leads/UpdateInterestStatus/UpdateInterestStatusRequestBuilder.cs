@@ -44,11 +44,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse?> PostAsUpdateInterestStatusPostResponseAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse> PostAsUpdateInterestStatusPostResponseAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -60,36 +60,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Update the interest status of a lead
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsUpdateInterestStatusPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusResponse?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusResponse> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the interest status of a lead
@@ -121,14 +91,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UpdateInterestStatusRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

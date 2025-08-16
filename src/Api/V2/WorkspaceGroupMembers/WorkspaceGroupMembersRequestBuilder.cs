@@ -36,19 +36,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
                 return new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.workspaceGroupMembers.item collection</summary>
-        /// <param name="position">The ID of the requested item</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -75,11 +62,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembers429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersGetResponse?> GetAsWorkspaceGroupMembersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersGetResponse> GetAsWorkspaceGroupMembersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -89,32 +76,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembers429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `workspace_group_members:read`, `workspace_group_members:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembers401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembers429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsWorkspaceGroupMembersGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembers401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembers429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This endpoint allows you to send an invitation for a sub workspace to join the admin workspace. The sub workspace will be added as a sub workspace of the admin workspace only if the sub workspace owner accepts the invitation.Requires one of the following scopes: `workspace_group_members:create`, `workspace_group_members:all`, `all:create`, `all:all`
@@ -214,22 +175,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkspaceGroupMembersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WorkspaceGroupMembersRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

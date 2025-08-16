@@ -74,11 +74,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Accounts429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsGetResponse?> GetAsAccountsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsGetResponse> GetAsAccountsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -88,32 +88,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Accounts429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `accounts:read`, `accounts:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Accounts401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Accounts429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsAccountsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Accounts401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Accounts429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `accounts:create`, `accounts:all`, `all:create`, `all:all`
@@ -235,22 +209,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
             [QueryParameter("tag_ids")]
             public string TagIds { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AccountsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AccountsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

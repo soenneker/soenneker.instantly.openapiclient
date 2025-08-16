@@ -42,11 +42,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRea
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsRead429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadPostResponse?> PostAsMarkAsReadPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadPostResponse> PostAsMarkAsReadPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -56,32 +56,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRea
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsRead429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `emails:update`, `emails:all`, `all:update`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsRead401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsRead429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsMarkAsReadPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsRead401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsRead429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `emails:update`, `emails:all`, `all:update`, `all:all`
@@ -110,14 +84,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRea
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRead.MarkAsReadRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MarkAsReadRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

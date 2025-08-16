@@ -36,19 +36,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
                 return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.campaigns.item collection</summary>
-        /// <param name="position">The ID of the requested item</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -75,11 +62,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Campaigns429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsGetResponse?> GetAsCampaignsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsGetResponse> GetAsCampaignsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -89,32 +76,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Campaigns429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Campaigns401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Campaigns429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCampaignsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Campaigns401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Campaigns429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `campaigns:create`, `campaigns:all`, `all:create`, `all:all`
@@ -234,22 +195,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             [QueryParameter("tag_ids")]
             public string TagIds { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CampaignsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder.CampaignsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CampaignsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

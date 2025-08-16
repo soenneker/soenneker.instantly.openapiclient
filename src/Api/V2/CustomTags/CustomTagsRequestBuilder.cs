@@ -36,19 +36,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
                 return new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.customTags.item collection</summary>
-        /// <param name="position">The ID of the requested item</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -75,11 +62,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTags429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse?> GetAsCustomTagsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse> GetAsCustomTagsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -89,32 +76,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTags429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTags401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTags429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCustomTagsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTags401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTags429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `custom_tags:create`, `custom_tags:all`, `all:create`, `all:all`
@@ -244,22 +205,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             [QueryParameter("tag_ids")]
             public string TagIds { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomTagsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomTagsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

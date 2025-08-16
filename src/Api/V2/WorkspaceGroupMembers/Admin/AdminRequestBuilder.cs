@@ -42,11 +42,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.Admin429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminGetResponse?> GetAsAdminGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminGetResponse> GetAsAdminGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -56,32 +56,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.Admin429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get the details of the admin workspace of the current workspace
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.Admin401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.Admin429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsAdminGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.Admin401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.Admin429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the details of the admin workspace of the current workspace
@@ -110,14 +84,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Admin.AdminRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AdminRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

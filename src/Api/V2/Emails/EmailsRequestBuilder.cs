@@ -47,19 +47,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
                 return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.emails.item collection</summary>
-        /// <param name="position">The ID of the requested item</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -86,11 +73,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Emails429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse?> GetAsEmailsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse> GetAsEmailsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -100,32 +87,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Emails429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Emails401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Emails429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsEmailsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Emails401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Emails429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
@@ -195,19 +156,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             public string Eaccount { get; set; }
 #endif
             /// <summary>The type of the email to filter by.</summary>
-            [Obsolete("This property is deprecated, use EmailTypeAsGetEmailTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("email_type")]
-            public string? EmailType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("email_type")]
-            public string EmailType { get; set; }
-#endif
-            /// <summary>The type of the email to filter by.</summary>
-            [QueryParameter("email_type")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetEmail_typeQueryParameterType? EmailTypeAsGetEmailTypeQueryParameterType { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetEmail_typeQueryParameterType? EmailType { get; set; }
             [QueryParameter("has_reminder")]
             public bool? HasReminder { get; set; }
             /// <summary>The status of the emails to filter by.</summary>
@@ -233,19 +183,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("marked_as_done")]
             public bool? MarkedAsDone { get; set; }
             /// <summary>The mode to filter emails by.</summary>
-            [Obsolete("This property is deprecated, use ModeAsGetModeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("mode")]
-            public string? Mode { get; set; }
-#nullable restore
-#else
-            [QueryParameter("mode")]
-            public string Mode { get; set; }
-#endif
-            /// <summary>The mode to filter emails by.</summary>
-            [QueryParameter("mode")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetModeQueryParameterType? ModeAsGetModeQueryParameterType { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetModeQueryParameterType? Mode { get; set; }
             /// <summary>Whether to only return the preview of the emails.</summary>
             [QueryParameter("preview_only")]
             public bool? PreviewOnly { get; set; }
@@ -263,19 +202,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             public string Search { get; set; }
 #endif
             /// <summary>The order to sort the emails by (based on the email creation date). Default is &quot;desc&quot;.</summary>
-            [Obsolete("This property is deprecated, use SortOrderAsGetSortOrderQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort_order")]
-            public string? SortOrder { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort_order")]
-            public string SortOrder { get; set; }
-#endif
-            /// <summary>The order to sort the emails by (based on the email creation date). Default is &quot;desc&quot;.</summary>
-            [QueryParameter("sort_order")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetSort_orderQueryParameterType? SortOrderAsGetSortOrderQueryParameterType { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetSort_orderQueryParameterType? SortOrder { get; set; }
             /// <summary>The id of the email to start the list from (use the &quot;next_starting_after&quot; field you got in a previous request to paginate)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -286,14 +214,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EmailsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

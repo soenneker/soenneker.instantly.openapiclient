@@ -29,19 +29,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
                 return new global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.inboxPlacementReports.item collection</summary>
-        /// <param name="position">The ID of the requested item</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -68,11 +55,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReports429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsGetResponse?> GetAsInboxPlacementReportsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsGetResponse> GetAsInboxPlacementReportsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -82,32 +69,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReports429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `inbox_placement_reports:read`, `inbox_placement_reports:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReports401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReports429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsInboxPlacementReportsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReports401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReports429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `inbox_placement_reports:read`, `inbox_placement_reports:all`, `all:read`, `all:all`
@@ -182,14 +143,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
 #endif
             [QueryParameter("test_id")]
             public Guid? TestId { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InboxPlacementReportsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.InboxPlacementReportsRequestBuilder.InboxPlacementReportsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

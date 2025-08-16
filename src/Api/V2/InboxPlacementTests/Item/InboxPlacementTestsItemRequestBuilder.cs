@@ -73,11 +73,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsGetResponse?> GetAsInboxPlacementTestsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsGetResponse> GetAsInboxPlacementTestsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -88,34 +88,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Requires one of the following scopes: `inbox_placement_tests:read`, `inbox_placement_tests:all`, `all:read`, `all:all`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsInboxPlacementTestsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTests429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `inbox_placement_tests:update`, `inbox_placement_tests:all`, `all:update`, `all:all`
@@ -219,14 +191,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InboxPlacementTestsItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
         /// Requires one of the following scopes: `inbox_placement_tests:read`, `inbox_placement_tests:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -235,22 +199,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
             /// <summary>Whether to include additional metadata about the inbox placement test</summary>
             [QueryParameter("with_metadata")]
             public bool? WithMetadata { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InboxPlacementTestsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InboxPlacementTestsItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }
