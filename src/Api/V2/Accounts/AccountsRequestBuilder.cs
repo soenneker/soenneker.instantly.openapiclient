@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Ctd;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.WarmupAnalytics;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -30,6 +31,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test.TestRequestBuilder Test
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test.TestRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The warmup property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.WarmupRequestBuilder Warmup
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.WarmupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The warmupAnalytics property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.WarmupAnalytics.WarmupAnalyticsRequestBuilder WarmupAnalytics

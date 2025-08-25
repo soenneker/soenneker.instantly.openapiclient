@@ -3153,12 +3153,14 @@
             "enum": [
               "move-leads",
               "import-leads",
-              "export-leads"
+              "export-leads",
+              "update-warmup-accounts"
             ],
             "x-enumDescriptions": {
               "move-leads": "Move Leads",
               "import-leads": "Import Leads",
-              "export-leads": "Export Leads"
+              "export-leads": "Export Leads",
+              "update-warmup-accounts": "Update Warmup Accounts"
             },
             "example": "move-leads"
           },
@@ -3176,11 +3178,13 @@
             "description": "Type of entity",
             "enum": [
               "list",
-              "campaign"
+              "campaign",
+              "workspace"
             ],
             "x-enumDescriptions": {
               "list": "The entity is a lead list",
-              "campaign": "The entity is a campaign"
+              "campaign": "The entity is a campaign",
+              "workspace": "The entity is a workspace"
             },
             "example": "list"
           },
@@ -5568,6 +5572,258 @@
         }
       }
     },
+    "/api/v2/accounts/warmup/enable": {
+      "post": {
+        "operationId": "enableWarmupForAccounts",
+        "summary": "Enable warmup for accounts",
+        "tags": [
+          "Account"
+        ],
+        "description": "Initiates a background job to enable warmup for the specified accounts. The response will contain the initial background job object. You can monitor the job\u0027s progress by polling the \u0060GET: /api/v2/background-jobs/:id\u0060 endpoint.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "user@example.com"
+                    },
+                    "maxItems": 100,
+                    "description": "List of emails to enable warmup accounts for. The emails should be attached to accounts in your workspace."
+                  },
+                  "include_all_emails": {
+                    "type": "boolean",
+                    "description": "If true, it will enable warmup to all accounts",
+                    "example": true
+                  },
+                  "excluded_emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "user@example.com"
+                    },
+                    "maxItems": 100,
+                    "description": "List of emails to exclude when \u0060include_all_emails\u0060 is \u0060true\u0060."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The requested Background Job",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-12"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/accounts/warmup/disable": {
+      "post": {
+        "operationId": "disableWarmupForAccounts",
+        "summary": "Disable warmup for accounts",
+        "tags": [
+          "Account"
+        ],
+        "description": "Initiates a background job to disable warmup for the specified accounts. The response will contain the initial background job object. You can monitor the job\u0027s progress by polling the \u0060GET: /api/v2/background-jobs/:id\u0060 endpoint.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "user@example.com"
+                    },
+                    "maxItems": 100,
+                    "description": "List of emails to disable warmup accounts for. The emails should be attached to accounts in your workspace."
+                  },
+                  "include_all_emails": {
+                    "type": "boolean",
+                    "description": "If true, it will disable warmup to all accounts",
+                    "example": true
+                  },
+                  "excluded_emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "user@example.com"
+                    },
+                    "maxItems": 100,
+                    "description": "List of emails to exclude when \u0060include_all_emails\u0060 is \u0060true\u0060."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The requested Background Job",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-12"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/accounts/warmup-analytics": {
       "post": {
         "operationId": "getWarmupAnalytics",
@@ -7019,7 +7275,7 @@
             "schema": {
               "type": "integer",
               "minimum": 1,
-              "maximum": 100,
+              "maximum": 1000,
               "example": 10
             },
             "in": "query",
@@ -7056,6 +7312,26 @@
             "name": "search",
             "required": false,
             "description": "Search term to filter logs"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "start_date",
+            "required": false,
+            "description": "Start date to filter logs"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "description": "End date to filter logs"
           }
         ],
         "responses": {
@@ -7225,7 +7501,8 @@
               "enum": [
                 "move-leads",
                 "import-leads",
-                "export-leads"
+                "export-leads",
+                "update-warmup-accounts"
               ],
               "example": "move-leads"
             },
@@ -7239,7 +7516,8 @@
               "type": "string",
               "enum": [
                 "list",
-                "campaign"
+                "campaign",
+                "workspace"
               ],
               "example": "list"
             },
@@ -7415,6 +7693,16 @@
         ],
         "description": "Requires one of the following scopes: \u0060background-jobs:read\u0060, \u0060background-jobs:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "success_count,failed_count,total_to_process"
+            },
+            "in": "query",
+            "name": "data_fields",
+            "required": false,
+            "description": "Comma-separated list of fields to include from the \u0060data\u0060 object (e.g., \u0022success_count,failed_count\u0022)."
+          },
           {
             "schema": {
               "type": "string",

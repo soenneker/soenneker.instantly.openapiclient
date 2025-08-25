@@ -22,7 +22,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BackgroundJobsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/background-jobs/{id}", pathParameters)
+        public BackgroundJobsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/background-jobs/{id}{?data_fields*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BackgroundJobsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/background-jobs/{id}", rawUrl)
+        public BackgroundJobsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/background-jobs/{id}{?data_fields*}", rawUrl)
         {
         }
         /// <summary>
@@ -44,11 +44,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.Def12429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def12?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def12?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder.BackgroundJobsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def12> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def12> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder.BackgroundJobsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,11 +67,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder.BackgroundJobsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder.BackgroundJobsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -87,6 +87,23 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class BackgroundJobsItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Comma-separated list of fields to include from the `data` object (e.g., &quot;success_count,failed_count&quot;).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("data_fields")]
+            public string? DataFields { get; set; }
+#nullable restore
+#else
+            [QueryParameter("data_fields")]
+            public string DataFields { get; set; }
+#endif
         }
     }
 }

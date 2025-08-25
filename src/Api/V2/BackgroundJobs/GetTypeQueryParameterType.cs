@@ -20,5 +20,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
         #pragma warning disable CS1591
         ExportLeads,
         #pragma warning restore CS1591
+        [EnumMember(Value = "update-warmup-accounts")]
+        #pragma warning disable CS1591
+        UpdateWarmupAccounts,
+        #pragma warning restore CS1591
     }
 }

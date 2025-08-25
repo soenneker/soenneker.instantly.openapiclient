@@ -16,5 +16,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
         #pragma warning disable CS1591
         Campaign,
         #pragma warning restore CS1591
+        [EnumMember(Value = "workspace")]
+        #pragma warning disable CS1591
+        Workspace,
+        #pragma warning restore CS1591
     }
 }

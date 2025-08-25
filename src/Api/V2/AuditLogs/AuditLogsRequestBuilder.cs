@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AuditLogsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/audit-logs{?activity_type*,limit*,search*,starting_after*}", pathParameters)
+        public AuditLogsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/audit-logs{?activity_type*,end_date*,limit*,search*,start_date*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AuditLogsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/audit-logs{?activity_type*,limit*,search*,starting_after*}", rawUrl)
+        public AuditLogsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/audit-logs{?activity_type*,end_date*,limit*,search*,start_date*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -94,6 +94,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
             /// <summary>Filter by activity type</summary>
             [QueryParameter("activity_type")]
             public double? ActivityType { get; set; }
+            /// <summary>End date to filter logs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("end_date")]
+            public string? EndDate { get; set; }
+#nullable restore
+#else
+            [QueryParameter("end_date")]
+            public string EndDate { get; set; }
+#endif
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
@@ -106,6 +116,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
 #else
             [QueryParameter("search")]
             public string Search { get; set; }
+#endif
+            /// <summary>Start date to filter logs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("start_date")]
+            public string? StartDate { get; set; }
+#nullable restore
+#else
+            [QueryParameter("start_date")]
+            public string StartDate { get; set; }
 #endif
             /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
