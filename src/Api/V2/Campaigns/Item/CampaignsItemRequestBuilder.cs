@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Activate;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share;
 using Soenneker.Instantly.OpenApiClient.Models;
@@ -24,6 +26,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Activate.ActivateRequestBuilder Activate
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Activate.ActivateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The duplicate property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate.DuplicateRequestBuilder Duplicate
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate.DuplicateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The fromExport property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport.FromExportRequestBuilder FromExport
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport.FromExportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pause property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause.PauseRequestBuilder Pause
