@@ -19,6 +19,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces;
@@ -118,6 +119,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.SubsequencesRequestBuilder Subsequences
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.SubsequencesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhooks property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksRequestBuilder Webhooks
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspaceGroupMembers property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder WorkspaceGroupMembers

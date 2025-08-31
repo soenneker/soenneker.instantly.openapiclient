@@ -480,6 +480,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Ai_inbox_manager_analyticsDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "webhooks:all")]
+        #pragma warning disable CS1591
+        WebhooksAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhooks:create")]
+        #pragma warning disable CS1591
+        WebhooksCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhooks:read")]
+        #pragma warning disable CS1591
+        WebhooksRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhooks:update")]
+        #pragma warning disable CS1591
+        WebhooksUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhooks:delete")]
+        #pragma warning disable CS1591
+        WebhooksDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "security_tokens:all")]
         #pragma warning disable CS1591
         Security_tokensAll,
