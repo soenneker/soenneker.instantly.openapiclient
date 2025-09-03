@@ -3596,6 +3596,683 @@
         ],
         "additionalProperties": false
       },
+      "def-21": {
+        "title": "SuperSearch Enrichment",
+        "description": "A SuperSearch enrichment that retrieves and enriches leads based on search filters",
+        "x-tags": [
+          "Schemas",
+          "SuperSearchEnrichment"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Unique identifier for the enrichment",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "search_filters": {
+            "type": "object",
+            "description": "Criteria that determine which leads are enriched",
+            "properties": {
+              "locations": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "place_id": {
+                          "type": "string",
+                          "examples": [
+                            "ChIJN1t_t3uEmsRUso9K6W47H4"
+                          ],
+                          "description": "Place ID of the lead\u0027s location"
+                        },
+                        "label": {
+                          "type": "string",
+                          "examples": [
+                            "San Francisco, CA, USA"
+                          ],
+                          "description": "Label of the lead\u0027s location"
+                        }
+                      },
+                      "required": [
+                        "place_id"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "city": {
+                          "type": "string",
+                          "examples": [
+                            "San Francisco"
+                          ],
+                          "description": "City of the lead"
+                        },
+                        "state": {
+                          "type": "string",
+                          "examples": [
+                            "California"
+                          ],
+                          "description": "State of the lead"
+                        },
+                        "country": {
+                          "type": "string",
+                          "examples": [
+                            "United States"
+                          ],
+                          "description": "Country of the lead"
+                        }
+                      },
+                      "required": [
+                        "city",
+                        "state",
+                        "country"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "department": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Engineering",
+                    "Finance \u0026 Administration",
+                    "Human Resources",
+                    "IT \u0026 IS",
+                    "Marketing",
+                    "Operations",
+                    "Sales",
+                    "Support",
+                    "Other"
+                  ],
+                  "x-enumDescriptions": {
+                    "Engineering": "Engineering",
+                    "Finance \u0026 Administration": "Finance \u0026 Administration",
+                    "Human Resources": "Human Resources",
+                    "IT \u0026 IS": "IT \u0026 IS",
+                    "Marketing": "Marketing",
+                    "Operations": "Operations",
+                    "Sales": "Sales",
+                    "Support": "Support",
+                    "Other": "Other"
+                  },
+                  "description": "Department of the lead",
+                  "example": "Engineering"
+                }
+              },
+              "level": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "C-Level",
+                    "VP-Level",
+                    "Director-Level",
+                    "Manager-Level",
+                    "Staff",
+                    "Entry level",
+                    "Mid-Senior level",
+                    "Director",
+                    "Associate",
+                    "Owner",
+                    "Executive",
+                    "Manager",
+                    "Senior",
+                    "Chief X Officer (CxO)",
+                    "Internship",
+                    "Vice President (VP)",
+                    "Unpaid / Internship",
+                    "Partner"
+                  ],
+                  "x-enumDescriptions": {
+                    "C-Level": "C-Level",
+                    "VP-Level": "VP-Level",
+                    "Director-Level": "Director-Level",
+                    "Manager-Level": "Manager-Level",
+                    "Staff": "Staff",
+                    "Entry level": "Entry level",
+                    "Mid-Senior level": "Mid-Senior level",
+                    "Director": "Director",
+                    "Associate": "Associate",
+                    "Owner": "Owner",
+                    "Executive": "Executive",
+                    "Manager": "Manager",
+                    "Senior": "Senior",
+                    "Chief X Officer (CxO)": "Chief X Officer (CxO)",
+                    "Internship": "Internship",
+                    "Vice President (VP)": "Vice President (VP)",
+                    "Unpaid / Internship": "Unpaid / Internship",
+                    "Partner": "Partner"
+                  },
+                  "description": "Level of the lead",
+                  "example": "Entry level"
+                }
+              },
+              "employeeCount": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "0 - 25",
+                    "25 - 100",
+                    "100 - 250",
+                    "250 - 1000",
+                    "1K - 10K",
+                    "10K - 50K",
+                    "50K - 100K",
+                    "\u003E 100K"
+                  ],
+                  "x-enumDescriptions": {
+                    "0 - 25": "0 - 25",
+                    "25 - 100": "25 - 100",
+                    "100 - 250": "100 - 250",
+                    "250 - 1000": "250 - 1000",
+                    "1K - 10K": "1K - 10K",
+                    "10K - 50K": "10K - 50K",
+                    "50K - 100K": "50K - 100K",
+                    "\u003E 100K": "\u003E 100K"
+                  },
+                  "description": "Employee count of the lead company",
+                  "example": "0 - 25"
+                }
+              },
+              "revenue": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "$0 - 1M",
+                    "$1 - 10M",
+                    "$10 - 50M",
+                    "$50 - 100M",
+                    "$100 - 250M",
+                    "$250 - 500M",
+                    "$500M - 1B",
+                    "\u003E $1B"
+                  ],
+                  "x-enumDescriptions": {
+                    "$0 - 1M": "$0 - 1M",
+                    "$1 - 10M": "$1M - 10M",
+                    "$10 - 50M": "$10M - 50M",
+                    "$50 - 100M": "$50M - 100M",
+                    "$100 - 250M": "$100M - 250M",
+                    "$250 - 500M": "$250M - 500M",
+                    "$500M - 1B": "$500M - 1B",
+                    "\u003E $1B": "\u003E $1B"
+                  },
+                  "description": "Revenue of the lead company",
+                  "example": "$1 - 10M"
+                }
+              },
+              "news": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "launches",
+                    "expands_offices_to",
+                    "hires",
+                    "partners_with",
+                    "leaves",
+                    "receives_financing",
+                    "recognized_as",
+                    "closes_offices_in",
+                    "is_developing",
+                    "has_issues_with",
+                    "promotes",
+                    "opens_new_location",
+                    "receives_award",
+                    "acquires",
+                    "invests_into_assets",
+                    "signs_new_client",
+                    "increases_headcount_by",
+                    "retires_from",
+                    "invests_into",
+                    "integrates_with",
+                    "expands_facilities",
+                    "goes_public",
+                    "sells_assets_to",
+                    "identified_as_competitor_of",
+                    "decreases_headcount_by",
+                    "expands_offices_in",
+                    "files_suit_against",
+                    "merges_with"
+                  ],
+                  "x-enumDescriptions": {
+                    "launches": "Launches",
+                    "expands_offices_to": "Expands Offices To",
+                    "hires": "Hires",
+                    "partners_with": "Partners With",
+                    "leaves": "Leaves",
+                    "receives_financing": "Receives Financing",
+                    "recognized_as": "Recognized As",
+                    "closes_offices_in": "Closes Offices In",
+                    "is_developing": "Is Developing",
+                    "has_issues_with": "Has Issues With",
+                    "promotes": "Promotes",
+                    "opens_new_location": "Opens New Location",
+                    "receives_award": "Receives Award",
+                    "acquires": "Acquires",
+                    "invests_into_assets": "Invests Into Assets",
+                    "signs_new_client": "Signs New Client",
+                    "increases_headcount_by": "Increases Headcount By",
+                    "retires_from": "Retires From",
+                    "invests_into": "Invests Into",
+                    "integrates_with": "Integrates With",
+                    "expands_facilities": "Expands Facilities",
+                    "goes_public": "Goes Public",
+                    "sells_assets_to": "Sells Assets To",
+                    "identified_as_competitor_of": "Identified As Competitor Of",
+                    "decreases_headcount_by": "Decreases Headcount By",
+                    "expands_offices_in": "Expands Offices In",
+                    "files_suit_against": "Files Suit Against",
+                    "merges_with": "Merges With"
+                  },
+                  "description": "News about the lead company",
+                  "example": "launches"
+                }
+              },
+              "title": {
+                "type": "object",
+                "properties": {
+                  "include": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "CEO"
+                    },
+                    "description": "Titles of the lead to include in the search"
+                  },
+                  "exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "VP"
+                    },
+                    "description": "Titles of the lead to exclude in the search"
+                  }
+                }
+              },
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "John Doe"
+                },
+                "description": "Names of the lead to include in the search"
+              },
+              "companyName": {
+                "type": "object",
+                "properties": {
+                  "include": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "Google"
+                    },
+                    "description": "Companies of the lead to include in the search"
+                  },
+                  "exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "Amazon"
+                    },
+                    "description": "Companies of the lead to exclude in the search"
+                  }
+                }
+              },
+              "lookAlike": {
+                "type": "string",
+                "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
+                "example": "google.com"
+              },
+              "keywordFilter": {
+                "type": "object",
+                "properties": {
+                  "exclude": {
+                    "type": "string",
+                    "example": "sales"
+                  },
+                  "include": {
+                    "type": "string",
+                    "example": "marketing"
+                  }
+                }
+              },
+              "industry": {
+                "type": "object",
+                "properties": {
+                  "exclude": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Agriculture \u0026 Mining",
+                        "Business Services",
+                        "Computers \u0026 Electronics",
+                        "Consumer Services",
+                        "Education",
+                        "Energy \u0026 Utilities",
+                        "Financial Services",
+                        "Government",
+                        "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                        "Manufacturing",
+                        "Media \u0026 Entertainment",
+                        "Non-Profit",
+                        "Other",
+                        "Real Estate \u0026 Construction",
+                        "Retail",
+                        "Software \u0026 Internet",
+                        "Telecommunications",
+                        "Transportation \u0026 Storage",
+                        "Travel, Recreation, and Leisure",
+                        "Wholesale \u0026 Distribution"
+                      ],
+                      "x-enumDescriptions": {
+                        "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
+                        "Business Services": "Business Services",
+                        "Financial Services": "Financial Services",
+                        "Computers \u0026 Electronics": "Computers \u0026 Electronics",
+                        "Consumer Services": "Consumer Services",
+                        "Education": "Education",
+                        "Energy \u0026 Utilities": "Energy \u0026 Utilities",
+                        "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                        "Manufacturing": "Manufacturing",
+                        "Media \u0026 Entertainment": "Media \u0026 Entertainment",
+                        "Non-Profit": "Non-Profit",
+                        "Other": "Other",
+                        "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
+                        "Retail": "Retail",
+                        "Software \u0026 Internet": "Software \u0026 Internet",
+                        "Telecommunications": "Telecommunications",
+                        "Transportation \u0026 Storage": "Transportation \u0026 Storage",
+                        "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
+                        "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
+                        "Government": "Government"
+                      },
+                      "example": "Agriculture \u0026 Mining"
+                    },
+                    "description": "Industries of the lead company to exclude in the search"
+                  },
+                  "include": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Agriculture \u0026 Mining",
+                        "Business Services",
+                        "Computers \u0026 Electronics",
+                        "Consumer Services",
+                        "Education",
+                        "Energy \u0026 Utilities",
+                        "Financial Services",
+                        "Government",
+                        "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                        "Manufacturing",
+                        "Media \u0026 Entertainment",
+                        "Non-Profit",
+                        "Other",
+                        "Real Estate \u0026 Construction",
+                        "Retail",
+                        "Software \u0026 Internet",
+                        "Telecommunications",
+                        "Transportation \u0026 Storage",
+                        "Travel, Recreation, and Leisure",
+                        "Wholesale \u0026 Distribution"
+                      ],
+                      "x-enumDescriptions": {
+                        "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
+                        "Business Services": "Business Services",
+                        "Financial Services": "Financial Services",
+                        "Computers \u0026 Electronics": "Computers \u0026 Electronics",
+                        "Consumer Services": "Consumer Services",
+                        "Education": "Education",
+                        "Energy \u0026 Utilities": "Energy \u0026 Utilities",
+                        "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                        "Manufacturing": "Manufacturing",
+                        "Media \u0026 Entertainment": "Media \u0026 Entertainment",
+                        "Non-Profit": "Non-Profit",
+                        "Other": "Other",
+                        "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
+                        "Retail": "Retail",
+                        "Software \u0026 Internet": "Software \u0026 Internet",
+                        "Telecommunications": "Telecommunications",
+                        "Transportation \u0026 Storage": "Transportation \u0026 Storage",
+                        "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
+                        "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
+                        "Government": "Government"
+                      },
+                      "description": "Industries of the lead company to include in the search",
+                      "example": "Agriculture \u0026 Mining"
+                    }
+                  }
+                }
+              },
+              "domains": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Domains of the lead company to include in the search",
+                  "example": "google.com"
+                }
+              },
+              "fundingType": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "angel",
+                    "seed",
+                    "pre_seed",
+                    "series_a",
+                    "pre_series_a",
+                    "series_b",
+                    "pre_series_b",
+                    "series_c",
+                    "pre_series_c",
+                    "series_d",
+                    "pre_series_d",
+                    "series_e",
+                    "pre_series_e",
+                    "series_f",
+                    "pre_series_f",
+                    "series_g",
+                    "pre_series_g",
+                    "series_h",
+                    "pre_series_h",
+                    "series_i",
+                    "pre_series_i",
+                    "series_j",
+                    "pre_series_j"
+                  ],
+                  "x-enumDescriptions": {
+                    "angel": "Angel",
+                    "seed": "Seed",
+                    "pre_seed": "Pre-Seed",
+                    "series_a": "Series A",
+                    "series_b": "Series B",
+                    "series_c": "Series C",
+                    "series_d": "Series D",
+                    "series_e": "Series E",
+                    "series_f": "Series F",
+                    "series_g": "Series G",
+                    "series_h": "Series H",
+                    "series_i": "Series I",
+                    "series_j": "Series J",
+                    "pre_series_a": "Pre-Series A",
+                    "pre_series_b": "Pre-Series B",
+                    "pre_series_c": "Pre-Series C",
+                    "pre_series_d": "Pre-Series D",
+                    "pre_series_e": "Pre-Series E",
+                    "pre_series_f": "Pre-Series F",
+                    "pre_series_g": "Pre-Series G",
+                    "pre_series_h": "Pre-Series H",
+                    "pre_series_i": "Pre-Series I",
+                    "pre_series_j": "Pre-Series J"
+                  },
+                  "description": "Funding types of the lead company to include in the search",
+                  "example": "angel"
+                }
+              },
+              "skipOwnedLeads": {
+                "type": "boolean",
+                "description": "If set, the lead finder will skip leads that are owned by the user",
+                "example": true
+              },
+              "showOneLeadPerCompany": {
+                "type": "boolean",
+                "description": "If set, the lead finder will show only one lead per company",
+                "example": true
+              }
+            }
+          },
+          "limit": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The maximum number of leads to enrich",
+            "example": 100
+          },
+          "organization_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Organization ID that created this enrichment",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "enrichment_payload": {
+            "type": "object",
+            "description": "Object with enrichment types to be applied, with boolean values",
+            "minProperties": 1,
+            "properties": {
+              "work_email_enrichment": {
+                "type": "boolean",
+                "example": true
+              },
+              "fully_enriched_profile": {
+                "type": "boolean",
+                "example": true
+              },
+              "email_verification": {
+                "type": "boolean",
+                "example": false
+              },
+              "joblisting": {
+                "type": "boolean",
+                "example": true
+              },
+              "technologies": {
+                "type": "boolean",
+                "example": true
+              },
+              "news": {
+                "type": "boolean",
+                "example": true
+              },
+              "funding": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "resource_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Unique identifier for the entity to enrich leads into",
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "resource_type": {
+            "type": "number",
+            "description": "Type of the entity to enrich leads into",
+            "enum": [
+              1,
+              2
+            ],
+            "x-enumDescriptions": {
+              "1": "Campaign",
+              "2": "List"
+            },
+            "example": 1
+          },
+          "search_name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the search",
+            "example": "CEO of tech companies in San Francisco"
+          },
+          "job_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Unique identifier for the enrichment job created",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "list_name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Custom name for the list created during enrichment",
+            "example": "My SuperSearch List"
+          },
+          "exists": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the enrichment exists",
+            "example": true
+          },
+          "auto_update": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether new leads added to the resource will be automatically enriched using these same settings",
+            "example": true
+          },
+          "skip_rows_without_email": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+            "example": true
+          },
+          "in_progress": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the enrichment is in progress",
+            "example": false
+          }
+        },
+        "required": [
+          "enrichment_payload"
+        ],
+        "additionalProperties": false
+      },
       "def-22": {
         "title": "Workspace Group Member",
         "description": "A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.",
@@ -4158,7 +4835,7 @@
             "type": "string",
             "readOnly": true,
             "format": "uuid",
-            "example": "000000000000000000000000"
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "timestamp": {
             "type": "string",
@@ -23083,6 +23760,1416 @@
         }
       }
     },
+    "/api/v2/supersearch-enrichment": {
+      "post": {
+        "operationId": "createSuperSearchEnrichment",
+        "summary": "Create supersearch enrichment",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "CreateSuperSearch Enrichment",
+                "description": "The SuperSearch Enrichment to create",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Unique identifier for the enrichment",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "search_filters": {
+                    "type": "object",
+                    "description": "Criteria that determine which leads are enriched",
+                    "properties": {
+                      "locations": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "place_id": {
+                                  "type": "string",
+                                  "description": "Place ID of the lead\u0027s location",
+                                  "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                },
+                                "label": {
+                                  "type": "string",
+                                  "description": "Label of the lead\u0027s location",
+                                  "example": "San Francisco, CA, USA"
+                                }
+                              },
+                              "required": [
+                                "place_id"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "city": {
+                                  "type": "string",
+                                  "description": "City of the lead",
+                                  "example": "San Francisco"
+                                },
+                                "state": {
+                                  "type": "string",
+                                  "description": "State of the lead",
+                                  "example": "California"
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "description": "Country of the lead",
+                                  "example": "United States"
+                                }
+                              },
+                              "required": [
+                                "city",
+                                "state",
+                                "country"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "department": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "Engineering",
+                            "Finance \u0026 Administration",
+                            "Human Resources",
+                            "IT \u0026 IS",
+                            "Marketing",
+                            "Operations",
+                            "Sales",
+                            "Support",
+                            "Other"
+                          ],
+                          "x-enumDescriptions": {
+                            "Engineering": "Engineering",
+                            "Finance \u0026 Administration": "Finance \u0026 Administration",
+                            "Human Resources": "Human Resources",
+                            "IT \u0026 IS": "IT \u0026 IS",
+                            "Marketing": "Marketing",
+                            "Operations": "Operations",
+                            "Sales": "Sales",
+                            "Support": "Support",
+                            "Other": "Other"
+                          },
+                          "description": "Department of the lead",
+                          "example": "Engineering"
+                        }
+                      },
+                      "level": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "C-Level",
+                            "VP-Level",
+                            "Director-Level",
+                            "Manager-Level",
+                            "Staff",
+                            "Entry level",
+                            "Mid-Senior level",
+                            "Director",
+                            "Associate",
+                            "Owner",
+                            "Executive",
+                            "Manager",
+                            "Senior",
+                            "Chief X Officer (CxO)",
+                            "Internship",
+                            "Vice President (VP)",
+                            "Unpaid / Internship",
+                            "Partner"
+                          ],
+                          "x-enumDescriptions": {
+                            "C-Level": "C-Level",
+                            "VP-Level": "VP-Level",
+                            "Director-Level": "Director-Level",
+                            "Manager-Level": "Manager-Level",
+                            "Staff": "Staff",
+                            "Entry level": "Entry level",
+                            "Mid-Senior level": "Mid-Senior level",
+                            "Director": "Director",
+                            "Associate": "Associate",
+                            "Owner": "Owner",
+                            "Executive": "Executive",
+                            "Manager": "Manager",
+                            "Senior": "Senior",
+                            "Chief X Officer (CxO)": "Chief X Officer (CxO)",
+                            "Internship": "Internship",
+                            "Vice President (VP)": "Vice President (VP)",
+                            "Unpaid / Internship": "Unpaid / Internship",
+                            "Partner": "Partner"
+                          },
+                          "description": "Level of the lead",
+                          "example": "Entry level"
+                        }
+                      },
+                      "employeeCount": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "0 - 25",
+                            "25 - 100",
+                            "100 - 250",
+                            "250 - 1000",
+                            "1K - 10K",
+                            "10K - 50K",
+                            "50K - 100K",
+                            "\u003E 100K"
+                          ],
+                          "x-enumDescriptions": {
+                            "0 - 25": "0 - 25",
+                            "25 - 100": "25 - 100",
+                            "100 - 250": "100 - 250",
+                            "250 - 1000": "250 - 1000",
+                            "1K - 10K": "1K - 10K",
+                            "10K - 50K": "10K - 50K",
+                            "50K - 100K": "50K - 100K",
+                            "\u003E 100K": "\u003E 100K"
+                          },
+                          "description": "Employee count of the lead company",
+                          "example": "0 - 25"
+                        }
+                      },
+                      "revenue": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "$0 - 1M",
+                            "$1 - 10M",
+                            "$10 - 50M",
+                            "$50 - 100M",
+                            "$100 - 250M",
+                            "$250 - 500M",
+                            "$500M - 1B",
+                            "\u003E $1B"
+                          ],
+                          "x-enumDescriptions": {
+                            "$0 - 1M": "$0 - 1M",
+                            "$1 - 10M": "$1M - 10M",
+                            "$10 - 50M": "$10M - 50M",
+                            "$50 - 100M": "$50M - 100M",
+                            "$100 - 250M": "$100M - 250M",
+                            "$250 - 500M": "$250M - 500M",
+                            "$500M - 1B": "$500M - 1B",
+                            "\u003E $1B": "\u003E $1B"
+                          },
+                          "description": "Revenue of the lead company",
+                          "example": "$1 - 10M"
+                        }
+                      },
+                      "news": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "launches",
+                            "expands_offices_to",
+                            "hires",
+                            "partners_with",
+                            "leaves",
+                            "receives_financing",
+                            "recognized_as",
+                            "closes_offices_in",
+                            "is_developing",
+                            "has_issues_with",
+                            "promotes",
+                            "opens_new_location",
+                            "receives_award",
+                            "acquires",
+                            "invests_into_assets",
+                            "signs_new_client",
+                            "increases_headcount_by",
+                            "retires_from",
+                            "invests_into",
+                            "integrates_with",
+                            "expands_facilities",
+                            "goes_public",
+                            "sells_assets_to",
+                            "identified_as_competitor_of",
+                            "decreases_headcount_by",
+                            "expands_offices_in",
+                            "files_suit_against",
+                            "merges_with"
+                          ],
+                          "x-enumDescriptions": {
+                            "launches": "Launches",
+                            "expands_offices_to": "Expands Offices To",
+                            "hires": "Hires",
+                            "partners_with": "Partners With",
+                            "leaves": "Leaves",
+                            "receives_financing": "Receives Financing",
+                            "recognized_as": "Recognized As",
+                            "closes_offices_in": "Closes Offices In",
+                            "is_developing": "Is Developing",
+                            "has_issues_with": "Has Issues With",
+                            "promotes": "Promotes",
+                            "opens_new_location": "Opens New Location",
+                            "receives_award": "Receives Award",
+                            "acquires": "Acquires",
+                            "invests_into_assets": "Invests Into Assets",
+                            "signs_new_client": "Signs New Client",
+                            "increases_headcount_by": "Increases Headcount By",
+                            "retires_from": "Retires From",
+                            "invests_into": "Invests Into",
+                            "integrates_with": "Integrates With",
+                            "expands_facilities": "Expands Facilities",
+                            "goes_public": "Goes Public",
+                            "sells_assets_to": "Sells Assets To",
+                            "identified_as_competitor_of": "Identified As Competitor Of",
+                            "decreases_headcount_by": "Decreases Headcount By",
+                            "expands_offices_in": "Expands Offices In",
+                            "files_suit_against": "Files Suit Against",
+                            "merges_with": "Merges With"
+                          },
+                          "description": "News about the lead company",
+                          "example": "launches"
+                        }
+                      },
+                      "title": {
+                        "type": "object",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "CEO"
+                            },
+                            "description": "Titles of the lead to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "VP"
+                            },
+                            "description": "Titles of the lead to exclude in the search"
+                          }
+                        }
+                      },
+                      "name": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "John Doe"
+                        },
+                        "description": "Names of the lead to include in the search"
+                      },
+                      "companyName": {
+                        "type": "object",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "Google"
+                            },
+                            "description": "Companies of the lead to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "Amazon"
+                            },
+                            "description": "Companies of the lead to exclude in the search"
+                          }
+                        }
+                      },
+                      "lookAlike": {
+                        "type": "string",
+                        "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
+                        "example": "google.com"
+                      },
+                      "keywordFilter": {
+                        "type": "object",
+                        "properties": {
+                          "exclude": {
+                            "type": "string",
+                            "example": "sales"
+                          },
+                          "include": {
+                            "type": "string",
+                            "example": "marketing"
+                          }
+                        }
+                      },
+                      "industry": {
+                        "type": "object",
+                        "properties": {
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Agriculture \u0026 Mining",
+                                "Business Services",
+                                "Computers \u0026 Electronics",
+                                "Consumer Services",
+                                "Education",
+                                "Energy \u0026 Utilities",
+                                "Financial Services",
+                                "Government",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing",
+                                "Media \u0026 Entertainment",
+                                "Non-Profit",
+                                "Other",
+                                "Real Estate \u0026 Construction",
+                                "Retail",
+                                "Software \u0026 Internet",
+                                "Telecommunications",
+                                "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution"
+                              ],
+                              "x-enumDescriptions": {
+                                "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
+                                "Business Services": "Business Services",
+                                "Financial Services": "Financial Services",
+                                "Computers \u0026 Electronics": "Computers \u0026 Electronics",
+                                "Consumer Services": "Consumer Services",
+                                "Education": "Education",
+                                "Energy \u0026 Utilities": "Energy \u0026 Utilities",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing": "Manufacturing",
+                                "Media \u0026 Entertainment": "Media \u0026 Entertainment",
+                                "Non-Profit": "Non-Profit",
+                                "Other": "Other",
+                                "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
+                                "Retail": "Retail",
+                                "Software \u0026 Internet": "Software \u0026 Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Transportation \u0026 Storage": "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
+                                "Government": "Government"
+                              },
+                              "example": "Agriculture \u0026 Mining"
+                            },
+                            "description": "Industries of the lead company to exclude in the search"
+                          },
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Agriculture \u0026 Mining",
+                                "Business Services",
+                                "Computers \u0026 Electronics",
+                                "Consumer Services",
+                                "Education",
+                                "Energy \u0026 Utilities",
+                                "Financial Services",
+                                "Government",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing",
+                                "Media \u0026 Entertainment",
+                                "Non-Profit",
+                                "Other",
+                                "Real Estate \u0026 Construction",
+                                "Retail",
+                                "Software \u0026 Internet",
+                                "Telecommunications",
+                                "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution"
+                              ],
+                              "x-enumDescriptions": {
+                                "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
+                                "Business Services": "Business Services",
+                                "Financial Services": "Financial Services",
+                                "Computers \u0026 Electronics": "Computers \u0026 Electronics",
+                                "Consumer Services": "Consumer Services",
+                                "Education": "Education",
+                                "Energy \u0026 Utilities": "Energy \u0026 Utilities",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing": "Manufacturing",
+                                "Media \u0026 Entertainment": "Media \u0026 Entertainment",
+                                "Non-Profit": "Non-Profit",
+                                "Other": "Other",
+                                "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
+                                "Retail": "Retail",
+                                "Software \u0026 Internet": "Software \u0026 Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Transportation \u0026 Storage": "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
+                                "Government": "Government"
+                              },
+                              "description": "Industries of the lead company to include in the search",
+                              "example": "Agriculture \u0026 Mining"
+                            }
+                          }
+                        }
+                      },
+                      "domains": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "Domains of the lead company to include in the search",
+                          "example": "google.com"
+                        }
+                      },
+                      "fundingType": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "angel",
+                            "seed",
+                            "pre_seed",
+                            "series_a",
+                            "pre_series_a",
+                            "series_b",
+                            "pre_series_b",
+                            "series_c",
+                            "pre_series_c",
+                            "series_d",
+                            "pre_series_d",
+                            "series_e",
+                            "pre_series_e",
+                            "series_f",
+                            "pre_series_f",
+                            "series_g",
+                            "pre_series_g",
+                            "series_h",
+                            "pre_series_h",
+                            "series_i",
+                            "pre_series_i",
+                            "series_j",
+                            "pre_series_j"
+                          ],
+                          "x-enumDescriptions": {
+                            "angel": "Angel",
+                            "seed": "Seed",
+                            "pre_seed": "Pre-Seed",
+                            "series_a": "Series A",
+                            "series_b": "Series B",
+                            "series_c": "Series C",
+                            "series_d": "Series D",
+                            "series_e": "Series E",
+                            "series_f": "Series F",
+                            "series_g": "Series G",
+                            "series_h": "Series H",
+                            "series_i": "Series I",
+                            "series_j": "Series J",
+                            "pre_series_a": "Pre-Series A",
+                            "pre_series_b": "Pre-Series B",
+                            "pre_series_c": "Pre-Series C",
+                            "pre_series_d": "Pre-Series D",
+                            "pre_series_e": "Pre-Series E",
+                            "pre_series_f": "Pre-Series F",
+                            "pre_series_g": "Pre-Series G",
+                            "pre_series_h": "Pre-Series H",
+                            "pre_series_i": "Pre-Series I",
+                            "pre_series_j": "Pre-Series J"
+                          },
+                          "description": "Funding types of the lead company to include in the search",
+                          "example": "angel"
+                        }
+                      },
+                      "skipOwnedLeads": {
+                        "type": "boolean",
+                        "description": "If set, the lead finder will skip leads that are owned by the user",
+                        "example": true
+                      },
+                      "showOneLeadPerCompany": {
+                        "type": "boolean",
+                        "description": "If set, the lead finder will show only one lead per company",
+                        "example": true
+                      }
+                    }
+                  },
+                  "limit": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "description": "The maximum number of leads to enrich",
+                    "example": 100
+                  },
+                  "enrichment_payload": {
+                    "type": "object",
+                    "description": "Object with enrichment types to be applied, with boolean values",
+                    "minProperties": 1,
+                    "properties": {
+                      "work_email_enrichment": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "fully_enriched_profile": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "email_verification": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "joblisting": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "technologies": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "news": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "funding": {
+                        "type": "boolean",
+                        "example": true
+                      }
+                    }
+                  },
+                  "resource_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Unique identifier for the entity to enrich leads into",
+                    "format": "uuid",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "resource_type": {
+                    "type": "number",
+                    "description": "Type of the entity to enrich leads into",
+                    "enum": [
+                      1,
+                      2
+                    ],
+                    "x-enumDescriptions": {
+                      "1": "Campaign",
+                      "2": "List"
+                    },
+                    "example": 1
+                  },
+                  "search_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The name of the search",
+                    "example": "CEO of tech companies in San Francisco"
+                  },
+                  "list_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Custom name for the list created during enrichment",
+                    "example": "My SuperSearch List"
+                  },
+                  "exists": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether the enrichment exists",
+                    "example": true
+                  },
+                  "auto_update": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether new leads added to the resource will be automatically enriched using these same settings",
+                    "example": true
+                  },
+                  "skip_rows_without_email": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+                    "example": true
+                  },
+                  "in_progress": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether the enrichment is in progress",
+                    "example": false
+                  }
+                },
+                "required": [
+                  "enrichment_payload"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true,
+          "description": "The SuperSearch Enrichment to create"
+        },
+        "responses": {
+          "200": {
+            "description": "The SuperSearch Enrichment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-21"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body (e.g. missing required fields, or invalid field values)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/{resource_id}": {
+      "get": {
+        "operationId": "getSuperSearchEnrichment",
+        "summary": "Get supersearch enrichment",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "resource_id",
+            "required": true,
+            "description": "The ID of the list or campaign to retrieve the enrichment."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested SuperSearch Enrichment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/{resource_id}/add": {
+      "post": {
+        "operationId": "addSuperSearchEnrichment",
+        "summary": "Add supersearch enrichment to resource",
+        "tags": [
+          "SuperSearch Enrichments"
+        ],
+        "description": "Add a SuperSearch enrichment to a specific resource (list or campaign)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "example": "email_verification",
+                    "type": "string",
+                    "enum": [
+                      "work_email_enrichment",
+                      "fully_enriched_profile",
+                      "email_verification",
+                      "joblisting",
+                      "technologies",
+                      "news",
+                      "funding"
+                    ],
+                    "x-enumDescriptions": {
+                      "work_email_enrichment": "Work Email Enrichment",
+                      "fully_enriched_profile": "LinkedIn Enrichment",
+                      "email_verification": "Email Verification",
+                      "joblisting": "Job Listing Enrichment",
+                      "technologies": "Technologies Enrichment",
+                      "news": "News Enrichment",
+                      "funding": "Funding Enrichment"
+                    },
+                    "description": "Enrichment type"
+                  },
+                  "resource_id": {
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+                    "format": "uuid",
+                    "type": "string",
+                    "description": "Unique identifier for the entity to import leads into"
+                  },
+                  "auto_update": {
+                    "type": "boolean",
+                    "description": "Whether the enrichment is auto-updated",
+                    "example": true
+                  },
+                  "skip_rows_without_email": {
+                    "type": "boolean",
+                    "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+                    "example": true
+                  },
+                  "limit": {
+                    "type": "number",
+                    "description": "Maximum number of leads to enrich.",
+                    "minimum": 1,
+                    "maximum": 50000,
+                    "example": 100
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "resource_id",
+            "required": true,
+            "description": "Unique identifier for the resource (list or campaign)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/ai": {
+      "post": {
+        "operationId": "createAIEnrichment",
+        "summary": "Create AI enrichment",
+        "tags": [
+          "SuperSearch Enrichments"
+        ],
+        "description": "Create an AI enrichment for a resource (list or campaign)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "resource_id",
+                  "output_column",
+                  "resource_type",
+                  "model_version"
+                ],
+                "properties": {
+                  "resource_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Id of the resource (list or campaign) to enrich",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "output_column": {
+                    "type": "string",
+                    "description": "Name of the column where the AI enrichment results will be stored",
+                    "example": "ai_generated_content"
+                  },
+                  "resource_type": {
+                    "type": "number",
+                    "enum": [
+                      1,
+                      2
+                    ],
+                    "x-enumDescriptions": {
+                      "1": "Campaign",
+                      "2": "List"
+                    },
+                    "description": "Type of the entity to enrich",
+                    "example": 2
+                  },
+                  "input_columns": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of column names to use as input data for the AI enrichment. These are the fields from your leads that will be used to generate content.",
+                    "example": [
+                      "first_name",
+                      "last_name",
+                      "email",
+                      "company_name",
+                      "job_title",
+                      "location"
+                    ]
+                  },
+                  "model_version": {
+                    "type": "string",
+                    "enum": [
+                      "3.5",
+                      "4.0",
+                      "gpt-4o",
+                      "o3",
+                      "gpt-4.1",
+                      "gpt-5-mini",
+                      "gpt-5-nano",
+                      "gpt-5",
+                      "claude-3.7-sonnet",
+                      "claude-3.5-sonnet",
+                      "r1",
+                      "grok-2",
+                      "grok-4",
+                      "gemini-1.5-flash",
+                      "gemini-2.0-flash",
+                      "instantly-ai-lightspeed-agent-for-web-research",
+                      "instantly-ai-lightspeed-agent-for-email-generation"
+                    ],
+                    "x-enumDescriptions": {
+                      "3.5": "GPT-3.5 Turbo - OpenAI\u0027s standard model with good performance and low cost",
+                      "gpt-5": "GPT-5 is OpenAI\u2019s most advanced model, offering major improvements in reasoning, code quality, and user experience.",
+                      "gpt-5-mini": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks.",
+                      "gpt-5-nano": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments.",
+                      "4.0": "GPT-4 - OpenAI\u0027s advanced model with improved reasoning",
+                      "gpt-4o": "GPT-4o - OpenAI\u0027s optimized model with improved performance",
+                      "o3": "o3 is a well-rounded and powerful model across domains. It sets a new standard for math, science, coding, and visual reasoning tasks.",
+                      "gpt-4.1": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning.",
+                      "claude-3.7-sonnet": "Claude 3.7 Sonnet - Anthropic\u0027s most capable model",
+                      "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
+                      "r1": "R1 - Deepseek\u0027s advanced chat model",
+                      "grok-2": "Grok 2 - X AI\u0027s earlier-generation model",
+                      "grok-4": "Grok 4 - X AI\u0027s latest reasoning model",
+                      "gemini-1.5-flash": "Gemini 1.5 Flash - Google\u0027s fast and efficient model",
+                      "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s latest model with improved capabilities",
+                      "instantly-ai-lightspeed-agent-for-web-research": "Instantly AI - LightSpeed Agent for Web Research",
+                      "instantly-ai-lightspeed-agent-for-email-generation": "Instantly AI - LightSpeed Agent for Email Generation"
+                    },
+                    "description": "Version of the AI model to use for enrichment. Different models have different capabilities, costs, and token limits.",
+                    "example": "gpt-4o"
+                  },
+                  "use_instantly_account": {
+                    "type": "boolean",
+                    "description": "When true, the enrichment will use Instantly\u0027s account for API calls. When false, it will use your own API keys configured in settings.",
+                    "example": true
+                  },
+                  "overwrite": {
+                    "type": "boolean",
+                    "description": "When true, will overwrite existing values in the output column. When false, only empty fields will be enriched.",
+                    "example": false
+                  },
+                  "auto_update": {
+                    "type": "boolean",
+                    "description": "When true, new leads added to the campaign/list will be automatically enriched using these same settings.",
+                    "example": true
+                  },
+                  "skip_leads_without_email": {
+                    "type": "boolean",
+                    "description": "When true, leads without an email will be skipped.",
+                    "example": false
+                  },
+                  "limit": {
+                    "type": "number",
+                    "description": "Maximum number of leads to enrich.",
+                    "minimum": 1,
+                    "maximum": 50000,
+                    "example": 100
+                  },
+                  "prompt": {
+                    "type": "string",
+                    "description": "Custom prompt to guide the AI enrichment. Use {{variables}} to reference input data. Only used when templateId is not provided.",
+                    "example": "Write a personalized email to {{first_name}} from {{company_name}} about our new product"
+                  },
+                  "template_id": {
+                    "type": "number",
+                    "description": "ID of a predefined AI prompt template to use instead of a custom prompt. Templates are reusable prompt configurations.",
+                    "example": 123
+                  },
+                  "status": {
+                    "type": "number",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ],
+                    "x-enumDescriptions": {
+                      "1": "Job is pending processing",
+                      "2": "Job is currently being processed",
+                      "3": "Job has been completed successfully",
+                      "4": "Job processing failed"
+                    },
+                    "description": "Status of the job",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/job/{job_id}": {
+      "get": {
+        "operationId": "getEnrichmentJob",
+        "summary": "Get enrichment job status",
+        "tags": [
+          "SuperSearch Enrichments"
+        ],
+        "description": "Retrieve the status and details of a specific enrichment job",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "description": "ID of the enrichment job to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/history/{resource_id}": {
+      "get": {
+        "operationId": "getEnrichmentHistory",
+        "summary": "Get enrichment history",
+        "tags": [
+          "SuperSearch Enrichments"
+        ],
+        "description": "Retrieve the enrichment history for a specific resource",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "offset",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "limit",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "path",
+            "name": "resource_id",
+            "required": true,
+            "description": "ID of the resource to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/run": {
+      "post": {
+        "operationId": "runEnrichment",
+        "summary": "Run an enrichment",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Run an enrichment for a list of leads or for all the leads that haven\u0027t been enriched yet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enrichment_id": {
+                    "type": "string",
+                    "description": "The ID of the enrichment",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "lead_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "maxItems": 10000,
+                    "minItems": 1,
+                    "description": "List of lead IDs to enrich"
+                  },
+                  "enrichment_type": {
+                    "type": "string",
+                    "description": "The type of enrichment to run",
+                    "example": "work_email_enrichment"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "description": "If set, only the first N leads will be enriched",
+                    "example": 10
+                  }
+                },
+                "required": [
+                  "enrichment_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The ID of the enrichment",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "resource_id": {
+                      "type": "string",
+                      "description": "The ID of the resource (list or campaign) to enrich",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "enrichment_payload": {
+                      "type": "object",
+                      "description": "The payload of the enrichment"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "All the leads have already been enriched"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/email-verification": {
       "post": {
         "operationId": "createEmailVerification",
@@ -26173,6 +28260,11 @@
       "x-displayName": "Analytics"
     },
     {
+      "name": "SuperSearch Enrichments",
+      "description": "Endpoints for SuperSearch enrichment operations",
+      "x-displayName": "SuperSearch Enrichments"
+    },
+    {
       "name": "Account",
       "description": "An email account that can be used to send campaigns",
       "x-displayName": "Account"
@@ -26251,6 +28343,11 @@
       "name": "Workspace",
       "description": "A workspace entity representing a workspace",
       "x-displayName": "Workspace"
+    },
+    {
+      "name": "SuperSearchEnrichment",
+      "description": "A SuperSearch enrichment that retrieves and enriches leads based on search filters",
+      "x-displayName": "SuperSearch Enrichment"
     },
     {
       "name": "WorkspaceGroupMember",
