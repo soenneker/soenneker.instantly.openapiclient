@@ -3159,13 +3159,15 @@
               "move-leads",
               "import-leads",
               "export-leads",
-              "update-warmup-accounts"
+              "update-warmup-accounts",
+              "rename-variable"
             ],
             "x-enumDescriptions": {
               "move-leads": "Move Leads",
               "import-leads": "Import Leads",
               "export-leads": "Export Leads",
-              "update-warmup-accounts": "Update Warmup Accounts"
+              "update-warmup-accounts": "Update Warmup Accounts",
+              "rename-variable": "Rename Variable"
             },
             "example": "move-leads"
           },
@@ -4823,6 +4825,105 @@
         "additionalProperties": false
       },
       "def-30": {
+        "title": "Filter",
+        "description": "A filter that can be applied to variables in campaigns or lists",
+        "x-tags": [
+          "Schemas",
+          "Filter"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Unique identifier for the filter",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "resource_id": {
+            "type": "string",
+            "description": "ID of the resource (campaign or list) this filter applies to",
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "type": {
+            "type": "number",
+            "description": "Type of filter to apply",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "x-enumDescriptions": {
+              "1": "Equal to",
+              "2": "Not equal to",
+              "3": "Contains",
+              "4": "Does not contain",
+              "5": "Contains any of",
+              "6": "Does not contain any of",
+              "7": "Is empty",
+              "8": "Is not empty"
+            },
+            "example": 1
+          },
+          "column_name": {
+            "type": "string",
+            "description": "Name of the column/variable to filter on",
+            "example": "company_size"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "ID of the organization this filter belongs to",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "value": {
+            "type": "array",
+            "description": "Value to filter on",
+            "items": {
+              "type": "string",
+              "example": "100000"
+            }
+          },
+          "timestamp_created": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when the filter was created",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when the filter was last updated",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        },
+        "required": [
+          "resource_id",
+          "type",
+          "column_name",
+          "organization_id"
+        ],
+        "additionalProperties": false
+      },
+      "def-31": {
         "title": "Audit Log",
         "description": "Audit log records for tracking system activities",
         "x-tags": [
@@ -4981,7 +5082,7 @@
         ],
         "additionalProperties": false
       },
-      "def-35": {
+      "def-36": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -8121,7 +8222,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-30"
+                        "$ref": "#/components/schemas/def-31"
                       }
                     },
                     "next_starting_after": {
@@ -8278,7 +8379,8 @@
                 "move-leads",
                 "import-leads",
                 "export-leads",
-                "update-warmup-accounts"
+                "update-warmup-accounts",
+                "rename-variable"
               ],
               "example": "move-leads"
             },
@@ -24683,9 +24785,9 @@
         "operationId": "addSuperSearchEnrichment",
         "summary": "Add supersearch enrichment to resource",
         "tags": [
-          "SuperSearch Enrichments"
+          "SuperSearchEnrichment",
+          "SuperSearch Enrichment"
         ],
-        "description": "Add a SuperSearch enrichment to a specific resource (list or campaign)",
         "requestBody": {
           "content": {
             "application/json": {
@@ -24696,7 +24798,6 @@
                 ],
                 "properties": {
                   "type": {
-                    "example": "email_verification",
                     "type": "string",
                     "enum": [
                       "work_email_enrichment",
@@ -24716,13 +24817,14 @@
                       "news": "News Enrichment",
                       "funding": "Funding Enrichment"
                     },
-                    "description": "Enrichment type"
+                    "description": "Enrichment type",
+                    "example": "email_verification"
                   },
                   "resource_id": {
-                    "example": "f9cc070d-8dba-4341-b847-f083c358e460",
                     "format": "uuid",
                     "type": "string",
-                    "description": "Unique identifier for the entity to import leads into"
+                    "description": "Unique identifier for the entity to import leads into",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "auto_update": {
                     "type": "boolean",
@@ -24762,7 +24864,84 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "The requested SuperSearch Enrichment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -24772,9 +24951,9 @@
         "operationId": "createAIEnrichment",
         "summary": "Create AI enrichment",
         "tags": [
-          "SuperSearch Enrichments"
+          "SuperSearchEnrichment",
+          "SuperSearch Enrichment"
         ],
-        "description": "Create an AI enrichment for a resource (list or campaign)",
         "requestBody": {
           "content": {
             "application/json": {
@@ -24931,34 +25110,84 @@
         },
         "responses": {
           "200": {
-            "description": "Default Response"
-          }
-        }
-      }
-    },
-    "/api/v2/supersearch-enrichment/job/{job_id}": {
-      "get": {
-        "operationId": "getEnrichmentJob",
-        "summary": "Get enrichment job status",
-        "tags": [
-          "SuperSearch Enrichments"
-        ],
-        "description": "Retrieve the status and details of a specific enrichment job",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "in": "path",
-            "name": "job_id",
-            "required": true,
-            "description": "ID of the enrichment job to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Default Response"
+            "description": "The requested SuperSearch Enrichment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -24968,13 +25197,15 @@
         "operationId": "getEnrichmentHistory",
         "summary": "Get enrichment history",
         "tags": [
-          "SuperSearch Enrichments"
+          "SuperSearchEnrichment",
+          "SuperSearch Enrichment"
         ],
-        "description": "Retrieve the enrichment history for a specific resource",
+        "description": "Retrieve the enrichment history for a specific resource\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
           {
             "schema": {
-              "type": "number"
+              "type": "number",
+              "example": 0
             },
             "in": "query",
             "name": "offset",
@@ -24982,7 +25213,8 @@
           },
           {
             "schema": {
-              "type": "number"
+              "type": "number",
+              "example": 10
             },
             "in": "query",
             "name": "limit",
@@ -24991,7 +25223,8 @@
           {
             "schema": {
               "type": "string",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
             "in": "path",
             "name": "resource_id",
@@ -25001,7 +25234,84 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "The requested SuperSearch Enrichment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -25513,7 +25823,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-35"
+                        "$ref": "#/components/schemas/def-36"
                       }
                     },
                     "next_starting_after": {
@@ -25684,7 +25994,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -25824,7 +26134,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -26026,7 +26336,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -26173,7 +26483,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -28260,11 +28570,6 @@
       "x-displayName": "Analytics"
     },
     {
-      "name": "SuperSearch Enrichments",
-      "description": "Endpoints for SuperSearch enrichment operations",
-      "x-displayName": "SuperSearch Enrichments"
-    },
-    {
       "name": "Account",
       "description": "An email account that can be used to send campaigns",
       "x-displayName": "Account"
@@ -28363,6 +28668,11 @@
       "name": "CampaignSubsequence",
       "description": "A subsequence entity representing a follow-up sequence",
       "x-displayName": "Campaign Subsequence"
+    },
+    {
+      "name": "Filter",
+      "description": "A filter that can be applied to variables in campaigns or lists",
+      "x-displayName": "Filter"
     },
     {
       "name": "AuditLog",

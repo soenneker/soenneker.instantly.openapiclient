@@ -24,5 +24,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
         #pragma warning disable CS1591
         UpdateWarmupAccounts,
         #pragma warning restore CS1591
+        [EnumMember(Value = "rename-variable")]
+        #pragma warning disable CS1591
+        RenameVariable,
+        #pragma warning restore CS1591
     }
 }

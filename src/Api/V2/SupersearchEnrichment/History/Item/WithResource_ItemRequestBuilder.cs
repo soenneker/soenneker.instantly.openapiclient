@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -33,25 +34,32 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
         {
         }
         /// <summary>
-        /// Retrieve the enrichment history for a specific resource
+        /// Retrieve the enrichment history for a specific resourceRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def21"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.Def21401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.Def21429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder.WithResource_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def21?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder.WithResource_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder.WithResource_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def21> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder.WithResource_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.Def21401Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.Def21429Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def21>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def21.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the enrichment history for a specific resource
+        /// Retrieve the enrichment history for a specific resourceRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,6 +74,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -78,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve the enrichment history for a specific resource
+        /// Retrieve the enrichment history for a specific resourceRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithResource_ItemRequestBuilderGetQueryParameters 

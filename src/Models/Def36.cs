@@ -11,14 +11,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// A webhook subscription for receiving event notifications
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Def35 : IParsable
+    public partial class Def36 : IParsable
     {
         /// <summary>Optional campaign UUID to filter events (null = all campaigns in workspace)</summary>
         public Guid? Campaign { get; set; }
         /// <summary>Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)</summary>
         public double? CustomInterestValue { get; set; }
         /// <summary>Type of event to trigger the webhook (null for custom label events)</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def35_event_type? EventType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def36_event_type? EventType { get; set; }
         /// <summary>Unique identifier for the webhook (UUID)</summary>
         public Guid? Id { get; private set; }
         /// <summary>Organization (workspace) UUID that owns this webhook</summary>
@@ -36,12 +36,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def35"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def36"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.Def35 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.Def36 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.Def35();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.Def36();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "campaign", n => { Campaign = n.GetGuidValue(); } },
                 { "custom_interest_value", n => { CustomInterestValue = n.GetDoubleValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def35_event_type>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def36_event_type>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
                 { "target_hook_url", n => { TargetHookUrl = n.GetStringValue(); } },
@@ -69,7 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("campaign", Campaign);
             writer.WriteDoubleValue("custom_interest_value", CustomInterestValue);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def35_event_type>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def36_event_type>("event_type", EventType);
             writer.WriteStringValue("target_hook_url", TargetHookUrl);
         }
     }

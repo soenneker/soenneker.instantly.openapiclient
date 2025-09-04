@@ -6,7 +6,6 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
-using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Job;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -31,11 +30,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder History
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The job property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Job.JobRequestBuilder Job
-        {
-            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Job.JobRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The run property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunRequestBuilder Run

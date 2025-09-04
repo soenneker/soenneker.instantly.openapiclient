@@ -11,7 +11,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Audit log records for tracking system activities
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Def30 : IParsable
+    public partial class Def31 : IParsable
     {
         /// <summary>Type of activity performed</summary>
         public double? ActivityType { get; private set; }
@@ -20,10 +20,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Metadata about the audit log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata? AuditMetadata { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata? AuditMetadata { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata AuditMetadata { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata AuditMetadata { get; private set; }
 #endif
         /// <summary>Associated campaign ID if applicable</summary>
         public Guid? CampaignId { get; private set; }
@@ -68,12 +68,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def30"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def31"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.Def30 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.Def31 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.Def30();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.Def31();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,7 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "activity_type", n => { ActivityType = n.GetDoubleValue(); } },
                 { "affected_count", n => { AffectedCount = n.GetDoubleValue(); } },
-                { "audit_metadata", n => { AuditMetadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata>(global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata.CreateFromDiscriminatorValue); } },
+                { "audit_metadata", n => { AuditMetadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata>(global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata.CreateFromDiscriminatorValue); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
                 { "from_api", n => { FromApi = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },

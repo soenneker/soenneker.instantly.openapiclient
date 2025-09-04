@@ -11,26 +11,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Metadata about the audit log
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Def30_audit_metadata : IAdditionalDataHolder, IParsable
+    public partial class Def31_audit_metadata : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata"/> and sets the default values.
         /// </summary>
-        public Def30_audit_metadata()
+        public Def31_audit_metadata()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.Def30_audit_metadata();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.Def31_audit_metadata();
         }
         /// <summary>
         /// The deserialization information for the current model

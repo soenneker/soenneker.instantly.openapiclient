@@ -5,12 +5,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum Def35404Error_error
+    public enum Def36401Error_error
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "Not Found")]
+        [EnumMember(Value = "Unauthorized")]
         #pragma warning disable CS1591
-        NotFound,
+        Unauthorized,
         #pragma warning restore CS1591
     }
 }
