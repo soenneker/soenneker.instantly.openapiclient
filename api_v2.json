@@ -24785,8 +24785,7 @@
         "operationId": "addSuperSearchEnrichment",
         "summary": "Add supersearch enrichment to resource",
         "tags": [
-          "SuperSearchEnrichment",
-          "SuperSearch Enrichment"
+          "SuperSearchEnrichment"
         ],
         "requestBody": {
           "content": {
@@ -24951,8 +24950,7 @@
         "operationId": "createAIEnrichment",
         "summary": "Create AI enrichment",
         "tags": [
-          "SuperSearchEnrichment",
-          "SuperSearch Enrichment"
+          "SuperSearchEnrichment"
         ],
         "requestBody": {
           "content": {
@@ -25197,8 +25195,7 @@
         "operationId": "getEnrichmentHistory",
         "summary": "Get enrichment history",
         "tags": [
-          "SuperSearchEnrichment",
-          "SuperSearch Enrichment"
+          "SuperSearchEnrichment"
         ],
         "description": "Retrieve the enrichment history for a specific resource\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
