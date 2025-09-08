@@ -20627,7 +20627,7 @@
                   },
                   "starting_after": {
                     "type": "string",
-                    "description": "The ID of the last item in the previous page - used for pagination. You can use the value of the \u0060next_starting_after\u0060 field from the previous response.",
+                    "description": "Starting after ID or email to filter leads, use email if distinct_contacts is true",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "organization_user_ids": {
