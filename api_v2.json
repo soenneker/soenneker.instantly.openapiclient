@@ -2432,6 +2432,11 @@
                 "webhooks:read",
                 "webhooks:update",
                 "webhooks:delete",
+                "webhook_events:all",
+                "webhook_events:create",
+                "webhook_events:read",
+                "webhook_events:update",
+                "webhook_events:delete",
                 "security_tokens:all",
                 "security_tokens:create",
                 "security_tokens:read",
@@ -7719,6 +7724,11 @@
                         "webhooks:read",
                         "webhooks:update",
                         "webhooks:delete",
+                        "webhook_events:all",
+                        "webhook_events:create",
+                        "webhook_events:read",
+                        "webhook_events:update",
+                        "webhook_events:delete",
                         "security_tokens:all",
                         "security_tokens:create",
                         "security_tokens:read",
@@ -11343,6 +11353,140 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/campaigns/search-by-contact": {
+      "get": {
+        "operationId": "searchByContact",
+        "summary": "Search campaigns by lead email",
+        "tags": [
+          "Campaign"
+        ],
+        "description": "Requires one of the following scopes: \u0060campaigns:read\u0060, \u0060campaigns:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "lead-email@example.com"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "description": "Search by lead email"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "default": "timestamp_created",
+              "example": "timestamp_created"
+            },
+            "in": "query",
+            "name": "sort_column",
+            "required": false,
+            "description": "Sort campaigns by column name"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "default": "asc",
+              "example": "asc"
+            },
+            "in": "query",
+            "name": "sort_order",
+            "required": false,
+            "description": "Sort direction"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/def-1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
                     }
                   },
                   "required": [
@@ -25661,6 +25805,607 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/def-3"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/webhook-events": {
+      "get": {
+        "operationId": "listWebhookEvent",
+        "summary": "List webhookevent",
+        "tags": [
+          "WebhookEvent"
+        ],
+        "description": "Requires one of the following scopes: \u0060webhook_events:read\u0060, \u0060webhook_events:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            },
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "description": "The number of items to return"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "query",
+            "name": "starting_after",
+            "required": false,
+            "description": "The ID of the last item in the previous page - used for pagination. You can use the value of the \u0060next_starting_after\u0060 field from the previous response."
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "in": "query",
+            "name": "success",
+            "required": false,
+            "description": "Filter by success status"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "description": "Inclusive start of the window (YYYY-MM-DD)."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "description": "Inclusive end of the window (YYYY-MM-DD)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of WebhookEvent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/def-38"
+                      }
+                    },
+                    "next_starting_after": {
+                      "type": "string",
+                      "description": "The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/webhook-events/{id}": {
+      "get": {
+        "operationId": "getWebhookEvent",
+        "summary": "Get webhookevent",
+        "tags": [
+          "WebhookEvent"
+        ],
+        "description": "Requires one of the following scopes: \u0060webhook_events:read\u0060, \u0060webhook_events:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "The ID of the requested item"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested WebhookEvent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-38"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/webhook-events/summary": {
+      "get": {
+        "operationId": "getWebhookEventsSummary",
+        "summary": "Get overview aggregates for webhook events",
+        "tags": [
+          "WebhookEvent"
+        ],
+        "description": "Get overview aggregates for webhook events including success/failure rates",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "description": "Inclusive start of the window (YYYY-MM-DD)."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "description": "Inclusive end of the window (YYYY-MM-DD)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_events": {
+                      "type": "number",
+                      "description": "Total number of webhook events",
+                      "example": 100
+                    },
+                    "successful_events": {
+                      "type": "number",
+                      "description": "Total number of successful webhook events",
+                      "example": 100
+                    },
+                    "failed_events": {
+                      "type": "number",
+                      "description": "Total number of failed webhook events",
+                      "example": 100
+                    },
+                    "success_rate": {
+                      "type": "number",
+                      "description": "Percentage (0-100) of successful webhook calls",
+                      "example": 50
+                    },
+                    "failure_rate": {
+                      "type": "number",
+                      "description": "Percentage (0-100) of failed webhook calls",
+                      "example": 50
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/webhook-events/summary-by-date": {
+      "get": {
+        "operationId": "getWebhookEventsSummaryByDate",
+        "summary": "Get overview aggregates for webhook events by Date",
+        "tags": [
+          "WebhookEvent"
+        ],
+        "description": "Get overview aggregates for webhook events by Date for charts",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "description": "Inclusive start of the window (YYYY-MM-DD)."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "description": "Inclusive end of the window (YYYY-MM-DD)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of webhook event KPIs grouped by date",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "List of webhook event KPIs grouped by date",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Date of the webhook event",
+                            "example": "1970-01-01T00:00:00.000Z"
+                          },
+                          "total_events": {
+                            "type": "number",
+                            "description": "Total number of webhook events",
+                            "example": 100
+                          },
+                          "successful_events": {
+                            "type": "number",
+                            "description": "Total number of successful webhook events",
+                            "example": 100
+                          },
+                          "failed_events": {
+                            "type": "number",
+                            "description": "Total number of failed webhook events",
+                            "example": 100
+                          },
+                          "success_rate": {
+                            "type": "number",
+                            "description": "Success rate of the webhook events",
+                            "example": 50
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

@@ -20,6 +20,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment;
+using Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers;
@@ -125,6 +126,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentRequestBuilder SupersearchEnrichment
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhookEvents property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.WebhookEventsRequestBuilder WebhookEvents
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.WebhookEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The webhooks property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksRequestBuilder Webhooks

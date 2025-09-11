@@ -500,6 +500,26 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         #pragma warning disable CS1591
         WebhooksDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "webhook_events:all")]
+        #pragma warning disable CS1591
+        Webhook_eventsAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhook_events:create")]
+        #pragma warning disable CS1591
+        Webhook_eventsCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhook_events:read")]
+        #pragma warning disable CS1591
+        Webhook_eventsRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhook_events:update")]
+        #pragma warning disable CS1591
+        Webhook_eventsUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "webhook_events:delete")]
+        #pragma warning disable CS1591
+        Webhook_eventsDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "security_tokens:all")]
         #pragma warning disable CS1591
         Security_tokensAll,

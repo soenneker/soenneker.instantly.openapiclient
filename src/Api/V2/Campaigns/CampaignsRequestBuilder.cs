@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder Analytics
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The searchByContact property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact.SearchByContactRequestBuilder SearchByContact
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact.SearchByContactRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.campaigns.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
