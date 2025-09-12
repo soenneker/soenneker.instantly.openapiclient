@@ -4830,11 +4830,11 @@
         "additionalProperties": false
       },
       "def-30": {
-        "title": "Filter",
-        "description": "A filter that can be applied to variables in campaigns or lists",
+        "title": "Clause",
+        "description": "A clause (filter or sort) that can be applied to variables in campaigns or lists",
         "x-tags": [
           "Schemas",
-          "Filter"
+          "Clause"
         ],
         "type": "object",
         "properties": {
@@ -4843,20 +4843,20 @@
               "null",
               "string"
             ],
-            "description": "Unique identifier for the filter",
+            "description": "Unique identifier for the clause",
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "resource_id": {
             "type": "string",
-            "description": "ID of the resource (campaign or list) this filter applies to",
+            "description": "ID of the resource (campaign or list) this clause applies to",
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "type": {
             "type": "number",
-            "description": "Type of filter to apply",
+            "description": "Type of clause to apply (filter or sort type)",
             "enum": [
               1,
               2,
@@ -4865,7 +4865,9 @@
               5,
               6,
               7,
-              8
+              8,
+              9,
+              10
             ],
             "x-enumDescriptions": {
               "1": "Equal to",
@@ -4875,49 +4877,31 @@
               "5": "Contains any of",
               "6": "Does not contain any of",
               "7": "Is empty",
-              "8": "Is not empty"
+              "8": "Is not empty",
+              "9": "Ascending",
+              "10": "Descending"
             },
             "example": 1
           },
           "column_name": {
             "type": "string",
-            "description": "Name of the column/variable to filter on",
+            "description": "Name of the column/variable to apply the clause on",
             "example": "company_size"
           },
           "organization_id": {
             "type": "string",
-            "description": "ID of the organization this filter belongs to",
+            "description": "ID of the organization this clause belongs to",
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "value": {
             "type": "array",
-            "description": "Value to filter on",
+            "description": "Value to filter on (only applicable for filter clauses)",
             "items": {
               "type": "string",
               "example": "100000"
             }
-          },
-          "timestamp_created": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Timestamp when the filter was created",
-            "readOnly": true,
-            "format": "date-time",
-            "example": "1970-01-01T00:00:00.000Z"
-          },
-          "timestamp_updated": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Timestamp when the filter was last updated",
-            "readOnly": true,
-            "format": "date-time",
-            "example": "1970-01-01T00:00:00.000Z"
           }
         },
         "required": [
@@ -29412,9 +29396,9 @@
       "x-displayName": "Campaign Subsequence"
     },
     {
-      "name": "Filter",
-      "description": "A filter that can be applied to variables in campaigns or lists",
-      "x-displayName": "Filter"
+      "name": "Clause",
+      "description": "A clause (filter or sort) that can be applied to variables in campaigns or lists",
+      "x-displayName": "Clause"
     },
     {
       "name": "AuditLog",
