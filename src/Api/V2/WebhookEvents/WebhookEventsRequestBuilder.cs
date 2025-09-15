@@ -46,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhookEventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/webhook-events{?from*,limit*,starting_after*,success*,to*}", pathParameters)
+        public WebhookEventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/webhook-events{?from*,limit*,search*,starting_after*,success*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhookEventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/webhook-events{?from*,limit*,starting_after*,success*,to*}", rawUrl)
+        public WebhookEventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/webhook-events{?from*,limit*,search*,starting_after*,success*,to*}", rawUrl)
         {
         }
         /// <summary>
@@ -122,6 +122,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>Search by exact webhook URL or lead email match</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("search")]
+            public string Search { get; set; }
+#endif
             /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

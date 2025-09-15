@@ -20267,6 +20267,171 @@
         }
       }
     },
+    "/api/v2/lead-lists/{id}/verification-stats": {
+      "get": {
+        "operationId": "getVerificationStats",
+        "summary": "Get verification statistics for a lead list",
+        "tags": [
+          "LeadList"
+        ],
+        "description": "Get verification statistics for a lead list",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "stats": {
+                      "type": "object",
+                      "properties": {
+                        "verified": {
+                          "type": "number",
+                          "description": "Count of verified leads",
+                          "example": 150
+                        },
+                        "invalid": {
+                          "type": "number",
+                          "description": "Count of invalid leads",
+                          "example": 25
+                        },
+                        "risky": {
+                          "type": "number",
+                          "description": "Count of risky leads",
+                          "example": 10
+                        },
+                        "catch_all": {
+                          "type": "number",
+                          "description": "Count of catch all leads",
+                          "example": 5
+                        },
+                        "job_change": {
+                          "type": "number",
+                          "description": "Count of job change leads",
+                          "example": 2
+                        },
+                        "verification_job_pending_leadfinder": {
+                          "type": "number",
+                          "description": "Count of verification job pending leads for leadfinder",
+                          "example": 11
+                        },
+                        "verification_job_pending_user": {
+                          "type": "number",
+                          "description": "Count of verification job pending leads for user",
+                          "example": 12
+                        }
+                      },
+                      "description": "Sums up the leads by their verification status",
+                      "example": {
+                        "verified": 150,
+                        "invalid": 25,
+                        "risky": 10,
+                        "catch_all": 5,
+                        "job_change": 2,
+                        "verification_job_pending_leadfinder": 11,
+                        "verification_job_pending_user": 12
+                      }
+                    },
+                    "total_leads": {
+                      "type": "number",
+                      "description": "Total number of leads in the list",
+                      "example": 203
+                    }
+                  },
+                  "required": [
+                    "stats",
+                    "total_leads"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/leads": {
       "post": {
         "operationId": "createLead",
@@ -26000,6 +26165,16 @@
             "name": "to",
             "required": false,
             "description": "Inclusive end of the window (YYYY-MM-DD)."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "https://webhook.site/unique-url"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "description": "Search by exact webhook URL or lead email match"
           }
         ],
         "responses": {

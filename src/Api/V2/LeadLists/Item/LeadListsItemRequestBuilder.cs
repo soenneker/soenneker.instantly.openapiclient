@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.VerificationStats;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadListsItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The verificationStats property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.VerificationStats.VerificationStatsRequestBuilder VerificationStats
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.VerificationStats.VerificationStatsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.LeadListsItemRequestBuilder"/> and sets the default values.
         /// </summary>
