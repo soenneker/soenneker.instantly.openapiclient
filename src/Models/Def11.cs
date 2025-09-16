@@ -61,6 +61,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? EmailReplyCount { get; private set; }
         /// <summary>Enrichment status of the lead</summary>
         public double? EnrichmentStatus { get; private set; }
+        /// <summary>ESG code associated with the lead</summary>
+        public double? EsgCode { get; private set; }
         /// <summary>ESP code associated with the lead</summary>
         public double? EspCode { get; private set; }
         /// <summary>First name of the lead</summary>
@@ -232,6 +234,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "email_replied_variant", n => { EmailRepliedVariant = n.GetDoubleValue(); } },
                 { "email_reply_count", n => { EmailReplyCount = n.GetDoubleValue(); } },
                 { "enrichment_status", n => { EnrichmentStatus = n.GetDoubleValue(); } },
+                { "esg_code", n => { EsgCode = n.GetDoubleValue(); } },
                 { "esp_code", n => { EspCode = n.GetDoubleValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },

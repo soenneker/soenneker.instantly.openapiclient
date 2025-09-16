@@ -32,7 +32,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #endif
         /// <summary>Whether to copy the leads.</summary>
         public bool? CopyLeads { get; set; }
-        /// <summary>The ESP code to move the leads to.</summary>
+        /// <summary>The ESG code to move the leads for.</summary>
+        public double? EsgCode { get; set; }
+        /// <summary>The ESP code to move the leads for.</summary>
         public double? EspCode { get; set; }
         /// <summary>Array of lead IDs to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,6 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
                 { "check_duplicates_in_campaigns", n => { CheckDuplicatesInCampaigns = n.GetBoolValue(); } },
                 { "contacts", n => { Contacts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "copy_leads", n => { CopyLeads = n.GetBoolValue(); } },
+                { "esg_code", n => { EsgCode = n.GetDoubleValue(); } },
                 { "esp_code", n => { EspCode = n.GetDoubleValue(); } },
                 { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
@@ -147,6 +150,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
             writer.WriteBoolValue("check_duplicates_in_campaigns", CheckDuplicatesInCampaigns);
             writer.WriteCollectionOfPrimitiveValues<string>("contacts", Contacts);
             writer.WriteBoolValue("copy_leads", CopyLeads);
+            writer.WriteDoubleValue("esg_code", EsgCode);
             writer.WriteDoubleValue("esp_code", EspCode);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("excluded_ids", ExcludedIds);
             writer.WriteStringValue("filter", Filter);

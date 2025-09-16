@@ -3109,6 +3109,26 @@
               "1000": "Not Found"
             },
             "example": 1
+          },
+          "esg_code": {
+            "type": "number",
+            "description": "ESG code associated with the lead",
+            "readOnly": true,
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "x-enumDescriptions": {
+              "0": "In Queue",
+              "1": "Barracuda",
+              "2": "Mimecast",
+              "3": "Proofpoint",
+              "4": "Cisco"
+            },
+            "example": 1
           }
         },
         "required": [
@@ -22550,7 +22570,26 @@
                       "999": "Other",
                       "1000": "Not Found"
                     },
-                    "description": "The ESP code to move the leads to.",
+                    "description": "The ESP code to move the leads for.",
+                    "example": 1
+                  },
+                  "esg_code": {
+                    "type": "number",
+                    "enum": [
+                      0,
+                      1,
+                      2,
+                      3,
+                      4
+                    ],
+                    "x-enumDescriptions": {
+                      "0": "In Queue",
+                      "1": "Barracuda",
+                      "2": "Mimecast",
+                      "3": "Proofpoint",
+                      "4": "Cisco"
+                    },
+                    "description": "The ESG code to move the leads for.",
                     "example": 1
                   },
                   "copy_leads": {
