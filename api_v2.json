@@ -4849,7 +4849,7 @@
         ],
         "additionalProperties": false
       },
-      "def-30": {
+      "def-29": {
         "title": "Clause",
         "description": "A clause (filter or sort) that can be applied to variables in campaigns or lists",
         "x-tags": [
@@ -4932,7 +4932,7 @@
         ],
         "additionalProperties": false
       },
-      "def-31": {
+      "def-30": {
         "title": "Audit Log",
         "description": "Audit log records for tracking system activities",
         "x-tags": [
@@ -5091,7 +5091,7 @@
         ],
         "additionalProperties": false
       },
-      "def-36": {
+      "def-35": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -8236,7 +8236,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-31"
+                        "$ref": "#/components/schemas/def-30"
                       }
                     },
                     "next_starting_after": {
@@ -26227,7 +26227,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-38"
+                        "$ref": "#/components/schemas/def-37"
                       }
                     },
                     "next_starting_after": {
@@ -26344,7 +26344,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-38"
+                  "$ref": "#/components/schemas/def-37"
                 }
               }
             }
@@ -26835,7 +26835,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-36"
+                        "$ref": "#/components/schemas/def-35"
                       }
                     },
                     "next_starting_after": {
@@ -27006,7 +27006,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-35"
                 }
               }
             }
@@ -27146,7 +27146,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-35"
                 }
               }
             }
@@ -27348,7 +27348,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-35"
                 }
               }
             }
@@ -27495,7 +27495,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-35"
                 }
               }
             }
