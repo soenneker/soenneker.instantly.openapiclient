@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -15,10 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UntypedNode>? Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def37>? Items { get; set; }
 #nullable restore
 #else
-        public List<UntypedNode> Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def37> Items { get; set; }
 #endif
         /// <summary>The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def37>(global::Soenneker.Instantly.OpenApiClient.Models.Def37.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_starting_after", n => { NextStartingAfter = n.GetStringValue(); } },
             };
         }
@@ -57,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<UntypedNode>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def37>("items", Items);
             writer.WriteStringValue("next_starting_after", NextStartingAfter);
         }
     }

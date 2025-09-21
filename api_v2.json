@@ -5179,6 +5179,151 @@
           "timestamp_created"
         ],
         "additionalProperties": false
+      },
+      "def-37": {
+        "title": "Webhook Event",
+        "description": "A webhook event that was sent or attempted to be sent",
+        "x-tags": [
+          "Schemas",
+          "WebhookEvent"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the webhook event (UUID)",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the webhook event was created",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_created_date": {
+            "type": "string",
+            "description": "Date when the webhook event was created (for partitioning)",
+            "readOnly": true,
+            "format": "date",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "Organization (workspace) UUID that owns this webhook event",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "payload": {
+            "type": "object",
+            "description": "JSON payload that was sent/attempted to be sent",
+            "readOnly": true,
+            "additionalProperties": true
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Whether the webhook call was successful",
+            "readOnly": true,
+            "example": true
+          },
+          "retry_count": {
+            "type": "number",
+            "description": "Number of retry attempts made",
+            "readOnly": true,
+            "example": 0
+          },
+          "will_retry": {
+            "type": "boolean",
+            "description": "Whether the webhook will be retried",
+            "readOnly": true,
+            "example": false
+          },
+          "webhook_url": {
+            "type": "string",
+            "description": "Target URL where the webhook was sent",
+            "readOnly": true,
+            "example": "https://webhook.site/unique-url"
+          },
+          "status_code": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "HTTP status code received from the webhook endpoint (if any)",
+            "readOnly": true,
+            "example": 200
+          },
+          "error_message": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Error message if the webhook failed",
+            "readOnly": true,
+            "example": "Connection timeout"
+          },
+          "timestamp_next_retry": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp for the next retry attempt (if applicable)",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "retry_group_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "UUID for grouping retry attempts",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "retry_successful": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the retry was successful (for retry events)",
+            "readOnly": true,
+            "example": true
+          },
+          "lead_email": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Email address of the lead associated with this webhook event",
+            "readOnly": true,
+            "example": "lead@example.com"
+          },
+          "response_time_ms": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Response time in milliseconds for the webhook call",
+            "readOnly": true,
+            "example": 150
+          }
+        },
+        "required": [
+          "id",
+          "timestamp_created",
+          "timestamp_created_date",
+          "organization_id",
+          "success",
+          "retry_count",
+          "will_retry",
+          "webhook_url"
+        ],
+        "additionalProperties": false
       }
     }
   },
@@ -26145,7 +26290,7 @@
     "/api/v2/webhook-events": {
       "get": {
         "operationId": "listWebhookEvent",
-        "summary": "List webhookevent",
+        "summary": "List webhook event",
         "tags": [
           "WebhookEvent"
         ],
@@ -26218,7 +26363,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of WebhookEvent",
+            "description": "The list of Webhook Event",
             "content": {
               "application/json": {
                 "schema": {
@@ -26320,7 +26465,7 @@
     "/api/v2/webhook-events/{id}": {
       "get": {
         "operationId": "getWebhookEvent",
-        "summary": "Get webhookevent",
+        "summary": "Get webhook event",
         "tags": [
           "WebhookEvent"
         ],
@@ -26340,7 +26485,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested WebhookEvent",
+            "description": "The requested Webhook Event",
             "content": {
               "application/json": {
                 "schema": {
@@ -26522,7 +26667,14 @@
                       "description": "Percentage (0-100) of failed webhook calls",
                       "example": 50
                     }
-                  }
+                  },
+                  "required": [
+                    "total_events",
+                    "successful_events",
+                    "failed_events",
+                    "success_rate",
+                    "failure_rate"
+                  ]
                 }
               }
             }
@@ -26672,7 +26824,14 @@
                             "description": "Success rate of the webhook events",
                             "example": 50
                           }
-                        }
+                        },
+                        "required": [
+                          "date",
+                          "total_events",
+                          "successful_events",
+                          "failed_events",
+                          "success_rate"
+                        ]
                       }
                     }
                   }
@@ -29695,6 +29854,11 @@
       "name": "Webhook",
       "description": "A webhook subscription for receiving event notifications",
       "x-displayName": "Webhook"
+    },
+    {
+      "name": "WebhookEvent",
+      "description": "A webhook event that was sent or attempted to be sent",
+      "x-displayName": "Webhook Event"
     }
   ]
 }
