@@ -1411,7 +1411,10 @@
                 "type": "object",
                 "description": "Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.",
                 "additionalProperties": {
-                  "type": "boolean"
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
                 },
                 "example": {
                   "0": false,
@@ -1778,7 +1781,10 @@
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "format": "uuid"
+                        "format": "uuid",
+                        "examples": [
+                          "f9cc070d-8dba-4341-b847-f083c358e460"
+                        ]
                       },
                       "examples": [
                         [
@@ -1790,13 +1796,11 @@
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "format": "uuid"
-                      },
-                      "examples": [
-                        [
+                        "format": "uuid",
+                        "examples": [
                           "f9cc070d-8dba-4341-b847-f083c358e460"
                         ]
-                      ]
+                      }
                     }
                   },
                   "minProperties": 1,
@@ -3625,7 +3629,7 @@
       },
       "def-21": {
         "title": "SuperSearch Enrichment",
-        "description": "A SuperSearch enrichment that retrieves and enriches leads based on search filters",
+        "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
         "x-tags": [
           "Schemas",
           "SuperSearchEnrichment"
@@ -3633,533 +3637,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": [
-              "null",
-              "string"
-            ],
+            "type": "string",
             "description": "Unique identifier for the enrichment",
+            "readOnly": true,
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "search_filters": {
-            "type": "object",
-            "description": "Criteria that determine which leads are enriched",
-            "properties": {
-              "locations": {
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "place_id": {
-                          "type": "string",
-                          "examples": [
-                            "ChIJN1t_t3uEmsRUso9K6W47H4"
-                          ],
-                          "description": "Place ID of the lead\u0027s location"
-                        },
-                        "label": {
-                          "type": "string",
-                          "examples": [
-                            "San Francisco, CA, USA"
-                          ],
-                          "description": "Label of the lead\u0027s location"
-                        }
-                      },
-                      "required": [
-                        "place_id"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "city": {
-                          "type": "string",
-                          "examples": [
-                            "San Francisco"
-                          ],
-                          "description": "City of the lead"
-                        },
-                        "state": {
-                          "type": "string",
-                          "examples": [
-                            "California"
-                          ],
-                          "description": "State of the lead"
-                        },
-                        "country": {
-                          "type": "string",
-                          "examples": [
-                            "United States"
-                          ],
-                          "description": "Country of the lead"
-                        }
-                      },
-                      "required": [
-                        "city",
-                        "state",
-                        "country"
-                      ]
-                    }
-                  ]
-                }
-              },
-              "department": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "Engineering",
-                    "Finance \u0026 Administration",
-                    "Human Resources",
-                    "IT \u0026 IS",
-                    "Marketing",
-                    "Operations",
-                    "Sales",
-                    "Support",
-                    "Other"
-                  ],
-                  "x-enumDescriptions": {
-                    "Engineering": "Engineering",
-                    "Finance \u0026 Administration": "Finance \u0026 Administration",
-                    "Human Resources": "Human Resources",
-                    "IT \u0026 IS": "IT \u0026 IS",
-                    "Marketing": "Marketing",
-                    "Operations": "Operations",
-                    "Sales": "Sales",
-                    "Support": "Support",
-                    "Other": "Other"
-                  },
-                  "description": "Department of the lead",
-                  "example": "Engineering"
-                }
-              },
-              "level": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "C-Level",
-                    "VP-Level",
-                    "Director-Level",
-                    "Manager-Level",
-                    "Staff",
-                    "Entry level",
-                    "Mid-Senior level",
-                    "Director",
-                    "Associate",
-                    "Owner",
-                    "Executive",
-                    "Manager",
-                    "Senior",
-                    "Chief X Officer (CxO)",
-                    "Internship",
-                    "Vice President (VP)",
-                    "Unpaid / Internship",
-                    "Partner"
-                  ],
-                  "x-enumDescriptions": {
-                    "C-Level": "C-Level",
-                    "VP-Level": "VP-Level",
-                    "Director-Level": "Director-Level",
-                    "Manager-Level": "Manager-Level",
-                    "Staff": "Staff",
-                    "Entry level": "Entry level",
-                    "Mid-Senior level": "Mid-Senior level",
-                    "Director": "Director",
-                    "Associate": "Associate",
-                    "Owner": "Owner",
-                    "Executive": "Executive",
-                    "Manager": "Manager",
-                    "Senior": "Senior",
-                    "Chief X Officer (CxO)": "Chief X Officer (CxO)",
-                    "Internship": "Internship",
-                    "Vice President (VP)": "Vice President (VP)",
-                    "Unpaid / Internship": "Unpaid / Internship",
-                    "Partner": "Partner"
-                  },
-                  "description": "Level of the lead",
-                  "example": "Entry level"
-                }
-              },
-              "employeeCount": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "0 - 25",
-                    "25 - 100",
-                    "100 - 250",
-                    "250 - 1000",
-                    "1K - 10K",
-                    "10K - 50K",
-                    "50K - 100K",
-                    "\u003E 100K"
-                  ],
-                  "x-enumDescriptions": {
-                    "0 - 25": "0 - 25",
-                    "25 - 100": "25 - 100",
-                    "100 - 250": "100 - 250",
-                    "250 - 1000": "250 - 1000",
-                    "1K - 10K": "1K - 10K",
-                    "10K - 50K": "10K - 50K",
-                    "50K - 100K": "50K - 100K",
-                    "\u003E 100K": "\u003E 100K"
-                  },
-                  "description": "Employee count of the lead company",
-                  "example": "0 - 25"
-                }
-              },
-              "revenue": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "$0 - 1M",
-                    "$1 - 10M",
-                    "$10 - 50M",
-                    "$50 - 100M",
-                    "$100 - 250M",
-                    "$250 - 500M",
-                    "$500M - 1B",
-                    "\u003E $1B"
-                  ],
-                  "x-enumDescriptions": {
-                    "$0 - 1M": "$0 - 1M",
-                    "$1 - 10M": "$1M - 10M",
-                    "$10 - 50M": "$10M - 50M",
-                    "$50 - 100M": "$50M - 100M",
-                    "$100 - 250M": "$100M - 250M",
-                    "$250 - 500M": "$250M - 500M",
-                    "$500M - 1B": "$500M - 1B",
-                    "\u003E $1B": "\u003E $1B"
-                  },
-                  "description": "Revenue of the lead company",
-                  "example": "$1 - 10M"
-                }
-              },
-              "news": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "launches",
-                    "expands_offices_to",
-                    "hires",
-                    "partners_with",
-                    "leaves",
-                    "receives_financing",
-                    "recognized_as",
-                    "closes_offices_in",
-                    "is_developing",
-                    "has_issues_with",
-                    "promotes",
-                    "opens_new_location",
-                    "receives_award",
-                    "acquires",
-                    "invests_into_assets",
-                    "signs_new_client",
-                    "increases_headcount_by",
-                    "retires_from",
-                    "invests_into",
-                    "integrates_with",
-                    "expands_facilities",
-                    "goes_public",
-                    "sells_assets_to",
-                    "identified_as_competitor_of",
-                    "decreases_headcount_by",
-                    "expands_offices_in",
-                    "files_suit_against",
-                    "merges_with"
-                  ],
-                  "x-enumDescriptions": {
-                    "launches": "Launches",
-                    "expands_offices_to": "Expands Offices To",
-                    "hires": "Hires",
-                    "partners_with": "Partners With",
-                    "leaves": "Leaves",
-                    "receives_financing": "Receives Financing",
-                    "recognized_as": "Recognized As",
-                    "closes_offices_in": "Closes Offices In",
-                    "is_developing": "Is Developing",
-                    "has_issues_with": "Has Issues With",
-                    "promotes": "Promotes",
-                    "opens_new_location": "Opens New Location",
-                    "receives_award": "Receives Award",
-                    "acquires": "Acquires",
-                    "invests_into_assets": "Invests Into Assets",
-                    "signs_new_client": "Signs New Client",
-                    "increases_headcount_by": "Increases Headcount By",
-                    "retires_from": "Retires From",
-                    "invests_into": "Invests Into",
-                    "integrates_with": "Integrates With",
-                    "expands_facilities": "Expands Facilities",
-                    "goes_public": "Goes Public",
-                    "sells_assets_to": "Sells Assets To",
-                    "identified_as_competitor_of": "Identified As Competitor Of",
-                    "decreases_headcount_by": "Decreases Headcount By",
-                    "expands_offices_in": "Expands Offices In",
-                    "files_suit_against": "Files Suit Against",
-                    "merges_with": "Merges With"
-                  },
-                  "description": "News about the lead company",
-                  "example": "launches"
-                }
-              },
-              "title": {
-                "type": "object",
-                "properties": {
-                  "include": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "CEO"
-                    },
-                    "description": "Titles of the lead to include in the search"
-                  },
-                  "exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "VP"
-                    },
-                    "description": "Titles of the lead to exclude in the search"
-                  }
-                }
-              },
-              "name": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "example": "John Doe"
-                },
-                "description": "Names of the lead to include in the search"
-              },
-              "companyName": {
-                "type": "object",
-                "properties": {
-                  "include": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "Google"
-                    },
-                    "description": "Companies of the lead to include in the search"
-                  },
-                  "exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "Amazon"
-                    },
-                    "description": "Companies of the lead to exclude in the search"
-                  }
-                }
-              },
-              "lookAlike": {
-                "type": "string",
-                "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
-                "example": "google.com"
-              },
-              "keywordFilter": {
-                "type": "object",
-                "properties": {
-                  "exclude": {
-                    "type": "string",
-                    "example": "sales"
-                  },
-                  "include": {
-                    "type": "string",
-                    "example": "marketing"
-                  }
-                }
-              },
-              "industry": {
-                "type": "object",
-                "properties": {
-                  "exclude": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "Agriculture \u0026 Mining",
-                        "Business Services",
-                        "Computers \u0026 Electronics",
-                        "Consumer Services",
-                        "Education",
-                        "Energy \u0026 Utilities",
-                        "Financial Services",
-                        "Government",
-                        "Healthcare, Pharmaceuticals, \u0026 Biotech",
-                        "Manufacturing",
-                        "Media \u0026 Entertainment",
-                        "Non-Profit",
-                        "Other",
-                        "Real Estate \u0026 Construction",
-                        "Retail",
-                        "Software \u0026 Internet",
-                        "Telecommunications",
-                        "Transportation \u0026 Storage",
-                        "Travel, Recreation, and Leisure",
-                        "Wholesale \u0026 Distribution"
-                      ],
-                      "x-enumDescriptions": {
-                        "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
-                        "Business Services": "Business Services",
-                        "Financial Services": "Financial Services",
-                        "Computers \u0026 Electronics": "Computers \u0026 Electronics",
-                        "Consumer Services": "Consumer Services",
-                        "Education": "Education",
-                        "Energy \u0026 Utilities": "Energy \u0026 Utilities",
-                        "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
-                        "Manufacturing": "Manufacturing",
-                        "Media \u0026 Entertainment": "Media \u0026 Entertainment",
-                        "Non-Profit": "Non-Profit",
-                        "Other": "Other",
-                        "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
-                        "Retail": "Retail",
-                        "Software \u0026 Internet": "Software \u0026 Internet",
-                        "Telecommunications": "Telecommunications",
-                        "Transportation \u0026 Storage": "Transportation \u0026 Storage",
-                        "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
-                        "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
-                        "Government": "Government"
-                      },
-                      "example": "Agriculture \u0026 Mining"
-                    },
-                    "description": "Industries of the lead company to exclude in the search"
-                  },
-                  "include": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "Agriculture \u0026 Mining",
-                        "Business Services",
-                        "Computers \u0026 Electronics",
-                        "Consumer Services",
-                        "Education",
-                        "Energy \u0026 Utilities",
-                        "Financial Services",
-                        "Government",
-                        "Healthcare, Pharmaceuticals, \u0026 Biotech",
-                        "Manufacturing",
-                        "Media \u0026 Entertainment",
-                        "Non-Profit",
-                        "Other",
-                        "Real Estate \u0026 Construction",
-                        "Retail",
-                        "Software \u0026 Internet",
-                        "Telecommunications",
-                        "Transportation \u0026 Storage",
-                        "Travel, Recreation, and Leisure",
-                        "Wholesale \u0026 Distribution"
-                      ],
-                      "x-enumDescriptions": {
-                        "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
-                        "Business Services": "Business Services",
-                        "Financial Services": "Financial Services",
-                        "Computers \u0026 Electronics": "Computers \u0026 Electronics",
-                        "Consumer Services": "Consumer Services",
-                        "Education": "Education",
-                        "Energy \u0026 Utilities": "Energy \u0026 Utilities",
-                        "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
-                        "Manufacturing": "Manufacturing",
-                        "Media \u0026 Entertainment": "Media \u0026 Entertainment",
-                        "Non-Profit": "Non-Profit",
-                        "Other": "Other",
-                        "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
-                        "Retail": "Retail",
-                        "Software \u0026 Internet": "Software \u0026 Internet",
-                        "Telecommunications": "Telecommunications",
-                        "Transportation \u0026 Storage": "Transportation \u0026 Storage",
-                        "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
-                        "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
-                        "Government": "Government"
-                      },
-                      "description": "Industries of the lead company to include in the search",
-                      "example": "Agriculture \u0026 Mining"
-                    }
-                  }
-                }
-              },
-              "domains": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "description": "Domains of the lead company to include in the search",
-                  "example": "google.com"
-                }
-              },
-              "fundingType": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "angel",
-                    "seed",
-                    "pre_seed",
-                    "series_a",
-                    "pre_series_a",
-                    "series_b",
-                    "pre_series_b",
-                    "series_c",
-                    "pre_series_c",
-                    "series_d",
-                    "pre_series_d",
-                    "series_e",
-                    "pre_series_e",
-                    "series_f",
-                    "pre_series_f",
-                    "series_g",
-                    "pre_series_g",
-                    "series_h",
-                    "pre_series_h",
-                    "series_i",
-                    "pre_series_i",
-                    "series_j",
-                    "pre_series_j"
-                  ],
-                  "x-enumDescriptions": {
-                    "angel": "Angel",
-                    "seed": "Seed",
-                    "pre_seed": "Pre-Seed",
-                    "series_a": "Series A",
-                    "series_b": "Series B",
-                    "series_c": "Series C",
-                    "series_d": "Series D",
-                    "series_e": "Series E",
-                    "series_f": "Series F",
-                    "series_g": "Series G",
-                    "series_h": "Series H",
-                    "series_i": "Series I",
-                    "series_j": "Series J",
-                    "pre_series_a": "Pre-Series A",
-                    "pre_series_b": "Pre-Series B",
-                    "pre_series_c": "Pre-Series C",
-                    "pre_series_d": "Pre-Series D",
-                    "pre_series_e": "Pre-Series E",
-                    "pre_series_f": "Pre-Series F",
-                    "pre_series_g": "Pre-Series G",
-                    "pre_series_h": "Pre-Series H",
-                    "pre_series_i": "Pre-Series I",
-                    "pre_series_j": "Pre-Series J"
-                  },
-                  "description": "Funding types of the lead company to include in the search",
-                  "example": "angel"
-                }
-              },
-              "skipOwnedLeads": {
-                "type": "boolean",
-                "description": "If set, the lead finder will skip leads that are owned by the user",
-                "example": true
-              },
-              "showOneLeadPerCompany": {
-                "type": "boolean",
-                "description": "If set, the lead finder will show only one lead per company",
-                "example": true
-              }
-            }
           },
           "limit": {
             "type": [
@@ -4170,62 +3651,46 @@
             "example": 100
           },
           "organization_id": {
-            "type": [
-              "null",
-              "string"
-            ],
+            "type": "string",
             "description": "Organization ID that created this enrichment",
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
-          "enrichment_payload": {
-            "type": "object",
-            "description": "Object with enrichment types to be applied, with boolean values",
-            "minProperties": 1,
-            "properties": {
-              "work_email_enrichment": {
-                "type": "boolean",
-                "example": true
-              },
-              "fully_enriched_profile": {
-                "type": "boolean",
-                "example": true
-              },
-              "email_verification": {
-                "type": "boolean",
-                "example": false
-              },
-              "joblisting": {
-                "type": "boolean",
-                "example": true
-              },
-              "technologies": {
-                "type": "boolean",
-                "example": true
-              },
-              "news": {
-                "type": "boolean",
-                "example": true
-              },
-              "funding": {
-                "type": "boolean",
-                "example": true
-              }
-            }
+          "type": {
+            "type": "string",
+            "description": "Enrichment type to add to the resource",
+            "enum": [
+              "work_email_enrichment",
+              "fully_enriched_profile",
+              "email_verification",
+              "joblisting",
+              "technologies",
+              "news",
+              "funding"
+            ],
+            "x-enumDescriptions": {
+              "work_email_enrichment": "Work Email Enrichment",
+              "fully_enriched_profile": "LinkedIn Enrichment",
+              "email_verification": "Email Verification",
+              "joblisting": "Job Listing Enrichment",
+              "technologies": "Technologies Enrichment",
+              "news": "News Enrichment",
+              "funding": "Funding Enrichment"
+            },
+            "example": "email_verification"
           },
           "resource_id": {
-            "type": [
-              "null",
-              "string"
-            ],
+            "type": "string",
             "description": "Unique identifier for the entity to enrich leads into",
+            "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "resource_type": {
             "type": "number",
             "description": "Type of the entity to enrich leads into",
+            "readOnly": true,
             "enum": [
               1,
               2
@@ -4235,68 +3700,13 @@
               "2": "List"
             },
             "example": 1
-          },
-          "search_name": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The name of the search",
-            "example": "CEO of tech companies in San Francisco"
-          },
-          "job_id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Unique identifier for the enrichment job created",
-            "readOnly": true,
-            "format": "uuid",
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "list_name": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Custom name for the list created during enrichment",
-            "example": "My SuperSearch List"
-          },
-          "exists": {
-            "type": [
-              "null",
-              "boolean"
-            ],
-            "description": "Whether the enrichment exists",
-            "example": true
-          },
-          "auto_update": {
-            "type": [
-              "null",
-              "boolean"
-            ],
-            "description": "Whether new leads added to the resource will be automatically enriched using these same settings",
-            "example": true
-          },
-          "skip_rows_without_email": {
-            "type": [
-              "null",
-              "boolean"
-            ],
-            "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
-            "example": true
-          },
-          "in_progress": {
-            "type": [
-              "null",
-              "boolean"
-            ],
-            "description": "Whether the enrichment is in progress",
-            "example": false
           }
         },
         "required": [
-          "enrichment_payload"
+          "id",
+          "organization_id",
+          "resource_id",
+          "resource_type"
         ],
         "additionalProperties": false
       },
@@ -4555,13 +3965,9 @@
               "crm_status": {
                 "type": "array",
                 "items": {
-                  "type": "number"
-                },
-                "example": [
-                  1,
-                  2,
-                  3
-                ]
+                  "type": "number",
+                  "example": 1
+                }
               },
               "reply_contains": {
                 "type": "string",
@@ -6462,7 +5868,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -8161,7 +7568,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -9479,7 +8887,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -11414,7 +10823,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -13877,7 +13287,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -14032,12 +13443,10 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
-                    "description": "The list of tag ids to assign or unassign",
-                    "example": [
-                      "f9cc070d-8dba-4341-b847-f083c358e460"
-                    ]
+                    "description": "The list of tag ids to assign or unassign"
                   },
                   "resource_type": {
                     "type": "number",
@@ -14055,13 +13464,10 @@
                   "resource_ids": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "example": "resource-1"
                     },
-                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign.",
-                    "example": [
-                      "resource-1",
-                      "resource-2"
-                    ]
+                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign."
                   },
                   "assign": {
                     "type": "boolean",
@@ -14088,7 +13494,18 @@
                           "ACC_FILTER_W_ACTIVE",
                           "ACC_FILTER_W_PAUSED",
                           "ACC_FILTER_W_ERROR"
-                        ]
+                        ],
+                        "x-enumDescriptions": {
+                          "ACC_FILTER_PAUSED": "Paused",
+                          "ACC_FILTER_ERROR": "Error",
+                          "ACC_FILTER_NO_CTD": "No CTD",
+                          "ACC_FILTER_PW_ACCOUNTS": "PW Accounts",
+                          "ACC_FILTER_DFY": "DFY",
+                          "ACC_FILTER_W_ACTIVE": "W Active",
+                          "ACC_FILTER_W_PAUSED": "W Paused",
+                          "ACC_FILTER_W_ERROR": "W Error"
+                        },
+                        "example": "ACC_FILTER_PAUSED"
                       },
                       {
                         "type": "object",
@@ -14986,7 +14403,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -15687,7 +15105,9 @@
                   "test_ids": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "minItems": 1
                   },
@@ -15714,7 +15134,8 @@
                         "2": "Italy",
                         "3": "Germany",
                         "4": "France"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1
@@ -15731,7 +15152,8 @@
                       "x-enumDescriptions": {
                         "1": "Professional",
                         "2": "Personal"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1
@@ -15752,7 +15174,8 @@
                         "2": "Microsoft",
                         "12": "Web.de",
                         "13": "Libero.it"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1,
@@ -15958,7 +15381,8 @@
                         "2": "Italy",
                         "3": "Germany",
                         "4": "France"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1
@@ -15975,7 +15399,8 @@
                       "x-enumDescriptions": {
                         "1": "Professional",
                         "2": "Personal"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1
@@ -15996,7 +15421,8 @@
                         "2": "Microsoft",
                         "12": "Web.de",
                         "13": "Libero.it"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1,
@@ -16250,7 +15676,8 @@
                         "2": "Italy",
                         "3": "Germany",
                         "4": "France"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1
@@ -16267,7 +15694,8 @@
                       "x-enumDescriptions": {
                         "1": "Professional",
                         "2": "Personal"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1
@@ -16288,7 +15716,8 @@
                         "2": "Microsoft",
                         "12": "Web.de",
                         "13": "Libero.it"
-                      }
+                      },
+                      "example": 1
                     },
                     "example": [
                       1,
@@ -16804,7 +16233,8 @@
                         "type": "object",
                         "description": "Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.",
                         "additionalProperties": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "example": false
                         },
                         "example": {
                           "0": false,
@@ -17129,7 +16559,8 @@
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "format": "uuid"
+                                "format": "uuid",
+                                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                               },
                               "example": [
                                 "f9cc070d-8dba-4341-b847-f083c358e460"
@@ -17139,11 +16570,9 @@
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "format": "uuid"
-                              },
-                              "example": [
-                                "f9cc070d-8dba-4341-b847-f083c358e460"
-                              ]
+                                "format": "uuid",
+                                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                              }
                             }
                           },
                           "minProperties": 1,
@@ -17383,20 +16812,16 @@
           {
             "schema": {
               "type": "string",
-              "example": "id"
-            },
-            "in": "query",
-            "name": "sort_column",
-            "required": false
-          },
-          {
-            "schema": {
-              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
               "example": "desc"
             },
             "in": "query",
             "name": "sort_order",
-            "required": false
+            "required": false,
+            "description": "Sort order for the results. Results are always sorted by id (which is timestamp-sorted due to UUIDv7)."
           }
         ],
         "responses": {
@@ -17590,7 +17015,8 @@
                           "type": "object",
                           "description": "Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.",
                           "additionalProperties": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "example": false
                           },
                           "example": {
                             "0": false,
@@ -17929,7 +17355,8 @@
                                 "type": "array",
                                 "items": {
                                   "type": "string",
-                                  "format": "uuid"
+                                  "format": "uuid",
+                                  "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                                 },
                                 "example": [
                                   "f9cc070d-8dba-4341-b847-f083c358e460"
@@ -17939,11 +17366,9 @@
                                 "type": "array",
                                 "items": {
                                   "type": "string",
-                                  "format": "uuid"
-                                },
-                                "example": [
-                                  "f9cc070d-8dba-4341-b847-f083c358e460"
-                                ]
+                                  "format": "uuid",
+                                  "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                                }
                               }
                             },
                             "minProperties": 1,
@@ -18167,7 +17592,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -18329,7 +17755,8 @@
                         "type": "object",
                         "description": "Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.",
                         "additionalProperties": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "example": false
                         },
                         "example": {
                           "0": false,
@@ -18528,7 +17955,8 @@
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "format": "uuid"
+                                "format": "uuid",
+                                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                               },
                               "example": [
                                 "f9cc070d-8dba-4341-b847-f083c358e460"
@@ -18538,11 +17966,9 @@
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "format": "uuid"
-                              },
-                              "example": [
-                                "f9cc070d-8dba-4341-b847-f083c358e460"
-                              ]
+                                "format": "uuid",
+                                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                              }
                             }
                           },
                           "minProperties": 1,
@@ -20295,7 +19721,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -20981,7 +20408,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "description": "Array of lead IDs to include"
                   },
@@ -21064,7 +20492,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "description": "Array of lead IDs to exclude"
                   },
@@ -21072,7 +20501,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "email"
+                      "format": "email",
+                      "example": "test@test.com"
                     },
                     "description": "Array of emails the leads needs to have"
                   },
@@ -21092,7 +20522,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "description": "Array of organization user IDs to filter leads"
                   },
@@ -21643,7 +21074,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -22254,7 +21686,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "minItems": 1
                   },
@@ -22561,7 +21994,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "description": "Array of lead IDs to include"
                   },
@@ -22644,7 +22078,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "uuid"
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "description": "Array of lead IDs to exclude"
                   },
@@ -22652,7 +22087,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "email"
+                      "format": "email",
+                      "example": "test@test.com"
                     },
                     "description": "Array of emails the leads needs to have"
                   },
@@ -22954,6 +22390,355 @@
         }
       }
     },
+    "/api/v2/leads/add": {
+      "post": {
+        "operationId": "bulkAddLeads",
+        "summary": "Add leads in bulk to a campaign or list",
+        "tags": [
+          "Lead"
+        ],
+        "description": "Adds up to 1000 leads to either a campaign or a list. You must provide a \u0060campaign_id\u0060 or a \u0060list_id\u0060, but not both. The endpoint validates emails, checks against blocklists and existing leads.\n\n\nRequires one of the following scopes: \u0060leads:create\u0060, \u0060leads:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "campaign_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The unique identifier for the campaign to add leads to. Use this field OR \u0060list_id\u0060, but not both.",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "list_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The unique identifier for the list to add leads to. Use this field OR \u0060campaign_id\u0060, but not both.",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "leads": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1000,
+                    "description": "An array of lead objects to create. When using \u0060campaign_id\u0060: Each lead object must contain an \u0060email\u0060. When using \u0060list_id\u0060 Each lead object must contain at least one of the following: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Email address of the lead",
+                          "example": "example@example.com"
+                        },
+                        "personalization": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Personalization of the lead",
+                          "example": "Hello, how are you?"
+                        },
+                        "website": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Website of the lead",
+                          "example": "https://example.com"
+                        },
+                        "last_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Last name of the lead",
+                          "example": "Doe"
+                        },
+                        "first_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "First name of the lead",
+                          "example": "John"
+                        },
+                        "company_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Company name of the lead",
+                          "example": "Example Inc."
+                        },
+                        "phone": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Phone number of the lead",
+                          "example": "\u002B1234567890"
+                        },
+                        "lt_interest_status": {
+                          "type": "number",
+                          "description": "Lead interest status. It can be either a static value (check below), or a custom status interest value",
+                          "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            0,
+                            -1,
+                            -2,
+                            -3
+                          ],
+                          "x-enumDescriptions": {
+                            "0": "Out of Office",
+                            "1": "Interested",
+                            "2": "Meeting Booked",
+                            "3": "Meeting Completed",
+                            "4": "Closed",
+                            "-1": "Not Interested",
+                            "-2": "Wrong Person",
+                            "-3": "Lost"
+                          },
+                          "example": 1
+                        },
+                        "pl_value_lead": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Potential value of the lead",
+                          "example": "High"
+                        },
+                        "assigned_to": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "ID of the user assigned to the lead",
+                          "format": "uuid",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "custom_variables": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": [
+                              "string",
+                              "number",
+                              "boolean",
+                              "null"
+                            ]
+                          },
+                          "description": "Custom variables can include any metadata about the lead that is relevant to the campaign, the campaign will be updated to allow all the other leads in the campaign to have the same custom variables. The custom variables will be added to the lead payload field",
+                          "example": {
+                            "past_customer": true,
+                            "has_tried_competitors": false
+                          }
+                        }
+                      },
+                      "required": [],
+                      "additionalProperties": false
+                    }
+                  },
+                  "blocklist_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "assigned_to": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Optional user ID to assign all imported leads to. If omitted, leads are assigned to the campaign owner when \u0060campaign_id\u0060 is defined, or the user making the request.",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "verify_leads_on_import": {
+                    "type": "boolean",
+                    "description": "If true, a background job will be created to verify the email addresses of the imported leads.",
+                    "example": false
+                  },
+                  "skip_if_in_workspace": {
+                    "type": "boolean",
+                    "description": "If true, any lead that already exists anywhere in your workspace (in any campaign or list) will be skipped. This option overrides the other \u0022skip_if\u0022 flags.",
+                    "example": true
+                  },
+                  "skip_if_in_campaign": {
+                    "type": "boolean",
+                    "description": "If true, any lead that already exists in ANY campaign in your workspace will be skipped.",
+                    "example": false
+                  },
+                  "skip_if_in_list": {
+                    "type": "boolean",
+                    "description": "If true, any lead that already exists in ANY list in your workspace will be skipped.",
+                    "example": false
+                  }
+                },
+                "required": [
+                  "leads"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A summary of the bulk import operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A summary of the bulk import operation.",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Indicates the request was processed.",
+                      "example": "success"
+                    },
+                    "total_sent": {
+                      "type": "integer",
+                      "description": "The total number of leads included in the request payload.",
+                      "example": 10
+                    },
+                    "leads_uploaded": {
+                      "type": "integer",
+                      "description": "The number of leads that were successfully created.",
+                      "example": 7
+                    },
+                    "in_blocklist": {
+                      "type": "integer",
+                      "description": "The number of leads that were skipped because their email was found on the blocklist.",
+                      "example": 1
+                    },
+                    "blocklist_used": {
+                      "type": "string",
+                      "description": "The ID of the blocklist that was used for the check.",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "duplicated_leads": {
+                      "type": "integer",
+                      "description": "The number of leads that were already in this specific campaign or list and were not re-added.",
+                      "example": 0
+                    },
+                    "skipped_count": {
+                      "type": "integer",
+                      "description": "The number of leads skipped due to the \u0060skip_if_in_...\u0060 flags being enabled.",
+                      "example": 1
+                    },
+                    "invalid_email_count": {
+                      "type": "integer",
+                      "description": "The number of leads skipped due to an invalid email format or a missing email address.",
+                      "example": 1
+                    },
+                    "incomplete_count": {
+                      "type": "integer",
+                      "description": "The number of leads skipped due to missing email and names. Only calculated for lists.",
+                      "example": 1
+                    },
+                    "duplicate_email_count": {
+                      "type": "integer",
+                      "description": "The number of leads skipped because their email was duplicated within the request payload itself.",
+                      "example": 0
+                    },
+                    "remaining_in_plan": {
+                      "type": "integer",
+                      "description": "The remaining lead uploads in the current billing plan. This value is only present in the response when a \u0060campaign_id\u0060 is provided.",
+                      "example": 9993
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "total_sent",
+                    "leads_uploaded",
+                    "in_blocklist",
+                    "blocklist_used",
+                    "duplicated_leads",
+                    "skipped_count",
+                    "invalid_email_count",
+                    "incomplete_count",
+                    "duplicate_email_count",
+                    "remaining_in_plan"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/subsequences": {
       "post": {
         "operationId": "createCampaignSubsequence",
@@ -22988,13 +22773,9 @@
                       "crm_status": {
                         "type": "array",
                         "items": {
-                          "type": "number"
-                        },
-                        "example": [
-                          1,
-                          2,
-                          3
-                        ]
+                          "type": "number",
+                          "example": 1
+                        }
                       },
                       "reply_contains": {
                         "type": "string",
@@ -24202,7 +23983,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -24339,33 +24121,26 @@
         }
       }
     },
-    "/api/v2/supersearch-enrichment": {
+    "/api/v2/supersearch-enrichment/enrich-leads-from-supersearch": {
       "post": {
-        "operationId": "createSuperSearchEnrichment",
-        "summary": "Create supersearch enrichment",
+        "operationId": "enrichLeadsFromSupersearch",
+        "summary": "Enrich leads from SuperSearch",
         "tags": [
           "SuperSearchEnrichment"
         ],
-        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Add leads from SuperSearch to the list or the campaign and enrich them. A list is automatically created if no resource is provided.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateSuperSearch Enrichment",
-                "description": "The SuperSearch Enrichment to create",
                 "type": "object",
+                "required": [
+                  "search_filters"
+                ],
                 "properties": {
-                  "id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "Unique identifier for the enrichment",
-                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-                  },
                   "search_filters": {
                     "type": "object",
-                    "description": "Criteria that determine which leads are enriched",
+                    "description": "Search filters to find leads (required)",
                     "properties": {
                       "locations": {
                         "type": "array",
@@ -24495,7 +24270,7 @@
                           "example": "Entry level"
                         }
                       },
-                      "employeeCount": {
+                      "employee_count": {
                         "type": "array",
                         "items": {
                           "type": "string",
@@ -24648,7 +24423,7 @@
                         },
                         "description": "Names of the lead to include in the search"
                       },
-                      "companyName": {
+                      "company_name": {
                         "type": "object",
                         "properties": {
                           "include": {
@@ -24669,12 +24444,12 @@
                           }
                         }
                       },
-                      "lookAlike": {
+                      "look_alike": {
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
                         "example": "google.com"
                       },
-                      "keywordFilter": {
+                      "keyword_filter": {
                         "type": "object",
                         "properties": {
                           "exclude": {
@@ -24804,7 +24579,7 @@
                           "example": "google.com"
                         }
                       },
-                      "fundingType": {
+                      "funding_type": {
                         "type": "array",
                         "items": {
                           "type": "string",
@@ -24862,183 +24637,126 @@
                           "example": "angel"
                         }
                       },
-                      "skipOwnedLeads": {
+                      "skip_owned_leads": {
                         "type": "boolean",
                         "description": "If set, the lead finder will skip leads that are owned by the user",
                         "example": true
                       },
-                      "showOneLeadPerCompany": {
+                      "show_one_lead_per_company": {
                         "type": "boolean",
                         "description": "If set, the lead finder will show only one lead per company",
                         "example": true
                       }
                     }
                   },
-                  "limit": {
-                    "type": [
-                      "number",
-                      "null"
-                    ],
-                    "description": "The maximum number of leads to enrich",
-                    "example": 100
+                  "search_name": {
+                    "type": "string",
+                    "description": "Name of the search",
+                    "example": "Tech CEOs in San Francisco"
                   },
-                  "enrichment_payload": {
-                    "type": "object",
-                    "description": "Object with enrichment types to be applied, with boolean values",
-                    "minProperties": 1,
-                    "properties": {
-                      "work_email_enrichment": {
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "fully_enriched_profile": {
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "email_verification": {
-                        "type": "boolean",
-                        "example": false
-                      },
-                      "joblisting": {
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "technologies": {
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "news": {
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "funding": {
-                        "type": "boolean",
-                        "example": true
-                      }
-                    }
+                  "work_email_enrichment": {
+                    "type": "boolean",
+                    "description": "Enable work email enrichment",
+                    "example": true
+                  },
+                  "fully_enriched_profile": {
+                    "type": "boolean",
+                    "description": "Enable LinkedIn profile enrichment",
+                    "example": true
                   },
                   "resource_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "Unique identifier for the entity to enrich leads into",
+                    "type": "string",
                     "format": "uuid",
+                    "description": "ID of existing resource to add leads to",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "resource_type": {
                     "type": "number",
-                    "description": "Type of the entity to enrich leads into",
                     "enum": [
                       1,
                       2
                     ],
-                    "x-enumDescriptions": {
-                      "1": "Campaign",
-                      "2": "List"
-                    },
+                    "description": "Type of resource",
                     "example": 1
                   },
-                  "search_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "The name of the search",
-                    "example": "CEO of tech companies in San Francisco"
-                  },
-                  "list_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "Custom name for the list created during enrichment",
-                    "example": "My SuperSearch List"
-                  },
-                  "exists": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ],
-                    "description": "Whether the enrichment exists",
-                    "example": true
-                  },
                   "auto_update": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ],
-                    "description": "Whether new leads added to the resource will be automatically enriched using these same settings",
+                    "type": "boolean",
+                    "description": "Whether to auto-update new leads",
                     "example": true
                   },
                   "skip_rows_without_email": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ],
-                    "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+                    "type": "boolean",
+                    "description": "Whether to skip leads without email",
                     "example": true
                   },
-                  "in_progress": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ],
-                    "description": "Whether the enrichment is in progress",
-                    "example": false
+                  "list_name": {
+                    "type": "string",
+                    "description": "Name for new list if resource_id not provided",
+                    "example": "My List"
+                  },
+                  "limit": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 50000,
+                    "description": "Maximum number of leads to import",
+                    "example": 100
                   }
-                },
-                "required": [
-                  "enrichment_payload"
-                ],
-                "additionalProperties": false
-              }
-            }
-          },
-          "required": true,
-          "description": "The SuperSearch Enrichment to create"
-        },
-        "responses": {
-          "200": {
-            "description": "The SuperSearch Enrichment",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/def-21"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request body (e.g. missing required fields, or invalid field values)",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "statusCode": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the enrichment",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "organization_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "Organization ID that created this enrichment",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "resource_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "ID of the resource (list or campaign)",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "resource_type": {
                       "type": "number",
-                      "enum": [
-                        400
-                      ],
-                      "example": 400
+                      "description": "Type of the resource",
+                      "example": 1
                     },
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "Bad Request"
-                      ],
-                      "example": "Bad Request"
+                    "search_filters": {
+                      "type": "object",
+                      "description": "The search filters used for enrichment"
                     },
-                    "message": {
+                    "limit": {
+                      "type": "number",
+                      "description": "Maximum number of leads to import",
+                      "example": 100
+                    },
+                    "list_name": {
                       "type": "string",
-                      "example": "body must have required property \u0027name\u0027"
+                      "description": "Name of the list created",
+                      "example": "Supersearch List (22 Sep 2025)"
                     }
                   },
                   "required": [
-                    "statusCode",
-                    "error",
-                    "message"
+                    "id",
+                    "organization_id",
+                    "resource_id",
+                    "resource_type"
                   ]
                 }
               }
@@ -25119,12 +24837,12 @@
     },
     "/api/v2/supersearch-enrichment/{resource_id}": {
       "get": {
-        "operationId": "getSuperSearchEnrichment",
-        "summary": "Get supersearch enrichment",
+        "operationId": "getEnrichmentForResource",
+        "summary": "Get enrichment for resource",
         "tags": [
           "SuperSearchEnrichment"
         ],
-        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "Get the enrichment for a specific resource",
         "parameters": [
           {
             "schema": {
@@ -25140,11 +24858,75 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested SuperSearch Enrichment",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-21"
+                  "type": "object",
+                  "properties": {
+                    "resource_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "ID of the resource being enriched",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "resource_type": {
+                      "type": "number",
+                      "description": "Type of the resource (1 for Campaign, 2 for List)",
+                      "example": 1
+                    },
+                    "in_progress": {
+                      "type": "boolean",
+                      "description": "Whether the enrichment is in progress",
+                      "example": false
+                    },
+                    "exists": {
+                      "type": "boolean",
+                      "description": "Whether the enrichment exists",
+                      "example": true
+                    },
+                    "enrichment_payload": {
+                      "type": "object",
+                      "description": "Enrichment types",
+                      "minProperties": 1,
+                      "properties": {
+                        "work_email_enrichment": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "fully_enriched_profile": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "email_verification": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "joblisting": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "technologies": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "news": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "funding": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "resource_id",
+                    "resource_type",
+                    "enrichment_payload"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -25173,41 +24955,6 @@
                     "message": {
                       "type": "string",
                       "example": "Missing Authorization header"
-                    }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "statusCode": {
-                      "type": "number",
-                      "enum": [
-                        404
-                      ],
-                      "example": 404
-                    },
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "example": "Not Found"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Resource not found"
                     }
                   },
                   "required": [
@@ -25257,10 +25004,10 @@
         }
       }
     },
-    "/api/v2/supersearch-enrichment/{resource_id}/add": {
+    "/api/v2/supersearch-enrichment": {
       "post": {
-        "operationId": "addSuperSearchEnrichment",
-        "summary": "Add supersearch enrichment to resource",
+        "operationId": "createSuperSearchEnrichment",
+        "summary": "Create an enrichment",
         "tags": [
           "SuperSearchEnrichment"
         ],
@@ -25270,9 +25017,16 @@
               "schema": {
                 "type": "object",
                 "required": [
+                  "resource_id",
                   "type"
                 ],
                 "properties": {
+                  "resource_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier for the resource (list or campaign)",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
                   "type": {
                     "type": "string",
                     "enum": [
@@ -25293,24 +25047,8 @@
                       "news": "News Enrichment",
                       "funding": "Funding Enrichment"
                     },
-                    "description": "Enrichment type",
+                    "description": "Enrichment type to add to the resource",
                     "example": "email_verification"
-                  },
-                  "resource_id": {
-                    "format": "uuid",
-                    "type": "string",
-                    "description": "Unique identifier for the entity to import leads into",
-                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-                  },
-                  "auto_update": {
-                    "type": "boolean",
-                    "description": "Whether the enrichment is auto-updated",
-                    "example": true
-                  },
-                  "skip_rows_without_email": {
-                    "type": "boolean",
-                    "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
-                    "example": true
                   },
                   "limit": {
                     "type": "number",
@@ -25324,6 +25062,118 @@
             }
           },
           "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The requested SuperSearch Enrichment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-21"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/{resource_id}/settings": {
+      "patch": {
+        "operationId": "updateEnrichmentSettingsForResource",
+        "summary": "Update enrichment settings for resource",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "auto_update": {
+                    "type": "boolean",
+                    "description": "Whether new leads added to the resource will be automatically enriched",
+                    "example": true
+                  },
+                  "skip_rows_without_email": {
+                    "type": "boolean",
+                    "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
         },
         "parameters": [
           {
@@ -25468,17 +25318,10 @@
                   "input_columns": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "example": "first_name"
                     },
-                    "description": "List of column names to use as input data for the AI enrichment. These are the fields from your leads that will be used to generate content.",
-                    "example": [
-                      "first_name",
-                      "last_name",
-                      "email",
-                      "company_name",
-                      "job_title",
-                      "location"
-                    ]
+                    "description": "List of column names to use as input data for the AI enrichment. These are the fields from your leads that will be used to generate content."
                   },
                   "model_version": {
                     "type": "string",
@@ -25591,64 +25434,75 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "job_id": {
-                      "type": "string",
-                      "description": "ID of the created enrichment job"
-                    },
                     "resource_id": {
                       "type": "string",
                       "format": "uuid",
-                      "description": "ID of the resource being enriched"
+                      "description": "ID of the resource being enriched",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "resource_type": {
                       "type": "number",
-                      "description": "Type of the resource (1 for Campaign, 2 for List)"
+                      "description": "Type of the resource (1 for Campaign, 2 for List)",
+                      "enum": [
+                        "CAMPAIGN",
+                        "LIST",
+                        1,
+                        2
+                      ],
+                      "x-enumDescriptions": {
+                        "1": "Campaign",
+                        "2": "List"
+                      },
+                      "example": 1
                     },
                     "output_column": {
                       "type": "string",
-                      "description": "Name of the column where results will be stored"
+                      "description": "Name of the column where results will be stored",
+                      "example": "ai_generated_content"
                     },
                     "status": {
                       "type": "number",
-                      "description": "Status of the enrichment job"
+                      "description": "Status of the enrichment job",
+                      "example": 1
                     },
                     "model_version": {
                       "type": "string",
-                      "description": "AI model version used for enrichment"
+                      "description": "AI model version used for enrichment",
+                      "example": "gpt-4o"
                     },
                     "input_columns": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "first_name"
                       },
                       "description": "Input columns used for enrichment"
                     },
                     "overwrite": {
                       "type": "boolean",
-                      "description": "Whether to overwrite existing data"
+                      "description": "Whether to overwrite existing data",
+                      "example": false
                     },
                     "auto_update": {
                       "type": "boolean",
-                      "description": "Whether to auto-update new leads"
+                      "description": "Whether to auto-update new leads",
+                      "example": true
                     },
                     "limit": {
                       "type": "number",
-                      "description": "Maximum number of leads to process"
+                      "description": "Maximum number of leads to process",
+                      "example": 100
                     },
                     "template_id": {
-                      "oneOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "null"
-                        }
+                      "type": [
+                        "null",
+                        "number"
                       ],
-                      "description": "ID of the prompt template used"
+                      "description": "ID of the prompt template used",
+                      "example": 123
                     }
                   },
                   "required": [
-                    "job_id",
                     "resource_id",
                     "resource_type",
                     "output_column",
@@ -25865,20 +25719,21 @@
     "/api/v2/supersearch-enrichment/run": {
       "post": {
         "operationId": "runEnrichment",
-        "summary": "Run an enrichment",
+        "summary": "Run enrichment for resource",
         "tags": [
           "SuperSearchEnrichment"
         ],
-        "description": "Run an enrichment for a list of leads or for all the leads that haven\u0027t been enriched yet",
+        "description": "Run all enrichments associated with a resource for a list of leads or for all the leads that haven\u0027t been enriched yet",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "enrichment_id": {
+                  "resource_id": {
                     "type": "string",
-                    "description": "The ID of the enrichment",
+                    "format": "uuid",
+                    "description": "The ID of the resource (list or campaign) to run enrichments for",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "lead_ids": {
@@ -25889,12 +25744,7 @@
                     },
                     "maxItems": 10000,
                     "minItems": 1,
-                    "description": "List of lead IDs to enrich"
-                  },
-                  "enrichment_type": {
-                    "type": "string",
-                    "description": "The type of enrichment to run",
-                    "example": "work_email_enrichment"
+                    "description": "List of lead IDs to enrich (optional)"
                   },
                   "limit": {
                     "type": "integer",
@@ -25903,7 +25753,7 @@
                   }
                 },
                 "required": [
-                  "enrichment_id"
+                  "resource_id"
                 ]
               }
             }
@@ -26755,7 +26605,7 @@
     "/api/v2/webhook-events/summary-by-date": {
       "get": {
         "operationId": "getWebhookEventsSummaryByDate",
-        "summary": "Get overview aggregates for webhook events by Date",
+        "summary": "Get overview aggregates for webhook events by date",
         "tags": [
           "WebhookEvent"
         ],
@@ -27630,7 +27480,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -28440,7 +28291,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -29314,7 +29166,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "null"
+                "type": "null",
+                "example": null
               }
             }
           }
@@ -29822,7 +29675,7 @@
     },
     {
       "name": "SuperSearchEnrichment",
-      "description": "A SuperSearch enrichment that retrieves and enriches leads based on search filters",
+      "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
       "x-displayName": "SuperSearch Enrichment"
     },
     {

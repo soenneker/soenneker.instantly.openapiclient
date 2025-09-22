@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         {
         }
         /// <summary>
-        /// Run an enrichment for a list of leads or for all the leads that haven&apos;t been enriched yet
+        /// Run all enrichments associated with a resource for a list of leads or for all the leads that haven&apos;t been enriched yet
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Run an enrichment for a list of leads or for all the leads that haven&apos;t been enriched yet
+        /// Run all enrichments associated with a resource for a list of leads or for all the leads that haven&apos;t been enriched yet
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

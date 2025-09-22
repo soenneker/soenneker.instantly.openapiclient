@@ -5,43 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
 {
+    /// <summary>
+    /// Custom variables can include any metadata about the lead that is relevant to the campaign, the campaign will be updated to allow all the other leads in the campaign to have the same custom variables. The custom variables will be added to the lead payload field
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class RunPostRequestBody : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class AddPostRequestBody_leads_custom_variables : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>List of lead IDs to enrich (optional)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? LeadIds { get; set; }
-#nullable restore
-#else
-        public List<string> LeadIds { get; set; }
-#endif
-        /// <summary>If set, only the first N leads will be enriched</summary>
-        public int? Limit { get; set; }
-        /// <summary>The ID of the resource (list or campaign) to run enrichments for</summary>
-        public Guid? ResourceId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables"/> and sets the default values.
         /// </summary>
-        public RunPostRequestBody()
+        public AddPostRequestBody_leads_custom_variables()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,9 +40,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "lead_ids", n => { LeadIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "limit", n => { Limit = n.GetIntValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -63,9 +49,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
-            writer.WriteIntValue("limit", Limit);
-            writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

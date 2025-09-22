@@ -41,7 +41,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InboxPlacementTestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests{?limit*,search*,sort_column*,sort_order*,starting_after*,status*}", pathParameters)
+        public InboxPlacementTestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests{?limit*,search*,sort_order*,starting_after*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InboxPlacementTestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests{?limit*,search*,sort_column*,sort_order*,starting_after*,status*}", rawUrl)
+        public InboxPlacementTestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests{?limit*,search*,sort_order*,starting_after*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -174,24 +174,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sort_column")]
-            public string? SortColumn { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort_column")]
-            public string SortColumn { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            /// <summary>Sort order for the results. Results are always sorted by id (which is timestamp-sorted due to UUIDv7).</summary>
             [QueryParameter("sort_order")]
-            public string? SortOrder { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort_order")]
-            public string SortOrder { get; set; }
-#endif
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.GetSort_orderQueryParameterType? SortOrder { get; set; }
             /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

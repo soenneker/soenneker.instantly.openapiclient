@@ -22,14 +22,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
 #else
         public List<string> InputColumns { get; set; }
 #endif
-        /// <summary>ID of the created enrichment job</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? JobId { get; set; }
-#nullable restore
-#else
-        public string JobId { get; set; }
-#endif
         /// <summary>Maximum number of leads to process</summary>
         public double? Limit { get; set; }
         /// <summary>AI model version used for enrichment</summary>
@@ -53,17 +45,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         /// <summary>ID of the resource being enriched</summary>
         public Guid? ResourceId { get; set; }
         /// <summary>Type of the resource (1 for Campaign, 2 for List)</summary>
-        public double? ResourceType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type? ResourceType { get; set; }
         /// <summary>Status of the enrichment job</summary>
         public double? Status { get; set; }
         /// <summary>ID of the prompt template used</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id? TemplateId { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id TemplateId { get; set; }
-#endif
+        public double? TemplateId { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -84,15 +70,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             {
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
                 { "input_columns", n => { InputColumns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "model_version", n => { ModelVersion = n.GetStringValue(); } },
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
-                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
+                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type>(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "template_id", n => { TemplateId = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id.CreateFromDiscriminatorValue); } },
+                { "template_id", n => { TemplateId = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -104,80 +89,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_update", AutoUpdate);
             writer.WriteCollectionOfPrimitiveValues<string>("input_columns", InputColumns);
-            writer.WriteStringValue("job_id", JobId);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("model_version", ModelVersion);
             writer.WriteStringValue("output_column", OutputColumn);
             writer.WriteBoolValue("overwrite", Overwrite);
             writer.WriteGuidValue("resource_id", ResourceId);
-            writer.WriteDoubleValue("resource_type", ResourceType);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type>("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id>("template_id", TemplateId);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_template_idMember1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AiPostResponse_template_id : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_template_idMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_template_idMember1? AiPostResponseTemplateIdMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_template_idMember1 AiPostResponseTemplateIdMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse.AiPostResponse_template_id();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.AiPostResponseTemplateIdMember1 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_template_idMember1();
-                }
-                else if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AiPostResponseTemplateIdMember1 != null)
-                {
-                    return AiPostResponseTemplateIdMember1.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(AiPostResponseTemplateIdMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_template_idMember1>(null, AiPostResponseTemplateIdMember1);
-                }
-                else if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-            }
+            writer.WriteDoubleValue("template_id", TemplateId);
         }
     }
 }

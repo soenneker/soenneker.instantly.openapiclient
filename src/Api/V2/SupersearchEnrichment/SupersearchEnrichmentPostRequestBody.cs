@@ -7,66 +7,26 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
 {
-    /// <summary>
-    /// The SuperSearch Enrichment to create
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SupersearchEnrichmentPostRequestBody : IParsable
+    #pragma warning disable CS1591
+    public partial class SupersearchEnrichmentPostRequestBody : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Whether new leads added to the resource will be automatically enriched using these same settings</summary>
-        public bool? AutoUpdate { get; set; }
-        /// <summary>Object with enrichment types to be applied, with boolean values</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_enrichment_payload? EnrichmentPayload { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_enrichment_payload EnrichmentPayload { get; set; }
-#endif
-        /// <summary>Whether the enrichment exists</summary>
-        public bool? Exists { get; set; }
-        /// <summary>Unique identifier for the enrichment</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
-        /// <summary>Whether the enrichment is in progress</summary>
-        public bool? InProgress { get; set; }
-        /// <summary>The maximum number of leads to enrich</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Maximum number of leads to enrich.</summary>
         public double? Limit { get; set; }
-        /// <summary>Custom name for the list created during enrichment</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ListName { get; set; }
-#nullable restore
-#else
-        public string ListName { get; set; }
-#endif
-        /// <summary>Unique identifier for the entity to enrich leads into</summary>
+        /// <summary>Unique identifier for the resource (list or campaign)</summary>
         public Guid? ResourceId { get; set; }
-        /// <summary>Type of the entity to enrich leads into</summary>
-        public double? ResourceType { get; set; }
-        /// <summary>Criteria that determine which leads are enriched</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_search_filters? SearchFilters { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_search_filters SearchFilters { get; set; }
-#endif
-        /// <summary>The name of the search</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SearchName { get; set; }
-#nullable restore
-#else
-        public string SearchName { get; set; }
-#endif
-        /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
-        public bool? SkipRowsWithoutEmail { get; set; }
+        /// <summary>Enrichment type to add to the resource</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type? Type { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody"/> and sets the default values.
+        /// </summary>
+        public SupersearchEnrichmentPostRequestBody()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -85,18 +45,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
-                { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_enrichment_payload.CreateFromDiscriminatorValue); } },
-                { "exists", n => { Exists = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "list_name", n => { ListName = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
-                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
-                { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_search_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_search_filters.CreateFromDiscriminatorValue); } },
-                { "search_name", n => { SearchName = n.GetStringValue(); } },
-                { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type>(); } },
             };
         }
         /// <summary>
@@ -106,18 +57,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("auto_update", AutoUpdate);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_enrichment_payload>("enrichment_payload", EnrichmentPayload);
-            writer.WriteBoolValue("exists", Exists);
-            writer.WriteStringValue("id", Id);
-            writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteDoubleValue("limit", Limit);
-            writer.WriteStringValue("list_name", ListName);
             writer.WriteGuidValue("resource_id", ResourceId);
-            writer.WriteDoubleValue("resource_type", ResourceType);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_search_filters>("search_filters", SearchFilters);
-            writer.WriteStringValue("search_name", SearchName);
-            writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type>("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

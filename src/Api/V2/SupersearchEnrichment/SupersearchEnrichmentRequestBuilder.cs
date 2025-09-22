@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run;
@@ -25,6 +26,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiRequestBuilder Ai
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enrichLeadsFromSupersearch property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchRequestBuilder EnrichLeadsFromSupersearch
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The history property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder History
@@ -65,13 +71,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         {
         }
         /// <summary>
-        /// Requires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`
+        /// Create an enrichment
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def21"/></returns>
-        /// <param name="body">The SuperSearch Enrichment to create</param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Def21400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Def21401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Def21429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,17 +92,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Def21400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Def21401Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Def21429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def21>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def21.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Requires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`
+        /// Create an enrichment
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The SuperSearch Enrichment to create</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

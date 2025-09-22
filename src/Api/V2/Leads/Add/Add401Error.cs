@@ -2,46 +2,49 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RunPostRequestBody : IAdditionalDataHolder, IParsable
+    public partial class Add401Error : ApiException, IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>List of lead IDs to enrich (optional)</summary>
+        /// <summary>The error property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error_error? Error { get; set; }
+        /// <summary>The primary error message.</summary>
+        public override string Message { get => MessageEscaped ?? string.Empty; }
+        /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LeadIds { get; set; }
+        public string? MessageEscaped { get; set; }
 #nullable restore
 #else
-        public List<string> LeadIds { get; set; }
+        public string MessageEscaped { get; set; }
 #endif
-        /// <summary>If set, only the first N leads will be enriched</summary>
-        public int? Limit { get; set; }
-        /// <summary>The ID of the resource (list or campaign) to run enrichments for</summary>
-        public Guid? ResourceId { get; set; }
+        /// <summary>The statusCode property</summary>
+        public double? StatusCode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error"/> and sets the default values.
         /// </summary>
-        public RunPostRequestBody()
+        public Add401Error()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,9 +54,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "lead_ids", n => { LeadIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "limit", n => { Limit = n.GetIntValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error_error>(); } },
+                { "message", n => { MessageEscaped = n.GetStringValue(); } },
+                { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -63,9 +66,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
-            writer.WriteIntValue("limit", Limit);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.Add401Error_error>("error", Error);
+            writer.WriteStringValue("message", MessageEscaped);
+            writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

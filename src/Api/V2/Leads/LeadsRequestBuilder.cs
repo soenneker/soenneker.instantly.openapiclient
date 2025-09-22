@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List;
@@ -24,6 +25,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The add property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddRequestBuilder Add
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The bulkAssign property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign.BulkAssignRequestBuilder BulkAssign
         {

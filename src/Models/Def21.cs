@@ -8,69 +8,29 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A SuperSearch enrichment that retrieves and enriches leads based on search filters
+    /// An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def21 : IParsable
     {
-        /// <summary>Whether new leads added to the resource will be automatically enriched using these same settings</summary>
-        public bool? AutoUpdate { get; set; }
-        /// <summary>Object with enrichment types to be applied, with boolean values</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload? EnrichmentPayload { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload EnrichmentPayload { get; set; }
-#endif
-        /// <summary>Whether the enrichment exists</summary>
-        public bool? Exists { get; set; }
         /// <summary>Unique identifier for the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get; private set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get; private set; }
 #endif
-        /// <summary>Whether the enrichment is in progress</summary>
-        public bool? InProgress { get; set; }
-        /// <summary>Unique identifier for the enrichment job created</summary>
-        public Guid? JobId { get; private set; }
         /// <summary>The maximum number of leads to enrich</summary>
         public double? Limit { get; set; }
-        /// <summary>Custom name for the list created during enrichment</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ListName { get; set; }
-#nullable restore
-#else
-        public string ListName { get; set; }
-#endif
         /// <summary>Organization ID that created this enrichment</summary>
         public Guid? OrganizationId { get; private set; }
         /// <summary>Unique identifier for the entity to enrich leads into</summary>
-        public Guid? ResourceId { get; set; }
+        public Guid? ResourceId { get; private set; }
         /// <summary>Type of the entity to enrich leads into</summary>
-        public double? ResourceType { get; set; }
-        /// <summary>Criteria that determine which leads are enriched</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_search_filters? SearchFilters { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_search_filters SearchFilters { get; set; }
-#endif
-        /// <summary>The name of the search</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SearchName { get; set; }
-#nullable restore
-#else
-        public string SearchName { get; set; }
-#endif
-        /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
-        public bool? SkipRowsWithoutEmail { get; set; }
+        public double? ResourceType { get; private set; }
+        /// <summary>Enrichment type to add to the resource</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_type? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -89,20 +49,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
-                { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload.CreateFromDiscriminatorValue); } },
-                { "exists", n => { Exists = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "in_progress", n => { InProgress = n.GetBoolValue(); } },
-                { "job_id", n => { JobId = n.GetGuidValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "list_name", n => { ListName = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
-                { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_search_filters>(global::Soenneker.Instantly.OpenApiClient.Models.Def21_search_filters.CreateFromDiscriminatorValue); } },
-                { "search_name", n => { SearchName = n.GetStringValue(); } },
-                { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_type>(); } },
             };
         }
         /// <summary>
@@ -112,18 +64,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("auto_update", AutoUpdate);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload>("enrichment_payload", EnrichmentPayload);
-            writer.WriteBoolValue("exists", Exists);
-            writer.WriteStringValue("id", Id);
-            writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteDoubleValue("limit", Limit);
-            writer.WriteStringValue("list_name", ListName);
-            writer.WriteGuidValue("resource_id", ResourceId);
-            writer.WriteDoubleValue("resource_type", ResourceType);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_search_filters>("search_filters", SearchFilters);
-            writer.WriteStringValue("search_name", SearchName);
-            writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_type>("type", Type);
         }
     }
 }

@@ -65,10 +65,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
         /// <summary>The test_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TestIds { get; set; }
+        public List<Guid?>? TestIds { get; set; }
 #nullable restore
 #else
-        public List<string> TestIds { get; set; }
+        public List<Guid?> TestIds { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.StatsByTestId.StatsByTestIdPostRequestBody"/> and sets the default values.
@@ -101,7 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
                 { "recipient_geo", n => { RecipientGeo = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "recipient_type", n => { RecipientType = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "sender_email", n => { SenderEmail = n.GetStringValue(); } },
-                { "test_ids", n => { TestIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "test_ids", n => { TestIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -117,7 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
             writer.WriteCollectionOfPrimitiveValues<double?>("recipient_geo", RecipientGeo);
             writer.WriteCollectionOfPrimitiveValues<double?>("recipient_type", RecipientType);
             writer.WriteStringValue("sender_email", SenderEmail);
-            writer.WriteCollectionOfPrimitiveValues<string>("test_ids", TestIds);
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("test_ids", TestIds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
