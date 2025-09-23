@@ -13,7 +13,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
     public partial class AuditLogsGetResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The items property</summary>
+        /// <summary>The list of Audit Log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.Def30>? Items { get; set; }
@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.Def30> Items { get; set; }
 #endif
-        /// <summary>The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API</summary>
+        /// <summary>The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextStartingAfter { get; set; }

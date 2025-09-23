@@ -26,8 +26,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         public bool? InProgress { get; set; }
         /// <summary>ID of the resource being enriched</summary>
         public Guid? ResourceId { get; set; }
-        /// <summary>Type of the resource (1 for Campaign, 2 for List)</summary>
-        public double? ResourceType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -50,7 +48,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
                 { "exists", n => { Exists = n.GetBoolValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
-                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -64,7 +61,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
             writer.WriteBoolValue("exists", Exists);
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteGuidValue("resource_id", ResourceId);
-            writer.WriteDoubleValue("resource_type", ResourceType);
         }
     }
 }

@@ -10,6 +10,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags;
+using Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders;
 using Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails;
 using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics;
@@ -76,6 +77,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder CustomTags
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dfyEmailAccountOrders property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder DfyEmailAccountOrders
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The emails property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder Emails

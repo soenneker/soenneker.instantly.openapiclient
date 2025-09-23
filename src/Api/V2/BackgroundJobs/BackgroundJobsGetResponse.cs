@@ -13,7 +13,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
     public partial class BackgroundJobsGetResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The items property</summary>
+        /// <summary>The list of Background Job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.Def12>? Items { get; set; }
@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.Def12> Items { get; set; }
 #endif
-        /// <summary>The filter for getting the next items after this one, this could either be a UUID, a MongoDB ID, a timestamp, on an email depending on the specific API</summary>
+        /// <summary>The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextStartingAfter { get; set; }
