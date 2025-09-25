@@ -4260,89 +4260,6 @@
         ],
         "additionalProperties": false
       },
-      "def-29": {
-        "title": "Clause",
-        "description": "A clause (filter or sort) that can be applied to variables in campaigns or lists",
-        "x-tags": [
-          "Schemas",
-          "Clause"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Unique identifier for the clause",
-            "readOnly": true,
-            "format": "uuid",
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "resource_id": {
-            "type": "string",
-            "description": "ID of the resource (campaign or list) this clause applies to",
-            "format": "uuid",
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "type": {
-            "type": "number",
-            "description": "Type of clause to apply (filter or sort type)",
-            "enum": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10
-            ],
-            "x-enumDescriptions": {
-              "1": "Equal to",
-              "2": "Not equal to",
-              "3": "Contains",
-              "4": "Does not contain",
-              "5": "Contains any of",
-              "6": "Does not contain any of",
-              "7": "Is empty",
-              "8": "Is not empty",
-              "9": "Ascending",
-              "10": "Descending"
-            },
-            "example": 1
-          },
-          "column_name": {
-            "type": "string",
-            "description": "Name of the column/variable to apply the clause on",
-            "example": "company_size"
-          },
-          "organization_id": {
-            "type": "string",
-            "description": "ID of the organization this clause belongs to",
-            "readOnly": true,
-            "format": "uuid",
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "value": {
-            "type": "array",
-            "description": "Value to filter on (only applicable for filter clauses)",
-            "items": {
-              "type": "string",
-              "example": "100000"
-            }
-          }
-        },
-        "required": [
-          "resource_id",
-          "type",
-          "column_name",
-          "organization_id"
-        ],
-        "additionalProperties": false
-      },
       "def-30": {
         "title": "Audit Log",
         "description": "Audit log records for tracking system activities",
@@ -31317,11 +31234,6 @@
       "name": "CampaignSubsequence",
       "description": "A subsequence entity representing a follow-up sequence",
       "x-displayName": "Campaign Subsequence"
-    },
-    {
-      "name": "Clause",
-      "description": "A clause (filter or sort) that can be applied to variables in campaigns or lists",
-      "x-displayName": "Clause"
     },
     {
       "name": "AuditLog",
