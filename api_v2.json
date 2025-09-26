@@ -728,6 +728,14 @@
             "description": "Whether the campaign is text only",
             "example": false
           },
+          "first_email_text_only": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the campaign is send the first email as a text only",
+            "example": false
+          },
           "email_list": {
             "type": "array",
             "description": "List of accounts to use for sending emails",
@@ -802,7 +810,10 @@
             "example": false
           },
           "auto_variant_select": {
-            "type": "object",
+            "type": [
+              "null",
+              "object"
+            ],
             "description": "Auto variant select settings",
             "properties": {
               "trigger": {
@@ -812,7 +823,9 @@
                   "click_rate",
                   "open_rate"
                 ],
-                "example": "click_rate"
+                "examples": [
+                  "click_rate"
+                ]
               }
             },
             "required": [
@@ -886,6 +899,63 @@
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "owned_by": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Owner ID",
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "provider_routing_rules": {
+            "type": "array",
+            "description": "Auto variant select settings",
+            "items": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "send",
+                    "do_not_send"
+                  ],
+                  "example": "send"
+                },
+                "recipient_esp": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "all",
+                      "google",
+                      "outlook",
+                      "other"
+                    ],
+                    "example": "all"
+                  }
+                },
+                "sender_esp": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "all",
+                      "google",
+                      "outlook",
+                      "other"
+                    ],
+                    "example": "all"
+                  }
+                }
+              }
+            },
+            "required": [
+              "action",
+              "recipient_esp",
+              "sender_esp"
+            ]
           }
         },
         "required": [
@@ -9346,6 +9416,14 @@
                     "description": "Whether the campaign is text only",
                     "example": false
                   },
+                  "first_email_text_only": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether the campaign is send the first email as a text only",
+                    "example": false
+                  },
                   "email_list": {
                     "type": "array",
                     "description": "List of accounts to use for sending emails",
@@ -9420,7 +9498,10 @@
                     "example": false
                   },
                   "auto_variant_select": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Auto variant select settings",
                     "properties": {
                       "trigger": {
@@ -9494,6 +9575,63 @@
                       "format": "email",
                       "example": "john@doe.com"
                     }
+                  },
+                  "owned_by": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Owner ID",
+                    "format": "uuid",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "provider_routing_rules": {
+                    "type": "array",
+                    "description": "Auto variant select settings",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "type": "string",
+                          "enum": [
+                            "send",
+                            "do_not_send"
+                          ],
+                          "example": "send"
+                        },
+                        "recipient_esp": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "all",
+                              "google",
+                              "outlook",
+                              "other"
+                            ],
+                            "example": "all"
+                          }
+                        },
+                        "sender_esp": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "all",
+                              "google",
+                              "outlook",
+                              "other"
+                            ],
+                            "example": "all"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "recipient_esp",
+                      "sender_esp"
+                    ]
                   }
                 },
                 "required": [
@@ -10520,6 +10658,14 @@
                     "description": "Whether the campaign is text only",
                     "example": false
                   },
+                  "first_email_text_only": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether the campaign is send the first email as a text only",
+                    "example": false
+                  },
                   "email_list": {
                     "type": "array",
                     "description": "List of accounts to use for sending emails",
@@ -10594,7 +10740,10 @@
                     "example": false
                   },
                   "auto_variant_select": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Auto variant select settings",
                     "properties": {
                       "trigger": {
@@ -10668,6 +10817,63 @@
                       "format": "email",
                       "example": "john@doe.com"
                     }
+                  },
+                  "owned_by": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Owner ID",
+                    "format": "uuid",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "provider_routing_rules": {
+                    "type": "array",
+                    "description": "Auto variant select settings",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "type": "string",
+                          "enum": [
+                            "send",
+                            "do_not_send"
+                          ],
+                          "example": "send"
+                        },
+                        "recipient_esp": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "all",
+                              "google",
+                              "outlook",
+                              "other"
+                            ],
+                            "example": "all"
+                          }
+                        },
+                        "sender_esp": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "all",
+                              "google",
+                              "outlook",
+                              "other"
+                            ],
+                            "example": "all"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "recipient_esp",
+                      "sender_esp"
+                    ]
                   }
                 },
                 "required": [],
@@ -24136,6 +24342,7 @@
                     },
                     "remaining_in_plan": {
                       "type": "integer",
+                      "nullable": true,
                       "description": "The remaining lead uploads in the current billing plan. This value is only present in the response when a \u0060campaign_id\u0060 is provided.",
                       "example": 9993
                     }

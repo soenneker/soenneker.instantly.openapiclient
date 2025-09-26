@@ -71,6 +71,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<Guid?> EmailTagList { get; set; }
 #endif
+        /// <summary>Whether the campaign is send the first email as a text only</summary>
+        public bool? FirstEmailTextOnly { get; set; }
         /// <summary>Unique identifier for the campaign</summary>
         public Guid? Id { get; private set; }
         /// <summary>Whether to insert an unsubscribe header in emails</summary>
@@ -93,10 +95,20 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public bool? OpenTracking { get; set; }
         /// <summary>Organization ID</summary>
         public Guid? Organization { get; private set; }
+        /// <summary>Owner ID</summary>
+        public Guid? OwnedBy { get; set; }
         /// <summary>Value of every positive lead</summary>
         public double? PlValue { get; set; }
         /// <summary>Whether to prioritize new leads</summary>
         public bool? PrioritizeNewLeads { get; set; }
+        /// <summary>Auto variant select settings</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules>? ProviderRoutingRules { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules> ProviderRoutingRules { get; set; }
+#endif
         /// <summary>The maximum random wait time in minutes</summary>
         public double? RandomWaitMax { get; set; }
         /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
@@ -162,6 +174,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "email_gap", n => { EmailGap = n.GetDoubleValue(); } },
                 { "email_list", n => { EmailList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "email_tag_list", n => { EmailTagList = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "first_email_text_only", n => { FirstEmailTextOnly = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "insert_unsubscribe_header", n => { InsertUnsubscribeHeader = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
@@ -170,8 +183,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "open_tracking", n => { OpenTracking = n.GetBoolValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
+                { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },
                 { "pl_value", n => { PlValue = n.GetDoubleValue(); } },
                 { "prioritize_new_leads", n => { PrioritizeNewLeads = n.GetBoolValue(); } },
+                { "provider_routing_rules", n => { ProviderRoutingRules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "random_wait_max", n => { RandomWaitMax = n.GetDoubleValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
@@ -201,14 +216,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("email_gap", EmailGap);
             writer.WriteCollectionOfPrimitiveValues<string>("email_list", EmailList);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("email_tag_list", EmailTagList);
+            writer.WriteBoolValue("first_email_text_only", FirstEmailTextOnly);
             writer.WriteBoolValue("insert_unsubscribe_header", InsertUnsubscribeHeader);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
             writer.WriteBoolValue("link_tracking", LinkTracking);
             writer.WriteBoolValue("match_lead_esp", MatchLeadEsp);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("open_tracking", OpenTracking);
+            writer.WriteGuidValue("owned_by", OwnedBy);
             writer.WriteDoubleValue("pl_value", PlValue);
             writer.WriteBoolValue("prioritize_new_leads", PrioritizeNewLeads);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules>("provider_routing_rules", ProviderRoutingRules);
             writer.WriteDoubleValue("random_wait_max", RandomWaitMax);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences>("sequences", Sequences);
             writer.WriteBoolValue("stop_for_company", StopForCompany);
