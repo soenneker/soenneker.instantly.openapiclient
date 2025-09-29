@@ -50,6 +50,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         public Guid? ResourceId { get; set; }
         /// <summary>Type of the entity to enrich</summary>
         public double? ResourceType { get; set; }
+        /// <summary>Whether to send the state of the enrichment</summary>
+        public bool? ShowState { get; set; }
         /// <summary>When true, leads without an email will be skipped.</summary>
         public bool? SkipLeadsWithoutEmail { get; set; }
         /// <summary>Status of the job</summary>
@@ -92,6 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
+                { "show_state", n => { ShowState = n.GetBoolValue(); } },
                 { "skip_leads_without_email", n => { SkipLeadsWithoutEmail = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "template_id", n => { TemplateId = n.GetDoubleValue(); } },
@@ -114,6 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteDoubleValue("resource_type", ResourceType);
+            writer.WriteBoolValue("show_state", ShowState);
             writer.WriteBoolValue("skip_leads_without_email", SkipLeadsWithoutEmail);
             writer.WriteDoubleValue("status", Status);
             writer.WriteDoubleValue("template_id", TemplateId);

@@ -27164,6 +27164,11 @@
                     },
                     "description": "Status of the job",
                     "example": 1
+                  },
+                  "show_state": {
+                    "type": "boolean",
+                    "description": "Whether to send the state of the enrichment",
+                    "example": true
                   }
                 }
               }
