@@ -24244,6 +24244,7 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.",
+                    "nullable": true,
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "assigned_to": {
@@ -24313,6 +24314,7 @@
                     "blocklist_used": {
                       "type": "string",
                       "description": "The ID of the blocklist that was used for the check.",
+                      "nullable": true,
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "duplicated_leads": {
