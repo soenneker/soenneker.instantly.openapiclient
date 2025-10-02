@@ -1638,10 +1638,7 @@
             "example": 1
           },
           "sending_method": {
-            "type": [
-              "null",
-              "number"
-            ],
+            "type": "number",
             "description": "Whether the inbox placement test will be sent from Instantly or from outside Instantly",
             "enum": [
               1,
@@ -1673,16 +1670,11 @@
             "example": "Hi, this is my email body"
           },
           "emails": {
-            "type": [
-              "null",
-              "array"
-            ],
+            "type": "array",
             "description": "Emails to send the inbox placement test to",
             "items": {
               "type": "string",
-              "examples": [
-                "john@doe.com"
-              ]
+              "example": "john@doe.com"
             }
           },
           "test_code": {
@@ -1923,8 +1915,10 @@
           "organization_id",
           "name",
           "type",
+          "sending_method",
           "email_subject",
           "email_body",
+          "emails",
           "recipients",
           "timestamp_created"
         ],
@@ -18071,10 +18065,7 @@
                     "example": 1
                   },
                   "sending_method": {
-                    "type": [
-                      "number",
-                      "null"
-                    ],
+                    "type": "number",
                     "description": "Whether the inbox placement test will be sent from Instantly or from outside Instantly",
                     "enum": [
                       1,
@@ -18106,10 +18097,7 @@
                     "example": "Hi, this is my email body"
                   },
                   "emails": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
+                    "type": "array",
                     "description": "Emails to send the inbox placement test to",
                     "items": {
                       "type": "string",
@@ -18321,8 +18309,10 @@
                 "required": [
                   "name",
                   "type",
+                  "sending_method",
                   "email_subject",
-                  "email_body"
+                  "email_body",
+                  "emails"
                 ],
                 "additionalProperties": false
               }
@@ -18854,10 +18844,7 @@
                       "example": 1
                     },
                     "sending_method": {
-                      "type": [
-                        "null",
-                        "number"
-                      ],
+                      "type": "number",
                       "description": "Whether the inbox placement test will be sent from Instantly or from outside Instantly",
                       "enum": [
                         1,
@@ -18889,10 +18876,7 @@
                       "example": "Hi, this is my email body"
                     },
                     "emails": {
-                      "type": [
-                        "null",
-                        "array"
-                      ],
+                      "type": "array",
                       "description": "Emails to send the inbox placement test to",
                       "items": {
                         "type": "string",
