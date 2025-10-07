@@ -3726,6 +3726,35 @@
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
+          "enrichment_payload": {
+            "type": "object",
+            "description": "Enrichment payload",
+            "additionalProperties": true
+          },
+          "auto_update": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether new leads added to the resource will be automatically enriched using these same settings",
+            "example": true
+          },
+          "skip_rows_without_email": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+            "example": true
+          },
+          "in_progress": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the enrichment is in progress",
+            "example": true
+          },
           "type": {
             "type": "string",
             "description": "Enrichment type to add to the resource",

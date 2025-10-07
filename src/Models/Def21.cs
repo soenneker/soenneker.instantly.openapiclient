@@ -13,6 +13,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def21 : IParsable
     {
+        /// <summary>Whether new leads added to the resource will be automatically enriched using these same settings</summary>
+        public bool? AutoUpdate { get; set; }
+        /// <summary>Enrichment payload</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload? EnrichmentPayload { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload EnrichmentPayload { get; set; }
+#endif
         /// <summary>Unique identifier for the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +31,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Id { get; private set; }
 #endif
+        /// <summary>Whether the enrichment is in progress</summary>
+        public bool? InProgress { get; set; }
         /// <summary>The maximum number of leads to enrich</summary>
         public double? Limit { get; set; }
         /// <summary>Organization ID that created this enrichment</summary>
@@ -29,6 +41,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public Guid? ResourceId { get; private set; }
         /// <summary>Type of the entity to enrich leads into</summary>
         public double? ResourceType { get; private set; }
+        /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
+        public bool? SkipRowsWithoutEmail { get; set; }
         /// <summary>Enrichment type to add to the resource</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.Def21_type? Type { get; set; }
         /// <summary>
@@ -49,11 +63,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
+                { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
+                { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_type>(); } },
             };
         }
@@ -64,7 +82,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("auto_update", AutoUpdate);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_enrichment_payload>("enrichment_payload", EnrichmentPayload);
+            writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteDoubleValue("limit", Limit);
+            writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def21_type>("type", Type);
         }
     }
