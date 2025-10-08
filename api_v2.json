@@ -24254,10 +24254,12 @@
                     }
                   },
                   "blocklist_id": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "format": "uuid",
                     "description": "Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.",
-                    "nullable": true,
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "assigned_to": {
@@ -24325,9 +24327,11 @@
                       "example": 1
                     },
                     "blocklist_used": {
-                      "type": "string",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
                       "description": "The ID of the blocklist that was used for the check.",
-                      "nullable": true,
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "duplicated_leads": {
@@ -24356,8 +24360,10 @@
                       "example": 0
                     },
                     "remaining_in_plan": {
-                      "type": "integer",
-                      "nullable": true,
+                      "type": [
+                        "null",
+                        "integer"
+                      ],
                       "description": "The remaining lead uploads in the current billing plan. This value is only present in the response when a \u0060campaign_id\u0060 is provided.",
                       "example": 9993
                     }
