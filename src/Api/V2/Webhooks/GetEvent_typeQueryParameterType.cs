@@ -8,6 +8,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
     public enum GetEvent_typeQueryParameterType
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "all_events")]
+        #pragma warning disable CS1591
+        All_events,
+        #pragma warning restore CS1591
         [EnumMember(Value = "email_sent")]
         #pragma warning disable CS1591
         Email_sent,

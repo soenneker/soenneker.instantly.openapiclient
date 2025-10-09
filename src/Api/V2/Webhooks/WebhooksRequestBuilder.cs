@@ -165,7 +165,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
             /// <summary>Filter by campaign ID</summary>
             [QueryParameter("campaign")]
             public Guid? Campaign { get; set; }
-            /// <summary>Filter by event type (e.g., email_sent, lead_interested)</summary>
+            /// <summary>Filter by event type (e.g., email_sent, lead_interested, all_events)</summary>
             [QueryParameter("event_type")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.GetEvent_typeQueryParameterType? EventType { get; set; }
             /// <summary>The number of items to return</summary>

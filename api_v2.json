@@ -4556,8 +4556,9 @@
               "null",
               "string"
             ],
-            "description": "Type of event to trigger the webhook (null for custom label events)",
+            "description": "Type of event to trigger the webhook (null for custom label events). Set to \u0022all_events\u0022 to subscribe to all events - including custom label events",
             "enum": [
+              "all_events",
               "email_sent",
               "email_opened",
               "email_link_clicked",
@@ -28580,6 +28581,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "all_events",
                 "email_sent",
                 "email_opened",
                 "email_link_clicked",
@@ -28597,12 +28599,12 @@
                 "lead_out_of_office",
                 "lead_wrong_person"
               ],
-              "example": "email_sent"
+              "example": "all_events"
             },
             "in": "query",
             "name": "event_type",
             "required": false,
-            "description": "Filter by event type (e.g., email_sent, lead_interested)"
+            "description": "Filter by event type (e.g., email_sent, lead_interested, all_events)"
           }
         ],
         "responses": {
@@ -28742,8 +28744,9 @@
                       "string",
                       "null"
                     ],
-                    "description": "Type of event to trigger the webhook (null for custom label events)",
+                    "description": "Type of event to trigger the webhook (null for custom label events). Set to \u0022all_events\u0022 to subscribe to all events - including custom label events",
                     "enum": [
+                      "all_events",
                       "email_sent",
                       "email_opened",
                       "email_link_clicked",
@@ -29074,8 +29077,9 @@
                       "string",
                       "null"
                     ],
-                    "description": "Type of event to trigger the webhook (null for custom label events)",
+                    "description": "Type of event to trigger the webhook (null for custom label events). Set to \u0022all_events\u0022 to subscribe to all events - including custom label events",
                     "enum": [
+                      "all_events",
                       "email_sent",
                       "email_opened",
                       "email_link_clicked",

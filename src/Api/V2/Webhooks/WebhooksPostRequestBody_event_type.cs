@@ -3,10 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
 {
-    /// <summary>Type of event to trigger the webhook (null for custom label events)</summary>
+    /// <summary>Type of event to trigger the webhook (null for custom label events). Set to &quot;all_events&quot; to subscribe to all events - including custom label events</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WebhooksPostRequestBody_event_type
     {
+        [EnumMember(Value = "all_events")]
+        #pragma warning disable CS1591
+        All_events,
+        #pragma warning restore CS1591
         [EnumMember(Value = "email_sent")]
         #pragma warning disable CS1591
         Email_sent,

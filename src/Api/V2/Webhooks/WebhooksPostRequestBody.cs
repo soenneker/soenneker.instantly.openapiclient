@@ -17,7 +17,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
         public Guid? Campaign { get; set; }
         /// <summary>Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)</summary>
         public double? CustomInterestValue { get; set; }
-        /// <summary>Type of event to trigger the webhook (null for custom label events)</summary>
+        /// <summary>Type of event to trigger the webhook (null for custom label events). Set to &quot;all_events&quot; to subscribe to all events - including custom label events</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody_event_type? EventType { get; set; }
         /// <summary>Target URL to send webhook payloads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
