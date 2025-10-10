@@ -14,6 +14,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Filters to apply to the enrichment</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters>? Filters { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters> Filters { get; set; }
+#endif
         /// <summary>Maximum number of leads to enrich.</summary>
         public double? Limit { get; set; }
         /// <summary>Unique identifier for the resource (list or campaign)</summary>
@@ -45,6 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type>(); } },
@@ -57,6 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters>("filters", Filters);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type>("type", Type);

@@ -26766,6 +26766,13 @@
                     "minimum": 1,
                     "maximum": 50000,
                     "example": 100
+                  },
+                  "filters": {
+                    "type": "array",
+                    "description": "Filters to apply to the enrichment",
+                    "items": {
+                      "type": "object"
+                    }
                   }
                 }
               }
