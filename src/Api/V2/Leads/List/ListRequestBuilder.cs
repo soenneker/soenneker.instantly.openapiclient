@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
         {
         }
         /// <summary>
-        /// This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we’re following because of the complex arguments it accepts, which would be too hard to express through query parametersRequires one of the following scopes: `leads:read`, `leads:all`, `all:read`, `all:all`
+        /// This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we’re following because of the complex arguments it accepts, which would be too hard to express through query parameters. Results are ordered by each lead&apos;s `id` field in ascending order (or by `contact` when distinct_contacts is true) so clients can paginate chronologically by reusing the cursor returned in `next_starting_after`. Leads created on or after October 15, 2025 respect this chronological ordering; older records may appear out of sequence when sorted by ID.Requires one of the following scopes: `leads:read`, `leads:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -60,7 +60,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we’re following because of the complex arguments it accepts, which would be too hard to express through query parametersRequires one of the following scopes: `leads:read`, `leads:all`, `all:read`, `all:all`
+        /// This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we’re following because of the complex arguments it accepts, which would be too hard to express through query parameters. Results are ordered by each lead&apos;s `id` field in ascending order (or by `contact` when distinct_contacts is true) so clients can paginate chronologically by reusing the cursor returned in `next_starting_after`. Leads created on or after October 15, 2025 respect this chronological ordering; older records may appear out of sequence when sorted by ID.Requires one of the following scopes: `leads:read`, `leads:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -22047,7 +22047,7 @@
         "tags": [
           "Lead"
         ],
-        "description": "This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we\u2019re following because of the complex arguments it accepts, which would be too hard to express through query parameters\n\n\nRequires one of the following scopes: \u0060leads:read\u0060, \u0060leads:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we\u2019re following because of the complex arguments it accepts, which would be too hard to express through query parameters. Results are ordered by each lead\u0027s \u0060id\u0060 field in ascending order (or by \u0060contact\u0060 when distinct_contacts is true) so clients can paginate chronologically by reusing the cursor returned in \u0060next_starting_after\u0060. Leads created on or after October 15, 2025 respect this chronological ordering; older records may appear out of sequence when sorted by ID.\n\n\nRequires one of the following scopes: \u0060leads:read\u0060, \u0060leads:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -22225,7 +22225,7 @@
                   },
                   "starting_after": {
                     "type": "string",
-                    "description": "Starting after ID or email to filter leads, use email if distinct_contacts is true",
+                    "description": "Forward pagination cursor. When distinct_contacts is false, provide the \u0060id\u0060 value from the last lead of the previous page; when true, provide the lead\u0027s email.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "organization_user_ids": {

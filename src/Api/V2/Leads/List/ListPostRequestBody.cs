@@ -88,7 +88,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
 #endif
         /// <summary>Smart view ID to filter leads</summary>
         public Guid? SmartViewId { get; set; }
-        /// <summary>Starting after ID or email to filter leads, use email if distinct_contacts is true</summary>
+        /// <summary>Forward pagination cursor. When distinct_contacts is false, provide the `id` value from the last lead of the previous page; when true, provide the lead&apos;s email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StartingAfter { get; set; }
