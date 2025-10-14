@@ -28,6 +28,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
         public bool? DistinctContacts { get; set; }
         /// <summary>Enrichment status to filter leads</summary>
         public double? EnrichmentStatus { get; set; }
+        /// <summary>ESG code to filter leads</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostRequestBody_esg_code? EsgCode { get; set; }
         /// <summary>Array of lead IDs to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,6 +127,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
                 { "contacts", n => { Contacts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "distinct_contacts", n => { DistinctContacts = n.GetBoolValue(); } },
                 { "enrichment_status", n => { EnrichmentStatus = n.GetDoubleValue(); } },
+                { "esg_code", n => { EsgCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostRequestBody_esg_code>(); } },
                 { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
@@ -151,6 +154,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
             writer.WriteCollectionOfPrimitiveValues<string>("contacts", Contacts);
             writer.WriteBoolValue("distinct_contacts", DistinctContacts);
             writer.WriteDoubleValue("enrichment_status", EnrichmentStatus);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostRequestBody_esg_code>("esg_code", EsgCode);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("excluded_ids", ExcludedIds);
             writer.WriteStringValue("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);

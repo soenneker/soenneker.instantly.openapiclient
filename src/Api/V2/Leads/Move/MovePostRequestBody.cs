@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
         /// <summary>Whether to copy the leads.</summary>
         public bool? CopyLeads { get; set; }
         /// <summary>The ESG code to move the leads for.</summary>
-        public double? EsgCode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_esg_code? EsgCode { get; set; }
         /// <summary>The ESP code to move the leads for.</summary>
         public double? EspCode { get; set; }
         /// <summary>Array of lead IDs to exclude</summary>
@@ -121,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
                 { "check_duplicates_in_campaigns", n => { CheckDuplicatesInCampaigns = n.GetBoolValue(); } },
                 { "contacts", n => { Contacts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "copy_leads", n => { CopyLeads = n.GetBoolValue(); } },
-                { "esg_code", n => { EsgCode = n.GetDoubleValue(); } },
+                { "esg_code", n => { EsgCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_esg_code>(); } },
                 { "esp_code", n => { EspCode = n.GetDoubleValue(); } },
                 { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
@@ -150,7 +150,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
             writer.WriteBoolValue("check_duplicates_in_campaigns", CheckDuplicatesInCampaigns);
             writer.WriteCollectionOfPrimitiveValues<string>("contacts", Contacts);
             writer.WriteBoolValue("copy_leads", CopyLeads);
-            writer.WriteDoubleValue("esg_code", EsgCode);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_esg_code>("esg_code", EsgCode);
             writer.WriteDoubleValue("esp_code", EspCode);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("excluded_ids", ExcludedIds);
             writer.WriteStringValue("filter", Filter);

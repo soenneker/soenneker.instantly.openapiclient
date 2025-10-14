@@ -77,6 +77,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         public bool? InsertUnsubscribeHeader { get; set; }
         /// <summary>Whether the campaign is evergreen</summary>
         public bool? IsEvergreen { get; set; }
+        /// <summary>Overrides the workspace-wide limit emails per company setting for this campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_limit_emails_per_company_override? LimitEmailsPerCompanyOverride { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_limit_emails_per_company_override LimitEmailsPerCompanyOverride { get; set; }
+#endif
         /// <summary>Whether to track links in emails</summary>
         public bool? LinkTracking { get; set; }
         /// <summary>Whether to match leads by ESP</summary>
@@ -155,6 +163,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
                 { "first_email_text_only", n => { FirstEmailTextOnly = n.GetBoolValue(); } },
                 { "insert_unsubscribe_header", n => { InsertUnsubscribeHeader = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
+                { "limit_emails_per_company_override", n => { LimitEmailsPerCompanyOverride = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_limit_emails_per_company_override>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_limit_emails_per_company_override.CreateFromDiscriminatorValue); } },
                 { "link_tracking", n => { LinkTracking = n.GetBoolValue(); } },
                 { "match_lead_esp", n => { MatchLeadEsp = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -192,6 +201,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             writer.WriteBoolValue("first_email_text_only", FirstEmailTextOnly);
             writer.WriteBoolValue("insert_unsubscribe_header", InsertUnsubscribeHeader);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_limit_emails_per_company_override>("limit_emails_per_company_override", LimitEmailsPerCompanyOverride);
             writer.WriteBoolValue("link_tracking", LinkTracking);
             writer.WriteBoolValue("match_lead_esp", MatchLeadEsp);
             writer.WriteStringValue("name", Name);

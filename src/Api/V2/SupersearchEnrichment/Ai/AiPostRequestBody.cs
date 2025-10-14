@@ -16,6 +16,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, new leads added to the campaign/list will be automatically enriched using these same settings.</summary>
         public bool? AutoUpdate { get; set; }
+        /// <summary>The filters property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_filters>? Filters { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_filters> Filters { get; set; }
+#endif
         /// <summary>List of column names to use as input data for the AI enrichment. These are the fields from your leads that will be used to generate content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,6 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
+                { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_filters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "input_columns", n => { InputColumns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "model_version", n => { ModelVersion = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_model_version>(); } },
@@ -109,6 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_update", AutoUpdate);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_filters>("filters", Filters);
             writer.WriteCollectionOfPrimitiveValues<string>("input_columns", InputColumns);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostRequestBody_model_version>("model_version", ModelVersion);

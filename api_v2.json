@@ -872,6 +872,45 @@
             "description": "Whether to disable bounce protection",
             "example": false
           },
+          "limit_emails_per_company_override": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Overrides the workspace-wide limit emails per company setting for this campaign.",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "custom",
+                  "disabled"
+                ],
+                "examples": [
+                  "custom"
+                ]
+              },
+              "daily_limit": {
+                "type": "number",
+                "minimum": 1,
+                "examples": [
+                  3
+                ]
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "per_campaign",
+                  "across_workspace"
+                ],
+                "examples": [
+                  "per_campaign"
+                ]
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
           "cc_list": {
             "type": "array",
             "description": "List of accounts to CC on emails",
@@ -2764,18 +2803,27 @@
             "description": "Status summary of the lead",
             "readOnly": true,
             "properties": {
-              "from": {
-                "type": "string",
-                "example": "campaign"
+              "lastStep": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string",
+                    "example": "campaign"
+                  },
+                  "stepID": {
+                    "type": "string",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "timestamp_executed": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "1970-01-01T00:00:00.000Z"
+                  }
+                }
               },
-              "stepID": {
-                "type": "string",
-                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-              },
-              "timestamp_executed": {
-                "type": "string",
-                "format": "date-time",
-                "example": "1970-01-01T00:00:00.000Z"
+              "domain_complete": {
+                "type": "boolean",
+                "example": true
               }
             }
           },
@@ -9582,6 +9630,39 @@
                     "description": "Whether to disable bounce protection",
                     "example": false
                   },
+                  "limit_emails_per_company_override": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Overrides the workspace-wide limit emails per company setting for this campaign.",
+                    "properties": {
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "custom",
+                          "disabled"
+                        ],
+                        "example": "custom"
+                      },
+                      "daily_limit": {
+                        "type": "number",
+                        "minimum": 1,
+                        "example": 3
+                      },
+                      "scope": {
+                        "type": "string",
+                        "enum": [
+                          "per_campaign",
+                          "across_workspace"
+                        ],
+                        "example": "per_campaign"
+                      }
+                    },
+                    "required": [
+                      "mode"
+                    ]
+                  },
                   "cc_list": {
                     "type": "array",
                     "description": "List of accounts to CC on emails",
@@ -10823,6 +10904,39 @@
                     ],
                     "description": "Whether to disable bounce protection",
                     "example": false
+                  },
+                  "limit_emails_per_company_override": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Overrides the workspace-wide limit emails per company setting for this campaign.",
+                    "properties": {
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "custom",
+                          "disabled"
+                        ],
+                        "example": "custom"
+                      },
+                      "daily_limit": {
+                        "type": "number",
+                        "minimum": 1,
+                        "example": 3
+                      },
+                      "scope": {
+                        "type": "string",
+                        "enum": [
+                          "per_campaign",
+                          "across_workspace"
+                        ],
+                        "example": "per_campaign"
+                      }
+                    },
+                    "required": [
+                      "mode"
+                    ]
                   },
                   "cc_list": {
                     "type": "array",
@@ -13718,6 +13832,7 @@
                           "ACC_FILTER_NO_CTD",
                           "ACC_FILTER_PW_ACCOUNTS",
                           "ACC_FILTER_DFY",
+                          "ACC_FILTER_DFY_SETUP_PENDING",
                           "ACC_FILTER_W_ACTIVE",
                           "ACC_FILTER_W_PAUSED",
                           "ACC_FILTER_W_ERROR"
@@ -13728,6 +13843,7 @@
                           "ACC_FILTER_NO_CTD": "No CTD",
                           "ACC_FILTER_PW_ACCOUNTS": "PW Accounts",
                           "ACC_FILTER_DFY": "DFY",
+                          "ACC_FILTER_DFY_SETUP_PENDING": "DFY Setup Pending",
                           "ACC_FILTER_W_ACTIVE": "W Active",
                           "ACC_FILTER_W_PAUSED": "W Paused",
                           "ACC_FILTER_W_ERROR": "W Error"
@@ -22269,6 +22385,29 @@
                     },
                     "description": "Enrichment status to filter leads",
                     "example": 1
+                  },
+                  "esg_code": {
+                    "type": "string",
+                    "enum": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "all",
+                      "none"
+                    ],
+                    "x-enumDescriptions": {
+                      "0": "In Queue",
+                      "1": "Barracuda",
+                      "2": "Mimecast",
+                      "3": "Proofpoint",
+                      "4": "Cisco",
+                      "all": "All",
+                      "none": "None"
+                    },
+                    "description": "ESG code to filter leads",
+                    "example": "1"
                   }
                 }
               }
@@ -23866,23 +24005,27 @@
                     "example": 1
                   },
                   "esg_code": {
-                    "type": "number",
+                    "type": "string",
                     "enum": [
-                      0,
-                      1,
-                      2,
-                      3,
-                      4
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "all",
+                      "none"
                     ],
                     "x-enumDescriptions": {
                       "0": "In Queue",
                       "1": "Barracuda",
                       "2": "Mimecast",
                       "3": "Proofpoint",
-                      "4": "Cisco"
+                      "4": "Cisco",
+                      "all": "All",
+                      "none": "None"
                     },
                     "description": "The ESG code to move the leads for.",
-                    "example": 1
+                    "example": "1"
                   },
                   "copy_leads": {
                     "type": "boolean",
@@ -27198,6 +27341,21 @@
                     "type": "boolean",
                     "description": "Whether to send the state of the enrichment",
                     "example": true
+                  },
+                  "filters": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "Filters to apply to the enrichment",
+                      "example": {
+                        "column_name": "email",
+                        "type": 1,
+                        "value": [
+                          "test@test.com"
+                        ]
+                      }
+                    }
                   }
                 }
               }
