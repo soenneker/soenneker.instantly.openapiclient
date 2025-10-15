@@ -21,6 +21,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.Def35_event_type? EventType { get; set; }
         /// <summary>Unique identifier for the webhook (UUID)</summary>
         public Guid? Id { get; private set; }
+        /// <summary>Optional user-defined name for the webhook</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>Organization (workspace) UUID that owns this webhook</summary>
         public Guid? Organization { get; private set; }
         /// <summary>Target URL to send webhook payloads</summary>
@@ -55,6 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "custom_interest_value", n => { CustomInterestValue = n.GetDoubleValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def35_event_type>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
                 { "target_hook_url", n => { TargetHookUrl = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -70,6 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteGuidValue("campaign", Campaign);
             writer.WriteDoubleValue("custom_interest_value", CustomInterestValue);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def35_event_type>("event_type", EventType);
+            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("target_hook_url", TargetHookUrl);
         }
     }

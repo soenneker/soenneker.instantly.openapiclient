@@ -19,6 +19,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
         public double? CustomInterestValue { get; set; }
         /// <summary>Type of event to trigger the webhook (null for custom label events). Set to &quot;all_events&quot; to subscribe to all events - including custom label events</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody_event_type? EventType { get; set; }
+        /// <summary>Optional user-defined name for the webhook</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>Target URL to send webhook payloads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
                 { "campaign", n => { Campaign = n.GetGuidValue(); } },
                 { "custom_interest_value", n => { CustomInterestValue = n.GetDoubleValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody_event_type>(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "target_hook_url", n => { TargetHookUrl = n.GetStringValue(); } },
             };
         }
@@ -61,6 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
             writer.WriteGuidValue("campaign", Campaign);
             writer.WriteDoubleValue("custom_interest_value", CustomInterestValue);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody_event_type>("event_type", EventType);
+            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("target_hook_url", TargetHookUrl);
         }
     }

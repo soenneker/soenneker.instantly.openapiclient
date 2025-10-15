@@ -4592,6 +4592,14 @@
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional user-defined name for the webhook",
+            "example": "Zapier Positive Replies"
+          },
           "target_hook_url": {
             "type": "string",
             "description": "Target URL to send webhook payloads",
@@ -28897,6 +28905,14 @@
                     "format": "uuid",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Optional user-defined name for the webhook",
+                    "example": "Zapier Positive Replies"
+                  },
                   "target_hook_url": {
                     "type": "string",
                     "description": "Target URL to send webhook payloads",
@@ -29229,6 +29245,14 @@
                     "description": "Optional campaign UUID to filter events (null = all campaigns in workspace)",
                     "format": "uuid",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Optional user-defined name for the webhook",
+                    "example": "Zapier Positive Replies"
                   },
                   "target_hook_url": {
                     "type": "string",
