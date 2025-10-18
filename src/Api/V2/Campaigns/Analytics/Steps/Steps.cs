@@ -18,11 +18,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         public int? Clicks { get; set; }
         /// <summary>The total number of opened emails</summary>
         public int? Opened { get; set; }
+        /// <summary>The total number of opportunities created from this step. Included only if `include_opportunities_count` is `true`</summary>
+        public int? Opportunities { get; set; }
         /// <summary>The total number of replies</summary>
         public int? Replies { get; set; }
         /// <summary>The total number of sent emails</summary>
         public int? Sent { get; set; }
-        /// <summary>The step number</summary>
+        /// <summary>The step number. When null it means we couldn&apos;t determine the step number for the event, for instance for list leads, which are not part of a campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Step { get; set; }
@@ -34,9 +36,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         public int? UniqueClicks { get; set; }
         /// <summary>The total number of opened emails</summary>
         public int? UniqueOpened { get; set; }
+        /// <summary>The total number of unique opportunities created from this step. Unique meaning unique per lead. If a lead has multiple opportunities, it will be counted as 1 unique opportunity. Included only if `include_opportunities_count` is `true`</summary>
+        public int? UniqueOpportunities { get; set; }
         /// <summary>The total number of replies</summary>
         public int? UniqueReplies { get; set; }
-        /// <summary>The variant number, starting from 0. 0 = A, 1 = B, 2 = C, etc.</summary>
+        /// <summary>The variant number, starting from 0. 0 = A, 1 = B, 2 = C, etc. When null it means we couldn&apos;t determine the variant for the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Variant { get; set; }
@@ -71,11 +75,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             {
                 { "clicks", n => { Clicks = n.GetIntValue(); } },
                 { "opened", n => { Opened = n.GetIntValue(); } },
+                { "opportunities", n => { Opportunities = n.GetIntValue(); } },
                 { "replies", n => { Replies = n.GetIntValue(); } },
                 { "sent", n => { Sent = n.GetIntValue(); } },
                 { "step", n => { Step = n.GetStringValue(); } },
                 { "unique_clicks", n => { UniqueClicks = n.GetIntValue(); } },
                 { "unique_opened", n => { UniqueOpened = n.GetIntValue(); } },
+                { "unique_opportunities", n => { UniqueOpportunities = n.GetIntValue(); } },
                 { "unique_replies", n => { UniqueReplies = n.GetIntValue(); } },
                 { "variant", n => { Variant = n.GetStringValue(); } },
             };
@@ -89,11 +95,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("clicks", Clicks);
             writer.WriteIntValue("opened", Opened);
+            writer.WriteIntValue("opportunities", Opportunities);
             writer.WriteIntValue("replies", Replies);
             writer.WriteIntValue("sent", Sent);
             writer.WriteStringValue("step", Step);
             writer.WriteIntValue("unique_clicks", UniqueClicks);
             writer.WriteIntValue("unique_opened", UniqueOpened);
+            writer.WriteIntValue("unique_opportunities", UniqueOpportunities);
             writer.WriteIntValue("unique_replies", UniqueReplies);
             writer.WriteStringValue("variant", Variant);
             writer.WriteAdditionalData(AdditionalData);

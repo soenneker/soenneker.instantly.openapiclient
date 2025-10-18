@@ -26,6 +26,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
 #endif
         /// <summary>The total number of opened emails</summary>
         public int? Opened { get; set; }
+        /// <summary>The total number of unique opportunities created from the campaign on that day</summary>
+        public int? Opportunities { get; set; }
         /// <summary>The total number of replies</summary>
         public int? Replies { get; set; }
         /// <summary>The total number of sent emails</summary>
@@ -34,6 +36,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         public int? UniqueClicks { get; set; }
         /// <summary>The total number of unique opened emails</summary>
         public int? UniqueOpened { get; set; }
+        /// <summary>The total number of unique opportunities created from unique leads from the campaign on that day</summary>
+        public int? UniqueOpportunities { get; set; }
         /// <summary>The total number of unique replies</summary>
         public int? UniqueReplies { get; set; }
         /// <summary>
@@ -64,10 +68,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
                 { "clicks", n => { Clicks = n.GetIntValue(); } },
                 { "date", n => { Date = n.GetStringValue(); } },
                 { "opened", n => { Opened = n.GetIntValue(); } },
+                { "opportunities", n => { Opportunities = n.GetIntValue(); } },
                 { "replies", n => { Replies = n.GetIntValue(); } },
                 { "sent", n => { Sent = n.GetIntValue(); } },
                 { "unique_clicks", n => { UniqueClicks = n.GetIntValue(); } },
                 { "unique_opened", n => { UniqueOpened = n.GetIntValue(); } },
+                { "unique_opportunities", n => { UniqueOpportunities = n.GetIntValue(); } },
                 { "unique_replies", n => { UniqueReplies = n.GetIntValue(); } },
             };
         }
@@ -81,10 +87,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
             writer.WriteIntValue("clicks", Clicks);
             writer.WriteStringValue("date", Date);
             writer.WriteIntValue("opened", Opened);
+            writer.WriteIntValue("opportunities", Opportunities);
             writer.WriteIntValue("replies", Replies);
             writer.WriteIntValue("sent", Sent);
             writer.WriteIntValue("unique_clicks", UniqueClicks);
             writer.WriteIntValue("unique_opened", UniqueOpened);
+            writer.WriteIntValue("unique_opportunities", UniqueOpportunities);
             writer.WriteIntValue("unique_replies", UniqueReplies);
             writer.WriteAdditionalData(AdditionalData);
         }

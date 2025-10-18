@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StepsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/steps{?campaign_id*,end_date*,start_date*}", pathParameters)
+        public StepsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/steps{?campaign_id*,end_date*,include_opportunities_count*,start_date*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StepsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/steps{?campaign_id*,end_date*,start_date*}", rawUrl)
+        public StepsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/steps{?campaign_id*,end_date*,include_opportunities_count*,start_date*}", rawUrl)
         {
         }
         /// <summary>
@@ -109,6 +109,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
+            /// <summary>Whether to include the opportunities count per step. If this field is true then `opportunities` and `unique_opportunities` fields will be included in the response</summary>
+            [QueryParameter("include_opportunities_count")]
+            public bool? IncludeOpportunitiesCount { get; set; }
             /// <summary>Start date</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

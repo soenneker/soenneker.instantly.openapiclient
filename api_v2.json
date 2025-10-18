@@ -12205,6 +12205,16 @@
                         "type": "integer",
                         "description": "The total number of unique links clicked. Unique meaning from unique leads, not unique links. For instance, if a lead clicked a link 3 times, it will be counted as 1 unique click. If a lead clicked 3 different links, it will still be counted as 1 unique click",
                         "example": 60
+                      },
+                      "opportunities": {
+                        "type": "integer",
+                        "description": "The total number of unique opportunities created from the campaign on that day",
+                        "example": 5
+                      },
+                      "unique_opportunities": {
+                        "type": "integer",
+                        "description": "The total number of unique opportunities created from unique leads from the campaign on that day",
+                        "example": 3
                       }
                     }
                   }
@@ -12377,6 +12387,17 @@
             "name": "end_date",
             "required": false,
             "description": "End date"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "example": true
+            },
+            "in": "query",
+            "name": "include_opportunities_count",
+            "required": false,
+            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060 and \u0060unique_opportunities\u0060 fields will be included in the response"
           }
         ],
         "responses": {
@@ -12390,13 +12411,19 @@
                     "type": "object",
                     "properties": {
                       "step": {
-                        "type": "string",
-                        "description": "The step number",
+                        "type": [
+                          "null",
+                          "string"
+                        ],
+                        "description": "The step number. When null it means we couldn\u0027t determine the step number for the event, for instance for list leads, which are not part of a campaign.",
                         "example": "1"
                       },
                       "variant": {
-                        "type": "string",
-                        "description": "The variant number, starting from 0. 0 = A, 1 = B, 2 = C, etc.",
+                        "type": [
+                          "null",
+                          "string"
+                        ],
+                        "description": "The variant number, starting from 0. 0 = A, 1 = B, 2 = C, etc. When null it means we couldn\u0027t determine the variant for the event.",
                         "example": "0"
                       },
                       "sent": {
@@ -12433,8 +12460,29 @@
                         "type": "integer",
                         "description": "The total number of unique links clicked. Unique meaning from unique leads, not unique links. For instance, if a lead clicked a link 3 times, it will be counted as 1 unique click. If a lead clicked 3 different links, it will still be counted as 1 unique click",
                         "example": 60
+                      },
+                      "opportunities": {
+                        "type": "integer",
+                        "description": "The total number of opportunities created from this step. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
+                        "example": 10
+                      },
+                      "unique_opportunities": {
+                        "type": "integer",
+                        "description": "The total number of unique opportunities created from this step. Unique meaning unique per lead. If a lead has multiple opportunities, it will be counted as 1 unique opportunity. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
+                        "example": 8
                       }
-                    }
+                    },
+                    "required": [
+                      "step",
+                      "variant",
+                      "sent",
+                      "opened",
+                      "unique_opened",
+                      "replies",
+                      "unique_replies",
+                      "clicks",
+                      "unique_clicks"
+                    ]
                   }
                 }
               }
