@@ -1263,6 +1263,82 @@
             "description": "A short preview of the email content (usually the first few lines of the email)",
             "example": "This is a preview of the email content."
           },
+          "attachment_json": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Attachment metadata for the email. This field is null when there are no attachments.",
+            "readOnly": true,
+            "properties": {
+              "files": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "filename"
+                  ],
+                  "properties": {
+                    "filename": {
+                      "type": "string",
+                      "description": "Attachment file name",
+                      "examples": [
+                        "attachment.pdf"
+                      ]
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "Attachment file size in bytes",
+                      "examples": [
+                        1927
+                      ]
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "Attachment MIME type",
+                      "examples": [
+                        "application/pdf"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Download URL when available",
+                      "examples": [
+                        "https://cdn.instantly.ai/example-attachment/file.pdf"
+                      ]
+                    },
+                    "error": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "description": "Error description when the attachment failed to upload",
+                      "examples": [
+                        "Upload failed"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "additionalProperties": false,
+            "example": {
+              "files": [
+                {
+                  "filename": "attachment",
+                  "size": 1927,
+                  "type": "text/css",
+                  "url": "https://cdn.instantly.ai/example-attachment/",
+                  "error": null
+                }
+              ]
+            }
+          },
           "from_address_json": {
             "type": [
               "null",
@@ -3744,7 +3820,7 @@
         ],
         "additionalProperties": false
       },
-      "def-21": {
+      "def-22": {
         "title": "SuperSearch Enrichment",
         "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
         "x-tags": [
@@ -3856,7 +3932,7 @@
         ],
         "additionalProperties": false
       },
-      "def-22": {
+      "def-23": {
         "title": "Workspace Group Member",
         "description": "A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.",
         "x-tags": [
@@ -3940,7 +4016,7 @@
         ],
         "additionalProperties": false
       },
-      "def-23": {
+      "def-24": {
         "title": "Workspace Member",
         "description": "A member of a workspace with associated user details",
         "x-tags": [
@@ -4030,7 +4106,7 @@
         ],
         "additionalProperties": false
       },
-      "def-24": {
+      "def-25": {
         "title": "Campaign Subsequence",
         "description": "A subsequence entity representing a follow-up sequence",
         "x-tags": [
@@ -4401,7 +4477,7 @@
         ],
         "additionalProperties": false
       },
-      "def-30": {
+      "def-31": {
         "title": "Audit Log",
         "description": "Audit log records for tracking system activities",
         "x-tags": [
@@ -4560,7 +4636,7 @@
         ],
         "additionalProperties": false
       },
-      "def-35": {
+      "def-36": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -4658,7 +4734,7 @@
         ],
         "additionalProperties": false
       },
-      "def-37": {
+      "def-38": {
         "title": "Webhook Event",
         "description": "A webhook event that was sent or attempted to be sent",
         "x-tags": [
@@ -4803,7 +4879,7 @@
         ],
         "additionalProperties": false
       },
-      "def-38": {
+      "def-39": {
         "title": "DFY Email Account Order",
         "description": "A Done-For-You email account order",
         "x-tags": [
@@ -7932,7 +8008,7 @@
                       "type": "array",
                       "description": "The list of Audit Log",
                       "items": {
-                        "$ref": "#/components/schemas/def-30"
+                        "$ref": "#/components/schemas/def-31"
                       }
                     },
                     "next_starting_after": {
@@ -14593,7 +14669,7 @@
                       "type": "array",
                       "description": "The list of DFY Email Account Order",
                       "items": {
-                        "$ref": "#/components/schemas/def-38"
+                        "$ref": "#/components/schemas/def-39"
                       }
                     },
                     "next_starting_after": {
@@ -24988,7 +25064,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -25164,7 +25240,7 @@
                       "type": "array",
                       "description": "The list of Campaign Subsequence",
                       "items": {
-                        "$ref": "#/components/schemas/def-24"
+                        "$ref": "#/components/schemas/def-25"
                       }
                     },
                     "next_starting_after": {
@@ -25308,7 +25384,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -25413,7 +25489,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -25518,7 +25594,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -25623,7 +25699,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -25780,7 +25856,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -25928,7 +26004,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -27167,7 +27243,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-21"
+                  "$ref": "#/components/schemas/def-22"
                 }
               }
             }
@@ -28216,7 +28292,7 @@
                       "type": "array",
                       "description": "The list of Webhook Event",
                       "items": {
-                        "$ref": "#/components/schemas/def-37"
+                        "$ref": "#/components/schemas/def-38"
                       }
                     },
                     "next_starting_after": {
@@ -28333,7 +28409,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-37"
+                  "$ref": "#/components/schemas/def-38"
                 }
               }
             }
@@ -28840,7 +28916,7 @@
                       "type": "array",
                       "description": "The list of Webhook",
                       "items": {
-                        "$ref": "#/components/schemas/def-35"
+                        "$ref": "#/components/schemas/def-36"
                       }
                     },
                     "next_starting_after": {
@@ -29020,7 +29096,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -29160,7 +29236,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -29371,7 +29447,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -29519,7 +29595,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-35"
+                  "$ref": "#/components/schemas/def-36"
                 }
               }
             }
@@ -29911,7 +29987,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-22"
+                  "$ref": "#/components/schemas/def-23"
                 }
               }
             }
@@ -30066,7 +30142,7 @@
                       "type": "array",
                       "description": "The list of Workspace Group Member",
                       "items": {
-                        "$ref": "#/components/schemas/def-22"
+                        "$ref": "#/components/schemas/def-23"
                       }
                     },
                     "next_starting_after": {
@@ -30183,7 +30259,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-22"
+                  "$ref": "#/components/schemas/def-23"
                 }
               }
             }
@@ -30331,7 +30407,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-22"
+                  "$ref": "#/components/schemas/def-23"
                 }
               }
             }
@@ -30616,7 +30692,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }
@@ -30771,7 +30847,7 @@
                       "type": "array",
                       "description": "The list of Workspace Member",
                       "items": {
-                        "$ref": "#/components/schemas/def-23"
+                        "$ref": "#/components/schemas/def-24"
                       }
                     },
                     "next_starting_after": {
@@ -30888,7 +30964,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }
@@ -31059,7 +31135,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }
@@ -31207,7 +31283,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }

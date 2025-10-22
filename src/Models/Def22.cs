@@ -8,39 +8,43 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.
+    /// An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def22 : IParsable
     {
-        /// <summary>The id of the admin workspace</summary>
-        public Guid? AdminWorkspaceId { get; private set; }
-        /// <summary>The name of the admin workspace.</summary>
+        /// <summary>Whether new leads added to the resource will be automatically enriched using these same settings</summary>
+        public bool? AutoUpdate { get; set; }
+        /// <summary>Enrichment payload</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdminWorkspaceName { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def22_enrichment_payload? EnrichmentPayload { get; set; }
 #nullable restore
 #else
-        public string AdminWorkspaceName { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def22_enrichment_payload EnrichmentPayload { get; set; }
 #endif
-        /// <summary>The unique identifier of the workspace group member</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>The status property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def22_status? Status { get; set; }
-        /// <summary>The id of the sub workspace</summary>
-        public Guid? SubWorkspaceId { get; set; }
-        /// <summary>The name of the sub workspace.</summary>
+        /// <summary>Unique identifier for the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubWorkspaceName { get; private set; }
+        public string? Id { get; private set; }
 #nullable restore
 #else
-        public string SubWorkspaceName { get; private set; }
+        public string Id { get; private set; }
 #endif
-        /// <summary>The timestamp_created property</summary>
-        public DateTimeOffset? TimestampCreated { get; private set; }
-        /// <summary>The timestamp_updated property</summary>
-        public DateTimeOffset? TimestampUpdated { get; private set; }
+        /// <summary>Whether the enrichment is in progress</summary>
+        public bool? InProgress { get; set; }
+        /// <summary>The maximum number of leads to enrich</summary>
+        public double? Limit { get; set; }
+        /// <summary>Organization ID that created this enrichment</summary>
+        public Guid? OrganizationId { get; private set; }
+        /// <summary>Unique identifier for the entity to enrich leads into</summary>
+        public Guid? ResourceId { get; private set; }
+        /// <summary>Type of the entity to enrich leads into</summary>
+        public double? ResourceType { get; private set; }
+        /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
+        public bool? SkipRowsWithoutEmail { get; set; }
+        /// <summary>Enrichment type to add to the resource</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def22_type? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -59,14 +63,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "admin_workspace_id", n => { AdminWorkspaceId = n.GetGuidValue(); } },
-                { "admin_workspace_name", n => { AdminWorkspaceName = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def22_status>(); } },
-                { "sub_workspace_id", n => { SubWorkspaceId = n.GetGuidValue(); } },
-                { "sub_workspace_name", n => { SubWorkspaceName = n.GetStringValue(); } },
-                { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
-                { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
+                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
+                { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def22_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def22_enrichment_payload.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "in_progress", n => { InProgress = n.GetBoolValue(); } },
+                { "limit", n => { Limit = n.GetDoubleValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
+                { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def22_type>(); } },
             };
         }
         /// <summary>
@@ -76,8 +82,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def22_status>("status", Status);
-            writer.WriteGuidValue("sub_workspace_id", SubWorkspaceId);
+            writer.WriteBoolValue("auto_update", AutoUpdate);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def22_enrichment_payload>("enrichment_payload", EnrichmentPayload);
+            writer.WriteBoolValue("in_progress", InProgress);
+            writer.WriteDoubleValue("limit", Limit);
+            writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def22_type>("type", Type);
         }
     }
 }

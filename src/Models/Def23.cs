@@ -8,33 +8,39 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A member of a workspace with associated user details
+    /// A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def23 : IParsable
     {
-        /// <summary>Whether the member has accepted the workspace invitation</summary>
-        public bool? Accepted { get; private set; }
-        /// <summary>Email address of the workspace member</summary>
+        /// <summary>The id of the admin workspace</summary>
+        public Guid? AdminWorkspaceId { get; private set; }
+        /// <summary>The name of the admin workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? AdminWorkspaceName { get; private set; }
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string AdminWorkspaceName { get; private set; }
 #endif
-        /// <summary>Unique identifier for the workspace member</summary>
+        /// <summary>The unique identifier of the workspace group member</summary>
         public Guid? Id { get; private set; }
-        /// <summary>ID of the user who added this member to the workspace</summary>
-        public Guid? IssuerId { get; private set; }
-        /// <summary>THe role of the workspace member defining their access level. While the &quot;owner&quot; role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def23_role? Role { get; set; }
-        /// <summary>Timestamp when the workspace member was created</summary>
+        /// <summary>The status property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def23_status? Status { get; set; }
+        /// <summary>The id of the sub workspace</summary>
+        public Guid? SubWorkspaceId { get; set; }
+        /// <summary>The name of the sub workspace.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubWorkspaceName { get; private set; }
+#nullable restore
+#else
+        public string SubWorkspaceName { get; private set; }
+#endif
+        /// <summary>The timestamp_created property</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
-        /// <summary>User ID of the workspace member</summary>
-        public Guid? UserId { get; private set; }
-        /// <summary>ID of the workspace this member belongs to</summary>
-        public Guid? WorkspaceId { get; private set; }
+        /// <summary>The timestamp_updated property</summary>
+        public DateTimeOffset? TimestampUpdated { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,14 +59,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accepted", n => { Accepted = n.GetBoolValue(); } },
-                { "email", n => { Email = n.GetStringValue(); } },
+                { "admin_workspace_id", n => { AdminWorkspaceId = n.GetGuidValue(); } },
+                { "admin_workspace_name", n => { AdminWorkspaceName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "issuer_id", n => { IssuerId = n.GetGuidValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_role>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_status>(); } },
+                { "sub_workspace_id", n => { SubWorkspaceId = n.GetGuidValue(); } },
+                { "sub_workspace_name", n => { SubWorkspaceName = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
-                { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "workspace_id", n => { WorkspaceId = n.GetGuidValue(); } },
+                { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -70,8 +76,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("email", Email);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_status>("status", Status);
+            writer.WriteGuidValue("sub_workspace_id", SubWorkspaceId);
         }
     }
 }

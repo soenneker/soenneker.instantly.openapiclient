@@ -16,10 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
         /// <summary>The list of Audit Log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def30>? Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def31>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def30> Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def31> Items { get; set; }
 #endif
         /// <summary>The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def30>(global::Soenneker.Instantly.OpenApiClient.Models.Def30.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def31>(global::Soenneker.Instantly.OpenApiClient.Models.Def31.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_starting_after", n => { NextStartingAfter = n.GetStringValue(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def30>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def31>("items", Items);
             writer.WriteStringValue("next_starting_after", NextStartingAfter);
         }
     }

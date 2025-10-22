@@ -80,31 +80,31 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
         /// <summary>
         /// Requires one of the following scopes: `webhooks:create`, `webhooks:all`, `all:create`, `all:all`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def35"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def36"/></returns>
         /// <param name="body">The Webhook to create</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def35400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def35401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def35429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def36400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def36401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def36429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def35?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def36?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def35> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def36> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def35400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def35401Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def35429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def36400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def36401Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Def36429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def35>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def35.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def36>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def36.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all webhooks for the workspace with optional filters
