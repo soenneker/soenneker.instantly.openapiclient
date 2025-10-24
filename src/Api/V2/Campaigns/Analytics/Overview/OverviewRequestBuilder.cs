@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OverviewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/overview{?campaign_status*,end_date*,id*,ids*,start_date*}", pathParameters)
+        public OverviewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/overview{?campaign_status*,end_date*,expand_crm_events*,id*,ids*,start_date*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OverviewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/overview{?campaign_status*,end_date*,id*,ids*,start_date*}", rawUrl)
+        public OverviewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns/analytics/overview{?campaign_status*,end_date*,expand_crm_events*,id*,ids*,start_date*}", rawUrl)
         {
         }
         /// <summary>
-        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns
+        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns
+        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns
+        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OverviewRequestBuilderGetQueryParameters 
@@ -108,6 +108,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
+            /// <summary>When `true`, calculates the total of all the lead interest status update events instead of only the first occurrence for each contact. This will affect the following fields: `total_opportunities`, `total_interested`, `total_meeting_booked`, `total_meeting_completed`, and `total_closed`. Example: if a lead goes from interested to meeting booked to closed, it will count as 3 events (total_interested: 1, total_meeting_booked_1, and total_closed: 1) when this parameter is set to true, and as 1 event (total_interested) when it is set to false (default).</summary>
+            [QueryParameter("expand_crm_events")]
+            public bool? ExpandCrmEvents { get; set; }
             /// <summary>A campaign ID to get the analytics overview for. Leave this field empty to get the analytics overview for all campaigns</summary>
             [QueryParameter("id")]
             public Guid? Id { get; set; }

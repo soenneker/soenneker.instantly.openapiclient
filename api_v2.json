@@ -2610,6 +2610,11 @@
                 "ai_inbox_manager_analytics:read",
                 "ai_inbox_manager_analytics:update",
                 "ai_inbox_manager_analytics:delete",
+                "sales_flows:all",
+                "sales_flows:create",
+                "sales_flows:read",
+                "sales_flows:update",
+                "sales_flows:delete",
                 "webhooks:all",
                 "webhooks:create",
                 "webhooks:read",
@@ -4938,6 +4943,176 @@
           "workspace_id",
           "domain",
           "timestamp_created"
+        ],
+        "additionalProperties": false
+      },
+      "def-40": {
+        "title": "Sales Flow",
+        "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
+        "x-tags": [
+          "Schemas",
+          "SalesFlow"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Date and time when sales flow created",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "Organization ID associated with the sales flow",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the sales flow",
+            "example": "Smart view name"
+          },
+          "is_default": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Indicates whether this sales flow is set as the default one for the user or workspace.",
+            "example": true
+          },
+          "queries": {
+            "type": "array",
+            "description": "An object containing the sales flow queries",
+            "items": {
+              "type": "object",
+              "required": [
+                "actionType",
+                "values"
+              ],
+              "description": "Smart view query to filter leads",
+              "properties": {
+                "actionType": {
+                  "type": "string",
+                  "enum": [
+                    "reply",
+                    "email-open",
+                    "last-contacted",
+                    "link-click",
+                    "lead-status",
+                    "lead-status-change"
+                  ],
+                  "example": "email-open"
+                },
+                "values": {
+                  "type": "object",
+                  "properties": {
+                    "occurrence-days": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "occurrence-count": {
+                      "type": "object",
+                      "properties": {
+                        "condition": {
+                          "type": "string",
+                          "enum": [
+                            "more",
+                            "less",
+                            "equal"
+                          ],
+                          "example": "more"
+                        },
+                        "count": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "lead-status": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "condition": {
+                          "type": "string",
+                          "enum": [
+                            "is",
+                            "is-not"
+                          ],
+                          "example": "is"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "actionType": "email-open",
+                "values": {
+                  "occurrence-days": 1
+                }
+              }
+            }
+          },
+          "created_by": {
+            "type": "string",
+            "description": "UUID of the user who created the sales flow.",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "list_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the list, can be \u0022all-lists\u0022 in case of all.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "campaign_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The ID of the campaign. Set to null when \u0022all-campaigns\u0022 is passed.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "list_name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the list. ",
+            "readOnly": true,
+            "example": "List name"
+          },
+          "campaign_name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the campaign.",
+            "readOnly": true,
+            "example": "Campaign #1"
+          }
+        },
+        "required": [
+          "id",
+          "timestamp_created",
+          "organization_id",
+          "name",
+          "queries",
+          "created_by"
         ],
         "additionalProperties": false
       }
@@ -7487,6 +7662,11 @@
                         "ai_inbox_manager_analytics:read",
                         "ai_inbox_manager_analytics:update",
                         "ai_inbox_manager_analytics:delete",
+                        "sales_flows:all",
+                        "sales_flows:create",
+                        "sales_flows:read",
+                        "sales_flows:update",
+                        "sales_flows:delete",
                         "webhooks:all",
                         "webhooks:create",
                         "webhooks:read",
@@ -11844,7 +12024,7 @@
           "Campaign",
           "Analytics"
         ],
-        "description": "Get analytics overview for one or multiple campaigns. Specify the \u0060id\u0060 field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns",
+        "description": "Get analytics overview for one or multiple campaigns. Specify the \u0060id\u0060 field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.\n\nNote regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the \u0060expand_crm_events\u0060 parameter to \u0060true\u0060. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.",
         "parameters": [
           {
             "schema": {
@@ -11920,6 +12100,17 @@
             "name": "campaign_status",
             "required": false,
             "description": "Filter by campaign status (only the analytics for the campaigns with the specified status will be returned)"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "example": true
+            },
+            "in": "query",
+            "name": "expand_crm_events",
+            "required": false,
+            "description": "When \u0060true\u0060, calculates the total of all the lead interest status update events instead of only the first occurrence for each contact. This will affect the following fields: \u0060total_opportunities\u0060, \u0060total_interested\u0060, \u0060total_meeting_booked\u0060, \u0060total_meeting_completed\u0060, and \u0060total_closed\u0060. Example: if a lead goes from interested to meeting booked to closed, it will count as 3 events (total_interested: 1, total_meeting_booked_1, and total_closed: 1) when this parameter is set to true, and as 1 event (total_interested) when it is set to false (default)."
           }
         ],
         "responses": {
@@ -12949,6 +13140,146 @@
         }
       }
     },
+    "/api/v2/campaigns/{id}/export": {
+      "post": {
+        "operationId": "exportCampaign",
+        "summary": "Export campaign to JSON format",
+        "tags": [
+          "Campaign"
+        ],
+        "description": "Requires one of the following scopes: \u0060campaigns:read\u0060, \u0060campaigns:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Campaign ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Campaign",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-1"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/campaigns/{id}/duplicate": {
       "post": {
         "operationId": "duplicate",
@@ -13075,6 +13406,107 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/campaigns/count-launched": {
+      "get": {
+        "operationId": "countLaunched",
+        "summary": "Get launched campaigns count",
+        "tags": [
+          "Campaign"
+        ],
+        "description": "Requires one of the following scopes: \u0060campaigns:read\u0060, \u0060campaigns:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number",
+                      "example": 2
+                    }
+                  },
+                  "required": [
+                    "count"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
                     }
                   },
                   "required": [
@@ -15644,7 +16076,8 @@
                   },
                   "reminder_ts": {
                     "type": "string",
-                    "description": "Timestamp for the reminder. If this field is included, then this email will be added to the database, but will be sent at the specified timestamp",
+                    "format": "date-time",
+                    "description": "If provided then the email will NOT be sent to user, and you will see this email as a reminder in the Unibox in the web app. Note: this will NOT send or schedule the email for sending, it is used only as a reminder in the web app.",
                     "example": "1970-01-01T00:00:00.000Z"
                   },
                   "assigned_to": {
@@ -31804,6 +32237,11 @@
       "name": "DFYEmailAccountOrder",
       "description": "A Done-For-You email account order",
       "x-displayName": "DFY Email Account Order"
+    },
+    {
+      "name": "SalesFlow",
+      "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
+      "x-displayName": "Sales Flow"
     }
   ]
 }

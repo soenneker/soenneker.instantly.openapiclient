@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CountLaunched;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact;
 using Soenneker.Instantly.OpenApiClient.Models;
@@ -24,6 +25,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder Analytics
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The countLaunched property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CountLaunched.CountLaunchedRequestBuilder CountLaunched
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CountLaunched.CountLaunchedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The searchByContact property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact.SearchByContactRequestBuilder SearchByContact

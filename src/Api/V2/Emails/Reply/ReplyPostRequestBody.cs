@@ -48,14 +48,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply
 #else
         public string Eaccount { get; set; }
 #endif
-        /// <summary>Timestamp for the reminder. If this field is included, then this email will be added to the database, but will be sent at the specified timestamp</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReminderTs { get; set; }
-#nullable restore
-#else
-        public string ReminderTs { get; set; }
-#endif
+        /// <summary>If provided then the email will NOT be sent to user, and you will see this email as a reminder in the Unibox in the web app. Note: this will NOT send or schedule the email for sending, it is used only as a reminder in the web app.</summary>
+        public DateTimeOffset? ReminderTs { get; set; }
         /// <summary>The id of the email to reply to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,7 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply.ReplyPostRequestBody_body>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply.ReplyPostRequestBody_body.CreateFromDiscriminatorValue); } },
                 { "cc_address_email_list", n => { CcAddressEmailList = n.GetStringValue(); } },
                 { "eaccount", n => { Eaccount = n.GetStringValue(); } },
-                { "reminder_ts", n => { ReminderTs = n.GetStringValue(); } },
+                { "reminder_ts", n => { ReminderTs = n.GetDateTimeOffsetValue(); } },
                 { "reply_to_uuid", n => { ReplyToUuid = n.GetStringValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
             };
@@ -119,7 +113,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply.ReplyPostRequestBody_body>("body", Body);
             writer.WriteStringValue("cc_address_email_list", CcAddressEmailList);
             writer.WriteStringValue("eaccount", Eaccount);
-            writer.WriteStringValue("reminder_ts", ReminderTs);
+            writer.WriteDateTimeOffsetValue("reminder_ts", ReminderTs);
             writer.WriteStringValue("reply_to_uuid", ReplyToUuid);
             writer.WriteStringValue("subject", Subject);
             writer.WriteAdditionalData(AdditionalData);

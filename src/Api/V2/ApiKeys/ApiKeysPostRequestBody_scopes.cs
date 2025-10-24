@@ -480,6 +480,26 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         #pragma warning disable CS1591
         Ai_inbox_manager_analyticsDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "sales_flows:all")]
+        #pragma warning disable CS1591
+        Sales_flowsAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sales_flows:create")]
+        #pragma warning disable CS1591
+        Sales_flowsCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sales_flows:read")]
+        #pragma warning disable CS1591
+        Sales_flowsRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sales_flows:update")]
+        #pragma warning disable CS1591
+        Sales_flowsUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sales_flows:delete")]
+        #pragma warning disable CS1591
+        Sales_flowsDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "webhooks:all")]
         #pragma warning disable CS1591
         WebhooksAll,
