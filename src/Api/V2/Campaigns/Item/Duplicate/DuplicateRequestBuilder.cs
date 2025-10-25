@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def1> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate.DuplicatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -79,7 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate
         public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate.DuplicatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

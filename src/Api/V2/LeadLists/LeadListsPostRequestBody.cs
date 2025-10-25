@@ -32,7 +32,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.LeadListsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.LeadListsPostRequestBody();
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("has_enrichment_task", HasEnrichmentTask);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("owned_by", OwnedBy);

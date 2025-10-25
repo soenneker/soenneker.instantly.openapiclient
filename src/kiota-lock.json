@@ -2,7 +2,7 @@
   "descriptionHash": "A77E826CC7DA8471F77CFB7F96F16E6C3BD225F311A48ACDC8739EA8BD8C6708814E70E2EB64C1ECAC98F57D67C7C5FB3601E7C4A8C2823BF8F2359F62DA334B",
   "descriptionLocation": "../api_v2.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.28.0",
+  "kiotaVersion": "1.29.0",
   "clientClassName": "InstantlyOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Instantly.OpenApiClient",

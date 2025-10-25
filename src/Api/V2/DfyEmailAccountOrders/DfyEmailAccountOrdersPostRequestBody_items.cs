@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostRequestBody_items CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostRequestBody_items();
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostRequestBody_items_accounts>("accounts", Accounts);
             writer.WriteStringValue("domain", Domain);
             writer.WriteDoubleValue("email_provider", EmailProvider);

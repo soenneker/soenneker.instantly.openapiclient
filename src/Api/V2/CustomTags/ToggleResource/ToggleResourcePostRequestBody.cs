@@ -58,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody();
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("assign", Assign);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody.ToggleResourcePostRequestBody_filter>("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<string>("resource_ids", ResourceIds);
@@ -121,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody.ToggleResourcePostRequestBody_filter CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody.ToggleResourcePostRequestBody_filter();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -152,7 +152,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(ToggleResourcePostRequestBodyFilterMember1 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody_filterMember1>(null, ToggleResourcePostRequestBodyFilterMember1);

@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def23> DeleteAsync(UntypedNode body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -104,7 +104,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item
         public RequestInformation ToDeleteRequestInformation(UntypedNode body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

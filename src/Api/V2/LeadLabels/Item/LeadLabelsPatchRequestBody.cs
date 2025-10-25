@@ -39,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item.LeadLabelsPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item.LeadLabelsPatchRequestBody();
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item.LeadLabelsPatchRequestBody_interest_status_label>("interest_status_label", InterestStatusLabel);
             writer.WriteStringValue("label", Label);

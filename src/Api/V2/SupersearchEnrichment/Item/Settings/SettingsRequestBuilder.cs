@@ -51,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def22> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -75,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
         public RequestInformation ToPatchRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

@@ -38,7 +38,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody_filterMember1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourcePostRequestBody_filterMember1();
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("search", Search);
             writer.WriteGuidValue("tag_id", TagId);
             writer.WriteAdditionalData(AdditionalData);

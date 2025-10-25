@@ -46,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences_steps_variants CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences_steps_variants();
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
             writer.WriteStringValue("subject", Subject);
             writer.WriteBoolValue("v_disabled", VDisabled);

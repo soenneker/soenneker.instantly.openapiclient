@@ -44,7 +44,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_company_name CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_company_name();
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("exclude", Exclude);
             writer.WriteCollectionOfPrimitiveValues<string>("include", Include);
             writer.WriteAdditionalData(AdditionalData);

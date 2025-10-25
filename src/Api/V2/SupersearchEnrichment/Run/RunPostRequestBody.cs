@@ -40,7 +40,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody();
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
             writer.WriteIntValue("limit", Limit);
             writer.WriteGuidValue("resource_id", ResourceId);
