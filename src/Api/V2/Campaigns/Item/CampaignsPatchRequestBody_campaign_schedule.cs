@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -15,8 +16,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The end_date property</summary>
-        public DateTimeOffset? EndDate { get; set; }
+        /// <summary>End date in YYYY-MM-DD format. Uses the campaign&apos;s timezone.</summary>
+        public Date? EndDate { get; set; }
         /// <summary>The schedules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,8 +26,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_campaign_schedule_schedules> Schedules { get; set; }
 #endif
-        /// <summary>The start_date property</summary>
-        public DateTimeOffset? StartDate { get; set; }
+        /// <summary>Start date in YYYY-MM-DD format. Uses the campaign&apos;s timezone.</summary>
+        public Date? StartDate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_campaign_schedule"/> and sets the default values.
         /// </summary>
@@ -52,9 +53,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "end_date", n => { EndDate = n.GetDateTimeOffsetValue(); } },
+                { "end_date", n => { EndDate = n.GetDateValue(); } },
                 { "schedules", n => { Schedules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_campaign_schedule_schedules>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_campaign_schedule_schedules.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "start_date", n => { StartDate = n.GetDateTimeOffsetValue(); } },
+                { "start_date", n => { StartDate = n.GetDateValue(); } },
             };
         }
         /// <summary>
@@ -64,9 +65,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("end_date", EndDate);
+            writer.WriteDateValue("end_date", EndDate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_campaign_schedule_schedules>("schedules", Schedules);
-            writer.WriteDateTimeOffsetValue("start_date", StartDate);
+            writer.WriteDateValue("start_date", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

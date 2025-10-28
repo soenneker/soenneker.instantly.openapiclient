@@ -360,6 +360,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         EmailsDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "email_templates:all")]
+        #pragma warning disable CS1591
+        Email_templatesAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_templates:create")]
+        #pragma warning disable CS1591
+        Email_templatesCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_templates:read")]
+        #pragma warning disable CS1591
+        Email_templatesRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_templates:update")]
+        #pragma warning disable CS1591
+        Email_templatesUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_templates:delete")]
+        #pragma warning disable CS1591
+        Email_templatesDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workspaces:all")]
         #pragma warning disable CS1591
         WorkspacesAll,

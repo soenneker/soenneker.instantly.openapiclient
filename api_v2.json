@@ -433,12 +433,14 @@
             "properties": {
               "start_date": {
                 "type": "string",
-                "format": "date-time",
+                "format": "date",
+                "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "end_date": {
                 "type": "string",
-                "format": "date-time",
+                "format": "date",
+                "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "schedules": {
@@ -2580,6 +2582,11 @@
                 "emails:read",
                 "emails:update",
                 "emails:delete",
+                "email_templates:all",
+                "email_templates:create",
+                "email_templates:read",
+                "email_templates:update",
+                "email_templates:delete",
                 "workspaces:all",
                 "workspaces:create",
                 "workspaces:read",
@@ -4208,12 +4215,14 @@
             "properties": {
               "start_date": {
                 "type": "string",
-                "format": "date-time",
+                "format": "date",
+                "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "end_date": {
                 "type": "string",
-                "format": "date-time",
+                "format": "date",
+                "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "schedules": {
@@ -5113,6 +5122,64 @@
           "name",
           "queries",
           "created_by"
+        ],
+        "additionalProperties": false
+      },
+      "def-41": {
+        "title": "Email Template",
+        "description": "A campaign email template",
+        "x-tags": [
+          "Schemas",
+          "EmailTemplate"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A Unique identifier",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the email template was added to our database.",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "body": {
+            "type": "string",
+            "description": "An body of the email template on html or text format",
+            "example": "\u003Cp\u003EThis is a test email\u003C/p\u003E"
+          },
+          "name": {
+            "type": "string",
+            "description": "An email template name",
+            "example": "Test Email Template"
+          },
+          "subject": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "An email template subject",
+            "example": "Test Email template Subject"
+          },
+          "organization": {
+            "type": "string",
+            "description": "The workspace ID",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "required": [
+          "id",
+          "timestamp_created",
+          "body",
+          "name",
+          "organization"
         ],
         "additionalProperties": false
       }
@@ -7632,6 +7699,11 @@
                         "emails:read",
                         "emails:update",
                         "emails:delete",
+                        "email_templates:all",
+                        "email_templates:create",
+                        "email_templates:read",
+                        "email_templates:update",
+                        "email_templates:delete",
                         "workspaces:all",
                         "workspaces:create",
                         "workspaces:read",
@@ -9469,12 +9541,14 @@
                     "properties": {
                       "start_date": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "date",
+                        "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "end_date": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "date",
+                        "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "schedules": {
@@ -10744,12 +10818,14 @@
                     "properties": {
                       "start_date": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "date",
+                        "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "end_date": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "date",
+                        "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "schedules": {
@@ -25217,12 +25293,14 @@
                     "properties": {
                       "start_date": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "date",
+                        "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "end_date": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "date",
+                        "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "schedules": {
@@ -27636,6 +27714,7 @@
         "tags": [
           "SuperSearchEnrichment"
         ],
+        "description": "Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resource\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -27761,6 +27840,7 @@
         "tags": [
           "SuperSearchEnrichment"
         ],
+        "description": "Create an AI enrichment for a resource (list or campaign)\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -32242,6 +32322,11 @@
       "name": "SalesFlow",
       "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
       "x-displayName": "Sales Flow"
+    },
+    {
+      "name": "EmailTemplate",
+      "description": "A campaign email template",
+      "x-displayName": "Email Template"
     }
   ]
 }
