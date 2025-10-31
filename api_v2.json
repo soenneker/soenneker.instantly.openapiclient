@@ -27191,6 +27191,21 @@
                     "description": "Whether to auto-update new leads",
                     "example": true
                   },
+                  "evergreen": {
+                    "type": "object",
+                    "properties": {
+                      "leads_to_add": {
+                        "type": "number",
+                        "description": "Number of leads to add",
+                        "example": 100
+                      },
+                      "frequency": {
+                        "type": "string",
+                        "description": "Frequency of the evergreen",
+                        "example": "Daily"
+                      }
+                    }
+                  },
                   "skip_rows_without_email": {
                     "type": "boolean",
                     "description": "Whether to skip leads without email",
@@ -27415,6 +27430,16 @@
                           "example": true
                         }
                       }
+                    },
+                    "auto_update": {
+                      "type": "boolean",
+                      "description": "Whether leads added to the list will be automatically enriched",
+                      "example": false
+                    },
+                    "is_evergreen": {
+                      "type": "boolean",
+                      "description": "Whether the enrichment is evergreen",
+                      "example": false
                     }
                   },
                   "required": [
@@ -27729,6 +27754,11 @@
                   "skip_rows_without_email": {
                     "type": "boolean",
                     "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+                    "example": true
+                  },
+                  "is_evergreen": {
+                    "type": "boolean",
+                    "description": "Whether the enrichment is evergreen",
                     "example": true
                   }
                 }

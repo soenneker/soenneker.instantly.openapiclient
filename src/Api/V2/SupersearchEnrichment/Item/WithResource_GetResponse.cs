@@ -12,6 +12,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
     public partial class WithResource_GetResponse : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Whether leads added to the list will be automatically enriched</summary>
+        public bool? AutoUpdate { get; set; }
         /// <summary>Enrichment types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,6 +26,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         public bool? Exists { get; set; }
         /// <summary>Whether the enrichment is in progress</summary>
         public bool? InProgress { get; set; }
+        /// <summary>Whether the enrichment is evergreen</summary>
+        public bool? IsEvergreen { get; set; }
         /// <summary>ID of the resource being enriched</summary>
         public Guid? ResourceId { get; set; }
         /// <summary>
@@ -44,9 +48,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
                 { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload.CreateFromDiscriminatorValue); } },
                 { "exists", n => { Exists = n.GetBoolValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
+                { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
             };
         }
@@ -57,9 +63,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("auto_update", AutoUpdate);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload>("enrichment_payload", EnrichmentPayload);
             writer.WriteBoolValue("exists", Exists);
             writer.WriteBoolValue("in_progress", InProgress);
+            writer.WriteBoolValue("is_evergreen", IsEvergreen);
             writer.WriteGuidValue("resource_id", ResourceId);
         }
     }

@@ -5,37 +5,41 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SettingsPatchRequestBody : IAdditionalDataHolder, IParsable
+    public partial class EnrichLeadsFromSupersearchPostRequestBody_evergreen : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether new leads added to the resource will be automatically enriched</summary>
-        public bool? AutoUpdate { get; set; }
-        /// <summary>Whether the enrichment is evergreen</summary>
-        public bool? IsEvergreen { get; set; }
-        /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
-        public bool? SkipRowsWithoutEmail { get; set; }
+        /// <summary>Frequency of the evergreen</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Frequency { get; set; }
+#nullable restore
+#else
+        public string Frequency { get; set; }
+#endif
+        /// <summary>Number of leads to add</summary>
+        public double? LeadsToAdd { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen"/> and sets the default values.
         /// </summary>
-        public SettingsPatchRequestBody()
+        public EnrichLeadsFromSupersearchPostRequestBody_evergreen()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,9 +49,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
-                { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
-                { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
+                { "frequency", n => { Frequency = n.GetStringValue(); } },
+                { "leads_to_add", n => { LeadsToAdd = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -57,9 +60,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("auto_update", AutoUpdate);
-            writer.WriteBoolValue("is_evergreen", IsEvergreen);
-            writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
+            writer.WriteStringValue("frequency", Frequency);
+            writer.WriteDoubleValue("leads_to_add", LeadsToAdd);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

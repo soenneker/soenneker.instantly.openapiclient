@@ -16,6 +16,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to auto-update new leads</summary>
         public bool? AutoUpdate { get; set; }
+        /// <summary>The evergreen property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen? Evergreen { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen Evergreen { get; set; }
+#endif
         /// <summary>Enable LinkedIn profile enrichment</summary>
         public bool? FullyEnrichedProfile { get; set; }
         /// <summary>Maximum number of leads to import</summary>
@@ -78,6 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
+                { "evergreen", n => { Evergreen = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen.CreateFromDiscriminatorValue); } },
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
@@ -97,6 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_update", AutoUpdate);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_evergreen>("evergreen", Evergreen);
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
