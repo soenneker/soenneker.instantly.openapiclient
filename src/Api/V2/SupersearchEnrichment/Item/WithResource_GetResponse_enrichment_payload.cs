@@ -15,6 +15,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The ai_enrichment property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment? AiEnrichment { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment AiEnrichment { get; set; }
+#endif
         /// <summary>The email_verification property</summary>
         public bool? EmailVerification { get; set; }
         /// <summary>The fully_enriched_profile property</summary>
@@ -54,6 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_enrichment", n => { AiEnrichment = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment.CreateFromDiscriminatorValue); } },
                 { "email_verification", n => { EmailVerification = n.GetBoolValue(); } },
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "funding", n => { Funding = n.GetBoolValue(); } },
@@ -70,6 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment>("ai_enrichment", AiEnrichment);
             writer.WriteBoolValue("email_verification", EmailVerification);
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteBoolValue("funding", Funding);

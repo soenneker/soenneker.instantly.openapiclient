@@ -3901,7 +3901,8 @@
               "joblisting",
               "technologies",
               "news",
-              "funding"
+              "funding",
+              "ai_enrichment"
             ],
             "x-enumDescriptions": {
               "work_email_enrichment": "Work Email Enrichment",
@@ -3910,7 +3911,8 @@
               "joblisting": "Job Listing Enrichment",
               "technologies": "Technologies Enrichment",
               "news": "News Enrichment",
-              "funding": "Funding Enrichment"
+              "funding": "Funding Enrichment",
+              "ai_enrichment": "AI Enrichment"
             },
             "example": "email_verification"
           },
@@ -27428,6 +27430,10 @@
                         "funding": {
                           "type": "boolean",
                           "example": true
+                        },
+                        "ai_enrichment": {
+                          "type": "object",
+                          "additionalProperties": true
                         }
                       }
                     },
@@ -27557,7 +27563,8 @@
                       "joblisting",
                       "technologies",
                       "news",
-                      "funding"
+                      "funding",
+                      "ai_enrichment"
                     ],
                     "x-enumDescriptions": {
                       "work_email_enrichment": "Work Email Enrichment",
@@ -27566,7 +27573,8 @@
                       "joblisting": "Job Listing Enrichment",
                       "technologies": "Technologies Enrichment",
                       "news": "News Enrichment",
-                      "funding": "Funding Enrichment"
+                      "funding": "Funding Enrichment",
+                      "ai_enrichment": "AI Enrichment"
                     },
                     "description": "Enrichment type to add to the resource",
                     "example": "email_verification"
