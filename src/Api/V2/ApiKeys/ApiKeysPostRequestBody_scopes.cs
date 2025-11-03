@@ -400,6 +400,26 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         #pragma warning disable CS1591
         WorkspacesDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "workspace_billing:all")]
+        #pragma warning disable CS1591
+        Workspace_billingAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workspace_billing:create")]
+        #pragma warning disable CS1591
+        Workspace_billingCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workspace_billing:read")]
+        #pragma warning disable CS1591
+        Workspace_billingRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workspace_billing:update")]
+        #pragma warning disable CS1591
+        Workspace_billingUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "workspace_billing:delete")]
+        #pragma warning disable CS1591
+        Workspace_billingDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workspace_group_members:all")]
         #pragma warning disable CS1591
         Workspace_group_membersAll,

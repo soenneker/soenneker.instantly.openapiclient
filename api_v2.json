@@ -2592,6 +2592,11 @@
                 "workspaces:read",
                 "workspaces:update",
                 "workspaces:delete",
+                "workspace_billing:all",
+                "workspace_billing:create",
+                "workspace_billing:read",
+                "workspace_billing:update",
+                "workspace_billing:delete",
                 "workspace_group_members:all",
                 "workspace_group_members:create",
                 "workspace_group_members:read",
@@ -5184,6 +5189,124 @@
           "organization"
         ],
         "additionalProperties": false
+      },
+      "def-42": {
+        "title": "Workspace Billing Payment Method",
+        "description": "Workspace Billing Payment Entity. This entity is used to get payment methods for a workspace.",
+        "x-tags": [
+          "Schemas",
+          "WorkspaceBillingPaymentMethod"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Payment method ID",
+            "readOnly": true,
+            "example": "pm_1R93hJB3VEKBA0ygEtOKmr8V"
+          },
+          "workspace_id": {
+            "type": "string",
+            "description": "The ID of the workspace this entry belongs to",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "card_brand": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Card Brand name",
+            "example": "mastercard"
+          },
+          "last_4": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Card last 4 numbers",
+            "example": "4186"
+          },
+          "name_on_card": {
+            "type": "string",
+            "description": "Card holder name",
+            "example": "John Smith"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "Is default card",
+            "example": true
+          }
+        },
+        "required": [
+          "id",
+          "workspace_id",
+          "name_on_card",
+          "is_default"
+        ],
+        "additionalProperties": false
+      },
+      "def-43": {
+        "title": "Workspace Payment invoice",
+        "description": "Workspace Payment invoice entity.",
+        "x-tags": [
+          "Schemas",
+          "WorkspacePaymentinvoice"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Invoice ID",
+            "readOnly": true,
+            "example": "in_1MtHbELkdIwHu7ixl4OzzPMv"
+          },
+          "workspace_id": {
+            "type": "string",
+            "description": "The ID of the workspace this entry belongs to",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "date": {
+            "type": "string",
+            "description": "Invoice creation date",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "invoice_url": {
+            "type": "string",
+            "description": "Invoice url",
+            "readOnly": true,
+            "example": "https://invoice.stripe.com/i/acct_1N8wZyKXXXXX/invst_1OzHgrKXXXXX"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Invoice amount",
+            "readOnly": true,
+            "example": 100
+          },
+          "description": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "description": "Invoice description",
+            "items": {
+              "type": "string",
+              "examples": [
+                "1 \u00D7 Hypergrowth Plan (at $97.00 / month)"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "workspace_id",
+          "date",
+          "invoice_url",
+          "amount"
+        ],
+        "additionalProperties": false
       }
     }
   },
@@ -7711,6 +7834,11 @@
                         "workspaces:read",
                         "workspaces:update",
                         "workspaces:delete",
+                        "workspace_billing:all",
+                        "workspace_billing:create",
+                        "workspace_billing:read",
+                        "workspace_billing:update",
+                        "workspace_billing:delete",
                         "workspace_group_members:all",
                         "workspace_group_members:create",
                         "workspace_group_members:read",
@@ -32365,6 +32493,16 @@
       "name": "EmailTemplate",
       "description": "A campaign email template",
       "x-displayName": "Email Template"
+    },
+    {
+      "name": "WorkspaceBillingPaymentMethod",
+      "description": "Workspace Billing Payment Entity. This entity is used to get payment methods for a workspace.",
+      "x-displayName": "Workspace Billing Payment Method"
+    },
+    {
+      "name": "WorkspacePaymentinvoice",
+      "description": "Workspace Payment invoice entity.",
+      "x-displayName": "Workspace Payment invoice"
     }
   ]
 }
