@@ -23,6 +23,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks;
+using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces;
@@ -142,6 +143,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksRequestBuilder Webhooks
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspaceBilling property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.WorkspaceBillingRequestBuilder WorkspaceBilling
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.WorkspaceBillingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspaceGroupMembers property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder WorkspaceGroupMembers

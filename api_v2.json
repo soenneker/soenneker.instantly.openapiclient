@@ -5190,122 +5190,16 @@
         ],
         "additionalProperties": false
       },
-      "def-42": {
-        "title": "Workspace Billing Payment Method",
-        "description": "Workspace Billing Payment Entity. This entity is used to get payment methods for a workspace.",
+      "def-44": {
+        "title": "Workspace Billing",
+        "description": "Workspace Billing",
         "x-tags": [
           "Schemas",
-          "WorkspaceBillingPaymentMethod"
+          "WorkspaceBilling"
         ],
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Payment method ID",
-            "readOnly": true,
-            "example": "pm_1R93hJB3VEKBA0ygEtOKmr8V"
-          },
-          "workspace_id": {
-            "type": "string",
-            "description": "The ID of the workspace this entry belongs to",
-            "readOnly": true,
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "card_brand": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Card Brand name",
-            "example": "mastercard"
-          },
-          "last_4": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Card last 4 numbers",
-            "example": "4186"
-          },
-          "name_on_card": {
-            "type": "string",
-            "description": "Card holder name",
-            "example": "John Smith"
-          },
-          "is_default": {
-            "type": "boolean",
-            "description": "Is default card",
-            "example": true
-          }
-        },
-        "required": [
-          "id",
-          "workspace_id",
-          "name_on_card",
-          "is_default"
-        ],
-        "additionalProperties": false
-      },
-      "def-43": {
-        "title": "Workspace Payment invoice",
-        "description": "Workspace Payment invoice entity.",
-        "x-tags": [
-          "Schemas",
-          "WorkspacePaymentinvoice"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Invoice ID",
-            "readOnly": true,
-            "example": "in_1MtHbELkdIwHu7ixl4OzzPMv"
-          },
-          "workspace_id": {
-            "type": "string",
-            "description": "The ID of the workspace this entry belongs to",
-            "readOnly": true,
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "date": {
-            "type": "string",
-            "description": "Invoice creation date",
-            "readOnly": true,
-            "example": "1970-01-01T00:00:00.000Z"
-          },
-          "invoice_url": {
-            "type": "string",
-            "description": "Invoice url",
-            "readOnly": true,
-            "example": "https://invoice.stripe.com/i/acct_1N8wZyKXXXXX/invst_1OzHgrKXXXXX"
-          },
-          "amount": {
-            "type": "number",
-            "description": "Invoice amount",
-            "readOnly": true,
-            "example": 100
-          },
-          "description": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "description": "Invoice description",
-            "items": {
-              "type": "string",
-              "examples": [
-                "1 \u00D7 Hypergrowth Plan (at $97.00 / month)"
-              ]
-            }
-          }
-        },
-        "required": [
-          "id",
-          "workspace_id",
-          "date",
-          "invoice_url",
-          "amount"
-        ],
+        "properties": {},
+        "required": [],
         "additionalProperties": false
       }
     }
@@ -22634,7 +22528,7 @@
             "application/json": {
               "schema": {
                 "title": "CreateLead",
-                "description": "The Lead to create",
+                "description": "When using \u0060campaign_id\u0060: The \u0060email\u0060 field is required. When using \u0060list_id\u0060: The \u0060email\u0060 field is optional, but at least one of the following must be provided: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060.",
                 "type": "object",
                 "properties": {
                   "campaign": {
@@ -22806,7 +22700,7 @@
               }
             }
           },
-          "description": "The Lead to create"
+          "description": "When using \u0060campaign_id\u0060: The \u0060email\u0060 field is required. When using \u0060list_id\u0060: The \u0060email\u0060 field is optional, but at least one of the following must be provided: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060."
         },
         "responses": {
           "200": {
@@ -30627,6 +30521,141 @@
         }
       }
     },
+    "/api/v2/workspace-billing/plan-details": {
+      "get": {
+        "operationId": "getWorkspacePlanDetails",
+        "summary": "Get workspace plan details",
+        "tags": [
+          "WorkspaceBilling"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspace_billing:read\u0060, \u0060workspace_billing:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "organization_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "The id of workspace",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "organization_name": {
+                      "type": "string",
+                      "description": "The name of workspace",
+                      "example": "My Default Workspace"
+                    },
+                    "subscriptions": {
+                      "type": "object",
+                      "properties": {
+                        "outreach": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": "string",
+                              "description": "Plan name",
+                              "example": "Free Trial"
+                            },
+                            "addons_qty": {
+                              "type": "number",
+                              "description": "Addons total quantity",
+                              "example": 2
+                            },
+                            "total_lead_limit": {
+                              "type": "number",
+                              "description": "Total Outreach plan limit including addons",
+                              "example": 100
+                            },
+                            "current_lead_count": {
+                              "type": "number",
+                              "description": "Current number of leads counted toward the plan",
+                              "example": 10
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/workspace-group-members": {
       "post": {
         "operationId": "createWorkspaceGroupMember",
@@ -32495,14 +32524,9 @@
       "x-displayName": "Email Template"
     },
     {
-      "name": "WorkspaceBillingPaymentMethod",
-      "description": "Workspace Billing Payment Entity. This entity is used to get payment methods for a workspace.",
-      "x-displayName": "Workspace Billing Payment Method"
-    },
-    {
-      "name": "WorkspacePaymentinvoice",
-      "description": "Workspace Payment invoice entity.",
-      "x-displayName": "Workspace Payment invoice"
+      "name": "WorkspaceBilling",
+      "description": "Workspace Billing",
+      "x-displayName": "Workspace Billing"
     }
   ]
 }
