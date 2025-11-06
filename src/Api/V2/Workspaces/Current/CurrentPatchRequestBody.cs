@@ -20,6 +20,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>URL to workspace logo</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgLogoUrl { get; set; }
+#nullable restore
+#else
+        public string OrgLogoUrl { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "org_logo_url", n => { OrgLogoUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("org_logo_url", OrgLogoUrl);
         }
     }
 }

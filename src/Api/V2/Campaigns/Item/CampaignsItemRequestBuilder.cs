@@ -9,6 +9,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Export;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -52,6 +53,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share.ShareRequestBuilder Share
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share.ShareRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The variables property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables.VariablesRequestBuilder Variables
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables.VariablesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder"/> and sets the default values.

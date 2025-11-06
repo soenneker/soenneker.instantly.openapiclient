@@ -30,8 +30,24 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
 #else
         public List<string> ExcludedEmails { get; set; }
 #endif
+        /// <summary>Optional filter to apply when `include_all_emails` is `true`. Can contain tag_id or other filter criteria.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter? Filter { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter Filter { get; set; }
+#endif
         /// <summary>If true, it will disable warmup to all accounts</summary>
         public bool? IncludeAllEmails { get; set; }
+        /// <summary>Optional search query to filter accounts when `include_all_emails` is `true`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Search { get; set; }
+#nullable restore
+#else
+        public string Search { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody"/> and sets the default values.
         /// </summary>
@@ -59,7 +75,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
             {
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "excluded_emails", n => { ExcludedEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter.CreateFromDiscriminatorValue); } },
                 { "include_all_emails", n => { IncludeAllEmails = n.GetBoolValue(); } },
+                { "search", n => { Search = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -71,7 +89,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);
             writer.WriteCollectionOfPrimitiveValues<string>("excluded_emails", ExcludedEmails);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter>("filter", Filter);
             writer.WriteBoolValue("include_all_emails", IncludeAllEmails);
+            writer.WriteStringValue("search", Search);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

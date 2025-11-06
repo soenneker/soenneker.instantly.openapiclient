@@ -5,47 +5,39 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1 : IAdditionalDataHolder, IParsable
+    public partial class VariablesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Label of the lead&apos;s location</summary>
+        /// <summary>The variables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get; set; }
+        public List<string>? Variables { get; set; }
 #nullable restore
 #else
-        public string Label { get; set; }
-#endif
-        /// <summary>Google Maps Place ID of the lead&apos;s location (https://developers.google.com/maps/documentation/places/web-service/place-id)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PlaceId { get; set; }
-#nullable restore
-#else
-        public string PlaceId { get; set; }
+        public List<string> Variables { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables.VariablesPostRequestBody"/> and sets the default values.
         /// </summary>
-        public EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1()
+        public VariablesPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables.VariablesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables.VariablesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables.VariablesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "label", n => { Label = n.GetStringValue(); } },
-                { "place_id", n => { PlaceId = n.GetStringValue(); } },
+                { "variables", n => { Variables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -66,8 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("label", Label);
-            writer.WriteStringValue("place_id", PlaceId);
+            writer.WriteCollectionOfPrimitiveValues<string>("variables", Variables);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

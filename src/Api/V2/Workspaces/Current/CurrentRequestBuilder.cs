@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.WhitelabelDomain;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CurrentRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The whitelabelDomain property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.WhitelabelDomain.WhitelabelDomainRequestBuilder WhitelabelDomain
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.WhitelabelDomain.WhitelabelDomainRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.CurrentRequestBuilder"/> and sets the default values.
         /// </summary>

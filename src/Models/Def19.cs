@@ -38,10 +38,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>URL to workspace logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrgLogoUrl { get; private set; }
+        public string? OrgLogoUrl { get; set; }
 #nullable restore
 #else
-        public string OrgLogoUrl { get; private set; }
+        public string OrgLogoUrl { get; set; }
 #endif
         /// <summary>User ID of the workspace owner</summary>
         public Guid? Owner { get; set; }
@@ -142,6 +142,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("add_unsub_to_block", AddUnsubToBlock);
             writer.WriteDoubleValue("default_opportunity_value", DefaultOpportunityValue);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("org_logo_url", OrgLogoUrl);
             writer.WriteGuidValue("owner", Owner);
         }
     }
