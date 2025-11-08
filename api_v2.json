@@ -6515,9 +6515,11 @@
                     "description": "List of emails to exclude when \u0060include_all_emails\u0060 is \u0060true\u0060."
                   },
                   "filter": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Optional filter to apply when \u0060include_all_emails\u0060 is \u0060true\u0060. Can contain tag_id or other filter criteria.",
-                    "additionalProperties": true,
                     "properties": {
                       "tag_id": {
                         "type": "string",
@@ -6658,7 +6660,10 @@
                     "description": "List of emails to exclude when \u0060include_all_emails\u0060 is \u0060true\u0060."
                   },
                   "filter": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Optional filter to apply when \u0060include_all_emails\u0060 is \u0060true\u0060. Can contain tag_id or other filter criteria.",
                     "additionalProperties": true,
                     "properties": {
