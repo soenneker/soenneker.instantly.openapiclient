@@ -27665,6 +27665,18 @@
                         "ai_enrichment": {
                           "type": "object",
                           "additionalProperties": true
+                        },
+                        "custom_flow": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "leadmagic"
+                          },
+                          "example": [
+                            "leadmagic",
+                            "prospeo",
+                            "hunter"
+                          ]
                         }
                       }
                     },

@@ -23,6 +23,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
 #else
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment AiEnrichment { get; set; }
 #endif
+        /// <summary>The custom_flow property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? CustomFlow { get; set; }
+#nullable restore
+#else
+        public List<string> CustomFlow { get; set; }
+#endif
         /// <summary>The email_verification property</summary>
         public bool? EmailVerification { get; set; }
         /// <summary>The fully_enriched_profile property</summary>
@@ -63,6 +71,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ai_enrichment", n => { AiEnrichment = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment.CreateFromDiscriminatorValue); } },
+                { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "email_verification", n => { EmailVerification = n.GetBoolValue(); } },
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "funding", n => { Funding = n.GetBoolValue(); } },
@@ -80,6 +89,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload_ai_enrichment>("ai_enrichment", AiEnrichment);
+            writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
             writer.WriteBoolValue("email_verification", EmailVerification);
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteBoolValue("funding", Funding);
