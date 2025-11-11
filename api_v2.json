@@ -4209,6 +4209,18 @@
                   "example": 1
                 }
               },
+              "lead_activity": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "enum": [
+                    4,
+                    91,
+                    2
+                  ],
+                  "example": 4
+                }
+              },
               "reply_contains": {
                 "type": "string",
                 "example": "yes"
@@ -25500,6 +25512,18 @@
                         "items": {
                           "type": "number",
                           "example": 1
+                        }
+                      },
+                      "lead_activity": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "enum": [
+                            4,
+                            91,
+                            2
+                          ],
+                          "example": 4
                         }
                       },
                       "reply_contains": {

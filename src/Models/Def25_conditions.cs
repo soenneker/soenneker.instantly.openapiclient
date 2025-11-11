@@ -23,6 +23,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<double?> CrmStatus { get; set; }
 #endif
+        /// <summary>The lead_activity property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<double?>? LeadActivity { get; set; }
+#nullable restore
+#else
+        public List<double?> LeadActivity { get; set; }
+#endif
         /// <summary>The reply_contains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "crm_status", n => { CrmStatus = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
+                { "lead_activity", n => { LeadActivity = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "reply_contains", n => { ReplyContains = n.GetStringValue(); } },
             };
         }
@@ -68,6 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<double?>("crm_status", CrmStatus);
+            writer.WriteCollectionOfPrimitiveValues<double?>("lead_activity", LeadActivity);
             writer.WriteStringValue("reply_contains", ReplyContains);
             writer.WriteAdditionalData(AdditionalData);
         }
