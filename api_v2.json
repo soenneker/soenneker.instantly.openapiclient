@@ -27513,7 +27513,8 @@
                     },
                     "search_filters": {
                       "type": "object",
-                      "description": "The search filters used for enrichment"
+                      "description": "The search filters used for enrichment",
+                      "additionalProperties": true
                     },
                     "limit": {
                       "type": "number",
