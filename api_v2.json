@@ -6537,6 +6537,38 @@
                         "type": "string",
                         "description": "The ID of the tag to filter accounts by.",
                         "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "filter": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The filter to apply to the accounts.",
+                        "enum": [
+                          "ACC_FILTER_PAUSED",
+                          "ACC_FILTER_ERROR",
+                          "ACC_FILTER_NO_CTD",
+                          "ACC_FILTER_PW_ACCOUNTS",
+                          "ACC_FILTER_DFY",
+                          "ACC_FILTER_DFY_SETUP_PENDING",
+                          "ACC_FILTER_W_ACTIVE",
+                          "ACC_FILTER_W_PAUSED",
+                          "ACC_FILTER_W_ERROR",
+                          null
+                        ],
+                        "x-enumDescriptions": {
+                          "ACC_FILTER_PAUSED": "Paused",
+                          "ACC_FILTER_ERROR": "Has errors",
+                          "ACC_FILTER_NO_CTD": "No custom tracking domain",
+                          "ACC_FILTER_PW_ACCOUNTS": "Pre-warmed accounts",
+                          "ACC_FILTER_DFY": "DFY accounts",
+                          "ACC_FILTER_DFY_SETUP_PENDING": "DFY Setup Pending",
+                          "ACC_FILTER_W_ACTIVE": "Warmup active",
+                          "ACC_FILTER_W_PAUSED": "Warmup paused",
+                          "ACC_FILTER_W_ERROR": "Warmup has errors",
+                          "null": "No filter"
+                        },
+                        "example": "ACC_FILTER_PAUSED"
                       }
                     }
                   },
@@ -6683,6 +6715,38 @@
                         "type": "string",
                         "description": "The ID of the tag to filter accounts by.",
                         "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "filter": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The filter to apply to the accounts.",
+                        "enum": [
+                          "ACC_FILTER_PAUSED",
+                          "ACC_FILTER_ERROR",
+                          "ACC_FILTER_NO_CTD",
+                          "ACC_FILTER_PW_ACCOUNTS",
+                          "ACC_FILTER_DFY",
+                          "ACC_FILTER_DFY_SETUP_PENDING",
+                          "ACC_FILTER_W_ACTIVE",
+                          "ACC_FILTER_W_PAUSED",
+                          "ACC_FILTER_W_ERROR",
+                          null
+                        ],
+                        "x-enumDescriptions": {
+                          "ACC_FILTER_PAUSED": "Paused",
+                          "ACC_FILTER_ERROR": "Has errors",
+                          "ACC_FILTER_NO_CTD": "No custom tracking domain",
+                          "ACC_FILTER_PW_ACCOUNTS": "Pre-warmed accounts",
+                          "ACC_FILTER_DFY": "DFY accounts",
+                          "ACC_FILTER_DFY_SETUP_PENDING": "DFY Setup Pending",
+                          "ACC_FILTER_W_ACTIVE": "Warmup active",
+                          "ACC_FILTER_W_PAUSED": "Warmup paused",
+                          "ACC_FILTER_W_ERROR": "Warmup has errors",
+                          "null": "No filter"
+                        },
+                        "example": "ACC_FILTER_PAUSED"
                       }
                     }
                   },
@@ -10329,6 +10393,36 @@
             "name": "tag_ids",
             "required": false,
             "description": "Filter campaigns by tag ids. Returns campaigns that have any of the specified tags assigned. You can specify multiple tag ids by separating them with a comma."
+          },
+          {
+            "schema": {
+              "type": "number",
+              "enum": [
+                -99,
+                -1,
+                -2,
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "x-enumDescriptions": {
+                "0": "Draft",
+                "1": "Active",
+                "2": "Paused",
+                "3": "Completed",
+                "4": "Running Subsequences",
+                "-99": "Account Suspended",
+                "-1": "Accounts Unhealthy",
+                "-2": "Bounce Protect"
+              },
+              "example": 1
+            },
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "description": "Filter campaigns by status using the campaign status enum value (e.g., ACTIVE, PAUSED)."
           }
         ],
         "responses": {

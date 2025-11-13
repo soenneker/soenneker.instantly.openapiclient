@@ -15,6 +15,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The filter to apply to the accounts.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter_filter? Filter { get; set; }
         /// <summary>The ID of the tag to filter accounts by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +50,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter_filter>(); } },
                 { "tag_id", n => { TagId = n.GetStringValue(); } },
             };
         }
@@ -58,6 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable.DisablePostRequestBody_filter_filter>("filter", Filter);
             writer.WriteStringValue("tag_id", TagId);
             writer.WriteAdditionalData(AdditionalData);
         }

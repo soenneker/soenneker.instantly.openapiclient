@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?limit*,search*,starting_after*,tag_ids*}", pathParameters)
+        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?limit*,search*,starting_after*,status*,tag_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?limit*,search*,starting_after*,tag_ids*}", rawUrl)
+        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?limit*,search*,starting_after*,status*,tag_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -197,6 +197,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
 #endif
+            /// <summary>Filter campaigns by status using the campaign status enum value (e.g., ACTIVE, PAUSED).</summary>
+            [QueryParameter("status")]
+            public double? Status { get; set; }
             /// <summary>Filter campaigns by tag ids. Returns campaigns that have any of the specified tags assigned. You can specify multiple tag ids by separating them with a comma.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
