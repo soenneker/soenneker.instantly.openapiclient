@@ -5,56 +5,48 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Models
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward
 {
     /// <summary>
-    /// Conditions that trigger the subsequence
+    /// The email body. You can specify either the `html` or the `text` field, or both
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Def25_conditions : IAdditionalDataHolder, IParsable
+    public partial class ForwardPostRequestBody_body : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Lead CRM statuses that trigger the subsequence.</summary>
+        /// <summary>HTML body of the email message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? CrmStatus { get; set; }
+        public string? Html { get; set; }
 #nullable restore
 #else
-        public List<double?> CrmStatus { get; set; }
+        public string Html { get; set; }
 #endif
-        /// <summary>The lead_activity property</summary>
+        /// <summary>Text body of the email message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? LeadActivity { get; set; }
+        public string? Text { get; set; }
 #nullable restore
 #else
-        public List<double?> LeadActivity { get; set; }
-#endif
-        /// <summary>The reply_contains property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReplyContains { get; set; }
-#nullable restore
-#else
-        public string ReplyContains { get; set; }
+        public string Text { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward.ForwardPostRequestBody_body"/> and sets the default values.
         /// </summary>
-        public Def25_conditions()
+        public ForwardPostRequestBody_body()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward.ForwardPostRequestBody_body"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward.ForwardPostRequestBody_body CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward.ForwardPostRequestBody_body();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,9 +56,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "crm_status", n => { CrmStatus = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "lead_activity", n => { LeadActivity = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "reply_contains", n => { ReplyContains = n.GetStringValue(); } },
+                { "html", n => { Html = n.GetStringValue(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,9 +67,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<double?>("crm_status", CrmStatus);
-            writer.WriteCollectionOfPrimitiveValues<double?>("lead_activity", LeadActivity);
-            writer.WriteStringValue("reply_contains", ReplyContains);
+            writer.WriteStringValue("html", Html);
+            writer.WriteStringValue("text", Text);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

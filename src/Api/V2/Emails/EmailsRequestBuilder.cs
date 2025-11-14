@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads;
@@ -20,6 +21,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmailsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The forward property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward.ForwardRequestBuilder Forward
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward.ForwardRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The reply property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply.ReplyRequestBuilder Reply
         {

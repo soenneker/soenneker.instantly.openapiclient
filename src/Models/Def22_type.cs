@@ -39,5 +39,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Ai_enrichment,
         #pragma warning restore CS1591
+        [EnumMember(Value = "custom_flow")]
+        #pragma warning disable CS1591
+        Custom_flow,
+        #pragma warning restore CS1591
     }
 }

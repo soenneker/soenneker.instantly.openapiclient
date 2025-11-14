@@ -16,6 +16,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total number of links clicked</summary>
         public int? Clicks { get; set; }
+        /// <summary>The total number of unique contacts who received an email that day</summary>
+        public int? Contacted { get; set; }
         /// <summary>The date of the analytics entry, in YYYY-MM-DD format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +32,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         public int? Opportunities { get; set; }
         /// <summary>The total number of replies</summary>
         public int? Replies { get; set; }
+        /// <summary>The total number of automatic replies detected</summary>
+        public int? RepliesAutomatic { get; set; }
         /// <summary>The total number of sent emails</summary>
         public int? Sent { get; set; }
         /// <summary>The total number of unique links clicked. Unique meaning from unique leads, not unique links. For instance, if a lead clicked a link 3 times, it will be counted as 1 unique click. If a lead clicked 3 different links, it will still be counted as 1 unique click</summary>
@@ -40,6 +44,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         public int? UniqueOpportunities { get; set; }
         /// <summary>The total number of unique replies</summary>
         public int? UniqueReplies { get; set; }
+        /// <summary>The total number of unique automatic replies detected</summary>
+        public int? UniqueRepliesAutomatic { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily.Daily"/> and sets the default values.
         /// </summary>
@@ -66,15 +72,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "clicks", n => { Clicks = n.GetIntValue(); } },
+                { "contacted", n => { Contacted = n.GetIntValue(); } },
                 { "date", n => { Date = n.GetStringValue(); } },
                 { "opened", n => { Opened = n.GetIntValue(); } },
                 { "opportunities", n => { Opportunities = n.GetIntValue(); } },
                 { "replies", n => { Replies = n.GetIntValue(); } },
+                { "replies_automatic", n => { RepliesAutomatic = n.GetIntValue(); } },
                 { "sent", n => { Sent = n.GetIntValue(); } },
                 { "unique_clicks", n => { UniqueClicks = n.GetIntValue(); } },
                 { "unique_opened", n => { UniqueOpened = n.GetIntValue(); } },
                 { "unique_opportunities", n => { UniqueOpportunities = n.GetIntValue(); } },
                 { "unique_replies", n => { UniqueReplies = n.GetIntValue(); } },
+                { "unique_replies_automatic", n => { UniqueRepliesAutomatic = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -85,15 +94,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("clicks", Clicks);
+            writer.WriteIntValue("contacted", Contacted);
             writer.WriteStringValue("date", Date);
             writer.WriteIntValue("opened", Opened);
             writer.WriteIntValue("opportunities", Opportunities);
             writer.WriteIntValue("replies", Replies);
+            writer.WriteIntValue("replies_automatic", RepliesAutomatic);
             writer.WriteIntValue("sent", Sent);
             writer.WriteIntValue("unique_clicks", UniqueClicks);
             writer.WriteIntValue("unique_opened", UniqueOpened);
             writer.WriteIntValue("unique_opportunities", UniqueOpportunities);
             writer.WriteIntValue("unique_replies", UniqueReplies);
+            writer.WriteIntValue("unique_replies_automatic", UniqueRepliesAutomatic);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3906,7 +3906,8 @@
               "technologies",
               "news",
               "funding",
-              "ai_enrichment"
+              "ai_enrichment",
+              "custom_flow"
             ],
             "x-enumDescriptions": {
               "work_email_enrichment": "Work Email Enrichment",
@@ -3916,7 +3917,8 @@
               "technologies": "Technologies Enrichment",
               "news": "News Enrichment",
               "funding": "Funding Enrichment",
-              "ai_enrichment": "AI Enrichment"
+              "ai_enrichment": "AI Enrichment",
+              "custom_flow": "Custom Flow Enrichment"
             },
             "example": "email_verification"
           },
@@ -4204,8 +4206,29 @@
             "properties": {
               "crm_status": {
                 "type": "array",
+                "description": "Lead CRM statuses that trigger the subsequence.",
                 "items": {
                   "type": "number",
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    0,
+                    -1,
+                    -2,
+                    -3
+                  ],
+                  "x-enumDescriptions": {
+                    "0": "Out of Office",
+                    "1": "Interested",
+                    "2": "Meeting Booked",
+                    "3": "Meeting Completed",
+                    "4": "Closed",
+                    "-1": "Not Interested",
+                    "-2": "Wrong Person",
+                    "-3": "Lost"
+                  },
                   "example": 1
                 }
               },
@@ -12687,6 +12710,11 @@
                         "description": "The total number of sent emails",
                         "example": 5421
                       },
+                      "contacted": {
+                        "type": "integer",
+                        "description": "The total number of unique contacts who received an email that day",
+                        "example": 5000
+                      },
                       "opened": {
                         "type": "integer",
                         "description": "The total number of opened emails",
@@ -12706,6 +12734,16 @@
                         "type": "integer",
                         "description": "The total number of unique replies",
                         "example": 60
+                      },
+                      "replies_automatic": {
+                        "type": "integer",
+                        "description": "The total number of automatic replies detected",
+                        "example": 5
+                      },
+                      "unique_replies_automatic": {
+                        "type": "integer",
+                        "description": "The total number of unique automatic replies detected",
+                        "example": 4
                       },
                       "clicks": {
                         "type": "integer",
@@ -16492,6 +16530,169 @@
                 },
                 "required": [
                   "reply_to_uuid",
+                  "eaccount",
+                  "subject",
+                  "body"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The requested Email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-2"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/emails/forward": {
+      "post": {
+        "operationId": "forwardEmail",
+        "summary": "Forward an email",
+        "tags": [
+          "Email"
+        ],
+        "description": "Forward an existing email to another recipient. You must specify the \u0060reply_to_uuid\u0060 field, which represents the \u0060id\u0060 of an existing email returned by the \u0060/emails\u0060 endpoints.\n\n\nRequires one of the following scopes: \u0060emails:create\u0060, \u0060emails:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "eaccount": {
+                    "type": "string",
+                    "description": "The email account that will be used to send this email. It has to be an email account connected to your workspace",
+                    "example": "jondoe@example.com"
+                  },
+                  "reply_to_uuid": {
+                    "type": "string",
+                    "description": "The id of the email you want to forward",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "to_address_email_list": {
+                    "type": "string",
+                    "description": "Comma-separated list of recipients that will receive the forwarded email",
+                    "example": "recipient@example.com"
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject line of the forwarded email message",
+                    "example": "Fwd: Interesting update"
+                  },
+                  "body": {
+                    "description": "The email body. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both",
+                    "type": "object",
+                    "properties": {
+                      "html": {
+                        "type": "string",
+                        "description": "HTML body of the email message",
+                        "example": "\u003Cp\u003ESharing this with you.\u003C/p\u003E"
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "Text body of the email message",
+                        "example": "Sharing this with you."
+                      }
+                    }
+                  },
+                  "cc_address_email_list": {
+                    "type": "string",
+                    "description": "Comma-separated list of CC email addresses",
+                    "example": "cc@example.com"
+                  },
+                  "bcc_address_email_list": {
+                    "type": "string",
+                    "description": "Comma-separated list of BCC email addresses",
+                    "example": "bcc@example.com"
+                  },
+                  "assigned_to": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The user id assigned to the lead",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  }
+                },
+                "required": [
+                  "reply_to_uuid",
+                  "to_address_email_list",
                   "eaccount",
                   "subject",
                   "body"
@@ -25603,8 +25804,29 @@
                     "properties": {
                       "crm_status": {
                         "type": "array",
+                        "description": "Lead CRM statuses that trigger the subsequence.",
                         "items": {
                           "type": "number",
+                          "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            0,
+                            -1,
+                            -2,
+                            -3
+                          ],
+                          "x-enumDescriptions": {
+                            "0": "Out of Office",
+                            "1": "Interested",
+                            "2": "Meeting Booked",
+                            "3": "Meeting Completed",
+                            "4": "Closed",
+                            "-1": "Not Interested",
+                            "-2": "Wrong Person",
+                            "-3": "Lost"
+                          },
                           "example": 1
                         }
                       },
@@ -27926,7 +28148,8 @@
                       "technologies",
                       "news",
                       "funding",
-                      "ai_enrichment"
+                      "ai_enrichment",
+                      "custom_flow"
                     ],
                     "x-enumDescriptions": {
                       "work_email_enrichment": "Work Email Enrichment",
@@ -27936,7 +28159,8 @@
                       "technologies": "Technologies Enrichment",
                       "news": "News Enrichment",
                       "funding": "Funding Enrichment",
-                      "ai_enrichment": "AI Enrichment"
+                      "ai_enrichment": "AI Enrichment",
+                      "custom_flow": "Custom Flow Enrichment"
                     },
                     "description": "Enrichment type to add to the resource",
                     "example": "email_verification"
@@ -32837,6 +33061,10 @@
       "get": {
         "operationId": "getWorkspaceDomainInfo",
         "summary": "Get organization verified agency domain information",
+        "tags": [
+          "Workspace"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspaces:read\u0060, \u0060workspaces:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "responses": {
           "200": {
             "description": "Default Response",
@@ -32884,6 +33112,76 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }
