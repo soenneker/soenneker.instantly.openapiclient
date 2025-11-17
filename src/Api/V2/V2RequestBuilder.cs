@@ -9,6 +9,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns;
+using Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags;
 using Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders;
 using Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification;
@@ -73,6 +74,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder Campaigns
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The crmActions property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.CrmActionsRequestBuilder CrmActions
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.CrmActionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The customTags property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder CustomTags

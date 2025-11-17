@@ -2559,6 +2559,11 @@
                 "custom_tags:read",
                 "custom_tags:update",
                 "custom_tags:delete",
+                "crm_actions:all",
+                "crm_actions:create",
+                "crm_actions:read",
+                "crm_actions:update",
+                "crm_actions:delete",
                 "accounts:all",
                 "accounts:create",
                 "accounts:read",
@@ -5235,6 +5240,18 @@
         "properties": {},
         "required": [],
         "additionalProperties": false
+      },
+      "def-45": {
+        "title": "CRM Actions",
+        "description": "CRM related actions",
+        "x-tags": [
+          "Schemas",
+          "CRMActions"
+        ],
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
       }
     }
   },
@@ -7832,6 +7849,11 @@
                         "custom_tags:read",
                         "custom_tags:update",
                         "custom_tags:delete",
+                        "crm_actions:all",
+                        "crm_actions:create",
+                        "crm_actions:read",
+                        "crm_actions:update",
+                        "crm_actions:delete",
                         "accounts:all",
                         "accounts:create",
                         "accounts:read",
@@ -13948,6 +13970,302 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/crm-actions/phone-numbers": {
+      "get": {
+        "operationId": "listPhoneNumbers",
+        "summary": "List phone numbers",
+        "tags": [
+          "CRMActions"
+        ],
+        "description": "Retrieve all phone numbers associated with the current organization.\n\n\nRequires one of the following scopes: \u0060crm_actions:read\u0060, \u0060crm_actions:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique identifier of the phone number record.",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "timestamp_created": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Timestamp when the phone number record was created.",
+                        "example": "1970-01-01T00:00:00.000Z"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "description": "Identifier of the organization that owns this phone number.",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "phone_number": {
+                        "type": "string",
+                        "description": "The phone number in international E.164 format.",
+                        "example": "\u002B15551234567"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Country code where the phone number is registered.",
+                        "example": "US"
+                      },
+                      "locality": {
+                        "type": "string",
+                        "description": "City or region associated with the phone number.",
+                        "example": "San Francisco"
+                      },
+                      "subscription_id": {
+                        "type": "string",
+                        "description": "Billing subscription ID linked to this phone number.",
+                        "example": "sub_1PuaE1B3VEKBA0ygDAKk7QVc"
+                      },
+                      "twilio_sid": {
+                        "type": "string",
+                        "description": "Twilio resource SID for the phone number.",
+                        "example": "PN998dda028e07a49c8038b2206341d463"
+                      },
+                      "renewal_date": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Next renewal date for the phone number subscription.",
+                        "example": "1970-01-01T00:00:00.000Z"
+                      },
+                      "price": {
+                        "type": "number",
+                        "description": "Monthly price for this phone number (USD).",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/crm-actions/phone-numbers/{id}": {
+      "delete": {
+        "operationId": "deletePhoneNumber",
+        "summary": "Delete phone number",
+        "tags": [
+          "CRMActions"
+        ],
+        "description": "Delete a specific phone number from the organization.\n\n\nRequires one of the following scopes: \u0060crm_actions:delete\u0060, \u0060crm_actions:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "The phone number record id to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier of the deleted phone number record.",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "timestamp_created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the deleted record was originally created.",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
+                    "organization_id": {
+                      "type": "string",
+                      "description": "Identifier of the organization that owned the phone number.",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "description": "The deleted phone number.",
+                      "example": "\u002B15551234567"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Country code of the deleted phone number.",
+                      "example": "US"
+                    },
+                    "locality": {
+                      "type": "string",
+                      "description": "Region or city associated with the deleted phone number.",
+                      "example": "San Francisco"
+                    },
+                    "subscription_id": {
+                      "type": "string",
+                      "description": "Billing subscription ID associated with this number (if any).",
+                      "example": "sub_1PuaE1B3VEKBA0ygDAKk7QVc"
+                    },
+                    "twilio_sid": {
+                      "type": "string",
+                      "description": "Twilio SID of the deleted number.",
+                      "example": "PN998dda028e07a49c8038b2206341d463"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
                     }
                   },
                   "required": [
@@ -33431,6 +33749,11 @@
       "name": "WorkspaceBilling",
       "description": "Workspace Billing",
       "x-displayName": "Workspace Billing"
+    },
+    {
+      "name": "CRMActions",
+      "description": "CRM related actions",
+      "x-displayName": "CRM Actions"
     }
   ]
 }
