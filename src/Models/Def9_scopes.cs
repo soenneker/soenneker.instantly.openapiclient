@@ -88,6 +88,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Audit_logsDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "custom_prompt_templates:all")]
+        #pragma warning disable CS1591
+        Custom_prompt_templatesAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_prompt_templates:create")]
+        #pragma warning disable CS1591
+        Custom_prompt_templatesCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_prompt_templates:read")]
+        #pragma warning disable CS1591
+        Custom_prompt_templatesRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_prompt_templates:update")]
+        #pragma warning disable CS1591
+        Custom_prompt_templatesUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_prompt_templates:delete")]
+        #pragma warning disable CS1591
+        Custom_prompt_templatesDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "account_campaign_mappings:all")]
         #pragma warning disable CS1591
         Account_campaign_mappingsAll,
@@ -499,6 +519,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         [EnumMember(Value = "subsequences:delete")]
         #pragma warning disable CS1591
         SubsequencesDelete,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ai_sdr:all")]
+        #pragma warning disable CS1591
+        Ai_sdrAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ai_sdr:create")]
+        #pragma warning disable CS1591
+        Ai_sdrCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ai_sdr:read")]
+        #pragma warning disable CS1591
+        Ai_sdrRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ai_sdr:update")]
+        #pragma warning disable CS1591
+        Ai_sdrUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ai_sdr:delete")]
+        #pragma warning disable CS1591
+        Ai_sdrDelete,
         #pragma warning restore CS1591
         [EnumMember(Value = "ai_sdr_replies:all")]
         #pragma warning disable CS1591

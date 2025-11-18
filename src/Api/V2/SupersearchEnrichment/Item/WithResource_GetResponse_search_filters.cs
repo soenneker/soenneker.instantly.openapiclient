@@ -5,32 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Models
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
 {
     /// <summary>
-    /// JSON payload that was sent/attempted to be sent
+    /// Search filters used to create this enrichment (only present for enrichments created from SuperSearch)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Def38_payload : IAdditionalDataHolder, IParsable
+    public partial class WithResource_GetResponse_search_filters : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def38_payload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters"/> and sets the default values.
         /// </summary>
-        public Def38_payload()
+        public WithResource_GetResponse_search_filters()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def38_payload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.Def38_payload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.Def38_payload();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -13,6 +13,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def1 : IParsable
     {
+        /// <summary>AI SDR ID that created this campaign</summary>
+        public Guid? AiSdrId { get; private set; }
         /// <summary>Whether to allow risky contacts</summary>
         public bool? AllowRiskyContacts { get; set; }
         /// <summary>Auto variant select settings</summary>
@@ -171,6 +173,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_sdr_id", n => { AiSdrId = n.GetGuidValue(); } },
                 { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select.CreateFromDiscriminatorValue); } },
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

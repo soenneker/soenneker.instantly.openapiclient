@@ -5,7 +5,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>Type of event to trigger the webhook (null for custom label events). Set to &quot;all_events&quot; to subscribe to all events - including custom label events</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Def36_event_type
+    public enum Def37_event_type
     {
         [EnumMember(Value = "all_events")]
         #pragma warning disable CS1591

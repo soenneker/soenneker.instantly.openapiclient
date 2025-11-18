@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?limit*,search*,starting_after*,status*,tag_ids*}", pathParameters)
+        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sdr_id*,limit*,search*,starting_after*,status*,tag_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?limit*,search*,starting_after*,status*,tag_ids*}", rawUrl)
+        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sdr_id*,limit*,search*,starting_after*,status*,tag_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -174,6 +174,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CampaignsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter campaigns by AI SDR ID. Returns campaigns that were created by the specified AI SDR.</summary>
+            [QueryParameter("ai_sdr_id")]
+            public Guid? AiSdrId { get; set; }
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }

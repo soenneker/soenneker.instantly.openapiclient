@@ -950,6 +950,16 @@
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
+          "ai_sdr_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "AI SDR ID that created this campaign",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "provider_routing_rules": {
             "type": "array",
             "description": "Auto variant select settings",
@@ -2514,6 +2524,11 @@
                 "audit_logs:read",
                 "audit_logs:update",
                 "audit_logs:delete",
+                "custom_prompt_templates:all",
+                "custom_prompt_templates:create",
+                "custom_prompt_templates:read",
+                "custom_prompt_templates:update",
+                "custom_prompt_templates:delete",
                 "account_campaign_mappings:all",
                 "account_campaign_mappings:create",
                 "account_campaign_mappings:read",
@@ -2617,6 +2632,11 @@
                 "subsequences:read",
                 "subsequences:update",
                 "subsequences:delete",
+                "ai_sdr:all",
+                "ai_sdr:create",
+                "ai_sdr:read",
+                "ai_sdr:update",
+                "ai_sdr:delete",
                 "ai_sdr_replies:all",
                 "ai_sdr_replies:create",
                 "ai_sdr_replies:read",
@@ -4696,7 +4716,7 @@
         ],
         "additionalProperties": false
       },
-      "def-36": {
+      "def-37": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -4794,7 +4814,7 @@
         ],
         "additionalProperties": false
       },
-      "def-38": {
+      "def-39": {
         "title": "Webhook Event",
         "description": "A webhook event that was sent or attempted to be sent",
         "x-tags": [
@@ -4939,7 +4959,7 @@
         ],
         "additionalProperties": false
       },
-      "def-39": {
+      "def-40": {
         "title": "DFY Email Account Order",
         "description": "A Done-For-You email account order",
         "x-tags": [
@@ -5001,7 +5021,242 @@
         ],
         "additionalProperties": false
       },
-      "def-40": {
+      "def-41": {
+        "title": "Custom Prompt Template",
+        "description": "Custom prompt templates for creating custom prompts",
+        "x-tags": [
+          "Schemas",
+          "CustomPromptTemplate"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true,
+            "example": 1
+          },
+          "workspace_id": {
+            "type": "string",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "created_by": {
+            "type": "string",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "example": "Prompt template name"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Prompt template description"
+          },
+          "category": {
+            "type": "number",
+            "description": "Prompt Custom template category",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "x-enumDescriptions": {
+              "1": "Copywriting",
+              "2": "Cleaning",
+              "3": "Sales",
+              "4": "Marketing",
+              "5": "Other",
+              "6": "Personalization"
+            },
+            "example": 1
+          },
+          "properties": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "examples": [
+                    "Property name"
+                  ]
+                },
+                "property": {
+                  "type": "string",
+                  "examples": [
+                    "{{property1}}"
+                  ]
+                }
+              }
+            }
+          },
+          "prompt": {
+            "type": "string",
+            "example": "Generate a name using {{property_1}} and {{property_2}} combination."
+          },
+          "is_public": {
+            "type": "boolean",
+            "example": true
+          },
+          "model_version": {
+            "type": "string",
+            "enum": [
+              "3.5",
+              "gpt-5",
+              "gpt-5-mini",
+              "gpt-5-nano",
+              "4.0",
+              "4.0-Omni",
+              "gpt-4o",
+              "o3",
+              "gpt-4.1",
+              "claude-3.7-sonnet",
+              "claude-3.5-sonnet",
+              "r1",
+              "grok-2",
+              "grok-4",
+              "gemini-1.5-flash",
+              "gemini-2.0-flash",
+              "instantly-ai-lightspeed-agent"
+            ],
+            "x-enumDescriptions": {
+              "3.5": "GPT-3.5",
+              "gpt-5": "GPT-5",
+              "gpt-5-mini": "GPT-5 Mini",
+              "gpt-5-nano": "GPT-5 Nano",
+              "4.0": "GPT-4.0",
+              "4.0-Omni": "GPT-4.0 Omni",
+              "gpt-4o": "GPT-4O",
+              "o3": "O3",
+              "gpt-4.1": "GPT-4.1",
+              "claude-3.7-sonnet": "Claude 3.7 Sonnet",
+              "claude-3.5-sonnet": "Claude 3.5 Sonnet",
+              "r1": "R1",
+              "grok-2": "Grok 2",
+              "grok-4": "Grok 4",
+              "gemini-1.5-flash": "Gemini 1.5 Flash",
+              "gemini-2.0-flash": "Gemini 2.0 Flash",
+              "instantly-ai-lightspeed-agent": "Instantly AI Lightspeed Agent"
+            },
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "from_shared": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "example": false
+          },
+          "like_count": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "readOnly": true,
+            "example": 50
+          },
+          "execution_count": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "readOnly": true,
+            "example": 20
+          },
+          "liked": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "readOnly": true,
+            "example": true
+          },
+          "template_type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Custom Prompt template type",
+            "enum": [
+              "custom",
+              "public"
+            ],
+            "x-enumDescriptions": {
+              "custom": "custom",
+              "public": "public"
+            },
+            "example": "public"
+          },
+          "created_by_instantly": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "readOnly": true,
+            "example": true
+          },
+          "creator": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "readOnly": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "examples": [
+                  "f9cc070d-8dba-4341-b847-f083c358e460"
+                ]
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "object",
+                    "properties": {
+                      "first": {
+                        "type": "string",
+                        "examples": [
+                          "John"
+                        ]
+                      },
+                      "last": {
+                        "type": "string",
+                        "examples": [
+                          "Smith"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "workspace_id",
+          "created_by",
+          "name",
+          "category",
+          "prompt",
+          "is_public"
+        ],
+        "additionalProperties": false
+      },
+      "def-42": {
         "title": "Sales Flow",
         "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
         "x-tags": [
@@ -5171,7 +5426,7 @@
         ],
         "additionalProperties": false
       },
-      "def-41": {
+      "def-43": {
         "title": "Email Template",
         "description": "A campaign email template",
         "x-tags": [
@@ -5229,7 +5484,7 @@
         ],
         "additionalProperties": false
       },
-      "def-44": {
+      "def-46": {
         "title": "Workspace Billing",
         "description": "Workspace Billing",
         "x-tags": [
@@ -5241,7 +5496,7 @@
         "required": [],
         "additionalProperties": false
       },
-      "def-45": {
+      "def-47": {
         "title": "CRM Actions",
         "description": "CRM related actions",
         "x-tags": [
@@ -7804,6 +8059,11 @@
                         "audit_logs:read",
                         "audit_logs:update",
                         "audit_logs:delete",
+                        "custom_prompt_templates:all",
+                        "custom_prompt_templates:create",
+                        "custom_prompt_templates:read",
+                        "custom_prompt_templates:update",
+                        "custom_prompt_templates:delete",
                         "account_campaign_mappings:all",
                         "account_campaign_mappings:create",
                         "account_campaign_mappings:read",
@@ -7907,6 +8167,11 @@
                         "subsequences:read",
                         "subsequences:update",
                         "subsequences:delete",
+                        "ai_sdr:all",
+                        "ai_sdr:create",
+                        "ai_sdr:read",
+                        "ai_sdr:update",
+                        "ai_sdr:delete",
                         "ai_sdr_replies:all",
                         "ai_sdr_replies:create",
                         "ai_sdr_replies:read",
@@ -10438,6 +10703,17 @@
             "name": "tag_ids",
             "required": false,
             "description": "Filter campaigns by tag ids. Returns campaigns that have any of the specified tags assigned. You can specify multiple tag ids by separating them with a comma."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "query",
+            "name": "ai_sdr_id",
+            "required": false,
+            "description": "Filter campaigns by AI SDR ID. Returns campaigns that were created by the specified AI SDR."
           },
           {
             "schema": {
@@ -15860,7 +16136,7 @@
                       "type": "array",
                       "description": "The list of DFY Email Account Order",
                       "items": {
-                        "$ref": "#/components/schemas/def-39"
+                        "$ref": "#/components/schemas/def-40"
                       }
                     },
                     "next_starting_after": {
@@ -17298,6 +17574,26 @@
             "name": "email_type",
             "required": false,
             "description": "The type of the email to filter by."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "min_timestamp_created",
+            "required": false,
+            "description": "Filter emails created after this timestamp (ISO format)"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "max_timestamp_created",
+            "required": false,
+            "description": "Filter emails created before this timestamp (ISO format)"
           }
         ],
         "responses": {
@@ -28348,6 +28644,11 @@
                       "type": "boolean",
                       "description": "Whether the enrichment is evergreen",
                       "example": false
+                    },
+                    "search_filters": {
+                      "type": "object",
+                      "description": "Search filters used to create this enrichment (only present for enrichments created from SuperSearch)",
+                      "additionalProperties": true
                     }
                   },
                   "required": [
@@ -29747,7 +30048,7 @@
                       "type": "array",
                       "description": "The list of Webhook Event",
                       "items": {
-                        "$ref": "#/components/schemas/def-38"
+                        "$ref": "#/components/schemas/def-39"
                       }
                     },
                     "next_starting_after": {
@@ -29864,7 +30165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-38"
+                  "$ref": "#/components/schemas/def-39"
                 }
               }
             }
@@ -30371,7 +30672,7 @@
                       "type": "array",
                       "description": "The list of Webhook",
                       "items": {
-                        "$ref": "#/components/schemas/def-36"
+                        "$ref": "#/components/schemas/def-37"
                       }
                     },
                     "next_starting_after": {
@@ -30551,7 +30852,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-37"
                 }
               }
             }
@@ -30691,7 +30992,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-37"
                 }
               }
             }
@@ -30902,7 +31203,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-37"
                 }
               }
             }
@@ -31050,7 +31351,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-36"
+                  "$ref": "#/components/schemas/def-37"
                 }
               }
             }
@@ -33734,6 +34035,11 @@
       "name": "DFYEmailAccountOrder",
       "description": "A Done-For-You email account order",
       "x-displayName": "DFY Email Account Order"
+    },
+    {
+      "name": "CustomPromptTemplate",
+      "description": "Custom prompt templates for creating custom prompts",
+      "x-displayName": "Custom Prompt Template"
     },
     {
       "name": "SalesFlow",

@@ -30,6 +30,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
         public bool? IsEvergreen { get; set; }
         /// <summary>ID of the resource being enriched</summary>
         public Guid? ResourceId { get; set; }
+        /// <summary>Search filters used to create this enrichment (only present for enrichments created from SuperSearch)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters? SearchFilters { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters SearchFilters { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,6 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
             writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_search_filters>("search_filters", SearchFilters);
         }
     }
 }
