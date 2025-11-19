@@ -5129,6 +5129,7 @@
               "grok-4",
               "gemini-1.5-flash",
               "gemini-2.0-flash",
+              "gemini-3.0-pro",
               "instantly-ai-lightspeed-agent"
             ],
             "x-enumDescriptions": {
@@ -5148,6 +5149,7 @@
               "grok-4": "Grok 4",
               "gemini-1.5-flash": "Gemini 1.5 Flash",
               "gemini-2.0-flash": "Gemini 2.0 Flash",
+              "gemini-3.0-pro": "Gemini 3.0 Pro",
               "instantly-ai-lightspeed-agent": "Instantly AI Lightspeed Agent"
             },
             "example": "1970-01-01T00:00:00.000Z"
@@ -29146,6 +29148,7 @@
                       "grok-4",
                       "gemini-1.5-flash",
                       "gemini-2.0-flash",
+                      "gemini-3.0-pro",
                       "instantly-ai-lightspeed-agent-for-web-research",
                       "instantly-ai-lightspeed-agent-for-email-generation"
                     ],
@@ -29164,7 +29167,8 @@
                       "grok-2": "Grok 2 - X AI\u0027s earlier-generation model",
                       "grok-4": "Grok 4 - X AI\u0027s latest reasoning model",
                       "gemini-1.5-flash": "Gemini 1.5 Flash - Google\u0027s fast and efficient model",
-                      "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s latest model with improved capabilities",
+                      "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s powerful and versatile model",
+                      "gemini-3.0-pro": "Gemini 3.0 Pro - Google\u0027s latest model with improved capabilities",
                       "instantly-ai-lightspeed-agent-for-web-research": "Instantly AI - LightSpeed Agent for Web Research",
                       "instantly-ai-lightspeed-agent-for-email-generation": "Instantly AI - LightSpeed Agent for Email Generation"
                     },
