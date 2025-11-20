@@ -13,6 +13,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CampaignsPostRequestBody : IParsable
     {
+        /// <summary>AI SDR ID that created this campaign</summary>
+        public Guid? AiSdrId { get; set; }
         /// <summary>Whether to allow risky contacts</summary>
         public bool? AllowRiskyContacts { get; set; }
         /// <summary>Auto variant select settings</summary>
@@ -149,6 +151,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_sdr_id", n => { AiSdrId = n.GetGuidValue(); } },
                 { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_auto_variant_select>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_auto_variant_select.CreateFromDiscriminatorValue); } },
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -187,6 +190,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteGuidValue("ai_sdr_id", AiSdrId);
             writer.WriteBoolValue("allow_risky_contacts", AllowRiskyContacts);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_auto_variant_select>("auto_variant_select", AutoVariantSelect);
             writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);

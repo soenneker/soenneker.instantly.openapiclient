@@ -956,7 +956,6 @@
               "string"
             ],
             "description": "AI SDR ID that created this campaign",
-            "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
@@ -10475,6 +10474,15 @@
                       "null"
                     ],
                     "description": "Owner ID",
+                    "format": "uuid",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "ai_sdr_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "AI SDR ID that created this campaign",
                     "format": "uuid",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },

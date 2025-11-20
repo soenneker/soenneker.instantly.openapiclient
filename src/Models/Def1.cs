@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class Def1 : IParsable
     {
         /// <summary>AI SDR ID that created this campaign</summary>
-        public Guid? AiSdrId { get; private set; }
+        public Guid? AiSdrId { get; set; }
         /// <summary>Whether to allow risky contacts</summary>
         public bool? AllowRiskyContacts { get; set; }
         /// <summary>Auto variant select settings</summary>
@@ -217,6 +217,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteGuidValue("ai_sdr_id", AiSdrId);
             writer.WriteBoolValue("allow_risky_contacts", AllowRiskyContacts);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select>("auto_variant_select", AutoVariantSelect);
             writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);
