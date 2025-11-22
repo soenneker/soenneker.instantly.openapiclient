@@ -44,7 +44,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string OrgLogoUrl { get; set; }
 #endif
         /// <summary>User ID of the workspace owner</summary>
-        public Guid? Owner { get; set; }
+        public Guid? Owner { get; private set; }
         /// <summary>Plan ID for workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,7 +143,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("default_opportunity_value", DefaultOpportunityValue);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_logo_url", OrgLogoUrl);
-            writer.WriteGuidValue("owner", Owner);
         }
     }
 }

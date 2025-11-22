@@ -3744,6 +3744,7 @@
           "owner": {
             "type": "string",
             "description": "User ID of the workspace owner",
+            "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
