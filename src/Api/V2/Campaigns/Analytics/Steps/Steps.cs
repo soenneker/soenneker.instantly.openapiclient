@@ -22,6 +22,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         public int? Opportunities { get; set; }
         /// <summary>The total number of replies</summary>
         public int? Replies { get; set; }
+        /// <summary>The total number of automatic replies detected</summary>
+        public int? RepliesAutomatic { get; set; }
         /// <summary>The total number of sent emails</summary>
         public int? Sent { get; set; }
         /// <summary>The step number. When null it means we couldn&apos;t determine the step number for the event, for instance for list leads, which are not part of a campaign.</summary>
@@ -40,6 +42,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         public int? UniqueOpportunities { get; set; }
         /// <summary>The total number of replies</summary>
         public int? UniqueReplies { get; set; }
+        /// <summary>The total number of unique automatic replies detected</summary>
+        public int? UniqueRepliesAutomatic { get; set; }
         /// <summary>The variant number, starting from 0. 0 = A, 1 = B, 2 = C, etc. When null it means we couldn&apos;t determine the variant for the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,12 +81,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
                 { "opened", n => { Opened = n.GetIntValue(); } },
                 { "opportunities", n => { Opportunities = n.GetIntValue(); } },
                 { "replies", n => { Replies = n.GetIntValue(); } },
+                { "replies_automatic", n => { RepliesAutomatic = n.GetIntValue(); } },
                 { "sent", n => { Sent = n.GetIntValue(); } },
                 { "step", n => { Step = n.GetStringValue(); } },
                 { "unique_clicks", n => { UniqueClicks = n.GetIntValue(); } },
                 { "unique_opened", n => { UniqueOpened = n.GetIntValue(); } },
                 { "unique_opportunities", n => { UniqueOpportunities = n.GetIntValue(); } },
                 { "unique_replies", n => { UniqueReplies = n.GetIntValue(); } },
+                { "unique_replies_automatic", n => { UniqueRepliesAutomatic = n.GetIntValue(); } },
                 { "variant", n => { Variant = n.GetStringValue(); } },
             };
         }
@@ -97,12 +103,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             writer.WriteIntValue("opened", Opened);
             writer.WriteIntValue("opportunities", Opportunities);
             writer.WriteIntValue("replies", Replies);
+            writer.WriteIntValue("replies_automatic", RepliesAutomatic);
             writer.WriteIntValue("sent", Sent);
             writer.WriteStringValue("step", Step);
             writer.WriteIntValue("unique_clicks", UniqueClicks);
             writer.WriteIntValue("unique_opened", UniqueOpened);
             writer.WriteIntValue("unique_opportunities", UniqueOpportunities);
             writer.WriteIntValue("unique_replies", UniqueReplies);
+            writer.WriteIntValue("unique_replies_automatic", UniqueRepliesAutomatic);
             writer.WriteStringValue("variant", Variant);
             writer.WriteAdditionalData(AdditionalData);
         }

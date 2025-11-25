@@ -27,6 +27,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         #pragma warning disable CS1591
         Gpt41,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gpt-4.1-mini")]
+        #pragma warning disable CS1591
+        Gpt41Mini,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gpt-5-mini")]
         #pragma warning disable CS1591
         Gpt5Mini,

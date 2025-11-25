@@ -5122,6 +5122,7 @@
               "gpt-4o",
               "o3",
               "gpt-4.1",
+              "gpt-4.1-mini",
               "claude-3.7-sonnet",
               "claude-3.5-sonnet",
               "r1",
@@ -5142,6 +5143,7 @@
               "gpt-4o": "GPT-4O",
               "o3": "O3",
               "gpt-4.1": "GPT-4.1",
+              "gpt-4.1-mini": "GPT-4.1 Mini",
               "claude-3.7-sonnet": "Claude 3.7 Sonnet",
               "claude-3.5-sonnet": "Claude 3.5 Sonnet",
               "r1": "R1",
@@ -13309,6 +13311,16 @@
                         "description": "The total number of replies",
                         "example": 60
                       },
+                      "replies_automatic": {
+                        "type": "integer",
+                        "description": "The total number of automatic replies detected",
+                        "example": 5
+                      },
+                      "unique_replies_automatic": {
+                        "type": "integer",
+                        "description": "The total number of unique automatic replies detected",
+                        "example": 4
+                      },
                       "clicks": {
                         "type": "integer",
                         "description": "The total number of links clicked",
@@ -13338,6 +13350,8 @@
                       "unique_opened",
                       "replies",
                       "unique_replies",
+                      "replies_automatic",
+                      "unique_replies_automatic",
                       "clicks",
                       "unique_clicks"
                     ]
@@ -29147,6 +29161,7 @@
                       "gpt-4o",
                       "o3",
                       "gpt-4.1",
+                      "gpt-4.1-mini",
                       "gpt-5-mini",
                       "gpt-5-nano",
                       "gpt-5",
@@ -29170,6 +29185,7 @@
                       "gpt-4o": "GPT-4o - OpenAI\u0027s optimized model with improved performance",
                       "o3": "o3 is a well-rounded and powerful model across domains. It sets a new standard for math, science, coding, and visual reasoning tasks.",
                       "gpt-4.1": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning.",
+                      "gpt-4.1-mini": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost.",
                       "claude-3.7-sonnet": "Claude 3.7 Sonnet - Anthropic\u0027s most capable model",
                       "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
                       "r1": "R1 - Deepseek\u0027s advanced chat model",
