@@ -7362,6 +7362,182 @@
         }
       }
     },
+    "/api/v2/accounts/analytics/daily": {
+      "get": {
+        "operationId": "getDailyAccountAnalytics",
+        "summary": "Get daily account analytics",
+        "tags": [
+          "Account",
+          "Analytics"
+        ],
+        "description": "Get daily account analytics showing the number of emails sent per day for each email account. Useful for tracking daily sending activity across your accounts.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "start_date",
+            "required": false,
+            "description": "Start date for the analytics period (optional). If not provided, returns data for the last 30 days."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "description": "End date for the analytics period (optional). If not provided, defaults to current date."
+          },
+          {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": "user@example.com"
+              }
+            },
+            "in": "query",
+            "name": "emails",
+            "required": false,
+            "description": "Filter by specific email accounts (optional). If not provided, returns data for all accounts in your workspace."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "description": "The date of the analytics entry, in YYYY-MM-DD format",
+                        "example": "1970-01-01T00:00:00.000Z"
+                      },
+                      "email_account": {
+                        "type": "string",
+                        "description": "The email account that sent the emails",
+                        "example": "user@example.com"
+                      },
+                      "sent": {
+                        "type": "integer",
+                        "description": "The total number of campaign emails sent on this date by this account, including emails for subsequences",
+                        "example": 150
+                      },
+                      "bounced": {
+                        "type": "integer",
+                        "description": "The number of emails that bounced on this date for this account for campaigns - including subsequences",
+                        "example": 3
+                      }
+                    },
+                    "required": [
+                      "date",
+                      "email_account",
+                      "sent",
+                      "bounced"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message",
+                      "example": "Start Date must be earlier than End Date"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/accounts/{email}/pause": {
       "post": {
         "operationId": "pauseAccount",

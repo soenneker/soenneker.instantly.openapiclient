@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Ctd;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test;
@@ -22,6 +23,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AccountsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The analytics property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.AnalyticsRequestBuilder Analytics
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The ctd property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Ctd.CtdRequestBuilder Ctd
         {
