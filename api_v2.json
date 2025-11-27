@@ -28026,66 +28026,209 @@
                     "description": "Search filters to find leads (required)",
                     "properties": {
                       "locations": {
-                        "type": "array",
-                        "items": {
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "place_id": {
-                                  "type": "string",
-                                  "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
-                                  "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
-                                },
-                                "label": {
-                                  "type": "string",
-                                  "description": "Label of the lead\u0027s location",
-                                  "example": "San Francisco, CA, USA"
-                                }
-                              },
-                              "required": [
-                                "place_id"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "city": {
-                                  "type": "string",
-                                  "description": "City of the lead",
-                                  "example": "San Francisco"
-                                },
-                                "state": {
-                                  "type": "string",
-                                  "description": "State of the lead",
-                                  "example": "California"
-                                },
-                                "country": {
-                                  "type": "string",
-                                  "description": "Country of the lead",
-                                  "example": "United States"
-                                }
-                              },
-                              "anyOf": [
+                        "oneOf": [
+                          {
+                            "type": "array",
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
+                            "items": {
+                              "oneOf": [
                                 {
+                                  "type": "object",
+                                  "properties": {
+                                    "place_id": {
+                                      "type": "string",
+                                      "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
+                                      "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                    },
+                                    "label": {
+                                      "type": "string",
+                                      "description": "Label of the lead\u0027s location",
+                                      "example": "San Francisco, CA, USA"
+                                    }
+                                  },
                                   "required": [
-                                    "city"
-                                  ]
+                                    "place_id"
+                                  ],
+                                  "additionalProperties": false
                                 },
                                 {
-                                  "required": [
-                                    "state"
-                                  ]
-                                },
-                                {
-                                  "required": [
-                                    "country"
-                                  ]
+                                  "type": "object",
+                                  "properties": {
+                                    "city": {
+                                      "type": "string",
+                                      "description": "City of the lead",
+                                      "example": "San Francisco"
+                                    },
+                                    "state": {
+                                      "type": "string",
+                                      "description": "State of the lead",
+                                      "example": "California"
+                                    },
+                                    "country": {
+                                      "type": "string",
+                                      "description": "Country of the lead",
+                                      "example": "United States"
+                                    }
+                                  },
+                                  "anyOf": [
+                                    {
+                                      "required": [
+                                        "city"
+                                      ]
+                                    },
+                                    {
+                                      "required": [
+                                        "state"
+                                      ]
+                                    },
+                                    {
+                                      "required": [
+                                        "country"
+                                      ]
+                                    }
+                                  ],
+                                  "additionalProperties": false
                                 }
                               ]
                             }
-                          ]
-                        }
+                          },
+                          {
+                            "type": "object",
+                            "description": "Locations to include or exclude in the search",
+                            "properties": {
+                              "include": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "place_id": {
+                                          "type": "string",
+                                          "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
+                                          "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "description": "Label of the lead\u0027s location",
+                                          "example": "San Francisco, CA, USA"
+                                        }
+                                      },
+                                      "required": [
+                                        "place_id"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "city": {
+                                          "type": "string",
+                                          "description": "City of the lead",
+                                          "example": "San Francisco"
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "State of the lead",
+                                          "example": "California"
+                                        },
+                                        "country": {
+                                          "type": "string",
+                                          "description": "Country of the lead",
+                                          "example": "United States"
+                                        }
+                                      },
+                                      "anyOf": [
+                                        {
+                                          "required": [
+                                            "city"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "state"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "country"
+                                          ]
+                                        }
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "description": "Locations to include in the search"
+                              },
+                              "exclude": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "place_id": {
+                                          "type": "string",
+                                          "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
+                                          "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "description": "Label of the lead\u0027s location",
+                                          "example": "San Francisco, CA, USA"
+                                        }
+                                      },
+                                      "required": [
+                                        "place_id"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "city": {
+                                          "type": "string",
+                                          "description": "City of the lead",
+                                          "example": "San Francisco"
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "State of the lead",
+                                          "example": "California"
+                                        },
+                                        "country": {
+                                          "type": "string",
+                                          "description": "Country of the lead",
+                                          "example": "United States"
+                                        }
+                                      },
+                                      "anyOf": [
+                                        {
+                                          "required": [
+                                            "city"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "state"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "country"
+                                          ]
+                                        }
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "description": "Locations to exclude from the search"
+                              }
+                            }
+                          }
+                        ]
                       },
                       "department": {
                         "type": "array",

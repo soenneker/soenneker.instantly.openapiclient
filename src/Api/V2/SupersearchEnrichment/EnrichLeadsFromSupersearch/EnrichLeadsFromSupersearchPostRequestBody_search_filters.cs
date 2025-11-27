@@ -82,10 +82,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         /// <summary>The locations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations>? Locations { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations? Locations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations> Locations { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations Locations { get; set; }
 #endif
         /// <summary>If set, the lead finder will find companies that are similar to the look-alike domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -164,7 +164,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
                 { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_industry>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_industry.CreateFromDiscriminatorValue); } },
                 { "keyword_filter", n => { KeywordFilter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_keyword_filter>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_keyword_filter.CreateFromDiscriminatorValue); } },
                 { "level", n => { Level = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_level>()?.AsList(); } },
-                { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "locations", n => { Locations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations.CreateFromDiscriminatorValue); } },
                 { "look_alike", n => { LookAlike = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "news", n => { News = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_news>()?.AsList(); } },
@@ -189,7 +189,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_industry>("industry", Industry);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_keyword_filter>("keyword_filter", KeywordFilter);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_level>("level", Level);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations>("locations", Locations);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations>("locations", Locations);
             writer.WriteStringValue("look_alike", LookAlike);
             writer.WriteCollectionOfPrimitiveValues<string>("name", Name);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_news>("news", News);
@@ -200,18 +200,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2"/>, List&lt;global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1"/></summary>
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1? EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 { get; set; }
+            public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1>? EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1 EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 { get; set; }
+            public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1> EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -233,11 +233,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
                 var result = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locations();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
                     result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2();
+                }
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1> enrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1Value)
+                {
+                    result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 = enrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1Value;
                 }
                 return result;
             }
@@ -247,11 +247,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 != null)
-                {
-                    return EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1.GetFieldDeserializers();
-                }
-                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2 != null)
+                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2 != null)
                 {
                     return EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2.GetFieldDeserializers();
                 }
@@ -264,13 +260,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1);
-                }
-                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2 != null)
+                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2);
+                }
+                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1 != null)
+                {
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember1>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember1);
                 }
             }
         }

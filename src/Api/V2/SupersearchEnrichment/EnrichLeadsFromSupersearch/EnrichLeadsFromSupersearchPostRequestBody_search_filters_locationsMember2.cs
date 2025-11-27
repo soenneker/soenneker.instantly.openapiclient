@@ -7,36 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch
 {
+    /// <summary>
+    /// Locations to include or exclude in the search
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2 : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>City of the lead</summary>
+        /// <summary>Locations to exclude from the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? City { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude>? Exclude { get; set; }
 #nullable restore
 #else
-        public string City { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude> Exclude { get; set; }
 #endif
-        /// <summary>Country of the lead</summary>
+        /// <summary>Locations to include in the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Country { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include>? Include { get; set; }
 #nullable restore
 #else
-        public string Country { get; set; }
-#endif
-        /// <summary>State of the lead</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? State { get; set; }
-#nullable restore
-#else
-        public string State { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include> Include { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2"/> and sets the default values.
@@ -63,9 +56,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "city", n => { City = n.GetStringValue(); } },
-                { "country", n => { Country = n.GetStringValue(); } },
-                { "state", n => { State = n.GetStringValue(); } },
+                { "exclude", n => { Exclude = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "include", n => { Include = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -75,10 +67,159 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("city", City);
-            writer.WriteStringValue("country", Country);
-            writer.WriteStringValue("state", State);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude>("exclude", Exclude);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include>("include", Include);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember1? EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember1 EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember2? EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember2 EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_exclude();
+                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember1();
+                }
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember2();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1 != null)
+                {
+                    return EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1.GetFieldDeserializers();
+                }
+                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2 != null)
+                {
+                    return EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember1>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember1);
+                }
+                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_excludeMember2>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2ExcludeMember2);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember1? EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember1 EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember2? EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember2 EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_include();
+                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember1();
+                }
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2 = new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember2();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1 != null)
+                {
+                    return EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1.GetFieldDeserializers();
+                }
+                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2 != null)
+                {
+                    return EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember1>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember1);
+                }
+                else if(EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters_locationsMember2_includeMember2>(null, EnrichLeadsFromSupersearchPostRequestBodySearchFiltersLocationsMember2IncludeMember2);
+                }
+            }
         }
     }
 }
