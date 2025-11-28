@@ -40,12 +40,30 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         public int? LeadsCount { get; set; }
         /// <summary>The number of links that got clicked</summary>
         public int? LinkClickCount { get; set; }
+        /// <summary>The number of unique link clicks (first click per lead)</summary>
+        public int? LinkClickCountUnique { get; set; }
+        /// <summary>The number of unique link clicks per step (first click per lead per step)</summary>
+        public int? LinkClickCountUniqueByStep { get; set; }
         /// <summary>The total number of new leads contacted</summary>
         public int? NewLeadsContactedCount { get; set; }
         /// <summary>The number of leads that opened at least one email</summary>
         public int? OpenCount { get; set; }
+        /// <summary>The number of unique email opens (first open per lead)</summary>
+        public int? OpenCountUnique { get; set; }
+        /// <summary>The number of unique email opens per step (first open per lead per step)</summary>
+        public int? OpenCountUniqueByStep { get; set; }
         /// <summary>The number of leads that replied to at least one email</summary>
         public int? ReplyCount { get; set; }
+        /// <summary>The total number of automatic replies detected</summary>
+        public int? ReplyCountAutomatic { get; set; }
+        /// <summary>The number of unique automatic replies (first automatic reply per lead)</summary>
+        public int? ReplyCountAutomaticUnique { get; set; }
+        /// <summary>The number of unique automatic replies per step</summary>
+        public int? ReplyCountAutomaticUniqueByStep { get; set; }
+        /// <summary>The number of unique replies (first reply per lead)</summary>
+        public int? ReplyCountUnique { get; set; }
+        /// <summary>The number of unique replies per step (first reply per lead per step)</summary>
+        public int? ReplyCountUniqueByStep { get; set; }
         /// <summary>The total number of unique opportunities created</summary>
         public int? TotalOpportunities { get; set; }
         /// <summary>The total value of opportunities created</summary>
@@ -87,9 +105,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
                 { "emails_sent_count", n => { EmailsSentCount = n.GetIntValue(); } },
                 { "leads_count", n => { LeadsCount = n.GetIntValue(); } },
                 { "link_click_count", n => { LinkClickCount = n.GetIntValue(); } },
+                { "link_click_count_unique", n => { LinkClickCountUnique = n.GetIntValue(); } },
+                { "link_click_count_unique_by_step", n => { LinkClickCountUniqueByStep = n.GetIntValue(); } },
                 { "new_leads_contacted_count", n => { NewLeadsContactedCount = n.GetIntValue(); } },
                 { "open_count", n => { OpenCount = n.GetIntValue(); } },
+                { "open_count_unique", n => { OpenCountUnique = n.GetIntValue(); } },
+                { "open_count_unique_by_step", n => { OpenCountUniqueByStep = n.GetIntValue(); } },
                 { "reply_count", n => { ReplyCount = n.GetIntValue(); } },
+                { "reply_count_automatic", n => { ReplyCountAutomatic = n.GetIntValue(); } },
+                { "reply_count_automatic_unique", n => { ReplyCountAutomaticUnique = n.GetIntValue(); } },
+                { "reply_count_automatic_unique_by_step", n => { ReplyCountAutomaticUniqueByStep = n.GetIntValue(); } },
+                { "reply_count_unique", n => { ReplyCountUnique = n.GetIntValue(); } },
+                { "reply_count_unique_by_step", n => { ReplyCountUniqueByStep = n.GetIntValue(); } },
                 { "total_opportunities", n => { TotalOpportunities = n.GetIntValue(); } },
                 { "total_opportunity_value", n => { TotalOpportunityValue = n.GetDoubleValue(); } },
                 { "unsubscribed_count", n => { UnsubscribedCount = n.GetIntValue(); } },
@@ -112,9 +139,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
             writer.WriteIntValue("emails_sent_count", EmailsSentCount);
             writer.WriteIntValue("leads_count", LeadsCount);
             writer.WriteIntValue("link_click_count", LinkClickCount);
+            writer.WriteIntValue("link_click_count_unique", LinkClickCountUnique);
+            writer.WriteIntValue("link_click_count_unique_by_step", LinkClickCountUniqueByStep);
             writer.WriteIntValue("new_leads_contacted_count", NewLeadsContactedCount);
             writer.WriteIntValue("open_count", OpenCount);
+            writer.WriteIntValue("open_count_unique", OpenCountUnique);
+            writer.WriteIntValue("open_count_unique_by_step", OpenCountUniqueByStep);
             writer.WriteIntValue("reply_count", ReplyCount);
+            writer.WriteIntValue("reply_count_automatic", ReplyCountAutomatic);
+            writer.WriteIntValue("reply_count_automatic_unique", ReplyCountAutomaticUnique);
+            writer.WriteIntValue("reply_count_automatic_unique_by_step", ReplyCountAutomaticUniqueByStep);
+            writer.WriteIntValue("reply_count_unique", ReplyCountUnique);
+            writer.WriteIntValue("reply_count_unique_by_step", ReplyCountUniqueByStep);
             writer.WriteIntValue("total_opportunities", TotalOpportunities);
             writer.WriteDoubleValue("total_opportunity_value", TotalOpportunityValue);
             writer.WriteIntValue("unsubscribed_count", UnsubscribedCount);

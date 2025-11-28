@@ -12620,6 +12620,51 @@
                         "type": "number",
                         "description": "The total value of opportunities created",
                         "example": 1000
+                      },
+                      "open_count_unique": {
+                        "type": "integer",
+                        "description": "The number of unique email opens (first open per lead)",
+                        "example": 750
+                      },
+                      "open_count_unique_by_step": {
+                        "type": "integer",
+                        "description": "The number of unique email opens per step (first open per lead per step)",
+                        "example": 900
+                      },
+                      "reply_count_unique": {
+                        "type": "integer",
+                        "description": "The number of unique replies (first reply per lead)",
+                        "example": 280
+                      },
+                      "reply_count_unique_by_step": {
+                        "type": "integer",
+                        "description": "The number of unique replies per step (first reply per lead per step)",
+                        "example": 350
+                      },
+                      "reply_count_automatic": {
+                        "type": "integer",
+                        "description": "The total number of automatic replies detected",
+                        "example": 15
+                      },
+                      "reply_count_automatic_unique": {
+                        "type": "integer",
+                        "description": "The number of unique automatic replies (first automatic reply per lead)",
+                        "example": 12
+                      },
+                      "reply_count_automatic_unique_by_step": {
+                        "type": "integer",
+                        "description": "The number of unique automatic replies per step",
+                        "example": 18
+                      },
+                      "link_click_count_unique": {
+                        "type": "integer",
+                        "description": "The number of unique link clicks (first click per lead)",
+                        "example": 600
+                      },
+                      "link_click_count_unique_by_step": {
+                        "type": "integer",
+                        "description": "The number of unique link clicks per step (first click per lead per step)",
+                        "example": 720
                       }
                     },
                     "required": [
