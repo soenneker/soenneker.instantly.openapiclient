@@ -4786,7 +4786,8 @@
               "lead_meeting_completed",
               "lead_closed",
               "lead_out_of_office",
-              "lead_wrong_person"
+              "lead_wrong_person",
+              "supersearch_enrichment_completed"
             ],
             "example": "email_sent"
           },
@@ -12571,36 +12572,6 @@
                         "description": "Number of leads for whom the sequence has started",
                         "example": 1200
                       },
-                      "open_count": {
-                        "type": "integer",
-                        "description": "The number of leads that opened at least one email",
-                        "example": 800
-                      },
-                      "reply_count": {
-                        "type": "integer",
-                        "description": "The number of leads that replied to at least one email",
-                        "example": 300
-                      },
-                      "link_click_count": {
-                        "type": "integer",
-                        "description": "The number of links that got clicked",
-                        "example": 800
-                      },
-                      "bounced_count": {
-                        "type": "integer",
-                        "description": "The number of bounced leads",
-                        "example": 50
-                      },
-                      "unsubscribed_count": {
-                        "type": "integer",
-                        "description": "The number of unsubscribed leads",
-                        "example": 20
-                      },
-                      "completed_count": {
-                        "type": "integer",
-                        "description": "The number of leads that the campaign was completed for",
-                        "example": 1100
-                      },
                       "emails_sent_count": {
                         "type": "integer",
                         "description": "The total number of sent emails",
@@ -12611,15 +12582,10 @@
                         "description": "The total number of new leads contacted",
                         "example": 200
                       },
-                      "total_opportunities": {
+                      "open_count": {
                         "type": "integer",
-                        "description": "The total number of unique opportunities created",
-                        "example": 10
-                      },
-                      "total_opportunity_value": {
-                        "type": "number",
-                        "description": "The total value of opportunities created",
-                        "example": 1000
+                        "description": "The number of leads that opened at least one email",
+                        "example": 800
                       },
                       "open_count_unique": {
                         "type": "integer",
@@ -12630,6 +12596,11 @@
                         "type": "integer",
                         "description": "The number of unique email opens per step (first open per lead per step)",
                         "example": 900
+                      },
+                      "reply_count": {
+                        "type": "integer",
+                        "description": "The number of leads that replied to at least one email",
+                        "example": 300
                       },
                       "reply_count_unique": {
                         "type": "integer",
@@ -12656,6 +12627,11 @@
                         "description": "The number of unique automatic replies per step",
                         "example": 18
                       },
+                      "link_click_count": {
+                        "type": "integer",
+                        "description": "The number of links that got clicked",
+                        "example": 800
+                      },
                       "link_click_count_unique": {
                         "type": "integer",
                         "description": "The number of unique link clicks (first click per lead)",
@@ -12665,6 +12641,31 @@
                         "type": "integer",
                         "description": "The number of unique link clicks per step (first click per lead per step)",
                         "example": 720
+                      },
+                      "bounced_count": {
+                        "type": "integer",
+                        "description": "The number of bounced leads",
+                        "example": 50
+                      },
+                      "unsubscribed_count": {
+                        "type": "integer",
+                        "description": "The number of unsubscribed leads",
+                        "example": 20
+                      },
+                      "completed_count": {
+                        "type": "integer",
+                        "description": "The number of leads that the campaign was completed for",
+                        "example": 1100
+                      },
+                      "total_opportunities": {
+                        "type": "integer",
+                        "description": "The total number of unique opportunities created",
+                        "example": 10
+                      },
+                      "total_opportunity_value": {
+                        "type": "number",
+                        "description": "The total value of opportunities created",
+                        "example": 1000
                       }
                     },
                     "required": [
@@ -31216,7 +31217,8 @@
                       "lead_meeting_completed",
                       "lead_closed",
                       "lead_out_of_office",
-                      "lead_wrong_person"
+                      "lead_wrong_person",
+                      "supersearch_enrichment_completed"
                     ],
                     "example": "email_sent"
                   },
@@ -31557,7 +31559,8 @@
                       "lead_meeting_completed",
                       "lead_closed",
                       "lead_out_of_office",
-                      "lead_wrong_person"
+                      "lead_wrong_person",
+                      "supersearch_enrichment_completed"
                     ],
                     "example": "email_sent"
                   },
