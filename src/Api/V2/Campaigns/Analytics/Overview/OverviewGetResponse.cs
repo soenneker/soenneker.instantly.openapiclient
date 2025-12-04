@@ -18,6 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
         public int? BouncedCount { get; set; }
         /// <summary>The number of leads that the campaign was completed for</summary>
         public int? CompletedCount { get; set; }
+        /// <summary>The total number of unique leads contacted</summary>
+        public int? ContactedCount { get; set; }
         /// <summary>The total number of sent emails</summary>
         public int? EmailsSentCount { get; set; }
         /// <summary>The number of links that got clicked</summary>
@@ -34,11 +36,17 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
         public int? OpenCountUnique { get; set; }
         /// <summary>The unique number of times the emails were opened (counted once per lead, step, and campaign)</summary>
         public int? OpenCountUniqueByStep { get; set; }
-        /// <summary>The number of leads that replied to at least one email</summary>
+        /// <summary>The total number of replies received (if a lead replies multiple times, each reply is counted)</summary>
         public int? ReplyCount { get; set; }
-        /// <summary>The number of leads that replied to at least one email (for the first time only)</summary>
+        /// <summary>The total number of automatic replies received (e.g., out-of-office)</summary>
+        public int? ReplyCountAutomatic { get; set; }
+        /// <summary>The number of unique leads that sent automatic replies</summary>
+        public int? ReplyCountAutomaticUnique { get; set; }
+        /// <summary>The unique number of automatic replies per step (counted once per lead, step, and campaign)</summary>
+        public int? ReplyCountAutomaticUniqueByStep { get; set; }
+        /// <summary>The number of unique replies (first reply per lead). Excludes automatic replies.</summary>
         public int? ReplyCountUnique { get; set; }
-        /// <summary>The unique number of leads that replied to at least one email, per step (counted once per lead, step, and campaign)</summary>
+        /// <summary>The number of unique replies per step (first reply per lead per step). Excludes automatic replies.</summary>
         public int? ReplyCountUniqueByStep { get; set; }
         /// <summary>The total number of closed opportunities created</summary>
         public int? TotalClosed { get; set; }
@@ -81,6 +89,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             {
                 { "bounced_count", n => { BouncedCount = n.GetIntValue(); } },
                 { "completed_count", n => { CompletedCount = n.GetIntValue(); } },
+                { "contacted_count", n => { ContactedCount = n.GetIntValue(); } },
                 { "emails_sent_count", n => { EmailsSentCount = n.GetIntValue(); } },
                 { "link_click_count", n => { LinkClickCount = n.GetIntValue(); } },
                 { "link_click_count_unique", n => { LinkClickCountUnique = n.GetIntValue(); } },
@@ -90,6 +99,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
                 { "open_count_unique", n => { OpenCountUnique = n.GetIntValue(); } },
                 { "open_count_unique_by_step", n => { OpenCountUniqueByStep = n.GetIntValue(); } },
                 { "reply_count", n => { ReplyCount = n.GetIntValue(); } },
+                { "reply_count_automatic", n => { ReplyCountAutomatic = n.GetIntValue(); } },
+                { "reply_count_automatic_unique", n => { ReplyCountAutomaticUnique = n.GetIntValue(); } },
+                { "reply_count_automatic_unique_by_step", n => { ReplyCountAutomaticUniqueByStep = n.GetIntValue(); } },
                 { "reply_count_unique", n => { ReplyCountUnique = n.GetIntValue(); } },
                 { "reply_count_unique_by_step", n => { ReplyCountUniqueByStep = n.GetIntValue(); } },
                 { "total_closed", n => { TotalClosed = n.GetIntValue(); } },
@@ -110,6 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bounced_count", BouncedCount);
             writer.WriteIntValue("completed_count", CompletedCount);
+            writer.WriteIntValue("contacted_count", ContactedCount);
             writer.WriteIntValue("emails_sent_count", EmailsSentCount);
             writer.WriteIntValue("link_click_count", LinkClickCount);
             writer.WriteIntValue("link_click_count_unique", LinkClickCountUnique);
@@ -119,6 +132,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             writer.WriteIntValue("open_count_unique", OpenCountUnique);
             writer.WriteIntValue("open_count_unique_by_step", OpenCountUniqueByStep);
             writer.WriteIntValue("reply_count", ReplyCount);
+            writer.WriteIntValue("reply_count_automatic", ReplyCountAutomatic);
+            writer.WriteIntValue("reply_count_automatic_unique", ReplyCountAutomaticUnique);
+            writer.WriteIntValue("reply_count_automatic_unique_by_step", ReplyCountAutomaticUniqueByStep);
             writer.WriteIntValue("reply_count_unique", ReplyCountUnique);
             writer.WriteIntValue("reply_count_unique_by_step", ReplyCountUniqueByStep);
             writer.WriteIntValue("total_closed", TotalClosed);

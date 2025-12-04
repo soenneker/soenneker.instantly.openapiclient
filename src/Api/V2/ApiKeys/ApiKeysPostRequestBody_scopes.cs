@@ -288,6 +288,26 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         #pragma warning disable CS1591
         Custom_tagsDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "custom_tag_mappings:all")]
+        #pragma warning disable CS1591
+        Custom_tag_mappingsAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_tag_mappings:create")]
+        #pragma warning disable CS1591
+        Custom_tag_mappingsCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_tag_mappings:read")]
+        #pragma warning disable CS1591
+        Custom_tag_mappingsRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_tag_mappings:update")]
+        #pragma warning disable CS1591
+        Custom_tag_mappingsUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "custom_tag_mappings:delete")]
+        #pragma warning disable CS1591
+        Custom_tag_mappingsDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "crm_actions:all")]
         #pragma warning disable CS1591
         Crm_actionsAll,

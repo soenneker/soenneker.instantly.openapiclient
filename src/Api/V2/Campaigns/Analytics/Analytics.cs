@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         public int? OpenCountUnique { get; set; }
         /// <summary>The number of unique email opens per step (first open per lead per step)</summary>
         public int? OpenCountUniqueByStep { get; set; }
-        /// <summary>The number of leads that replied to at least one email</summary>
+        /// <summary>The total number of replies received (if a lead replies multiple times, each reply is counted)</summary>
         public int? ReplyCount { get; set; }
         /// <summary>The total number of automatic replies detected</summary>
         public int? ReplyCountAutomatic { get; set; }
@@ -60,9 +60,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         public int? ReplyCountAutomaticUnique { get; set; }
         /// <summary>The number of unique automatic replies per step</summary>
         public int? ReplyCountAutomaticUniqueByStep { get; set; }
-        /// <summary>The number of unique replies (first reply per lead)</summary>
+        /// <summary>The number of unique replies (first reply per lead). Excludes automatic replies.</summary>
         public int? ReplyCountUnique { get; set; }
-        /// <summary>The number of unique replies per step (first reply per lead per step)</summary>
+        /// <summary>The number of unique replies per step (first reply per lead per step). Excludes automatic replies.</summary>
         public int? ReplyCountUniqueByStep { get; set; }
         /// <summary>The total number of unique opportunities created</summary>
         public int? TotalOpportunities { get; set; }

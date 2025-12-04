@@ -8,55 +8,57 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A subsequence entity representing a follow-up sequence
+    /// A member of a workspace with associated user details
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def25 : IParsable
     {
-        /// <summary>Conditions that trigger the subsequence</summary>
+        /// <summary>Whether the member has accepted the workspace invitation</summary>
+        public bool? Accepted { get; private set; }
+        /// <summary>Email address of the workspace member</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions? Conditions { get; set; }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions Conditions { get; set; }
+        public string Email { get; set; }
 #endif
-        /// <summary>Unique identifier for the subsequence</summary>
+        /// <summary>Unique identifier for the workspace member</summary>
         public Guid? Id { get; private set; }
-        /// <summary>Name of the subsequence</summary>
+        /// <summary>ID of the user who added this member to the workspace</summary>
+        public Guid? IssuerId { get; private set; }
+        /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_name? Name { get; private set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_name Name { get; private set; }
 #endif
-        /// <summary>ID of the parent campaign</summary>
-        public Guid? ParentCampaign { get; set; }
-        /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
+        /// <summary>The permissions for this workspace member. Used in the app to restrict access to certain sections</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences>? Sequences { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions?>? Permissions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences> Sequences { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions?> Permissions { get; set; }
 #endif
-        /// <summary>Status of the subsequence</summary>
-        public double? Status { get; private set; }
-        /// <summary>Schedule configuration for the subsequence</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_subsequence_schedule? SubsequenceSchedule { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_subsequence_schedule SubsequenceSchedule { get; set; }
-#endif
-        /// <summary>Timestamp when the subsequence was created</summary>
+        /// <summary>THe role of the workspace member defining their access level. While the &quot;owner&quot; role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_role? Role { get; set; }
+        /// <summary>Timestamp when the workspace member was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
-        /// <summary>Timestamp when the leads were last updated</summary>
-        public DateTimeOffset? TimestampLeadsUpdated { get; private set; }
-        /// <summary>ID of the workspace this subsequence belongs to</summary>
-        public Guid? Workspace { get; private set; }
+        /// <summary>Email address of the user</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserEmail { get; set; }
+#nullable restore
+#else
+        public string UserEmail { get; set; }
+#endif
+        /// <summary>User ID of the workspace member</summary>
+        public Guid? UserId { get; private set; }
+        /// <summary>ID of the workspace this member belongs to</summary>
+        public Guid? WorkspaceId { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -75,16 +77,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions>(global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions.CreateFromDiscriminatorValue); } },
+                { "accepted", n => { Accepted = n.GetBoolValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "parent_campaign", n => { ParentCampaign = n.GetGuidValue(); } },
-                { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences>(global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetDoubleValue(); } },
-                { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_subsequence_schedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def25_subsequence_schedule.CreateFromDiscriminatorValue); } },
+                { "issuer_id", n => { IssuerId = n.GetGuidValue(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_name>(global::Soenneker.Instantly.OpenApiClient.Models.Def25_name.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions>()?.AsList(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_role>(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
-                { "timestamp_leads_updated", n => { TimestampLeadsUpdated = n.GetDateTimeOffsetValue(); } },
-                { "workspace", n => { Workspace = n.GetGuidValue(); } },
+                { "user_email", n => { UserEmail = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetGuidValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -94,11 +97,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_conditions>("conditions", Conditions);
-            writer.WriteStringValue("name", Name);
-            writer.WriteGuidValue("parent_campaign", ParentCampaign);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_sequences>("sequences", Sequences);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_subsequence_schedule>("subsequence_schedule", SubsequenceSchedule);
+            writer.WriteStringValue("email", Email);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions>("permissions", Permissions);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_role>("role", Role);
+            writer.WriteStringValue("user_email", UserEmail);
         }
     }
 }

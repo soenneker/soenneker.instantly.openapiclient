@@ -21,8 +21,24 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>The permissions for this workspace member. Used in the app to restrict access to certain sections</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_permissions?>? Permissions { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_permissions?> Permissions { get; set; }
+#endif
         /// <summary>THe role of the workspace member defining their access level. While the &quot;owner&quot; role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_role? Role { get; set; }
+        /// <summary>Email address of the user</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserEmail { get; set; }
+#nullable restore
+#else
+        public string UserEmail { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +58,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_permissions>()?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_role>(); } },
+                { "user_email", n => { UserEmail = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -53,7 +71,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_permissions>("permissions", Permissions);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers.WorkspaceMembersPostRequestBody_role>("role", Role);
+            writer.WriteStringValue("user_email", UserEmail);
         }
     }
 }

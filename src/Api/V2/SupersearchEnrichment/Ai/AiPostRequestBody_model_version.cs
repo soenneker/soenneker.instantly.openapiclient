@@ -51,6 +51,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         #pragma warning disable CS1591
         Claude35Sonnet,
         #pragma warning restore CS1591
+        [EnumMember(Value = "claude-4.5-sonnet")]
+        #pragma warning disable CS1591
+        Claude45Sonnet,
+        #pragma warning restore CS1591
         [EnumMember(Value = "r1")]
         #pragma warning disable CS1591
         R1,
@@ -74,6 +78,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         [EnumMember(Value = "gemini-3.0-pro")]
         #pragma warning disable CS1591
         Gemini30Pro,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sonar")]
+        #pragma warning disable CS1591
+        Sonar,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sonar-pro")]
+        #pragma warning disable CS1591
+        SonarPro,
         #pragma warning restore CS1591
         [EnumMember(Value = "instantly-ai-lightspeed-agent-for-web-research")]
         #pragma warning disable CS1591

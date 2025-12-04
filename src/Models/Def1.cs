@@ -49,6 +49,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> CcList { get; set; }
 #endif
+        /// <summary>Campaign core variables</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables? CoreVariables { get; private set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables CoreVariables { get; private set; }
+#endif
+        /// <summary>Campaign custom variables</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables? CustomVariables { get; private set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables CustomVariables { get; private set; }
+#endif
         /// <summary>The daily limit for sending emails</summary>
         public double? DailyLimit { get; set; }
         /// <summary>The daily maximum new leads to contact</summary>
@@ -101,6 +117,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Campaign not sending status</summary>
+        public double? NotSendingStatus { get; private set; }
         /// <summary>Whether to track opens in emails</summary>
         public bool? OpenTracking { get; set; }
         /// <summary>Organization ID</summary>
@@ -179,6 +197,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule.CreateFromDiscriminatorValue); } },
                 { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables.CreateFromDiscriminatorValue); } },
+                { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_max_leads", n => { DailyMaxLeads = n.GetDoubleValue(); } },
                 { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
@@ -193,6 +213,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "link_tracking", n => { LinkTracking = n.GetBoolValue(); } },
                 { "match_lead_esp", n => { MatchLeadEsp = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "not_sending_status", n => { NotSendingStatus = n.GetDoubleValue(); } },
                 { "open_tracking", n => { OpenTracking = n.GetBoolValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
                 { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },

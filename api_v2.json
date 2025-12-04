@@ -842,6 +842,29 @@
             "description": "Whether to match leads by ESP",
             "example": false
           },
+          "not_sending_status": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Campaign not sending status",
+            "readOnly": true,
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              99
+            ],
+            "x-enumDescriptions": {
+              "1": "Campaign is currently not within its sending schedule.",
+              "2": "Campaign is currently waiting for a lead to process.",
+              "3": "Campaign has reached its daily sending limit.",
+              "4": "All sending accounts for this campaign have reached their daily sending limit.",
+              "99": "Campaign is currently not sending due to an error. Please contact support for assistance."
+            },
+            "example": 2
+          },
           "stop_for_company": {
             "type": [
               "null",
@@ -849,6 +872,24 @@
             ],
             "description": "Whether to stop the campaign for the entire company(domain) when a lead replies",
             "example": false
+          },
+          "core_variables": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Campaign core variables",
+            "readOnly": true,
+            "additionalProperties": true
+          },
+          "custom_variables": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Campaign custom variables",
+            "readOnly": true,
+            "additionalProperties": true
           },
           "insert_unsubscribe_header": {
             "type": [
@@ -2573,6 +2614,11 @@
                 "custom_tags:read",
                 "custom_tags:update",
                 "custom_tags:delete",
+                "custom_tag_mappings:all",
+                "custom_tag_mappings:create",
+                "custom_tag_mappings:read",
+                "custom_tag_mappings:update",
+                "custom_tag_mappings:delete",
                 "crm_actions:all",
                 "crm_actions:create",
                 "crm_actions:read",
@@ -3570,6 +3616,75 @@
         "additionalProperties": false
       },
       "def-14": {
+        "title": "Custom Tag Mapping",
+        "description": "This entity represents a tag being assigned to a specific campaign or email account. When an email account is assigned a tag, a new custom tag mapping entry is created, which connects the tag (\u0060tag_id\u0060 field) with the email account (\u0060resource_id\u0060 field). You can use it to see which tag si connected to which resource.",
+        "x-tags": [
+          "Schemas",
+          "CustomTagMapping"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A Unique identifier",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "tag_id": {
+            "type": "string",
+            "description": "ID of the tag this custom mapping belongs to",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "resource_id": {
+            "type": "string",
+            "description": "ID of the resource custom tag mapping belongs to, resource_type determines the type of resource",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "resource_type": {
+            "type": "number",
+            "description": "Resource type of custom tag, can be 1 for campaigns or 2 for accounts",
+            "readOnly": true,
+            "enum": [
+              1,
+              2
+            ],
+            "x-enumDescriptions": {
+              "1": "Account",
+              "2": "Campaign"
+            },
+            "example": 1
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the custom tag mapping was created",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "Organization ID that owns this custom tag mapping",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "required": [
+          "id",
+          "tag_id",
+          "resource_id",
+          "resource_type",
+          "timestamp_created",
+          "organization_id"
+        ],
+        "additionalProperties": false
+      },
+      "def-15": {
         "title": "Block List Entry",
         "description": "A blocked email or domain",
         "x-tags": [
@@ -3620,7 +3735,7 @@
         ],
         "additionalProperties": false
       },
-      "def-15": {
+      "def-16": {
         "title": "Lead Label",
         "description": "A custom label for categorizing and managing leads",
         "x-tags": [
@@ -3711,7 +3826,7 @@
         ],
         "additionalProperties": false
       },
-      "def-19": {
+      "def-20": {
         "title": "Workspace",
         "description": "A workspace entity representing a workspace",
         "x-tags": [
@@ -3861,7 +3976,7 @@
         ],
         "additionalProperties": false
       },
-      "def-22": {
+      "def-23": {
         "title": "SuperSearch Enrichment",
         "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
         "x-tags": [
@@ -3977,7 +4092,7 @@
         ],
         "additionalProperties": false
       },
-      "def-23": {
+      "def-24": {
         "title": "Workspace Group Member",
         "description": "A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.",
         "x-tags": [
@@ -4061,7 +4176,7 @@
         ],
         "additionalProperties": false
       },
-      "def-24": {
+      "def-25": {
         "title": "Workspace Member",
         "description": "A member of a workspace with associated user details",
         "x-tags": [
@@ -4089,6 +4204,31 @@
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "user_email": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Email address of the user",
+            "format": "email",
+            "example": "user@example.com"
+          },
+          "name": {
+            "type": "object",
+            "readOnly": true,
+            "properties": {
+              "first": {
+                "type": "string",
+                "description": "Workspace member first name",
+                "example": "John"
+              },
+              "last": {
+                "type": "string",
+                "description": "Workspace member last name",
+                "example": "Smith"
+              }
+            }
           },
           "role": {
             "type": "string",
@@ -4138,6 +4278,81 @@
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "permissions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "description": "The permissions for this workspace member. Used in the app to restrict access to certain sections",
+            "items": {
+              "type": "string",
+              "enum": [
+                "DASHBOARD_VIEW",
+                "CAMPAIGNS_VIEW",
+                "CAMPAIGNS_CREATE",
+                "CAMPAIGNS_EDIT",
+                "CAMPAIGNS_DELETE",
+                "ORGANIZATION_MANAGE",
+                "ORGANIZATION_INTEGRATIONS",
+                "ORGANIZATION_BILLING",
+                "ORGANIZATION_USERS_MANAGE",
+                "LEAD_FINDER_VIEW",
+                "CUSTOM_LEAD_LABELS_CREATE",
+                "CUSTOM_LEAD_LABELS_EDIT",
+                "CUSTOM_LEAD_LABELS_DELETE",
+                "UNIBOX_ALL",
+                "ANALYTICS_READ",
+                "AGENCY_MANAGE",
+                "ACCOUNTS_VIEW",
+                "ACCOUNTS_MANAGE",
+                "LEAD_MANAGEMENT_VIEW",
+                "LEADS_MOVE",
+                "CRM_VIEW",
+                "WEBSITE_VISITORS_VIEW",
+                "BLOCKLIST_MANAGE",
+                "PREFERENCES_MANAGE",
+                "INBOX_PLACEMENT_MANAGE",
+                "AI_AGENTS_MANAGE",
+                "WORKSPACE_GROUP_MEMBERS_INVITE",
+                "WORKSPACE_GROUP_MEMBERS_REMOVE",
+                "WORKSPACE_GROUP_MEMBERS_LEAVE"
+              ],
+              "examples": [
+                "unibox.all"
+              ],
+              "x-enumDescriptions": {
+                "dashboard.view": "View the dashboard",
+                "campaigns.view": "View campaigns",
+                "campaigns.create": "Create campaigns",
+                "campaigns.edit": "Edit campaigns",
+                "campaigns.delete": "Delete campaigns",
+                "organization.manage": "Manage organization",
+                "organization.integrations": "Manage organization integrations",
+                "organization.billing": "Manage organization billing",
+                "organization.users.manage": "Manage organization users",
+                "leadFinder.view": "View lead finder",
+                "customLeadLabels.create": "Create custom lead labels",
+                "customLeadLabels.edit": "Edit custom lead labels",
+                "customLeadLabels.delete": "Delete custom lead labels",
+                "unibox.all": "View all unibox",
+                "analytics.view": "View analytics",
+                "agency.manage": "Manage agency",
+                "accounts.view": "View accounts",
+                "accounts.manage": "Manage accounts",
+                "leadManagement.view": "View lead management",
+                "leads.move": "Move leads",
+                "crm.view": "View CRM",
+                "websiteVisitors.view": "View website visitors",
+                "blocklist.manage": "Manage blocklist",
+                "preferences.manage": "Manage preferences",
+                "inboxPlacement.view": "Manage inbox placement",
+                "aiAgents.manage": "Manage AI agents",
+                "workspaceGroupMembers.invite": "Invite workspace group members",
+                "workspaceGroupMembers.remove": "Remove workspace group members",
+                "workspaceGroupMembers.leave": "Leave workspace group"
+              }
+            }
           }
         },
         "required": [
@@ -4151,7 +4366,7 @@
         ],
         "additionalProperties": false
       },
-      "def-25": {
+      "def-26": {
         "title": "Campaign Subsequence",
         "description": "A subsequence entity representing a follow-up sequence",
         "x-tags": [
@@ -4557,7 +4772,7 @@
         ],
         "additionalProperties": false
       },
-      "def-31": {
+      "def-32": {
         "title": "Audit Log",
         "description": "Audit log records for tracking system activities",
         "x-tags": [
@@ -4716,7 +4931,7 @@
         ],
         "additionalProperties": false
       },
-      "def-37": {
+      "def-38": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -4815,7 +5030,7 @@
         ],
         "additionalProperties": false
       },
-      "def-39": {
+      "def-40": {
         "title": "Webhook Event",
         "description": "A webhook event that was sent or attempted to be sent",
         "x-tags": [
@@ -4960,7 +5175,7 @@
         ],
         "additionalProperties": false
       },
-      "def-40": {
+      "def-41": {
         "title": "DFY Email Account Order",
         "description": "A Done-For-You email account order",
         "x-tags": [
@@ -5022,7 +5237,7 @@
         ],
         "additionalProperties": false
       },
-      "def-41": {
+      "def-42": {
         "title": "Custom Prompt Template",
         "description": "Custom prompt templates for creating custom prompts",
         "x-tags": [
@@ -5126,13 +5341,16 @@
               "gpt-4.1-mini",
               "claude-3.7-sonnet",
               "claude-3.5-sonnet",
+              "claude-4.5-sonnet",
               "r1",
               "grok-2",
               "grok-4",
               "gemini-1.5-flash",
               "gemini-2.0-flash",
               "gemini-3.0-pro",
-              "instantly-ai-lightspeed-agent"
+              "instantly-ai-lightspeed-agent",
+              "sonar",
+              "sonar-pro"
             ],
             "x-enumDescriptions": {
               "3.5": "GPT-3.5",
@@ -5147,12 +5365,15 @@
               "gpt-4.1-mini": "GPT-4.1 Mini",
               "claude-3.7-sonnet": "Claude 3.7 Sonnet",
               "claude-3.5-sonnet": "Claude 3.5 Sonnet",
+              "claude-4.5-sonnet": "Claude 4.5 Sonnet",
               "r1": "R1",
               "grok-2": "Grok 2",
               "grok-4": "Grok 4",
               "gemini-1.5-flash": "Gemini 1.5 Flash",
               "gemini-2.0-flash": "Gemini 2.0 Flash",
               "gemini-3.0-pro": "Gemini 3.0 Pro",
+              "sonar": "Sonar",
+              "sonar-pro": "Sonar Pro",
               "instantly-ai-lightspeed-agent": "Instantly AI Lightspeed Agent"
             },
             "example": "1970-01-01T00:00:00.000Z"
@@ -5261,7 +5482,7 @@
         ],
         "additionalProperties": false
       },
-      "def-42": {
+      "def-43": {
         "title": "Sales Flow",
         "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
         "x-tags": [
@@ -5431,7 +5652,7 @@
         ],
         "additionalProperties": false
       },
-      "def-43": {
+      "def-44": {
         "title": "Email Template",
         "description": "A campaign email template",
         "x-tags": [
@@ -5489,7 +5710,7 @@
         ],
         "additionalProperties": false
       },
-      "def-46": {
+      "def-47": {
         "title": "Workspace Billing",
         "description": "Workspace Billing",
         "x-tags": [
@@ -5501,7 +5722,7 @@
         "required": [],
         "additionalProperties": false
       },
-      "def-47": {
+      "def-48": {
         "title": "CRM Actions",
         "description": "CRM related actions",
         "x-tags": [
@@ -8290,6 +8511,11 @@
                         "custom_tags:read",
                         "custom_tags:update",
                         "custom_tags:delete",
+                        "custom_tag_mappings:all",
+                        "custom_tag_mappings:create",
+                        "custom_tag_mappings:read",
+                        "custom_tag_mappings:update",
+                        "custom_tag_mappings:delete",
                         "crm_actions:all",
                         "crm_actions:create",
                         "crm_actions:read",
@@ -8889,7 +9115,7 @@
                       "type": "array",
                       "description": "The list of Audit Log",
                       "items": {
-                        "$ref": "#/components/schemas/def-31"
+                        "$ref": "#/components/schemas/def-32"
                       }
                     },
                     "next_starting_after": {
@@ -9417,7 +9643,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-14"
+                  "$ref": "#/components/schemas/def-15"
                 }
               }
             }
@@ -9592,7 +9818,7 @@
                       "type": "array",
                       "description": "The list of Block List Entry",
                       "items": {
-                        "$ref": "#/components/schemas/def-14"
+                        "$ref": "#/components/schemas/def-15"
                       }
                     },
                     "next_starting_after": {
@@ -9709,7 +9935,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-14"
+                  "$ref": "#/components/schemas/def-15"
                 }
               }
             }
@@ -9866,7 +10092,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-14"
+                  "$ref": "#/components/schemas/def-15"
                 }
               }
             }
@@ -10014,7 +10240,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-14"
+                  "$ref": "#/components/schemas/def-15"
                 }
               }
             }
@@ -12599,17 +12825,17 @@
                       },
                       "reply_count": {
                         "type": "integer",
-                        "description": "The number of leads that replied to at least one email",
+                        "description": "The total number of replies received (if a lead replies multiple times, each reply is counted)",
                         "example": 300
                       },
                       "reply_count_unique": {
                         "type": "integer",
-                        "description": "The number of unique replies (first reply per lead)",
+                        "description": "The number of unique replies (first reply per lead). Excludes automatic replies.",
                         "example": 280
                       },
                       "reply_count_unique_by_step": {
                         "type": "integer",
-                        "description": "The number of unique replies per step (first reply per lead per step)",
+                        "description": "The number of unique replies per step (first reply per lead per step). Excludes automatic replies.",
                         "example": 350
                       },
                       "reply_count_automatic": {
@@ -12953,18 +13179,33 @@
                     },
                     "reply_count": {
                       "type": "integer",
-                      "description": "The number of leads that replied to at least one email",
+                      "description": "The total number of replies received (if a lead replies multiple times, each reply is counted)",
                       "example": 300
                     },
                     "reply_count_unique": {
                       "type": "integer",
-                      "description": "The number of leads that replied to at least one email (for the first time only)",
+                      "description": "The number of unique replies (first reply per lead). Excludes automatic replies.",
                       "example": 300
                     },
                     "reply_count_unique_by_step": {
                       "type": "integer",
-                      "description": "The unique number of leads that replied to at least one email, per step (counted once per lead, step, and campaign)",
+                      "description": "The number of unique replies per step (first reply per lead per step). Excludes automatic replies.",
                       "example": 300
+                    },
+                    "reply_count_automatic": {
+                      "type": "integer",
+                      "description": "The total number of automatic replies received (e.g., out-of-office)",
+                      "example": 50
+                    },
+                    "reply_count_automatic_unique": {
+                      "type": "integer",
+                      "description": "The number of unique leads that sent automatic replies",
+                      "example": 45
+                    },
+                    "reply_count_automatic_unique_by_step": {
+                      "type": "integer",
+                      "description": "The unique number of automatic replies per step (counted once per lead, step, and campaign)",
+                      "example": 45
                     },
                     "bounced_count": {
                       "type": "integer",
@@ -12985,6 +13226,11 @@
                       "type": "integer",
                       "description": "The total number of sent emails",
                       "example": 5000
+                    },
+                    "contacted_count": {
+                      "type": "integer",
+                      "description": "The total number of unique leads contacted",
+                      "example": 4500
                     },
                     "new_leads_contacted_count": {
                       "type": "integer",
@@ -14838,6 +15084,150 @@
         }
       }
     },
+    "/api/v2/custom-tag-mappings": {
+      "get": {
+        "operationId": "listCustomTagMapping",
+        "summary": "List custom tag mapping",
+        "tags": [
+          "CustomTagMapping"
+        ],
+        "description": "Requires one of the following scopes: \u0060custom_tag_mappings:read\u0060, \u0060custom_tag_mappings:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 10
+            },
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "description": "The number of items to return"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "query",
+            "name": "starting_after",
+            "required": false,
+            "description": "The ID of the last item in the previous page - used for pagination. You can use the value of the \u0060next_starting_after\u0060 field from the previous response."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "id1,id2,id3"
+            },
+            "in": "query",
+            "name": "resource_ids",
+            "required": false,
+            "description": "The list of resource ids to filter custom tag mappings by. A resource id is the id of an account or a campaign."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Custom Tag Mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "The list of Custom Tag Mapping",
+                      "items": {
+                        "$ref": "#/components/schemas/def-14"
+                      }
+                    },
+                    "next_starting_after": {
+                      "type": "string",
+                      "description": "The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/custom-tags": {
       "post": {
         "operationId": "createCustomTag",
@@ -16383,7 +16773,7 @@
                       "type": "array",
                       "description": "The list of DFY Email Account Order",
                       "items": {
-                        "$ref": "#/components/schemas/def-40"
+                        "$ref": "#/components/schemas/def-41"
                       }
                     },
                     "next_starting_after": {
@@ -22182,7 +22572,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/def-16"
                 }
               }
             }
@@ -22362,7 +22752,7 @@
                       "type": "array",
                       "description": "The list of Lead Label",
                       "items": {
-                        "$ref": "#/components/schemas/def-15"
+                        "$ref": "#/components/schemas/def-16"
                       }
                     },
                     "next_starting_after": {
@@ -22479,7 +22869,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/def-16"
                 }
               }
             }
@@ -22667,7 +23057,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/def-16"
                 }
               }
             }
@@ -22820,7 +23210,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/def-16"
                 }
               }
             }
@@ -26997,7 +27387,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -27173,7 +27563,7 @@
                       "type": "array",
                       "description": "The list of Campaign Subsequence",
                       "items": {
-                        "$ref": "#/components/schemas/def-25"
+                        "$ref": "#/components/schemas/def-26"
                       }
                     },
                     "next_starting_after": {
@@ -27317,7 +27707,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -27422,7 +27812,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -27527,7 +27917,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -27632,7 +28022,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -27789,7 +28179,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -27937,7 +28327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/def-26"
                 }
               }
             }
@@ -29388,7 +29778,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-22"
+                  "$ref": "#/components/schemas/def-23"
                 }
               }
             }
@@ -29532,12 +29922,15 @@
                       "gpt-5",
                       "claude-3.7-sonnet",
                       "claude-3.5-sonnet",
+                      "claude-4.5-sonnet",
                       "r1",
                       "grok-2",
                       "grok-4",
                       "gemini-1.5-flash",
                       "gemini-2.0-flash",
                       "gemini-3.0-pro",
+                      "sonar",
+                      "sonar-pro",
                       "instantly-ai-lightspeed-agent-for-web-research",
                       "instantly-ai-lightspeed-agent-for-email-generation"
                     ],
@@ -29553,12 +29946,15 @@
                       "gpt-4.1-mini": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost.",
                       "claude-3.7-sonnet": "Claude 3.7 Sonnet - Anthropic\u0027s most capable model",
                       "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
+                      "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u2019s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
                       "r1": "R1 - Deepseek\u0027s advanced chat model",
                       "grok-2": "Grok 2 - X AI\u0027s earlier-generation model",
                       "grok-4": "Grok 4 - X AI\u0027s latest reasoning model",
                       "gemini-1.5-flash": "Gemini 1.5 Flash - Google\u0027s fast and efficient model",
                       "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s powerful and versatile model",
                       "gemini-3.0-pro": "Gemini 3.0 Pro - Google\u0027s latest model with improved capabilities",
+                      "sonar": "Sonar - Perplexity\u0027s lightweight, affordable, fast, and simple to use model.",
+                      "sonar-pro": "Sonar Pro  - Perplexity\u0027s most advanced model.",
                       "instantly-ai-lightspeed-agent-for-web-research": "Instantly AI - LightSpeed Agent for Web Research",
                       "instantly-ai-lightspeed-agent-for-email-generation": "Instantly AI - LightSpeed Agent for Email Generation"
                     },
@@ -30442,7 +30838,7 @@
                       "type": "array",
                       "description": "The list of Webhook Event",
                       "items": {
-                        "$ref": "#/components/schemas/def-39"
+                        "$ref": "#/components/schemas/def-40"
                       }
                     },
                     "next_starting_after": {
@@ -30559,7 +30955,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-39"
+                  "$ref": "#/components/schemas/def-40"
                 }
               }
             }
@@ -31066,7 +31462,7 @@
                       "type": "array",
                       "description": "The list of Webhook",
                       "items": {
-                        "$ref": "#/components/schemas/def-37"
+                        "$ref": "#/components/schemas/def-38"
                       }
                     },
                     "next_starting_after": {
@@ -31247,7 +31643,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-37"
+                  "$ref": "#/components/schemas/def-38"
                 }
               }
             }
@@ -31387,7 +31783,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-37"
+                  "$ref": "#/components/schemas/def-38"
                 }
               }
             }
@@ -31599,7 +31995,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-37"
+                  "$ref": "#/components/schemas/def-38"
                 }
               }
             }
@@ -31747,7 +32143,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-37"
+                  "$ref": "#/components/schemas/def-38"
                 }
               }
             }
@@ -32274,7 +32670,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }
@@ -32429,7 +32825,7 @@
                       "type": "array",
                       "description": "The list of Workspace Group Member",
                       "items": {
-                        "$ref": "#/components/schemas/def-23"
+                        "$ref": "#/components/schemas/def-24"
                       }
                     },
                     "next_starting_after": {
@@ -32546,7 +32942,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }
@@ -32694,7 +33090,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/def-24"
                 }
               }
             }
@@ -32942,6 +33338,15 @@
                     "format": "email",
                     "example": "user@example.com"
                   },
+                  "user_email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Email address of the user",
+                    "format": "email",
+                    "example": "user@example.com"
+                  },
                   "role": {
                     "type": "string",
                     "description": "THe role of the workspace member defining their access level. While the \u0022owner\u0022 role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.",
@@ -32960,6 +33365,79 @@
                       "client": "This is a special role for users in the whitelabel (agency) view. It is not available in the API."
                     },
                     "example": "editor"
+                  },
+                  "permissions": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "description": "The permissions for this workspace member. Used in the app to restrict access to certain sections",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "DASHBOARD_VIEW",
+                        "CAMPAIGNS_VIEW",
+                        "CAMPAIGNS_CREATE",
+                        "CAMPAIGNS_EDIT",
+                        "CAMPAIGNS_DELETE",
+                        "ORGANIZATION_MANAGE",
+                        "ORGANIZATION_INTEGRATIONS",
+                        "ORGANIZATION_BILLING",
+                        "ORGANIZATION_USERS_MANAGE",
+                        "LEAD_FINDER_VIEW",
+                        "CUSTOM_LEAD_LABELS_CREATE",
+                        "CUSTOM_LEAD_LABELS_EDIT",
+                        "CUSTOM_LEAD_LABELS_DELETE",
+                        "UNIBOX_ALL",
+                        "ANALYTICS_READ",
+                        "AGENCY_MANAGE",
+                        "ACCOUNTS_VIEW",
+                        "ACCOUNTS_MANAGE",
+                        "LEAD_MANAGEMENT_VIEW",
+                        "LEADS_MOVE",
+                        "CRM_VIEW",
+                        "WEBSITE_VISITORS_VIEW",
+                        "BLOCKLIST_MANAGE",
+                        "PREFERENCES_MANAGE",
+                        "INBOX_PLACEMENT_MANAGE",
+                        "AI_AGENTS_MANAGE",
+                        "WORKSPACE_GROUP_MEMBERS_INVITE",
+                        "WORKSPACE_GROUP_MEMBERS_REMOVE",
+                        "WORKSPACE_GROUP_MEMBERS_LEAVE"
+                      ],
+                      "x-enumDescriptions": {
+                        "dashboard.view": "View the dashboard",
+                        "campaigns.view": "View campaigns",
+                        "campaigns.create": "Create campaigns",
+                        "campaigns.edit": "Edit campaigns",
+                        "campaigns.delete": "Delete campaigns",
+                        "organization.manage": "Manage organization",
+                        "organization.integrations": "Manage organization integrations",
+                        "organization.billing": "Manage organization billing",
+                        "organization.users.manage": "Manage organization users",
+                        "leadFinder.view": "View lead finder",
+                        "customLeadLabels.create": "Create custom lead labels",
+                        "customLeadLabels.edit": "Edit custom lead labels",
+                        "customLeadLabels.delete": "Delete custom lead labels",
+                        "unibox.all": "View all unibox",
+                        "analytics.view": "View analytics",
+                        "agency.manage": "Manage agency",
+                        "accounts.view": "View accounts",
+                        "accounts.manage": "Manage accounts",
+                        "leadManagement.view": "View lead management",
+                        "leads.move": "Move leads",
+                        "crm.view": "View CRM",
+                        "websiteVisitors.view": "View website visitors",
+                        "blocklist.manage": "Manage blocklist",
+                        "preferences.manage": "Manage preferences",
+                        "inboxPlacement.view": "Manage inbox placement",
+                        "aiAgents.manage": "Manage AI agents",
+                        "workspaceGroupMembers.invite": "Invite workspace group members",
+                        "workspaceGroupMembers.remove": "Remove workspace group members",
+                        "workspaceGroupMembers.leave": "Leave workspace group"
+                      },
+                      "example": "unibox.all"
+                    }
                   }
                 },
                 "required": [
@@ -32979,7 +33457,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -33134,7 +33612,7 @@
                       "type": "array",
                       "description": "The list of Workspace Member",
                       "items": {
-                        "$ref": "#/components/schemas/def-24"
+                        "$ref": "#/components/schemas/def-25"
                       }
                     },
                     "next_starting_after": {
@@ -33251,7 +33729,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -33422,7 +33900,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -33570,7 +34048,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/def-25"
                 }
               }
             }
@@ -33697,7 +34175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-19"
+                  "$ref": "#/components/schemas/def-20"
                 }
               }
             }
@@ -33849,7 +34327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-19"
+                  "$ref": "#/components/schemas/def-20"
                 }
               }
             }
@@ -33996,7 +34474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-19"
+                  "$ref": "#/components/schemas/def-20"
                 }
               }
             }
@@ -34216,7 +34694,124 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-19"
+                  "$ref": "#/components/schemas/def-20"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/workspaces/current/change-owner": {
+      "post": {
+        "operationId": "changeWorkspaceOwner",
+        "summary": "Change workspace owner",
+        "tags": [
+          "Workspace"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspaces:update\u0060, \u0060workspaces:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@example.com"
+                  },
+                  "sec": {
+                    "type": "string",
+                    "example": "SECRET_TOKEN"
+                  }
+                },
+                "required": [
+                  "email",
+                  "sec"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The requested Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-20"
                 }
               }
             }
@@ -34376,6 +34971,11 @@
       "name": "CustomTag",
       "description": "A custom tag for organizing and categorizing accounts and campaigns. You can use them as filters in apis that list accounts and campaigns.",
       "x-displayName": "Custom Tag"
+    },
+    {
+      "name": "CustomTagMapping",
+      "description": "This entity represents a tag being assigned to a specific campaign or email account. When an email account is assigned a tag, a new custom tag mapping entry is created, which connects the tag (\u0060tag_id\u0060 field) with the email account (\u0060resource_id\u0060 field). You can use it to see which tag si connected to which resource.",
+      "x-displayName": "Custom Tag Mapping"
     },
     {
       "name": "BlockListEntry",

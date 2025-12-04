@@ -8,26 +8,22 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A blocked email or domain
+    /// This entity represents a tag being assigned to a specific campaign or email account. When an email account is assigned a tag, a new custom tag mapping entry is created, which connects the tag (`tag_id` field) with the email account (`resource_id` field). You can use it to see which tag si connected to which resource.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def14 : IParsable
     {
-        /// <summary>The email or domain to block</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BlValue { get; set; }
-#nullable restore
-#else
-        public string BlValue { get; set; }
-#endif
-        /// <summary>Unique identifier for the block list entry</summary>
+        /// <summary>A Unique identifier</summary>
         public Guid? Id { get; private set; }
-        /// <summary>Whether this entry blocks an entire domain</summary>
-        public bool? IsDomain { get; private set; }
-        /// <summary>Organization ID that owns this block list entry</summary>
+        /// <summary>Organization ID that owns this custom tag mapping</summary>
         public Guid? OrganizationId { get; private set; }
-        /// <summary>Timestamp when the block list entry was created</summary>
+        /// <summary>ID of the resource custom tag mapping belongs to, resource_type determines the type of resource</summary>
+        public Guid? ResourceId { get; private set; }
+        /// <summary>Resource type of custom tag, can be 1 for campaigns or 2 for accounts</summary>
+        public double? ResourceType { get; private set; }
+        /// <summary>ID of the tag this custom mapping belongs to</summary>
+        public Guid? TagId { get; private set; }
+        /// <summary>Timestamp when the custom tag mapping was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,10 +43,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bl_value", n => { BlValue = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "is_domain", n => { IsDomain = n.GetBoolValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
+                { "tag_id", n => { TagId = n.GetGuidValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -61,7 +58,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("bl_value", BlValue);
         }
     }
 }
