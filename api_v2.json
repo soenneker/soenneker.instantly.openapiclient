@@ -4288,35 +4288,35 @@
             "items": {
               "type": "string",
               "enum": [
-                "DASHBOARD_VIEW",
-                "CAMPAIGNS_VIEW",
-                "CAMPAIGNS_CREATE",
-                "CAMPAIGNS_EDIT",
-                "CAMPAIGNS_DELETE",
-                "ORGANIZATION_MANAGE",
-                "ORGANIZATION_INTEGRATIONS",
-                "ORGANIZATION_BILLING",
-                "ORGANIZATION_USERS_MANAGE",
-                "LEAD_FINDER_VIEW",
-                "CUSTOM_LEAD_LABELS_CREATE",
-                "CUSTOM_LEAD_LABELS_EDIT",
-                "CUSTOM_LEAD_LABELS_DELETE",
-                "UNIBOX_ALL",
-                "ANALYTICS_READ",
-                "AGENCY_MANAGE",
-                "ACCOUNTS_VIEW",
-                "ACCOUNTS_MANAGE",
-                "LEAD_MANAGEMENT_VIEW",
-                "LEADS_MOVE",
-                "CRM_VIEW",
-                "WEBSITE_VISITORS_VIEW",
-                "BLOCKLIST_MANAGE",
-                "PREFERENCES_MANAGE",
-                "INBOX_PLACEMENT_MANAGE",
-                "AI_AGENTS_MANAGE",
-                "WORKSPACE_GROUP_MEMBERS_INVITE",
-                "WORKSPACE_GROUP_MEMBERS_REMOVE",
-                "WORKSPACE_GROUP_MEMBERS_LEAVE"
+                "dashboard.view",
+                "campaigns.view",
+                "campaigns.create",
+                "campaigns.edit",
+                "campaigns.delete",
+                "organization.manage",
+                "organization.integrations",
+                "organization.billing",
+                "organization.users.manage",
+                "leadFinder.view",
+                "customLeadLabels.create",
+                "customLeadLabels.edit",
+                "customLeadLabels.delete",
+                "unibox.all",
+                "analytics.view",
+                "agency.manage",
+                "accounts.view",
+                "accounts.manage",
+                "leadManagement.view",
+                "leads.move",
+                "crm.view",
+                "websiteVisitors.view",
+                "blocklist.manage",
+                "preferences.manage",
+                "inboxPlacement.view",
+                "aiAgents.manage",
+                "workspaceGroupMembers.invite",
+                "workspaceGroupMembers.remove",
+                "workspaceGroupMembers.leave"
               ],
               "examples": [
                 "unibox.all"
@@ -26930,6 +26930,70 @@
                       ],
                       "description": "The remaining lead uploads in the current billing plan. This value is only present in the response when a \u0060campaign_id\u0060 is provided.",
                       "example": 9993
+                    },
+                    "created_leads": {
+                      "type": "array",
+                      "description": "A list of created leads with their summary information. You can use this to map your input to the created leads.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "index": {
+                            "type": "integer",
+                            "description": "The index of the lead in the input array. For leads that have no email address you can use this field as the key to your input leads.",
+                            "example": 0
+                          },
+                          "id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the lead. Use it for GET, DELETE or PATCH operations.",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                          },
+                          "email": {
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "example": "test@example.com"
+                          },
+                          "first_name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "example": "John"
+                          },
+                          "last_name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "example": "Doe"
+                          },
+                          "phone": {
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "example": "\u002B1234567890"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "index"
+                        ],
+                        "example": {
+                          "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                          "email": "test@example.com",
+                          "index": 0
+                        }
+                      },
+                      "example": [
+                        {
+                          "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                          "email": "test@example.com",
+                          "index": 0
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -26943,7 +27007,8 @@
                     "invalid_email_count",
                     "incomplete_count",
                     "duplicate_email_count",
-                    "remaining_in_plan"
+                    "remaining_in_plan",
+                    "created_leads"
                   ]
                 }
               }
@@ -33375,35 +33440,35 @@
                     "items": {
                       "type": "string",
                       "enum": [
-                        "DASHBOARD_VIEW",
-                        "CAMPAIGNS_VIEW",
-                        "CAMPAIGNS_CREATE",
-                        "CAMPAIGNS_EDIT",
-                        "CAMPAIGNS_DELETE",
-                        "ORGANIZATION_MANAGE",
-                        "ORGANIZATION_INTEGRATIONS",
-                        "ORGANIZATION_BILLING",
-                        "ORGANIZATION_USERS_MANAGE",
-                        "LEAD_FINDER_VIEW",
-                        "CUSTOM_LEAD_LABELS_CREATE",
-                        "CUSTOM_LEAD_LABELS_EDIT",
-                        "CUSTOM_LEAD_LABELS_DELETE",
-                        "UNIBOX_ALL",
-                        "ANALYTICS_READ",
-                        "AGENCY_MANAGE",
-                        "ACCOUNTS_VIEW",
-                        "ACCOUNTS_MANAGE",
-                        "LEAD_MANAGEMENT_VIEW",
-                        "LEADS_MOVE",
-                        "CRM_VIEW",
-                        "WEBSITE_VISITORS_VIEW",
-                        "BLOCKLIST_MANAGE",
-                        "PREFERENCES_MANAGE",
-                        "INBOX_PLACEMENT_MANAGE",
-                        "AI_AGENTS_MANAGE",
-                        "WORKSPACE_GROUP_MEMBERS_INVITE",
-                        "WORKSPACE_GROUP_MEMBERS_REMOVE",
-                        "WORKSPACE_GROUP_MEMBERS_LEAVE"
+                        "dashboard.view",
+                        "campaigns.view",
+                        "campaigns.create",
+                        "campaigns.edit",
+                        "campaigns.delete",
+                        "organization.manage",
+                        "organization.integrations",
+                        "organization.billing",
+                        "organization.users.manage",
+                        "leadFinder.view",
+                        "customLeadLabels.create",
+                        "customLeadLabels.edit",
+                        "customLeadLabels.delete",
+                        "unibox.all",
+                        "analytics.view",
+                        "agency.manage",
+                        "accounts.view",
+                        "accounts.manage",
+                        "leadManagement.view",
+                        "leads.move",
+                        "crm.view",
+                        "websiteVisitors.view",
+                        "blocklist.manage",
+                        "preferences.manage",
+                        "inboxPlacement.view",
+                        "aiAgents.manage",
+                        "workspaceGroupMembers.invite",
+                        "workspaceGroupMembers.remove",
+                        "workspaceGroupMembers.leave"
                       ],
                       "x-enumDescriptions": {
                         "dashboard.view": "View the dashboard",

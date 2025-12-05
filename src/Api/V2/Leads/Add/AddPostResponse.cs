@@ -23,6 +23,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
 #else
         public string BlocklistUsed { get; set; }
 #endif
+        /// <summary>A list of created leads with their summary information. You can use this to map your input to the created leads.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostResponse_created_leads>? CreatedLeads { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostResponse_created_leads> CreatedLeads { get; set; }
+#endif
         /// <summary>The number of leads that were already in this specific campaign or list and were not re-added.</summary>
         public int? DuplicatedLeads { get; set; }
         /// <summary>The number of leads skipped because their email was duplicated within the request payload itself.</summary>
@@ -75,6 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "blocklist_used", n => { BlocklistUsed = n.GetStringValue(); } },
+                { "created_leads", n => { CreatedLeads = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostResponse_created_leads>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostResponse_created_leads.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "duplicate_email_count", n => { DuplicateEmailCount = n.GetIntValue(); } },
                 { "duplicated_leads", n => { DuplicatedLeads = n.GetIntValue(); } },
                 { "in_blocklist", n => { InBlocklist = n.GetIntValue(); } },
@@ -95,6 +104,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("blocklist_used", BlocklistUsed);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostResponse_created_leads>("created_leads", CreatedLeads);
             writer.WriteIntValue("duplicated_leads", DuplicatedLeads);
             writer.WriteIntValue("duplicate_email_count", DuplicateEmailCount);
             writer.WriteIntValue("in_blocklist", InBlocklist);

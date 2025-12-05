@@ -8,121 +8,121 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public enum Def25_permissions
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "DASHBOARD_VIEW")]
+        [EnumMember(Value = "dashboard.view")]
         #pragma warning disable CS1591
-        DASHBOARD_VIEW,
+        DashboardView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CAMPAIGNS_VIEW")]
+        [EnumMember(Value = "campaigns.view")]
         #pragma warning disable CS1591
-        CAMPAIGNS_VIEW,
+        CampaignsView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CAMPAIGNS_CREATE")]
+        [EnumMember(Value = "campaigns.create")]
         #pragma warning disable CS1591
-        CAMPAIGNS_CREATE,
+        CampaignsCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CAMPAIGNS_EDIT")]
+        [EnumMember(Value = "campaigns.edit")]
         #pragma warning disable CS1591
-        CAMPAIGNS_EDIT,
+        CampaignsEdit,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CAMPAIGNS_DELETE")]
+        [EnumMember(Value = "campaigns.delete")]
         #pragma warning disable CS1591
-        CAMPAIGNS_DELETE,
+        CampaignsDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ORGANIZATION_MANAGE")]
+        [EnumMember(Value = "organization.manage")]
         #pragma warning disable CS1591
-        ORGANIZATION_MANAGE,
+        OrganizationManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ORGANIZATION_INTEGRATIONS")]
+        [EnumMember(Value = "organization.integrations")]
         #pragma warning disable CS1591
-        ORGANIZATION_INTEGRATIONS,
+        OrganizationIntegrations,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ORGANIZATION_BILLING")]
+        [EnumMember(Value = "organization.billing")]
         #pragma warning disable CS1591
-        ORGANIZATION_BILLING,
+        OrganizationBilling,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ORGANIZATION_USERS_MANAGE")]
+        [EnumMember(Value = "organization.users.manage")]
         #pragma warning disable CS1591
-        ORGANIZATION_USERS_MANAGE,
+        OrganizationUsersManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "LEAD_FINDER_VIEW")]
+        [EnumMember(Value = "leadFinder.view")]
         #pragma warning disable CS1591
-        LEAD_FINDER_VIEW,
+        LeadFinderView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CUSTOM_LEAD_LABELS_CREATE")]
+        [EnumMember(Value = "customLeadLabels.create")]
         #pragma warning disable CS1591
-        CUSTOM_LEAD_LABELS_CREATE,
+        CustomLeadLabelsCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CUSTOM_LEAD_LABELS_EDIT")]
+        [EnumMember(Value = "customLeadLabels.edit")]
         #pragma warning disable CS1591
-        CUSTOM_LEAD_LABELS_EDIT,
+        CustomLeadLabelsEdit,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CUSTOM_LEAD_LABELS_DELETE")]
+        [EnumMember(Value = "customLeadLabels.delete")]
         #pragma warning disable CS1591
-        CUSTOM_LEAD_LABELS_DELETE,
+        CustomLeadLabelsDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "UNIBOX_ALL")]
+        [EnumMember(Value = "unibox.all")]
         #pragma warning disable CS1591
-        UNIBOX_ALL,
+        UniboxAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ANALYTICS_READ")]
+        [EnumMember(Value = "analytics.view")]
         #pragma warning disable CS1591
-        ANALYTICS_READ,
+        AnalyticsView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "AGENCY_MANAGE")]
+        [EnumMember(Value = "agency.manage")]
         #pragma warning disable CS1591
-        AGENCY_MANAGE,
+        AgencyManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ACCOUNTS_VIEW")]
+        [EnumMember(Value = "accounts.view")]
         #pragma warning disable CS1591
-        ACCOUNTS_VIEW,
+        AccountsView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ACCOUNTS_MANAGE")]
+        [EnumMember(Value = "accounts.manage")]
         #pragma warning disable CS1591
-        ACCOUNTS_MANAGE,
+        AccountsManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "LEAD_MANAGEMENT_VIEW")]
+        [EnumMember(Value = "leadManagement.view")]
         #pragma warning disable CS1591
-        LEAD_MANAGEMENT_VIEW,
+        LeadManagementView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "LEADS_MOVE")]
+        [EnumMember(Value = "leads.move")]
         #pragma warning disable CS1591
-        LEADS_MOVE,
+        LeadsMove,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CRM_VIEW")]
+        [EnumMember(Value = "crm.view")]
         #pragma warning disable CS1591
-        CRM_VIEW,
+        CrmView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "WEBSITE_VISITORS_VIEW")]
+        [EnumMember(Value = "websiteVisitors.view")]
         #pragma warning disable CS1591
-        WEBSITE_VISITORS_VIEW,
+        WebsiteVisitorsView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "BLOCKLIST_MANAGE")]
+        [EnumMember(Value = "blocklist.manage")]
         #pragma warning disable CS1591
-        BLOCKLIST_MANAGE,
+        BlocklistManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "PREFERENCES_MANAGE")]
+        [EnumMember(Value = "preferences.manage")]
         #pragma warning disable CS1591
-        PREFERENCES_MANAGE,
+        PreferencesManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "INBOX_PLACEMENT_MANAGE")]
+        [EnumMember(Value = "inboxPlacement.view")]
         #pragma warning disable CS1591
-        INBOX_PLACEMENT_MANAGE,
+        InboxPlacementView,
         #pragma warning restore CS1591
-        [EnumMember(Value = "AI_AGENTS_MANAGE")]
+        [EnumMember(Value = "aiAgents.manage")]
         #pragma warning disable CS1591
-        AI_AGENTS_MANAGE,
+        AiAgentsManage,
         #pragma warning restore CS1591
-        [EnumMember(Value = "WORKSPACE_GROUP_MEMBERS_INVITE")]
+        [EnumMember(Value = "workspaceGroupMembers.invite")]
         #pragma warning disable CS1591
-        WORKSPACE_GROUP_MEMBERS_INVITE,
+        WorkspaceGroupMembersInvite,
         #pragma warning restore CS1591
-        [EnumMember(Value = "WORKSPACE_GROUP_MEMBERS_REMOVE")]
+        [EnumMember(Value = "workspaceGroupMembers.remove")]
         #pragma warning disable CS1591
-        WORKSPACE_GROUP_MEMBERS_REMOVE,
+        WorkspaceGroupMembersRemove,
         #pragma warning restore CS1591
-        [EnumMember(Value = "WORKSPACE_GROUP_MEMBERS_LEAVE")]
+        [EnumMember(Value = "workspaceGroupMembers.leave")]
         #pragma warning disable CS1591
-        WORKSPACE_GROUP_MEMBERS_LEAVE,
+        WorkspaceGroupMembersLeave,
         #pragma warning restore CS1591
     }
 }
