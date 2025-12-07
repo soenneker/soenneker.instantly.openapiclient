@@ -14,6 +14,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Custom flow to apply to the enrichment</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? CustomFlow { get; set; }
+#nullable restore
+#else
+        public List<string> CustomFlow { get; set; }
+#endif
         /// <summary>Unique identifier for the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,6 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
@@ -84,6 +93,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
             writer.WriteStringValue("id", Id);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);

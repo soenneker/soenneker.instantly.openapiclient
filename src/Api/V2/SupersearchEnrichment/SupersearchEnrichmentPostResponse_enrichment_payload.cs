@@ -15,6 +15,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The custom_flow property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? CustomFlow { get; set; }
+#nullable restore
+#else
+        public List<string> CustomFlow { get; set; }
+#endif
         /// <summary>Whether email verification is enabled</summary>
         public bool? EmailVerification { get; set; }
         /// <summary>Whether fully enriched profile is enabled</summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "email_verification", n => { EmailVerification = n.GetBoolValue(); } },
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "joblisting", n => { Joblisting = n.GetBoolValue(); } },
@@ -61,6 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
             writer.WriteBoolValue("email_verification", EmailVerification);
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteBoolValue("joblisting", Joblisting);

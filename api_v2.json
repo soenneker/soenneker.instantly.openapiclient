@@ -4931,7 +4931,7 @@
         ],
         "additionalProperties": false
       },
-      "def-38": {
+      "def-39": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -5030,7 +5030,7 @@
         ],
         "additionalProperties": false
       },
-      "def-40": {
+      "def-41": {
         "title": "Webhook Event",
         "description": "A webhook event that was sent or attempted to be sent",
         "x-tags": [
@@ -5175,7 +5175,7 @@
         ],
         "additionalProperties": false
       },
-      "def-41": {
+      "def-42": {
         "title": "DFY Email Account Order",
         "description": "A Done-For-You email account order",
         "x-tags": [
@@ -5237,7 +5237,7 @@
         ],
         "additionalProperties": false
       },
-      "def-42": {
+      "def-43": {
         "title": "Custom Prompt Template",
         "description": "Custom prompt templates for creating custom prompts",
         "x-tags": [
@@ -5482,7 +5482,7 @@
         ],
         "additionalProperties": false
       },
-      "def-43": {
+      "def-44": {
         "title": "Sales Flow",
         "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
         "x-tags": [
@@ -5652,7 +5652,7 @@
         ],
         "additionalProperties": false
       },
-      "def-44": {
+      "def-45": {
         "title": "Email Template",
         "description": "A campaign email template",
         "x-tags": [
@@ -5710,7 +5710,7 @@
         ],
         "additionalProperties": false
       },
-      "def-47": {
+      "def-48": {
         "title": "Workspace Billing",
         "description": "Workspace Billing",
         "x-tags": [
@@ -5722,7 +5722,7 @@
         "required": [],
         "additionalProperties": false
       },
-      "def-48": {
+      "def-49": {
         "title": "CRM Actions",
         "description": "CRM related actions",
         "x-tags": [
@@ -16773,7 +16773,7 @@
                       "type": "array",
                       "description": "The list of DFY Email Account Order",
                       "items": {
-                        "$ref": "#/components/schemas/def-41"
+                        "$ref": "#/components/schemas/def-42"
                       }
                     },
                     "next_starting_after": {
@@ -29203,6 +29203,23 @@
                     "description": "Enable LinkedIn profile enrichment",
                     "example": true
                   },
+                  "custom_flow": {
+                    "type": "array",
+                    "description": "Ordered list of providers for waterfall enrichment (enabled platforms only)",
+                    "items": {
+                      "type": "string",
+                      "example": "instantly"
+                    },
+                    "example": [
+                      "instantly",
+                      "findymail",
+                      "leadmagic",
+                      "icypeas",
+                      "prospeo",
+                      "wiza",
+                      "contactout"
+                    ]
+                  },
                   "resource_id": {
                     "type": "string",
                     "format": "uuid",
@@ -29300,6 +29317,14 @@
                       "type": "string",
                       "description": "Name of the list created",
                       "example": "Supersearch List (22 Sep 2025)"
+                    },
+                    "custom_flow": {
+                      "type": "array",
+                      "description": "Custom flow to apply to the enrichment",
+                      "items": {
+                        "type": "string",
+                        "example": "instantly"
+                      }
                     }
                   },
                   "required": [
@@ -29642,6 +29667,14 @@
                     "items": {
                       "type": "object"
                     }
+                  },
+                  "custom_flow": {
+                    "type": "array",
+                    "description": "Custom flow to apply to the enrichment",
+                    "items": {
+                      "type": "string",
+                      "example": "instantly"
+                    }
                   }
                 }
               }
@@ -29702,6 +29735,13 @@
                           "type": "boolean",
                           "description": "Whether fully enriched profile is enabled",
                           "example": true
+                        },
+                        "custom_flow": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "instantly"
+                          }
                         }
                       },
                       "additionalProperties": true
@@ -30903,7 +30943,7 @@
                       "type": "array",
                       "description": "The list of Webhook Event",
                       "items": {
-                        "$ref": "#/components/schemas/def-40"
+                        "$ref": "#/components/schemas/def-41"
                       }
                     },
                     "next_starting_after": {
@@ -31020,7 +31060,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-40"
+                  "$ref": "#/components/schemas/def-41"
                 }
               }
             }
@@ -31527,7 +31567,7 @@
                       "type": "array",
                       "description": "The list of Webhook",
                       "items": {
-                        "$ref": "#/components/schemas/def-38"
+                        "$ref": "#/components/schemas/def-39"
                       }
                     },
                     "next_starting_after": {
@@ -31708,7 +31748,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-38"
+                  "$ref": "#/components/schemas/def-39"
                 }
               }
             }
@@ -31848,7 +31888,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-38"
+                  "$ref": "#/components/schemas/def-39"
                 }
               }
             }
@@ -32060,7 +32100,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-38"
+                  "$ref": "#/components/schemas/def-39"
                 }
               }
             }
@@ -32208,7 +32248,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-38"
+                  "$ref": "#/components/schemas/def-39"
                 }
               }
             }
