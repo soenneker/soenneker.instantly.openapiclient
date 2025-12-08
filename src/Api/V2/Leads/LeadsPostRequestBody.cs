@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
 {
     /// <summary>
-    /// When using `campaign_id`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.
+    /// When using `campaign`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadsPostRequestBody : IParsable

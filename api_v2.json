@@ -24283,7 +24283,7 @@
             "application/json": {
               "schema": {
                 "title": "CreateLead",
-                "description": "When using \u0060campaign_id\u0060: The \u0060email\u0060 field is required. When using \u0060list_id\u0060: The \u0060email\u0060 field is optional, but at least one of the following must be provided: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060.",
+                "description": "When using \u0060campaign\u0060: The \u0060email\u0060 field is required. When using \u0060list_id\u0060: The \u0060email\u0060 field is optional, but at least one of the following must be provided: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060.",
                 "type": "object",
                 "properties": {
                   "campaign": {
@@ -24455,7 +24455,7 @@
               }
             }
           },
-          "description": "When using \u0060campaign_id\u0060: The \u0060email\u0060 field is required. When using \u0060list_id\u0060: The \u0060email\u0060 field is optional, but at least one of the following must be provided: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060."
+          "description": "When using \u0060campaign\u0060: The \u0060email\u0060 field is required. When using \u0060list_id\u0060: The \u0060email\u0060 field is optional, but at least one of the following must be provided: \u0060email\u0060, \u0060first_name\u0060, or \u0060last_name\u0060."
         },
         "responses": {
           "200": {

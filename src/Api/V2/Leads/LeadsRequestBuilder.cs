@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
         /// Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def11"/></returns>
-        /// <param name="body">When using `campaign_id`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.</param>
+        /// <param name="body">When using `campaign`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Def11400Error">When receiving a 400 status code</exception>
@@ -121,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
         /// Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">When using `campaign_id`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.</param>
+        /// <param name="body">When using `campaign`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
