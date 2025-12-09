@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #else
         public string Filter { get; set; }
 #endif
-        /// <summary>Array of lead IDs to include</summary>
+        /// <summary>Array of lead IDs to include. When using this parameter, you must provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Guid?>? Ids { get; set; }

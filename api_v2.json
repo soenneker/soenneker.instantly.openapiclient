@@ -432,13 +432,19 @@
             "description": "Campaign schedule",
             "properties": {
               "start_date": {
-                "type": "string",
+                "type": [
+                  "null",
+                  "string"
+                ],
                 "format": "date",
                 "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "end_date": {
-                "type": "string",
+                "type": [
+                  "null",
+                  "string"
+                ],
                 "format": "date",
                 "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
@@ -4495,13 +4501,19 @@
             "description": "Schedule configuration for the subsequence",
             "properties": {
               "start_date": {
-                "type": "string",
+                "type": [
+                  "null",
+                  "string"
+                ],
                 "format": "date",
                 "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "end_date": {
-                "type": "string",
+                "type": [
+                  "null",
+                  "string"
+                ],
                 "format": "date",
                 "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                 "example": "1970-01-01T00:00:00.000Z"
@@ -10395,13 +10407,19 @@
                     "description": "Campaign schedule",
                     "properties": {
                       "start_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
                         "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "end_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
                         "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
@@ -11722,13 +11740,19 @@
                     "description": "Campaign schedule",
                     "properties": {
                       "start_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
                         "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "end_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
                         "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
@@ -26193,7 +26217,7 @@
         "tags": [
           "Lead"
         ],
-        "description": "Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the \u0060/background-jobs/:id\u0060 endpoint to check the job status.\n\n\nRequires one of the following scopes: \u0060leads:update\u0060, \u0060leads:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the \u0060/background-jobs/:id\u0060 endpoint to check the job status. Note: When using the \u0060ids\u0060 parameter, you must also provide either \u0060campaign\u0060 or \u0060list_id\u0060 to specify which campaign or list to filter the leads from.\n\n\nRequires one of the following scopes: \u0060leads:update\u0060, \u0060leads:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -26267,7 +26291,7 @@
                       "format": "uuid",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
-                    "description": "Array of lead IDs to include"
+                    "description": "Array of lead IDs to include. When using this parameter, you must provide either \u0060campaign\u0060 or \u0060list_id\u0060 to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads."
                   },
                   "queries": {
                     "type": "array",
@@ -27169,13 +27193,19 @@
                     "description": "Schedule configuration for the subsequence",
                     "properties": {
                       "start_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
                         "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"
                       },
                       "end_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
                         "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
                         "example": "1970-01-01T00:00:00.000Z"

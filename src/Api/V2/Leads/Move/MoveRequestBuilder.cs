@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
         {
         }
         /// <summary>
-        /// Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the `/background-jobs/:id` endpoint to check the job status.Requires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`
+        /// Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the `/background-jobs/:id` endpoint to check the job status. Note: When using the `ids` parameter, you must also provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from.Requires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def12"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def12>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def12.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the `/background-jobs/:id` endpoint to check the job status.Requires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`
+        /// Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the `/background-jobs/:id` endpoint to check the job status. Note: When using the `ids` parameter, you must also provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from.Requires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
