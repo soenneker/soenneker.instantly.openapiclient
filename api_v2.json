@@ -29479,6 +29479,11 @@
                       "description": "Whether the enrichment is in progress",
                       "example": false
                     },
+                    "has_no_leads": {
+                      "type": "boolean",
+                      "description": "Whether the enrichment for this resource returned no leads for these search filters. This is only applicable for enrichments created from SuperSearch.",
+                      "example": false
+                    },
                     "exists": {
                       "type": "boolean",
                       "description": "Whether the enrichment exists",

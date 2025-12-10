@@ -24,6 +24,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
 #endif
         /// <summary>Whether the enrichment exists</summary>
         public bool? Exists { get; set; }
+        /// <summary>Whether the enrichment for this resource returned no leads for these search filters. This is only applicable for enrichments created from SuperSearch.</summary>
+        public bool? HasNoLeads { get; set; }
         /// <summary>Whether the enrichment is in progress</summary>
         public bool? InProgress { get; set; }
         /// <summary>Whether the enrichment is evergreen</summary>
@@ -59,6 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
                 { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload.CreateFromDiscriminatorValue); } },
                 { "exists", n => { Exists = n.GetBoolValue(); } },
+                { "has_no_leads", n => { HasNoLeads = n.GetBoolValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
@@ -75,6 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
             writer.WriteBoolValue("auto_update", AutoUpdate);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.WithResource_GetResponse_enrichment_payload>("enrichment_payload", EnrichmentPayload);
             writer.WriteBoolValue("exists", Exists);
+            writer.WriteBoolValue("has_no_leads", HasNoLeads);
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
             writer.WriteGuidValue("resource_id", ResourceId);
