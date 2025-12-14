@@ -8,6 +8,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Export;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Variables;
 using Soenneker.Instantly.OpenApiClient.Models;
@@ -48,6 +49,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause.PauseRequestBuilder Pause
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause.PauseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sendingStatus property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus.SendingStatusRequestBuilder SendingStatus
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus.SendingStatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The share property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share.ShareRequestBuilder Share

@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Duplicate;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Pause;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Resume;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SendingStatus;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +35,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Resume.ResumeRequestBuilder Resume
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sendingStatus property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SendingStatus.SendingStatusRequestBuilder SendingStatus
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SendingStatus.SendingStatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesItemRequestBuilder"/> and sets the default values.

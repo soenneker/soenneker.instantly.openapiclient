@@ -14812,6 +14812,497 @@
         }
       }
     },
+    "/api/v2/campaigns/{id}/sending-status": {
+      "get": {
+        "operationId": "getCampaignSendingStatus",
+        "summary": "Get campaign sending status",
+        "tags": [
+          "Campaign"
+        ],
+        "description": "Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.\n\n\nRequires one of the following scopes: \u0060campaigns:read\u0060, \u0060campaigns:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "example": false
+            },
+            "in": "query",
+            "name": "with_ai_summary",
+            "required": false,
+            "description": "Include AI-generated summary"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Campaign ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sending status data with human-readable summary. Returns null for both fields if no data is available.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Sending status data with human-readable summary. Returns null for both fields if no data is available.",
+                  "properties": {
+                    "diagnostics": {
+                      "type": [
+                        "null",
+                        "object"
+                      ],
+                      "additionalProperties": true,
+                      "description": "Raw sending status data. Some fields may be missing when campaign is out of schedule.",
+                      "properties": {
+                        "campaign_id": {
+                          "type": "string",
+                          "description": "The campaign ID",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "subsequence_id": {
+                          "type": "string",
+                          "description": "The subsequence ID (only present for subsequence endpoints)",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "last_updated": {
+                          "type": "string",
+                          "description": "ISO timestamp of when this data was last updated",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "status": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "Status code explaining why the campaign is not sending or sending slower",
+                          "enum": [
+                            "campaign_paused",
+                            "campaign_draft",
+                            "campaign_completed",
+                            "campaign_running_subsequences",
+                            "campaign_bounce_protect",
+                            "campaign_accounts_unhealthy",
+                            "campaign_account_suspended",
+                            "out_of_schedule",
+                            "waiting_for_leads",
+                            "daily_limit_met",
+                            "account_daily_limit_met",
+                            "new_lead_limit_met",
+                            "all_accounts_unhealthy",
+                            "waiting_for_esp_match",
+                            "domain_limit_reached",
+                            "follow_up_delay_not_met",
+                            "no_accounts_available",
+                            "healthy"
+                          ],
+                          "example": "healthy"
+                        },
+                        "issue_tracking": {
+                          "type": "object",
+                          "description": "Tracks persistence of the current issue",
+                          "properties": {
+                            "current_status_code": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "Current status code",
+                              "example": "healthy"
+                            },
+                            "issue_first_seen_at": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "ISO timestamp when the issue was first detected",
+                              "example": "1970-01-01T00:00:00.000Z"
+                            },
+                            "consecutive_loops_with_issue": {
+                              "type": "number",
+                              "description": "Number of consecutive processing loops with this issue",
+                              "example": 0
+                            },
+                            "last_healthy_send_at": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "ISO timestamp of last successful send",
+                              "example": "1970-01-01T00:00:00.000Z"
+                            }
+                          }
+                        },
+                        "accounts_summary": {
+                          "type": "object",
+                          "description": "Summary of sending account availability. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "total_connected": {
+                              "type": "number",
+                              "description": "Total number of connected sending accounts",
+                              "example": 5
+                            },
+                            "available": {
+                              "type": "number",
+                              "description": "Number of accounts available to send",
+                              "example": 3
+                            },
+                            "unavailable": {
+                              "type": "object",
+                              "description": "Breakdown of unavailable accounts by reason",
+                              "properties": {
+                                "daily_limit_hit": {
+                                  "type": "number",
+                                  "description": "Accounts that hit their configured daily sending limit",
+                                  "example": 1
+                                },
+                                "slow_ramp_limit_hit": {
+                                  "type": "number",
+                                  "description": "Accounts that hit the dynamic slow ramp limit (warmup feature)",
+                                  "example": 0
+                                },
+                                "disconnected": {
+                                  "type": "number",
+                                  "description": "Accounts that are disconnected",
+                                  "example": 1
+                                },
+                                "global_gap_not_met": {
+                                  "type": "number",
+                                  "description": "Accounts waiting for global sending gap",
+                                  "example": 0
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "campaign_daily_limit": {
+                          "type": "object",
+                          "description": "Campaign daily sending limit status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "limit": {
+                              "type": "number",
+                              "description": "Configured daily sending limit",
+                              "example": 100
+                            },
+                            "sent": {
+                              "type": "number",
+                              "description": "Number of emails sent today",
+                              "example": 50
+                            },
+                            "limit_hit": {
+                              "type": "boolean",
+                              "description": "Whether the daily limit has been reached",
+                              "example": false
+                            }
+                          }
+                        },
+                        "new_lead_limit": {
+                          "type": "object",
+                          "description": "New lead daily limit status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether new lead limiting is enabled",
+                              "example": true
+                            },
+                            "limit": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Configured new lead limit per day",
+                              "example": 50
+                            },
+                            "contacted": {
+                              "type": "number",
+                              "description": "Number of new leads contacted today",
+                              "example": 25
+                            },
+                            "limit_hit": {
+                              "type": "boolean",
+                              "description": "Whether the new lead limit has been reached",
+                              "example": false
+                            }
+                          }
+                        },
+                        "schedule_status": {
+                          "type": "object",
+                          "description": "Campaign schedule status",
+                          "properties": {
+                            "in_schedule": {
+                              "type": "boolean",
+                              "description": "Whether the campaign is currently within scheduled sending hours",
+                              "example": true
+                            }
+                          }
+                        },
+                        "send_one_by_one": {
+                          "type": "object",
+                          "description": "Send one-by-one settings. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether send one-by-one mode is enabled",
+                              "example": false
+                            },
+                            "single_account_per_wait_gap": {
+                              "type": "boolean",
+                              "description": "Whether to use single account per wait gap",
+                              "example": false
+                            }
+                          }
+                        },
+                        "follow_ups_waiting": {
+                          "type": "object",
+                          "description": "Follow-up emails waiting status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "count": {
+                              "type": "number",
+                              "description": "Number of follow-ups waiting to be sent",
+                              "example": 10
+                            },
+                            "earliest_wait_time_seconds": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Seconds until the earliest follow-up can be sent",
+                              "example": 3600
+                            }
+                          }
+                        },
+                        "esp_routing_status": {
+                          "type": "object",
+                          "description": "ESP routing status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether ESP routing is enabled",
+                              "example": false
+                            },
+                            "waiting_for_match": {
+                              "type": "boolean",
+                              "description": "Whether waiting for an ESP-matched account",
+                              "example": false
+                            },
+                            "connected_esps": {
+                              "type": "array",
+                              "items": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "description": "List of connected ESP IDs"
+                            }
+                          }
+                        },
+                        "domain_limiter": {
+                          "type": "object",
+                          "description": "Per-domain sending limit status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "active": {
+                              "type": "boolean",
+                              "description": "Whether domain limiting is active",
+                              "example": false
+                            },
+                            "domains_at_limit": {
+                              "type": "number",
+                              "description": "Number of domains that have reached their limit",
+                              "example": 0
+                            }
+                          }
+                        },
+                        "leads_status": {
+                          "type": "object",
+                          "description": "Lead availability status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "no_leads_ready": {
+                              "type": "boolean",
+                              "description": "Whether there are no leads ready to receive emails",
+                              "example": false
+                            },
+                            "account_unavailable_skips": {
+                              "type": "number",
+                              "description": "Number of leads skipped due to account unavailability",
+                              "example": 0
+                            },
+                            "delay_not_met_skips": {
+                              "type": "number",
+                              "description": "Number of leads skipped due to delay requirements not met",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": [
+                        "null",
+                        "object"
+                      ],
+                      "additionalProperties": true,
+                      "description": "Human-readable summary of the sending status",
+                      "properties": {
+                        "status": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "The status code",
+                          "example": "healthy"
+                        },
+                        "status_message": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "Human-readable message explaining the status",
+                          "example": "Campaign is sending normally"
+                        },
+                        "issue_started_at": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "ISO timestamp when the issue was first detected",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "last_healthy_send_at": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "ISO timestamp of last successful send",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "ai_summary": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "AI-generated plain-English summary (only when with_ai_summary=true)",
+                          "example": "Your campaign is sending emails normally."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/crm-actions/phone-numbers": {
       "get": {
         "operationId": "listPhoneNumbers",
@@ -28423,6 +28914,497 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/def-26"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/subsequences/{id}/sending-status": {
+      "get": {
+        "operationId": "getSubsequenceSendingStatus",
+        "summary": "Get subsequence sending status",
+        "tags": [
+          "CampaignSubsequence"
+        ],
+        "description": "Returns sending status data explaining why a subsequence may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, subsequence_id, last_updated, status, issue_tracking.\n\n\nRequires one of the following scopes: \u0060subsequences:read\u0060, \u0060subsequences:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "example": false
+            },
+            "in": "query",
+            "name": "with_ai_summary",
+            "required": false,
+            "description": "Include AI-generated summary"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Subsequence ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sending status data with human-readable summary. Returns null for both fields if no data is available.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Sending status data with human-readable summary. Returns null for both fields if no data is available.",
+                  "properties": {
+                    "diagnostics": {
+                      "type": [
+                        "null",
+                        "object"
+                      ],
+                      "additionalProperties": true,
+                      "description": "Raw sending status data. Some fields may be missing when campaign is out of schedule.",
+                      "properties": {
+                        "campaign_id": {
+                          "type": "string",
+                          "description": "The campaign ID",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "subsequence_id": {
+                          "type": "string",
+                          "description": "The subsequence ID (only present for subsequence endpoints)",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "last_updated": {
+                          "type": "string",
+                          "description": "ISO timestamp of when this data was last updated",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "status": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "Status code explaining why the campaign is not sending or sending slower",
+                          "enum": [
+                            "campaign_paused",
+                            "campaign_draft",
+                            "campaign_completed",
+                            "campaign_running_subsequences",
+                            "campaign_bounce_protect",
+                            "campaign_accounts_unhealthy",
+                            "campaign_account_suspended",
+                            "out_of_schedule",
+                            "waiting_for_leads",
+                            "daily_limit_met",
+                            "account_daily_limit_met",
+                            "new_lead_limit_met",
+                            "all_accounts_unhealthy",
+                            "waiting_for_esp_match",
+                            "domain_limit_reached",
+                            "follow_up_delay_not_met",
+                            "no_accounts_available",
+                            "healthy"
+                          ],
+                          "example": "healthy"
+                        },
+                        "issue_tracking": {
+                          "type": "object",
+                          "description": "Tracks persistence of the current issue",
+                          "properties": {
+                            "current_status_code": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "Current status code",
+                              "example": "healthy"
+                            },
+                            "issue_first_seen_at": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "ISO timestamp when the issue was first detected",
+                              "example": "1970-01-01T00:00:00.000Z"
+                            },
+                            "consecutive_loops_with_issue": {
+                              "type": "number",
+                              "description": "Number of consecutive processing loops with this issue",
+                              "example": 0
+                            },
+                            "last_healthy_send_at": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "ISO timestamp of last successful send",
+                              "example": "1970-01-01T00:00:00.000Z"
+                            }
+                          }
+                        },
+                        "accounts_summary": {
+                          "type": "object",
+                          "description": "Summary of sending account availability. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "total_connected": {
+                              "type": "number",
+                              "description": "Total number of connected sending accounts",
+                              "example": 5
+                            },
+                            "available": {
+                              "type": "number",
+                              "description": "Number of accounts available to send",
+                              "example": 3
+                            },
+                            "unavailable": {
+                              "type": "object",
+                              "description": "Breakdown of unavailable accounts by reason",
+                              "properties": {
+                                "daily_limit_hit": {
+                                  "type": "number",
+                                  "description": "Accounts that hit their configured daily sending limit",
+                                  "example": 1
+                                },
+                                "slow_ramp_limit_hit": {
+                                  "type": "number",
+                                  "description": "Accounts that hit the dynamic slow ramp limit (warmup feature)",
+                                  "example": 0
+                                },
+                                "disconnected": {
+                                  "type": "number",
+                                  "description": "Accounts that are disconnected",
+                                  "example": 1
+                                },
+                                "global_gap_not_met": {
+                                  "type": "number",
+                                  "description": "Accounts waiting for global sending gap",
+                                  "example": 0
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "campaign_daily_limit": {
+                          "type": "object",
+                          "description": "Campaign daily sending limit status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "limit": {
+                              "type": "number",
+                              "description": "Configured daily sending limit",
+                              "example": 100
+                            },
+                            "sent": {
+                              "type": "number",
+                              "description": "Number of emails sent today",
+                              "example": 50
+                            },
+                            "limit_hit": {
+                              "type": "boolean",
+                              "description": "Whether the daily limit has been reached",
+                              "example": false
+                            }
+                          }
+                        },
+                        "new_lead_limit": {
+                          "type": "object",
+                          "description": "New lead daily limit status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether new lead limiting is enabled",
+                              "example": true
+                            },
+                            "limit": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Configured new lead limit per day",
+                              "example": 50
+                            },
+                            "contacted": {
+                              "type": "number",
+                              "description": "Number of new leads contacted today",
+                              "example": 25
+                            },
+                            "limit_hit": {
+                              "type": "boolean",
+                              "description": "Whether the new lead limit has been reached",
+                              "example": false
+                            }
+                          }
+                        },
+                        "schedule_status": {
+                          "type": "object",
+                          "description": "Campaign schedule status",
+                          "properties": {
+                            "in_schedule": {
+                              "type": "boolean",
+                              "description": "Whether the campaign is currently within scheduled sending hours",
+                              "example": true
+                            }
+                          }
+                        },
+                        "send_one_by_one": {
+                          "type": "object",
+                          "description": "Send one-by-one settings. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether send one-by-one mode is enabled",
+                              "example": false
+                            },
+                            "single_account_per_wait_gap": {
+                              "type": "boolean",
+                              "description": "Whether to use single account per wait gap",
+                              "example": false
+                            }
+                          }
+                        },
+                        "follow_ups_waiting": {
+                          "type": "object",
+                          "description": "Follow-up emails waiting status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "count": {
+                              "type": "number",
+                              "description": "Number of follow-ups waiting to be sent",
+                              "example": 10
+                            },
+                            "earliest_wait_time_seconds": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Seconds until the earliest follow-up can be sent",
+                              "example": 3600
+                            }
+                          }
+                        },
+                        "esp_routing_status": {
+                          "type": "object",
+                          "description": "ESP routing status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether ESP routing is enabled",
+                              "example": false
+                            },
+                            "waiting_for_match": {
+                              "type": "boolean",
+                              "description": "Whether waiting for an ESP-matched account",
+                              "example": false
+                            },
+                            "connected_esps": {
+                              "type": "array",
+                              "items": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "description": "List of connected ESP IDs"
+                            }
+                          }
+                        },
+                        "domain_limiter": {
+                          "type": "object",
+                          "description": "Per-domain sending limit status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "active": {
+                              "type": "boolean",
+                              "description": "Whether domain limiting is active",
+                              "example": false
+                            },
+                            "domains_at_limit": {
+                              "type": "number",
+                              "description": "Number of domains that have reached their limit",
+                              "example": 0
+                            }
+                          }
+                        },
+                        "leads_status": {
+                          "type": "object",
+                          "description": "Lead availability status. May be missing when campaign is out of schedule.",
+                          "properties": {
+                            "no_leads_ready": {
+                              "type": "boolean",
+                              "description": "Whether there are no leads ready to receive emails",
+                              "example": false
+                            },
+                            "account_unavailable_skips": {
+                              "type": "number",
+                              "description": "Number of leads skipped due to account unavailability",
+                              "example": 0
+                            },
+                            "delay_not_met_skips": {
+                              "type": "number",
+                              "description": "Number of leads skipped due to delay requirements not met",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": [
+                        "null",
+                        "object"
+                      ],
+                      "additionalProperties": true,
+                      "description": "Human-readable summary of the sending status",
+                      "properties": {
+                        "status": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "The status code",
+                          "example": "healthy"
+                        },
+                        "status_message": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "Human-readable message explaining the status",
+                          "example": "Campaign is sending normally"
+                        },
+                        "issue_started_at": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "ISO timestamp when the issue was first detected",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "last_healthy_send_at": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "ISO timestamp of last successful send",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "ai_summary": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "AI-generated plain-English summary (only when with_ai_summary=true)",
+                          "example": "Your campaign is sending emails normally."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
