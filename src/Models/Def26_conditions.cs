@@ -23,7 +23,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<double?> CrmStatus { get; set; }
 #endif
-        /// <summary>The lead_activity property</summary>
+        /// <summary>Lead activities that trigger the subsequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<double?>? LeadActivity { get; set; }

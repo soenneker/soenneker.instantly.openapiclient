@@ -4480,6 +4480,7 @@
               },
               "lead_activity": {
                 "type": "array",
+                "description": "Lead activities that trigger the subsequence.",
                 "items": {
                   "type": "number",
                   "enum": [
@@ -4487,6 +4488,11 @@
                     91,
                     2
                   ],
+                  "x-enumDescriptions": {
+                    "2": "Email Opened - Triggered when a lead opens an email",
+                    "4": "Email Link Clicked - Triggered when a lead clicks a link in an email",
+                    "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
+                  },
                   "example": 4
                 }
               },
@@ -27663,6 +27669,7 @@
                       },
                       "lead_activity": {
                         "type": "array",
+                        "description": "Lead activities that trigger the subsequence.",
                         "items": {
                           "type": "number",
                           "enum": [
@@ -27670,6 +27677,11 @@
                             91,
                             2
                           ],
+                          "x-enumDescriptions": {
+                            "2": "Email Opened - Triggered when a lead opens an email",
+                            "4": "Email Link Clicked - Triggered when a lead clicks a link in an email",
+                            "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
+                          },
                           "example": 4
                         }
                       },
