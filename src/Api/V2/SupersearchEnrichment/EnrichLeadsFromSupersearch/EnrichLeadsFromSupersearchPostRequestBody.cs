@@ -48,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         public Guid? ResourceId { get; set; }
         /// <summary>Type of resource</summary>
         public double? ResourceType { get; set; }
-        /// <summary>Search filters to find leads (required)</summary>
+        /// <summary>Search filters to find leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters? SearchFilters { get; set; }

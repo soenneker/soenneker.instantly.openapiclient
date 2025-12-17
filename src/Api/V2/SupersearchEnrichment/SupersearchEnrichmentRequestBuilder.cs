@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
@@ -25,6 +26,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiRequestBuilder Ai
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The countLeadsFromSupersearch property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchRequestBuilder CountLeadsFromSupersearch
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enrichLeadsFromSupersearch property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchRequestBuilder EnrichLeadsFromSupersearch

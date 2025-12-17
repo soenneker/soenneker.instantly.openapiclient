@@ -5032,6 +5032,22 @@
             "description": "Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)",
             "example": 1
           },
+          "headers": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Optional HTTP headers to include when delivering webhook payloads (key-value pairs)",
+            "additionalProperties": {
+              "type": "string",
+              "examples": [
+                "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+              ]
+            },
+            "example": {
+              "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+            }
+          },
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the webhook was created",
@@ -26977,6 +26993,11 @@
                     "type": "boolean",
                     "description": "Whether to check duplicates.",
                     "example": true
+                  },
+                  "reset_interest_status": {
+                    "type": "boolean",
+                    "description": "Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved.",
+                    "example": true
                   }
                 }
               }
@@ -29548,7 +29569,7 @@
                 "properties": {
                   "search_filters": {
                     "type": "object",
-                    "description": "Search filters to find leads (required)",
+                    "description": "Search filters to find leads.",
                     "properties": {
                       "locations": {
                         "oneOf": [
@@ -30131,6 +30152,623 @@
                               "description": "Industries of the lead company to include in the search",
                               "example": "Agriculture \u0026 Mining"
                             }
+                          }
+                        }
+                      },
+                      "subIndustry": {
+                        "type": "object",
+                        "properties": {
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Dairy",
+                                "Farming",
+                                "Fishery",
+                                "Food \u0026 Beverages",
+                                "Food Production",
+                                "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products",
+                                "Ranching",
+                                "Tobacco",
+                                "Alternative Dispute Resolution",
+                                "Animation",
+                                "Business Supplies and Equipment",
+                                "Design",
+                                "Environmental Services",
+                                "Events Services",
+                                "Executive Office",
+                                "Facilities Services",
+                                "Fund-Raising",
+                                "Graphic Design",
+                                "Human Resources",
+                                "Import and Export",
+                                "Individual \u0026 Family Services",
+                                "Information Services",
+                                "International Trade and Development",
+                                "Law Practice",
+                                "Legal Services",
+                                "Management Consulting",
+                                "Market Research",
+                                "Marketing and Advertising",
+                                "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching",
+                                "Program Development",
+                                "Public Relations and Communications",
+                                "Public Safety",
+                                "Security and Investigations",
+                                "Staffing and Recruiting",
+                                "Think Tanks",
+                                "Translation and Localization",
+                                "Writing and Editing",
+                                "Computer Games",
+                                "Computer Hardware",
+                                "Computer Networking",
+                                "Consumer Electronics",
+                                "Semiconductors",
+                                "Consumer Goods",
+                                "Consumer Services",
+                                "Education Management",
+                                "E-Learning",
+                                "Higher Education",
+                                "Primary/Secondary Education",
+                                "Research",
+                                "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment",
+                                "Utilities",
+                                "Accounting",
+                                "Banking",
+                                "Capital Markets",
+                                "Financial Services",
+                                "Insurance",
+                                "Investment Banking",
+                                "Investment Management",
+                                "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space",
+                                "Government Administration",
+                                "Government Relations",
+                                "International Affairs",
+                                "Judiciary",
+                                "Law Enforcement",
+                                "Legislative Office",
+                                "Military",
+                                "Museums and Institutions",
+                                "Public Policy",
+                                "Alternative Medicine",
+                                "Biotechnology",
+                                "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care",
+                                "Medical Devices",
+                                "Medical Practice",
+                                "Mental Health Care",
+                                "Pharmaceuticals",
+                                "Veterinary",
+                                "Automotive",
+                                "Aviation \u0026 Aerospace",
+                                "Chemicals",
+                                "Electrical/Electronic Manufacturing",
+                                "Furniture",
+                                "Industrial Automation",
+                                "Machinery",
+                                "Mechanical or Industrial Engineering",
+                                "Plastics",
+                                "Railroad Manufacture",
+                                "Shipbuilding",
+                                "Textiles",
+                                "Broadcast Media",
+                                "Media Production",
+                                "Motion Pictures and Film",
+                                "Music",
+                                "Newspapers",
+                                "Online Media",
+                                "Printing",
+                                "Publishing",
+                                "Civic \u0026 Social Organization",
+                                "Libraries",
+                                "Non-Profit Organization Management",
+                                "Philanthropy",
+                                "Political Organization",
+                                "Religious Institutions",
+                                "Arts and Crafts",
+                                "Nanotechnology",
+                                "Architecture \u0026 Planning",
+                                "Building Materials",
+                                "Civil Engineering",
+                                "Commercial Real Estate",
+                                "Construction",
+                                "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate",
+                                "Apparel \u0026 Fashion",
+                                "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry",
+                                "Retail",
+                                "Supermarkets",
+                                "Computer \u0026 Network Security",
+                                "Computer Software",
+                                "Information Technology and Services",
+                                "Internet",
+                                "Telecommunications",
+                                "Wireless",
+                                "Airlines/Aviation",
+                                "Logistics and Supply Chain",
+                                "Maritime",
+                                "Package/Freight Delivery",
+                                "Packaging and Containers",
+                                "Warehousing",
+                                "Transportation/Trucking/Railroad",
+                                "Entertainment",
+                                "Fine Art",
+                                "Gambling \u0026 Casinos",
+                                "Hospitality",
+                                "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts",
+                                "Photography",
+                                "Recreational Facilities and Services",
+                                "Restaurants",
+                                "Sporting Goods",
+                                "Sports",
+                                "Wine and Spirits",
+                                "Wholesale"
+                              ],
+                              "x-enumDescriptions": {
+                                "Dairy": "Dairy",
+                                "Farming": "Farming",
+                                "Fishery": "Fishery",
+                                "Food \u0026 Beverages": "Food \u0026 Beverages",
+                                "Food Production": "Food Production",
+                                "Mining \u0026 Metals": "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products": "Paper \u0026 Forest Products",
+                                "Ranching": "Ranching",
+                                "Tobacco": "Tobacco",
+                                "Alternative Dispute Resolution": "Alternative Dispute Resolution",
+                                "Animation": "Animation",
+                                "Business Supplies and Equipment": "Business Supplies and Equipment",
+                                "Design": "Design",
+                                "Environmental Services": "Environmental Services",
+                                "Events Services": "Events Services",
+                                "Executive Office": "Executive Office",
+                                "Facilities Services": "Facilities Services",
+                                "Fund-Raising": "Fund-Raising",
+                                "Graphic Design": "Graphic Design",
+                                "Human Resources": "Human Resources",
+                                "Import and Export": "Import and Export",
+                                "Individual \u0026 Family Services": "Individual \u0026 Family Services",
+                                "Information Services": "Information Services",
+                                "International Trade and Development": "International Trade and Development",
+                                "Law Practice": "Law Practice",
+                                "Legal Services": "Legal Services",
+                                "Management Consulting": "Management Consulting",
+                                "Market Research": "Market Research",
+                                "Marketing and Advertising": "Marketing and Advertising",
+                                "Outsourcing/Offshoring": "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching": "Professional Training \u0026 Coaching",
+                                "Program Development": "Program Development",
+                                "Public Relations and Communications": "Public Relations and Communications",
+                                "Public Safety": "Public Safety",
+                                "Security and Investigations": "Security and Investigations",
+                                "Staffing and Recruiting": "Staffing and Recruiting",
+                                "Think Tanks": "Think Tanks",
+                                "Translation and Localization": "Translation and Localization",
+                                "Writing and Editing": "Writing and Editing",
+                                "Computer Games": "Computer Games",
+                                "Computer Hardware": "Computer Hardware",
+                                "Computer Networking": "Computer Networking",
+                                "Consumer Electronics": "Consumer Electronics",
+                                "Semiconductors": "Semiconductors",
+                                "Consumer Goods": "Consumer Goods",
+                                "Consumer Services": "Consumer Services",
+                                "Education Management": "Education Management",
+                                "E-Learning": "E-Learning",
+                                "Higher Education": "Higher Education",
+                                "Primary/Secondary Education": "Primary/Secondary Education",
+                                "Research": "Research",
+                                "Oil \u0026 Energy": "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment": "Renewables \u0026 Environment",
+                                "Utilities": "Utilities",
+                                "Accounting": "Accounting",
+                                "Banking": "Banking",
+                                "Capital Markets": "Capital Markets",
+                                "Financial Services": "Financial Services",
+                                "Insurance": "Insurance",
+                                "Investment Banking": "Investment Banking",
+                                "Investment Management": "Investment Management",
+                                "Venture Capital \u0026 Private Equity": "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space": "Defense \u0026 Space",
+                                "Government Administration": "Government Administration",
+                                "Government Relations": "Government Relations",
+                                "International Affairs": "International Affairs",
+                                "Judiciary": "Judiciary",
+                                "Law Enforcement": "Law Enforcement",
+                                "Legislative Office": "Legislative Office",
+                                "Military": "Military",
+                                "Museums and Institutions": "Museums and Institutions",
+                                "Public Policy": "Public Policy",
+                                "Alternative Medicine": "Alternative Medicine",
+                                "Biotechnology": "Biotechnology",
+                                "Health, Wellness and Fitness": "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care": "Hospital \u0026 Health Care",
+                                "Medical Devices": "Medical Devices",
+                                "Medical Practice": "Medical Practice",
+                                "Mental Health Care": "Mental Health Care",
+                                "Pharmaceuticals": "Pharmaceuticals",
+                                "Veterinary": "Veterinary",
+                                "Automotive": "Automotive",
+                                "Aviation \u0026 Aerospace": "Aviation \u0026 Aerospace",
+                                "Chemicals": "Chemicals",
+                                "Electrical/Electronic Manufacturing": "Electrical/Electronic Manufacturing",
+                                "Furniture": "Furniture",
+                                "Industrial Automation": "Industrial Automation",
+                                "Machinery": "Machinery",
+                                "Mechanical or Industrial Engineering": "Mechanical or Industrial Engineering",
+                                "Plastics": "Plastics",
+                                "Railroad Manufacture": "Railroad Manufacture",
+                                "Shipbuilding": "Shipbuilding",
+                                "Textiles": "Textiles",
+                                "Broadcast Media": "Broadcast Media",
+                                "Media Production": "Media Production",
+                                "Motion Pictures and Film": "Motion Pictures and Film",
+                                "Music": "Music",
+                                "Newspapers": "Newspapers",
+                                "Online Media": "Online Media",
+                                "Printing": "Printing",
+                                "Publishing": "Publishing",
+                                "Civic \u0026 Social Organization": "Civic \u0026 Social Organization",
+                                "Libraries": "Libraries",
+                                "Non-Profit Organization Management": "Non-Profit Organization Management",
+                                "Philanthropy": "Philanthropy",
+                                "Political Organization": "Political Organization",
+                                "Religious Institutions": "Religious Institutions",
+                                "Arts and Crafts": "Arts and Crafts",
+                                "Nanotechnology": "Nanotechnology",
+                                "Architecture \u0026 Planning": "Architecture \u0026 Planning",
+                                "Building Materials": "Building Materials",
+                                "Civil Engineering": "Civil Engineering",
+                                "Commercial Real Estate": "Commercial Real Estate",
+                                "Construction": "Construction",
+                                "Glass, Ceramics \u0026 Concrete": "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate": "Real Estate",
+                                "Apparel \u0026 Fashion": "Apparel \u0026 Fashion",
+                                "Cosmetics": "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry": "Luxury Goods \u0026 Jewelry",
+                                "Retail": "Retail",
+                                "Supermarkets": "Supermarkets",
+                                "Computer \u0026 Network Security": "Computer \u0026 Network Security",
+                                "Computer Software": "Computer Software",
+                                "Information Technology and Services": "Information Technology and Services",
+                                "Internet": "Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Wireless": "Wireless",
+                                "Airlines/Aviation": "Airlines/Aviation",
+                                "Logistics and Supply Chain": "Logistics and Supply Chain",
+                                "Maritime": "Maritime",
+                                "Package/Freight Delivery": "Package/Freight Delivery",
+                                "Packaging and Containers": "Packaging and Containers",
+                                "Warehousing": "Warehousing",
+                                "Transportation/Trucking/Railroad": "Transportation/Trucking/Railroad",
+                                "Entertainment": "Entertainment",
+                                "Fine Art": "Fine Art",
+                                "Gambling \u0026 Casinos": "Gambling \u0026 Casinos",
+                                "Hospitality": "Hospitality",
+                                "Leisure, Travel \u0026 Tourism": "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts": "Performing Arts",
+                                "Photography": "Photography",
+                                "Recreational Facilities and Services": "Recreational Facilities and Services",
+                                "Restaurants": "Restaurants",
+                                "Sporting Goods": "Sporting Goods",
+                                "Sports": "Sports",
+                                "Wine and Spirits": "Wine and Spirits",
+                                "Wholesale": "Wholesale"
+                              },
+                              "example": "Animation"
+                            },
+                            "description": "Subindustries of the lead company to exclude in the search"
+                          },
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Dairy",
+                                "Farming",
+                                "Fishery",
+                                "Food \u0026 Beverages",
+                                "Food Production",
+                                "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products",
+                                "Ranching",
+                                "Tobacco",
+                                "Alternative Dispute Resolution",
+                                "Animation",
+                                "Business Supplies and Equipment",
+                                "Design",
+                                "Environmental Services",
+                                "Events Services",
+                                "Executive Office",
+                                "Facilities Services",
+                                "Fund-Raising",
+                                "Graphic Design",
+                                "Human Resources",
+                                "Import and Export",
+                                "Individual \u0026 Family Services",
+                                "Information Services",
+                                "International Trade and Development",
+                                "Law Practice",
+                                "Legal Services",
+                                "Management Consulting",
+                                "Market Research",
+                                "Marketing and Advertising",
+                                "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching",
+                                "Program Development",
+                                "Public Relations and Communications",
+                                "Public Safety",
+                                "Security and Investigations",
+                                "Staffing and Recruiting",
+                                "Think Tanks",
+                                "Translation and Localization",
+                                "Writing and Editing",
+                                "Computer Games",
+                                "Computer Hardware",
+                                "Computer Networking",
+                                "Consumer Electronics",
+                                "Semiconductors",
+                                "Consumer Goods",
+                                "Consumer Services",
+                                "Education Management",
+                                "E-Learning",
+                                "Higher Education",
+                                "Primary/Secondary Education",
+                                "Research",
+                                "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment",
+                                "Utilities",
+                                "Accounting",
+                                "Banking",
+                                "Capital Markets",
+                                "Financial Services",
+                                "Insurance",
+                                "Investment Banking",
+                                "Investment Management",
+                                "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space",
+                                "Government Administration",
+                                "Government Relations",
+                                "International Affairs",
+                                "Judiciary",
+                                "Law Enforcement",
+                                "Legislative Office",
+                                "Military",
+                                "Museums and Institutions",
+                                "Public Policy",
+                                "Alternative Medicine",
+                                "Biotechnology",
+                                "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care",
+                                "Medical Devices",
+                                "Medical Practice",
+                                "Mental Health Care",
+                                "Pharmaceuticals",
+                                "Veterinary",
+                                "Automotive",
+                                "Aviation \u0026 Aerospace",
+                                "Chemicals",
+                                "Electrical/Electronic Manufacturing",
+                                "Furniture",
+                                "Industrial Automation",
+                                "Machinery",
+                                "Mechanical or Industrial Engineering",
+                                "Plastics",
+                                "Railroad Manufacture",
+                                "Shipbuilding",
+                                "Textiles",
+                                "Broadcast Media",
+                                "Media Production",
+                                "Motion Pictures and Film",
+                                "Music",
+                                "Newspapers",
+                                "Online Media",
+                                "Printing",
+                                "Publishing",
+                                "Civic \u0026 Social Organization",
+                                "Libraries",
+                                "Non-Profit Organization Management",
+                                "Philanthropy",
+                                "Political Organization",
+                                "Religious Institutions",
+                                "Arts and Crafts",
+                                "Nanotechnology",
+                                "Architecture \u0026 Planning",
+                                "Building Materials",
+                                "Civil Engineering",
+                                "Commercial Real Estate",
+                                "Construction",
+                                "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate",
+                                "Apparel \u0026 Fashion",
+                                "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry",
+                                "Retail",
+                                "Supermarkets",
+                                "Computer \u0026 Network Security",
+                                "Computer Software",
+                                "Information Technology and Services",
+                                "Internet",
+                                "Telecommunications",
+                                "Wireless",
+                                "Airlines/Aviation",
+                                "Logistics and Supply Chain",
+                                "Maritime",
+                                "Package/Freight Delivery",
+                                "Packaging and Containers",
+                                "Warehousing",
+                                "Transportation/Trucking/Railroad",
+                                "Entertainment",
+                                "Fine Art",
+                                "Gambling \u0026 Casinos",
+                                "Hospitality",
+                                "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts",
+                                "Photography",
+                                "Recreational Facilities and Services",
+                                "Restaurants",
+                                "Sporting Goods",
+                                "Sports",
+                                "Wine and Spirits",
+                                "Wholesale"
+                              ],
+                              "x-enumDescriptions": {
+                                "Dairy": "Dairy",
+                                "Farming": "Farming",
+                                "Fishery": "Fishery",
+                                "Food \u0026 Beverages": "Food \u0026 Beverages",
+                                "Food Production": "Food Production",
+                                "Mining \u0026 Metals": "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products": "Paper \u0026 Forest Products",
+                                "Ranching": "Ranching",
+                                "Tobacco": "Tobacco",
+                                "Alternative Dispute Resolution": "Alternative Dispute Resolution",
+                                "Animation": "Animation",
+                                "Business Supplies and Equipment": "Business Supplies and Equipment",
+                                "Design": "Design",
+                                "Environmental Services": "Environmental Services",
+                                "Events Services": "Events Services",
+                                "Executive Office": "Executive Office",
+                                "Facilities Services": "Facilities Services",
+                                "Fund-Raising": "Fund-Raising",
+                                "Graphic Design": "Graphic Design",
+                                "Human Resources": "Human Resources",
+                                "Import and Export": "Import and Export",
+                                "Individual \u0026 Family Services": "Individual \u0026 Family Services",
+                                "Information Services": "Information Services",
+                                "International Trade and Development": "International Trade and Development",
+                                "Law Practice": "Law Practice",
+                                "Legal Services": "Legal Services",
+                                "Management Consulting": "Management Consulting",
+                                "Market Research": "Market Research",
+                                "Marketing and Advertising": "Marketing and Advertising",
+                                "Outsourcing/Offshoring": "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching": "Professional Training \u0026 Coaching",
+                                "Program Development": "Program Development",
+                                "Public Relations and Communications": "Public Relations and Communications",
+                                "Public Safety": "Public Safety",
+                                "Security and Investigations": "Security and Investigations",
+                                "Staffing and Recruiting": "Staffing and Recruiting",
+                                "Think Tanks": "Think Tanks",
+                                "Translation and Localization": "Translation and Localization",
+                                "Writing and Editing": "Writing and Editing",
+                                "Computer Games": "Computer Games",
+                                "Computer Hardware": "Computer Hardware",
+                                "Computer Networking": "Computer Networking",
+                                "Consumer Electronics": "Consumer Electronics",
+                                "Semiconductors": "Semiconductors",
+                                "Consumer Goods": "Consumer Goods",
+                                "Consumer Services": "Consumer Services",
+                                "Education Management": "Education Management",
+                                "E-Learning": "E-Learning",
+                                "Higher Education": "Higher Education",
+                                "Primary/Secondary Education": "Primary/Secondary Education",
+                                "Research": "Research",
+                                "Oil \u0026 Energy": "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment": "Renewables \u0026 Environment",
+                                "Utilities": "Utilities",
+                                "Accounting": "Accounting",
+                                "Banking": "Banking",
+                                "Capital Markets": "Capital Markets",
+                                "Financial Services": "Financial Services",
+                                "Insurance": "Insurance",
+                                "Investment Banking": "Investment Banking",
+                                "Investment Management": "Investment Management",
+                                "Venture Capital \u0026 Private Equity": "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space": "Defense \u0026 Space",
+                                "Government Administration": "Government Administration",
+                                "Government Relations": "Government Relations",
+                                "International Affairs": "International Affairs",
+                                "Judiciary": "Judiciary",
+                                "Law Enforcement": "Law Enforcement",
+                                "Legislative Office": "Legislative Office",
+                                "Military": "Military",
+                                "Museums and Institutions": "Museums and Institutions",
+                                "Public Policy": "Public Policy",
+                                "Alternative Medicine": "Alternative Medicine",
+                                "Biotechnology": "Biotechnology",
+                                "Health, Wellness and Fitness": "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care": "Hospital \u0026 Health Care",
+                                "Medical Devices": "Medical Devices",
+                                "Medical Practice": "Medical Practice",
+                                "Mental Health Care": "Mental Health Care",
+                                "Pharmaceuticals": "Pharmaceuticals",
+                                "Veterinary": "Veterinary",
+                                "Automotive": "Automotive",
+                                "Aviation \u0026 Aerospace": "Aviation \u0026 Aerospace",
+                                "Chemicals": "Chemicals",
+                                "Electrical/Electronic Manufacturing": "Electrical/Electronic Manufacturing",
+                                "Furniture": "Furniture",
+                                "Industrial Automation": "Industrial Automation",
+                                "Machinery": "Machinery",
+                                "Mechanical or Industrial Engineering": "Mechanical or Industrial Engineering",
+                                "Plastics": "Plastics",
+                                "Railroad Manufacture": "Railroad Manufacture",
+                                "Shipbuilding": "Shipbuilding",
+                                "Textiles": "Textiles",
+                                "Broadcast Media": "Broadcast Media",
+                                "Media Production": "Media Production",
+                                "Motion Pictures and Film": "Motion Pictures and Film",
+                                "Music": "Music",
+                                "Newspapers": "Newspapers",
+                                "Online Media": "Online Media",
+                                "Printing": "Printing",
+                                "Publishing": "Publishing",
+                                "Civic \u0026 Social Organization": "Civic \u0026 Social Organization",
+                                "Libraries": "Libraries",
+                                "Non-Profit Organization Management": "Non-Profit Organization Management",
+                                "Philanthropy": "Philanthropy",
+                                "Political Organization": "Political Organization",
+                                "Religious Institutions": "Religious Institutions",
+                                "Arts and Crafts": "Arts and Crafts",
+                                "Nanotechnology": "Nanotechnology",
+                                "Architecture \u0026 Planning": "Architecture \u0026 Planning",
+                                "Building Materials": "Building Materials",
+                                "Civil Engineering": "Civil Engineering",
+                                "Commercial Real Estate": "Commercial Real Estate",
+                                "Construction": "Construction",
+                                "Glass, Ceramics \u0026 Concrete": "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate": "Real Estate",
+                                "Apparel \u0026 Fashion": "Apparel \u0026 Fashion",
+                                "Cosmetics": "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry": "Luxury Goods \u0026 Jewelry",
+                                "Retail": "Retail",
+                                "Supermarkets": "Supermarkets",
+                                "Computer \u0026 Network Security": "Computer \u0026 Network Security",
+                                "Computer Software": "Computer Software",
+                                "Information Technology and Services": "Information Technology and Services",
+                                "Internet": "Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Wireless": "Wireless",
+                                "Airlines/Aviation": "Airlines/Aviation",
+                                "Logistics and Supply Chain": "Logistics and Supply Chain",
+                                "Maritime": "Maritime",
+                                "Package/Freight Delivery": "Package/Freight Delivery",
+                                "Packaging and Containers": "Packaging and Containers",
+                                "Warehousing": "Warehousing",
+                                "Transportation/Trucking/Railroad": "Transportation/Trucking/Railroad",
+                                "Entertainment": "Entertainment",
+                                "Fine Art": "Fine Art",
+                                "Gambling \u0026 Casinos": "Gambling \u0026 Casinos",
+                                "Hospitality": "Hospitality",
+                                "Leisure, Travel \u0026 Tourism": "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts": "Performing Arts",
+                                "Photography": "Photography",
+                                "Recreational Facilities and Services": "Recreational Facilities and Services",
+                                "Restaurants": "Restaurants",
+                                "Sporting Goods": "Sporting Goods",
+                                "Sports": "Sports",
+                                "Wine and Spirits": "Wine and Spirits",
+                                "Wholesale": "Wholesale"
+                              },
+                              "example": "Animation"
+                            },
+                            "description": "Subindustries of the lead company to include in the search"
                           }
                         }
                       },
@@ -31625,6 +32263,1413 @@
         }
       }
     },
+    "/api/v2/supersearch-enrichment/count-leads-from-supersearch": {
+      "post": {
+        "operationId": "countLeadsFromSupersearch",
+        "summary": "Count leads from supersearch",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Count the number of leads matching a SuperSearch query without enriching them. This endpoint is intended to estimate lead availability before running an enrichment.\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "search_filters"
+                ],
+                "properties": {
+                  "search_filters": {
+                    "type": "object",
+                    "description": "Search filters to find leads.",
+                    "properties": {
+                      "locations": {
+                        "oneOf": [
+                          {
+                            "type": "array",
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "place_id": {
+                                      "type": "string",
+                                      "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
+                                      "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                    },
+                                    "label": {
+                                      "type": "string",
+                                      "description": "Label of the lead\u0027s location",
+                                      "example": "San Francisco, CA, USA"
+                                    }
+                                  },
+                                  "required": [
+                                    "place_id"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "city": {
+                                      "type": "string",
+                                      "description": "City of the lead",
+                                      "example": "San Francisco"
+                                    },
+                                    "state": {
+                                      "type": "string",
+                                      "description": "State of the lead",
+                                      "example": "California"
+                                    },
+                                    "country": {
+                                      "type": "string",
+                                      "description": "Country of the lead",
+                                      "example": "United States"
+                                    }
+                                  },
+                                  "anyOf": [
+                                    {
+                                      "required": [
+                                        "city"
+                                      ]
+                                    },
+                                    {
+                                      "required": [
+                                        "state"
+                                      ]
+                                    },
+                                    {
+                                      "required": [
+                                        "country"
+                                      ]
+                                    }
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "description": "Locations to include or exclude in the search",
+                            "properties": {
+                              "include": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "place_id": {
+                                          "type": "string",
+                                          "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
+                                          "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "description": "Label of the lead\u0027s location",
+                                          "example": "San Francisco, CA, USA"
+                                        }
+                                      },
+                                      "required": [
+                                        "place_id"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "city": {
+                                          "type": "string",
+                                          "description": "City of the lead",
+                                          "example": "San Francisco"
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "State of the lead",
+                                          "example": "California"
+                                        },
+                                        "country": {
+                                          "type": "string",
+                                          "description": "Country of the lead",
+                                          "example": "United States"
+                                        }
+                                      },
+                                      "anyOf": [
+                                        {
+                                          "required": [
+                                            "city"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "state"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "country"
+                                          ]
+                                        }
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "description": "Locations to include in the search"
+                              },
+                              "exclude": {
+                                "type": "array",
+                                "items": {
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "place_id": {
+                                          "type": "string",
+                                          "description": "Google Maps Place ID of the lead\u0027s location (https://developers.google.com/maps/documentation/places/web-service/place-id)",
+                                          "example": "ChIJN1t_t3uEmsRUso9K6W47H4"
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "description": "Label of the lead\u0027s location",
+                                          "example": "San Francisco, CA, USA"
+                                        }
+                                      },
+                                      "required": [
+                                        "place_id"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "city": {
+                                          "type": "string",
+                                          "description": "City of the lead",
+                                          "example": "San Francisco"
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "description": "State of the lead",
+                                          "example": "California"
+                                        },
+                                        "country": {
+                                          "type": "string",
+                                          "description": "Country of the lead",
+                                          "example": "United States"
+                                        }
+                                      },
+                                      "anyOf": [
+                                        {
+                                          "required": [
+                                            "city"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "state"
+                                          ]
+                                        },
+                                        {
+                                          "required": [
+                                            "country"
+                                          ]
+                                        }
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "description": "Locations to exclude from the search"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "department": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "Engineering",
+                            "Finance \u0026 Administration",
+                            "Human Resources",
+                            "IT \u0026 IS",
+                            "Marketing",
+                            "Operations",
+                            "Sales",
+                            "Support",
+                            "Other"
+                          ],
+                          "x-enumDescriptions": {
+                            "Engineering": "Engineering",
+                            "Finance \u0026 Administration": "Finance \u0026 Administration",
+                            "Human Resources": "Human Resources",
+                            "IT \u0026 IS": "IT \u0026 IS",
+                            "Marketing": "Marketing",
+                            "Operations": "Operations",
+                            "Sales": "Sales",
+                            "Support": "Support",
+                            "Other": "Other"
+                          },
+                          "description": "Department of the lead",
+                          "example": "Engineering"
+                        }
+                      },
+                      "level": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "C-Level",
+                            "VP-Level",
+                            "Director-Level",
+                            "Manager-Level",
+                            "Staff",
+                            "Entry level",
+                            "Mid-Senior level",
+                            "Director",
+                            "Associate",
+                            "Owner",
+                            "Executive",
+                            "Manager",
+                            "Senior",
+                            "Chief X Officer (CxO)",
+                            "Internship",
+                            "Vice President (VP)",
+                            "Unpaid / Internship",
+                            "Partner"
+                          ],
+                          "x-enumDescriptions": {
+                            "C-Level": "C-Level",
+                            "VP-Level": "VP-Level",
+                            "Director-Level": "Director-Level",
+                            "Manager-Level": "Manager-Level",
+                            "Staff": "Staff",
+                            "Entry level": "Entry level",
+                            "Mid-Senior level": "Mid-Senior level",
+                            "Director": "Director",
+                            "Associate": "Associate",
+                            "Owner": "Owner",
+                            "Executive": "Executive",
+                            "Manager": "Manager",
+                            "Senior": "Senior",
+                            "Chief X Officer (CxO)": "Chief X Officer (CxO)",
+                            "Internship": "Internship",
+                            "Vice President (VP)": "Vice President (VP)",
+                            "Unpaid / Internship": "Unpaid / Internship",
+                            "Partner": "Partner"
+                          },
+                          "description": "Level of the lead",
+                          "example": "Entry level"
+                        }
+                      },
+                      "employee_count": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "0 - 25",
+                            "25 - 100",
+                            "100 - 250",
+                            "250 - 1000",
+                            "1K - 10K",
+                            "10K - 50K",
+                            "50K - 100K",
+                            "\u003E 100K"
+                          ],
+                          "x-enumDescriptions": {
+                            "0 - 25": "0 - 25",
+                            "25 - 100": "25 - 100",
+                            "100 - 250": "100 - 250",
+                            "250 - 1000": "250 - 1000",
+                            "1K - 10K": "1K - 10K",
+                            "10K - 50K": "10K - 50K",
+                            "50K - 100K": "50K - 100K",
+                            "\u003E 100K": "\u003E 100K"
+                          },
+                          "description": "Employee count of the lead company",
+                          "example": "0 - 25"
+                        }
+                      },
+                      "revenue": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "$0 - 1M",
+                            "$1 - 10M",
+                            "$10 - 50M",
+                            "$50 - 100M",
+                            "$100 - 250M",
+                            "$250 - 500M",
+                            "$500M - 1B",
+                            "\u003E $1B"
+                          ],
+                          "x-enumDescriptions": {
+                            "$0 - 1M": "$0 - 1M",
+                            "$1 - 10M": "$1M - 10M",
+                            "$10 - 50M": "$10M - 50M",
+                            "$50 - 100M": "$50M - 100M",
+                            "$100 - 250M": "$100M - 250M",
+                            "$250 - 500M": "$250M - 500M",
+                            "$500M - 1B": "$500M - 1B",
+                            "\u003E $1B": "\u003E $1B"
+                          },
+                          "description": "Revenue of the lead company",
+                          "example": "$1 - 10M"
+                        }
+                      },
+                      "news": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "launches",
+                            "expands_offices_to",
+                            "hires",
+                            "partners_with",
+                            "leaves",
+                            "receives_financing",
+                            "recognized_as",
+                            "closes_offices_in",
+                            "is_developing",
+                            "has_issues_with",
+                            "promotes",
+                            "opens_new_location",
+                            "receives_award",
+                            "acquires",
+                            "invests_into_assets",
+                            "signs_new_client",
+                            "increases_headcount_by",
+                            "retires_from",
+                            "invests_into",
+                            "integrates_with",
+                            "expands_facilities",
+                            "goes_public",
+                            "sells_assets_to",
+                            "identified_as_competitor_of",
+                            "decreases_headcount_by",
+                            "expands_offices_in",
+                            "files_suit_against",
+                            "merges_with"
+                          ],
+                          "x-enumDescriptions": {
+                            "launches": "Launches",
+                            "expands_offices_to": "Expands Offices To",
+                            "hires": "Hires",
+                            "partners_with": "Partners With",
+                            "leaves": "Leaves",
+                            "receives_financing": "Receives Financing",
+                            "recognized_as": "Recognized As",
+                            "closes_offices_in": "Closes Offices In",
+                            "is_developing": "Is Developing",
+                            "has_issues_with": "Has Issues With",
+                            "promotes": "Promotes",
+                            "opens_new_location": "Opens New Location",
+                            "receives_award": "Receives Award",
+                            "acquires": "Acquires",
+                            "invests_into_assets": "Invests Into Assets",
+                            "signs_new_client": "Signs New Client",
+                            "increases_headcount_by": "Increases Headcount By",
+                            "retires_from": "Retires From",
+                            "invests_into": "Invests Into",
+                            "integrates_with": "Integrates With",
+                            "expands_facilities": "Expands Facilities",
+                            "goes_public": "Goes Public",
+                            "sells_assets_to": "Sells Assets To",
+                            "identified_as_competitor_of": "Identified As Competitor Of",
+                            "decreases_headcount_by": "Decreases Headcount By",
+                            "expands_offices_in": "Expands Offices In",
+                            "files_suit_against": "Files Suit Against",
+                            "merges_with": "Merges With"
+                          },
+                          "description": "News about the lead company",
+                          "example": "launches"
+                        }
+                      },
+                      "title": {
+                        "type": "object",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "CEO"
+                            },
+                            "description": "Titles of the lead to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "VP"
+                            },
+                            "description": "Titles of the lead to exclude in the search"
+                          }
+                        }
+                      },
+                      "name": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "John Doe"
+                        },
+                        "description": "Names of the lead to include in the search"
+                      },
+                      "company_name": {
+                        "type": "object",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "Google"
+                            },
+                            "description": "Companies of the lead to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "Amazon"
+                            },
+                            "description": "Companies of the lead to exclude in the search"
+                          }
+                        }
+                      },
+                      "look_alike": {
+                        "type": "string",
+                        "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
+                        "example": "google.com"
+                      },
+                      "keyword_filter": {
+                        "type": "object",
+                        "properties": {
+                          "exclude": {
+                            "type": "string",
+                            "example": "sales"
+                          },
+                          "include": {
+                            "type": "string",
+                            "example": "marketing"
+                          }
+                        }
+                      },
+                      "industry": {
+                        "type": "object",
+                        "properties": {
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Agriculture \u0026 Mining",
+                                "Business Services",
+                                "Computers \u0026 Electronics",
+                                "Consumer Services",
+                                "Education",
+                                "Energy \u0026 Utilities",
+                                "Financial Services",
+                                "Government",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing",
+                                "Media \u0026 Entertainment",
+                                "Non-Profit",
+                                "Other",
+                                "Real Estate \u0026 Construction",
+                                "Retail",
+                                "Software \u0026 Internet",
+                                "Telecommunications",
+                                "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution"
+                              ],
+                              "x-enumDescriptions": {
+                                "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
+                                "Business Services": "Business Services",
+                                "Financial Services": "Financial Services",
+                                "Computers \u0026 Electronics": "Computers \u0026 Electronics",
+                                "Consumer Services": "Consumer Services",
+                                "Education": "Education",
+                                "Energy \u0026 Utilities": "Energy \u0026 Utilities",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing": "Manufacturing",
+                                "Media \u0026 Entertainment": "Media \u0026 Entertainment",
+                                "Non-Profit": "Non-Profit",
+                                "Other": "Other",
+                                "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
+                                "Retail": "Retail",
+                                "Software \u0026 Internet": "Software \u0026 Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Transportation \u0026 Storage": "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
+                                "Government": "Government"
+                              },
+                              "example": "Agriculture \u0026 Mining"
+                            },
+                            "description": "Industries of the lead company to exclude in the search"
+                          },
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Agriculture \u0026 Mining",
+                                "Business Services",
+                                "Computers \u0026 Electronics",
+                                "Consumer Services",
+                                "Education",
+                                "Energy \u0026 Utilities",
+                                "Financial Services",
+                                "Government",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing",
+                                "Media \u0026 Entertainment",
+                                "Non-Profit",
+                                "Other",
+                                "Real Estate \u0026 Construction",
+                                "Retail",
+                                "Software \u0026 Internet",
+                                "Telecommunications",
+                                "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution"
+                              ],
+                              "x-enumDescriptions": {
+                                "Agriculture \u0026 Mining": "Agriculture \u0026 Mining",
+                                "Business Services": "Business Services",
+                                "Financial Services": "Financial Services",
+                                "Computers \u0026 Electronics": "Computers \u0026 Electronics",
+                                "Consumer Services": "Consumer Services",
+                                "Education": "Education",
+                                "Energy \u0026 Utilities": "Energy \u0026 Utilities",
+                                "Healthcare, Pharmaceuticals, \u0026 Biotech": "Healthcare, Pharmaceuticals, \u0026 Biotech",
+                                "Manufacturing": "Manufacturing",
+                                "Media \u0026 Entertainment": "Media \u0026 Entertainment",
+                                "Non-Profit": "Non-Profit",
+                                "Other": "Other",
+                                "Real Estate \u0026 Construction": "Real Estate \u0026 Construction",
+                                "Retail": "Retail",
+                                "Software \u0026 Internet": "Software \u0026 Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Transportation \u0026 Storage": "Transportation \u0026 Storage",
+                                "Travel, Recreation, and Leisure": "Travel, Recreation, and Leisure",
+                                "Wholesale \u0026 Distribution": "Wholesale \u0026 Distribution",
+                                "Government": "Government"
+                              },
+                              "description": "Industries of the lead company to include in the search",
+                              "example": "Agriculture \u0026 Mining"
+                            }
+                          }
+                        }
+                      },
+                      "subIndustry": {
+                        "type": "object",
+                        "properties": {
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Dairy",
+                                "Farming",
+                                "Fishery",
+                                "Food \u0026 Beverages",
+                                "Food Production",
+                                "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products",
+                                "Ranching",
+                                "Tobacco",
+                                "Alternative Dispute Resolution",
+                                "Animation",
+                                "Business Supplies and Equipment",
+                                "Design",
+                                "Environmental Services",
+                                "Events Services",
+                                "Executive Office",
+                                "Facilities Services",
+                                "Fund-Raising",
+                                "Graphic Design",
+                                "Human Resources",
+                                "Import and Export",
+                                "Individual \u0026 Family Services",
+                                "Information Services",
+                                "International Trade and Development",
+                                "Law Practice",
+                                "Legal Services",
+                                "Management Consulting",
+                                "Market Research",
+                                "Marketing and Advertising",
+                                "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching",
+                                "Program Development",
+                                "Public Relations and Communications",
+                                "Public Safety",
+                                "Security and Investigations",
+                                "Staffing and Recruiting",
+                                "Think Tanks",
+                                "Translation and Localization",
+                                "Writing and Editing",
+                                "Computer Games",
+                                "Computer Hardware",
+                                "Computer Networking",
+                                "Consumer Electronics",
+                                "Semiconductors",
+                                "Consumer Goods",
+                                "Consumer Services",
+                                "Education Management",
+                                "E-Learning",
+                                "Higher Education",
+                                "Primary/Secondary Education",
+                                "Research",
+                                "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment",
+                                "Utilities",
+                                "Accounting",
+                                "Banking",
+                                "Capital Markets",
+                                "Financial Services",
+                                "Insurance",
+                                "Investment Banking",
+                                "Investment Management",
+                                "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space",
+                                "Government Administration",
+                                "Government Relations",
+                                "International Affairs",
+                                "Judiciary",
+                                "Law Enforcement",
+                                "Legislative Office",
+                                "Military",
+                                "Museums and Institutions",
+                                "Public Policy",
+                                "Alternative Medicine",
+                                "Biotechnology",
+                                "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care",
+                                "Medical Devices",
+                                "Medical Practice",
+                                "Mental Health Care",
+                                "Pharmaceuticals",
+                                "Veterinary",
+                                "Automotive",
+                                "Aviation \u0026 Aerospace",
+                                "Chemicals",
+                                "Electrical/Electronic Manufacturing",
+                                "Furniture",
+                                "Industrial Automation",
+                                "Machinery",
+                                "Mechanical or Industrial Engineering",
+                                "Plastics",
+                                "Railroad Manufacture",
+                                "Shipbuilding",
+                                "Textiles",
+                                "Broadcast Media",
+                                "Media Production",
+                                "Motion Pictures and Film",
+                                "Music",
+                                "Newspapers",
+                                "Online Media",
+                                "Printing",
+                                "Publishing",
+                                "Civic \u0026 Social Organization",
+                                "Libraries",
+                                "Non-Profit Organization Management",
+                                "Philanthropy",
+                                "Political Organization",
+                                "Religious Institutions",
+                                "Arts and Crafts",
+                                "Nanotechnology",
+                                "Architecture \u0026 Planning",
+                                "Building Materials",
+                                "Civil Engineering",
+                                "Commercial Real Estate",
+                                "Construction",
+                                "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate",
+                                "Apparel \u0026 Fashion",
+                                "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry",
+                                "Retail",
+                                "Supermarkets",
+                                "Computer \u0026 Network Security",
+                                "Computer Software",
+                                "Information Technology and Services",
+                                "Internet",
+                                "Telecommunications",
+                                "Wireless",
+                                "Airlines/Aviation",
+                                "Logistics and Supply Chain",
+                                "Maritime",
+                                "Package/Freight Delivery",
+                                "Packaging and Containers",
+                                "Warehousing",
+                                "Transportation/Trucking/Railroad",
+                                "Entertainment",
+                                "Fine Art",
+                                "Gambling \u0026 Casinos",
+                                "Hospitality",
+                                "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts",
+                                "Photography",
+                                "Recreational Facilities and Services",
+                                "Restaurants",
+                                "Sporting Goods",
+                                "Sports",
+                                "Wine and Spirits",
+                                "Wholesale"
+                              ],
+                              "x-enumDescriptions": {
+                                "Dairy": "Dairy",
+                                "Farming": "Farming",
+                                "Fishery": "Fishery",
+                                "Food \u0026 Beverages": "Food \u0026 Beverages",
+                                "Food Production": "Food Production",
+                                "Mining \u0026 Metals": "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products": "Paper \u0026 Forest Products",
+                                "Ranching": "Ranching",
+                                "Tobacco": "Tobacco",
+                                "Alternative Dispute Resolution": "Alternative Dispute Resolution",
+                                "Animation": "Animation",
+                                "Business Supplies and Equipment": "Business Supplies and Equipment",
+                                "Design": "Design",
+                                "Environmental Services": "Environmental Services",
+                                "Events Services": "Events Services",
+                                "Executive Office": "Executive Office",
+                                "Facilities Services": "Facilities Services",
+                                "Fund-Raising": "Fund-Raising",
+                                "Graphic Design": "Graphic Design",
+                                "Human Resources": "Human Resources",
+                                "Import and Export": "Import and Export",
+                                "Individual \u0026 Family Services": "Individual \u0026 Family Services",
+                                "Information Services": "Information Services",
+                                "International Trade and Development": "International Trade and Development",
+                                "Law Practice": "Law Practice",
+                                "Legal Services": "Legal Services",
+                                "Management Consulting": "Management Consulting",
+                                "Market Research": "Market Research",
+                                "Marketing and Advertising": "Marketing and Advertising",
+                                "Outsourcing/Offshoring": "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching": "Professional Training \u0026 Coaching",
+                                "Program Development": "Program Development",
+                                "Public Relations and Communications": "Public Relations and Communications",
+                                "Public Safety": "Public Safety",
+                                "Security and Investigations": "Security and Investigations",
+                                "Staffing and Recruiting": "Staffing and Recruiting",
+                                "Think Tanks": "Think Tanks",
+                                "Translation and Localization": "Translation and Localization",
+                                "Writing and Editing": "Writing and Editing",
+                                "Computer Games": "Computer Games",
+                                "Computer Hardware": "Computer Hardware",
+                                "Computer Networking": "Computer Networking",
+                                "Consumer Electronics": "Consumer Electronics",
+                                "Semiconductors": "Semiconductors",
+                                "Consumer Goods": "Consumer Goods",
+                                "Consumer Services": "Consumer Services",
+                                "Education Management": "Education Management",
+                                "E-Learning": "E-Learning",
+                                "Higher Education": "Higher Education",
+                                "Primary/Secondary Education": "Primary/Secondary Education",
+                                "Research": "Research",
+                                "Oil \u0026 Energy": "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment": "Renewables \u0026 Environment",
+                                "Utilities": "Utilities",
+                                "Accounting": "Accounting",
+                                "Banking": "Banking",
+                                "Capital Markets": "Capital Markets",
+                                "Financial Services": "Financial Services",
+                                "Insurance": "Insurance",
+                                "Investment Banking": "Investment Banking",
+                                "Investment Management": "Investment Management",
+                                "Venture Capital \u0026 Private Equity": "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space": "Defense \u0026 Space",
+                                "Government Administration": "Government Administration",
+                                "Government Relations": "Government Relations",
+                                "International Affairs": "International Affairs",
+                                "Judiciary": "Judiciary",
+                                "Law Enforcement": "Law Enforcement",
+                                "Legislative Office": "Legislative Office",
+                                "Military": "Military",
+                                "Museums and Institutions": "Museums and Institutions",
+                                "Public Policy": "Public Policy",
+                                "Alternative Medicine": "Alternative Medicine",
+                                "Biotechnology": "Biotechnology",
+                                "Health, Wellness and Fitness": "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care": "Hospital \u0026 Health Care",
+                                "Medical Devices": "Medical Devices",
+                                "Medical Practice": "Medical Practice",
+                                "Mental Health Care": "Mental Health Care",
+                                "Pharmaceuticals": "Pharmaceuticals",
+                                "Veterinary": "Veterinary",
+                                "Automotive": "Automotive",
+                                "Aviation \u0026 Aerospace": "Aviation \u0026 Aerospace",
+                                "Chemicals": "Chemicals",
+                                "Electrical/Electronic Manufacturing": "Electrical/Electronic Manufacturing",
+                                "Furniture": "Furniture",
+                                "Industrial Automation": "Industrial Automation",
+                                "Machinery": "Machinery",
+                                "Mechanical or Industrial Engineering": "Mechanical or Industrial Engineering",
+                                "Plastics": "Plastics",
+                                "Railroad Manufacture": "Railroad Manufacture",
+                                "Shipbuilding": "Shipbuilding",
+                                "Textiles": "Textiles",
+                                "Broadcast Media": "Broadcast Media",
+                                "Media Production": "Media Production",
+                                "Motion Pictures and Film": "Motion Pictures and Film",
+                                "Music": "Music",
+                                "Newspapers": "Newspapers",
+                                "Online Media": "Online Media",
+                                "Printing": "Printing",
+                                "Publishing": "Publishing",
+                                "Civic \u0026 Social Organization": "Civic \u0026 Social Organization",
+                                "Libraries": "Libraries",
+                                "Non-Profit Organization Management": "Non-Profit Organization Management",
+                                "Philanthropy": "Philanthropy",
+                                "Political Organization": "Political Organization",
+                                "Religious Institutions": "Religious Institutions",
+                                "Arts and Crafts": "Arts and Crafts",
+                                "Nanotechnology": "Nanotechnology",
+                                "Architecture \u0026 Planning": "Architecture \u0026 Planning",
+                                "Building Materials": "Building Materials",
+                                "Civil Engineering": "Civil Engineering",
+                                "Commercial Real Estate": "Commercial Real Estate",
+                                "Construction": "Construction",
+                                "Glass, Ceramics \u0026 Concrete": "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate": "Real Estate",
+                                "Apparel \u0026 Fashion": "Apparel \u0026 Fashion",
+                                "Cosmetics": "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry": "Luxury Goods \u0026 Jewelry",
+                                "Retail": "Retail",
+                                "Supermarkets": "Supermarkets",
+                                "Computer \u0026 Network Security": "Computer \u0026 Network Security",
+                                "Computer Software": "Computer Software",
+                                "Information Technology and Services": "Information Technology and Services",
+                                "Internet": "Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Wireless": "Wireless",
+                                "Airlines/Aviation": "Airlines/Aviation",
+                                "Logistics and Supply Chain": "Logistics and Supply Chain",
+                                "Maritime": "Maritime",
+                                "Package/Freight Delivery": "Package/Freight Delivery",
+                                "Packaging and Containers": "Packaging and Containers",
+                                "Warehousing": "Warehousing",
+                                "Transportation/Trucking/Railroad": "Transportation/Trucking/Railroad",
+                                "Entertainment": "Entertainment",
+                                "Fine Art": "Fine Art",
+                                "Gambling \u0026 Casinos": "Gambling \u0026 Casinos",
+                                "Hospitality": "Hospitality",
+                                "Leisure, Travel \u0026 Tourism": "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts": "Performing Arts",
+                                "Photography": "Photography",
+                                "Recreational Facilities and Services": "Recreational Facilities and Services",
+                                "Restaurants": "Restaurants",
+                                "Sporting Goods": "Sporting Goods",
+                                "Sports": "Sports",
+                                "Wine and Spirits": "Wine and Spirits",
+                                "Wholesale": "Wholesale"
+                              },
+                              "example": "Animation"
+                            },
+                            "description": "Subindustries of the lead company to exclude in the search"
+                          },
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "Dairy",
+                                "Farming",
+                                "Fishery",
+                                "Food \u0026 Beverages",
+                                "Food Production",
+                                "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products",
+                                "Ranching",
+                                "Tobacco",
+                                "Alternative Dispute Resolution",
+                                "Animation",
+                                "Business Supplies and Equipment",
+                                "Design",
+                                "Environmental Services",
+                                "Events Services",
+                                "Executive Office",
+                                "Facilities Services",
+                                "Fund-Raising",
+                                "Graphic Design",
+                                "Human Resources",
+                                "Import and Export",
+                                "Individual \u0026 Family Services",
+                                "Information Services",
+                                "International Trade and Development",
+                                "Law Practice",
+                                "Legal Services",
+                                "Management Consulting",
+                                "Market Research",
+                                "Marketing and Advertising",
+                                "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching",
+                                "Program Development",
+                                "Public Relations and Communications",
+                                "Public Safety",
+                                "Security and Investigations",
+                                "Staffing and Recruiting",
+                                "Think Tanks",
+                                "Translation and Localization",
+                                "Writing and Editing",
+                                "Computer Games",
+                                "Computer Hardware",
+                                "Computer Networking",
+                                "Consumer Electronics",
+                                "Semiconductors",
+                                "Consumer Goods",
+                                "Consumer Services",
+                                "Education Management",
+                                "E-Learning",
+                                "Higher Education",
+                                "Primary/Secondary Education",
+                                "Research",
+                                "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment",
+                                "Utilities",
+                                "Accounting",
+                                "Banking",
+                                "Capital Markets",
+                                "Financial Services",
+                                "Insurance",
+                                "Investment Banking",
+                                "Investment Management",
+                                "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space",
+                                "Government Administration",
+                                "Government Relations",
+                                "International Affairs",
+                                "Judiciary",
+                                "Law Enforcement",
+                                "Legislative Office",
+                                "Military",
+                                "Museums and Institutions",
+                                "Public Policy",
+                                "Alternative Medicine",
+                                "Biotechnology",
+                                "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care",
+                                "Medical Devices",
+                                "Medical Practice",
+                                "Mental Health Care",
+                                "Pharmaceuticals",
+                                "Veterinary",
+                                "Automotive",
+                                "Aviation \u0026 Aerospace",
+                                "Chemicals",
+                                "Electrical/Electronic Manufacturing",
+                                "Furniture",
+                                "Industrial Automation",
+                                "Machinery",
+                                "Mechanical or Industrial Engineering",
+                                "Plastics",
+                                "Railroad Manufacture",
+                                "Shipbuilding",
+                                "Textiles",
+                                "Broadcast Media",
+                                "Media Production",
+                                "Motion Pictures and Film",
+                                "Music",
+                                "Newspapers",
+                                "Online Media",
+                                "Printing",
+                                "Publishing",
+                                "Civic \u0026 Social Organization",
+                                "Libraries",
+                                "Non-Profit Organization Management",
+                                "Philanthropy",
+                                "Political Organization",
+                                "Religious Institutions",
+                                "Arts and Crafts",
+                                "Nanotechnology",
+                                "Architecture \u0026 Planning",
+                                "Building Materials",
+                                "Civil Engineering",
+                                "Commercial Real Estate",
+                                "Construction",
+                                "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate",
+                                "Apparel \u0026 Fashion",
+                                "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry",
+                                "Retail",
+                                "Supermarkets",
+                                "Computer \u0026 Network Security",
+                                "Computer Software",
+                                "Information Technology and Services",
+                                "Internet",
+                                "Telecommunications",
+                                "Wireless",
+                                "Airlines/Aviation",
+                                "Logistics and Supply Chain",
+                                "Maritime",
+                                "Package/Freight Delivery",
+                                "Packaging and Containers",
+                                "Warehousing",
+                                "Transportation/Trucking/Railroad",
+                                "Entertainment",
+                                "Fine Art",
+                                "Gambling \u0026 Casinos",
+                                "Hospitality",
+                                "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts",
+                                "Photography",
+                                "Recreational Facilities and Services",
+                                "Restaurants",
+                                "Sporting Goods",
+                                "Sports",
+                                "Wine and Spirits",
+                                "Wholesale"
+                              ],
+                              "x-enumDescriptions": {
+                                "Dairy": "Dairy",
+                                "Farming": "Farming",
+                                "Fishery": "Fishery",
+                                "Food \u0026 Beverages": "Food \u0026 Beverages",
+                                "Food Production": "Food Production",
+                                "Mining \u0026 Metals": "Mining \u0026 Metals",
+                                "Paper \u0026 Forest Products": "Paper \u0026 Forest Products",
+                                "Ranching": "Ranching",
+                                "Tobacco": "Tobacco",
+                                "Alternative Dispute Resolution": "Alternative Dispute Resolution",
+                                "Animation": "Animation",
+                                "Business Supplies and Equipment": "Business Supplies and Equipment",
+                                "Design": "Design",
+                                "Environmental Services": "Environmental Services",
+                                "Events Services": "Events Services",
+                                "Executive Office": "Executive Office",
+                                "Facilities Services": "Facilities Services",
+                                "Fund-Raising": "Fund-Raising",
+                                "Graphic Design": "Graphic Design",
+                                "Human Resources": "Human Resources",
+                                "Import and Export": "Import and Export",
+                                "Individual \u0026 Family Services": "Individual \u0026 Family Services",
+                                "Information Services": "Information Services",
+                                "International Trade and Development": "International Trade and Development",
+                                "Law Practice": "Law Practice",
+                                "Legal Services": "Legal Services",
+                                "Management Consulting": "Management Consulting",
+                                "Market Research": "Market Research",
+                                "Marketing and Advertising": "Marketing and Advertising",
+                                "Outsourcing/Offshoring": "Outsourcing/Offshoring",
+                                "Professional Training \u0026 Coaching": "Professional Training \u0026 Coaching",
+                                "Program Development": "Program Development",
+                                "Public Relations and Communications": "Public Relations and Communications",
+                                "Public Safety": "Public Safety",
+                                "Security and Investigations": "Security and Investigations",
+                                "Staffing and Recruiting": "Staffing and Recruiting",
+                                "Think Tanks": "Think Tanks",
+                                "Translation and Localization": "Translation and Localization",
+                                "Writing and Editing": "Writing and Editing",
+                                "Computer Games": "Computer Games",
+                                "Computer Hardware": "Computer Hardware",
+                                "Computer Networking": "Computer Networking",
+                                "Consumer Electronics": "Consumer Electronics",
+                                "Semiconductors": "Semiconductors",
+                                "Consumer Goods": "Consumer Goods",
+                                "Consumer Services": "Consumer Services",
+                                "Education Management": "Education Management",
+                                "E-Learning": "E-Learning",
+                                "Higher Education": "Higher Education",
+                                "Primary/Secondary Education": "Primary/Secondary Education",
+                                "Research": "Research",
+                                "Oil \u0026 Energy": "Oil \u0026 Energy",
+                                "Renewables \u0026 Environment": "Renewables \u0026 Environment",
+                                "Utilities": "Utilities",
+                                "Accounting": "Accounting",
+                                "Banking": "Banking",
+                                "Capital Markets": "Capital Markets",
+                                "Financial Services": "Financial Services",
+                                "Insurance": "Insurance",
+                                "Investment Banking": "Investment Banking",
+                                "Investment Management": "Investment Management",
+                                "Venture Capital \u0026 Private Equity": "Venture Capital \u0026 Private Equity",
+                                "Defense \u0026 Space": "Defense \u0026 Space",
+                                "Government Administration": "Government Administration",
+                                "Government Relations": "Government Relations",
+                                "International Affairs": "International Affairs",
+                                "Judiciary": "Judiciary",
+                                "Law Enforcement": "Law Enforcement",
+                                "Legislative Office": "Legislative Office",
+                                "Military": "Military",
+                                "Museums and Institutions": "Museums and Institutions",
+                                "Public Policy": "Public Policy",
+                                "Alternative Medicine": "Alternative Medicine",
+                                "Biotechnology": "Biotechnology",
+                                "Health, Wellness and Fitness": "Health, Wellness and Fitness",
+                                "Hospital \u0026 Health Care": "Hospital \u0026 Health Care",
+                                "Medical Devices": "Medical Devices",
+                                "Medical Practice": "Medical Practice",
+                                "Mental Health Care": "Mental Health Care",
+                                "Pharmaceuticals": "Pharmaceuticals",
+                                "Veterinary": "Veterinary",
+                                "Automotive": "Automotive",
+                                "Aviation \u0026 Aerospace": "Aviation \u0026 Aerospace",
+                                "Chemicals": "Chemicals",
+                                "Electrical/Electronic Manufacturing": "Electrical/Electronic Manufacturing",
+                                "Furniture": "Furniture",
+                                "Industrial Automation": "Industrial Automation",
+                                "Machinery": "Machinery",
+                                "Mechanical or Industrial Engineering": "Mechanical or Industrial Engineering",
+                                "Plastics": "Plastics",
+                                "Railroad Manufacture": "Railroad Manufacture",
+                                "Shipbuilding": "Shipbuilding",
+                                "Textiles": "Textiles",
+                                "Broadcast Media": "Broadcast Media",
+                                "Media Production": "Media Production",
+                                "Motion Pictures and Film": "Motion Pictures and Film",
+                                "Music": "Music",
+                                "Newspapers": "Newspapers",
+                                "Online Media": "Online Media",
+                                "Printing": "Printing",
+                                "Publishing": "Publishing",
+                                "Civic \u0026 Social Organization": "Civic \u0026 Social Organization",
+                                "Libraries": "Libraries",
+                                "Non-Profit Organization Management": "Non-Profit Organization Management",
+                                "Philanthropy": "Philanthropy",
+                                "Political Organization": "Political Organization",
+                                "Religious Institutions": "Religious Institutions",
+                                "Arts and Crafts": "Arts and Crafts",
+                                "Nanotechnology": "Nanotechnology",
+                                "Architecture \u0026 Planning": "Architecture \u0026 Planning",
+                                "Building Materials": "Building Materials",
+                                "Civil Engineering": "Civil Engineering",
+                                "Commercial Real Estate": "Commercial Real Estate",
+                                "Construction": "Construction",
+                                "Glass, Ceramics \u0026 Concrete": "Glass, Ceramics \u0026 Concrete",
+                                "Real Estate": "Real Estate",
+                                "Apparel \u0026 Fashion": "Apparel \u0026 Fashion",
+                                "Cosmetics": "Cosmetics",
+                                "Luxury Goods \u0026 Jewelry": "Luxury Goods \u0026 Jewelry",
+                                "Retail": "Retail",
+                                "Supermarkets": "Supermarkets",
+                                "Computer \u0026 Network Security": "Computer \u0026 Network Security",
+                                "Computer Software": "Computer Software",
+                                "Information Technology and Services": "Information Technology and Services",
+                                "Internet": "Internet",
+                                "Telecommunications": "Telecommunications",
+                                "Wireless": "Wireless",
+                                "Airlines/Aviation": "Airlines/Aviation",
+                                "Logistics and Supply Chain": "Logistics and Supply Chain",
+                                "Maritime": "Maritime",
+                                "Package/Freight Delivery": "Package/Freight Delivery",
+                                "Packaging and Containers": "Packaging and Containers",
+                                "Warehousing": "Warehousing",
+                                "Transportation/Trucking/Railroad": "Transportation/Trucking/Railroad",
+                                "Entertainment": "Entertainment",
+                                "Fine Art": "Fine Art",
+                                "Gambling \u0026 Casinos": "Gambling \u0026 Casinos",
+                                "Hospitality": "Hospitality",
+                                "Leisure, Travel \u0026 Tourism": "Leisure, Travel \u0026 Tourism",
+                                "Performing Arts": "Performing Arts",
+                                "Photography": "Photography",
+                                "Recreational Facilities and Services": "Recreational Facilities and Services",
+                                "Restaurants": "Restaurants",
+                                "Sporting Goods": "Sporting Goods",
+                                "Sports": "Sports",
+                                "Wine and Spirits": "Wine and Spirits",
+                                "Wholesale": "Wholesale"
+                              },
+                              "example": "Animation"
+                            },
+                            "description": "Subindustries of the lead company to include in the search"
+                          }
+                        }
+                      },
+                      "domains": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "Domains of the lead company to include in the search",
+                          "example": "google.com"
+                        }
+                      },
+                      "funding_type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "angel",
+                            "seed",
+                            "pre_seed",
+                            "series_a",
+                            "pre_series_a",
+                            "series_b",
+                            "pre_series_b",
+                            "series_c",
+                            "pre_series_c",
+                            "series_d",
+                            "pre_series_d",
+                            "series_e",
+                            "pre_series_e",
+                            "series_f",
+                            "pre_series_f",
+                            "series_g",
+                            "pre_series_g",
+                            "series_h",
+                            "pre_series_h",
+                            "series_i",
+                            "pre_series_i",
+                            "series_j",
+                            "pre_series_j"
+                          ],
+                          "x-enumDescriptions": {
+                            "angel": "Angel",
+                            "seed": "Seed",
+                            "pre_seed": "Pre-Seed",
+                            "series_a": "Series A",
+                            "series_b": "Series B",
+                            "series_c": "Series C",
+                            "series_d": "Series D",
+                            "series_e": "Series E",
+                            "series_f": "Series F",
+                            "series_g": "Series G",
+                            "series_h": "Series H",
+                            "series_i": "Series I",
+                            "series_j": "Series J",
+                            "pre_series_a": "Pre-Series A",
+                            "pre_series_b": "Pre-Series B",
+                            "pre_series_c": "Pre-Series C",
+                            "pre_series_d": "Pre-Series D",
+                            "pre_series_e": "Pre-Series E",
+                            "pre_series_f": "Pre-Series F",
+                            "pre_series_g": "Pre-Series G",
+                            "pre_series_h": "Pre-Series H",
+                            "pre_series_i": "Pre-Series I",
+                            "pre_series_j": "Pre-Series J"
+                          },
+                          "description": "Funding types of the lead company to include in the search",
+                          "example": "angel"
+                        }
+                      },
+                      "skip_owned_leads": {
+                        "type": "boolean",
+                        "description": "If set, the lead finder will skip leads that are owned by the user",
+                        "example": true
+                      },
+                      "show_one_lead_per_company": {
+                        "type": "boolean",
+                        "description": "If set, the lead finder will show only one lead per company",
+                        "example": true
+                      }
+                    }
+                  },
+                  "skip_owned_leads": {
+                    "type": "boolean",
+                    "description": "Skip leads that belong to the current workspace.",
+                    "example": true
+                  },
+                  "show_one_lead_per_company": {
+                    "type": "boolean",
+                    "description": "Return only one lead per company.",
+                    "example": true
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "number_of_leads": {
+                      "type": "number",
+                      "description": "Number of leads found for this specific search. A value of 0 indicates that no leads match the criteria. Values greater than 1,000,000 are returned as 1,000,000.",
+                      "example": 100
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/email-verification": {
       "post": {
         "operationId": "createEmailVerification",
@@ -32759,6 +34804,20 @@
                     ],
                     "description": "Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)",
                     "example": 1
+                  },
+                  "headers": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Optional HTTP headers to include when delivering webhook payloads (key-value pairs)",
+                    "additionalProperties": {
+                      "type": "string",
+                      "example": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+                    },
+                    "example": {
+                      "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+                    }
                   }
                 },
                 "required": [
@@ -33101,6 +35160,20 @@
                     ],
                     "description": "Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)",
                     "example": 1
+                  },
+                  "headers": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Optional HTTP headers to include when delivering webhook payloads (key-value pairs)",
+                    "additionalProperties": {
+                      "type": "string",
+                      "example": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+                    },
+                    "example": {
+                      "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+                    }
                   }
                 },
                 "required": [],

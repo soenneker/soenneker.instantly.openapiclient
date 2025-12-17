@@ -76,6 +76,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_queries> Queries { get; set; }
 #endif
+        /// <summary>Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved.</summary>
+        public bool? ResetInterestStatus { get; set; }
         /// <summary>A search string to search the leads against - can be First Name, Last Name, or Email</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,6 +133,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_id", n => { ListId = n.GetGuidValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_queries>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_queries.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "reset_interest_status", n => { ResetInterestStatus = n.GetBoolValue(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "skip_leads_in_verification", n => { SkipLeadsInVerification = n.GetBoolValue(); } },
                 { "to_campaign_id", n => { ToCampaignId = n.GetGuidValue(); } },
@@ -160,6 +163,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteGuidValue("list_id", ListId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_queries>("queries", Queries);
+            writer.WriteBoolValue("reset_interest_status", ResetInterestStatus);
             writer.WriteStringValue("search", Search);
             writer.WriteBoolValue("skip_leads_in_verification", SkipLeadsInVerification);
             writer.WriteGuidValue("to_campaign_id", ToCampaignId);
