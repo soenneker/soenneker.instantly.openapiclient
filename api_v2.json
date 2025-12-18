@@ -4835,7 +4835,9 @@
               9,
               10,
               11,
-              12
+              12,
+              18,
+              19
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -4849,7 +4851,9 @@
               "9": "Lead added",
               "10": "Lead merged",
               "11": "Campaign update",
-              "12": "Subsequence update"
+              "12": "Subsequence update",
+              "18": "Webhook created",
+              "19": "Webhook updated"
             },
             "example": 1
           },
@@ -4899,6 +4903,16 @@
               "string"
             ],
             "description": "Associated campaign ID if applicable",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "webhook_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Associated webhook ID if applicable",
             "readOnly": true,
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"

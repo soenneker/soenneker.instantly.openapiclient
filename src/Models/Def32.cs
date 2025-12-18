@@ -65,6 +65,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string UserName { get; private set; }
 #endif
+        /// <summary>Associated webhook ID if applicable</summary>
+        public Guid? WebhookId { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -97,6 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
+                { "webhook_id", n => { WebhookId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
