@@ -8464,6 +8464,147 @@
         }
       }
     },
+    "/api/v2/accounts/move": {
+      "post": {
+        "operationId": "moveAccounts",
+        "summary": "Move accounts between workspaces",
+        "tags": [
+          "Account"
+        ],
+        "description": "Move accounts between workspaces. IMPORTANT: this endpoint should be called ONLY with an ADMIN workspace API key (check the workspace group docs: https://developer.instantly.ai/workspace-group), and both the source and destination workspaces must have the same admin workspace.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emails": {
+                    "type": "array",
+                    "description": "Array of email addresses of the accounts to move",
+                    "items": {
+                      "type": "string",
+                      "description": "Email address of the account to move",
+                      "example": "user@example.com"
+                    },
+                    "minItems": 1
+                  },
+                  "source_workspace_id": {
+                    "type": "string",
+                    "description": "ID of the source workspace (the workspace that the accounts are currently in)",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "destination_workspace_id": {
+                    "type": "string",
+                    "description": "ID of the destination workspace (the workspace that the accounts will be moved to)",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  }
+                },
+                "required": [
+                  "emails",
+                  "source_workspace_id",
+                  "destination_workspace_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "success"
+                      ],
+                      "x-enumDescriptions": {
+                        "success": "The accounts were moved successfully "
+                      },
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/api-keys": {
       "post": {
         "operationId": "createAPIKey",
