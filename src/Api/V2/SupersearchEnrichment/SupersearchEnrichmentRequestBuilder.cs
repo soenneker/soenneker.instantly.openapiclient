@@ -8,6 +8,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsF
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +42,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder History
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The previewLeadsFromSupersearch property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchRequestBuilder PreviewLeadsFromSupersearch
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The run property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunRequestBuilder Run

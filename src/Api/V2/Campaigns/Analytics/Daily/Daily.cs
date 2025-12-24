@@ -26,6 +26,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
 #else
         public string Date { get; set; }
 #endif
+        /// <summary>The total number of new leads contacted that day</summary>
+        public int? NewLeadsContacted { get; set; }
         /// <summary>The total number of opened emails</summary>
         public int? Opened { get; set; }
         /// <summary>The total number of unique opportunities created from the campaign on that day</summary>
@@ -74,6 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
                 { "clicks", n => { Clicks = n.GetIntValue(); } },
                 { "contacted", n => { Contacted = n.GetIntValue(); } },
                 { "date", n => { Date = n.GetStringValue(); } },
+                { "new_leads_contacted", n => { NewLeadsContacted = n.GetIntValue(); } },
                 { "opened", n => { Opened = n.GetIntValue(); } },
                 { "opportunities", n => { Opportunities = n.GetIntValue(); } },
                 { "replies", n => { Replies = n.GetIntValue(); } },
@@ -96,6 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
             writer.WriteIntValue("clicks", Clicks);
             writer.WriteIntValue("contacted", Contacted);
             writer.WriteStringValue("date", Date);
+            writer.WriteIntValue("new_leads_contacted", NewLeadsContacted);
             writer.WriteIntValue("opened", Opened);
             writer.WriteIntValue("opportunities", Opportunities);
             writer.WriteIntValue("replies", Replies);
