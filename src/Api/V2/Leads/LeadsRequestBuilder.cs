@@ -89,6 +89,33 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
         {
         }
         /// <summary>
+        /// Delete multiple leads from a campaign or list based on filters. You must provide either `campaign_id` or `list_id`. Optionally filter by status or specific IDs.Requires one of the following scopes: `leads:delete`, `leads:all`, `all:delete`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Leads401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Leads429Error">When receiving a 429 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteResponse?> DeleteAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteResponse> DeleteAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Leads401Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Leads429Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def11"/></returns>
@@ -116,6 +143,28 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Def11429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def11>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def11.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Delete multiple leads from a campaign or list based on filters. You must provide either `campaign_id` or `list_id`. Optionally filter by status or specific IDs.Requires one of the following scopes: `leads:delete`, `leads:all`, `all:delete`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
         }
         /// <summary>
         /// Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`

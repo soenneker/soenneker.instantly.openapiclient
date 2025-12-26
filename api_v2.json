@@ -25271,6 +25271,175 @@
             }
           }
         }
+      },
+      "delete": {
+        "operationId": "bulkDeleteLeads",
+        "summary": "Delete leads in bulk",
+        "tags": [
+          "Lead"
+        ],
+        "description": "Delete multiple leads from a campaign or list based on filters. You must provide either \u0060campaign_id\u0060 or \u0060list_id\u0060. Optionally filter by status or specific IDs.\n\n\nRequires one of the following scopes: \u0060leads:delete\u0060, \u0060leads:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "campaign_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the campaign to delete leads from. Required if \u0060list_id\u0060 is not provided.",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "list_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the list to delete leads from. Required if \u0060campaign_id\u0060 is not provided.",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "status": {
+                    "type": "number",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      -1,
+                      -2,
+                      -3
+                    ],
+                    "x-enumDescriptions": {
+                      "1": "Active",
+                      "2": "Paused",
+                      "3": "Completed",
+                      "-1": "Bounced",
+                      "-2": "Unsubscribed",
+                      "-3": "Skipped"
+                    },
+                    "description": "Optional status filter. Only delete leads with this status.",
+                    "example": 3
+                  },
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "description": "Optional array of specific lead IDs to delete. When provided, only these leads will be deleted from the specified campaign or list."
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10000,
+                    "description": "Maximum number of leads to delete. If not specified, all matching leads will be deleted.",
+                    "example": 100
+                  }
+                },
+                "anyOf": [
+                  {
+                    "required": [
+                      "campaign_id"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "list_id"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "description": "Number of leads successfully deleted.",
+                      "example": 5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v2/leads/list": {
