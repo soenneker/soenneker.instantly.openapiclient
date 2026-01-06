@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.PlanDetails;
+using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.SubscriptionDetails;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.PlanDetails.PlanDetailsRequestBuilder PlanDetails
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.PlanDetails.PlanDetailsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The subscriptionDetails property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.SubscriptionDetails.SubscriptionDetailsRequestBuilder SubscriptionDetails
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.SubscriptionDetails.SubscriptionDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.WorkspaceBillingRequestBuilder"/> and sets the default values.

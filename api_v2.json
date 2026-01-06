@@ -3165,7 +3165,8 @@
               0,
               -1,
               -2,
-              -3
+              -3,
+              -4
             ],
             "x-enumDescriptions": {
               "0": "Out of Office",
@@ -3175,7 +3176,8 @@
               "4": "Closed",
               "-1": "Not Interested",
               "-2": "Wrong Person",
-              "-3": "Lost"
+              "-3": "Lost",
+              "-4": "No Show"
             },
             "example": 1
           },
@@ -4463,7 +4465,8 @@
                     0,
                     -1,
                     -2,
-                    -3
+                    -3,
+                    -4
                   ],
                   "x-enumDescriptions": {
                     "0": "Out of Office",
@@ -4473,7 +4476,8 @@
                     "4": "Closed",
                     "-1": "Not Interested",
                     "-2": "Wrong Person",
-                    "-3": "Lost"
+                    "-3": "Lost",
+                    "-4": "No Show"
                   },
                   "example": 1
                 }
@@ -25059,7 +25063,8 @@
                       0,
                       -1,
                       -2,
-                      -3
+                      -3,
+                      -4
                     ],
                     "x-enumDescriptions": {
                       "0": "Out of Office",
@@ -25069,7 +25074,8 @@
                       "4": "Closed",
                       "-1": "Not Interested",
                       "-2": "Wrong Person",
-                      "-3": "Lost"
+                      "-3": "Lost",
+                      "-4": "No Show"
                     },
                     "example": 1
                   },
@@ -25477,6 +25483,7 @@
                       "FILTER_LEAD_OUT_OF_OFFICE": "Filter for leads out of office",
                       "FILTER_LEAD_WRONG_PERSON": "Filter for wrong person leads",
                       "FILTER_LEAD_LOST": "Filter for lost leads",
+                      "FILTER_LEAD_NO_SHOW": "Filter for no show leads",
                       "FILTER_LEAD_CUSTOM_LABEL_POSITIVE": "Filter for leads with positive custom label",
                       "FILTER_LEAD_CUSTOM_LABEL_NEGATIVE": "Filter for leads with negative custom label",
                       "FILTER_VAL_BOUNCED": "Filter for bounced leads",
@@ -26013,7 +26020,8 @@
                       0,
                       -1,
                       -2,
-                      -3
+                      -3,
+                      -4
                     ],
                     "x-enumDescriptions": {
                       "0": "Out of Office",
@@ -26023,7 +26031,8 @@
                       "4": "Closed",
                       "-1": "Not Interested",
                       "-2": "Wrong Person",
-                      "-3": "Lost"
+                      "-3": "Lost",
+                      "-4": "No Show"
                     },
                     "example": 1
                   },
@@ -26779,6 +26788,7 @@
                       "FILTER_LEAD_OUT_OF_OFFICE",
                       "FILTER_LEAD_WRONG_PERSON",
                       "FILTER_LEAD_LOST",
+                      "FILTER_LEAD_NO_SHOW",
                       "FILTER_LEAD_CUSTOM_LABEL_POSITIVE",
                       "FILTER_LEAD_CUSTOM_LABEL_NEGATIVE",
                       "FILTER_VAL_BOUNCED",
@@ -27087,6 +27097,7 @@
                       "FILTER_LEAD_OUT_OF_OFFICE": "Filter for leads out of office",
                       "FILTER_LEAD_WRONG_PERSON": "Filter for wrong person leads",
                       "FILTER_LEAD_LOST": "Filter for lost leads",
+                      "FILTER_LEAD_NO_SHOW": "Filter for no show leads",
                       "FILTER_LEAD_CUSTOM_LABEL_POSITIVE": "Filter for leads with positive custom label",
                       "FILTER_LEAD_CUSTOM_LABEL_NEGATIVE": "Filter for leads with negative custom label",
                       "FILTER_VAL_BOUNCED": "Filter for bounced leads",
@@ -27636,7 +27647,8 @@
                             0,
                             -1,
                             -2,
-                            -3
+                            -3,
+                            -4
                           ],
                           "x-enumDescriptions": {
                             "0": "Out of Office",
@@ -27646,7 +27658,8 @@
                             "4": "Closed",
                             "-1": "Not Interested",
                             "-2": "Wrong Person",
-                            "-3": "Lost"
+                            "-3": "Lost",
+                            "-4": "No Show"
                           },
                           "example": 1
                         },
@@ -28002,7 +28015,8 @@
                             0,
                             -1,
                             -2,
-                            -3
+                            -3,
+                            -4
                           ],
                           "x-enumDescriptions": {
                             "0": "Out of Office",
@@ -28012,7 +28026,8 @@
                             "4": "Closed",
                             "-1": "Not Interested",
                             "-2": "Wrong Person",
-                            "-3": "Lost"
+                            "-3": "Lost",
+                            "-4": "No Show"
                           },
                           "example": 1
                         }
@@ -37540,6 +37555,233 @@
                           }
                         }
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/workspace-billing/subscription-details": {
+      "get": {
+        "operationId": "getWorkspaceSubscriptionDetails",
+        "summary": "Get workspace subscription details",
+        "tags": [
+          "WorkspaceBilling"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspace_billing:read\u0060, \u0060workspace_billing:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "subscriptions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "workspace_id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the workspace",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                          },
+                          "interval": {
+                            "type": "string",
+                            "enum": [
+                              "month",
+                              "year"
+                            ],
+                            "description": "The billing interval of the subscription",
+                            "example": "month"
+                          },
+                          "quantity": {
+                            "type": "number",
+                            "description": "The quantity of subscribed items",
+                            "example": 1
+                          },
+                          "product_id": {
+                            "type": "string",
+                            "description": "The Id of outreach plan subscribed to",
+                            "enum": [
+                              "pid_ls_v1",
+                              "pid_hg_v1",
+                              "pid_g_v1",
+                              "pid_nic_v1",
+                              "pid_nic_v1_annual",
+                              "pid_gic_v1",
+                              "pid_gic_v1_annual",
+                              "pid_sic_v1",
+                              "pid_sic_v1_annual",
+                              "pid_hic_v1",
+                              "pid_hic_v1_annual",
+                              "pid_verify_v1_monthly",
+                              "pid_hv_v1",
+                              "pid_hv_v1_annual",
+                              "pid_lsv_v1",
+                              "pid_lsv_v1_annual",
+                              "pid_crm_hg",
+                              "pid_crm_g",
+                              "pid_ip_g",
+                              "pid_ip_hg",
+                              "pid_addon_25kl_v1",
+                              "pid_addon_lf_10k_v1",
+                              "pid_addon_ic_50k_v1",
+                              "pid_addon_lf_10k_v1_annual",
+                              "pid_addon_ic_50k_v1_annual"
+                            ],
+                            "x-enumDescriptions": {
+                              "pid_g_v1": "Growth Plan",
+                              "pid_hg_v1": "Hypergrowth Plan",
+                              "pid_ls_v1": "LightSpeed Plan",
+                              "pid_nic_v1": "Instantly Credits Nano",
+                              "pid_nic_v1_annual": "Instantly Credits Nano Annual",
+                              "pid_gic_v1": "Instantly Credits Growth",
+                              "pid_gic_v1_annual": "Instantly Credits Growth Annual",
+                              "pid_sic_v1": "Instantly Credits Supersonic",
+                              "pid_sic_v1_annual": "Instantly Credits Supersonic Annual",
+                              "pid_hic_v1": "Instantly Credits Hyper Leads",
+                              "pid_hic_v1_annual": "Instantly Credits Hyper Leads Annual",
+                              "pid_verify_v1_monthly": "Verification Monthly",
+                              "pid_hv_v1": "Website Visitor Hypergrowth Monthly",
+                              "pid_hv_v1_annual": "Website Visitor Hypergrowth Annual",
+                              "pid_lsv_v1": "Website Visitor Lightspeed Monthly",
+                              "pid_lsv_v1_annual": "Website Visitor Lightspeed Annual",
+                              "pid_crm_hg": "CRM",
+                              "pid_crm_g": "Growth CRM",
+                              "pid_ip_g": "Inbox Placement Growth Monthly",
+                              "pid_ip_hg": "Inbox Placement Hypergrowth Monthly",
+                              "pid_addon_25kl_v1": "Addon Lead 25K",
+                              "pid_addon_lf_10k_v1": "Addon Lead Finder",
+                              "pid_addon_ic_50k_v1": "Addon Instantly Credits",
+                              "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
+                              "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+                            },
+                            "example": "pid_g_v1"
+                          },
+                          "product_type": {
+                            "type": "string",
+                            "enum": [
+                              "prt_outreach",
+                              "prt_leadfinder"
+                            ],
+                            "description": "The type of product subscribed to",
+                            "example": "prt_outreach"
+                          },
+                          "plan_type": {
+                            "type": "string",
+                            "enum": [
+                              "plt_addon",
+                              "plt_primary"
+                            ],
+                            "description": "The type of plan - either primary plan or addon",
+                            "example": "plt_primary"
+                          },
+                          "current_period_end": {
+                            "type": "number",
+                            "description": "Unix timestamp when the current billing period ends",
+                            "example": 1704067200
+                          },
+                          "cancel_at_time": {
+                            "type": [
+                              "null",
+                              "number"
+                            ],
+                            "description": "Unix timestamp when the subscription will be canceled, null if not scheduled for cancellation",
+                            "example": 1704067200
+                          },
+                          "price_in_dollars": {
+                            "type": "number",
+                            "description": "The price of the subscription in dollars",
+                            "example": 97
+                          },
+                          "price_id": {
+                            "type": "string",
+                            "description": "The Stripe price ID associated with this subscription",
+                            "example": "price_H5UMXtIFH7Rh9K"
+                          }
+                        }
+                      }
+                    },
+                    "all_subs_cancelled": {
+                      "type": "boolean",
+                      "description": "Indicates whether all subscriptions are either already canceled or scheduled to be canceled at the end of their current billing cycles",
+                      "example": false
                     }
                   }
                 }

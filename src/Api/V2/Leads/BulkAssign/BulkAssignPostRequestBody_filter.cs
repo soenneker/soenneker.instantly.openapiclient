@@ -59,6 +59,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
         #pragma warning disable CS1591
         FILTER_LEAD_LOST,
         #pragma warning restore CS1591
+        [EnumMember(Value = "FILTER_LEAD_NO_SHOW")]
+        #pragma warning disable CS1591
+        FILTER_LEAD_NO_SHOW,
+        #pragma warning restore CS1591
         [EnumMember(Value = "FILTER_LEAD_CUSTOM_LABEL_POSITIVE")]
         #pragma warning disable CS1591
         FILTER_LEAD_CUSTOM_LABEL_POSITIVE,
