@@ -206,15 +206,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("starting_after")]
-            public string? StartingAfter { get; set; }
-#nullable restore
-#else
-            [QueryParameter("starting_after")]
-            public string StartingAfter { get; set; }
-#endif
+            public DateTimeOffset? StartingAfter { get; set; }
             [QueryParameter("status")]
             public double? Status { get; set; }
             /// <summary>Filter accounts by tag ids. Returns accounts that have any of the specified tags assigned. You can specify multiple tag ids by separating them with a comma.</summary>
