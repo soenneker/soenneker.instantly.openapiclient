@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Campaign ID</summary>
         public Guid? CampaignId { get; set; }
         /// <summary>Whether to send emails one by one or all together</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def5_delivery_mode? DeliveryMode { get; set; }
+        public double? DeliveryMode { get; set; }
         /// <summary>Description of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -155,7 +155,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations>(global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
-                { "delivery_mode", n => { DeliveryMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5_delivery_mode>(); } },
+                { "delivery_mode", n => { DeliveryMode = n.GetDoubleValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "email_body", n => { EmailBody = n.GetStringValue(); } },
                 { "email_subject", n => { EmailSubject = n.GetStringValue(); } },
@@ -186,7 +186,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations>("automations", Automations);
             writer.WriteGuidValue("campaign_id", CampaignId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5_delivery_mode>("delivery_mode", DeliveryMode);
+            writer.WriteDoubleValue("delivery_mode", DeliveryMode);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("email_body", EmailBody);
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);

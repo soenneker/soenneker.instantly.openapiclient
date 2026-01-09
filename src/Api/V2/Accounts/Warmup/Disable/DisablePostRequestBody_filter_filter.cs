@@ -43,9 +43,5 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
         #pragma warning disable CS1591
         ACC_FILTER_W_ERROR,
         #pragma warning restore CS1591
-        [EnumMember(Value = "null")]
-        #pragma warning disable CS1591
-        Null,
-        #pragma warning restore CS1591
     }
 }
