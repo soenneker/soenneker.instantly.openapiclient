@@ -19,6 +19,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.Subscription
         #pragma warning disable CS1591
         Pid_g_v1,
         #pragma warning restore CS1591
+        [EnumMember(Value = "pid_g_v2")]
+        #pragma warning disable CS1591
+        Pid_g_v2,
+        #pragma warning restore CS1591
         [EnumMember(Value = "pid_nic_v1")]
         #pragma warning disable CS1591
         Pid_nic_v1,

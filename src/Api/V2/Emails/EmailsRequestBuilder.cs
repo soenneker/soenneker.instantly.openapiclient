@@ -172,7 +172,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>Whether the email is unread.</summary>
             [QueryParameter("is_unread")]
             public bool? IsUnread { get; set; }
-            /// <summary>The ID of the lead to filter emails by.</summary>
+            /// <summary>The email of the lead to filter emails by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("lead")]

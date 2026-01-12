@@ -18877,7 +18877,7 @@
             "in": "query",
             "name": "lead",
             "required": false,
-            "description": "The ID of the lead to filter emails by."
+            "description": "The email of the lead to filter emails by."
           },
           {
             "schema": {
@@ -37683,6 +37683,7 @@
                               "pid_ls_v1",
                               "pid_hg_v1",
                               "pid_g_v1",
+                              "pid_g_v2",
                               "pid_nic_v1",
                               "pid_nic_v1_annual",
                               "pid_gic_v1",
@@ -37708,6 +37709,7 @@
                             ],
                             "x-enumDescriptions": {
                               "pid_g_v1": "Growth Plan",
+                              "pid_g_v2": "Growth Plan V2",
                               "pid_hg_v1": "Hypergrowth Plan",
                               "pid_ls_v1": "LightSpeed Plan",
                               "pid_nic_v1": "Instantly Credits Nano",
