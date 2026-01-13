@@ -75,6 +75,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Lead_wrong_person,
         #pragma warning restore CS1591
+        [EnumMember(Value = "lead_no_show")]
+        #pragma warning disable CS1591
+        Lead_no_show,
+        #pragma warning restore CS1591
         [EnumMember(Value = "supersearch_enrichment_completed")]
         #pragma warning disable CS1591
         Supersearch_enrichment_completed,

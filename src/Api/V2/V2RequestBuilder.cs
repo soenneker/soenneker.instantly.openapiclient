@@ -21,6 +21,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents;
@@ -135,6 +136,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsRequestBuilder Leads
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauth property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.OauthRequestBuilder Oauth
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The subsequences property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.SubsequencesRequestBuilder Subsequences

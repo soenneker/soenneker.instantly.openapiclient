@@ -5038,6 +5038,7 @@
               "lead_closed",
               "lead_out_of_office",
               "lead_wrong_person",
+              "lead_no_show",
               "supersearch_enrichment_completed"
             ],
             "example": "email_sent"
@@ -27972,6 +27973,141 @@
         }
       }
     },
+    "/api/v2/oauth/google/init": {
+      "post": {
+        "operationId": "initGoogleOAuth",
+        "summary": "Initialize Google OAuth",
+        "tags": [
+          "OAuth"
+        ],
+        "description": "Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "session_id": {
+                      "type": "string",
+                      "description": "Session ID for polling status"
+                    },
+                    "auth_url": {
+                      "type": "string",
+                      "description": "Google authorization URL to redirect user to"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Session expiry time (10 minutes from creation)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/oauth/microsoft/init": {
+      "post": {
+        "operationId": "initMicrosoftOAuth",
+        "summary": "Initialize Microsoft OAuth",
+        "tags": [
+          "OAuth"
+        ],
+        "description": "Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "session_id": {
+                      "type": "string",
+                      "description": "Session ID for polling status"
+                    },
+                    "auth_url": {
+                      "type": "string",
+                      "description": "Microsoft authorization URL to redirect user to"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Session expiry time (10 minutes from creation)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/oauth/session/status/{sessionId}": {
+      "get": {
+        "operationId": "getOAuthSessionStatus",
+        "summary": "Get OAuth Session Status",
+        "tags": [
+          "OAuth"
+        ],
+        "description": "Poll this endpoint to check the OAuth session result. Works for both Google and Microsoft OAuth sessions. Returns pending while waiting, success with account details when complete, or error if something went wrong. Sessions expire after 10 minutes.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "description": "Session ID from init response"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "pending",
+                        "success",
+                        "error",
+                        "expired"
+                      ],
+                      "description": "Current status of the OAuth session"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email of the connected account (on success)"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the account owner (on success)"
+                    },
+                    "error": {
+                      "type": "string",
+                      "description": "Error code (on error)"
+                    },
+                    "error_description": {
+                      "type": "string",
+                      "description": "Human-readable error description (on error)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/subsequences": {
       "post": {
         "operationId": "createCampaignSubsequence",
@@ -36590,6 +36726,7 @@
                       "lead_closed",
                       "lead_out_of_office",
                       "lead_wrong_person",
+                      "lead_no_show",
                       "supersearch_enrichment_completed"
                     ],
                     "example": "email_sent"
@@ -36946,6 +37083,7 @@
                       "lead_closed",
                       "lead_out_of_office",
                       "lead_wrong_person",
+                      "lead_no_show",
                       "supersearch_enrichment_completed"
                     ],
                     "example": "email_sent"
@@ -40139,6 +40277,11 @@
       "name": "Analytics",
       "description": "Endpoints related to analytics",
       "x-displayName": "Analytics"
+    },
+    {
+      "name": "OAuth",
+      "description": "OAuth authentication endpoints for connecting Google and Microsoft email accounts",
+      "x-displayName": "OAuth"
     },
     {
       "name": "Account",
