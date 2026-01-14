@@ -38,6 +38,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item
         public bool? RemoveTrackingDomain { get; set; }
         /// <summary>The gap between emails sent from this account in minutes (minimum wait time when used with multiple campaigns)</summary>
         public double? SendingGap { get; set; }
+        /// <summary>Email signature for the account</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Signature { get; set; }
+#nullable restore
+#else
+        public string Signature { get; set; }
+#endif
         /// <summary>The skip_cname_check property</summary>
         public bool? SkipCnameCheck { get; set; }
         /// <summary>Tracking domain</summary>
@@ -89,6 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "remove_tracking_domain", n => { RemoveTrackingDomain = n.GetBoolValue(); } },
                 { "sending_gap", n => { SendingGap = n.GetDoubleValue(); } },
+                { "signature", n => { Signature = n.GetStringValue(); } },
                 { "skip_cname_check", n => { SkipCnameCheck = n.GetBoolValue(); } },
                 { "tracking_domain_name", n => { TrackingDomainName = n.GetStringValue(); } },
                 { "tracking_domain_status", n => { TrackingDomainStatus = n.GetStringValue(); } },
@@ -109,6 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item
             writer.WriteStringValue("last_name", LastName);
             writer.WriteBoolValue("remove_tracking_domain", RemoveTrackingDomain);
             writer.WriteDoubleValue("sending_gap", SendingGap);
+            writer.WriteStringValue("signature", Signature);
             writer.WriteBoolValue("skip_cname_check", SkipCnameCheck);
             writer.WriteStringValue("tracking_domain_name", TrackingDomainName);
             writer.WriteStringValue("tracking_domain_status", TrackingDomainStatus);

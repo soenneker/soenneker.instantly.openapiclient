@@ -59,6 +59,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? SendingGap { get; set; }
         /// <summary>Whether account setup is pending</summary>
         public bool? SetupPending { get; private set; }
+        /// <summary>Email signature for the account</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Signature { get; set; }
+#nullable restore
+#else
+        public string Signature { get; set; }
+#endif
         /// <summary>Current status of the account</summary>
         public double? Status { get; private set; }
         /// <summary>Status message for the account</summary>
@@ -139,6 +147,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "provider_code", n => { ProviderCode = n.GetDoubleValue(); } },
                 { "sending_gap", n => { SendingGap = n.GetDoubleValue(); } },
                 { "setup_pending", n => { SetupPending = n.GetBoolValue(); } },
+                { "signature", n => { Signature = n.GetStringValue(); } },
                 { "stat_warmup_score", n => { StatWarmupScore = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "status_message", n => { StatusMessage = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0_status_message>(global::Soenneker.Instantly.OpenApiClient.Models.Def0_status_message.CreateFromDiscriminatorValue); } },
@@ -168,6 +177,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("last_name", LastName);
             writer.WriteDoubleValue("provider_code", ProviderCode);
             writer.WriteDoubleValue("sending_gap", SendingGap);
+            writer.WriteStringValue("signature", Signature);
             writer.WriteStringValue("tracking_domain_name", TrackingDomainName);
             writer.WriteStringValue("tracking_domain_status", TrackingDomainStatus);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0_warmup>("warmup", Warmup);

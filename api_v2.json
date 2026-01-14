@@ -348,6 +348,14 @@
             "minimum": 0,
             "maximum": 1440,
             "example": 10
+          },
+          "signature": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Email signature for the account",
+            "example": "Best regards, John Doe"
           }
         },
         "required": [
@@ -6104,6 +6112,14 @@
                     "maximum": 1440,
                     "example": 10
                   },
+                  "signature": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Email signature for the account",
+                    "example": "Best regards, John Doe"
+                  },
                   "imap_username": {
                     "type": "string",
                     "example": "username"
@@ -6769,6 +6785,14 @@
                     "minimum": 0,
                     "maximum": 1440,
                     "example": 10
+                  },
+                  "signature": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Email signature for the account",
+                    "example": "Best regards, John Doe"
                   },
                   "skip_cname_check": {
                     "type": "boolean",
@@ -40183,6 +40207,124 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/def-20"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/workspaces/create": {
+      "post": {
+        "operationId": "createWorkspace",
+        "summary": "Create a new workspace",
+        "tags": [
+          "Workspace"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspaces:update\u0060, \u0060workspaces:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The workspace name",
+                    "example": "My Workspace"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "1234567-8901234-5678901"
+                    }
+                  }
                 }
               }
             }

@@ -81,6 +81,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
 #endif
         /// <summary>The gap between emails sent from this account in minutes (minimum wait time when used with multiple campaigns)</summary>
         public double? SendingGap { get; set; }
+        /// <summary>Email signature for the account</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Signature { get; set; }
+#nullable restore
+#else
+        public string Signature { get; set; }
+#endif
         /// <summary>The skip_cname_check property</summary>
         public bool? SkipCnameCheck { get; set; }
         /// <summary>The smtp_host property</summary>
@@ -172,6 +180,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
                 { "provider_code", n => { ProviderCode = n.GetDoubleValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "sending_gap", n => { SendingGap = n.GetDoubleValue(); } },
+                { "signature", n => { Signature = n.GetStringValue(); } },
                 { "skip_cname_check", n => { SkipCnameCheck = n.GetBoolValue(); } },
                 { "smtp_host", n => { SmtpHost = n.GetStringValue(); } },
                 { "smtp_password", n => { SmtpPassword = n.GetStringValue(); } },
@@ -203,6 +212,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
             writer.WriteDoubleValue("provider_code", ProviderCode);
             writer.WriteStringValue("reply_to", ReplyTo);
             writer.WriteDoubleValue("sending_gap", SendingGap);
+            writer.WriteStringValue("signature", Signature);
             writer.WriteBoolValue("skip_cname_check", SkipCnameCheck);
             writer.WriteStringValue("smtp_host", SmtpHost);
             writer.WriteStringValue("smtp_password", SmtpPassword);
