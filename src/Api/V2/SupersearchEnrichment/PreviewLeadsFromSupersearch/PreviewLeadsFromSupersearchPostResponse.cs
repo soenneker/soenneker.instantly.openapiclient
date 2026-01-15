@@ -24,6 +24,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
 #endif
         /// <summary>Number of leads found for this specific search. A value of 0 indicates that no leads match the criteria. Values greater than 1,000,000 are returned as 1,000,000.</summary>
         public double? NumberOfLeads { get; set; }
+        /// <summary>Number of results that were redacted/hidden (for trial users).</summary>
+        public double? NumberOfRedactedResults { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchPostResponse"/> and sets the default values.
         /// </summary>
@@ -51,6 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
             {
                 { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchPostResponse_leads>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchPostResponse_leads.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "number_of_leads", n => { NumberOfLeads = n.GetDoubleValue(); } },
+                { "number_of_redacted_results", n => { NumberOfRedactedResults = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -62,6 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchPostResponse_leads>("leads", Leads);
             writer.WriteDoubleValue("number_of_leads", NumberOfLeads);
+            writer.WriteDoubleValue("number_of_redacted_results", NumberOfRedactedResults);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

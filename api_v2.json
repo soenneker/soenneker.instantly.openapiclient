@@ -28000,7 +28000,7 @@
     "/api/v2/oauth/google/init": {
       "post": {
         "operationId": "initGoogleOAuth",
-        "summary": "Initialize Google OAuth",
+        "summary": "Initialize google oauth",
         "tags": [
           "OAuth"
         ],
@@ -28015,16 +28015,19 @@
                   "properties": {
                     "session_id": {
                       "type": "string",
-                      "description": "Session ID for polling status"
+                      "description": "Session ID for polling status",
+                      "example": "abc123def456"
                     },
                     "auth_url": {
                       "type": "string",
-                      "description": "Google authorization URL to redirect user to"
+                      "description": "Google authorization URL to redirect user to",
+                      "example": "https://accounts.google.com/o/oauth2/auth?..."
                     },
                     "expires_at": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Session expiry time (10 minutes from creation)"
+                      "description": "Session expiry time (10 minutes from creation)",
+                      "example": "1970-01-01T00:00:00.000Z"
                     }
                   }
                 }
@@ -28037,7 +28040,7 @@
     "/api/v2/oauth/microsoft/init": {
       "post": {
         "operationId": "initMicrosoftOAuth",
-        "summary": "Initialize Microsoft OAuth",
+        "summary": "Initialize microsoft oauth",
         "tags": [
           "OAuth"
         ],
@@ -28052,16 +28055,19 @@
                   "properties": {
                     "session_id": {
                       "type": "string",
-                      "description": "Session ID for polling status"
+                      "description": "Session ID for polling status",
+                      "example": "abc123def456"
                     },
                     "auth_url": {
                       "type": "string",
-                      "description": "Microsoft authorization URL to redirect user to"
+                      "description": "Microsoft authorization URL to redirect user to",
+                      "example": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?..."
                     },
                     "expires_at": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Session expiry time (10 minutes from creation)"
+                      "description": "Session expiry time (10 minutes from creation)",
+                      "example": "1970-01-01T00:00:00.000Z"
                     }
                   }
                 }
@@ -28074,7 +28080,7 @@
     "/api/v2/oauth/session/status/{sessionId}": {
       "get": {
         "operationId": "getOAuthSessionStatus",
-        "summary": "Get OAuth Session Status",
+        "summary": "Get oauth session status",
         "tags": [
           "OAuth"
         ],
@@ -28082,7 +28088,8 @@
         "parameters": [
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "abc123def456"
             },
             "in": "path",
             "name": "sessionId",
@@ -28106,23 +28113,28 @@
                         "error",
                         "expired"
                       ],
-                      "description": "Current status of the OAuth session"
+                      "description": "Current status of the OAuth session",
+                      "example": "success"
                     },
                     "email": {
                       "type": "string",
-                      "description": "Email of the connected account (on success)"
+                      "description": "Email of the connected account (on success)",
+                      "example": "user@example.com"
                     },
                     "name": {
                       "type": "string",
-                      "description": "Name of the account owner (on success)"
+                      "description": "Name of the account owner (on success)",
+                      "example": "John Doe"
                     },
                     "error": {
                       "type": "string",
-                      "description": "Error code (on error)"
+                      "description": "Error code (on error)",
+                      "example": "access_denied"
                     },
                     "error_description": {
                       "type": "string",
-                      "description": "Human-readable error description (on error)"
+                      "description": "Human-readable error description (on error)",
+                      "example": "User denied access to the application"
                     }
                   }
                 }
@@ -30361,31 +30373,70 @@
                       },
                       "employee_count": {
                         "type": "array",
+                        "description": "Employee count filters for the lead company.",
                         "items": {
-                          "type": "string",
-                          "enum": [
-                            "0 - 25",
-                            "25 - 100",
-                            "100 - 250",
-                            "250 - 1000",
-                            "1K - 10K",
-                            "10K - 50K",
-                            "50K - 100K",
-                            "\u003E 100K"
-                          ],
-                          "x-enumDescriptions": {
-                            "0 - 25": "0 - 25",
-                            "25 - 100": "25 - 100",
-                            "100 - 250": "100 - 250",
-                            "250 - 1000": "250 - 1000",
-                            "1K - 10K": "1K - 10K",
-                            "10K - 50K": "10K - 50K",
-                            "50K - 100K": "50K - 100K",
-                            "\u003E 100K": "\u003E 100K"
-                          },
-                          "description": "Employee count of the lead company",
-                          "example": "0 - 25"
-                        }
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "Custom employee count range. Specify both min and max for a range, only min for \u0022at least X employees\u0022, or only max for \u0022at most X employees\u0022.",
+                              "properties": {
+                                "min": {
+                                  "type": "number",
+                                  "description": "Minimum number of employees. If only min is provided, finds companies with at least this many employees.",
+                                  "example": 10
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "description": "Maximum number of employees. If only max is provided, finds companies with at most this many employees.",
+                                  "example": 50
+                                }
+                              },
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ]
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "string",
+                              "description": "Legacy format: Predefined employee count range. For new integrations, use the object format with min/max properties.",
+                              "enum": [
+                                "0 - 25",
+                                "25 - 100",
+                                "100 - 250",
+                                "250 - 1000",
+                                "1K - 10K",
+                                "10K - 50K",
+                                "50K - 100K",
+                                "\u003E 100K"
+                              ],
+                              "x-enumDescriptions": {
+                                "0 - 25": "0 - 25",
+                                "25 - 100": "25 - 100",
+                                "100 - 250": "100 - 250",
+                                "250 - 1000": "250 - 1000",
+                                "1K - 10K": "1K - 10K",
+                                "10K - 50K": "10K - 50K",
+                                "50K - 100K": "50K - 100K",
+                                "\u003E 100K": "\u003E 100K"
+                              }
+                            }
+                          ]
+                        },
+                        "example": [
+                          {
+                            "min": 10,
+                            "max": 100
+                          }
+                        ]
                       },
                       "revenue": {
                         "type": "array",
@@ -31352,6 +31403,15 @@
                         "type": "boolean",
                         "description": "If set, the lead finder will show only one lead per company",
                         "example": true
+                      },
+                      "location_mode": {
+                        "type": "string",
+                        "enum": [
+                          "contact",
+                          "company"
+                        ],
+                        "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
+                        "example": "contact"
                       }
                     }
                   },
@@ -33074,31 +33134,70 @@
                       },
                       "employee_count": {
                         "type": "array",
+                        "description": "Employee count filters for the lead company.",
                         "items": {
-                          "type": "string",
-                          "enum": [
-                            "0 - 25",
-                            "25 - 100",
-                            "100 - 250",
-                            "250 - 1000",
-                            "1K - 10K",
-                            "10K - 50K",
-                            "50K - 100K",
-                            "\u003E 100K"
-                          ],
-                          "x-enumDescriptions": {
-                            "0 - 25": "0 - 25",
-                            "25 - 100": "25 - 100",
-                            "100 - 250": "100 - 250",
-                            "250 - 1000": "250 - 1000",
-                            "1K - 10K": "1K - 10K",
-                            "10K - 50K": "10K - 50K",
-                            "50K - 100K": "50K - 100K",
-                            "\u003E 100K": "\u003E 100K"
-                          },
-                          "description": "Employee count of the lead company",
-                          "example": "0 - 25"
-                        }
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "Custom employee count range. Specify both min and max for a range, only min for \u0022at least X employees\u0022, or only max for \u0022at most X employees\u0022.",
+                              "properties": {
+                                "min": {
+                                  "type": "number",
+                                  "description": "Minimum number of employees. If only min is provided, finds companies with at least this many employees.",
+                                  "example": 10
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "description": "Maximum number of employees. If only max is provided, finds companies with at most this many employees.",
+                                  "example": 50
+                                }
+                              },
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ]
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "string",
+                              "description": "Legacy format: Predefined employee count range. For new integrations, use the object format with min/max properties.",
+                              "enum": [
+                                "0 - 25",
+                                "25 - 100",
+                                "100 - 250",
+                                "250 - 1000",
+                                "1K - 10K",
+                                "10K - 50K",
+                                "50K - 100K",
+                                "\u003E 100K"
+                              ],
+                              "x-enumDescriptions": {
+                                "0 - 25": "0 - 25",
+                                "25 - 100": "25 - 100",
+                                "100 - 250": "100 - 250",
+                                "250 - 1000": "250 - 1000",
+                                "1K - 10K": "1K - 10K",
+                                "10K - 50K": "10K - 50K",
+                                "50K - 100K": "50K - 100K",
+                                "\u003E 100K": "\u003E 100K"
+                              }
+                            }
+                          ]
+                        },
+                        "example": [
+                          {
+                            "min": 10,
+                            "max": 100
+                          }
+                        ]
                       },
                       "revenue": {
                         "type": "array",
@@ -34065,6 +34164,15 @@
                         "type": "boolean",
                         "description": "If set, the lead finder will show only one lead per company",
                         "example": true
+                      },
+                      "location_mode": {
+                        "type": "string",
+                        "enum": [
+                          "contact",
+                          "company"
+                        ],
+                        "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
+                        "example": "contact"
                       }
                     }
                   },
@@ -34481,31 +34589,70 @@
                       },
                       "employee_count": {
                         "type": "array",
+                        "description": "Employee count filters for the lead company.",
                         "items": {
-                          "type": "string",
-                          "enum": [
-                            "0 - 25",
-                            "25 - 100",
-                            "100 - 250",
-                            "250 - 1000",
-                            "1K - 10K",
-                            "10K - 50K",
-                            "50K - 100K",
-                            "\u003E 100K"
-                          ],
-                          "x-enumDescriptions": {
-                            "0 - 25": "0 - 25",
-                            "25 - 100": "25 - 100",
-                            "100 - 250": "100 - 250",
-                            "250 - 1000": "250 - 1000",
-                            "1K - 10K": "1K - 10K",
-                            "10K - 50K": "10K - 50K",
-                            "50K - 100K": "50K - 100K",
-                            "\u003E 100K": "\u003E 100K"
-                          },
-                          "description": "Employee count of the lead company",
-                          "example": "0 - 25"
-                        }
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "Custom employee count range. Specify both min and max for a range, only min for \u0022at least X employees\u0022, or only max for \u0022at most X employees\u0022.",
+                              "properties": {
+                                "min": {
+                                  "type": "number",
+                                  "description": "Minimum number of employees. If only min is provided, finds companies with at least this many employees.",
+                                  "example": 10
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "description": "Maximum number of employees. If only max is provided, finds companies with at most this many employees.",
+                                  "example": 50
+                                }
+                              },
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ]
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "string",
+                              "description": "Legacy format: Predefined employee count range. For new integrations, use the object format with min/max properties.",
+                              "enum": [
+                                "0 - 25",
+                                "25 - 100",
+                                "100 - 250",
+                                "250 - 1000",
+                                "1K - 10K",
+                                "10K - 50K",
+                                "50K - 100K",
+                                "\u003E 100K"
+                              ],
+                              "x-enumDescriptions": {
+                                "0 - 25": "0 - 25",
+                                "25 - 100": "25 - 100",
+                                "100 - 250": "100 - 250",
+                                "250 - 1000": "250 - 1000",
+                                "1K - 10K": "1K - 10K",
+                                "10K - 50K": "10K - 50K",
+                                "50K - 100K": "50K - 100K",
+                                "\u003E 100K": "\u003E 100K"
+                              }
+                            }
+                          ]
+                        },
+                        "example": [
+                          {
+                            "min": 10,
+                            "max": 100
+                          }
+                        ]
                       },
                       "revenue": {
                         "type": "array",
@@ -35472,6 +35619,15 @@
                         "type": "boolean",
                         "description": "If set, the lead finder will show only one lead per company",
                         "example": true
+                      },
+                      "location_mode": {
+                        "type": "string",
+                        "enum": [
+                          "contact",
+                          "company"
+                        ],
+                        "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
+                        "example": "contact"
                       }
                     }
                   },
@@ -35504,6 +35660,11 @@
                       "description": "Number of leads found for this specific search. A value of 0 indicates that no leads match the criteria. Values greater than 1,000,000 are returned as 1,000,000.",
                       "example": 100
                     },
+                    "number_of_redacted_results": {
+                      "type": "number",
+                      "description": "Number of results that were redacted/hidden (for trial users).",
+                      "example": 0
+                    },
                     "leads": {
                       "type": "array",
                       "description": "The leads matching the search criteria",
@@ -35532,7 +35693,7 @@
                           },
                           "location": {
                             "type": "string",
-                            "description": "The location of the lead",
+                            "description": "The location of the lead (contact location or company HQ depending on location_mode filter)",
                             "example": "San Francisco, California, United States"
                           },
                           "linkedIn": {
@@ -35544,6 +35705,16 @@
                             "type": "string",
                             "description": "The name of the lead\u2019s company",
                             "example": "Acme Corp"
+                          },
+                          "companyLogo": {
+                            "type": "string",
+                            "description": "URL of the company logo",
+                            "example": "https://example.com/logo.png"
+                          },
+                          "companyId": {
+                            "type": "string",
+                            "description": "The LinkedIn company ID, used for viewing company details",
+                            "example": "123456"
                           }
                         },
                         "additionalProperties": false

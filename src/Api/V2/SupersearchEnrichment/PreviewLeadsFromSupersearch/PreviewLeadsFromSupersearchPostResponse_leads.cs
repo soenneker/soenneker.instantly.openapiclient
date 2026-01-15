@@ -12,6 +12,22 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
     public partial class PreviewLeadsFromSupersearchPostResponse_leads : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The LinkedIn company ID, used for viewing company details</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompanyId { get; set; }
+#nullable restore
+#else
+        public string CompanyId { get; set; }
+#endif
+        /// <summary>URL of the company logo</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompanyLogo { get; set; }
+#nullable restore
+#else
+        public string CompanyLogo { get; set; }
+#endif
         /// <summary>The name of the lead’s company</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
 #else
         public string LinkedIn { get; set; }
 #endif
-        /// <summary>The location of the lead</summary>
+        /// <summary>The location of the lead (contact location or company HQ depending on location_mode filter)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Location { get; set; }
@@ -86,6 +102,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "companyId", n => { CompanyId = n.GetStringValue(); } },
+                { "companyLogo", n => { CompanyLogo = n.GetStringValue(); } },
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "fullName", n => { FullName = n.GetStringValue(); } },
@@ -102,6 +120,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("companyId", CompanyId);
+            writer.WriteStringValue("companyLogo", CompanyLogo);
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("fullName", FullName);

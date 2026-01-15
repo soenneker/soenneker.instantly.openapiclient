@@ -39,13 +39,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
 #else
         public List<string> Domains { get; set; }
 #endif
-        /// <summary>The employee_count property</summary>
+        /// <summary>Employee count filters for the lead company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_employee_count?>? EmployeeCount { get; set; }
+        public List<string>? EmployeeCount { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_employee_count?> EmployeeCount { get; set; }
+        public List<string> EmployeeCount { get; set; }
 #endif
         /// <summary>The funding_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,6 +79,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_level?> Level { get; set; }
 #endif
+        /// <summary>Whether to filter/display by contact location or company HQ location. Defaults to contact.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_location_mode? LocationMode { get; set; }
         /// <summary>The locations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -167,11 +169,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
                 { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_company_name>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_company_name.CreateFromDiscriminatorValue); } },
                 { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_department>()?.AsList(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "employee_count", n => { EmployeeCount = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_employee_count>()?.AsList(); } },
+                { "employee_count", n => { EmployeeCount = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "funding_type", n => { FundingType = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_funding_type>()?.AsList(); } },
                 { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_industry>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_industry.CreateFromDiscriminatorValue); } },
                 { "keyword_filter", n => { KeywordFilter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_keyword_filter>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_keyword_filter.CreateFromDiscriminatorValue); } },
                 { "level", n => { Level = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_level>()?.AsList(); } },
+                { "location_mode", n => { LocationMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_location_mode>(); } },
                 { "locations", n => { Locations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters.CountLeadsFromSupersearchPostRequestBody_search_filters_locations>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters.CountLeadsFromSupersearchPostRequestBody_search_filters_locations.CreateFromDiscriminatorValue); } },
                 { "look_alike", n => { LookAlike = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -193,11 +196,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_company_name>("company_name", CompanyName);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_department>("department", Department);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_employee_count>("employee_count", EmployeeCount);
+            writer.WriteCollectionOfPrimitiveValues<string>("employee_count", EmployeeCount);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_funding_type>("funding_type", FundingType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_industry>("industry", Industry);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_keyword_filter>("keyword_filter", KeywordFilter);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_level>("level", Level);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_location_mode>("location_mode", LocationMode);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters.CountLeadsFromSupersearchPostRequestBody_search_filters_locations>("locations", Locations);
             writer.WriteStringValue("look_alike", LookAlike);
             writer.WriteCollectionOfPrimitiveValues<string>("name", Name);
