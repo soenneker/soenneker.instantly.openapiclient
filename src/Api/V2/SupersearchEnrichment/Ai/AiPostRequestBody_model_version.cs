@@ -75,6 +75,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         #pragma warning disable CS1591
         Gemini20Flash,
         #pragma warning restore CS1591
+        [EnumMember(Value = "gemini-3.0-flash")]
+        #pragma warning disable CS1591
+        Gemini30Flash,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gemini-3.0-pro")]
         #pragma warning disable CS1591
         Gemini30Pro,
