@@ -48,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply
 #else
         public string Eaccount { get; set; }
 #endif
-        /// <summary>If provided then the email will NOT be sent to user, and you will see this email as a reminder in the Unibox in the web app. Note: this will NOT send or schedule the email for sending, it is used only as a reminder in the web app.</summary>
+        /// <summary>If provided then a reminder will be attached to this email, you will see this reminder in the Unibox in the web app</summary>
         public DateTimeOffset? ReminderTs { get; set; }
         /// <summary>The id of the email to reply to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

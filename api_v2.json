@@ -4854,7 +4854,9 @@
               11,
               12,
               18,
-              19
+              19,
+              20,
+              21
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -4870,7 +4872,9 @@
               "11": "Campaign update",
               "12": "Subsequence update",
               "18": "Webhook created",
-              "19": "Webhook updated"
+              "19": "Webhook updated",
+              "20": "Webhook marked as error",
+              "21": "Webhook resumed"
             },
             "example": 1
           },
@@ -5083,6 +5087,25 @@
           "timestamp_created": {
             "type": "string",
             "description": "Timestamp when the webhook was created",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "status": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Webhook status: 1 = active, -1 = error (disabled due to delivery failures)",
+            "readOnly": true,
+            "example": 1
+          },
+          "timestamp_error": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when webhook was disabled due to delivery failures (null if active)",
             "readOnly": true,
             "format": "date-time",
             "example": "1970-01-01T00:00:00.000Z"
@@ -18488,7 +18511,7 @@
                   "reminder_ts": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "If provided then the email will NOT be sent to user, and you will see this email as a reminder in the Unibox in the web app. Note: this will NOT send or schedule the email for sending, it is used only as a reminder in the web app.",
+                    "description": "If provided then a reminder will be attached to this email, you will see this reminder in the Unibox in the web app",
                     "example": "1970-01-01T00:00:00.000Z"
                   },
                   "assigned_to": {
@@ -30384,102 +30407,59 @@
                         }
                       },
                       "employeeCount": {
-                        "properties": {
-                          "op": {
-                            "type": "string",
-                            "enum": [
-                              "between",
-                              "gte",
-                              "lte"
-                            ],
-                            "description": "Operation type."
-                          },
-                          "min": {
-                            "type": "number"
-                          },
-                          "max": {
-                            "type": "number"
-                          }
-                        },
-                        "required": [
-                          "op"
-                        ],
-                        "additionalProperties": false,
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "between"
-                                  ]
-                                }
+                        "type": "array",
+                        "description": "Employee count filters.",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "0 - 25",
+                                "25 - 100",
+                                "100 - 250",
+                                "250 - 1000",
+                                "1K - 10K",
+                                "10K - 50K",
+                                "50K - 100K",
+                                "\u003E 100K"
+                              ],
+                              "description": "Legacy format: Predefined employee count range",
+                              "x-enumDescriptions": {
+                                "0 - 25": "0 - 25",
+                                "25 - 100": "25 - 100",
+                                "100 - 250": "100 - 250",
+                                "250 - 1000": "250 - 1000",
+                                "1K - 10K": "1K - 10K",
+                                "10K - 50K": "10K - 50K",
+                                "50K - 100K": "50K - 100K",
+                                "\u003E 100K": "\u003E 100K"
                               }
                             },
-                            "then": {
-                              "anyOf": [
-                                {
-                                  "required": [
-                                    "min"
-                                  ]
+                            {
+                              "type": "object",
+                              "description": "Custom employee count range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "description": "Operation type.",
+                                  "example": "between"
                                 },
-                                {
-                                  "required": [
-                                    "max"
-                                  ]
+                                "min": {
+                                  "type": "number",
+                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations"
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations"
                                 }
-                              ]
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "gte"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
+                              },
                               "required": [
-                                "min"
-                              ]
+                                "op"
+                              ],
+                              "additionalProperties": false
                             }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "lte"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "max"
-                              ]
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "preset_between"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "min"
-                              ]
-                            }
-                          }
-                        ]
+                          ]
+                        }
                       },
                       "revenue": {
                         "type": "array",
@@ -33178,102 +33158,59 @@
                         }
                       },
                       "employeeCount": {
-                        "properties": {
-                          "op": {
-                            "type": "string",
-                            "enum": [
-                              "between",
-                              "gte",
-                              "lte"
-                            ],
-                            "description": "Operation type."
-                          },
-                          "min": {
-                            "type": "number"
-                          },
-                          "max": {
-                            "type": "number"
-                          }
-                        },
-                        "required": [
-                          "op"
-                        ],
-                        "additionalProperties": false,
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "between"
-                                  ]
-                                }
+                        "type": "array",
+                        "description": "Employee count filters.",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "0 - 25",
+                                "25 - 100",
+                                "100 - 250",
+                                "250 - 1000",
+                                "1K - 10K",
+                                "10K - 50K",
+                                "50K - 100K",
+                                "\u003E 100K"
+                              ],
+                              "description": "Legacy format: Predefined employee count range",
+                              "x-enumDescriptions": {
+                                "0 - 25": "0 - 25",
+                                "25 - 100": "25 - 100",
+                                "100 - 250": "100 - 250",
+                                "250 - 1000": "250 - 1000",
+                                "1K - 10K": "1K - 10K",
+                                "10K - 50K": "10K - 50K",
+                                "50K - 100K": "50K - 100K",
+                                "\u003E 100K": "\u003E 100K"
                               }
                             },
-                            "then": {
-                              "anyOf": [
-                                {
-                                  "required": [
-                                    "min"
-                                  ]
+                            {
+                              "type": "object",
+                              "description": "Custom employee count range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "description": "Operation type.",
+                                  "example": "between"
                                 },
-                                {
-                                  "required": [
-                                    "max"
-                                  ]
+                                "min": {
+                                  "type": "number",
+                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations"
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations"
                                 }
-                              ]
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "gte"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
+                              },
                               "required": [
-                                "min"
-                              ]
+                                "op"
+                              ],
+                              "additionalProperties": false
                             }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "lte"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "max"
-                              ]
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "preset_between"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "min"
-                              ]
-                            }
-                          }
-                        ]
+                          ]
+                        }
                       },
                       "revenue": {
                         "type": "array",
@@ -34664,102 +34601,59 @@
                         }
                       },
                       "employeeCount": {
-                        "properties": {
-                          "op": {
-                            "type": "string",
-                            "enum": [
-                              "between",
-                              "gte",
-                              "lte"
-                            ],
-                            "description": "Operation type."
-                          },
-                          "min": {
-                            "type": "number"
-                          },
-                          "max": {
-                            "type": "number"
-                          }
-                        },
-                        "required": [
-                          "op"
-                        ],
-                        "additionalProperties": false,
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "between"
-                                  ]
-                                }
+                        "type": "array",
+                        "description": "Employee count filters.",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "0 - 25",
+                                "25 - 100",
+                                "100 - 250",
+                                "250 - 1000",
+                                "1K - 10K",
+                                "10K - 50K",
+                                "50K - 100K",
+                                "\u003E 100K"
+                              ],
+                              "description": "Legacy format: Predefined employee count range",
+                              "x-enumDescriptions": {
+                                "0 - 25": "0 - 25",
+                                "25 - 100": "25 - 100",
+                                "100 - 250": "100 - 250",
+                                "250 - 1000": "250 - 1000",
+                                "1K - 10K": "1K - 10K",
+                                "10K - 50K": "10K - 50K",
+                                "50K - 100K": "50K - 100K",
+                                "\u003E 100K": "\u003E 100K"
                               }
                             },
-                            "then": {
-                              "anyOf": [
-                                {
-                                  "required": [
-                                    "min"
-                                  ]
+                            {
+                              "type": "object",
+                              "description": "Custom employee count range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "description": "Operation type.",
+                                  "example": "between"
                                 },
-                                {
-                                  "required": [
-                                    "max"
-                                  ]
+                                "min": {
+                                  "type": "number",
+                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations"
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations"
                                 }
-                              ]
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "gte"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
+                              },
                               "required": [
-                                "min"
-                              ]
+                                "op"
+                              ],
+                              "additionalProperties": false
                             }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "lte"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "max"
-                              ]
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "op": {
-                                  "enum": [
-                                    "preset_between"
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "min"
-                              ]
-                            }
-                          }
-                        ]
+                          ]
+                        }
                       },
                       "revenue": {
                         "type": "array",
@@ -37863,6 +37757,110 @@
                       "example": "Connection timeout"
                     }
                   }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/webhooks/{id}/resume": {
+      "post": {
+        "operationId": "resumeWebhook",
+        "summary": "Resume a webhook",
+        "tags": [
+          "Webhook"
+        ],
+        "description": "Resume a webhook that was disabled due to repeated delivery failures\n\n\nRequires one of the following scopes: \u0060webhooks:update\u0060, \u0060webhooks:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Webhook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-39"
                 }
               }
             }

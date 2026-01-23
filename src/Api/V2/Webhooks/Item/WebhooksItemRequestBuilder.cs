@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Resume;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Test;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhooksItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The resume property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Resume.ResumeRequestBuilder Resume
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The test property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Test.TestRequestBuilder Test
         {

@@ -39,6 +39,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Organization (workspace) UUID that owns this webhook</summary>
         public Guid? Organization { get; private set; }
+        /// <summary>Webhook status: 1 = active, -1 = error (disabled due to delivery failures)</summary>
+        public double? Status { get; private set; }
         /// <summary>Target URL to send webhook payloads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +51,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Timestamp when the webhook was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
+        /// <summary>Timestamp when webhook was disabled due to delivery failures (null if active)</summary>
+        public DateTimeOffset? TimestampError { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -74,8 +78,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
+                { "status", n => { Status = n.GetDoubleValue(); } },
                 { "target_hook_url", n => { TargetHookUrl = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
+                { "timestamp_error", n => { TimestampError = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
