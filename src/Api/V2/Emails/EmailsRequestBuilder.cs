@@ -58,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EmailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,lead*,limit*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", pathParameters)
+        public EmailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,lead*,limit*,list_id*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EmailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,lead*,limit*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", rawUrl)
+        public EmailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,lead*,limit*,list_id*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -185,6 +185,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            /// <summary>The ID of the lead list to filter emails by.</summary>
+            [QueryParameter("list_id")]
+            public Guid? ListId { get; set; }
             /// <summary>Whether the email is marked as done.</summary>
             [QueryParameter("marked_as_done")]
             public bool? MarkedAsDone { get; set; }

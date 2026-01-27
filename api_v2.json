@@ -18833,6 +18833,17 @@
           },
           {
             "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "query",
+            "name": "list_id",
+            "required": false,
+            "description": "The ID of the lead list to filter emails by."
+          },
+          {
+            "schema": {
               "type": "number",
               "example": 1
             },
@@ -30116,7 +30127,8 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "search_filters"
+                  "search_filters",
+                  "limit"
                 ],
                 "properties": {
                   "search_filters": {
