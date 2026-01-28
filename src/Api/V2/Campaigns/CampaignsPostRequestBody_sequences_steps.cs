@@ -16,6 +16,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of days to wait before sending the NEXT email</summary>
         public double? Delay { get; set; }
+        /// <summary>The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.</summary>
+        public double? PreDelay { get; set; }
         /// <summary>Type of step. This has to be &apos;email&apos; always - it&apos;s the only supported type for now</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_sequences_steps_type? Type { get; set; }
         /// <summary>The variants property</summary>
@@ -52,6 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "delay", n => { Delay = n.GetDoubleValue(); } },
+                { "pre_delay", n => { PreDelay = n.GetDoubleValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_sequences_steps_type>(); } },
                 { "variants", n => { Variants = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_sequences_steps_variants>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_sequences_steps_variants.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -64,6 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("delay", Delay);
+            writer.WriteDoubleValue("pre_delay", PreDelay);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_sequences_steps_type>("type", Type);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_sequences_steps_variants>("variants", Variants);
             writer.WriteAdditionalData(AdditionalData);

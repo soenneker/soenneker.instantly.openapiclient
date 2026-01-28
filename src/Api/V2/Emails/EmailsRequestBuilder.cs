@@ -70,7 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         {
         }
         /// <summary>
-        /// Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
+        /// **Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
+        /// **Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
+        /// **Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EmailsRequestBuilderGetQueryParameters 
@@ -233,7 +233,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>The order to sort the emails by (based on the email creation date). Default is &quot;desc&quot;.</summary>
             [QueryParameter("sort_order")]
             public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetSort_orderQueryParameterType? SortOrder { get; set; }
-            /// <summary>The id of the email to start the list from (use the &quot;next_starting_after&quot; field you got in a previous request to paginate)</summary>
+            /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("starting_after")]

@@ -669,6 +669,11 @@
                         "description": "The number of days to wait before sending the NEXT email",
                         "example": 2
                       },
+                      "pre_delay": {
+                        "type": "number",
+                        "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                        "example": 2
+                      },
                       "variants": {
                         "type": "array",
                         "items": {
@@ -4751,6 +4756,11 @@
                       "delay": {
                         "type": "number",
                         "description": "The number of days to wait before sending the NEXT email",
+                        "example": 2
+                      },
+                      "pre_delay": {
+                        "type": "number",
+                        "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
                         "example": 2
                       },
                       "variants": {
@@ -10878,6 +10888,11 @@
                                 "description": "The number of days to wait before sending the NEXT email",
                                 "example": 2
                               },
+                              "pre_delay": {
+                                "type": "number",
+                                "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                                "example": 2
+                              },
                               "variants": {
                                 "type": "array",
                                 "items": {
@@ -12209,6 +12224,11 @@
                               "delay": {
                                 "type": "number",
                                 "description": "The number of days to wait before sending the NEXT email",
+                                "example": 2
+                              },
+                              "pre_delay": {
+                                "type": "number",
+                                "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
                                 "example": 2
                               },
                               "variants": {
@@ -18786,7 +18806,7 @@
         "tags": [
           "Email"
         ],
-        "description": "Requires one of the following scopes: \u0060emails:read\u0060, \u0060emails:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "**Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.\n\n\nRequires one of the following scopes: \u0060emails:read\u0060, \u0060emails:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
           {
             "schema": {
@@ -18808,7 +18828,7 @@
             "in": "query",
             "name": "starting_after",
             "required": false,
-            "description": "The id of the email to start the list from (use the \u0022next_starting_after\u0022 field you got in a previous request to paginate)"
+            "description": "The ID of the last item in the previous page - used for pagination. You can use the value of the \u0060next_starting_after\u0060 field from the previous response."
           },
           {
             "schema": {
@@ -28507,6 +28527,11 @@
                               "delay": {
                                 "type": "number",
                                 "description": "The number of days to wait before sending the NEXT email",
+                                "example": 2
+                              },
+                              "pre_delay": {
+                                "type": "number",
+                                "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
                                 "example": 2
                               },
                               "variants": {
