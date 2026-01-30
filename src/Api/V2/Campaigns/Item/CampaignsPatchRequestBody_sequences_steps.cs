@@ -14,10 +14,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The number of days to wait before sending the NEXT email</summary>
+        /// <summary>The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).</summary>
         public double? Delay { get; set; }
-        /// <summary>The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.</summary>
+        /// <summary>The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_delay_unit? DelayUnit { get; set; }
+        /// <summary>The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).</summary>
         public double? PreDelay { get; set; }
+        /// <summary>The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_pre_delay_unit? PreDelayUnit { get; set; }
         /// <summary>Type of step. This has to be &apos;email&apos; always - it&apos;s the only supported type for now</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_type? Type { get; set; }
         /// <summary>The variants property</summary>
@@ -34,6 +38,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         public CampaignsPatchRequestBody_sequences_steps()
         {
             AdditionalData = new Dictionary<string, object>();
+            DelayUnit = global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_delay_unit.Days;
+            PreDelayUnit = global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_pre_delay_unit.Days;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,7 +60,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "delay", n => { Delay = n.GetDoubleValue(); } },
+                { "delay_unit", n => { DelayUnit = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_delay_unit>(); } },
                 { "pre_delay", n => { PreDelay = n.GetDoubleValue(); } },
+                { "pre_delay_unit", n => { PreDelayUnit = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_pre_delay_unit>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_type>(); } },
                 { "variants", n => { Variants = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_variants>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_variants.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -67,7 +75,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("delay", Delay);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_delay_unit>("delay_unit", DelayUnit);
             writer.WriteDoubleValue("pre_delay", PreDelay);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_pre_delay_unit>("pre_delay_unit", PreDelayUnit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_type>("type", Type);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsPatchRequestBody_sequences_steps_variants>("variants", Variants);
             writer.WriteAdditionalData(AdditionalData);

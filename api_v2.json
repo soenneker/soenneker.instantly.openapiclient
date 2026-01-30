@@ -666,13 +666,35 @@
                       },
                       "delay": {
                         "type": "number",
-                        "description": "The number of days to wait before sending the NEXT email",
+                        "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
                         "example": 2
+                      },
+                      "delay_unit": {
+                        "type": "string",
+                        "enum": [
+                          "minutes",
+                          "hours",
+                          "days"
+                        ],
+                        "default": "days",
+                        "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+                        "example": "days"
                       },
                       "pre_delay": {
                         "type": "number",
-                        "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                        "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
                         "example": 2
+                      },
+                      "pre_delay_unit": {
+                        "type": "string",
+                        "enum": [
+                          "minutes",
+                          "hours",
+                          "days"
+                        ],
+                        "default": "days",
+                        "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+                        "example": "days"
                       },
                       "variants": {
                         "type": "array",
@@ -4755,13 +4777,35 @@
                       },
                       "delay": {
                         "type": "number",
-                        "description": "The number of days to wait before sending the NEXT email",
+                        "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
                         "example": 2
+                      },
+                      "delay_unit": {
+                        "type": "string",
+                        "enum": [
+                          "minutes",
+                          "hours",
+                          "days"
+                        ],
+                        "default": "days",
+                        "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+                        "example": "days"
                       },
                       "pre_delay": {
                         "type": "number",
-                        "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                        "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
                         "example": 2
+                      },
+                      "pre_delay_unit": {
+                        "type": "string",
+                        "enum": [
+                          "minutes",
+                          "hours",
+                          "days"
+                        ],
+                        "default": "days",
+                        "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+                        "example": "days"
                       },
                       "variants": {
                         "type": "array",
@@ -10885,13 +10929,35 @@
                               },
                               "delay": {
                                 "type": "number",
-                                "description": "The number of days to wait before sending the NEXT email",
+                                "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
                                 "example": 2
+                              },
+                              "delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+                                "example": "days"
                               },
                               "pre_delay": {
                                 "type": "number",
-                                "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                                "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
                                 "example": 2
+                              },
+                              "pre_delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+                                "example": "days"
                               },
                               "variants": {
                                 "type": "array",
@@ -12223,13 +12289,35 @@
                               },
                               "delay": {
                                 "type": "number",
-                                "description": "The number of days to wait before sending the NEXT email",
+                                "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
                                 "example": 2
+                              },
+                              "delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+                                "example": "days"
                               },
                               "pre_delay": {
                                 "type": "number",
-                                "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                                "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
                                 "example": 2
+                              },
+                              "pre_delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+                                "example": "days"
                               },
                               "variants": {
                                 "type": "array",
@@ -28526,13 +28614,35 @@
                               },
                               "delay": {
                                 "type": "number",
-                                "description": "The number of days to wait before sending the NEXT email",
+                                "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
                                 "example": 2
+                              },
+                              "delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+                                "example": "days"
                               },
                               "pre_delay": {
                                 "type": "number",
-                                "description": "The number of days to wait before sending the FIRST email in the sequence or subsequence. Typically used on the first step.",
+                                "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
                                 "example": 2
+                              },
+                              "pre_delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+                                "example": "days"
                               },
                               "variants": {
                                 "type": "array",
@@ -30470,7 +30580,8 @@
                                 "10K - 50K": "10K - 50K",
                                 "50K - 100K": "50K - 100K",
                                 "\u003E 100K": "\u003E 100K"
-                              }
+                              },
+                              "example": "0 - 25"
                             },
                             {
                               "type": "object",
@@ -30483,11 +30594,13 @@
                                 },
                                 "min": {
                                   "type": "number",
-                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations"
+                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+                                  "example": 50
                                 },
                                 "max": {
                                   "type": "number",
-                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations"
+                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+                                  "example": 200
                                 }
                               },
                               "required": [
@@ -33221,7 +33334,8 @@
                                 "10K - 50K": "10K - 50K",
                                 "50K - 100K": "50K - 100K",
                                 "\u003E 100K": "\u003E 100K"
-                              }
+                              },
+                              "example": "0 - 25"
                             },
                             {
                               "type": "object",
@@ -33234,11 +33348,13 @@
                                 },
                                 "min": {
                                   "type": "number",
-                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations"
+                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+                                  "example": 50
                                 },
                                 "max": {
                                   "type": "number",
-                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations"
+                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+                                  "example": 200
                                 }
                               },
                               "required": [
@@ -34664,7 +34780,8 @@
                                 "10K - 50K": "10K - 50K",
                                 "50K - 100K": "50K - 100K",
                                 "\u003E 100K": "\u003E 100K"
-                              }
+                              },
+                              "example": "0 - 25"
                             },
                             {
                               "type": "object",
@@ -34677,11 +34794,13 @@
                                 },
                                 "min": {
                                   "type": "number",
-                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations"
+                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+                                  "example": 50
                                 },
                                 "max": {
                                   "type": "number",
-                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations"
+                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+                                  "example": 200
                                 }
                               },
                               "required": [
