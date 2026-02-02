@@ -5,11 +5,11 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
+namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AiPostResponse : IParsable
+    public partial class InProgress : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Whether to auto-update new leads</summary>
@@ -22,24 +22,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>Input columns used for enrichment</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? InputColumns { get; set; }
-#nullable restore
-#else
-        public List<string> InputColumns { get; set; }
-#endif
-        /// <summary>Maximum number of leads to process</summary>
-        public double? Limit { get; set; }
-        /// <summary>AI model version used for enrichment</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ModelVersion { get; set; }
-#nullable restore
-#else
-        public string ModelVersion { get; set; }
-#endif
+        /// <summary>Organization ID that owns this enrichment</summary>
+        public Guid? OrganizationId { get; set; }
         /// <summary>Name of the column where results will be stored</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,25 +32,21 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
 #else
         public string OutputColumn { get; set; }
 #endif
-        /// <summary>Whether to overwrite existing data</summary>
-        public bool? Overwrite { get; set; }
         /// <summary>ID of the resource being enriched</summary>
         public Guid? ResourceId { get; set; }
         /// <summary>Type of the resource (1 for Campaign, 2 for List)</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type? ResourceType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress_resource_type? ResourceType { get; set; }
         /// <summary>Status of the enrichment job</summary>
         public double? Status { get; set; }
-        /// <summary>ID of the prompt template used</summary>
-        public double? TemplateId { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse();
+            return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,15 +58,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             {
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "input_columns", n => { InputColumns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "model_version", n => { ModelVersion = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
-                { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
-                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type>(); } },
+                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress_resource_type>(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "template_id", n => { TemplateId = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -98,15 +74,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_update", AutoUpdate);
             writer.WriteStringValue("id", Id);
-            writer.WriteCollectionOfPrimitiveValues<string>("input_columns", InputColumns);
-            writer.WriteDoubleValue("limit", Limit);
-            writer.WriteStringValue("model_version", ModelVersion);
+            writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteStringValue("output_column", OutputColumn);
-            writer.WriteBoolValue("overwrite", Overwrite);
             writer.WriteGuidValue("resource_id", ResourceId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type>("resource_type", ResourceType);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress_resource_type>("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
-            writer.WriteDoubleValue("template_id", TemplateId);
         }
     }
 }

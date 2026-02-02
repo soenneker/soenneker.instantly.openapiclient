@@ -181,6 +181,7 @@
             "enum": [
               1,
               2,
+              3,
               -1,
               -2,
               -3
@@ -188,6 +189,7 @@
             "x-enumDescriptions": {
               "1": "Active",
               "2": "Paused",
+              "3": "Temporarily paused for maintenance; will be automatically resumed shortly",
               "-1": "Connection Error",
               "-2": "Soft Bounce Error",
               "-3": "Sending Error"
@@ -292,13 +294,15 @@
               1,
               2,
               3,
-              4
+              4,
+              8
             ],
             "x-enumDescriptions": {
               "1": "Custom IMAP/SMTP",
               "2": "Google",
               "3": "Microsoft",
-              "4": "AWS"
+              "4": "AWS",
+              "8": "AirMail"
             },
             "example": 2
           },
@@ -3421,6 +3425,7 @@
               1,
               2,
               3,
+              8,
               9,
               10,
               12,
@@ -3433,6 +3438,7 @@
               "1": "Google",
               "2": "Microsoft",
               "3": "Zoho",
+              "8": "AirMail",
               "9": "Yahoo",
               "10": "Yandex",
               "12": "Web.de",
@@ -6179,13 +6185,15 @@
                       1,
                       2,
                       3,
-                      4
+                      4,
+                      8
                     ],
                     "x-enumDescriptions": {
                       "1": "Custom IMAP/SMTP",
                       "2": "Google",
                       "3": "Microsoft",
-                      "4": "AWS"
+                      "4": "AWS",
+                      "8": "AirMail"
                     },
                     "example": 2
                   },
@@ -6433,6 +6441,7 @@
               "enum": [
                 1,
                 2,
+                3,
                 -1,
                 -2,
                 -3
@@ -6440,6 +6449,7 @@
               "x-enumDescriptions": {
                 "1": "Active",
                 "2": "Paused",
+                "3": "Temporarily paused for maintenance; will be automatically resumed shortly",
                 "-1": "Connection Error",
                 "-2": "Soft Bounce Error",
                 "-3": "Sending Error"
@@ -6457,13 +6467,15 @@
                 1,
                 2,
                 3,
-                4
+                4,
+                8
               ],
               "x-enumDescriptions": {
                 "1": "Custom IMAP/SMTP",
                 "2": "Google",
                 "3": "Microsoft",
-                "4": "AWS"
+                "4": "AWS",
+                "8": "AirMail"
               },
               "example": 2
             },
@@ -27459,6 +27471,7 @@
                       1,
                       2,
                       3,
+                      8,
                       9,
                       10,
                       12,
@@ -27471,6 +27484,7 @@
                       "1": "Google",
                       "2": "Microsoft",
                       "3": "Zoho",
+                      "8": "AirMail",
                       "9": "Yahoo",
                       "10": "Yandex",
                       "12": "Webde",
@@ -32561,6 +32575,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the enrichment",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
                     "resource_id": {
                       "type": "string",
                       "format": "uuid",
@@ -32630,6 +32649,7 @@
                     }
                   },
                   "required": [
+                    "id",
                     "resource_id",
                     "resource_type",
                     "output_column",
@@ -32639,6 +32659,172 @@
                     "auto_update"
                   ],
                   "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/ai/{resource_id}/in-progress": {
+      "get": {
+        "operationId": "getAiEnrichmentForResource",
+        "summary": "Get AI enrichment for resource",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Get the AI enrichment for a specific resource\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "path",
+            "name": "resource_id",
+            "required": true,
+            "description": "The ID of the list or campaign to retrieve the AI enrichment."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique identifier for the enrichment",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Organization ID that owns this enrichment",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "resource_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "ID of the resource being enriched",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "resource_type": {
+                        "type": "number",
+                        "description": "Type of the resource (1 for Campaign, 2 for List)",
+                        "enum": [
+                          "CAMPAIGN",
+                          "LIST",
+                          1,
+                          2
+                        ],
+                        "x-enumDescriptions": {
+                          "1": "Campaign",
+                          "2": "List"
+                        },
+                        "example": 1
+                      },
+                      "output_column": {
+                        "type": "string",
+                        "description": "Name of the column where results will be stored",
+                        "example": "ai_generated_content"
+                      },
+                      "status": {
+                        "type": "number",
+                        "description": "Status of the enrichment job",
+                        "example": 1
+                      },
+                      "auto_update": {
+                        "type": "boolean",
+                        "description": "Whether to auto-update new leads",
+                        "example": true
+                      }
+                    },
+                    "required": [
+                      "organization_id",
+                      "resource_id",
+                      "resource_type",
+                      "output_column",
+                      "status",
+                      "auto_update"
+                    ],
+                    "additionalProperties": false
+                  }
                 }
               }
             }

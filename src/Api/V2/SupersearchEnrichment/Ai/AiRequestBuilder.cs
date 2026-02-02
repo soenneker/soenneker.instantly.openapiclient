@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -16,6 +17,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.supersearchEnrichment.ai.item collection</summary>
+        /// <param name="position">The ID of the list or campaign to retrieve the AI enrichment.</param>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.WithResource_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.WithResource_ItemRequestBuilder this[Guid position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("resource_id", position);
+                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.WithResource_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiRequestBuilder"/> and sets the default values.
         /// </summary>
