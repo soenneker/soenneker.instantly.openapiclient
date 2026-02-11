@@ -24216,6 +24216,134 @@
         }
       }
     },
+    "/api/v2/lead-labels/ai-reply-label": {
+      "post": {
+        "operationId": "testAiReplyLabelLeadLabels",
+        "summary": "Test AI reply label prediction",
+        "tags": [
+          "LeadLabel"
+        ],
+        "description": "Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.\n\n\nRequires one of the following scopes: \u0060lead-labels:read\u0060, \u0060lead-labels:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reply_text": {
+                    "type": "string",
+                    "description": "The reply text to classify.",
+                    "example": "Thanks for reaching out. I am interested in learning more."
+                  }
+                },
+                "required": [
+                  "reply_text"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "description": "The predicted lead label.",
+                      "example": "Hot Lead"
+                    },
+                    "custom_labels_considered": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Hot Lead"
+                      },
+                      "description": "AI-enabled custom labels considered during classification.",
+                      "example": [
+                        "Hot Lead",
+                        "Needs Follow-up"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Classification failed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/lead-lists": {
       "post": {
         "operationId": "createLeadList",

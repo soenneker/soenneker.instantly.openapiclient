@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadLabelsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The aiReplyLabel property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelRequestBuilder AiReplyLabel
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.leadLabels.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item.LeadLabelsItemRequestBuilder"/></returns>
