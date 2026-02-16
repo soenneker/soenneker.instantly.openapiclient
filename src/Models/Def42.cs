@@ -2,74 +2,47 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A webhook event that was sent or attempted to be sent
+    /// A Done-For-You email account order
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def42 : IParsable
     {
-        /// <summary>Error message if the webhook failed</summary>
+        /// <summary>Domain of the email account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMessage { get; private set; }
+        public string? Domain { get; private set; }
 #nullable restore
 #else
-        public string ErrorMessage { get; private set; }
+        public string Domain { get; private set; }
 #endif
-        /// <summary>Unique identifier for the webhook event (UUID)</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>Email address of the lead associated with this webhook event</summary>
+        /// <summary>Forwarding domain for the email account, if any</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LeadEmail { get; private set; }
+        public string? ForwardingDomain { get; set; }
 #nullable restore
 #else
-        public string LeadEmail { get; private set; }
+        public string ForwardingDomain { get; set; }
 #endif
-        /// <summary>Organization (workspace) UUID that owns this webhook event</summary>
-        public Guid? OrganizationId { get; private set; }
-        /// <summary>JSON payload that was sent/attempted to be sent</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def42_payload? Payload { get; private set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def42_payload Payload { get; private set; }
-#endif
-        /// <summary>Response time in milliseconds for the webhook call</summary>
-        public double? ResponseTimeMs { get; private set; }
-        /// <summary>Number of retry attempts made</summary>
-        public double? RetryCount { get; private set; }
-        /// <summary>UUID for grouping retry attempts</summary>
-        public Guid? RetryGroupId { get; private set; }
-        /// <summary>Whether the retry was successful (for retry events)</summary>
-        public bool? RetrySuccessful { get; private set; }
-        /// <summary>HTTP status code received from the webhook endpoint (if any)</summary>
-        public double? StatusCode { get; private set; }
-        /// <summary>Whether the webhook call was successful</summary>
-        public bool? Success { get; private set; }
-        /// <summary>Timestamp when the webhook event was created</summary>
+        /// <summary>Indicates if the account is pre-warmed up</summary>
+        public bool? IsPreWarmedUp { get; set; }
+        /// <summary>Timestamp when the order was cancelled, if applicable</summary>
+        public DateTimeOffset? TimestampCancelled { get; private set; }
+        /// <summary>Timestamp when the order was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
-        /// <summary>Date when the webhook event was created (for partitioning)</summary>
-        public Date? TimestampCreatedDate { get; private set; }
-        /// <summary>Timestamp for the next retry attempt (if applicable)</summary>
-        public DateTimeOffset? TimestampNextRetry { get; private set; }
-        /// <summary>Target URL where the webhook was sent</summary>
+        /// <summary>ID of the workspace associated with the email account order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; private set; }
+        public string? WorkspaceId { get; private set; }
 #nullable restore
 #else
-        public string WebhookUrl { get; private set; }
+        public string WorkspaceId { get; private set; }
 #endif
-        /// <summary>Whether the webhook will be retried</summary>
-        public bool? WillRetry { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -88,22 +61,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "lead_email", n => { LeadEmail = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def42_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def42_payload.CreateFromDiscriminatorValue); } },
-                { "response_time_ms", n => { ResponseTimeMs = n.GetDoubleValue(); } },
-                { "retry_count", n => { RetryCount = n.GetDoubleValue(); } },
-                { "retry_group_id", n => { RetryGroupId = n.GetGuidValue(); } },
-                { "retry_successful", n => { RetrySuccessful = n.GetBoolValue(); } },
-                { "status_code", n => { StatusCode = n.GetDoubleValue(); } },
-                { "success", n => { Success = n.GetBoolValue(); } },
+                { "domain", n => { Domain = n.GetStringValue(); } },
+                { "forwarding_domain", n => { ForwardingDomain = n.GetStringValue(); } },
+                { "is_pre_warmed_up", n => { IsPreWarmedUp = n.GetBoolValue(); } },
+                { "timestamp_cancelled", n => { TimestampCancelled = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
-                { "timestamp_created_date", n => { TimestampCreatedDate = n.GetDateValue(); } },
-                { "timestamp_next_retry", n => { TimestampNextRetry = n.GetDateTimeOffsetValue(); } },
-                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
-                { "will_retry", n => { WillRetry = n.GetBoolValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -113,6 +76,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("forwarding_domain", ForwardingDomain);
+            writer.WriteBoolValue("is_pre_warmed_up", IsPreWarmedUp);
         }
     }
 }

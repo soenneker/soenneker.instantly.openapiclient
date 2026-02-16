@@ -5,12 +5,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum Def42404Error_error
+    public enum Def41429Error_error
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "Not Found")]
+        [EnumMember(Value = "Too Many Requests")]
         #pragma warning disable CS1591
-        NotFound,
+        TooManyRequests,
         #pragma warning restore CS1591
     }
 }

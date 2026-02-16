@@ -2737,11 +2737,6 @@
                 "ai_inbox_manager_analytics:read",
                 "ai_inbox_manager_analytics:update",
                 "ai_inbox_manager_analytics:delete",
-                "ai_no_show_agent_analytics:all",
-                "ai_no_show_agent_analytics:create",
-                "ai_no_show_agent_analytics:read",
-                "ai_no_show_agent_analytics:update",
-                "ai_no_show_agent_analytics:delete",
                 "sales_flows:all",
                 "sales_flows:create",
                 "sales_flows:read",
@@ -5179,7 +5174,7 @@
         ],
         "additionalProperties": false
       },
-      "def-42": {
+      "def-41": {
         "title": "Webhook Event",
         "description": "A webhook event that was sent or attempted to be sent",
         "x-tags": [
@@ -5324,7 +5319,7 @@
         ],
         "additionalProperties": false
       },
-      "def-43": {
+      "def-42": {
         "title": "DFY Email Account Order",
         "description": "A Done-For-You email account order",
         "x-tags": [
@@ -5386,7 +5381,7 @@
         ],
         "additionalProperties": false
       },
-      "def-44": {
+      "def-43": {
         "title": "Custom Prompt Template",
         "description": "Custom prompt templates for creating custom prompts",
         "x-tags": [
@@ -5633,7 +5628,7 @@
         ],
         "additionalProperties": false
       },
-      "def-45": {
+      "def-44": {
         "title": "Sales Flow",
         "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
         "x-tags": [
@@ -5803,7 +5798,7 @@
         ],
         "additionalProperties": false
       },
-      "def-46": {
+      "def-45": {
         "title": "Email Template",
         "description": "A campaign email template",
         "x-tags": [
@@ -5861,7 +5856,7 @@
         ],
         "additionalProperties": false
       },
-      "def-49": {
+      "def-48": {
         "title": "Workspace Billing",
         "description": "Workspace Billing",
         "x-tags": [
@@ -5873,7 +5868,7 @@
         "required": [],
         "additionalProperties": false
       },
-      "def-50": {
+      "def-49": {
         "title": "CRM Actions",
         "description": "CRM related actions",
         "x-tags": [
@@ -8904,11 +8899,6 @@
                         "ai_inbox_manager_analytics:read",
                         "ai_inbox_manager_analytics:update",
                         "ai_inbox_manager_analytics:delete",
-                        "ai_no_show_agent_analytics:all",
-                        "ai_no_show_agent_analytics:create",
-                        "ai_no_show_agent_analytics:read",
-                        "ai_no_show_agent_analytics:update",
-                        "ai_no_show_agent_analytics:delete",
                         "sales_flows:all",
                         "sales_flows:create",
                         "sales_flows:read",
@@ -17655,7 +17645,7 @@
                       "type": "array",
                       "description": "The list of DFY Email Account Order",
                       "items": {
-                        "$ref": "#/components/schemas/def-43"
+                        "$ref": "#/components/schemas/def-42"
                       }
                     },
                     "next_starting_after": {
@@ -36616,7 +36606,7 @@
                       "type": "array",
                       "description": "The list of Webhook Event",
                       "items": {
-                        "$ref": "#/components/schemas/def-42"
+                        "$ref": "#/components/schemas/def-41"
                       }
                     },
                     "next_starting_after": {
@@ -36733,7 +36723,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-42"
+                  "$ref": "#/components/schemas/def-41"
                 }
               }
             }

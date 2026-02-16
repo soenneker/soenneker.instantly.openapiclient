@@ -600,26 +600,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         #pragma warning disable CS1591
         Ai_inbox_manager_analyticsDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ai_no_show_agent_analytics:all")]
-        #pragma warning disable CS1591
-        Ai_no_show_agent_analyticsAll,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "ai_no_show_agent_analytics:create")]
-        #pragma warning disable CS1591
-        Ai_no_show_agent_analyticsCreate,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "ai_no_show_agent_analytics:read")]
-        #pragma warning disable CS1591
-        Ai_no_show_agent_analyticsRead,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "ai_no_show_agent_analytics:update")]
-        #pragma warning disable CS1591
-        Ai_no_show_agent_analyticsUpdate,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "ai_no_show_agent_analytics:delete")]
-        #pragma warning disable CS1591
-        Ai_no_show_agent_analyticsDelete,
-        #pragma warning restore CS1591
         [EnumMember(Value = "sales_flows:all")]
         #pragma warning disable CS1591
         Sales_flowsAll,

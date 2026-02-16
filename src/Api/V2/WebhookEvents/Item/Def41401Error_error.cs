@@ -5,7 +5,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum Def42401Error_error
+    public enum Def41401Error_error
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "Unauthorized")]
