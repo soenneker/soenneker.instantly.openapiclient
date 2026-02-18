@@ -59,17 +59,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         #pragma warning disable CS1591
         R1,
         #pragma warning restore CS1591
-        [EnumMember(Value = "grok-2")]
-        #pragma warning disable CS1591
-        Grok2,
-        #pragma warning restore CS1591
         [EnumMember(Value = "grok-4")]
         #pragma warning disable CS1591
         Grok4,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "gemini-1.5-flash")]
-        #pragma warning disable CS1591
-        Gemini15Flash,
         #pragma warning restore CS1591
         [EnumMember(Value = "gemini-2.0-flash")]
         #pragma warning disable CS1591

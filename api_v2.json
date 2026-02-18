@@ -120,7 +120,7 @@
                   "4": "4",
                   "disabled": "Disabled"
                 },
-                "description": "Daily increment for email sending limits",
+                "description": "Daily increment for email sending limits. Set to \u0060disabled\u0060 to turn off slow ramp.",
                 "example": "disabled"
               },
               "reply_rate": {
@@ -5487,9 +5487,7 @@
               "claude-3.5-sonnet",
               "claude-4.5-sonnet",
               "r1",
-              "grok-2",
               "grok-4",
-              "gemini-1.5-flash",
               "gemini-2.0-flash",
               "gemini-3.0-flash",
               "gemini-3.0-pro",
@@ -5512,9 +5510,7 @@
               "claude-3.5-sonnet": "Claude 3.5 Sonnet",
               "claude-4.5-sonnet": "Claude 4.5 Sonnet",
               "r1": "R1",
-              "grok-2": "Grok 2",
               "grok-4": "Grok 4",
-              "gemini-1.5-flash": "Gemini 1.5 Flash",
               "gemini-2.0-flash": "Gemini 2.0 Flash",
               "gemini-3.0-flash": "Gemini 3.0 Flash",
               "gemini-3.0-pro": "Gemini 3.0 Pro",
@@ -6123,7 +6119,7 @@
                           "4": "4",
                           "disabled": "Disabled"
                         },
-                        "description": "Daily increment for email sending limits",
+                        "description": "Daily increment for email sending limits. Set to \u0060disabled\u0060 to turn off slow ramp.",
                         "example": "disabled"
                       },
                       "reply_rate": {
@@ -6820,7 +6816,7 @@
                           "4": "4",
                           "disabled": "Disabled"
                         },
-                        "description": "Daily increment for email sending limits",
+                        "description": "Daily increment for email sending limits. Set to \u0060disabled\u0060 to turn off slow ramp.",
                         "example": "disabled"
                       },
                       "reply_rate": {
@@ -32566,9 +32562,7 @@
                       "claude-3.5-sonnet",
                       "claude-4.5-sonnet",
                       "r1",
-                      "grok-2",
                       "grok-4",
-                      "gemini-1.5-flash",
                       "gemini-2.0-flash",
                       "gemini-3.0-flash",
                       "gemini-3.0-pro",
@@ -32591,9 +32585,7 @@
                       "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
                       "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u2019s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
                       "r1": "R1 - Deepseek\u0027s advanced chat model",
-                      "grok-2": "Grok 2 - X AI\u0027s earlier-generation model",
                       "grok-4": "Grok 4 - X AI\u0027s latest reasoning model",
-                      "gemini-1.5-flash": "Gemini 1.5 Flash - Google\u0027s fast and efficient model",
                       "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s powerful and versatile model",
                       "gemini-3.0-flash": "Gemini 3.0 Flash - Is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance",
                       "gemini-3.0-pro": "Gemini 3.0 Pro - Google\u0027s latest model with improved capabilities",

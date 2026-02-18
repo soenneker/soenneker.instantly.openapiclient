@@ -23,7 +23,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
 #else
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsPostRequestBody_warmup_advanced Advanced { get; set; }
 #endif
-        /// <summary>Daily increment for email sending limits</summary>
+        /// <summary>Daily increment for email sending limits. Set to `disabled` to turn off slow ramp.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsPostRequestBody_warmup_increment? Increment { get; set; }
         /// <summary>Email sending limit for the account</summary>
         public double? Limit { get; set; }
