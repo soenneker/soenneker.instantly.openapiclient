@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Create;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current;
 using System.Collections.Generic;
 using System.IO;
@@ -16,11 +15,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkspacesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The create property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Create.CreateRequestBuilder Create
-        {
-            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Create.CreateRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The current property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.CurrentRequestBuilder Current
         {
