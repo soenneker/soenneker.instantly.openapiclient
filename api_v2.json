@@ -32035,6 +32035,16 @@
                             "prospeo",
                             "hunter"
                           ]
+                        },
+                        "limit": {
+                          "type": "number",
+                          "description": "Maximum number of leads to enrich",
+                          "example": 10
+                        },
+                        "autofill": {
+                          "type": "boolean",
+                          "description": "Whether to automatically fill in missing lead information",
+                          "example": true
                         }
                       }
                     },
