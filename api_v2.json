@@ -33183,6 +33183,28 @@
                     "type": "integer",
                     "description": "If set, only the first N leads will be enriched",
                     "example": 10
+                  },
+                  "column_name": {
+                    "type": "string",
+                    "description": "AI enrichment column to run.",
+                    "example": "email_subject"
+                  },
+                  "overwrite": {
+                    "type": "boolean",
+                    "description": "(AI re-run parameter) If true, run even if column has value. If false (default), only process empty/null columns. Requires column_name.",
+                    "example": false
+                  },
+                  "starting_row": {
+                    "type": "integer",
+                    "description": "(AI re-run parameter) Starting lead position (inclusive, 1-indexed). Defaults to 1 if not provided. Requires column_name.",
+                    "minimum": 1,
+                    "example": 1
+                  },
+                  "count": {
+                    "type": "integer",
+                    "description": "(AI re-run parameter) How many leads to process. If not provided, processes all remaining leads from starting_row to the end. Requires column_name.",
+                    "minimum": 1,
+                    "example": 10
                   }
                 },
                 "required": [

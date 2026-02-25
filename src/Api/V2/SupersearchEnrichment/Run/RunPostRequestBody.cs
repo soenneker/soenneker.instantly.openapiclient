@@ -14,6 +14,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>AI enrichment column to run.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ColumnName { get; set; }
+#nullable restore
+#else
+        public string ColumnName { get; set; }
+#endif
+        /// <summary>(AI re-run parameter) How many leads to process. If not provided, processes all remaining leads from starting_row to the end. Requires column_name.</summary>
+        public int? Count { get; set; }
         /// <summary>List of lead IDs to enrich (optional)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,8 +34,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
 #endif
         /// <summary>If set, only the first N leads will be enriched</summary>
         public int? Limit { get; set; }
+        /// <summary>(AI re-run parameter) If true, run even if column has value. If false (default), only process empty/null columns. Requires column_name.</summary>
+        public bool? Overwrite { get; set; }
         /// <summary>The ID of the resource (list or campaign) to run enrichments for</summary>
         public Guid? ResourceId { get; set; }
+        /// <summary>(AI re-run parameter) Starting lead position (inclusive, 1-indexed). Defaults to 1 if not provided. Requires column_name.</summary>
+        public int? StartingRow { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -51,9 +65,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "column_name", n => { ColumnName = n.GetStringValue(); } },
+                { "count", n => { Count = n.GetIntValue(); } },
                 { "lead_ids", n => { LeadIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
+                { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "starting_row", n => { StartingRow = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -63,9 +81,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("column_name", ColumnName);
+            writer.WriteIntValue("count", Count);
             writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
             writer.WriteIntValue("limit", Limit);
+            writer.WriteBoolValue("overwrite", Overwrite);
             writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteIntValue("starting_row", StartingRow);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
