@@ -60,6 +60,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #else
         public List<Guid?> Ids { get; set; }
 #endif
+        /// <summary>Whether to ignore saved lead-finder clauses for the source campaign/list when selecting leads to move.</summary>
+        public bool? IgnoreResourceFilterClauses { get; set; }
         /// <summary>Whether the lead is in a campaign</summary>
         public bool? InCampaign { get; set; }
         /// <summary>Whether the lead is in a list</summary>
@@ -128,6 +130,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
                 { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "ignore_resource_filter_clauses", n => { IgnoreResourceFilterClauses = n.GetBoolValue(); } },
                 { "in_campaign", n => { InCampaign = n.GetBoolValue(); } },
                 { "in_list", n => { InList = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
@@ -158,6 +161,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
             writer.WriteCollectionOfPrimitiveValues<Guid?>("excluded_ids", ExcludedIds);
             writer.WriteStringValue("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
+            writer.WriteBoolValue("ignore_resource_filter_clauses", IgnoreResourceFilterClauses);
             writer.WriteBoolValue("in_campaign", InCampaign);
             writer.WriteBoolValue("in_list", InList);
             writer.WriteDoubleValue("limit", Limit);

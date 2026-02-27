@@ -27557,6 +27557,11 @@
                     "description": "The ID of the list to move the leads to.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
+                  "ignore_resource_filter_clauses": {
+                    "type": "boolean",
+                    "description": "Whether to ignore saved lead-finder clauses for the source campaign/list when selecting leads to move.",
+                    "example": true
+                  },
                   "check_duplicates_in_campaigns": {
                     "type": "boolean",
                     "description": "Whether to check duplicates in campaigns.",
