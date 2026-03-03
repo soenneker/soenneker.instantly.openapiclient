@@ -7822,13 +7822,73 @@
                         "type": "integer",
                         "description": "The number of emails that bounced on this date for this account for campaigns - including subsequences",
                         "example": 3
+                      },
+                      "contacted": {
+                        "type": "integer",
+                        "description": "The total number of unique contacts who received an email on this date from this account",
+                        "example": 120
+                      },
+                      "new_leads_contacted": {
+                        "type": "integer",
+                        "description": "The total number of new leads contacted on this date from this account",
+                        "example": 50
+                      },
+                      "opened": {
+                        "type": "integer",
+                        "description": "The total number of opened emails on this date for this account",
+                        "example": 99
+                      },
+                      "unique_opened": {
+                        "type": "integer",
+                        "description": "The total number of unique opened emails on this date for this account",
+                        "example": 60
+                      },
+                      "replies": {
+                        "type": "integer",
+                        "description": "The total number of replies received on this date for this account",
+                        "example": 8
+                      },
+                      "unique_replies": {
+                        "type": "integer",
+                        "description": "The total number of unique replies received on this date for this account",
+                        "example": 7
+                      },
+                      "replies_automatic": {
+                        "type": "integer",
+                        "description": "The total number of automatic replies detected on this date for this account",
+                        "example": 2
+                      },
+                      "unique_replies_automatic": {
+                        "type": "integer",
+                        "description": "The total number of unique automatic replies detected on this date for this account",
+                        "example": 1
+                      },
+                      "clicks": {
+                        "type": "integer",
+                        "description": "The total number of links clicked on this date for this account",
+                        "example": 30
+                      },
+                      "unique_clicks": {
+                        "type": "integer",
+                        "description": "The total number of unique links clicked on this date for this account. Unique meaning from unique leads, not unique links",
+                        "example": 20
                       }
                     },
                     "required": [
                       "date",
                       "email_account",
                       "sent",
-                      "bounced"
+                      "bounced",
+                      "contacted",
+                      "new_leads_contacted",
+                      "opened",
+                      "unique_opened",
+                      "replies",
+                      "unique_replies",
+                      "replies_automatic",
+                      "unique_replies_automatic",
+                      "clicks",
+                      "unique_clicks"
                     ]
                   }
                 }

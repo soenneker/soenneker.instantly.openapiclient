@@ -16,6 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of emails that bounced on this date for this account for campaigns - including subsequences</summary>
         public int? Bounced { get; set; }
+        /// <summary>The total number of links clicked on this date for this account</summary>
+        public int? Clicks { get; set; }
+        /// <summary>The total number of unique contacts who received an email on this date from this account</summary>
+        public int? Contacted { get; set; }
         /// <summary>The date of the analytics entry, in YYYY-MM-DD format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,8 +36,24 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
 #else
         public string EmailAccount { get; set; }
 #endif
+        /// <summary>The total number of new leads contacted on this date from this account</summary>
+        public int? NewLeadsContacted { get; set; }
+        /// <summary>The total number of opened emails on this date for this account</summary>
+        public int? Opened { get; set; }
+        /// <summary>The total number of replies received on this date for this account</summary>
+        public int? Replies { get; set; }
+        /// <summary>The total number of automatic replies detected on this date for this account</summary>
+        public int? RepliesAutomatic { get; set; }
         /// <summary>The total number of campaign emails sent on this date by this account, including emails for subsequences</summary>
         public int? Sent { get; set; }
+        /// <summary>The total number of unique links clicked on this date for this account. Unique meaning from unique leads, not unique links</summary>
+        public int? UniqueClicks { get; set; }
+        /// <summary>The total number of unique opened emails on this date for this account</summary>
+        public int? UniqueOpened { get; set; }
+        /// <summary>The total number of unique replies received on this date for this account</summary>
+        public int? UniqueReplies { get; set; }
+        /// <summary>The total number of unique automatic replies detected on this date for this account</summary>
+        public int? UniqueRepliesAutomatic { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily.Daily"/> and sets the default values.
         /// </summary>
@@ -60,9 +80,19 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "bounced", n => { Bounced = n.GetIntValue(); } },
+                { "clicks", n => { Clicks = n.GetIntValue(); } },
+                { "contacted", n => { Contacted = n.GetIntValue(); } },
                 { "date", n => { Date = n.GetStringValue(); } },
                 { "email_account", n => { EmailAccount = n.GetStringValue(); } },
+                { "new_leads_contacted", n => { NewLeadsContacted = n.GetIntValue(); } },
+                { "opened", n => { Opened = n.GetIntValue(); } },
+                { "replies", n => { Replies = n.GetIntValue(); } },
+                { "replies_automatic", n => { RepliesAutomatic = n.GetIntValue(); } },
                 { "sent", n => { Sent = n.GetIntValue(); } },
+                { "unique_clicks", n => { UniqueClicks = n.GetIntValue(); } },
+                { "unique_opened", n => { UniqueOpened = n.GetIntValue(); } },
+                { "unique_replies", n => { UniqueReplies = n.GetIntValue(); } },
+                { "unique_replies_automatic", n => { UniqueRepliesAutomatic = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -73,9 +103,19 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bounced", Bounced);
+            writer.WriteIntValue("clicks", Clicks);
+            writer.WriteIntValue("contacted", Contacted);
             writer.WriteStringValue("date", Date);
             writer.WriteStringValue("email_account", EmailAccount);
+            writer.WriteIntValue("new_leads_contacted", NewLeadsContacted);
+            writer.WriteIntValue("opened", Opened);
+            writer.WriteIntValue("replies", Replies);
+            writer.WriteIntValue("replies_automatic", RepliesAutomatic);
             writer.WriteIntValue("sent", Sent);
+            writer.WriteIntValue("unique_clicks", UniqueClicks);
+            writer.WriteIntValue("unique_opened", UniqueOpened);
+            writer.WriteIntValue("unique_replies", UniqueReplies);
+            writer.WriteIntValue("unique_replies_automatic", UniqueRepliesAutomatic);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
