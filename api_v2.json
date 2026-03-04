@@ -2761,7 +2761,12 @@
                 "dfy_email_account_orders:create",
                 "dfy_email_account_orders:read",
                 "dfy_email_account_orders:update",
-                "dfy_email_account_orders:delete"
+                "dfy_email_account_orders:delete",
+                "auth:all",
+                "auth:create",
+                "auth:read",
+                "auth:update",
+                "auth:delete"
               ],
               "example": "campaigns:create"
             }
@@ -8979,7 +8984,12 @@
                         "dfy_email_account_orders:create",
                         "dfy_email_account_orders:read",
                         "dfy_email_account_orders:update",
-                        "dfy_email_account_orders:delete"
+                        "dfy_email_account_orders:delete",
+                        "auth:all",
+                        "auth:create",
+                        "auth:read",
+                        "auth:update",
+                        "auth:delete"
                       ],
                       "example": "campaigns:create"
                     }
@@ -10272,6 +10282,166 @@
             }
           }
         }
+      },
+      "delete": {
+        "operationId": "deleteallBlockListEntry",
+        "summary": "Delete all block list entries",
+        "tags": [
+          "BlockListEntry"
+        ],
+        "description": "Requires one of the following scopes: \u0060block_list_entries:delete\u0060, \u0060block_list_entries:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "null",
+                "example": null
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "in": "query",
+            "name": "domains_only",
+            "required": false,
+            "description": "Filter by domain"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "example.com"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "description": "Search by value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of deleted Block List Entry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/def-15"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v2/block-lists-entries/{id}": {
@@ -10670,6 +10840,443 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/block-lists-entries/bulk-create": {
+      "post": {
+        "operationId": "createblukBlockListEntry",
+        "summary": "Bulk create block list entry",
+        "tags": [
+          "BlockListEntry"
+        ],
+        "description": "Requires one of the following scopes: \u0060block_list_entries:create\u0060, \u0060block_list_entries:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "BulkCreate Block List Entry",
+                "description": "Domains or emails to block",
+                "type": "object",
+                "required": [
+                  "bl_values"
+                ],
+                "properties": {
+                  "bl_values": {
+                    "type": "array",
+                    "description": "List of domains or emails to block",
+                    "example": [
+                      "example.com",
+                      "user@example.com"
+                    ],
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "maxItems": 1000
+                  }
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "Domains or emails to block"
+        },
+        "responses": {
+          "200": {
+            "description": "List of created Block List Entry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/def-15"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body (e.g. missing required fields, or invalid field values)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/block-lists-entries/bulk-delete": {
+      "post": {
+        "operationId": "deletebulkBlockListEntry",
+        "summary": "Bulk delete block list entry",
+        "tags": [
+          "BlockListEntry"
+        ],
+        "description": "Requires one of the following scopes: \u0060block_list_entries:delete\u0060, \u0060block_list_entries:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Bulk Delete Block List Entry",
+                "description": "Block list entry ids to delete",
+                "type": "object",
+                "required": [
+                  "ids"
+                ],
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "description": "List block list entry ids to delete",
+                    "example": [
+                      "f9cc070d-8dba-4341-b847-f083c358e460",
+                      "f9cc070d-8dba-4341-b847-f083c358e460"
+                    ],
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "maxItems": 1000
+                  }
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "Block list entry ids to delete"
+        },
+        "responses": {
+          "200": {
+            "description": "List of deleted Block List Entry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/def-15"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/block-lists-entries/download": {
+      "get": {
+        "operationId": "downloadBlockListEntry",
+        "summary": "Download all block list entries as CSV",
+        "tags": [
+          "BlockListEntry"
+        ],
+        "description": "Requires one of the following scopes: \u0060block_list_entries:read\u0060, \u0060block_list_entries:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "in": "query",
+            "name": "domains_only",
+            "required": false,
+            "description": "Filter by domain"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "example.com"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "description": "Search by value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Block List Entry",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "example": "Blocked Email,Date\r\nexample.com,2023-09-15T12:00:00Z\r\nuser@example.org,2023-09-15T12:00:00Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
                     }
                   },
                   "required": [

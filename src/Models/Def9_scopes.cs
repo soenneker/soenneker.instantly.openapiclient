@@ -700,5 +700,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Dfy_email_account_ordersDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "auth:all")]
+        #pragma warning disable CS1591
+        AuthAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "auth:create")]
+        #pragma warning disable CS1591
+        AuthCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "auth:read")]
+        #pragma warning disable CS1591
+        AuthRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "auth:update")]
+        #pragma warning disable CS1591
+        AuthUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "auth:delete")]
+        #pragma warning disable CS1591
+        AuthDelete,
+        #pragma warning restore CS1591
     }
 }

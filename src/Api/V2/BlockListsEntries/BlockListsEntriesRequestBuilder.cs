@@ -3,6 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate;
+using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete;
+using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +21,21 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BlockListsEntriesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bulkCreate property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreateRequestBuilder BulkCreate
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bulkDelete property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDeleteRequestBuilder BulkDelete
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The download property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download.DownloadRequestBuilder Download
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download.DownloadRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.blockListsEntries.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item.BlockListsEntriesItemRequestBuilder"/></returns>
@@ -45,6 +63,36 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public BlockListsEntriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/block-lists-entries{?domains_only*,limit*,search*,starting_after*}", rawUrl)
         {
+        }
+        /// <summary>
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
+        /// </summary>
+        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.Def15&gt;</returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntries401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntries404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntries429Error">When receiving a 429 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>?> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntries401Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntries404Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntries429Error.CreateFromDiscriminatorValue },
+            };
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def15>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def15.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
@@ -101,6 +149,28 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def15>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def15.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
+        }
+        /// <summary>
         /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -149,6 +219,26 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class BlockListsEntriesRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>Filter by domain</summary>
+            [QueryParameter("domains_only")]
+            public bool? DomainsOnly { get; set; }
+            /// <summary>Search by value</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("search")]
+            public string Search { get; set; }
+#endif
         }
         /// <summary>
         /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
