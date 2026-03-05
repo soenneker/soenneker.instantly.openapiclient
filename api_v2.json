@@ -19226,6 +19226,178 @@
         }
       }
     },
+    "/api/v2/emails/test": {
+      "post": {
+        "operationId": "sendTestEmail",
+        "summary": "Send a test email",
+        "tags": [
+          "Email"
+        ],
+        "description": "Send a preview/test email without creating an email entity in Unibox. Rate limit: 10 requests per minute per workspace.\n\n\nRequires one of the following scopes: \u0060emails:create\u0060, \u0060emails:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "eaccount": {
+                    "type": "string",
+                    "description": "The email account that will be used to send this email. It has to be an email account connected to your workspace.",
+                    "example": "jondoe@example.com"
+                  },
+                  "to_address_email_list": {
+                    "type": "string",
+                    "description": "Comma-separated list of recipients that will receive the test email.",
+                    "example": "recipient@example.com,recipient2@example.com"
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject line of the test email.",
+                    "example": "Test email subject"
+                  },
+                  "body": {
+                    "type": "object",
+                    "description": "HTML body of the test email.",
+                    "properties": {
+                      "html": {
+                        "type": "string",
+                        "description": "HTML body of the test email.",
+                        "example": "\u003Cp\u003EThis is a test email\u003C/p\u003E"
+                      }
+                    },
+                    "required": [
+                      "html"
+                    ]
+                  }
+                },
+                "required": [
+                  "eaccount",
+                  "to_address_email_list",
+                  "subject",
+                  "body"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "success"
+                          ],
+                          "example": "success"
+                        }
+                      },
+                      "required": [
+                        "status"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "error": {
+                          "type": "string",
+                          "enum": [
+                            "ACC_AUTH_ERROR",
+                            "ACC_NOT_FOUND",
+                            "ACC_UNKNOWN_ERROR"
+                          ],
+                          "example": "ACC_AUTH_ERROR"
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/emails/reply": {
       "post": {
         "operationId": "replyToEmail",
@@ -19448,6 +19620,11 @@
                     "type": "string",
                     "description": "Comma-separated list of BCC email addresses",
                     "example": "bcc@example.com"
+                  },
+                  "forwarded_attachments": {
+                    "type": "string",
+                    "description": "JSON-encoded forwarded attachment metadata from the original email",
+                    "example": "[{\u0022filename\u0022:\u0022attachment.pdf\u0022,\u0022url\u0022:\u0022https://cdn.instantly.ai/example-attachment/file.pdf\u0022}]"
                   },
                   "assigned_to": {
                     "type": "string",

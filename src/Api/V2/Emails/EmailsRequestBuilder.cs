@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Test;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Unread;
 using System.Collections.Generic;
@@ -30,6 +31,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply.ReplyRequestBuilder Reply
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Reply.ReplyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The test property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Test.TestRequestBuilder Test
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Test.TestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The threads property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.ThreadsRequestBuilder Threads
