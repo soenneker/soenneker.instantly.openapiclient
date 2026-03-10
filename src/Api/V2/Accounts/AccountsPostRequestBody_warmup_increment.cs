@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
 {
-    /// <summary>Daily increment for email sending limits. Set to `disabled` to turn off slow ramp.</summary>
+    /// <summary>Daily increment added to the sending limit, starting from 0, until the full daily limit is reached (slow ramp). Gradually increases sending volume to improve deliverability. Set to `disabled` to send at the full daily limit from day one.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AccountsPostRequestBody_warmup_increment
     {

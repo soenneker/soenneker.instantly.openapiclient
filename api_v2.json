@@ -120,7 +120,7 @@
                   "4": "4",
                   "disabled": "Disabled"
                 },
-                "description": "Daily increment for email sending limits. Set to \u0060disabled\u0060 to turn off slow ramp.",
+                "description": "Daily increment added to the sending limit, starting from 0, until the full daily limit is reached (slow ramp). Gradually increases sending volume to improve deliverability. Set to \u0060disabled\u0060 to send at the full daily limit from day one.",
                 "example": "disabled"
               },
               "reply_rate": {
@@ -6124,7 +6124,7 @@
                           "4": "4",
                           "disabled": "Disabled"
                         },
-                        "description": "Daily increment for email sending limits. Set to \u0060disabled\u0060 to turn off slow ramp.",
+                        "description": "Daily increment added to the sending limit, starting from 0, until the full daily limit is reached (slow ramp). Gradually increases sending volume to improve deliverability. Set to \u0060disabled\u0060 to send at the full daily limit from day one.",
                         "example": "disabled"
                       },
                       "reply_rate": {
@@ -6821,7 +6821,7 @@
                           "4": "4",
                           "disabled": "Disabled"
                         },
-                        "description": "Daily increment for email sending limits. Set to \u0060disabled\u0060 to turn off slow ramp.",
+                        "description": "Daily increment added to the sending limit, starting from 0, until the full daily limit is reached (slow ramp). Gradually increases sending volume to improve deliverability. Set to \u0060disabled\u0060 to send at the full daily limit from day one.",
                         "example": "disabled"
                       },
                       "reply_rate": {
@@ -29271,6 +29271,31 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/v2/oauth/clients/authorize/decision": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v2/oauth/clients/authorized": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
           }
         }
       }

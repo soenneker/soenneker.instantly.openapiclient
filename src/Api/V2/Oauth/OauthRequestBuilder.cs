@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Clients;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Google;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Session;
@@ -17,6 +18,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OauthRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The clients property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Clients.ClientsRequestBuilder Clients
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Clients.ClientsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The google property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Google.GoogleRequestBuilder Google
         {
