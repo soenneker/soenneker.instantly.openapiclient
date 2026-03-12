@@ -77,6 +77,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public Guid? Id { get; private set; }
         /// <summary>Indicates if the lead is a website visitor</summary>
         public bool? IsWebsiteVisitor { get; private set; }
+        /// <summary>Job title of the lead</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobTitle { get; set; }
+#nullable restore
+#else
+        public string JobTitle { get; set; }
+#endif
         /// <summary>Source of the last contact</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -239,6 +247,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_website_visitor", n => { IsWebsiteVisitor = n.GetBoolValue(); } },
+                { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_contacted_from", n => { LastContactedFrom = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "last_step_from", n => { LastStepFrom = n.GetStringValue(); } },
@@ -282,6 +291,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("company_name", CompanyName);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
+            writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteGuidValue("list_id", ListId);
             writer.WriteDoubleValue("lt_interest_status", LtInterestStatus);

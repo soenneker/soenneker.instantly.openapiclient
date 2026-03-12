@@ -46,6 +46,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
 #else
         public string FirstName { get; set; }
 #endif
+        /// <summary>Job title of the lead</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobTitle { get; set; }
+#nullable restore
+#else
+        public string JobTitle { get; set; }
+#endif
         /// <summary>Last name of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +119,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
                 { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
+                { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "lt_interest_status", n => { LtInterestStatus = n.GetDoubleValue(); } },
                 { "personalization", n => { Personalization = n.GetStringValue(); } },
@@ -131,6 +140,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add.AddPostRequestBody_leads_custom_variables>("custom_variables", CustomVariables);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
+            writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteDoubleValue("lt_interest_status", LtInterestStatus);
             writer.WriteStringValue("personalization", Personalization);

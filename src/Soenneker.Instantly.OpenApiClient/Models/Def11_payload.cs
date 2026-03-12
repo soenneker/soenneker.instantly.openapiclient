@@ -31,6 +31,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string FirstName { get; set; }
 #endif
+        /// <summary>The jobTitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobTitle { get; set; }
+#nullable restore
+#else
+        public string JobTitle { get; set; }
+#endif
         /// <summary>The lastName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +98,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
+                { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
                 { "personalization", n => { Personalization = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
@@ -105,6 +114,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("firstName", FirstName);
+            writer.WriteStringValue("jobTitle", JobTitle);
             writer.WriteStringValue("lastName", LastName);
             writer.WriteStringValue("personalization", Personalization);
             writer.WriteStringValue("phone", Phone);

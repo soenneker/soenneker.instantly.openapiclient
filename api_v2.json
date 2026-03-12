@@ -2979,6 +2979,14 @@
             "description": "Company name of the lead",
             "example": "Example Inc."
           },
+          "job_title": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Job title of the lead",
+            "example": "Head of Growth"
+          },
           "phone": {
             "type": [
               "null",
@@ -3064,6 +3072,12 @@
                 "type": "string",
                 "examples": [
                   "Acme Corp"
+                ]
+              },
+              "jobTitle": {
+                "type": "string",
+                "examples": [
+                  "Head of Growth"
                 ]
               },
               "website": {
@@ -26204,6 +26218,14 @@
                     "description": "Company name of the lead",
                     "example": "Example Inc."
                   },
+                  "job_title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Job title of the lead",
+                    "example": "Head of Growth"
+                  },
                   "phone": {
                     "type": [
                       "string",
@@ -27160,6 +27182,14 @@
                     ],
                     "description": "Company name of the lead",
                     "example": "Example Inc."
+                  },
+                  "job_title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Job title of the lead",
+                    "example": "Head of Growth"
                   },
                   "phone": {
                     "type": [
@@ -28794,6 +28824,14 @@
                           ],
                           "description": "Company name of the lead",
                           "example": "Example Inc."
+                        },
+                        "job_title": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Job title of the lead",
+                          "example": "Head of Growth"
                         },
                         "phone": {
                           "type": [

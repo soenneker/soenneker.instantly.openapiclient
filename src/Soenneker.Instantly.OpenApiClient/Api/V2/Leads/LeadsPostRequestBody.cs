@@ -51,6 +51,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
 #else
         public string FirstName { get; set; }
 #endif
+        /// <summary>Job title of the lead</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobTitle { get; set; }
+#nullable restore
+#else
+        public string JobTitle { get; set; }
+#endif
         /// <summary>Last name of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -130,6 +138,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
                 { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsPostRequestBody_custom_variables>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsPostRequestBody_custom_variables.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
+                { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "list_id", n => { ListId = n.GetGuidValue(); } },
                 { "lt_interest_status", n => { LtInterestStatus = n.GetDoubleValue(); } },
@@ -158,6 +167,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsPostRequestBody_custom_variables>("custom_variables", CustomVariables);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
+            writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteGuidValue("list_id", ListId);
             writer.WriteDoubleValue("lt_interest_status", LtInterestStatus);
