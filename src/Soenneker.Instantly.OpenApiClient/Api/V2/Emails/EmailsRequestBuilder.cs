@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EmailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,lead*,limit*,list_id*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", pathParameters)
+        public EmailsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,latest_of_thread*,lead*,limit*,list_id*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EmailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,lead*,limit*,list_id*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", rawUrl)
+        public EmailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/emails{?assigned_to*,campaign_id*,company_domain*,eaccount*,email_type*,has_reminder*,i_status*,is_unread*,latest_of_thread*,lead*,limit*,list_id*,marked_as_done*,max_timestamp_created*,min_timestamp_created*,mode*,preview_only*,scheduled_only*,search*,sort_order*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -178,6 +178,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>Whether the email is unread.</summary>
             [QueryParameter("is_unread")]
             public bool? IsUnread { get; set; }
+            /// <summary>Whether to only return the latest email in each thread.</summary>
+            [QueryParameter("latest_of_thread")]
+            public bool? LatestOfThread { get; set; }
             /// <summary>The email of the lead to filter emails by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

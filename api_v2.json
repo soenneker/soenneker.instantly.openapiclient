@@ -19954,6 +19954,16 @@
             "name": "max_timestamp_created",
             "required": false,
             "description": "Filter emails created before this timestamp (ISO format)"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "in": "query",
+            "name": "latest_of_thread",
+            "required": false,
+            "description": "Whether to only return the latest email in each thread."
           }
         ],
         "responses": {
