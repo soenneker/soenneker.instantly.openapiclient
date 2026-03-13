@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -36,7 +35,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate
         /// <summary>
         /// Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.Def15&gt;</returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostResponse"/></returns>
         /// <param name="body">Domains or emails to block</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +44,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreate429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostResponse?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostResponse> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -60,8 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreate401Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreate429Error.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def15>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def15.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-            return collectionResult?.AsList();
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate.BulkCreatePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`

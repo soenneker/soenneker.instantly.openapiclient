@@ -10948,9 +10948,30 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/def-15"
+                  "title": "Bulk Created Block List Entries",
+                  "type": "object",
+                  "required": [
+                    "items",
+                    "valid_count",
+                    "invalid_count"
+                  ],
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/def-15"
+                      }
+                    },
+                    "valid_count": {
+                      "type": "number",
+                      "description": "Number of valid entries",
+                      "example": 1
+                    },
+                    "invalid_count": {
+                      "type": "number",
+                      "description": "Number of invalid entries",
+                      "example": 0
+                    }
                   }
                 }
               }
@@ -29319,31 +29340,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/v2/oauth/clients/authorize/decision": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "Default Response"
-          }
-        }
-      }
-    },
-    "/api/v2/oauth/clients/authorized": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Default Response"
-          }
-        }
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "Default Response"
           }
         }
       }
