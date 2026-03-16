@@ -19656,6 +19656,12 @@
                     "description": "Comma-separated list of BCC email addresses",
                     "example": "bcc@example.com"
                   },
+                  "reply_to": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Reply-to email address that recipients should use when replying",
+                    "example": "reply@example.com"
+                  },
                   "forwarded_attachments": {
                     "type": "string",
                     "description": "JSON-encoded forwarded attachment metadata from the original email",

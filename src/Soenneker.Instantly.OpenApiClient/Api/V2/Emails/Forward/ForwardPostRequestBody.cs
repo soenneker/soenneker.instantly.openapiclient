@@ -56,6 +56,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward
 #else
         public string ForwardedAttachments { get; set; }
 #endif
+        /// <summary>Reply-to email address that recipients should use when replying</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReplyTo { get; set; }
+#nullable restore
+#else
+        public string ReplyTo { get; set; }
+#endif
         /// <summary>The id of the email you want to forward</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +119,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward
                 { "cc_address_email_list", n => { CcAddressEmailList = n.GetStringValue(); } },
                 { "eaccount", n => { Eaccount = n.GetStringValue(); } },
                 { "forwarded_attachments", n => { ForwardedAttachments = n.GetStringValue(); } },
+                { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "reply_to_uuid", n => { ReplyToUuid = n.GetStringValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "to_address_email_list", n => { ToAddressEmailList = n.GetStringValue(); } },
@@ -129,6 +138,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward
             writer.WriteStringValue("cc_address_email_list", CcAddressEmailList);
             writer.WriteStringValue("eaccount", Eaccount);
             writer.WriteStringValue("forwarded_attachments", ForwardedAttachments);
+            writer.WriteStringValue("reply_to", ReplyTo);
             writer.WriteStringValue("reply_to_uuid", ReplyToUuid);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("to_address_email_list", ToAddressEmailList);
