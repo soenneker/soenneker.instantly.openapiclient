@@ -825,11 +825,9 @@
             "example": true
           },
           "open_tracking": {
-            "type": [
-              "null",
-              "boolean"
-            ],
+            "type": "boolean",
             "description": "Whether to track opens in emails",
+            "default": false,
             "example": true
           },
           "stop_on_auto_reply": {
@@ -11772,11 +11770,9 @@
                     "example": true
                   },
                   "open_tracking": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ],
+                    "type": "boolean",
                     "description": "Whether to track opens in emails",
+                    "default": false,
                     "example": true
                   },
                   "stop_on_auto_reply": {
@@ -13132,11 +13128,9 @@
                     "example": true
                   },
                   "open_tracking": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ],
+                    "type": "boolean",
                     "description": "Whether to track opens in emails",
+                    "default": false,
                     "example": true
                   },
                   "stop_on_auto_reply": {
