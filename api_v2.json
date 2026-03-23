@@ -28554,7 +28554,7 @@
                   },
                   "reset_interest_status": {
                     "type": "boolean",
-                    "description": "Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved.",
+                    "description": "Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved; for non-copy campaign-to-campaign moves, opportunities will also be migrated to the target campaign.",
                     "example": true
                   }
                 }

@@ -78,7 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move.MovePostRequestBody_queries> Queries { get; set; }
 #endif
-        /// <summary>Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved.</summary>
+        /// <summary>Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved; for non-copy campaign-to-campaign moves, opportunities will also be migrated to the target campaign.</summary>
         public bool? ResetInterestStatus { get; set; }
         /// <summary>A search string to search the leads against - can be First Name, Last Name, or Email</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
