@@ -123,6 +123,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
 #endif
         /// <summary>If set, the lead finder will show only one lead per company</summary>
         public bool? ShowOneLeadPerCompany { get; set; }
+        /// <summary>Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Signals { get; set; }
+#nullable restore
+#else
+        public List<string> Signals { get; set; }
+#endif
         /// <summary>If set, the lead finder will skip leads that are owned by the user</summary>
         public bool? SkipOwnedLeads { get; set; }
         /// <summary>The subIndustry property</summary>
@@ -181,6 +189,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
                 { "news", n => { News = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_news>()?.AsList(); } },
                 { "revenue", n => { Revenue = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_revenue>()?.AsList(); } },
                 { "show_one_lead_per_company", n => { ShowOneLeadPerCompany = n.GetBoolValue(); } },
+                { "signals", n => { Signals = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
                 { "subIndustry", n => { SubIndustry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_subIndustry>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_subIndustry.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_title>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_title.CreateFromDiscriminatorValue); } },
@@ -208,6 +217,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_news>("news", News);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_revenue>("revenue", Revenue);
             writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
+            writer.WriteCollectionOfPrimitiveValues<string>("signals", Signals);
             writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_subIndustry>("subIndustry", SubIndustry);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchPostRequestBody_search_filters_title>("title", Title);
