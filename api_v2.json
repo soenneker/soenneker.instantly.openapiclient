@@ -1039,7 +1039,7 @@
               "null",
               "string"
             ],
-            "description": "AI SDR ID that created this campaign",
+            "description": "AI Sales Agent ID that created this campaign",
             "format": "uuid",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
@@ -4112,6 +4112,7 @@
               "technologies",
               "news",
               "funding",
+              "engagement_score",
               "ai_enrichment",
               "custom_flow"
             ],
@@ -11925,7 +11926,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "AI SDR ID that created this campaign",
+                    "description": "AI Sales Agent ID that created this campaign",
                     "format": "uuid",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
@@ -12164,9 +12165,9 @@
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
             "in": "query",
-            "name": "ai_sdr_id",
+            "name": "ai_sales_agent_id",
             "required": false,
-            "description": "Filter campaigns by AI SDR ID. Returns campaigns that were created by the specified AI SDR."
+            "description": "Filter campaigns by AI Sales Agent ID. Returns campaigns that were created by the specified AI Sales Agent."
           },
           {
             "schema": {
@@ -32947,6 +32948,10 @@
                           "type": "boolean",
                           "example": true
                         },
+                        "engagement_score": {
+                          "type": "boolean",
+                          "example": true
+                        },
                         "ai_enrichment": {
                           "type": "object",
                           "additionalProperties": true
@@ -33107,6 +33112,7 @@
                       "technologies",
                       "news",
                       "funding",
+                      "engagement_score",
                       "ai_enrichment",
                       "custom_flow"
                     ],

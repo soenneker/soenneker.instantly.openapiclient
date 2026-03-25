@@ -13,7 +13,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Def1 : IParsable
     {
-        /// <summary>AI SDR ID that created this campaign</summary>
+        /// <summary>AI Sales Agent ID that created this campaign</summary>
         public Guid? AiSdrId { get; set; }
         /// <summary>Whether to allow risky contacts</summary>
         public bool? AllowRiskyContacts { get; set; }

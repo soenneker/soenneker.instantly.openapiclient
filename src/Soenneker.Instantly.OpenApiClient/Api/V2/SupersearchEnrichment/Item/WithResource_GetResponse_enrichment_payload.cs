@@ -35,6 +35,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
 #endif
         /// <summary>The email_verification property</summary>
         public bool? EmailVerification { get; set; }
+        /// <summary>The engagement_score property</summary>
+        public bool? EngagementScore { get; set; }
         /// <summary>The fully_enriched_profile property</summary>
         public bool? FullyEnrichedProfile { get; set; }
         /// <summary>The funding property</summary>
@@ -78,6 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
                 { "autofill", n => { Autofill = n.GetBoolValue(); } },
                 { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "email_verification", n => { EmailVerification = n.GetBoolValue(); } },
+                { "engagement_score", n => { EngagementScore = n.GetBoolValue(); } },
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "funding", n => { Funding = n.GetBoolValue(); } },
                 { "joblisting", n => { Joblisting = n.GetBoolValue(); } },
@@ -98,6 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item
             writer.WriteBoolValue("autofill", Autofill);
             writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
             writer.WriteBoolValue("email_verification", EmailVerification);
+            writer.WriteBoolValue("engagement_score", EngagementScore);
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteBoolValue("funding", Funding);
             writer.WriteBoolValue("joblisting", Joblisting);

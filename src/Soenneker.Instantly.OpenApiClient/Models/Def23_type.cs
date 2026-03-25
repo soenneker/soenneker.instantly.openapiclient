@@ -35,6 +35,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Funding,
         #pragma warning restore CS1591
+        [EnumMember(Value = "engagement_score")]
+        #pragma warning disable CS1591
+        Engagement_score,
+        #pragma warning restore CS1591
         [EnumMember(Value = "ai_enrichment")]
         #pragma warning disable CS1591
         Ai_enrichment,
