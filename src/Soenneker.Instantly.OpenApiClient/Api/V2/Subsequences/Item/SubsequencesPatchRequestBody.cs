@@ -12,6 +12,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item
     public partial class SubsequencesPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Custom daily limit for the subsequence. Only used when `daily_limit_mode` is &quot;custom&quot;.</summary>
+        public double? DailyLimit { get; set; }
+        /// <summary>Daily limit mode for the subsequence. &quot;inherit&quot; uses the parent campaign limit, &quot;custom&quot; uses a subsequence-specific limit, &quot;unlimited&quot; bypasses the campaign-level daily limit.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesPatchRequestBody_daily_limit_mode? DailyLimitMode { get; set; }
+        /// <summary>When enabled, the subsequence will send even when sending accounts have reached their daily limit.</summary>
+        public bool? IgnoreAccountDailyLimit { get; set; }
         /// <summary>Name of the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +44,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
+                { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesPatchRequestBody_daily_limit_mode>(); } },
+                { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -48,6 +57,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDoubleValue("daily_limit", DailyLimit);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesPatchRequestBody_daily_limit_mode>("daily_limit_mode", DailyLimitMode);
+            writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
         }
     }

@@ -21,8 +21,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions Conditions { get; set; }
 #endif
+        /// <summary>Custom daily limit for the subsequence. Only used when `daily_limit_mode` is &quot;custom&quot;.</summary>
+        public double? DailyLimit { get; set; }
+        /// <summary>Daily limit mode for the subsequence. &quot;inherit&quot; uses the parent campaign limit, &quot;custom&quot; uses a subsequence-specific limit, &quot;unlimited&quot; bypasses the campaign-level daily limit.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def26_daily_limit_mode? DailyLimitMode { get; set; }
         /// <summary>Unique identifier for the subsequence</summary>
         public Guid? Id { get; private set; }
+        /// <summary>When enabled, the subsequence will send even when sending accounts have reached their daily limit.</summary>
+        public bool? IgnoreAccountDailyLimit { get; set; }
         /// <summary>Name of the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +82,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions>(global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions.CreateFromDiscriminatorValue); } },
+                { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
+                { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_daily_limit_mode>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parent_campaign", n => { ParentCampaign = n.GetGuidValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26_sequences>(global::Soenneker.Instantly.OpenApiClient.Models.Def26_sequences.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -95,6 +104,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions>("conditions", Conditions);
+            writer.WriteDoubleValue("daily_limit", DailyLimit);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_daily_limit_mode>("daily_limit_mode", DailyLimitMode);
+            writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("parent_campaign", ParentCampaign);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26_sequences>("sequences", Sequences);

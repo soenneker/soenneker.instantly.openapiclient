@@ -4864,6 +4864,29 @@
                 "steps"
               ]
             }
+          },
+          "daily_limit_mode": {
+            "type": "string",
+            "description": "Daily limit mode for the subsequence. \u0022inherit\u0022 uses the parent campaign limit, \u0022custom\u0022 uses a subsequence-specific limit, \u0022unlimited\u0022 bypasses the campaign-level daily limit.",
+            "enum": [
+              "inherit",
+              "custom",
+              "unlimited"
+            ],
+            "example": "inherit"
+          },
+          "daily_limit": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Custom daily limit for the subsequence. Only used when \u0060daily_limit_mode\u0060 is \u0022custom\u0022.",
+            "example": 50
+          },
+          "ignore_account_daily_limit": {
+            "type": "boolean",
+            "description": "When enabled, the subsequence will send even when sending accounts have reached their daily limit.",
+            "example": false
           }
         },
         "required": [
@@ -29729,6 +29752,29 @@
                         "steps"
                       ]
                     }
+                  },
+                  "daily_limit_mode": {
+                    "type": "string",
+                    "description": "Daily limit mode for the subsequence. \u0022inherit\u0022 uses the parent campaign limit, \u0022custom\u0022 uses a subsequence-specific limit, \u0022unlimited\u0022 bypasses the campaign-level daily limit.",
+                    "enum": [
+                      "inherit",
+                      "custom",
+                      "unlimited"
+                    ],
+                    "example": "inherit"
+                  },
+                  "daily_limit": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "description": "Custom daily limit for the subsequence. Only used when \u0060daily_limit_mode\u0060 is \u0022custom\u0022.",
+                    "example": 50
+                  },
+                  "ignore_account_daily_limit": {
+                    "type": "boolean",
+                    "description": "When enabled, the subsequence will send even when sending accounts have reached their daily limit.",
+                    "example": false
                   }
                 },
                 "required": [
@@ -30515,6 +30561,29 @@
                     "type": "string",
                     "description": "Name of the subsequence",
                     "example": "Follow-up sequence"
+                  },
+                  "daily_limit_mode": {
+                    "type": "string",
+                    "description": "Daily limit mode for the subsequence. \u0022inherit\u0022 uses the parent campaign limit, \u0022custom\u0022 uses a subsequence-specific limit, \u0022unlimited\u0022 bypasses the campaign-level daily limit.",
+                    "enum": [
+                      "inherit",
+                      "custom",
+                      "unlimited"
+                    ],
+                    "example": "inherit"
+                  },
+                  "daily_limit": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "description": "Custom daily limit for the subsequence. Only used when \u0060daily_limit_mode\u0060 is \u0022custom\u0022.",
+                    "example": 50
+                  },
+                  "ignore_account_daily_limit": {
+                    "type": "boolean",
+                    "description": "When enabled, the subsequence will send even when sending accounts have reached their daily limit.",
+                    "example": false
                   }
                 },
                 "required": [],
