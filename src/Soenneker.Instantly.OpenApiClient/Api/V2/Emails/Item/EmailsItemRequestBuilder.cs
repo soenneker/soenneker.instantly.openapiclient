@@ -41,6 +41,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2402Error">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,6 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2402Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2429Error.CreateFromDiscriminatorValue },
             };
@@ -69,6 +71,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2402Error">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,6 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2402Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2429Error.CreateFromDiscriminatorValue },
             };
@@ -97,6 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2402Error">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,6 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2402Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.Def2429Error.CreateFromDiscriminatorValue },
             };

@@ -53,6 +53,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys402Error">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +69,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys402Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeys429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeysGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeysGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -80,6 +84,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9402Error">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,6 +102,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
             {
                 { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9402Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Def9429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def9>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def9.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

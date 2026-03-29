@@ -58,6 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics402Error">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,6 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
             {
                 { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics402Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Analytics429Error.CreateFromDiscriminatorValue },
             };

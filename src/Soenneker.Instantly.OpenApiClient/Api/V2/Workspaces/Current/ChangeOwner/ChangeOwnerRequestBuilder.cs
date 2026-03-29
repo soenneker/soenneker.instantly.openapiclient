@@ -41,6 +41,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwne
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20402Error">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +58,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwne
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20402Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.Def20429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def20>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def20.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

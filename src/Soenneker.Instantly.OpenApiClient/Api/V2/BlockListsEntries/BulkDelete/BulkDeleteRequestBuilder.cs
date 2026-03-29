@@ -41,6 +41,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete402Error">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,6 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete402Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete.BulkDelete429Error.CreateFromDiscriminatorValue },
             };

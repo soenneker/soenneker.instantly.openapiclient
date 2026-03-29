@@ -41,6 +41,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus402Error">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +59,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus
             {
                 { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus401Error.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus402Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus404Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatus429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.UpdateInterestStatus.UpdateInterestStatusPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
