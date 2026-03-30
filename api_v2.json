@@ -827,7 +827,6 @@
           "open_tracking": {
             "type": "boolean",
             "description": "Whether to track opens in emails",
-            "default": false,
             "example": true
           },
           "stop_on_auto_reply": {
@@ -13616,7 +13615,6 @@
                   "open_tracking": {
                     "type": "boolean",
                     "description": "Whether to track opens in emails",
-                    "default": false,
                     "example": true
                   },
                   "stop_on_auto_reply": {
@@ -15289,7 +15287,6 @@
                   "open_tracking": {
                     "type": "boolean",
                     "description": "Whether to track opens in emails",
-                    "default": false,
                     "example": true
                   },
                   "stop_on_auto_reply": {
