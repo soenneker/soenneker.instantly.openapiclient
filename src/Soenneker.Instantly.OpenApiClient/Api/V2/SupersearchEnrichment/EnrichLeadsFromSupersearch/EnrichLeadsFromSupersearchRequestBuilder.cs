@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         {
         }
         /// <summary>
-        /// Add leads from SuperSearch to the list or the campaign and enrich them. A list is automatically created if no resource is provided.
+        /// Add leads from SuperSearch to a list and enrich them. A list is automatically created if no list is provided.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add leads from SuperSearch to the list or the campaign and enrich them. A list is automatically created if no resource is provided.
+        /// Add leads from SuperSearch to a list and enrich them. A list is automatically created if no list is provided.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -38298,7 +38298,7 @@
         "tags": [
           "SuperSearchEnrichment"
         ],
-        "description": "Add leads from SuperSearch to the list or the campaign and enrich them. A list is automatically created if no resource is provided.",
+        "description": "Add leads from SuperSearch to a list and enrich them. A list is automatically created if no list is provided.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -39675,17 +39675,8 @@
                   "resource_id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "ID of existing resource to add leads to",
+                    "description": "ID of the existing list to add leads to. A list is automatically created if no list is provided.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-                  },
-                  "resource_type": {
-                    "type": "number",
-                    "enum": [
-                      1,
-                      2
-                    ],
-                    "description": "Type of resource",
-                    "example": 1
                   },
                   "auto_update": {
                     "type": "boolean",

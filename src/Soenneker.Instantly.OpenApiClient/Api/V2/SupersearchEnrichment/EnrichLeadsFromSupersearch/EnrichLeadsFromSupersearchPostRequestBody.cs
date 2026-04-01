@@ -44,10 +44,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
 #else
         public string ListName { get; set; }
 #endif
-        /// <summary>ID of existing resource to add leads to</summary>
+        /// <summary>ID of the existing list to add leads to. A list is automatically created if no list is provided.</summary>
         public Guid? ResourceId { get; set; }
-        /// <summary>Type of resource</summary>
-        public double? ResourceType { get; set; }
         /// <summary>Search filters to find leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +98,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
-                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.CreateFromDiscriminatorValue); } },
                 { "search_name", n => { SearchName = n.GetStringValue(); } },
                 { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
@@ -121,7 +118,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
             writer.WriteGuidValue("resource_id", ResourceId);
-            writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters>("search_filters", SearchFilters);
             writer.WriteStringValue("search_name", SearchName);
             writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
