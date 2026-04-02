@@ -42,7 +42,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
 #endif
         /// <summary>Organization ID that created this enrichment</summary>
         public Guid? OrganizationId { get; set; }
-        /// <summary>ID of the resource (list or campaign)</summary>
+        /// <summary>ID of the list</summary>
         public Guid? ResourceId { get; set; }
         /// <summary>The search filters used for enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

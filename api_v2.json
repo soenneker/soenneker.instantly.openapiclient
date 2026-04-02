@@ -35665,7 +35665,7 @@
         "tags": [
           "OAuth"
         ],
-        "description": "Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.",
+        "description": "Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.\n\n**Special rate limits (stricter than the standard API rate limit) to comply with upstream Google rate limits:**\n- 5 requests per minute per workspace\n- 10 requests per minute per IP\n\nIf Google\u0027s upstream OAuth service is temporarily unavailable, requests may return 503.",
         "responses": {
           "200": {
             "description": "Default Response",
@@ -35694,6 +35694,78 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Rate limit exceeded \u2014 5 requests per minute per workspace or 10 requests per minute per IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Rate limit exceeded \u2014 5 requests per minute per workspace or 10 requests per minute per IP",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded for OAuth session creation"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Upstream provider temporarily unavailable \u2014 the provider is rate-limiting Instantly. Retry after a short delay.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Upstream provider temporarily unavailable \u2014 the provider is rate-limiting Instantly. Retry after a short delay.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        503
+                      ],
+                      "example": 503
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Service Unavailable"
+                      ],
+                      "example": "Service Unavailable"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "OAuth is temporarily unavailable, please retry shortly"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -35705,7 +35777,7 @@
         "tags": [
           "OAuth"
         ],
-        "description": "Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.",
+        "description": "Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.\n\n**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**\n- 5 requests per minute per workspace\n- 10 requests per minute per IP\n\nIf Microsoft\u0027s upstream OAuth service is temporarily unavailable, requests may return 503.",
         "responses": {
           "200": {
             "description": "Default Response",
@@ -35731,6 +35803,78 @@
                       "example": "1970-01-01T00:00:00.000Z"
                     }
                   }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded \u2014 5 requests per minute per workspace or 10 requests per minute per IP",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Rate limit exceeded \u2014 5 requests per minute per workspace or 10 requests per minute per IP",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded for OAuth session creation"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Upstream provider temporarily unavailable \u2014 the provider is rate-limiting Instantly. Retry after a short delay.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Upstream provider temporarily unavailable \u2014 the provider is rate-limiting Instantly. Retry after a short delay.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        503
+                      ],
+                      "example": 503
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Service Unavailable"
+                      ],
+                      "example": "Service Unavailable"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "OAuth is temporarily unavailable, please retry shortly"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }
@@ -39743,7 +39887,7 @@
                     "resource_id": {
                       "type": "string",
                       "format": "uuid",
-                      "description": "ID of the resource (list or campaign)",
+                      "description": "ID of the list",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "search_filters": {

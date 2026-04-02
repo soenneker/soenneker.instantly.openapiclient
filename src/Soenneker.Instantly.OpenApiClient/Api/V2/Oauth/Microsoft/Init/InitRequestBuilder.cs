@@ -33,11 +33,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init
         {
         }
         /// <summary>
-        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.
+        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 5 requests per minute per workspace- 10 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -48,10 +50,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init429Error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init503Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.
+        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 5 requests per minute per workspace- 10 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
