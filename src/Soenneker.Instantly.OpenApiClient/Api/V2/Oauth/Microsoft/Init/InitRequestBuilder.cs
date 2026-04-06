@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init
         {
         }
         /// <summary>
-        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 5 requests per minute per workspace- 10 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
+        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 100 requests per minute per workspace- 500 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 5 requests per minute per workspace- 10 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
+        /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 100 requests per minute per workspace- 500 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
