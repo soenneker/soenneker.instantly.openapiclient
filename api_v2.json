@@ -6590,12 +6590,12 @@
           {
             "schema": {
               "type": "string",
-              "format": "date-time",
-              "example": "1970-01-01T00:00:00.000Z"
+              "example": "2026-01-01T00:00:00.000Z\u0026jon@doe.com"
             },
             "in": "query",
             "name": "starting_after",
-            "required": false
+            "required": false,
+            "description": "Pagination cursor from \u0060next_starting_after\u0060, in \u0060timestamp_created\u0026email\u0060 format. Legacy ISO date-time cursor is still supported."
           },
           {
             "schema": {
@@ -35665,7 +35665,7 @@
         "tags": [
           "OAuth"
         ],
-        "description": "Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.\n\n**Special rate limits (stricter than the standard API rate limit) to comply with upstream Google rate limits:**\n- 100 requests per minute per workspace\n- 500 requests per minute per IP\n\nIf Google\u0027s upstream OAuth service is temporarily unavailable, requests may return 503.",
+        "description": "Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.\n\n**Special rate limits (stricter than the standard API rate limit) to comply with upstream Google rate limits:**\n- 10 requests per minute per workspace\n- 50 requests per minute per IP\n\nIf Google\u0027s upstream OAuth service is temporarily unavailable, requests may return 503.",
         "responses": {
           "200": {
             "description": "Default Response",
@@ -35696,12 +35696,12 @@
             }
           },
           "429": {
-            "description": "Rate limit exceeded \u2014 100 requests per minute per workspace or 500 requests per minute per IP",
+            "description": "Rate limit exceeded \u2014 10 requests per minute per workspace or 50 requests per minute per IP",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Rate limit exceeded \u2014 100 requests per minute per workspace or 500 requests per minute per IP",
+                  "description": "Rate limit exceeded \u2014 10 requests per minute per workspace or 50 requests per minute per IP",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -35777,7 +35777,7 @@
         "tags": [
           "OAuth"
         ],
-        "description": "Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.\n\n**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**\n- 100 requests per minute per workspace\n- 500 requests per minute per IP\n\nIf Microsoft\u0027s upstream OAuth service is temporarily unavailable, requests may return 503.",
+        "description": "Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.\n\n**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**\n- 10 requests per minute per workspace\n- 50 requests per minute per IP\n\nIf Microsoft\u0027s upstream OAuth service is temporarily unavailable, requests may return 503.",
         "responses": {
           "200": {
             "description": "Default Response",
@@ -35808,12 +35808,12 @@
             }
           },
           "429": {
-            "description": "Rate limit exceeded \u2014 100 requests per minute per workspace or 500 requests per minute per IP",
+            "description": "Rate limit exceeded \u2014 10 requests per minute per workspace or 50 requests per minute per IP",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Rate limit exceeded \u2014 100 requests per minute per workspace or 500 requests per minute per IP",
+                  "description": "Rate limit exceeded \u2014 10 requests per minute per workspace or 50 requests per minute per IP",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -40179,7 +40179,8 @@
                           "description": "Whether to automatically fill in missing lead information",
                           "example": true
                         }
-                      }
+                      },
+                      "additionalProperties": true
                     },
                     "auto_update": {
                       "type": "boolean",
@@ -40363,8 +40364,7 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "resource_id",
-                  "type"
+                  "resource_id"
                 ],
                 "properties": {
                   "resource_id": {
@@ -41759,6 +41759,51 @@
                     "description": "(AI re-run parameter) How many leads to process. If not provided, processes all remaining leads from starting_row to the end. Requires column_name.",
                     "minimum": 1,
                     "example": 10
+                  },
+                  "filters": {
+                    "type": "array",
+                    "description": "Conditional formula filters to apply when processing leads. Only leads matching all filters will be enriched.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "column_name": {
+                          "type": "string",
+                          "description": "Lead column key to filter on",
+                          "example": "companyName"
+                        },
+                        "type": {
+                          "type": "number",
+                          "description": "Backend filter type enum value",
+                          "example": 1
+                        },
+                        "value": {
+                          "type": "array",
+                          "description": "Filter values (empty array for is-empty / is-not-empty style filters)",
+                          "items": {
+                            "type": "string",
+                            "example": "Acme"
+                          },
+                          "example": [
+                            "Acme"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "column_name",
+                        "type",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "example": [
+                      {
+                        "column_name": "companyName",
+                        "type": 1,
+                        "value": [
+                          "Acme"
+                        ]
+                      }
+                    ]
                   }
                 },
                 "required": [

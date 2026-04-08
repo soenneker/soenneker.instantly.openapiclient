@@ -24,6 +24,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
 #endif
         /// <summary>(AI re-run parameter) How many leads to process. If not provided, processes all remaining leads from starting_row to the end. Requires column_name.</summary>
         public int? Count { get; set; }
+        /// <summary>Conditional formula filters to apply when processing leads. Only leads matching all filters will be enriched.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody_filters>? Filters { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody_filters> Filters { get; set; }
+#endif
         /// <summary>List of lead IDs to enrich (optional)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
             {
                 { "column_name", n => { ColumnName = n.GetStringValue(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
+                { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody_filters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "lead_ids", n => { LeadIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
@@ -83,6 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("column_name", ColumnName);
             writer.WriteIntValue("count", Count);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunPostRequestBody_filters>("filters", Filters);
             writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
             writer.WriteIntValue("limit", Limit);
             writer.WriteBoolValue("overwrite", Overwrite);
