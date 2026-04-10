@@ -9,7 +9,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Google.Init
 {
     /// <summary>
-    /// Rate limit exceeded — 10 requests per minute per workspace or 50 requests per minute per IP
+    /// Rate limit exceeded — 75 requests per minute per workspace or 150 requests per minute per IP
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Init429Error : ApiException, IAdditionalDataHolder, IParsable

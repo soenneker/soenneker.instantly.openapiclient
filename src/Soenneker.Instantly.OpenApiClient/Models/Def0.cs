@@ -15,6 +15,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>User ID who added the account</summary>
         public Guid? AddedBy { get; private set; }
+        /// <summary>Whether automatic reconnection attempts have failed. null = in progress, true = failed, false = succeeded.</summary>
+        public bool? AutofixFailed { get; private set; }
         /// <summary>Daily email sending limit</summary>
         public double? DailyLimit { get; set; }
         /// <summary>Whether DFY password has been changed</summary>
@@ -134,6 +136,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "added_by", n => { AddedBy = n.GetGuidValue(); } },
+                { "autofix_failed", n => { AutofixFailed = n.GetBoolValue(); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "dfy_password_changed", n => { DfyPasswordChanged = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
