@@ -21060,7 +21060,7 @@
         "tags": [
           "DFYEmailAccountOrder"
         ],
-        "description": "This endpoint allows you to place an order for Done-For-You (DFY) email accounts with your own custom domains.\u003Cbr/\u003EYou can order up to 5 email accounts per domain.\u003Cbr/\u003EThis endpoint can place a DFY order, a pre-warmed up order, or an order to buy extra accounts to already ordered domains (please check the \u0060order_type\u0060 field for more information).\u003Cbr/\u003EWe support the following domain extensions (tlds): .com, .org.\u003Cbr/\u003EYou can check the availability of your desired domain using the \u0060/dfy-email-account-orders/domains/check\u0060 endpoint before placing an order.\u003Cbr/\u003EIf you choose to buy pre-warmed up accounts, please use the \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060 endpoint to see a list of available pre-warmed up domains first.\u003Cbr/\u003EIf no pre-warmed up domains are available, then you can\u0027t place your order, but you can still buy regular DFY accounts.\u003Cbr/\u003EPlease make sure your workspace has an Outreach plan to use this endpoint.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "This endpoint allows you to place an order for Done-For-You (DFY) email accounts with your own custom domains.\u003Cbr/\u003EYou can order up to 5 email accounts per domain for Google, or up to 50 for Microsoft/Outlook (requires the fe-dfy-microsoft feature flag).\u003Cbr/\u003EThis endpoint can place a DFY order, a pre-warmed up order, or an order to buy extra accounts to already ordered domains (please check the \u0060order_type\u0060 field for more information).\u003Cbr/\u003EWe support the following domain extensions (tlds): .com, .org.\u003Cbr/\u003EYou can check the availability of your desired domain using the \u0060/dfy-email-account-orders/domains/check\u0060 endpoint before placing an order.\u003Cbr/\u003EIf you choose to buy pre-warmed up accounts, please use the \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060 endpoint to see a list of available pre-warmed up domains first.\u003Cbr/\u003EIf no pre-warmed up domains are available, then you can\u0027t place your order, but you can still buy regular DFY accounts.\u003Cbr/\u003EPlease make sure your workspace has an Outreach plan to use this endpoint.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -21080,12 +21080,14 @@
                         },
                         "email_provider": {
                           "type": "number",
-                          "description": "The email provider to use for the email accounts. For now you can order only Google accounts, and this parameter can have only one value.",
+                          "description": "The email provider to use for the email accounts. Google is the default. Microsoft/Outlook ordering requires the fe-dfy-microsoft feature flag.",
                           "enum": [
-                            1
+                            1,
+                            3
                           ],
                           "x-enumDescriptions": {
-                            "1": "Google"
+                            "1": "Google",
+                            "3": "Microsoft/Outlook"
                           },
                           "default": 1,
                           "example": 1
@@ -21097,7 +21099,7 @@
                         },
                         "accounts": {
                           "type": "array",
-                          "description": "List of email accounts to create (only if \u0060pre_warmed_up\u0060 field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can\u0027t be changed. Please provide minimum 1 and maximum 5 accounts per domain.",
+                          "description": "List of email accounts to create (only if \u0060pre_warmed_up\u0060 field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can\u0027t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google, or up to 50 for Microsoft/Outlook.",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -21124,7 +21126,7 @@
                             ]
                           },
                           "default": [],
-                          "maxItems": 5
+                          "maxItems": 50
                         }
                       },
                       "required": [
@@ -22560,10 +22562,14 @@
                             "type": "number",
                             "description": "The email provider",
                             "enum": [
-                              1
+                              1,
+                              2,
+                              3
                             ],
                             "x-enumDescriptions": {
-                              "1": "Google"
+                              "1": "Google",
+                              "2": "AirMail",
+                              "3": "Microsoft/Outlook"
                             },
                             "example": 1
                           },
@@ -22833,10 +22839,14 @@
                             "type": "number",
                             "description": "The email provider",
                             "enum": [
-                              1
+                              1,
+                              2,
+                              3
                             ],
                             "x-enumDescriptions": {
-                              "1": "Google"
+                              "1": "Google",
+                              "2": "AirMail",
+                              "3": "Microsoft/Outlook"
                             },
                             "example": 1
                           },

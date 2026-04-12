@@ -12,7 +12,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
     public partial class DfyEmailAccountOrdersPostRequestBody_items : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>List of email accounts to create (only if `pre_warmed_up` field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can&apos;t be changed. Please provide minimum 1 and maximum 5 accounts per domain.</summary>
+        /// <summary>List of email accounts to create (only if `pre_warmed_up` field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can&apos;t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google, or up to 50 for Microsoft/Outlook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostRequestBody_items_accounts>? Accounts { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
 #else
         public string Domain { get; set; }
 #endif
-        /// <summary>The email provider to use for the email accounts. For now you can order only Google accounts, and this parameter can have only one value.</summary>
+        /// <summary>The email provider to use for the email accounts. Google is the default. Microsoft/Outlook ordering requires the fe-dfy-microsoft feature flag.</summary>
         public double? EmailProvider { get; set; }
         /// <summary>An optional domain to forward emails to. This domain must be different from the main domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
