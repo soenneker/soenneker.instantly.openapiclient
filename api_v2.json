@@ -21194,7 +21194,8 @@
                         "invalid_accounts",
                         "payment_failed",
                         "missing_domain_orders",
-                        "domains_without_accounts"
+                        "domains_without_accounts",
+                        "provider_mismatch"
                       ],
                       "x-enumDescriptions": {
                         "unavailable_domains": "Some domains are not available for order - check the \u0060unavailable_domains\u0060 field",
@@ -21204,7 +21205,8 @@
                         "invalid_accounts": "Some accounts are invalid - check the \u0060invalid_accounts\u0060 field the list of invalid accounts",
                         "payment_failed": "The payment failed - please make sure you have enough funds in your payment method",
                         "missing_domain_orders": "Some domains are missing orders (when you set the \u0060order_type\u0060 to \u0060extra_accounts\u0060, all the domains you want to add extra accounts to must be already ordered) - check the \u0060missing_domain_orders\u0060 field",
-                        "domains_without_accounts": "Some domains are missing accounts - check the \u0060domains_without_accounts\u0060 field"
+                        "domains_without_accounts": "Some domains are missing accounts - check the \u0060domains_without_accounts\u0060 field",
+                        "provider_mismatch": "Some domains received an \u0060email_provider\u0060 that does not match the existing accounts on that domain, or the domain is in a mixed provider state \u2014 check the \u0060provider_mismatch_domains\u0060 field. All accounts for a domain must use the same provider."
                       },
                       "example": "unavailable_domains"
                     },
@@ -21259,6 +21261,14 @@
                         "example": "example.com"
                       },
                       "description": "The list of domains that are missing order (if any). Can happen when you order extra accounts for domains that you didn\u0027t order before."
+                    },
+                    "provider_mismatch_domains": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "example.com"
+                      },
+                      "description": "The list of domains whose requested \u0060email_provider\u0060 does not match the existing active provider for that domain, or that are already in a mixed provider state in our records. All accounts for a domain must use the same provider."
                     },
                     "domains_without_accounts": {
                       "type": "array",
@@ -21487,6 +21497,7 @@
                     "invalid_forwarding_domains",
                     "invalid_accounts",
                     "missing_domain_orders",
+                    "provider_mismatch_domains",
                     "domains_without_accounts",
                     "free_domains",
                     "number_of_domains_ordered",

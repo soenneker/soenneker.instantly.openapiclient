@@ -39,5 +39,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         #pragma warning disable CS1591
         Domains_without_accounts,
         #pragma warning restore CS1591
+        [EnumMember(Value = "provider_mismatch")]
+        #pragma warning disable CS1591
+        Provider_mismatch,
+        #pragma warning restore CS1591
     }
 }

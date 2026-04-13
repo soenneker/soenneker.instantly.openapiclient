@@ -116,6 +116,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         public double? PricePerAccountPerMonth { get; set; }
         /// <summary>The price per domain per year</summary>
         public double? PricePerDomainPerYear { get; set; }
+        /// <summary>The list of domains whose requested `email_provider` does not match the existing active provider for that domain, or that are already in a mixed provider state in our records. All accounts for a domain must use the same provider.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ProviderMismatchDomains { get; set; }
+#nullable restore
+#else
+        public List<string> ProviderMismatchDomains { get; set; }
+#endif
         /// <summary>Whether to run the request in simulation mode or not. If set to true, the order will NOT be placed, your card will NOT be charged, and only a price quote will be returned. We will still check the validity of the order and the accounts, and return the results of the validation (if the order_is_valid field is true, then the order would be valid and could be placed).</summary>
         public bool? Simulation { get; set; }
         /// <summary>The total price per account per month</summary>
@@ -181,6 +189,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
                 { "payment_method_name_on_card", n => { PaymentMethodNameOnCard = n.GetStringValue(); } },
                 { "price_per_account_per_month", n => { PricePerAccountPerMonth = n.GetDoubleValue(); } },
                 { "price_per_domain_per_year", n => { PricePerDomainPerYear = n.GetDoubleValue(); } },
+                { "provider_mismatch_domains", n => { ProviderMismatchDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "simulation", n => { Simulation = n.GetBoolValue(); } },
                 { "total_accounts_price_per_month", n => { TotalAccountsPricePerMonth = n.GetDoubleValue(); } },
                 { "total_discount", n => { TotalDiscount = n.GetDoubleValue(); } },
@@ -216,6 +225,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             writer.WriteStringValue("payment_method_name_on_card", PaymentMethodNameOnCard);
             writer.WriteDoubleValue("price_per_account_per_month", PricePerAccountPerMonth);
             writer.WriteDoubleValue("price_per_domain_per_year", PricePerDomainPerYear);
+            writer.WriteCollectionOfPrimitiveValues<string>("provider_mismatch_domains", ProviderMismatchDomains);
             writer.WriteBoolValue("simulation", Simulation);
             writer.WriteDoubleValue("total_accounts_price_per_month", TotalAccountsPricePerMonth);
             writer.WriteDoubleValue("total_discount", TotalDiscount);
