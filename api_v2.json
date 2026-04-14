@@ -21347,8 +21347,16 @@
                     },
                     "price_per_account_per_month": {
                       "type": "number",
-                      "description": "The price per account per month",
-                      "example": 10
+                      "description": "The monthly price charged per mailbox. Applies to per-account providers (Google, AirMail). For Microsoft/Outlook orders mailboxes are NOT charged individually \u2014 see \u0060price_per_domain_per_month\u0060 instead.",
+                      "example": 4
+                    },
+                    "price_per_domain_per_month": {
+                      "type": [
+                        "null",
+                        "number"
+                      ],
+                      "description": "The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for a fixed 50-mailbox bundle). Null for Google / AirMail-only orders.",
+                      "example": 20
                     },
                     "price_per_domain_per_year": {
                       "type": "number",
@@ -21362,7 +21370,7 @@
                     },
                     "total_accounts_price_per_month": {
                       "type": "number",
-                      "description": "The total price per account per month",
+                      "description": "The total monthly price charged for accounts in the order. For Google / AirMail this is \u0060per-account price \u00D7 mailbox count\u0060. For Microsoft/Outlook it is \u0060$20 \u00D7 domain count\u0060 (domain-level billing, fixed 50-mailbox bundle).",
                       "example": 10
                     },
                     "total_price_per_month": {
@@ -21462,8 +21470,16 @@
                           },
                           "accounts_price": {
                             "type": "number",
-                            "description": "The total price for the accounts.",
-                            "example": 100
+                            "description": "The total price for the accounts in the item. For Google / AirMail this is \u0060per-account price \u00D7 mailbox count\u0060. For Microsoft/Outlook it is the flat \u0060$20\u0060 per-domain bundle.",
+                            "example": 20
+                          },
+                          "domain_monthly_price": {
+                            "type": [
+                              "null",
+                              "number"
+                            ],
+                            "description": "The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook \u2014 $20/month/domain, 50 mailboxes). Null for per-account providers.",
+                            "example": 20
                           },
                           "total_price": {
                             "type": "number",

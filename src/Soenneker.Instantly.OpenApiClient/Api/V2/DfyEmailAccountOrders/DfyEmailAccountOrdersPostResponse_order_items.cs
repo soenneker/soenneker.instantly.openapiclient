@@ -20,7 +20,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostResponse_order_items_accounts> Accounts { get; set; }
 #endif
-        /// <summary>The total price for the accounts.</summary>
+        /// <summary>The total price for the accounts in the item. For Google / AirMail this is `per-account price × mailbox count`. For Microsoft/Outlook it is the flat `$20` per-domain bundle.</summary>
         public double? AccountsPrice { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,6 +32,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
 #else
         public string Domain { get; set; }
 #endif
+        /// <summary>The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook — $20/month/domain, 50 mailboxes). Null for per-account providers.</summary>
+        public double? DomainMonthlyPrice { get; set; }
         /// <summary>The price for the domain.</summary>
         public double? DomainPrice { get; set; }
         /// <summary>The email provider to use for the domain.</summary>
@@ -76,6 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
                 { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostResponse_order_items_accounts>(global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostResponse_order_items_accounts.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "accounts_price", n => { AccountsPrice = n.GetDoubleValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
+                { "domain_monthly_price", n => { DomainMonthlyPrice = n.GetDoubleValue(); } },
                 { "domain_price", n => { DomainPrice = n.GetDoubleValue(); } },
                 { "email_provider", n => { EmailProvider = n.GetDoubleValue(); } },
                 { "forwarding_domain", n => { ForwardingDomain = n.GetStringValue(); } },
@@ -93,6 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostResponse_order_items_accounts>("accounts", Accounts);
             writer.WriteDoubleValue("accounts_price", AccountsPrice);
             writer.WriteStringValue("domain", Domain);
+            writer.WriteDoubleValue("domain_monthly_price", DomainMonthlyPrice);
             writer.WriteDoubleValue("domain_price", DomainPrice);
             writer.WriteDoubleValue("email_provider", EmailProvider);
             writer.WriteStringValue("forwarding_domain", ForwardingDomain);

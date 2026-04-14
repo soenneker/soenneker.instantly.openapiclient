@@ -112,8 +112,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
 #else
         public string PaymentMethodNameOnCard { get; set; }
 #endif
-        /// <summary>The price per account per month</summary>
+        /// <summary>The monthly price charged per mailbox. Applies to per-account providers (Google, AirMail). For Microsoft/Outlook orders mailboxes are NOT charged individually — see `price_per_domain_per_month` instead.</summary>
         public double? PricePerAccountPerMonth { get; set; }
+        /// <summary>The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for a fixed 50-mailbox bundle). Null for Google / AirMail-only orders.</summary>
+        public double? PricePerDomainPerMonth { get; set; }
         /// <summary>The price per domain per year</summary>
         public double? PricePerDomainPerYear { get; set; }
         /// <summary>The list of domains whose requested `email_provider` does not match the existing active provider for that domain, or that are already in a mixed provider state in our records. All accounts for a domain must use the same provider.</summary>
@@ -126,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
 #endif
         /// <summary>Whether to run the request in simulation mode or not. If set to true, the order will NOT be placed, your card will NOT be charged, and only a price quote will be returned. We will still check the validity of the order and the accounts, and return the results of the validation (if the order_is_valid field is true, then the order would be valid and could be placed).</summary>
         public bool? Simulation { get; set; }
-        /// <summary>The total price per account per month</summary>
+        /// <summary>The total monthly price charged for accounts in the order. For Google / AirMail this is `per-account price × mailbox count`. For Microsoft/Outlook it is `$20 × domain count` (domain-level billing, fixed 50-mailbox bundle).</summary>
         public double? TotalAccountsPricePerMonth { get; set; }
         /// <summary>The total discount you will get for the order at the moment. Discounts are applied automatically when we&apos;re running promotions.</summary>
         public double? TotalDiscount { get; set; }
@@ -188,6 +190,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
                 { "payment_method_last_4_digits", n => { PaymentMethodLast4Digits = n.GetStringValue(); } },
                 { "payment_method_name_on_card", n => { PaymentMethodNameOnCard = n.GetStringValue(); } },
                 { "price_per_account_per_month", n => { PricePerAccountPerMonth = n.GetDoubleValue(); } },
+                { "price_per_domain_per_month", n => { PricePerDomainPerMonth = n.GetDoubleValue(); } },
                 { "price_per_domain_per_year", n => { PricePerDomainPerYear = n.GetDoubleValue(); } },
                 { "provider_mismatch_domains", n => { ProviderMismatchDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "simulation", n => { Simulation = n.GetBoolValue(); } },
@@ -224,6 +227,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             writer.WriteStringValue("payment_method_last_4_digits", PaymentMethodLast4Digits);
             writer.WriteStringValue("payment_method_name_on_card", PaymentMethodNameOnCard);
             writer.WriteDoubleValue("price_per_account_per_month", PricePerAccountPerMonth);
+            writer.WriteDoubleValue("price_per_domain_per_month", PricePerDomainPerMonth);
             writer.WriteDoubleValue("price_per_domain_per_year", PricePerDomainPerYear);
             writer.WriteCollectionOfPrimitiveValues<string>("provider_mismatch_domains", ProviderMismatchDomains);
             writer.WriteBoolValue("simulation", Simulation);
