@@ -9,11 +9,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InProgress : IParsable
+    public partial class InProgress : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Whether to auto-update new leads</summary>
-        public bool? AutoUpdate { get; set; }
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Unique identifier for the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,6 +39,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item
         /// <summary>Status of the enrichment job</summary>
         public double? Status { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress"/> and sets the default values.
+        /// </summary>
+        public InProgress()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress"/></returns>
@@ -56,7 +63,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
@@ -72,13 +78,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("auto_update", AutoUpdate);
             writer.WriteStringValue("id", Id);
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteStringValue("output_column", OutputColumn);
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.Item.InProgress.InProgress_resource_type>("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

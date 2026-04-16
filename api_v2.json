@@ -41051,11 +41051,6 @@
                     "description": "Status of the job",
                     "example": 1
                   },
-                  "show_state": {
-                    "type": "boolean",
-                    "description": "Whether to send the state of the enrichment",
-                    "example": true
-                  },
                   "filters": {
                     "type": "array",
                     "items": {
@@ -41388,11 +41383,6 @@
                         "type": "number",
                         "description": "Status of the enrichment job",
                         "example": 1
-                      },
-                      "auto_update": {
-                        "type": "boolean",
-                        "description": "Whether to auto-update new leads",
-                        "example": true
                       }
                     },
                     "required": [
@@ -41400,10 +41390,8 @@
                       "resource_id",
                       "resource_type",
                       "output_column",
-                      "status",
-                      "auto_update"
-                    ],
-                    "additionalProperties": false
+                      "status"
+                    ]
                   }
                 }
               }
