@@ -5524,6 +5524,7 @@
             "enum": [
               "3.5",
               "gpt-5",
+              "gpt-5.4",
               "gpt-5-mini",
               "gpt-5-nano",
               "4.0",
@@ -5547,6 +5548,7 @@
             "x-enumDescriptions": {
               "3.5": "GPT-3.5",
               "gpt-5": "GPT-5",
+              "gpt-5.4": "GPT-5.4",
               "gpt-5-mini": "GPT-5 Mini",
               "gpt-5-nano": "GPT-5 Nano",
               "4.0": "GPT-4.0",
@@ -22365,6 +22367,38 @@
                         "example": "acme.com"
                       },
                       "description": "List of pre-warmed up domains available for order"
+                    },
+                    "domains_with_type": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "type": "string",
+                            "example": "acme.com"
+                          },
+                          "account_type": {
+                            "type": "number",
+                            "description": "The underlying email provider for the pre-warmed domain",
+                            "enum": [
+                              1,
+                              2,
+                              3
+                            ],
+                            "x-enumDescriptions": {
+                              "1": "Google",
+                              "2": "AirMail",
+                              "3": "Microsoft/Outlook"
+                            },
+                            "example": 2
+                          }
+                        },
+                        "required": [
+                          "domain",
+                          "account_type"
+                        ]
+                      },
+                      "description": "Pre-warmed up domains annotated with their underlying email provider"
                     }
                   }
                 }
@@ -40958,6 +40992,7 @@
                       "gpt-5-mini",
                       "gpt-5-nano",
                       "gpt-5",
+                      "gpt-5.4",
                       "claude-3.7-sonnet",
                       "claude-3.5-sonnet",
                       "claude-4.5-sonnet",
@@ -40974,6 +41009,7 @@
                     "x-enumDescriptions": {
                       "3.5": "GPT-3.5 Turbo - OpenAI\u0027s standard model with good performance and low cost",
                       "gpt-5": "GPT-5 is OpenAI\u2019s most advanced model, offering major improvements in reasoning, code quality, and user experience.",
+                      "gpt-5.4": "GPT-5.4 is the latest generation non-reasoning model, optimized for fast, high-quality responses at low latency.",
                       "gpt-5-mini": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks.",
                       "gpt-5-nano": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments.",
                       "4.0": "GPT-4 - OpenAI\u0027s advanced model with improved reasoning",
@@ -40983,7 +41019,7 @@
                       "gpt-4.1-mini": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost.",
                       "claude-3.7-sonnet": "Claude 3.7 Sonnet - Anthropic\u0027s most capable model",
                       "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
-                      "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u2019s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
+                      "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u0027s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
                       "r1": "R1 - Deepseek\u0027s advanced chat model",
                       "grok-4": "Grok 4 - X AI\u0027s latest reasoning model",
                       "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s powerful and versatile model",

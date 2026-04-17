@@ -22,6 +22,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
 #else
         public List<string> Domains { get; set; }
 #endif
+        /// <summary>Pre-warmed up domains annotated with their underlying email provider</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains.PreWarmedUpList.PreWarmedUpListPostResponse_domains_with_type>? DomainsWithType { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains.PreWarmedUpList.PreWarmedUpListPostResponse_domains_with_type> DomainsWithType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains.PreWarmedUpList.PreWarmedUpListPostResponse"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "domains_with_type", n => { DomainsWithType = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains.PreWarmedUpList.PreWarmedUpListPostResponse_domains_with_type>(global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains.PreWarmedUpList.PreWarmedUpListPostResponse_domains_with_type.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains.PreWarmedUpList.PreWarmedUpListPostResponse_domains_with_type>("domains_with_type", DomainsWithType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
