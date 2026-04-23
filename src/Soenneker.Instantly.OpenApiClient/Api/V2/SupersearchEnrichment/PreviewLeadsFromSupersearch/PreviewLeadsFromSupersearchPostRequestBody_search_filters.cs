@@ -123,7 +123,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
 #endif
         /// <summary>If set, the lead finder will show only one lead per company</summary>
         public bool? ShowOneLeadPerCompany { get; set; }
-        /// <summary>Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity)</summary>
+        /// <summary>Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Signals { get; set; }

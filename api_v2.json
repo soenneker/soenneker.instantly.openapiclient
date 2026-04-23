@@ -210,6 +210,7 @@
               "number"
             ],
             "description": "The limit for inbox placement tests",
+            "minimum": 0,
             "example": 10
           },
           "organization": {
@@ -6288,6 +6289,7 @@
                       "null"
                     ],
                     "description": "The limit for inbox placement tests",
+                    "minimum": 0,
                     "example": 10
                   },
                   "provider_code": {
@@ -6674,6 +6676,16 @@
             "name": "tag_ids",
             "required": false,
             "description": "Filter accounts by tag ids. Returns accounts that have any of the specified tags assigned. You can specify multiple tag ids by separating them with a comma."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "in": "query",
+            "name": "tag_ids_all",
+            "required": false,
+            "description": "Filter accounts by tag ids with AND logic. Returns only accounts that have all of the specified tags assigned. You can specify multiple tag ids by separating them with a comma."
           }
         ],
         "responses": {
@@ -7160,6 +7172,7 @@
                       "null"
                     ],
                     "description": "The limit for inbox placement tests",
+                    "minimum": 0,
                     "example": 10
                   },
                   "sending_gap": {
@@ -39837,11 +39850,34 @@
                       "signals": {
                         "type": "array",
                         "items": {
-                          "type": "string",
-                          "description": "Signal category to filter leads by. Leads matching ANY of the specified signals will be returned.",
-                          "example": "job_change"
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "Signal category name. Uses the default 30-day freshness window.",
+                              "example": "job_change"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "description": "Signal category to filter by.",
+                                  "example": "job_change"
+                                },
+                                "period_days": {
+                                  "type": "number",
+                                  "description": "Freshness window in days. Only leads whose most recent signal of this category is within this window are returned. Defaults to 30 if omitted.",
+                                  "example": 7
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
                         },
-                        "description": "Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity)"
+                        "description": "Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned."
                       },
                       "skip_owned_leads": {
                         "type": "boolean",
@@ -39938,6 +39974,11 @@
                     "maximum": 1000000,
                     "description": "Maximum number of leads to import",
                     "example": 100
+                  },
+                  "ai_enrichment": {
+                    "type": "object",
+                    "description": "AI enrichment configuration. Keys are output column names, values are enrichment details.",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -43391,11 +43432,34 @@
                       "signals": {
                         "type": "array",
                         "items": {
-                          "type": "string",
-                          "description": "Signal category to filter leads by. Leads matching ANY of the specified signals will be returned.",
-                          "example": "job_change"
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "Signal category name. Uses the default 30-day freshness window.",
+                              "example": "job_change"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "description": "Signal category to filter by.",
+                                  "example": "job_change"
+                                },
+                                "period_days": {
+                                  "type": "number",
+                                  "description": "Freshness window in days. Only leads whose most recent signal of this category is within this window are returned. Defaults to 30 if omitted.",
+                                  "example": 7
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
                         },
-                        "description": "Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity)"
+                        "description": "Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned."
                       },
                       "skip_owned_leads": {
                         "type": "boolean",
@@ -44916,11 +44980,34 @@
                       "signals": {
                         "type": "array",
                         "items": {
-                          "type": "string",
-                          "description": "Signal category to filter leads by. Leads matching ANY of the specified signals will be returned.",
-                          "example": "job_change"
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "Signal category name. Uses the default 30-day freshness window.",
+                              "example": "job_change"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "description": "Signal category to filter by.",
+                                  "example": "job_change"
+                                },
+                                "period_days": {
+                                  "type": "number",
+                                  "description": "Freshness window in days. Only leads whose most recent signal of this category is within this window are returned. Defaults to 30 if omitted.",
+                                  "example": 7
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
                         },
-                        "description": "Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity)"
+                        "description": "Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned."
                       },
                       "skip_owned_leads": {
                         "type": "boolean",

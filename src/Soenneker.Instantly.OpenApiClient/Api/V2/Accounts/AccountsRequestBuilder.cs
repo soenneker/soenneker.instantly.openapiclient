@@ -71,7 +71,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/accounts{?limit*,provider_code*,search*,starting_after*,status*,tag_ids*}", pathParameters)
+        public AccountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/accounts{?limit*,provider_code*,search*,starting_after*,status*,tag_ids*,tag_ids_all*}", pathParameters)
         {
         }
         /// <summary>
@@ -79,7 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/accounts{?limit*,provider_code*,search*,starting_after*,status*,tag_ids*}", rawUrl)
+        public AccountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/accounts{?limit*,provider_code*,search*,starting_after*,status*,tag_ids*,tag_ids_all*}", rawUrl)
         {
         }
         /// <summary>
@@ -235,6 +235,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
 #else
             [QueryParameter("tag_ids")]
             public string TagIds { get; set; }
+#endif
+            /// <summary>Filter accounts by tag ids with AND logic. Returns only accounts that have all of the specified tags assigned. You can specify multiple tag ids by separating them with a comma.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("tag_ids_all")]
+            public string? TagIdsAll { get; set; }
+#nullable restore
+#else
+            [QueryParameter("tag_ids_all")]
+            public string TagIdsAll { get; set; }
 #endif
         }
     }
