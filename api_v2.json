@@ -4961,7 +4961,17 @@
               18,
               19,
               20,
-              21
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -4979,7 +4989,17 @@
               "18": "Webhook created",
               "19": "Webhook updated",
               "20": "Webhook marked as error",
-              "21": "Webhook resumed"
+              "21": "Webhook resumed",
+              "22": "TOTP enrollment started",
+              "23": "TOTP enabled",
+              "24": "TOTP replacement started",
+              "25": "TOTP replaced",
+              "26": "TOTP disabled",
+              "27": "MFA recovery codes generated",
+              "28": "MFA recovery code used",
+              "29": "MFA login challenge failed",
+              "30": "MFA login challenge failed too many times",
+              "31": "MFA login succeeded"
             },
             "example": 1
           },
