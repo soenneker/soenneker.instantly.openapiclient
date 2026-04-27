@@ -70,6 +70,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
 #else
         public string SearchName { get; set; }
 #endif
+        /// <summary>Signal categories to enrich from Autobound data. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. The worker fetches matching signal records for the lead and writes the raw data into the lead payload under the signal_category key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SignalEnrichment { get; set; }
+#nullable restore
+#else
+        public List<string> SignalEnrichment { get; set; }
+#endif
         /// <summary>Whether to skip leads without email</summary>
         public bool? SkipRowsWithoutEmail { get; set; }
         /// <summary>Enable work email enrichment</summary>
@@ -109,6 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters.CreateFromDiscriminatorValue); } },
                 { "search_name", n => { SearchName = n.GetStringValue(); } },
+                { "signal_enrichment", n => { SignalEnrichment = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
                 { "work_email_enrichment", n => { WorkEmailEnrichment = n.GetBoolValue(); } },
             };
@@ -130,6 +139,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostRequestBody_search_filters>("search_filters", SearchFilters);
             writer.WriteStringValue("search_name", SearchName);
+            writer.WriteCollectionOfPrimitiveValues<string>("signal_enrichment", SignalEnrichment);
             writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
             writer.WriteBoolValue("work_email_enrichment", WorkEmailEnrichment);
             writer.WriteAdditionalData(AdditionalData);

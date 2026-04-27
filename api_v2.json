@@ -36062,6 +36062,227 @@
         }
       }
     },
+    "/api/v2/supersearch-enrichment/signal-keywords-facet": {
+      "post": {
+        "operationId": "signalKeywordsFacet",
+        "summary": "Facet keywords for a signal category",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Return the top matching keyword tokens for a given signal category and keyword field, aggregated from the last 90 days of signal data. Powers the Signals filter autocomplete in the Lead Finder. Unknown (category, field) pairs return 400.\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "category",
+                  "field"
+                ],
+                "properties": {
+                  "category": {
+                    "type": "string",
+                    "description": "Signal category to facet against (e.g. \u0060linkedin_post_contact\u0060).",
+                    "example": "linkedin_post_contact"
+                  },
+                  "field": {
+                    "type": "string",
+                    "description": "Indexed keyword field on \u0060autobound_signals\u0060 to aggregate on.",
+                    "example": "tags"
+                  },
+                  "prefix": {
+                    "type": "string",
+                    "description": "Optional case-insensitive prefix to narrow the tokens returned.",
+                    "example": "ai"
+                  },
+                  "limit": {
+                    "type": "number",
+                    "description": "Max number of keyword buckets to return (1-100).",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "example": 20
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "keywords": {
+                      "type": "array",
+                      "description": "Keyword tokens ordered by descending frequency.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "keyword": {
+                            "type": "string",
+                            "description": "The keyword token (lowercased).",
+                            "example": "artificial intelligence"
+                          },
+                          "count": {
+                            "type": "number",
+                            "description": "Number of signal records with this token in the last 90 days.",
+                            "example": 22418
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/subsequences": {
       "post": {
         "operationId": "createCampaignSubsequence",
@@ -39891,6 +40112,29 @@
                                   "type": "number",
                                   "description": "Freshness window in days. Only leads whose most recent signal of this category is within this window are returned. Defaults to 30 if omitted.",
                                   "example": 7
+                                },
+                                "keywords": {
+                                  "oneOf": [
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "example": "artificial intelligence"
+                                      },
+                                      "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
+                                    },
+                                    {
+                                      "type": "object",
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
+                                      "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string",
+                                          "example": "security"
+                                        }
+                                      }
+                                    }
+                                  ]
                                 }
                               },
                               "additionalProperties": false
@@ -39951,6 +40195,61 @@
                       "wiza",
                       "contactout"
                     ]
+                  },
+                  "signal_enrichment": {
+                    "type": "array",
+                    "description": "Signal categories to enrich from Autobound data. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. The worker fetches matching signal records for the lead and writes the raw data into the lead payload under the signal_category key.",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "description": "Signal category name. Uses the default 30-day freshness window and no keyword filter.",
+                          "example": "job_change"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "key"
+                          ],
+                          "properties": {
+                            "key": {
+                              "type": "string",
+                              "description": "Signal category to enrich.",
+                              "example": "linkedin_post_contact"
+                            },
+                            "period_days": {
+                              "type": "number",
+                              "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted.",
+                              "example": 7
+                            },
+                            "keywords": {
+                              "oneOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "example": "artificial intelligence"
+                                  },
+                                  "description": "Legacy flat list (OR-matched across every keyword index field for the category)."
+                                },
+                                {
+                                  "type": "object",
+                                  "description": "Per-field map: each property is a keyword index field; tokens within a field are OR-matched, and fields act as additional filters (records must hit at least one token per selected field). Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
+                                  "additionalProperties": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "security"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
                   },
                   "resource_id": {
                     "type": "string",
@@ -43473,6 +43772,29 @@
                                   "type": "number",
                                   "description": "Freshness window in days. Only leads whose most recent signal of this category is within this window are returned. Defaults to 30 if omitted.",
                                   "example": 7
+                                },
+                                "keywords": {
+                                  "oneOf": [
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "example": "artificial intelligence"
+                                      },
+                                      "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
+                                    },
+                                    {
+                                      "type": "object",
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
+                                      "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string",
+                                          "example": "security"
+                                        }
+                                      }
+                                    }
+                                  ]
                                 }
                               },
                               "additionalProperties": false
@@ -45021,6 +45343,29 @@
                                   "type": "number",
                                   "description": "Freshness window in days. Only leads whose most recent signal of this category is within this window are returned. Defaults to 30 if omitted.",
                                   "example": 7
+                                },
+                                "keywords": {
+                                  "oneOf": [
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "example": "artificial intelligence"
+                                      },
+                                      "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
+                                    },
+                                    {
+                                      "type": "object",
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
+                                      "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string",
+                                          "example": "security"
+                                        }
+                                      }
+                                    }
+                                  ]
                                 }
                               },
                               "additionalProperties": false

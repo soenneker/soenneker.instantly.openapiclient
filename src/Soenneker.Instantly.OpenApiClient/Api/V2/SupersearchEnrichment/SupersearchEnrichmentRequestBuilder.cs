@@ -10,6 +10,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalKeywordsFacet;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -52,6 +53,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunRequestBuilder Run
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The signalKeywordsFacet property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalKeywordsFacet.SignalKeywordsFacetRequestBuilder SignalKeywordsFacet
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalKeywordsFacet.SignalKeywordsFacetRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.supersearchEnrichment.item collection</summary>
         /// <param name="position">The ID of the list or campaign to retrieve the enrichment.</param>
