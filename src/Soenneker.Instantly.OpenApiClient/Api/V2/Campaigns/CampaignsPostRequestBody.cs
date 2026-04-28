@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// <summary>The daily limit for sending emails</summary>
         public double? DailyLimit { get; set; }
         /// <summary>The daily maximum new leads to contact</summary>
-        public double? DailyMaxLeads { get; set; }
+        public int? DailyMaxLeads { get; set; }
         /// <summary>Whether to disable bounce protection</summary>
         public bool? DisableBounceProtect { get; set; }
         /// <summary>The gap between emails in minutes</summary>
@@ -158,7 +158,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
                 { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_campaign_schedule>(global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_campaign_schedule.CreateFromDiscriminatorValue); } },
                 { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
-                { "daily_max_leads", n => { DailyMaxLeads = n.GetDoubleValue(); } },
+                { "daily_max_leads", n => { DailyMaxLeads = n.GetIntValue(); } },
                 { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
                 { "email_gap", n => { EmailGap = n.GetDoubleValue(); } },
                 { "email_list", n => { EmailList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -197,7 +197,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsPostRequestBody_campaign_schedule>("campaign_schedule", CampaignSchedule);
             writer.WriteCollectionOfPrimitiveValues<string>("cc_list", CcList);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
-            writer.WriteDoubleValue("daily_max_leads", DailyMaxLeads);
+            writer.WriteIntValue("daily_max_leads", DailyMaxLeads);
             writer.WriteBoolValue("disable_bounce_protect", DisableBounceProtect);
             writer.WriteDoubleValue("email_gap", EmailGap);
             writer.WriteCollectionOfPrimitiveValues<string>("email_list", EmailList);

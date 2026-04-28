@@ -850,9 +850,10 @@
           "daily_max_leads": {
             "type": [
               "null",
-              "number"
+              "integer"
             ],
             "description": "The daily maximum new leads to contact",
+            "minimum": 0,
             "example": 100
           },
           "prioritize_new_leads": {
@@ -13671,10 +13672,11 @@
                   },
                   "daily_max_leads": {
                     "type": [
-                      "number",
+                      "integer",
                       "null"
                     ],
                     "description": "The daily maximum new leads to contact",
+                    "minimum": 0,
                     "example": 100
                   },
                   "prioritize_new_leads": {
@@ -15343,10 +15345,11 @@
                   },
                   "daily_max_leads": {
                     "type": [
-                      "number",
+                      "integer",
                       "null"
                     ],
                     "description": "The daily maximum new leads to contact",
+                    "minimum": 0,
                     "example": 100
                   },
                   "prioritize_new_leads": {
