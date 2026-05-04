@@ -63,7 +63,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         /// <summary>Status of the job</summary>
         public double? Status { get; set; }
         /// <summary>ID of a predefined AI prompt template to use instead of a custom prompt. Templates are reusable prompt configurations.</summary>
-        public double? TemplateId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TemplateId { get; set; }
+#nullable restore
+#else
+        public string TemplateId { get; set; }
+#endif
         /// <summary>When true, the enrichment will use Instantly&apos;s account for API calls. When false, it will use your own API keys configured in settings.</summary>
         public bool? UseInstantlyAccount { get; set; }
         /// <summary>
@@ -103,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "skip_leads_without_email", n => { SkipLeadsWithoutEmail = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "template_id", n => { TemplateId = n.GetDoubleValue(); } },
+                { "template_id", n => { TemplateId = n.GetStringValue(); } },
                 { "use_instantly_account", n => { UseInstantlyAccount = n.GetBoolValue(); } },
             };
         }
@@ -126,7 +132,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteBoolValue("skip_leads_without_email", SkipLeadsWithoutEmail);
             writer.WriteDoubleValue("status", Status);
-            writer.WriteDoubleValue("template_id", TemplateId);
+            writer.WriteStringValue("template_id", TemplateId);
             writer.WriteBoolValue("use_instantly_account", UseInstantlyAccount);
             writer.WriteAdditionalData(AdditionalData);
         }

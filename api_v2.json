@@ -5462,9 +5462,9 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "string",
             "readOnly": true,
-            "example": 1
+            "example": "1"
           },
           "workspace_id": {
             "type": "string",
@@ -41429,9 +41429,9 @@
                     "example": "Write a personalized email to {{first_name}} from {{company_name}} about our new product"
                   },
                   "template_id": {
-                    "type": "number",
+                    "type": "string",
                     "description": "ID of a predefined AI prompt template to use instead of a custom prompt. Templates are reusable prompt configurations.",
-                    "example": 123
+                    "example": "123"
                   },
                   "status": {
                     "type": "number",
@@ -41546,10 +41546,10 @@
                     "template_id": {
                       "type": [
                         "null",
-                        "number"
+                        "string"
                       ],
                       "description": "ID of the prompt template used",
-                      "example": 123
+                      "example": "15762598695796759"
                     }
                   },
                   "required": [

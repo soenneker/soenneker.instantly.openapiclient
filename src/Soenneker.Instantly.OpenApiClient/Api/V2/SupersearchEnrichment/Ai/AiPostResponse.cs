@@ -57,7 +57,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
         /// <summary>Status of the enrichment job</summary>
         public double? Status { get; set; }
         /// <summary>ID of the prompt template used</summary>
-        public double? TemplateId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TemplateId { get; set; }
+#nullable restore
+#else
+        public string TemplateId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -86,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type>(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "template_id", n => { TemplateId = n.GetDoubleValue(); } },
+                { "template_id", n => { TemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -106,7 +112,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiPostResponse_resource_type>("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
-            writer.WriteDoubleValue("template_id", TemplateId);
+            writer.WriteStringValue("template_id", TemplateId);
         }
     }
 }
