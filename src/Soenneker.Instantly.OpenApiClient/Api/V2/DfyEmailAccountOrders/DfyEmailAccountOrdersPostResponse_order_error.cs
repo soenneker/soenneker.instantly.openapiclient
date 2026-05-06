@@ -43,5 +43,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         #pragma warning disable CS1591
         Provider_mismatch,
         #pragma warning restore CS1591
+        [EnumMember(Value = "unsupported_provider")]
+        #pragma warning disable CS1591
+        Unsupported_provider,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "provider_unavailable")]
+        #pragma warning disable CS1591
+        Provider_unavailable,
+        #pragma warning restore CS1591
     }
 }

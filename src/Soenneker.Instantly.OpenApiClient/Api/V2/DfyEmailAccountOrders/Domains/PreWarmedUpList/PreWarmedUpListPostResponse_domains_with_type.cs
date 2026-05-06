@@ -12,7 +12,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
     public partial class PreWarmedUpListPostResponse_domains_with_type : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The underlying email provider for the pre-warmed domain</summary>
+        /// <summary>The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.</summary>
         public double? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

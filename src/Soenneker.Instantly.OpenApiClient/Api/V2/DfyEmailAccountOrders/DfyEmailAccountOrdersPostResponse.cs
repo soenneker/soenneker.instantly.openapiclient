@@ -148,6 +148,22 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
 #else
         public List<string> UnavailableDomains { get; set; }
 #endif
+        /// <summary>The requested email providers that are not available for ordering right now.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<double?>? UnavailableEmailProviders { get; set; }
+#nullable restore
+#else
+        public List<double?> UnavailableEmailProviders { get; set; }
+#endif
+        /// <summary>The list of domains that cannot receive extra accounts through this endpoint because their existing provider is not supported for public API extra-account orders.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? UnsupportedProviderDomains { get; set; }
+#nullable restore
+#else
+        public List<string> UnsupportedProviderDomains { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersPostResponse"/> and sets the default values.
         /// </summary>
@@ -201,6 +217,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
                 { "total_price_per_month", n => { TotalPricePerMonth = n.GetDoubleValue(); } },
                 { "total_price_per_year", n => { TotalPricePerYear = n.GetDoubleValue(); } },
                 { "unavailable_domains", n => { UnavailableDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "unavailable_email_providers", n => { UnavailableEmailProviders = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
+                { "unsupported_provider_domains", n => { UnsupportedProviderDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -238,6 +256,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             writer.WriteDoubleValue("total_price_per_month", TotalPricePerMonth);
             writer.WriteDoubleValue("total_price_per_year", TotalPricePerYear);
             writer.WriteCollectionOfPrimitiveValues<string>("unavailable_domains", UnavailableDomains);
+            writer.WriteCollectionOfPrimitiveValues<double?>("unavailable_email_providers", UnavailableEmailProviders);
+            writer.WriteCollectionOfPrimitiveValues<string>("unsupported_provider_domains", UnsupportedProviderDomains);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

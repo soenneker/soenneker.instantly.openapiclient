@@ -30,7 +30,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Account
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The email provider</summary>
+        /// <summary>The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.</summary>
         public double? EmailProvider { get; set; }
         /// <summary>The first name of the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
