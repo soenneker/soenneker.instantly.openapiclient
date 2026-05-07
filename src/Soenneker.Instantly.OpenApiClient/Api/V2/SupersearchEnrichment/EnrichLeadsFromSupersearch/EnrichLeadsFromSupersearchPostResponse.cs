@@ -44,6 +44,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
         public Guid? OrganizationId { get; set; }
         /// <summary>ID of the list</summary>
         public Guid? ResourceId { get; set; }
+        /// <summary>Resource type: 1=Campaign, 2=List (default)</summary>
+        public double? ResourceType { get; set; }
         /// <summary>The search filters used for enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
                 { "list_name", n => { ListName = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostResponse_search_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostResponse_search_filters.CreateFromDiscriminatorValue); } },
             };
         }
@@ -99,6 +102,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
             writer.WriteStringValue("list_name", ListName);
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch.EnrichLeadsFromSupersearchPostResponse_search_filters>("search_filters", SearchFilters);
             writer.WriteAdditionalData(AdditionalData);
         }

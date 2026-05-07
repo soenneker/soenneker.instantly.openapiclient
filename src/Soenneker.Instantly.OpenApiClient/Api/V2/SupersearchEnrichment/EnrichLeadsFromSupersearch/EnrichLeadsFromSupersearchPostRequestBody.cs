@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichL
 #else
         public string ListName { get; set; }
 #endif
-        /// <summary>ID of the existing list to add leads to. A list is automatically created if no list is provided.</summary>
+        /// <summary>ID of the list to target. A list is automatically created if not provided.</summary>
         public Guid? ResourceId { get; set; }
         /// <summary>Search filters to find leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

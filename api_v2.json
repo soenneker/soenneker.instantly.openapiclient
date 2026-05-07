@@ -40304,7 +40304,7 @@
                   "resource_id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "ID of the existing list to add leads to. A list is automatically created if no list is provided.",
+                    "description": "ID of the list to target. A list is automatically created if not provided.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "auto_update": {
@@ -40379,6 +40379,15 @@
                       "format": "uuid",
                       "description": "ID of the list",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "resource_type": {
+                      "type": "number",
+                      "description": "Resource type: 1=Campaign, 2=List (default)",
+                      "enum": [
+                        1,
+                        2
+                      ],
+                      "example": 2
                     },
                     "search_filters": {
                       "type": "object",
