@@ -30,6 +30,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters> Filters { get; set; }
 #endif
+        /// <summary>Provider-keyed integration actions to run against the resource. Mutually exclusive with `type` — either run a built-in enrichment via `type` or supply `integration_actions` to run one or more provider actions. Outer keys are provider IDs (e.g. `findymail`, `apify`); inner keys are action IDs offered by that provider (e.g. `findymail_find_email`). Each action requires a `mapping` object whose keys are the action&apos;s declared input fields and whose values are the lead column names to read from.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_integration_actions? IntegrationActions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_integration_actions IntegrationActions { get; set; }
+#endif
         /// <summary>Maximum number of leads to enrich.</summary>
         public double? Limit { get; set; }
         /// <summary>Unique identifier for the resource (list or campaign)</summary>
@@ -63,6 +71,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
             {
                 { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "integration_actions", n => { IntegrationActions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_integration_actions>(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_integration_actions.CreateFromDiscriminatorValue); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type>(); } },
@@ -77,6 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_filters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_integration_actions>("integration_actions", IntegrationActions);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SupersearchEnrichmentPostRequestBody_type>("type", Type);

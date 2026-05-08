@@ -40921,6 +40921,42 @@
                       "type": "string",
                       "example": "instantly"
                     }
+                  },
+                  "integration_actions": {
+                    "type": "object",
+                    "description": "Provider-keyed integration actions to run against the resource. Mutually exclusive with \u0060type\u0060 \u2014 either run a built-in enrichment via \u0060type\u0060 or supply \u0060integration_actions\u0060 to run one or more provider actions. Outer keys are provider IDs (e.g. \u0060findymail\u0060, \u0060apify\u0060); inner keys are action IDs offered by that provider (e.g. \u0060findymail_find_email\u0060). Each action requires a \u0060mapping\u0060 object whose keys are the action\u0027s declared input fields and whose values are the lead column names to read from.",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                      "type": "object",
+                      "minProperties": 1,
+                      "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                          "mapping"
+                        ],
+                        "properties": {
+                          "mapping": {
+                            "type": "object",
+                            "description": "Maps action input field keys to lead column names",
+                            "additionalProperties": {
+                              "type": "string",
+                              "example": "firstName"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "example": {
+                      "findymail": {
+                        "findymail_find_email": {
+                          "mapping": {
+                            "first_name": "firstName",
+                            "last_name": "lastName",
+                            "domain": "website"
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
