@@ -96,7 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BackgroundJobsItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Comma-separated list of fields to include from the `data` object (e.g., &quot;success_count,failed_count&quot;).</summary>
+            /// <summary>Comma-separated list of fields to include from the `data` object (e.g., &quot;success_count,failed_count&quot; or &quot;moved_lead_emails,moved_leads&quot;). For `move-leads` jobs, `moved_lead_emails` is capped at 10,000 entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("data_fields")]
