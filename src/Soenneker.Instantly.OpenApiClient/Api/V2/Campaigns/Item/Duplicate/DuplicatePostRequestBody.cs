@@ -28,7 +28,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate
         public DuplicatePostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            Name = "Campaign Name (copy)";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -18081,7 +18081,6 @@
                   "name": {
                     "type": "string",
                     "description": "Campaign new name (optional). If not provided, it will default to CAMPAIGN NAME (copy).",
-                    "default": "Campaign Name (copy)",
                     "example": "Campaign new name"
                   }
                 }
