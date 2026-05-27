@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -33,51 +34,51 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel
         {
         }
         /// <summary>
-        /// Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`
+        /// &quot;Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel402Error">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel429Error">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels401">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels402">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels404">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostResponse?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostResponse> PostAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel401Error.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel402Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel429Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabel500Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels401.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels402.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels404.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels429.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels500.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`
+        /// &quot;Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel.AiReplyLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

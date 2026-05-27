@@ -36,10 +36,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Campaign schedule</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule? CampaignSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule? CampaignSchedule { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule CampaignSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule CampaignSchedule { get; set; }
 #endif
         /// <summary>List of accounts to CC on emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -195,7 +195,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select.CreateFromDiscriminatorValue); } },
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule.CreateFromDiscriminatorValue); } },
+                { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule.CreateFromDiscriminatorValue); } },
                 { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables.CreateFromDiscriminatorValue); } },
                 { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables.CreateFromDiscriminatorValue); } },
@@ -242,7 +242,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("allow_risky_contacts", AllowRiskyContacts);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select>("auto_variant_select", AutoVariantSelect);
             writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_campaign_schedule>("campaign_schedule", CampaignSchedule);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule>("campaign_schedule", CampaignSchedule);
             writer.WriteCollectionOfPrimitiveValues<string>("cc_list", CcList);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
             writer.WriteIntValue("daily_max_leads", DailyMaxLeads);

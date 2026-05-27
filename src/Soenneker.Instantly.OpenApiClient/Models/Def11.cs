@@ -156,18 +156,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Status summary of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary? StatusSummary { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummary? StatusSummary { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary StatusSummary { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummary StatusSummary { get; private set; }
 #endif
         /// <summary>Subsequence status summary of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary_subseq? StatusSummarySubseq { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummarySubseq? StatusSummarySubseq { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary_subseq StatusSummarySubseq { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummarySubseq StatusSummarySubseq { get; private set; }
 #endif
         /// <summary>ID of the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -261,8 +261,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "pl_value_lead", n => { PlValueLead = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "status_summary", n => { StatusSummary = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary>(global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary.CreateFromDiscriminatorValue); } },
-                { "status_summary_subseq", n => { StatusSummarySubseq = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary_subseq>(global::Soenneker.Instantly.OpenApiClient.Models.Def11_status_summary_subseq.CreateFromDiscriminatorValue); } },
+                { "status_summary", n => { StatusSummary = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummary>(global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummary.CreateFromDiscriminatorValue); } },
+                { "status_summary_subseq", n => { StatusSummarySubseq = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummarySubseq>(global::Soenneker.Instantly.OpenApiClient.Models.Def11StatusSummarySubseq.CreateFromDiscriminatorValue); } },
                 { "subsequence_id", n => { SubsequenceId = n.GetStringValue(); } },
                 { "timestamp_added_subsequence", n => { TimestampAddedSubsequence = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },

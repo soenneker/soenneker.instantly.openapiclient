@@ -30,10 +30,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_name? Name { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def25Name? Name { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_name Name { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def25Name Name { get; private set; }
 #endif
         /// <summary>The permissions for this workspace member. Used in the app to restrict access to certain sections</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "issuer_id", n => { IssuerId = n.GetGuidValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_name>(global::Soenneker.Instantly.OpenApiClient.Models.Def25_name.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25Name>(global::Soenneker.Instantly.OpenApiClient.Models.Def25Name.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions>()?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_role>(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },

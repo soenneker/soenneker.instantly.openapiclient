@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,27 +36,27 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init
         /// <summary>
         /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 75 requests per minute per workspace- 150 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init429Error">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth503">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init429Error.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.Init503Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth429.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth503.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init.InitPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an OAuth session and returns the Microsoft authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Microsoft rate limits:**- 75 requests per minute per workspace- 150 requests per minute per IPIf Microsoft&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.

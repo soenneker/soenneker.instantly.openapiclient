@@ -80,10 +80,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Plan ID for verification service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def20_plan_id_verification? PlanIdVerification { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def20PlanIdVerification? PlanIdVerification { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def20_plan_id_verification PlanIdVerification { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def20PlanIdVerification PlanIdVerification { get; private set; }
 #endif
         /// <summary>Plan ID for website visitor tracking</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -126,7 +126,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "plan_id_crm", n => { PlanIdCrm = n.GetStringValue(); } },
                 { "plan_id_inbox_placement", n => { PlanIdInboxPlacement = n.GetStringValue(); } },
                 { "plan_id_leadfinder", n => { PlanIdLeadfinder = n.GetStringValue(); } },
-                { "plan_id_verification", n => { PlanIdVerification = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def20_plan_id_verification>(global::Soenneker.Instantly.OpenApiClient.Models.Def20_plan_id_verification.CreateFromDiscriminatorValue); } },
+                { "plan_id_verification", n => { PlanIdVerification = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def20PlanIdVerification>(global::Soenneker.Instantly.OpenApiClient.Models.Def20PlanIdVerification.CreateFromDiscriminatorValue); } },
                 { "plan_id_website_visitor", n => { PlanIdWebsiteVisitor = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },

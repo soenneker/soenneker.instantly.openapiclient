@@ -16,10 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Detailed blacklist report for the domain or IP</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def7_blacklist_report? BlacklistReport { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport? BlacklistReport { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def7_blacklist_report BlacklistReport { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport BlacklistReport { get; private set; }
 #endif
         /// <summary>Domain of the inbox placement report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,10 +48,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Detailed SpamAssassin analysis report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def7_spam_assassin_report? SpamAssassinReport { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport? SpamAssassinReport { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def7_spam_assassin_report SpamAssassinReport { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport SpamAssassinReport { get; private set; }
 #endif
         /// <summary>SpamAssassin score for the email, indicating spam likelihood</summary>
         public double? SpamAssassinScore { get; private set; }
@@ -91,14 +91,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "blacklist_report", n => { BlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def7_blacklist_report>(global::Soenneker.Instantly.OpenApiClient.Models.Def7_blacklist_report.CreateFromDiscriminatorValue); } },
+                { "blacklist_report", n => { BlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport>(global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport.CreateFromDiscriminatorValue); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "domain_blacklist_count", n => { DomainBlacklistCount = n.GetDoubleValue(); } },
                 { "domain_ip", n => { DomainIp = n.GetStringValue(); } },
                 { "domain_ip_blacklist_count", n => { DomainIpBlacklistCount = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "spam_assassin_report", n => { SpamAssassinReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def7_spam_assassin_report>(global::Soenneker.Instantly.OpenApiClient.Models.Def7_spam_assassin_report.CreateFromDiscriminatorValue); } },
+                { "spam_assassin_report", n => { SpamAssassinReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport>(global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport.CreateFromDiscriminatorValue); } },
                 { "spam_assassin_score", n => { SpamAssassinScore = n.GetDoubleValue(); } },
                 { "test_id", n => { TestId = n.GetGuidValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },

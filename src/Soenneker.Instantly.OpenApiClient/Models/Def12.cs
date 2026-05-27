@@ -24,10 +24,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Data about the job, used to store any additional information we need to process the job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def12_data? Data { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def12Data? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def12_data Data { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def12Data Data { get; set; }
 #endif
         /// <summary>The id of the entity that the job is related to</summary>
         public Guid? EntityId { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_data>(global::Soenneker.Instantly.OpenApiClient.Models.Def12_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Data>(global::Soenneker.Instantly.OpenApiClient.Models.Def12Data.CreateFromDiscriminatorValue); } },
                 { "entity_id", n => { EntityId = n.GetGuidValue(); } },
                 { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_entity_type>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -98,7 +98,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_data>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Data>("data", Data);
             writer.WriteGuidValue("entity_id", EntityId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_entity_type>("entity_type", EntityType);
             writer.WriteDoubleValue("progress", Progress);

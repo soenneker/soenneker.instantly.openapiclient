@@ -34,49 +34,49 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
         {
         }
         /// <summary>
-        /// Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`
+        /// &quot;Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def23"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23402Error">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource401">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource402">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource404">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource429">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def23?> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def23?> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def23> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def23> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23401Error.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23402Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.Def23429Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource401.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource402.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource404.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource429.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def23>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def23.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`
+        /// &quot;Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Settings.SettingsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResource body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -16,10 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Conditions that trigger the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions? Conditions { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def26Conditions? Conditions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions Conditions { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def26Conditions Conditions { get; set; }
 #endif
         /// <summary>Custom daily limit for the subsequence. Only used when `daily_limit_mode` is &quot;custom&quot;.</summary>
         public double? DailyLimit { get; set; }
@@ -52,10 +52,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Schedule configuration for the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def26_subsequence_schedule? SubsequenceSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule? SubsequenceSchedule { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def26_subsequence_schedule SubsequenceSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule SubsequenceSchedule { get; set; }
 #endif
         /// <summary>Timestamp when the subsequence was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
@@ -81,7 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions>(global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions.CreateFromDiscriminatorValue); } },
+                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26Conditions>(global::Soenneker.Instantly.OpenApiClient.Models.Def26Conditions.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_daily_limit_mode>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -90,7 +90,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "parent_campaign", n => { ParentCampaign = n.GetGuidValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26_sequences>(global::Soenneker.Instantly.OpenApiClient.Models.Def26_sequences.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_subsequence_schedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def26_subsequence_schedule.CreateFromDiscriminatorValue); } },
+                { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule.CreateFromDiscriminatorValue); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_leads_updated", n => { TimestampLeadsUpdated = n.GetDateTimeOffsetValue(); } },
                 { "workspace", n => { Workspace = n.GetGuidValue(); } },
@@ -103,14 +103,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_conditions>("conditions", Conditions);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26Conditions>("conditions", Conditions);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_daily_limit_mode>("daily_limit_mode", DailyLimitMode);
             writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("parent_campaign", ParentCampaign);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26_sequences>("sequences", Sequences);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26_subsequence_schedule>("subsequence_schedule", SubsequenceSchedule);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);
         }
     }
 }

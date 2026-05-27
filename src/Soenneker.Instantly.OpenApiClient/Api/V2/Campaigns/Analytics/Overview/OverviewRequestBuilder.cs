@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -33,38 +34,38 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
         {
         }
         /// <summary>
-        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.
+        /// &quot;Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview402Error">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview401">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview402">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview404">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview429">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview401Error.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview402Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.Overview429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview400.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview401.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview402.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview404.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview429.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.
+        /// &quot;Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -92,7 +93,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.
+        /// &quot;Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OverviewRequestBuilderGetQueryParameters 
@@ -110,7 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
-            /// <summary>When `true`, calculates the total of all the lead interest status update events instead of only the first occurrence for each contact. This will affect the following fields: `total_opportunities`, `total_interested`, `total_meeting_booked`, `total_meeting_completed`, and `total_closed`. Example: if a lead goes from interested to meeting booked to closed, it will count as 3 events (total_interested: 1, total_meeting_booked_1, and total_closed: 1) when this parameter is set to true, and as 1 event (total_interested) when it is set to false (default).</summary>
+            /// <summary>&quot;When `true`, calculates the total of all the lead interest status update events instead of only the first occurrence for each contact. This will affect the following fields: `total_opportunities`, `total_interested`, `total_meeting_booked`, `total_meeting_completed`, and `total_closed`. Example: if a lead goes from interested to meeting booked to closed, it will count as 3 events (total_interested: 1, total_meeting_booked_1, and total_closed: 1) when this parameter is set to true, and as 1 event (total_interested) when it is set to false (default).&quot;</summary>
             [QueryParameter("expand_crm_events")]
             public bool? ExpandCrmEvents { get; set; }
             /// <summary>A campaign ID to get the analytics overview for. Leave this field empty to get the analytics overview for all campaigns</summary>

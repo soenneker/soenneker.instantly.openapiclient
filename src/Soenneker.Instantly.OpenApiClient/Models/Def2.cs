@@ -38,10 +38,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>An object containing the email body in HTML and text format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def2_body? Body { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def2Body? Body { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def2_body Body { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def2Body Body { get; private set; }
 #endif
         /// <summary>The id of the campaign that the email is associated with (it can be null for manually sent emails)</summary>
         public Guid? CampaignId { get; set; }
@@ -200,7 +200,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "ai_interest_value", n => { AiInterestValue = n.GetDoubleValue(); } },
                 { "attachment_json", n => { AttachmentJson = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def2_attachment_json>(global::Soenneker.Instantly.OpenApiClient.Models.Def2_attachment_json.CreateFromDiscriminatorValue); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
-                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def2_body>(global::Soenneker.Instantly.OpenApiClient.Models.Def2_body.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def2Body>(global::Soenneker.Instantly.OpenApiClient.Models.Def2Body.CreateFromDiscriminatorValue); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
                 { "cc_address_email_list", n => { CcAddressEmailList = n.GetStringValue(); } },
                 { "cc_address_json", n => { CcAddressJson = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },

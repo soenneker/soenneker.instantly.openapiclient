@@ -43,6 +43,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? InboxPlacementTestLimit { get; set; }
         /// <summary>Whether this is a managed account</summary>
         public bool? IsManagedAccount { get; private set; }
+        /// <summary>Whether this is a pre-warmed account</summary>
+        public bool? IsReadyMadeAccount { get; private set; }
         /// <summary>Last name associated with the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +59,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public Guid? Organization { get; private set; }
         /// <summary>Provider code for the account. Please make sure to specify the right provider code, otherwise your account will not work.</summary>
         public double? ProviderCode { get; set; }
+        /// <summary>Custom reply-to email address for the account</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReplyTo { get; set; }
+#nullable restore
+#else
+        public string ReplyTo { get; set; }
+#endif
         /// <summary>The gap between emails sent from this account in minutes (minimum wait time when used with multiple campaigns)</summary>
         public double? SendingGap { get; set; }
         /// <summary>Whether account setup is pending</summary>
@@ -74,10 +84,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Status message for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0_status_message? StatusMessage { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage? StatusMessage { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0_status_message StatusMessage { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage StatusMessage { get; private set; }
 #endif
         /// <summary>Warmup score for the account</summary>
         public double? StatWarmupScore { get; private set; }
@@ -108,10 +118,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Warmup configuration for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0_warmup? Warmup { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup? Warmup { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0_warmup Warmup { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup Warmup { get; set; }
 #endif
         /// <summary>ID of the warmup pool this account belongs to</summary>
         public Guid? WarmupPoolId { get; private set; }
@@ -144,23 +154,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "inbox_placement_test_limit", n => { InboxPlacementTestLimit = n.GetDoubleValue(); } },
                 { "is_managed_account", n => { IsManagedAccount = n.GetBoolValue(); } },
+                { "is_ready_made_account", n => { IsReadyMadeAccount = n.GetBoolValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "modified_by", n => { ModifiedBy = n.GetGuidValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
                 { "provider_code", n => { ProviderCode = n.GetDoubleValue(); } },
+                { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "sending_gap", n => { SendingGap = n.GetDoubleValue(); } },
                 { "setup_pending", n => { SetupPending = n.GetBoolValue(); } },
                 { "signature", n => { Signature = n.GetStringValue(); } },
                 { "stat_warmup_score", n => { StatWarmupScore = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "status_message", n => { StatusMessage = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0_status_message>(global::Soenneker.Instantly.OpenApiClient.Models.Def0_status_message.CreateFromDiscriminatorValue); } },
+                { "status_message", n => { StatusMessage = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage>(global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage.CreateFromDiscriminatorValue); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_last_used", n => { TimestampLastUsed = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_warmup_start", n => { TimestampWarmupStart = n.GetDateTimeOffsetValue(); } },
                 { "tracking_domain_name", n => { TrackingDomainName = n.GetStringValue(); } },
                 { "tracking_domain_status", n => { TrackingDomainStatus = n.GetStringValue(); } },
-                { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0_warmup>(global::Soenneker.Instantly.OpenApiClient.Models.Def0_warmup.CreateFromDiscriminatorValue); } },
+                { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup>(global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup.CreateFromDiscriminatorValue); } },
                 { "warmup_pool_id", n => { WarmupPoolId = n.GetGuidValue(); } },
                 { "warmup_status", n => { WarmupStatus = n.GetDoubleValue(); } },
             };
@@ -179,11 +191,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("inbox_placement_test_limit", InboxPlacementTestLimit);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteDoubleValue("provider_code", ProviderCode);
+            writer.WriteStringValue("reply_to", ReplyTo);
             writer.WriteDoubleValue("sending_gap", SendingGap);
             writer.WriteStringValue("signature", Signature);
             writer.WriteStringValue("tracking_domain_name", TrackingDomainName);
             writer.WriteStringValue("tracking_domain_status", TrackingDomainStatus);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0_warmup>("warmup", Warmup);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup>("warmup", Warmup);
         }
     }
 }

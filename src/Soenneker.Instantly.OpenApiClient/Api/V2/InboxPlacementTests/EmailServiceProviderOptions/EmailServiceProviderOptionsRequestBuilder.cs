@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,10 +39,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServ
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions402Error">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions401">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions402">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions404">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions429">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,10 +55,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServ
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions401Error.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions402Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions429Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions401.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions402.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions404.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestESPOptions429.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.EmailServiceProviderOptions.EmailServiceProviderOptions.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

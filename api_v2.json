@@ -338,6 +338,15 @@
             "readOnly": true,
             "example": false
           },
+          "is_ready_made_account": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether this is a pre-warmed account",
+            "readOnly": true,
+            "example": false
+          },
           "stat_warmup_score": {
             "type": [
               "null",
@@ -361,6 +370,15 @@
             ],
             "description": "Email signature for the account",
             "example": "Best regards, John Doe"
+          },
+          "reply_to": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Custom reply-to email address for the account",
+            "format": "email",
+            "example": "reply@example.com"
           },
           "autofix_failed": {
             "type": [
@@ -6362,6 +6380,10 @@
                     "description": "Email signature for the account",
                     "example": "Best regards, John Doe"
                   },
+                  "reply_to": {
+                    "type": "string",
+                    "example": "reply@example.com"
+                  },
                   "imap_username": {
                     "type": "string",
                     "example": "username"
@@ -6393,10 +6415,6 @@
                   "smtp_port": {
                     "type": "number",
                     "example": 587
-                  },
-                  "reply_to": {
-                    "type": "string",
-                    "example": "reply@example.com"
                   },
                   "warmup_custom_ftag": {
                     "type": "string",
@@ -6722,6 +6740,78 @@
             "name": "tag_ids_all",
             "required": false,
             "description": "Filter accounts by tag ids with AND logic. Returns only accounts that have all of the specified tags assigned. You can specify multiple tag ids by separating them with a comma."
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "in": "query",
+            "name": "include_tags",
+            "required": false,
+            "description": "Include tags in the response. If true, the response will include the tags assigned to each account."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ACC_FILTER_PAUSED",
+                "ACC_FILTER_ERROR",
+                "ACC_FILTER_NO_CTD",
+                "ACC_FILTER_PW_ACCOUNTS",
+                "ACC_FILTER_DFY",
+                "ACC_FILTER_DFY_SETUP_PENDING",
+                "ACC_FILTER_W_ACTIVE",
+                "ACC_FILTER_W_PAUSED",
+                "ACC_FILTER_W_ERROR"
+              ],
+              "x-enumDescriptions": {
+                "ACC_FILTER_PAUSED": "Paused",
+                "ACC_FILTER_ERROR": "Has errors",
+                "ACC_FILTER_NO_CTD": "No custom tracking domain",
+                "ACC_FILTER_PW_ACCOUNTS": "Pre-warmed accounts",
+                "ACC_FILTER_DFY": "DFY accounts",
+                "ACC_FILTER_DFY_SETUP_PENDING": "DFY Setup Pending",
+                "ACC_FILTER_W_ACTIVE": "Warmup active",
+                "ACC_FILTER_W_PAUSED": "Warmup paused",
+                "ACC_FILTER_W_ERROR": "Warmup has errors"
+              },
+              "example": "ACC_FILTER_PAUSED"
+            },
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "description": "The filter to apply to the accounts."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "timestamp_created",
+                "email",
+                "stat_warmup_score",
+                "status"
+              ],
+              "example": "stat_warmup_score"
+            },
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "description": "Column to sort results by."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "example": "desc"
+            },
+            "in": "query",
+            "name": "sort_order",
+            "required": false,
+            "description": "Sort direction. Defaults to \u0060desc\u0060 when \u0060sort_by\u0060 is provided."
           }
         ],
         "responses": {
@@ -6736,7 +6826,46 @@
                       "type": "array",
                       "description": "The list of Account",
                       "items": {
-                        "$ref": "#/components/schemas/def-0"
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/def-0"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tags": {
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "description": "Tags associated with the account, set to \u0060include_tags\u0060 to populate",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Unique identifier for the custom tag",
+                                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                                    },
+                                    "label": {
+                                      "type": "string",
+                                      "description": "Display label for the custom tag",
+                                      "example": "Important tag"
+                                    },
+                                    "description": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ],
+                                      "description": "Detailed description of the custom tag purpose",
+                                      "example": null
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
                       }
                     },
                     "next_starting_after": {
@@ -7225,6 +7354,15 @@
                     ],
                     "description": "Email signature for the account",
                     "example": "Best regards, John Doe"
+                  },
+                  "reply_to": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Custom reply-to email address for the account",
+                    "format": "email",
+                    "example": "reply@example.com"
                   },
                   "skip_cname_check": {
                     "type": "boolean",
@@ -8631,6 +8769,41 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "The analytics request is too large for the requested workspace or date range.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        413
+                      ],
+                      "example": 413
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payload Too Large"
+                      ],
+                      "example": "Payload Too Large"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Analytics request is too large for this workspace. Add an emails filter or request a smaller date range."
                     }
                   },
                   "required": [
@@ -20846,9 +21019,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "tag_ids": {
                     "type": "array",
+                    "minItems": 1,
                     "items": {
                       "type": "string",
                       "format": "uuid",
@@ -20871,11 +21046,21 @@
                   },
                   "resource_ids": {
                     "type": "array",
+                    "minItems": 1,
                     "items": {
                       "type": "string",
                       "example": "resource-1"
                     },
-                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign."
+                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign. Required unless \u0060selected_all\u0060 is \u0060true\u0060."
+                  },
+                  "excluded_resource_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "example": "resource-1"
+                    },
+                    "description": "Optional list of resource ids to exclude when \u0060selected_all\u0060 is \u0060true\u0060."
                   },
                   "assign": {
                     "type": "boolean",
@@ -20888,11 +21073,12 @@
                     "example": false
                   },
                   "filter": {
-                    "type": "object",
-                    "description": "The filter to apply to the resources. These are only used when \u0060selected_all\u0060 is true.",
                     "oneOf": [
                       {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "enum": [
                           "ACC_FILTER_PAUSED",
                           "ACC_FILTER_ERROR",
@@ -20902,7 +21088,8 @@
                           "ACC_FILTER_DFY_SETUP_PENDING",
                           "ACC_FILTER_W_ACTIVE",
                           "ACC_FILTER_W_PAUSED",
-                          "ACC_FILTER_W_ERROR"
+                          "ACC_FILTER_W_ERROR",
+                          null
                         ],
                         "x-enumDescriptions": {
                           "ACC_FILTER_PAUSED": "Paused",
@@ -20913,17 +21100,79 @@
                           "ACC_FILTER_DFY_SETUP_PENDING": "DFY Setup Pending",
                           "ACC_FILTER_W_ACTIVE": "W Active",
                           "ACC_FILTER_W_PAUSED": "W Paused",
-                          "ACC_FILTER_W_ERROR": "W Error"
+                          "ACC_FILTER_W_ERROR": "W Error",
+                          "null": "No filter"
                         },
                         "example": "ACC_FILTER_PAUSED"
                       },
                       {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                           "tag_id": {
-                            "type": "string",
-                            "format": "uuid",
-                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                              },
+                              {
+                                "type": "string",
+                                "enum": [
+                                  "no-tag"
+                                ],
+                                "example": "no-tag"
+                              }
+                            ]
+                          },
+                          "tag_ids": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "string",
+                              "format": "uuid",
+                              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                            }
+                          },
+                          "tag_ids_all": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "string",
+                              "format": "uuid",
+                              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                            }
+                          },
+                          "filter": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "enum": [
+                              "ACC_FILTER_PAUSED",
+                              "ACC_FILTER_ERROR",
+                              "ACC_FILTER_NO_CTD",
+                              "ACC_FILTER_PW_ACCOUNTS",
+                              "ACC_FILTER_DFY",
+                              "ACC_FILTER_DFY_SETUP_PENDING",
+                              "ACC_FILTER_W_ACTIVE",
+                              "ACC_FILTER_W_PAUSED",
+                              "ACC_FILTER_W_ERROR",
+                              null
+                            ],
+                            "x-enumDescriptions": {
+                              "ACC_FILTER_PAUSED": "Paused",
+                              "ACC_FILTER_ERROR": "Error",
+                              "ACC_FILTER_NO_CTD": "No CTD",
+                              "ACC_FILTER_PW_ACCOUNTS": "PW Accounts",
+                              "ACC_FILTER_DFY": "DFY",
+                              "ACC_FILTER_DFY_SETUP_PENDING": "DFY Setup Pending",
+                              "ACC_FILTER_W_ACTIVE": "W Active",
+                              "ACC_FILTER_W_PAUSED": "W Paused",
+                              "ACC_FILTER_W_ERROR": "W Error",
+                              "null": "No filter"
+                            },
+                            "example": "ACC_FILTER_PAUSED"
                           },
                           "search": {
                             "type": "string",
@@ -20931,13 +21180,18 @@
                           }
                         }
                       }
-                    ]
+                    ],
+                    "description": "Optional selected-all filter. Accepts the existing account-status string shape and the merged object shape for account status, tag, any-tag, all-tags, and search criteria."
+                  },
+                  "search": {
+                    "type": "string",
+                    "description": "Optional selected-all search query. If omitted, \u0060filter.search\u0060 is used when present.",
+                    "example": "jon@doe.com"
                   }
                 },
                 "required": [
                   "tag_ids",
                   "resource_type",
-                  "resource_ids",
                   "assign"
                 ]
               }
@@ -23680,7 +23934,7 @@
         "tags": [
           "Email"
         ],
-        "description": "Forward an existing email to another recipient. You must specify the \u0060reply_to_uuid\u0060 field, which represents the \u0060id\u0060 of an existing email returned by the \u0060/emails\u0060 endpoints.\n\n\nRequires one of the following scopes: \u0060emails:create\u0060, \u0060emails:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Forward an existing email to another recipient. You must specify the \u0060reply_to_uuid\u0060 field, which represents the \u0060id\u0060 of an existing email returned by the \u0060/emails\u0060 endpoints. By default only the provided body is sent. Set \u0060include_original_body\u0060 to \u0060true\u0060 to append the original email context.\n\n\nRequires one of the following scopes: \u0060emails:create\u0060, \u0060emails:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -23708,17 +23962,17 @@
                     "example": "Fwd: Interesting update"
                   },
                   "body": {
-                    "description": "The email body. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both",
                     "type": "object",
+                    "description": "Optional body content for the forwarded email. When \u0060include_original_body\u0060 is \u0060true\u0060, this can be used as a note before the appended original email content. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both.",
                     "properties": {
                       "html": {
                         "type": "string",
-                        "description": "HTML body of the email message",
+                        "description": "HTML body of the forwarded email",
                         "example": "\u003Cp\u003ESharing this with you.\u003C/p\u003E"
                       },
                       "text": {
                         "type": "string",
-                        "description": "Text body of the email message",
+                        "description": "Text body of the forwarded email",
                         "example": "Sharing this with you."
                       }
                     }
@@ -23744,6 +23998,11 @@
                     "description": "JSON-encoded forwarded attachment metadata from the original email",
                     "example": "[{\u0022filename\u0022:\u0022attachment.pdf\u0022,\u0022url\u0022:\u0022https://cdn.instantly.ai/example-attachment/file.pdf\u0022}]"
                   },
+                  "include_original_body": {
+                    "type": "boolean",
+                    "description": "When true, append the original email headers and content after the provided body. Default: false.",
+                    "example": true
+                  },
                   "assigned_to": {
                     "type": "string",
                     "format": "uuid",
@@ -23755,8 +24014,64 @@
                   "reply_to_uuid",
                   "to_address_email_list",
                   "eaccount",
-                  "subject",
-                  "body"
+                  "subject"
+                ],
+                "anyOf": [
+                  {
+                    "required": [
+                      "body"
+                    ],
+                    "properties": {
+                      "body": {
+                        "type": "object",
+                        "properties": {
+                          "html": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "anyOf": [
+                          {
+                            "required": [
+                              "html"
+                            ],
+                            "properties": {
+                              "html": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          },
+                          {
+                            "required": [
+                              "text"
+                            ],
+                            "properties": {
+                              "text": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "include_original_body"
+                    ],
+                    "properties": {
+                      "include_original_body": {
+                        "type": "boolean",
+                        "enum": [
+                          true
+                        ]
+                      }
+                    }
+                  }
                 ]
               }
             }
@@ -32912,6 +33227,41 @@
               }
             }
           },
+          "400": {
+            "description": "Invalid request body (e.g. missing required fields, or invalid field values)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -40425,6 +40775,14 @@
                         "type": "string",
                         "example": "instantly"
                       }
+                    },
+                    "background_job_id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "description": "Identifier of an associated background import job, when one is spawned. \u0060null\u0060 when no background job was created for this request.",
+                      "example": "000000000000000000000000"
                     }
                   },
                   "required": [
@@ -48573,211 +48931,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/def-39"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "statusCode": {
-                      "type": "number",
-                      "enum": [
-                        401
-                      ],
-                      "example": 401
-                    },
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "Unauthorized"
-                      ],
-                      "example": "Unauthorized"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Missing Authorization header"
-                    }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
-                }
-              }
-            }
-          },
-          "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "statusCode": {
-                      "type": "number",
-                      "enum": [
-                        402
-                      ],
-                      "example": 402
-                    },
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "Payment Required"
-                      ],
-                      "example": "Payment Required"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Workspace does not have an active paid plan"
-                    }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource was not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "statusCode": {
-                      "type": "number",
-                      "enum": [
-                        404
-                      ],
-                      "example": 404
-                    },
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "example": "Not Found"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Resource not found"
-                    }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "statusCode": {
-                      "type": "number",
-                      "enum": [
-                        429
-                      ],
-                      "example": 429
-                    },
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "Too Many Requests"
-                      ],
-                      "example": "Too Many Requests"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Rate limit exceeded"
-                    }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v2/workspace-billing/plan-details": {
-      "get": {
-        "operationId": "getWorkspacePlanDetails",
-        "summary": "Get workspace plan details",
-        "tags": [
-          "WorkspaceBilling"
-        ],
-        "description": "Requires one of the following scopes: \u0060workspace_billing:read\u0060, \u0060workspace_billing:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
-        "responses": {
-          "200": {
-            "description": "Default Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "organization_id": {
-                      "type": "string",
-                      "format": "uuid",
-                      "description": "The id of workspace",
-                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-                    },
-                    "organization_name": {
-                      "type": "string",
-                      "description": "The name of workspace",
-                      "example": "My Default Workspace"
-                    },
-                    "subscriptions": {
-                      "type": "object",
-                      "properties": {
-                        "outreach": {
-                          "type": "object",
-                          "properties": {
-                            "plan_name": {
-                              "type": "string",
-                              "description": "Plan name",
-                              "example": "Free Trial"
-                            },
-                            "addons_qty": {
-                              "type": "number",
-                              "description": "Addons total quantity",
-                              "example": 2
-                            },
-                            "total_lead_limit": {
-                              "type": "number",
-                              "description": "Total Outreach plan limit including addons",
-                              "example": 100
-                            },
-                            "current_lead_count": {
-                              "type": "number",
-                              "description": "Current number of leads counted toward the plan",
-                              "example": 10
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
