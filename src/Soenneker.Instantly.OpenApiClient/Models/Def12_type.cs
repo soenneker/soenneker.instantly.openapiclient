@@ -27,5 +27,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         RenameVariable,
         #pragma warning restore CS1591
+        [EnumMember(Value = "import-subscribers-from-crm")]
+        #pragma warning disable CS1591
+        ImportSubscribersFromCrm,
+        #pragma warning restore CS1591
     }
 }

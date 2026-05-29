@@ -2013,7 +2013,8 @@
                 "import-leads",
                 "export-leads",
                 "update-warmup-accounts",
-                "rename-variable"
+                "rename-variable",
+                "import-subscribers-from-crm"
               ],
               "type": "string",
               "additionalProperties": false,
@@ -2028,7 +2029,8 @@
               "enum": [
                 "list",
                 "campaign",
-                "workspace"
+                "workspace",
+                "subscriber-group-sync"
               ],
               "type": "string",
               "additionalProperties": false,
@@ -2047,7 +2049,7 @@
           {
             "name": "status",
             "in": "query",
-            "description": "\"The status of the job. Multiple statuses can be provided as a comma-separated list. Valid statuses are: pending, in-progress, success, failed\"",
+            "description": "\"The status of the job. Multiple statuses can be provided as a comma-separated list. Valid statuses are: pending, in-progress, success, failed, draining, paused, cancelled\"",
             "schema": {
               "type": "string",
               "example": "pending,in-progress"
@@ -17765,7 +17767,8 @@
               "import-leads",
               "export-leads",
               "update-warmup-accounts",
-              "rename-variable"
+              "rename-variable",
+              "import-subscribers-from-crm"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -17776,7 +17779,8 @@
               "import-leads": "Import Leads",
               "export-leads": "Export Leads",
               "update-warmup-accounts": "Update Warmup Accounts",
-              "rename-variable": "Rename Variable"
+              "rename-variable": "Rename Variable",
+              "import-subscribers-from-crm": "Import Subscribers From CRM"
             }
           },
           "entity_id": {
@@ -17790,7 +17794,8 @@
             "enum": [
               "list",
               "campaign",
-              "workspace"
+              "workspace",
+              "subscriber-group-sync"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -17799,7 +17804,8 @@
             "x-enumDescriptions": {
               "list": "The entity is a lead list",
               "campaign": "The entity is a campaign",
-              "workspace": "The entity is a workspace"
+              "workspace": "The entity is a workspace",
+              "subscriber-group-sync": "The entity is a subscriber-group sync"
             }
           },
           "data": {
@@ -17817,7 +17823,10 @@
               "pending",
               "in-progress",
               "success",
-              "failed"
+              "failed",
+              "draining",
+              "paused",
+              "cancelled"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -17827,7 +17836,10 @@
               "pending": "The background job is waiting in the queue to be processed",
               "in-progress": "The background job is being processed",
               "success": "The background job has been successfully processed",
-              "failed": "The background job has failed"
+              "failed": "The background job has failed",
+              "draining": "The background job is replaying deferred live events",
+              "paused": "The background job is paused (e.g. waiting for quota or auth)",
+              "cancelled": "The background job was cancelled by the user"
             }
           },
           "created_at": {
@@ -18864,7 +18876,9 @@
               28,
               29,
               30,
-              31
+              31,
+              32,
+              33
             ],
             "type": "number",
             "additionalProperties": false,
@@ -18897,7 +18911,9 @@
               "28": "MFA recovery code used",
               "29": "MFA login challenge failed",
               "30": "MFA login challenge failed too many times",
-              "31": "MFA login succeeded"
+              "31": "MFA login succeeded",
+              "32": "Subscriber import started",
+              "33": "Subscriber import cancelled"
             }
           },
           "user_agent": {
