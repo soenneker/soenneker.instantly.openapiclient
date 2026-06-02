@@ -18,13 +18,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_days? Days { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleDaysProperty? Days { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_days Days { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleDaysProperty Days { get; set; }
 #endif
         /// <summary>Timezone in which the schedule is set, in IANA timezone format.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_timezone? Timezone { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleTimezone? Timezone { get; set; }
         /// <summary>Timing configuration for the scheduled test.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,8 +58,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "days", n => { Days = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_days>(global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_days.CreateFromDiscriminatorValue); } },
-                { "timezone", n => { Timezone = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_timezone>(); } },
+                { "days", n => { Days = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleDaysProperty>(global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleDaysProperty.CreateFromDiscriminatorValue); } },
+                { "timezone", n => { Timezone = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleTimezone>(); } },
                 { "timing", n => { Timing = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleTiming>(global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleTiming.CreateFromDiscriminatorValue); } },
             };
         }
@@ -70,8 +70,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_days>("days", Days);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule_timezone>("timezone", Timezone);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleDaysProperty>("days", Days);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleTimezone>("timezone", Timezone);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5ScheduleTiming>("timing", Timing);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -39,11 +39,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def1"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def1?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -56,11 +56,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport402.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def1>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

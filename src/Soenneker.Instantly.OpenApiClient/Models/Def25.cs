@@ -38,13 +38,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The permissions for this workspace member. Used in the app to restrict access to certain sections</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions?>? Permissions { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25PermissionsItem?>? Permissions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions?> Permissions { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def25PermissionsItem?> Permissions { get; set; }
 #endif
         /// <summary>THe role of the workspace member defining their access level. While the &quot;owner&quot; role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def25_role? Role { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def25Role? Role { get; set; }
         /// <summary>Timestamp when the workspace member was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>Email address of the user</summary>
@@ -82,8 +82,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "issuer_id", n => { IssuerId = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25Name>(global::Soenneker.Instantly.OpenApiClient.Models.Def25Name.CreateFromDiscriminatorValue); } },
-                { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions>()?.AsList(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_role>(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25PermissionsItem>()?.AsList(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25Role>(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "user_email", n => { UserEmail = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
@@ -98,8 +98,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25_permissions>("permissions", Permissions);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25_role>("role", Role);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def25PermissionsItem>("permissions", Permissions);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def25Role>("role", Role);
             writer.WriteStringValue("user_email", UserEmail);
         }
     }

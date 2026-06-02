@@ -55,31 +55,31 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         /// <summary>
         /// &quot;Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder.CustomTagsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `custom_tags:create`, `custom_tags:all`, `all:create`, `all:all`&quot;
@@ -88,29 +88,29 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         /// <param name="body">The Custom Tag to create</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def13?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def13?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def13> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def13> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def13>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def13.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -141,11 +141,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -36,35 +36,35 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
         /// <summary>
         /// &quot;This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we’re following because of the complex arguments it accepts, which would be too hard to express through query parameters. Results are ordered by each lead&apos;s `id` field in ascending order (or by `contact` when distinct_contacts is true) so clients can paginate chronologically by reusing the cursor returned in `next_starting_after`. Leads created on or after October 15, 2025 respect this chronological ordering; older records may appear out of sequence when sorted by ID.Requires one of the following scopes: `leads:read`, `leads:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListLeads429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.ListLeads body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListLeads200Response?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.ListLeads body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListLeads200Response> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads429.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListLeads429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List.ListPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListLeads200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListLeads200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;This endpoint is a POST endpoint, instead of GET - a deviation from the REST APIs standards we’re following because of the complex arguments it accepts, which would be too hard to express through query parameters. Results are ordered by each lead&apos;s `id` field in ascending order (or by `contact` when distinct_contacts is true) so clients can paginate chronologically by reusing the cursor returned in `next_starting_after`. Leads created on or after October 15, 2025 respect this chronological ordering; older records may appear out of sequence when sorted by ID.Requires one of the following scopes: `leads:read`, `leads:all`, `all:read`, `all:all`&quot;
@@ -74,11 +74,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.List
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.ListLeads body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.ListLeads body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

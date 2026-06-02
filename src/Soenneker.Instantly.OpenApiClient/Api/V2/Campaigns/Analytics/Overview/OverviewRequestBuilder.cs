@@ -36,33 +36,33 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
         /// <summary>
         /// &quot;Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview.OverviewRequestBuilder.OverviewRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview429.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Get analytics overview for one or multiple campaigns. Specify the `id` field to get the analytics overview for a single campaign, or leave it empty to get the analytics overview for all campaigns.Note regarding the interest status totals (interested, meeting booked, meeting completed, closed): these are calculated based on the first occurrence of each event per contact by default. To change this behavior and calculate the totals based on all occurrences of the events, set the `expand_crm_events` parameter to `true`. Additionally, there is a 10 minute time window after you change a lead status in which the subsequent updates will NOT insert new analytics events to avoid duplicates from rapid status changes and avoid false inflation of the analytics numbers.&quot;

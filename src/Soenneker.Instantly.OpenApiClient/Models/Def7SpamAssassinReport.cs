@@ -20,10 +20,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of individual SpamAssassin rule evaluations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport_report>? Report { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReportReportItem>? Report { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport_report> Report { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReportReportItem> Report { get; set; }
 #endif
         /// <summary>Overall spam score assigned to the message by SpamAssassin</summary>
         public int? SpamScore { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "is_spam", n => { IsSpam = n.GetBoolValue(); } },
-                { "report", n => { Report = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport_report>(global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport_report.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "report", n => { Report = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReportReportItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReportReportItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "spam_score", n => { SpamScore = n.GetIntValue(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("is_spam", IsSpam);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReport_report>("report", Report);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7SpamAssassinReportReportItem>("report", Report);
             writer.WriteIntValue("spam_score", SpamScore);
             writer.WriteAdditionalData(AdditionalData);
         }

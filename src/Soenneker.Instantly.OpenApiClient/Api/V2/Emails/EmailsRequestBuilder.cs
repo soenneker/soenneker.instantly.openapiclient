@@ -79,31 +79,31 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// <summary>
         /// &quot;**Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder.EmailsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListEmail429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;**Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`&quot;
@@ -174,7 +174,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
 #endif
             /// <summary>The type of the email to filter by.</summary>
             [QueryParameter("email_type")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetEmail_typeQueryParameterType? EmailType { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListEmailEmailTypeParameter? EmailType { get; set; }
             [QueryParameter("has_reminder")]
             public bool? HasReminder { get; set; }
             /// <summary>The status of the emails to filter by.</summary>
@@ -227,7 +227,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
 #endif
             /// <summary>The mode to filter emails by.</summary>
             [QueryParameter("mode")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetModeQueryParameterType? Mode { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListEmailModeParameter? Mode { get; set; }
             /// <summary>Whether to only return the preview of the emails.</summary>
             [QueryParameter("preview_only")]
             public bool? PreviewOnly { get; set; }
@@ -246,7 +246,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
 #endif
             /// <summary>The order to sort the emails by (based on the email creation date). Default is &quot;desc&quot;.</summary>
             [QueryParameter("sort_order")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.GetSort_orderQueryParameterType? SortOrder { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListEmailSortOrderParameter? SortOrder { get; set; }
             /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -21,10 +21,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The schedules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule_schedules>? Schedules { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceScheduleSchedulesItem>? Schedules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule_schedules> Schedules { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceScheduleSchedulesItem> Schedules { get; set; }
 #endif
         /// <summary>Start date in YYYY-MM-DD format. Uses the campaign&apos;s timezone.</summary>
         public Date? StartDate { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "end_date", n => { EndDate = n.GetDateValue(); } },
-                { "schedules", n => { Schedules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule_schedules>(global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule_schedules.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "schedules", n => { Schedules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceScheduleSchedulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceScheduleSchedulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateValue("end_date", EndDate);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceSchedule_schedules>("schedules", Schedules);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def26SubsequenceScheduleSchedulesItem>("schedules", Schedules);
             writer.WriteDateValue("start_date", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

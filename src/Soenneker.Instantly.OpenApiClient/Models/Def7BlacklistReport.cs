@@ -28,10 +28,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of individual blacklist details</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport_details>? Details { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReportDetailsItem>? Details { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport_details> Details { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReportDetailsItem> Details { get; set; }
 #endif
         /// <summary>The IP address associated with the blacklist check</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "blacklisted_count", n => { BlacklistedCount = n.GetIntValue(); } },
-                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport_details>(global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport_details.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReportDetailsItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReportDetailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
                 { "is_blacklisted", n => { IsBlacklisted = n.GetBoolValue(); } },
                 { "is_domain", n => { IsDomain = n.GetBoolValue(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteIntValue("blacklisted_count", BlacklistedCount);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReport_details>("details", Details);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def7BlacklistReportDetailsItem>("details", Details);
             writer.WriteStringValue("ip", Ip);
             writer.WriteBoolValue("is_blacklisted", IsBlacklisted);
             writer.WriteBoolValue("is_domain", IsDomain);

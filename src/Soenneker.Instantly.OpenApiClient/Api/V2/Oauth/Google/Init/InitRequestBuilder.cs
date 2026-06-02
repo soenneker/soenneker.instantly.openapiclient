@@ -36,27 +36,27 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Google.Init
         /// <summary>
         /// Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Google rate limits:**- 75 requests per minute per workspace- 150 requests per minute per IPIf Google&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth429">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth503">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200Response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200Response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth429.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth503.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth429Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth503Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InitGoogleOAuth200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an OAuth session and returns the Google authorization URL. The user should be redirected to auth_url to complete the OAuth flow. Poll the status endpoint to check for completion.**Special rate limits (stricter than the standard API rate limit) to comply with upstream Google rate limits:**- 75 requests per minute per workspace- 150 requests per minute per IPIf Google&apos;s upstream OAuth service is temporarily unavailable, requests may return 503.

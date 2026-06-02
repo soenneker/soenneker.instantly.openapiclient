@@ -49,31 +49,31 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
         /// <summary>
         /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsRequestBuilder.BackgroundJobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsRequestBuilder.BackgroundJobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsRequestBuilder.BackgroundJobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsRequestBuilder.BackgroundJobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
@@ -121,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
 #endif
             /// <summary>The type of the entity</summary>
             [QueryParameter("entity_type")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.GetEntity_typeQueryParameterType? EntityType { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJobEntityTypeParameter? EntityType { get; set; }
             /// <summary>The ID of the job to be excluded from the response. Multiple IDs can be provided as a comma-separated list</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,10 +157,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
             public int? Limit { get; set; }
             /// <summary>The column to sort the results by</summary>
             [QueryParameter("sort_column")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.GetSort_columnQueryParameterType? SortColumn { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJobSortColumnParameter? SortColumn { get; set; }
             /// <summary>The order to sort the results by</summary>
             [QueryParameter("sort_order")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.GetSort_orderQueryParameterType? SortOrder { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJobSortOrderParameter? SortOrder { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("starting_after")]
@@ -182,7 +182,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
 #endif
             /// <summary>The type of the job</summary>
             [QueryParameter("type")]
-            public global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJobTypeParameter? Type { get; set; }
         }
     }
 }

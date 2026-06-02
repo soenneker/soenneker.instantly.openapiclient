@@ -36,10 +36,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def9_scopes?>? Scopes { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def9ScopesItem?>? Scopes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def9_scopes?> Scopes { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def9ScopesItem?> Scopes { get; set; }
 #endif
         /// <summary>The timestamp_created property</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def9_scopes>()?.AsList(); } },
+                { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def9ScopesItem>()?.AsList(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def9_scopes>("scopes", Scopes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.Def9ScopesItem>("scopes", Scopes);
         }
     }
 }

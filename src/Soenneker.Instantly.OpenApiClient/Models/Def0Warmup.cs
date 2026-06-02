@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupAdvanced Advanced { get; set; }
 #endif
         /// <summary>Daily increment added to the sending limit, starting from 0, until the full daily limit is reached (slow ramp). Gradually increases sending volume to improve deliverability. Set to `disabled` to send at the full daily limit from day one.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup_increment? Increment { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupIncrement? Increment { get; set; }
         /// <summary>Email sending limit for the account</summary>
         public double? Limit { get; set; }
         /// <summary>Reply rate for the account</summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "advanced", n => { Advanced = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupAdvanced>(global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupAdvanced.CreateFromDiscriminatorValue); } },
-                { "increment", n => { Increment = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup_increment>(); } },
+                { "increment", n => { Increment = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupIncrement>(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "reply_rate", n => { ReplyRate = n.GetDoubleValue(); } },
                 { "warmup_custom_ftag", n => { WarmupCustomFtag = n.GetStringValue(); } },
@@ -77,7 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupAdvanced>("advanced", Advanced);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup_increment>("increment", Increment);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0WarmupIncrement>("increment", Increment);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteDoubleValue("reply_rate", ReplyRate);
             writer.WriteStringValue("warmup_custom_ftag", WarmupCustomFtag);

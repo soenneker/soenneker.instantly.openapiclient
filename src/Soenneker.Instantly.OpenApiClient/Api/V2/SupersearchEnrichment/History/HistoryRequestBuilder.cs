@@ -17,14 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
     {
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.supersearchEnrichment.history.item collection</summary>
         /// <param name="position">ID of the resource to retrieve</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResourceItemRequestBuilder"/></returns>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResourceItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("resource_id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResource_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("resourceId", position);
+                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResourceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

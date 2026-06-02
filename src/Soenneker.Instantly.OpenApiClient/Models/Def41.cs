@@ -37,10 +37,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>JSON payload that was sent/attempted to be sent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def41_payload? Payload { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def41PayloadProperty? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def41_payload Payload { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def41PayloadProperty Payload { get; set; }
 #endif
         /// <summary>Response time in milliseconds for the webhook call</summary>
         public double? ResponseTimeMs { get; private set; }
@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "lead_email", n => { LeadEmail = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def41_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def41_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def41PayloadProperty>(global::Soenneker.Instantly.OpenApiClient.Models.Def41PayloadProperty.CreateFromDiscriminatorValue); } },
                 { "response_time_ms", n => { ResponseTimeMs = n.GetDoubleValue(); } },
                 { "retry_count", n => { RetryCount = n.GetDoubleValue(); } },
                 { "retry_group_id", n => { RetryGroupId = n.GetGuidValue(); } },
@@ -113,6 +113,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def41PayloadProperty>("payload", Payload);
         }
     }
 }

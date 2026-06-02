@@ -28,7 +28,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Interest status associated with this label. This is generated automatically by us.</summary>
         public double? InterestStatus { get; private set; }
         /// <summary>Interest status label associated with this label</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def16_interest_status_label? InterestStatusLabel { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def16InterestStatusLabel? InterestStatusLabel { get; set; }
         /// <summary>Display label for the custom lead label</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "interest_status", n => { InterestStatus = n.GetDoubleValue(); } },
-                { "interest_status_label", n => { InterestStatusLabel = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def16_interest_status_label>(); } },
+                { "interest_status_label", n => { InterestStatusLabel = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def16InterestStatusLabel>(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -80,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def16_interest_status_label>("interest_status_label", InterestStatusLabel);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def16InterestStatusLabel>("interest_status_label", InterestStatusLabel);
             writer.WriteStringValue("label", Label);
             writer.WriteBoolValue("use_with_ai", UseWithAi);
         }

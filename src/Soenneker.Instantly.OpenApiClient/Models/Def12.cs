@@ -32,7 +32,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The id of the entity that the job is related to</summary>
         public Guid? EntityId { get; set; }
         /// <summary>Type of entity</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def12_entity_type? EntityType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def12EntityType? EntityType { get; set; }
         /// <summary>Unique identifier for the background job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,9 +44,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Progress of the job as a percentage (from 0 to 100)</summary>
         public double? Progress { get; set; }
         /// <summary>Job status</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def12_status? Status { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def12Status? Status { get; set; }
         /// <summary>Type of background job</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def12_type? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def12Type? Type { get; set; }
         /// <summary>Timestamp when the job was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,11 +80,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Data>(global::Soenneker.Instantly.OpenApiClient.Models.Def12Data.CreateFromDiscriminatorValue); } },
                 { "entity_id", n => { EntityId = n.GetGuidValue(); } },
-                { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_entity_type>(); } },
+                { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12EntityType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "progress", n => { Progress = n.GetDoubleValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Status>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetGuidValue(); } },
@@ -100,10 +100,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Data>("data", Data);
             writer.WriteGuidValue("entity_id", EntityId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_entity_type>("entity_type", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12EntityType>("entity_type", EntityType);
             writer.WriteDoubleValue("progress", Progress);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def12Type>("type", Type);
             writer.WriteStringValue("updated_at", UpdatedAt);
         }
     }

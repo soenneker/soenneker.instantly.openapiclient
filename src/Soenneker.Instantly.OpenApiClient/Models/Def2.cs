@@ -22,10 +22,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Attachment metadata for the email. This field is null when there are no attachments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def2_attachment_json? AttachmentJson { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def2AttachmentJson? AttachmentJson { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def2_attachment_json AttachmentJson { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def2AttachmentJson AttachmentJson { get; private set; }
 #endif
         /// <summary>Comma-separated list of BCC email addresses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -198,7 +198,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "ai_agent_id", n => { AiAgentId = n.GetGuidValue(); } },
                 { "ai_assisted", n => { AiAssisted = n.GetDoubleValue(); } },
                 { "ai_interest_value", n => { AiInterestValue = n.GetDoubleValue(); } },
-                { "attachment_json", n => { AttachmentJson = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def2_attachment_json>(global::Soenneker.Instantly.OpenApiClient.Models.Def2_attachment_json.CreateFromDiscriminatorValue); } },
+                { "attachment_json", n => { AttachmentJson = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def2AttachmentJson>(global::Soenneker.Instantly.OpenApiClient.Models.Def2AttachmentJson.CreateFromDiscriminatorValue); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def2Body>(global::Soenneker.Instantly.OpenApiClient.Models.Def2Body.CreateFromDiscriminatorValue); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },

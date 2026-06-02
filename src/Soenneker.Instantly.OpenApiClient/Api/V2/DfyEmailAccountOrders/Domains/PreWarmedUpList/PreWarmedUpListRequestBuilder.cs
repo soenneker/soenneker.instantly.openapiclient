@@ -36,33 +36,33 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
         /// <summary>
         /// &quot;This endpoint will return a list of pre-warmed up domains available for order.&lt;br/&gt;These domains are set up and configured in advance, allowing for quick deployment of email services.&lt;br/&gt;Use this endpoint to retrieve available pre-warmed up domains before placing an order.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;IMPORTANT: if the endpoint returns a list of empty domains - it&apos;s not a bug, please don&apos;t retry right away or report this as a bug - it simply means that there are no available pre-warmed up domains at the moment.&lt;/b&gt;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200Response"/></returns>
         /// <param name="body">This endpoint does not require any parameters in the request body.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200Response?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsListRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200Response> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsListRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;This endpoint will return a list of pre-warmed up domains available for order.&lt;br/&gt;These domains are set up and configured in advance, allowing for quick deployment of email services.&lt;br/&gt;Use this endpoint to retrieve available pre-warmed up domains before placing an order.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;IMPORTANT: if the endpoint returns a list of empty domains - it&apos;s not a bug, please don&apos;t retry right away or report this as a bug - it simply means that there are no available pre-warmed up domains at the moment.&lt;/b&gt;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
@@ -72,11 +72,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsListRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsListRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

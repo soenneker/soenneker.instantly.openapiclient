@@ -20,10 +20,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Auto variant select settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select? AutoVariantSelect { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1AutoVariantSelect? AutoVariantSelect { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select AutoVariantSelect { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1AutoVariantSelect AutoVariantSelect { get; set; }
 #endif
         /// <summary>List of accounts to BCC on emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,18 +52,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Campaign core variables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables? CoreVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1CoreVariables? CoreVariables { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables CoreVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1CoreVariables CoreVariables { get; private set; }
 #endif
         /// <summary>Campaign custom variables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables? CustomVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1CustomVariables? CustomVariables { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables CustomVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1CustomVariables CustomVariables { get; private set; }
 #endif
         /// <summary>The daily limit for sending emails</summary>
         public double? DailyLimit { get; set; }
@@ -100,10 +100,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Overrides the workspace-wide limit emails per company setting for this campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_limit_emails_per_company_override? LimitEmailsPerCompanyOverride { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1LimitEmailsPerCompanyOverride? LimitEmailsPerCompanyOverride { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def1_limit_emails_per_company_override LimitEmailsPerCompanyOverride { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def1LimitEmailsPerCompanyOverride LimitEmailsPerCompanyOverride { get; set; }
 #endif
         /// <summary>Whether to track links in emails</summary>
         public bool? LinkTracking { get; set; }
@@ -132,20 +132,20 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Auto variant select settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules>? ProviderRoutingRules { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1ProviderRoutingRulesItem>? ProviderRoutingRules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules> ProviderRoutingRules { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1ProviderRoutingRulesItem> ProviderRoutingRules { get; set; }
 #endif
         /// <summary>The maximum random wait time in minutes</summary>
         public double? RandomWaitMax { get; set; }
         /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences>? Sequences { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1SequencesItem>? Sequences { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences> Sequences { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1SequencesItem> Sequences { get; set; }
 #endif
         /// <summary>Campaign Status</summary>
         public double? Status { get; private set; }
@@ -193,12 +193,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "ai_sdr_id", n => { AiSdrId = n.GetGuidValue(); } },
                 { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
-                { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select.CreateFromDiscriminatorValue); } },
+                { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1AutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.Def1AutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule.CreateFromDiscriminatorValue); } },
                 { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_core_variables.CreateFromDiscriminatorValue); } },
-                { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_custom_variables.CreateFromDiscriminatorValue); } },
+                { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1CoreVariables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1CoreVariables.CreateFromDiscriminatorValue); } },
+                { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1CustomVariables>(global::Soenneker.Instantly.OpenApiClient.Models.Def1CustomVariables.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_max_leads", n => { DailyMaxLeads = n.GetIntValue(); } },
                 { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
@@ -209,7 +209,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "insert_unsubscribe_header", n => { InsertUnsubscribeHeader = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
-                { "limit_emails_per_company_override", n => { LimitEmailsPerCompanyOverride = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_limit_emails_per_company_override>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_limit_emails_per_company_override.CreateFromDiscriminatorValue); } },
+                { "limit_emails_per_company_override", n => { LimitEmailsPerCompanyOverride = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1LimitEmailsPerCompanyOverride>(global::Soenneker.Instantly.OpenApiClient.Models.Def1LimitEmailsPerCompanyOverride.CreateFromDiscriminatorValue); } },
                 { "link_tracking", n => { LinkTracking = n.GetBoolValue(); } },
                 { "match_lead_esp", n => { MatchLeadEsp = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -219,9 +219,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },
                 { "pl_value", n => { PlValue = n.GetDoubleValue(); } },
                 { "prioritize_new_leads", n => { PrioritizeNewLeads = n.GetBoolValue(); } },
-                { "provider_routing_rules", n => { ProviderRoutingRules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "provider_routing_rules", n => { ProviderRoutingRules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1ProviderRoutingRulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def1ProviderRoutingRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "random_wait_max", n => { RandomWaitMax = n.GetDoubleValue(); } },
-                { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences>(global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1SequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def1SequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "stop_for_company", n => { StopForCompany = n.GetBoolValue(); } },
                 { "stop_on_auto_reply", n => { StopOnAutoReply = n.GetBoolValue(); } },
@@ -240,7 +240,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("ai_sdr_id", AiSdrId);
             writer.WriteBoolValue("allow_risky_contacts", AllowRiskyContacts);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_auto_variant_select>("auto_variant_select", AutoVariantSelect);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1AutoVariantSelect>("auto_variant_select", AutoVariantSelect);
             writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1CampaignSchedule>("campaign_schedule", CampaignSchedule);
             writer.WriteCollectionOfPrimitiveValues<string>("cc_list", CcList);
@@ -253,7 +253,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("first_email_text_only", FirstEmailTextOnly);
             writer.WriteBoolValue("insert_unsubscribe_header", InsertUnsubscribeHeader);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1_limit_emails_per_company_override>("limit_emails_per_company_override", LimitEmailsPerCompanyOverride);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def1LimitEmailsPerCompanyOverride>("limit_emails_per_company_override", LimitEmailsPerCompanyOverride);
             writer.WriteBoolValue("link_tracking", LinkTracking);
             writer.WriteBoolValue("match_lead_esp", MatchLeadEsp);
             writer.WriteStringValue("name", Name);
@@ -261,9 +261,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteGuidValue("owned_by", OwnedBy);
             writer.WriteDoubleValue("pl_value", PlValue);
             writer.WriteBoolValue("prioritize_new_leads", PrioritizeNewLeads);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_provider_routing_rules>("provider_routing_rules", ProviderRoutingRules);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1ProviderRoutingRulesItem>("provider_routing_rules", ProviderRoutingRules);
             writer.WriteDoubleValue("random_wait_max", RandomWaitMax);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1_sequences>("sequences", Sequences);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1SequencesItem>("sequences", Sequences);
             writer.WriteBoolValue("stop_for_company", StopForCompany);
             writer.WriteBoolValue("stop_on_auto_reply", StopOnAutoReply);
             writer.WriteBoolValue("stop_on_reply", StopOnReply);

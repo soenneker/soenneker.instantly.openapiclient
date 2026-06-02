@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class Def3 : IParsable
     {
         /// <summary>Whether this is a catch-all email address</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def3_catch_all? CatchAll { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def3CatchAll? CatchAll { get; private set; }
         /// <summary>The number of verification credits available after the verification</summary>
         public double? Credits { get; private set; }
         /// <summary>The number of verification credits used</summary>
@@ -28,9 +28,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>The request status. Do not use this field to determine the verification status. Please use `verification_status` instead to check the verification status</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def3_status? Status { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def3Status? Status { get; private set; }
         /// <summary>The verification status.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def3_verification_status? VerificationStatus { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def3VerificationStatus? VerificationStatus { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -49,12 +49,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "catch_all", n => { CatchAll = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def3_catch_all>(); } },
+                { "catch_all", n => { CatchAll = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def3CatchAll>(); } },
                 { "credits", n => { Credits = n.GetDoubleValue(); } },
                 { "credits_used", n => { CreditsUsed = n.GetDoubleValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def3_status>(); } },
-                { "verification_status", n => { VerificationStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def3_verification_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def3Status>(); } },
+                { "verification_status", n => { VerificationStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def3VerificationStatus>(); } },
             };
         }
         /// <summary>

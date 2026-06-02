@@ -48,62 +48,62 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         /// <summary>
         /// &quot;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder.DfyEmailAccountOrdersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder.DfyEmailAccountOrdersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder.DfyEmailAccountOrdersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder.DfyEmailAccountOrdersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListDFYEmailAccountOrder429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersGetResponse>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Place a Done-For-You (DFY) email account order for your workspace.**Order types**- `dfy`: Buy new DFY accounts on new custom domains.- `pre_warmed_up`: Buy available pre-warmed domains returned by `/dfy-email-account-orders/domains/pre-warmed-up-list`.- `extra_accounts`: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same `email_provider`.**Provider limits and pricing**- `1` Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `2` AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `3` Microsoft/Outlook: exactly 50 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.**Before ordering**- Regular DFY domains must use supported TLDs: .com, .org.- Check new-domain availability with `/dfy-email-account-orders/domains/check`.- For pre-warmed orders, choose a domain from `/dfy-email-account-orders/domains/pre-warmed-up-list`; if none are available, use a regular `dfy` order instead.- The workspace must have an Outreach plan and a default payment method.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder402">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder429">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder200?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder200> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder401.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder402.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder404.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder429.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder200>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
@@ -132,11 +132,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateDFYEmailAccountOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

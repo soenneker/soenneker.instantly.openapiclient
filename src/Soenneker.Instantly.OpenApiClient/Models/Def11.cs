@@ -122,10 +122,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Lead custom variables. This object can contain any key, but the values have to be of type string, number, boolean, or null. We do NOT allow objects or arrays as values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_payload? Payload { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11Payload? Payload { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_payload Payload { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11Payload Payload { get; private set; }
 #endif
         /// <summary>Personalization of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -198,7 +198,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>ID of the user who uploaded the lead</summary>
         public Guid? UploadedByUser { get; private set; }
         /// <summary>Method used to upload the lead</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def11_upload_method? UploadMethod { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def11UploadMethod? UploadMethod { get; private set; }
         /// <summary>Verification status of the lead</summary>
         public double? VerificationStatus { get; private set; }
         /// <summary>Website of the lead</summary>
@@ -256,7 +256,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "list_id", n => { ListId = n.GetGuidValue(); } },
                 { "lt_interest_status", n => { LtInterestStatus = n.GetDoubleValue(); } },
                 { "organization", n => { Organization = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def11_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11Payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def11Payload.CreateFromDiscriminatorValue); } },
                 { "personalization", n => { Personalization = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "pl_value_lead", n => { PlValueLead = n.GetStringValue(); } },
@@ -273,7 +273,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "timestamp_last_reply", n => { TimestampLastReply = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_last_touch", n => { TimestampLastTouch = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
-                { "upload_method", n => { UploadMethod = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11_upload_method>(); } },
+                { "upload_method", n => { UploadMethod = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def11UploadMethod>(); } },
                 { "uploaded_by_user", n => { UploadedByUser = n.GetGuidValue(); } },
                 { "verification_status", n => { VerificationStatus = n.GetDoubleValue(); } },
                 { "website", n => { Website = n.GetStringValue(); } },

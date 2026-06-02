@@ -20,10 +20,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Metadata about the audit log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def32_audit_metadata? AuditMetadata { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def32AuditMetadataProperty? AuditMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def32_audit_metadata AuditMetadata { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def32AuditMetadataProperty AuditMetadata { get; set; }
 #endif
         /// <summary>Associated campaign ID if applicable</summary>
         public Guid? CampaignId { get; private set; }
@@ -87,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "activity_type", n => { ActivityType = n.GetDoubleValue(); } },
                 { "affected_count", n => { AffectedCount = n.GetDoubleValue(); } },
-                { "audit_metadata", n => { AuditMetadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def32_audit_metadata>(global::Soenneker.Instantly.OpenApiClient.Models.Def32_audit_metadata.CreateFromDiscriminatorValue); } },
+                { "audit_metadata", n => { AuditMetadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def32AuditMetadataProperty>(global::Soenneker.Instantly.OpenApiClient.Models.Def32AuditMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
                 { "from_api", n => { FromApi = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -109,6 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def32AuditMetadataProperty>("audit_metadata", AuditMetadata);
         }
     }
 }

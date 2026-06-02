@@ -18,10 +18,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Enrichment payload</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def23_enrichment_payload? EnrichmentPayload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def23EnrichmentPayloadProperty? EnrichmentPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def23_enrichment_payload EnrichmentPayload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def23EnrichmentPayloadProperty EnrichmentPayload { get; set; }
 #endif
         /// <summary>Unique identifier for the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +44,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
         public bool? SkipRowsWithoutEmail { get; set; }
         /// <summary>Enrichment type to add to the resource</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def23_type? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def23Type? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
-                { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_enrichment_payload>(global::Soenneker.Instantly.OpenApiClient.Models.Def23_enrichment_payload.CreateFromDiscriminatorValue); } },
+                { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23EnrichmentPayloadProperty>(global::Soenneker.Instantly.OpenApiClient.Models.Def23EnrichmentPayloadProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
@@ -72,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23Type>(); } },
             };
         }
         /// <summary>
@@ -83,11 +83,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_update", AutoUpdate);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_enrichment_payload>("enrichment_payload", EnrichmentPayload);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23EnrichmentPayloadProperty>("enrichment_payload", EnrichmentPayload);
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def23Type>("type", Type);
         }
     }
 }

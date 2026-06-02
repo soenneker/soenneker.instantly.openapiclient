@@ -16,10 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Optional automations to trigger based on conditions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations>? Automations { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5AutomationsItem>? Automations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations> Automations { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5AutomationsItem> Automations { get; set; }
 #endif
         /// <summary>Campaign ID</summary>
         public Guid? CampaignId { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Why the inbox placement test is currently not sending. It will be an empty string if there are no issues.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def5_not_sending_status? NotSendingStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def5NotSendingStatus? NotSendingStatus { get; set; }
         /// <summary>Organization ID</summary>
         public Guid? OrganizationId { get; private set; }
         /// <summary>The recipients property</summary>
@@ -82,10 +82,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>&quot;A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the `GET: /inbox-placement-tests/email-service-provider-options` endpoint&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5_recipients_labels>? RecipientsLabels { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5RecipientsLabelsItem>? RecipientsLabels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5_recipients_labels> RecipientsLabels { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def5RecipientsLabelsItem> RecipientsLabels { get; set; }
 #endif
         /// <summary>Specifies the date and time when the automated inbox placement tests will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,7 +153,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations>(global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5AutomationsItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def5AutomationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
                 { "delivery_mode", n => { DeliveryMode = n.GetDoubleValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -162,10 +162,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "not_sending_status", n => { NotSendingStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5_not_sending_status>(); } },
+                { "not_sending_status", n => { NotSendingStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5NotSendingStatus>(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "recipients_labels", n => { RecipientsLabels = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5_recipients_labels>(global::Soenneker.Instantly.OpenApiClient.Models.Def5_recipients_labels.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "recipients_labels", n => { RecipientsLabels = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5RecipientsLabelsItem>(global::Soenneker.Instantly.OpenApiClient.Models.Def5RecipientsLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "schedule", n => { Schedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule>(global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule.CreateFromDiscriminatorValue); } },
                 { "sending_method", n => { SendingMethod = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
@@ -184,7 +184,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5_automations>("automations", Automations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5AutomationsItem>("automations", Automations);
             writer.WriteGuidValue("campaign_id", CampaignId);
             writer.WriteDoubleValue("delivery_mode", DeliveryMode);
             writer.WriteStringValue("description", Description);
@@ -192,8 +192,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);
             writer.WriteStringValue("email_subject", EmailSubject);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5_not_sending_status>("not_sending_status", NotSendingStatus);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5_recipients_labels>("recipients_labels", RecipientsLabels);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5NotSendingStatus>("not_sending_status", NotSendingStatus);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def5RecipientsLabelsItem>("recipients_labels", RecipientsLabels);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def5Schedule>("schedule", Schedule);
             writer.WriteDoubleValue("sending_method", SendingMethod);
             writer.WriteDoubleValue("status", Status);

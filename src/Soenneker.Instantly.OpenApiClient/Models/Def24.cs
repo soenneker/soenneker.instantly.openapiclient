@@ -26,7 +26,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The unique identifier of the workspace group member</summary>
         public Guid? Id { get; private set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def24_status? Status { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def24Status? Status { get; set; }
         /// <summary>The id of the sub workspace</summary>
         public Guid? SubWorkspaceId { get; set; }
         /// <summary>The name of the sub workspace.</summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "admin_workspace_id", n => { AdminWorkspaceId = n.GetGuidValue(); } },
                 { "admin_workspace_name", n => { AdminWorkspaceName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def24_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def24Status>(); } },
                 { "sub_workspace_id", n => { SubWorkspaceId = n.GetGuidValue(); } },
                 { "sub_workspace_name", n => { SubWorkspaceName = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def24_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.Def24Status>("status", Status);
             writer.WriteGuidValue("sub_workspace_id", SubWorkspaceId);
         }
     }

@@ -17,14 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads
     {
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.emails.threads.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.WithThread_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.WithThread_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.WithThreadItemRequestBuilder"/></returns>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.WithThreadItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("thread_id", position);
-                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.WithThread_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("threadId", position);
+                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.WithThreadItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -16,10 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results? AuthenticationFailureResults { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def6AuthenticationFailureResults? AuthenticationFailureResults { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results AuthenticationFailureResults { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def6AuthenticationFailureResults AuthenticationFailureResults { get; set; }
 #endif
         /// <summary>Indicates if the email passed DKIM validation. Only present when record_type is 2 (received).</summary>
         public bool? DkimPass { get; set; }
@@ -62,10 +62,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report? SmtpIpBlacklistReport { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def6SmtpIpBlacklistReport? SmtpIpBlacklistReport { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report SmtpIpBlacklistReport { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.Def6SmtpIpBlacklistReport SmtpIpBlacklistReport { get; set; }
 #endif
         /// <summary>Indicates if the email passed SPF validation. Only present when record_type is 2 (received).</summary>
         public bool? SpfPass { get; set; }
@@ -105,7 +105,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authentication_failure_results", n => { AuthenticationFailureResults = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results>(global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results.CreateFromDiscriminatorValue); } },
+                { "authentication_failure_results", n => { AuthenticationFailureResults = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6AuthenticationFailureResults>(global::Soenneker.Instantly.OpenApiClient.Models.Def6AuthenticationFailureResults.CreateFromDiscriminatorValue); } },
                 { "dkim_pass", n => { DkimPass = n.GetBoolValue(); } },
                 { "dmarc_pass", n => { DmarcPass = n.GetBoolValue(); } },
                 { "has_category", n => { HasCategory = n.GetBoolValue(); } },
@@ -119,7 +119,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetDoubleValue(); } },
                 { "sender_email", n => { SenderEmail = n.GetStringValue(); } },
                 { "sender_esp", n => { SenderEsp = n.GetDoubleValue(); } },
-                { "smtp_ip_blacklist_report", n => { SmtpIpBlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report>(global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report.CreateFromDiscriminatorValue); } },
+                { "smtp_ip_blacklist_report", n => { SmtpIpBlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6SmtpIpBlacklistReport>(global::Soenneker.Instantly.OpenApiClient.Models.Def6SmtpIpBlacklistReport.CreateFromDiscriminatorValue); } },
                 { "spf_pass", n => { SpfPass = n.GetBoolValue(); } },
                 { "test_id", n => { TestId = n.GetGuidValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
@@ -133,7 +133,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_authentication_failure_results>("authentication_failure_results", AuthenticationFailureResults);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6AuthenticationFailureResults>("authentication_failure_results", AuthenticationFailureResults);
             writer.WriteBoolValue("dkim_pass", DkimPass);
             writer.WriteBoolValue("dmarc_pass", DmarcPass);
             writer.WriteBoolValue("has_category", HasCategory);
@@ -145,7 +145,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("record_type", RecordType);
             writer.WriteStringValue("sender_email", SenderEmail);
             writer.WriteDoubleValue("sender_esp", SenderEsp);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6_smtp_ip_blacklist_report>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def6SmtpIpBlacklistReport>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
             writer.WriteBoolValue("spf_pass", SpfPass);
             writer.WriteGuidValue("test_id", TestId);
         }
