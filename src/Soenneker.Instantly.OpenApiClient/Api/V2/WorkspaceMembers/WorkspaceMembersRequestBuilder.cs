@@ -35,7 +35,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkspaceMembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/workspace-members{?limit*,starting_after*}", pathParameters)
+        public WorkspaceMembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkspaceMembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/workspace-members{?limit*,starting_after*}", rawUrl)
+        public WorkspaceMembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
         {
         }
         /// <summary>
@@ -164,6 +164,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceMembers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WorkspaceMembersRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter workspace members by invitation acceptance status</summary>
+            [QueryParameter("accepted")]
+            public bool? Accepted { get; set; }
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }

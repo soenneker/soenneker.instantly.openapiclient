@@ -32,6 +32,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public CreateDfyEmailAccountOrderRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Simulation = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -22,7 +22,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InboxPlacementTestsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests/{id}{?with_metadata*}", pathParameters)
+        public InboxPlacementTestsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests/{id}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InboxPlacementTestsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests/{id}{?with_metadata*}", rawUrl)
+        public InboxPlacementTestsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/inbox-placement-tests/{id}", rawUrl)
         {
         }
         /// <summary>
