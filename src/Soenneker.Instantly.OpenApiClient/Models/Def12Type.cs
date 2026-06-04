@@ -27,6 +27,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         RenameVariable,
         #pragma warning restore CS1591
+        [EnumMember(Value = "broadcast-ai-generate")]
+        #pragma warning disable CS1591
+        BroadcastAiGenerate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "broadcast-website-scrape")]
+        #pragma warning disable CS1591
+        BroadcastWebsiteScrape,
+        #pragma warning restore CS1591
         [EnumMember(Value = "import-subscribers-from-crm")]
         #pragma warning disable CS1591
         ImportSubscribersFromCrm,

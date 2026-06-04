@@ -174,7 +174,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/api/v2/block-lists-entries{?domains_only*,search*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -194,7 +194,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v2/block-lists-entries{?domains_only*,limit*,search*,starting_after*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -215,7 +215,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/v2/block-lists-entries", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

@@ -122,7 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.LeadListsRequestBuilder.LeadListsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v2/lead-lists{?has_enrichment_task*,limit*,search*,starting_after*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -143,7 +143,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/v2/lead-lists", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

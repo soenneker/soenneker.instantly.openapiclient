@@ -128,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.WorkspaceGroupMembersRequestBuilder.WorkspaceGroupMembersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v2/workspace-group-members{?limit*,starting_after*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -149,7 +149,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/v2/workspace-group-members", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

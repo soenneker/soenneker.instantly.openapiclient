@@ -44893,6 +44893,8 @@
           "export-leads",
           "update-warmup-accounts",
           "rename-variable",
+          "broadcast-ai-generate",
+          "broadcast-website-scrape",
           "import-subscribers-from-crm"
         ],
         "type": "string",
@@ -44905,6 +44907,8 @@
           "export-leads": "Export Leads",
           "update-warmup-accounts": "Update Warmup Accounts",
           "rename-variable": "Rename Variable",
+          "broadcast-ai-generate": "AI broadcast generation",
+          "broadcast-website-scrape": "Broadcast website analysis",
           "import-subscribers-from-crm": "Import Subscribers From CRM"
         },
         "x-ms-enum": {
@@ -44932,6 +44936,14 @@
               "name": "RenameVariable"
             },
             {
+              "value": "broadcast-ai-generate",
+              "name": "BroadcastAiGenerate"
+            },
+            {
+              "value": "broadcast-website-scrape",
+              "name": "BroadcastWebsiteScrape"
+            },
+            {
               "value": "import-subscribers-from-crm",
               "name": "ImportSubscribersFromCrm"
             }
@@ -44943,6 +44955,7 @@
           "list",
           "campaign",
           "workspace",
+          "broadcast",
           "subscriber-group-sync"
         ],
         "type": "string",
@@ -44953,6 +44966,7 @@
           "list": "The entity is a lead list",
           "campaign": "The entity is a campaign",
           "workspace": "The entity is a workspace",
+          "broadcast": "The entity is an email-marketing broadcast",
           "subscriber-group-sync": "The entity is a subscriber-group sync"
         },
         "x-ms-enum": {
@@ -44970,6 +44984,10 @@
             {
               "value": "workspace",
               "name": "Workspace"
+            },
+            {
+              "value": "broadcast",
+              "name": "Broadcast"
             },
             {
               "value": "subscriber-group-sync",
@@ -79007,6 +79025,8 @@
           "export-leads",
           "update-warmup-accounts",
           "rename-variable",
+          "broadcast-ai-generate",
+          "broadcast-website-scrape",
           "import-subscribers-from-crm"
         ],
         "type": "string",
@@ -79037,6 +79057,14 @@
               "name": "RenameVariable"
             },
             {
+              "value": "broadcast-ai-generate",
+              "name": "BroadcastAiGenerate"
+            },
+            {
+              "value": "broadcast-website-scrape",
+              "name": "BroadcastWebsiteScrape"
+            },
+            {
               "value": "import-subscribers-from-crm",
               "name": "ImportSubscribersFromCrm"
             }
@@ -79048,6 +79076,7 @@
           "list",
           "campaign",
           "workspace",
+          "broadcast",
           "subscriber-group-sync"
         ],
         "type": "string",
@@ -79068,6 +79097,10 @@
             {
               "value": "workspace",
               "name": "Workspace"
+            },
+            {
+              "value": "broadcast",
+              "name": "Broadcast"
             },
             {
               "value": "subscriber-group-sync",

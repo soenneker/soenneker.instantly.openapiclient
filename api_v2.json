@@ -3564,6 +3564,8 @@
               "export-leads",
               "update-warmup-accounts",
               "rename-variable",
+              "broadcast-ai-generate",
+              "broadcast-website-scrape",
               "import-subscribers-from-crm"
             ],
             "x-enumDescriptions": {
@@ -3572,6 +3574,8 @@
               "export-leads": "Export Leads",
               "update-warmup-accounts": "Update Warmup Accounts",
               "rename-variable": "Rename Variable",
+              "broadcast-ai-generate": "AI broadcast generation",
+              "broadcast-website-scrape": "Broadcast website analysis",
               "import-subscribers-from-crm": "Import Subscribers From CRM"
             },
             "example": "move-leads"
@@ -3592,12 +3596,14 @@
               "list",
               "campaign",
               "workspace",
+              "broadcast",
               "subscriber-group-sync"
             ],
             "x-enumDescriptions": {
               "list": "The entity is a lead list",
               "campaign": "The entity is a campaign",
               "workspace": "The entity is a workspace",
+              "broadcast": "The entity is an email-marketing broadcast",
               "subscriber-group-sync": "The entity is a subscriber-group sync"
             },
             "example": "list"
@@ -11192,6 +11198,8 @@
                 "export-leads",
                 "update-warmup-accounts",
                 "rename-variable",
+                "broadcast-ai-generate",
+                "broadcast-website-scrape",
                 "import-subscribers-from-crm"
               ],
               "example": "move-leads"
@@ -11208,6 +11216,7 @@
                 "list",
                 "campaign",
                 "workspace",
+                "broadcast",
                 "subscriber-group-sync"
               ],
               "example": "list"

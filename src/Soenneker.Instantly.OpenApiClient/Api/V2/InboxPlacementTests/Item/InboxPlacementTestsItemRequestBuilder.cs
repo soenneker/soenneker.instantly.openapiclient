@@ -160,7 +160,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item.InboxPlacementTestsItemRequestBuilder.InboxPlacementTestsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v2/inbox-placement-tests/{id}{?with_metadata*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
