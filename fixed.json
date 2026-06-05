@@ -12330,6 +12330,15 @@
               "type": "boolean",
               "example": true
             }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search by name or email",
+            "schema": {
+              "type": "string",
+              "example": "John"
+            }
           }
         ],
         "responses": {

@@ -43813,6 +43813,16 @@
             "name": "accepted",
             "required": false,
             "description": "Filter workspace members by invitation acceptance status"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "John"
+            },
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "description": "Search by name or email"
           }
         ],
         "responses": {
