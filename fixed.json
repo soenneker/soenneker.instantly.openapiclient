@@ -45554,7 +45554,9 @@
           30,
           31,
           32,
-          33
+          33,
+          34,
+          35
         ],
         "type": "number",
         "additionalProperties": false,
@@ -45589,7 +45591,9 @@
           "30": "MFA login challenge failed too many times",
           "31": "MFA login succeeded",
           "32": "Subscriber import started",
-          "33": "Subscriber import cancelled"
+          "33": "Subscriber import cancelled",
+          "34": "Lead exported",
+          "35": "SuperSearch enrichment created"
         }
       },
       "Def39EventType": {
