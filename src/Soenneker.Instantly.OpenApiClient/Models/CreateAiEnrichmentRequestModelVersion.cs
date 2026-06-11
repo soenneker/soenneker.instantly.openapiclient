@@ -47,10 +47,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Gpt54,
         #pragma warning restore CS1591
-        [EnumMember(Value = "claude-3.7-sonnet")]
-        #pragma warning disable CS1591
-        Claude37Sonnet,
-        #pragma warning restore CS1591
         [EnumMember(Value = "claude-3.5-sonnet")]
         #pragma warning disable CS1591
         Claude35Sonnet,

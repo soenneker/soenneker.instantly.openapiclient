@@ -14,6 +14,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Optional list of extra recipient email addresses to include in the reply, in addition to the default recipient (the sender of the email being replied to).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AdditionalRecipients { get; set; }
+#nullable restore
+#else
+        public List<string> AdditionalRecipients { get; set; }
+#endif
         /// <summary>The user id assigned to the lead</summary>
         public Guid? AssignedTo { get; set; }
         /// <summary>Comma-separated list of BCC email addresses</summary>
@@ -91,6 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additional_recipients", n => { AdditionalRecipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody>(global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody.CreateFromDiscriminatorValue); } },
@@ -108,6 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("additional_recipients", AdditionalRecipients);
             writer.WriteGuidValue("assigned_to", AssignedTo);
             writer.WriteStringValue("bcc_address_email_list", BccAddressEmailList);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody>("body", Body);
