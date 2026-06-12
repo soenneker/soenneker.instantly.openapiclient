@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// <summary>
         /// &quot;Requires one of the following scopes: `inbox_placement_tests:delete`, `inbox_placement_tests:all`, `all:delete`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def5"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteInboxPlacementTest429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def5?> DeleteAsync(UntypedNode body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest?> DeleteAsync(UntypedNode body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def5> DeleteAsync(UntypedNode body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest> DeleteAsync(UntypedNode body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteInboxPlacementTest404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteInboxPlacementTest429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def5>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def5.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `inbox_placement_tests:read`, `inbox_placement_tests:all`, `all:read`, `all:all`&quot;
@@ -96,7 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// <summary>
         /// &quot;Requires one of the following scopes: `inbox_placement_tests:update`, `inbox_placement_tests:all`, `all:update`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def5"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,11 +106,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTest429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def5?> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTestRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest?> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTestRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def5> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTestRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest> PatchAsync(global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTestRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -122,7 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests.Item
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTest404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTest429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def5>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def5.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `inbox_placement_tests:delete`, `inbox_placement_tests:all`, `all:delete`, `all:all`&quot;

@@ -84,7 +84,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
         /// <summary>
         /// &quot;This endpoint allows you to send an invitation for a sub workspace to join the admin workspace. The sub workspace will be added as a sub workspace of the admin workspace only if the sub workspace owner accepts the invitation.Requires one of the following scopes: `workspace_group_members:create`, `workspace_group_members:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def24"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember"/></returns>
         /// <param name="body">The Workspace Group Member to create</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,11 +95,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMember429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def24?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMemberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMemberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def24> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMemberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMemberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -112,7 +112,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMember404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceGroupMember429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def24>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def24.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `workspace_group_members:read`, `workspace_group_members:all`, `all:read`, `all:all`&quot;

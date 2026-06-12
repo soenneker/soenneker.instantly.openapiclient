@@ -36,31 +36,31 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item
         /// <summary>
         /// &quot;Requires one of the following scopes: `inbox_placement_reports:read`, `inbox_placement_reports:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def7"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReport"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport401Response">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport402Response">When receiving a 402 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport404Response">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def7?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReport?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def7> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReport> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport401Response.CreateFromDiscriminatorValue },
-                { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport402Response.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport404Response.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistSpamAssassinReport429Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementBlacklistAndSpamAssassinReport429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def7>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def7.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReport>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReport.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `inbox_placement_reports:read`, `inbox_placement_reports:all`, `all:read`, `all:all`&quot;

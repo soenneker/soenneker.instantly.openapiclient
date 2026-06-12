@@ -19,10 +19,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>? Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def15> Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry> Items { get; set; }
 #endif
         /// <summary>Number of valid entries</summary>
         public double? ValidCount { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "invalid_count", n => { InvalidCount = n.GetDoubleValue(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def15>(global::Soenneker.Instantly.OpenApiClient.Models.Def15.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "valid_count", n => { ValidCount = n.GetDoubleValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("invalid_count", InvalidCount);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def15>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>("items", Items);
             writer.WriteDoubleValue("valid_count", ValidCount);
             writer.WriteAdditionalData(AdditionalData);
         }

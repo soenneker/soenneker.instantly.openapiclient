@@ -85,10 +85,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Status message for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage? StatusMessage { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountStatusMessage? StatusMessage { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage StatusMessage { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountStatusMessage StatusMessage { get; private set; }
 #endif
         /// <summary>Warmup score for the account</summary>
         public double? StatWarmupScore { get; private set; }
@@ -127,10 +127,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Warmup configuration for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup? Warmup { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup? Warmup { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup Warmup { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup Warmup { get; set; }
 #endif
         /// <summary>ID of the warmup pool this account belongs to</summary>
         public Guid? WarmupPoolId { get; private set; }
@@ -181,7 +181,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "signature", n => { Signature = n.GetStringValue(); } },
                 { "stat_warmup_score", n => { StatWarmupScore = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "status_message", n => { StatusMessage = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage>(global::Soenneker.Instantly.OpenApiClient.Models.Def0StatusMessage.CreateFromDiscriminatorValue); } },
+                { "status_message", n => { StatusMessage = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountStatusMessage>(global::Soenneker.Instantly.OpenApiClient.Models.AccountStatusMessage.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListAccount200ResponseItemsItemTagsItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListAccount200ResponseItemsItemTagsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_last_used", n => { TimestampLastUsed = n.GetDateTimeOffsetValue(); } },
@@ -189,7 +189,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "timestamp_warmup_start", n => { TimestampWarmupStart = n.GetDateTimeOffsetValue(); } },
                 { "tracking_domain_name", n => { TrackingDomainName = n.GetStringValue(); } },
                 { "tracking_domain_status", n => { TrackingDomainStatus = n.GetStringValue(); } },
-                { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup>(global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup.CreateFromDiscriminatorValue); } },
+                { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup>(global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup.CreateFromDiscriminatorValue); } },
                 { "warmup_pool_id", n => { WarmupPoolId = n.GetGuidValue(); } },
                 { "warmup_status", n => { WarmupStatus = n.GetDoubleValue(); } },
             };
@@ -214,7 +214,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListAccount200ResponseItemsItemTagsItem>("tags", Tags);
             writer.WriteStringValue("tracking_domain_name", TrackingDomainName);
             writer.WriteStringValue("tracking_domain_status", TrackingDomainStatus);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Def0Warmup>("warmup", Warmup);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup>("warmup", Warmup);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

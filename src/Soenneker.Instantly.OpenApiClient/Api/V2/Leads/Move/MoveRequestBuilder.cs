@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
         /// <summary>
         /// &quot;Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the `/background-jobs/:id` endpoint to check the job status. Note: When using the `ids` parameter, you must also provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from.Requires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def12"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.MoveLeads429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def12?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def12> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Move
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.MoveLeads404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.MoveLeads429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def12>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def12.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Move leads to a different campaign or list. This endpoint will return a background job that will process the move. The job will be processed in the background and the leads will be moved to the destination campaign or list. You can use the `/background-jobs/:id` endpoint to check the job status. Note: When using the `ids` parameter, you must also provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from.Requires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`&quot;

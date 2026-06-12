@@ -122,7 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
         /// <summary>
         /// &quot;Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def11"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Lead"/></returns>
         /// <param name="body">&quot;When using `campaign`: The `email` field is required. When using `list_id`: The `email` field is optional, but at least one of the following must be provided: `email`, `first_name`, or `last_name`.&quot;</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -133,11 +133,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLead429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def11?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Lead?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def11> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Lead> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -150,7 +150,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateLead404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateLead429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def11>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def11.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Lead>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Lead.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Delete multiple leads from a campaign or list based on filters. You must provide either `campaign_id` or `list_id`. Optionally filter by status or specific IDs.Requires one of the following scopes: `leads:delete`, `leads:all`, `all:delete`, `all:all`&quot;

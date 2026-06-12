@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <summary>
         /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.Def15&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -77,11 +77,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>?> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>?> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.Def15>> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -93,7 +93,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry429Response.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def15>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def15.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -128,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <summary>
         /// &quot;Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def15"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry"/></returns>
         /// <param name="body">The Block List Entry to create</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -139,11 +139,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntry429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def15?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def15> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -156,7 +156,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntry429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def15>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def15.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;

@@ -17,10 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1>? Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Campaign>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def1> Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.Campaign> Items { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SearchByContact200Response"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1>(global::Soenneker.Instantly.OpenApiClient.Models.Def1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Campaign>(global::Soenneker.Instantly.OpenApiClient.Models.Campaign.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def1>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Campaign>("items", Items);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

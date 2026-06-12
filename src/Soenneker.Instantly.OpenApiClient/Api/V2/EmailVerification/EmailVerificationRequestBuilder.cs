@@ -49,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification
         /// <summary>
         /// &quot;If an email takes longer than 10 seconds to verify, the endpoint will return the status as `pending`. In that case, you may use the `/email-verification/:email` endpoint to check the status of the verification job.Alternatively, you can send a `webhook_url` to receive the results instead of polling the status endpoint.Requires one of the following scopes: `email_verifications:create`Requires one of the following scopes: `email_verifications:create`, `email_verifications:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def3"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification"/></returns>
         /// <param name="body">The Email Verification to create</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,11 +60,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerification429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def3?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def3> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -77,7 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerification404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateEmailVerification429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def3>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def3.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;If an email takes longer than 10 seconds to verify, the endpoint will return the status as `pending`. In that case, you may use the `/email-verification/:email` endpoint to check the status of the verification job.Alternatively, you can send a `webhook_url` to receive the results instead of polling the status endpoint.Requires one of the following scopes: `email_verifications:create`Requires one of the following scopes: `email_verifications:create`, `email_verifications:all`, `all:create`, `all:all`&quot;

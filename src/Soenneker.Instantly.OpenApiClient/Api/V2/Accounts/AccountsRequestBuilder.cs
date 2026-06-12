@@ -114,7 +114,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         /// <summary>
         /// &quot;Requires one of the following scopes: `accounts:create`, `accounts:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def0"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Account"/></returns>
         /// <param name="body">The Account to create</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -125,11 +125,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateAccount429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def0?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateAccountRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Account?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateAccountRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def0> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateAccountRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Account> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.CreateAccountRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -142,7 +142,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateAccount404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateAccount429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def0>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def0.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Account>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Account.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `accounts:read`, `accounts:all`, `all:read`, `all:all`&quot;

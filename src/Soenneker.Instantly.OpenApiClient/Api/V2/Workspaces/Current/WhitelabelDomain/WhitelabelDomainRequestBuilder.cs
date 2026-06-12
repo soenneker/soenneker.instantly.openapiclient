@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.Whitelabel
         /// <summary>
         /// &quot;Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def20"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteWorkspaceDomain401Response">When receiving a 401 status code</exception>
@@ -45,11 +45,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.Whitelabel
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteWorkspaceDomain429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def20?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Workspace?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def20> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Workspace> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -60,7 +60,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.Whitelabel
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteWorkspaceDomain404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteWorkspaceDomain429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def20>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def20.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `workspaces:read`, `workspaces:all`, `all:read`, `all:all`&quot;
@@ -94,7 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.Whitelabel
         /// <summary>
         /// &quot;Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def20"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,11 +104,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.Whitelabel
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomain429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def20?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomainRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Workspace?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomainRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def20> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomainRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Workspace> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomainRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -120,7 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.Whitelabel
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomain404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.AddWorkspaceAgencyDomain429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def20>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def20.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;

@@ -13,7 +13,7 @@
       }
     },
     "schemas": {
-      "def-0": {
+      "Account": {
         "title": "Account",
         "description": "An email account that can be used to send campaigns",
         "x-tags": [
@@ -404,7 +404,7 @@
         ],
         "additionalProperties": false
       },
-      "def-1": {
+      "Campaign": {
         "title": "Campaign",
         "description": "A campaign that can be sent to a list of recipients",
         "x-tags": [
@@ -1130,7 +1130,7 @@
         ],
         "additionalProperties": false
       },
-      "def-2": {
+      "Email": {
         "title": "Email",
         "description": "A campaign email, a reply, a manually sent email, or any other email that\u0027s visible in the Unibox",
         "x-tags": [
@@ -1506,7 +1506,7 @@
         ],
         "additionalProperties": false
       },
-      "def-3": {
+      "EmailVerification": {
         "title": "Email Verification",
         "description": "A single email verification",
         "x-tags": [
@@ -1597,7 +1597,7 @@
         ],
         "additionalProperties": false
       },
-      "def-4": {
+      "LeadList": {
         "title": "Lead List",
         "description": "A list used to store leads",
         "x-tags": [
@@ -1658,7 +1658,7 @@
         ],
         "additionalProperties": false
       },
-      "def-5": {
+      "InboxPlacementTest": {
         "title": "Inbox Placement Test",
         "description": "An inbox placement test",
         "x-tags": [
@@ -2162,7 +2162,7 @@
         ],
         "additionalProperties": false
       },
-      "def-6": {
+      "InboxPlacementAnalytics": {
         "title": "Inbox Placement Analytics",
         "description": "Analytics data for individual emails in inbox placement tests",
         "x-tags": [
@@ -2398,12 +2398,12 @@
         ],
         "additionalProperties": false
       },
-      "def-7": {
-        "title": "Inbox Placement Blacklist \u0026 SpamAssassin Report",
+      "InboxPlacementBlacklistAndSpamAssassinReport": {
+        "title": "Inbox Placement Blacklist And SpamAssassin Report",
         "description": "Report data for an inbox placement test",
         "x-tags": [
           "Schemas",
-          "InboxPlacementBlacklist\u0026SpamAssassinReport"
+          "InboxPlacementBlacklistAndSpamAssassinReport"
         ],
         "type": "object",
         "properties": {
@@ -2591,7 +2591,7 @@
         ],
         "additionalProperties": false
       },
-      "def-9": {
+      "APIKey": {
         "title": "API Key",
         "description": "API Key",
         "x-tags": [
@@ -2832,7 +2832,7 @@
         ],
         "additionalProperties": false
       },
-      "def-10": {
+      "AccountCampaignMapping": {
         "title": "Account Campaign Mapping",
         "description": "Account Campaign Mapping",
         "x-tags": [
@@ -2889,7 +2889,7 @@
         ],
         "additionalProperties": false
       },
-      "def-11": {
+      "Lead": {
         "title": "Lead",
         "description": "A lead entity representing an individual lead",
         "x-tags": [
@@ -3523,7 +3523,7 @@
         ],
         "additionalProperties": false
       },
-      "def-12": {
+      "BackgroundJob": {
         "title": "Background Job",
         "description": "A background job that can be used to perform long-running tasks",
         "x-tags": [
@@ -3680,7 +3680,7 @@
         ],
         "additionalProperties": false
       },
-      "def-13": {
+      "CustomTag": {
         "title": "Custom Tag",
         "description": "A custom tag for organizing and categorizing accounts and campaigns. You can use them as filters in apis that list accounts and campaigns.",
         "x-tags": [
@@ -3740,7 +3740,7 @@
         ],
         "additionalProperties": false
       },
-      "def-14": {
+      "CustomTagMapping": {
         "title": "Custom Tag Mapping",
         "description": "This entity represents a tag being assigned to a specific campaign or email account. When an email account is assigned a tag, a new custom tag mapping entry is created, which connects the tag (\u0060tag_id\u0060 field) with the email account (\u0060resource_id\u0060 field). You can use it to see which tag si connected to which resource.",
         "x-tags": [
@@ -3809,7 +3809,7 @@
         ],
         "additionalProperties": false
       },
-      "def-15": {
+      "BlockListEntry": {
         "title": "Block List Entry",
         "description": "A blocked email or domain",
         "x-tags": [
@@ -3860,7 +3860,7 @@
         ],
         "additionalProperties": false
       },
-      "def-16": {
+      "LeadLabel": {
         "title": "Lead Label",
         "description": "A custom label for categorizing and managing leads",
         "x-tags": [
@@ -3951,7 +3951,7 @@
         ],
         "additionalProperties": false
       },
-      "def-20": {
+      "Workspace": {
         "title": "Workspace",
         "description": "A workspace entity representing a workspace",
         "x-tags": [
@@ -4101,7 +4101,7 @@
         ],
         "additionalProperties": false
       },
-      "def-23": {
+      "SuperSearchEnrichment": {
         "title": "SuperSearch Enrichment",
         "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
         "x-tags": [
@@ -4218,7 +4218,7 @@
         ],
         "additionalProperties": false
       },
-      "def-24": {
+      "WorkspaceGroupMember": {
         "title": "Workspace Group Member",
         "description": "A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.",
         "x-tags": [
@@ -4302,7 +4302,7 @@
         ],
         "additionalProperties": false
       },
-      "def-25": {
+      "WorkspaceMember": {
         "title": "Workspace Member",
         "description": "A member of a workspace with associated user details",
         "x-tags": [
@@ -4492,7 +4492,7 @@
         ],
         "additionalProperties": false
       },
-      "def-26": {
+      "CampaignSubsequence": {
         "title": "Campaign Subsequence",
         "description": "A subsequence entity representing a follow-up sequence",
         "x-tags": [
@@ -4962,7 +4962,7 @@
         ],
         "additionalProperties": false
       },
-      "def-32": {
+      "AuditLog": {
         "title": "Audit Log",
         "description": "Audit log records for tracking system activities",
         "x-tags": [
@@ -5167,7 +5167,7 @@
         ],
         "additionalProperties": false
       },
-      "def-39": {
+      "Webhook": {
         "title": "Webhook",
         "description": "A webhook subscription for receiving event notifications",
         "x-tags": [
@@ -5302,7 +5302,7 @@
         ],
         "additionalProperties": false
       },
-      "def-41": {
+      "WebhookEvent": {
         "title": "Webhook Event",
         "description": "A webhook event that was sent or attempted to be sent",
         "x-tags": [
@@ -5447,7 +5447,7 @@
         ],
         "additionalProperties": false
       },
-      "def-42": {
+      "DFYEmailAccountOrder": {
         "title": "DFY Email Account Order",
         "description": "A Done-For-You email account order",
         "x-tags": [
@@ -5509,7 +5509,7 @@
         ],
         "additionalProperties": false
       },
-      "def-43": {
+      "CustomPromptTemplate": {
         "title": "Custom Prompt Template",
         "description": "Custom prompt templates for creating custom prompts",
         "x-tags": [
@@ -5752,7 +5752,7 @@
         ],
         "additionalProperties": false
       },
-      "def-44": {
+      "SalesFlow": {
         "title": "Sales Flow",
         "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
         "x-tags": [
@@ -5922,7 +5922,7 @@
         ],
         "additionalProperties": false
       },
-      "def-45": {
+      "EmailTemplate": {
         "title": "Email Template",
         "description": "A campaign email template",
         "x-tags": [
@@ -5980,7 +5980,7 @@
         ],
         "additionalProperties": false
       },
-      "def-48": {
+      "WorkspaceBilling": {
         "title": "Workspace Billing",
         "description": "Workspace Billing",
         "x-tags": [
@@ -5992,7 +5992,7 @@
         "required": [],
         "additionalProperties": false
       },
-      "def-49": {
+      "CRMActions": {
         "title": "CRM Actions",
         "description": "CRM related actions",
         "x-tags": [
@@ -6057,7 +6057,7 @@
                       "type": "array",
                       "description": "The list of Account Campaign Mapping",
                       "items": {
-                        "$ref": "#/components/schemas/def-10"
+                        "$ref": "#/components/schemas/AccountCampaignMapping"
                       }
                     },
                     "next_starting_after": {
@@ -6474,7 +6474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -6850,7 +6850,7 @@
                       "items": {
                         "allOf": [
                           {
-                            "$ref": "#/components/schemas/def-0"
+                            "$ref": "#/components/schemas/Account"
                           },
                           {
                             "type": "object",
@@ -7073,7 +7073,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -7420,7 +7420,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -7602,7 +7602,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -7849,7 +7849,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -8097,7 +8097,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -8901,7 +8901,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -9075,7 +9075,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -9249,7 +9249,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -10317,7 +10317,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-9"
+                  "$ref": "#/components/schemas/APIKey"
                 }
               }
             }
@@ -10542,7 +10542,7 @@
                       "type": "array",
                       "description": "The list of API Key",
                       "items": {
-                        "$ref": "#/components/schemas/def-9"
+                        "$ref": "#/components/schemas/APIKey"
                       }
                     },
                     "next_starting_after": {
@@ -10739,7 +10739,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-9"
+                  "$ref": "#/components/schemas/APIKey"
                 }
               }
             }
@@ -10971,7 +10971,7 @@
                       "type": "array",
                       "description": "The list of Audit Log",
                       "items": {
-                        "$ref": "#/components/schemas/def-32"
+                        "$ref": "#/components/schemas/AuditLog"
                       }
                     },
                     "next_starting_after": {
@@ -11297,7 +11297,7 @@
                       "type": "array",
                       "description": "The list of Background Job",
                       "items": {
-                        "$ref": "#/components/schemas/def-12"
+                        "$ref": "#/components/schemas/BackgroundJob"
                       }
                     },
                     "next_starting_after": {
@@ -11493,7 +11493,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -11679,7 +11679,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -11924,7 +11924,7 @@
                       "type": "array",
                       "description": "The list of Block List Entry",
                       "items": {
-                        "$ref": "#/components/schemas/def-15"
+                        "$ref": "#/components/schemas/BlockListEntry"
                       }
                     },
                     "next_starting_after": {
@@ -12130,7 +12130,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/def-15"
+                    "$ref": "#/components/schemas/BlockListEntry"
                   }
                 }
               }
@@ -12306,7 +12306,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -12498,7 +12498,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -12681,7 +12681,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -12885,7 +12885,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-15"
+                        "$ref": "#/components/schemas/BlockListEntry"
                       }
                     },
                     "valid_count": {
@@ -13128,7 +13128,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/def-15"
+                    "$ref": "#/components/schemas/BlockListEntry"
                   }
                 }
               }
@@ -14098,7 +14098,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -14384,7 +14384,7 @@
                       "type": "array",
                       "description": "The list of Campaign",
                       "items": {
-                        "$ref": "#/components/schemas/def-1"
+                        "$ref": "#/components/schemas/Campaign"
                       }
                     },
                     "next_starting_after": {
@@ -14571,7 +14571,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -14781,7 +14781,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -14991,7 +14991,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -15771,7 +15771,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -15954,7 +15954,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -16155,7 +16155,7 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/def-1"
+                        "$ref": "#/components/schemas/Campaign"
                       }
                     }
                   }
@@ -17924,7 +17924,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -18116,7 +18116,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -18307,7 +18307,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -18690,7 +18690,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -19854,7 +19854,7 @@
                       "type": "array",
                       "description": "The list of Custom Tag Mapping",
                       "items": {
-                        "$ref": "#/components/schemas/def-14"
+                        "$ref": "#/components/schemas/CustomTagMapping"
                       }
                     },
                     "next_starting_after": {
@@ -20060,7 +20060,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -20315,7 +20315,7 @@
                       "type": "array",
                       "description": "The list of Custom Tag",
                       "items": {
-                        "$ref": "#/components/schemas/def-13"
+                        "$ref": "#/components/schemas/CustomTag"
                       }
                     },
                     "next_starting_after": {
@@ -20502,7 +20502,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -20702,7 +20702,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -20885,7 +20885,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -22101,7 +22101,7 @@
                       "type": "array",
                       "description": "The list of DFY Email Account Order",
                       "items": {
-                        "$ref": "#/components/schemas/def-42"
+                        "$ref": "#/components/schemas/DFYEmailAccountOrder"
                       }
                     },
                     "next_starting_after": {
@@ -23818,7 +23818,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -24123,7 +24123,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -24520,7 +24520,7 @@
                       "type": "array",
                       "description": "The list of Email",
                       "items": {
-                        "$ref": "#/components/schemas/def-2"
+                        "$ref": "#/components/schemas/Email"
                       }
                     },
                     "next_starting_after": {
@@ -24707,7 +24707,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -24911,7 +24911,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -25094,7 +25094,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -25700,7 +25700,7 @@
                       "type": "array",
                       "description": "The list of Inbox Placement Analytics",
                       "items": {
-                        "$ref": "#/components/schemas/def-6"
+                        "$ref": "#/components/schemas/InboxPlacementAnalytics"
                       }
                     },
                     "next_starting_after": {
@@ -25887,7 +25887,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-6"
+                  "$ref": "#/components/schemas/InboxPlacementAnalytics"
                 }
               }
             }
@@ -27017,10 +27017,10 @@
     },
     "/api/v2/inbox-placement-reports": {
       "get": {
-        "operationId": "listInboxPlacementBlacklist\u0026SpamAssassinReport",
-        "summary": "List inbox placement blacklist \u0026 spamassassin report",
+        "operationId": "listInboxPlacementBlacklistAndSpamAssassinReport",
+        "summary": "List inbox placement blacklist and spamassassin report",
         "tags": [
-          "InboxPlacementBlacklist\u0026SpamAssassinReport"
+          "InboxPlacementBlacklistAndSpamAssassinReport"
         ],
         "description": "Requires one of the following scopes: \u0060inbox_placement_reports:read\u0060, \u0060inbox_placement_reports:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
@@ -27097,7 +27097,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of Inbox Placement Blacklist \u0026 SpamAssassin Report",
+            "description": "The list of Inbox Placement Blacklist And SpamAssassin Report",
             "content": {
               "application/json": {
                 "schema": {
@@ -27105,9 +27105,9 @@
                   "properties": {
                     "items": {
                       "type": "array",
-                      "description": "The list of Inbox Placement Blacklist \u0026 SpamAssassin Report",
+                      "description": "The list of Inbox Placement Blacklist And SpamAssassin Report",
                       "items": {
-                        "$ref": "#/components/schemas/def-7"
+                        "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReport"
                       }
                     },
                     "next_starting_after": {
@@ -27269,10 +27269,10 @@
     },
     "/api/v2/inbox-placement-reports/{id}": {
       "get": {
-        "operationId": "getInboxPlacementBlacklist\u0026SpamAssassinReport",
-        "summary": "Get inbox placement blacklist \u0026 spamassassin report",
+        "operationId": "getInboxPlacementBlacklistAndSpamAssassinReport",
+        "summary": "Get inbox placement blacklist and spamassassin report",
         "tags": [
-          "InboxPlacementBlacklist\u0026SpamAssassinReport"
+          "InboxPlacementBlacklistAndSpamAssassinReport"
         ],
         "description": "Requires one of the following scopes: \u0060inbox_placement_reports:read\u0060, \u0060inbox_placement_reports:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
@@ -27290,11 +27290,11 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested Inbox Placement Blacklist \u0026 SpamAssassin Report",
+            "description": "The requested Inbox Placement Blacklist And SpamAssassin Report",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-7"
+                  "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReport"
                 }
               }
             }
@@ -27903,7 +27903,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-5"
+                  "$ref": "#/components/schemas/InboxPlacementTest"
                 }
               }
             }
@@ -28165,7 +28165,7 @@
                       "type": "array",
                       "description": "The list of Inbox Placement Test",
                       "items": {
-                        "$ref": "#/components/schemas/def-5"
+                        "$ref": "#/components/schemas/InboxPlacementTest"
                       }
                     },
                     "next_starting_after": {
@@ -29046,7 +29046,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-5"
+                  "$ref": "#/components/schemas/InboxPlacementTest"
                 }
               }
             }
@@ -29490,7 +29490,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-5"
+                  "$ref": "#/components/schemas/InboxPlacementTest"
                 }
               }
             }
@@ -29897,7 +29897,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -30147,7 +30147,7 @@
                       "type": "array",
                       "description": "The list of Lead Label",
                       "items": {
-                        "$ref": "#/components/schemas/def-16"
+                        "$ref": "#/components/schemas/LeadLabel"
                       }
                     },
                     "next_starting_after": {
@@ -30334,7 +30334,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -30557,7 +30557,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -30745,7 +30745,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -31146,7 +31146,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -31391,7 +31391,7 @@
                       "type": "array",
                       "description": "The list of Lead List",
                       "items": {
-                        "$ref": "#/components/schemas/def-4"
+                        "$ref": "#/components/schemas/LeadList"
                       }
                     },
                     "next_starting_after": {
@@ -31578,7 +31578,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -31787,7 +31787,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -31970,7 +31970,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -32556,7 +32556,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -33249,7 +33249,7 @@
                       "type": "array",
                       "description": "The list of Lead",
                       "items": {
-                        "$ref": "#/components/schemas/def-11"
+                        "$ref": "#/components/schemas/Lead"
                       }
                     },
                     "next_starting_after": {
@@ -33471,7 +33471,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -33774,7 +33774,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -33957,7 +33957,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -34147,7 +34147,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -34563,7 +34563,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -35385,7 +35385,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -35573,7 +35573,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -37165,7 +37165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -37411,7 +37411,7 @@
                       "type": "array",
                       "description": "The list of Campaign Subsequence",
                       "items": {
-                        "$ref": "#/components/schemas/def-26"
+                        "$ref": "#/components/schemas/CampaignSubsequence"
                       }
                     },
                     "next_starting_after": {
@@ -37625,7 +37625,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -37800,7 +37800,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -37975,7 +37975,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -38150,7 +38150,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -38365,7 +38365,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -38548,7 +38548,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -39265,7 +39265,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-3"
+                  "$ref": "#/components/schemas/EmailVerification"
                 }
               }
             }
@@ -39475,7 +39475,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-3"
+                  "$ref": "#/components/schemas/EmailVerification"
                 }
               }
             }
@@ -39709,7 +39709,7 @@
                       "type": "array",
                       "description": "The list of Webhook Event",
                       "items": {
-                        "$ref": "#/components/schemas/def-41"
+                        "$ref": "#/components/schemas/WebhookEvent"
                       }
                     },
                     "next_starting_after": {
@@ -39896,7 +39896,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-41"
+                  "$ref": "#/components/schemas/WebhookEvent"
                 }
               }
             }
@@ -40578,7 +40578,7 @@
                       "type": "array",
                       "description": "The list of Webhook",
                       "items": {
-                        "$ref": "#/components/schemas/def-39"
+                        "$ref": "#/components/schemas/Webhook"
                       }
                     },
                     "next_starting_after": {
@@ -40844,7 +40844,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -41054,7 +41054,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -41316,7 +41316,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -41499,7 +41499,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -42053,7 +42053,779 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-39"
+                  "$ref": "#/components/schemas/Webhook"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/workspace-billing/plan-details": {
+      "get": {
+        "operationId": "getWorkspacePlanDetails",
+        "summary": "Get workspace plan details",
+        "tags": [
+          "WorkspaceBilling"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspace_billing:read\u0060, \u0060workspace_billing:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "organization_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "The id of workspace",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "organization_name": {
+                      "type": "string",
+                      "description": "The name of workspace",
+                      "example": "My Default Workspace"
+                    },
+                    "subscriptions": {
+                      "type": "object",
+                      "properties": {
+                        "outreach": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": "string",
+                              "description": "Plan name",
+                              "example": "Free Trial"
+                            },
+                            "addons_qty": {
+                              "type": "number",
+                              "description": "Addons total quantity",
+                              "example": 2
+                            },
+                            "total_lead_limit": {
+                              "type": "number",
+                              "description": "Total Outreach plan limit including addons",
+                              "example": 100
+                            },
+                            "current_lead_count": {
+                              "type": "number",
+                              "description": "Current number of leads counted toward the plan",
+                              "example": 10
+                            },
+                            "base_lead_limit": {
+                              "type": "number",
+                              "description": "Base Outreach plan limit without add-ons",
+                              "example": 25000
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "description": "The billing interval of the outreach subscription",
+                              "example": "month"
+                            },
+                            "current_period_end": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Unix timestamp when the current outreach billing period ends",
+                              "example": 1704067200
+                            },
+                            "cancel_at_time": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Unix timestamp when the outreach subscription will be canceled, null if not scheduled for cancellation",
+                              "example": 1704067200
+                            },
+                            "price_in_dollars": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "The outreach subscription price in dollars",
+                              "example": 97
+                            },
+                            "product_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "The ID of the outreach plan subscribed to",
+                              "enum": [
+                                "pid_ls_v1",
+                                "pid_hg_v1",
+                                "pid_g_v1",
+                                "pid_g_v2",
+                                "pid_nic_v1",
+                                "pid_nic_v1_annual",
+                                "pid_gic_v1",
+                                "pid_gic_v1_annual",
+                                "pid_sic_v1",
+                                "pid_sic_v1_annual",
+                                "pid_hic_v1",
+                                "pid_hic_v1_annual",
+                                "pid_verify_v1_monthly",
+                                "pid_hv_v1",
+                                "pid_hv_v1_annual",
+                                "pid_lsv_v1",
+                                "pid_lsv_v1_annual",
+                                "pid_crm_hg",
+                                "pid_crm_g",
+                                "pid_ip_g",
+                                "pid_ip_hg",
+                                "pid_addon_25kl_v1",
+                                "pid_addon_lf_10k_v1",
+                                "pid_addon_ic_50k_v1",
+                                "pid_addon_lf_10k_v1_annual",
+                                "pid_addon_ic_50k_v1_annual",
+                                null
+                              ],
+                              "x-enumDescriptions": {
+                                "pid_g_v1": "Growth Plan",
+                                "pid_g_v2": "Growth Plan V2",
+                                "pid_hg_v1": "Hypergrowth Plan",
+                                "pid_ls_v1": "LightSpeed Plan",
+                                "pid_nic_v1": "Instantly Credits Nano",
+                                "pid_nic_v1_annual": "Instantly Credits Nano Annual",
+                                "pid_gic_v1": "Instantly Credits Growth",
+                                "pid_gic_v1_annual": "Instantly Credits Growth Annual",
+                                "pid_sic_v1": "Instantly Credits Supersonic",
+                                "pid_sic_v1_annual": "Instantly Credits Supersonic Annual",
+                                "pid_hic_v1": "Instantly Credits Hyper Leads",
+                                "pid_hic_v1_annual": "Instantly Credits Hyper Leads Annual",
+                                "pid_verify_v1_monthly": "Verification Monthly",
+                                "pid_hv_v1": "Website Visitor Hypergrowth Monthly",
+                                "pid_hv_v1_annual": "Website Visitor Hypergrowth Annual",
+                                "pid_lsv_v1": "Website Visitor Lightspeed Monthly",
+                                "pid_lsv_v1_annual": "Website Visitor Lightspeed Annual",
+                                "pid_crm_hg": "CRM",
+                                "pid_crm_g": "Growth CRM",
+                                "pid_ip_g": "Inbox Placement Growth Monthly",
+                                "pid_ip_hg": "Inbox Placement Hypergrowth Monthly",
+                                "pid_addon_25kl_v1": "Addon Lead 25K",
+                                "pid_addon_lf_10k_v1": "Addon Lead Finder",
+                                "pid_addon_ic_50k_v1": "Addon Instantly Credits",
+                                "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
+                                "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+                              },
+                              "example": "pid_g_v1"
+                            }
+                          }
+                        },
+                        "credits": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": "string",
+                              "description": "Instantly Credits plan name",
+                              "example": "Free Trial"
+                            },
+                            "total_credits": {
+                              "type": "number",
+                              "description": "Total Instantly Credits included in the current plan",
+                              "example": 100
+                            },
+                            "available_credits": {
+                              "type": "number",
+                              "description": "Available Instantly Credits balance for the workspace",
+                              "example": 75
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "description": "The billing interval of the Instantly Credits subscription",
+                              "example": "month"
+                            },
+                            "current_period_end": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Unix timestamp when the current Instantly Credits billing period ends",
+                              "example": 1704067200
+                            },
+                            "cancel_at_time": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "Unix timestamp when the Instantly Credits subscription will be canceled, null if not scheduled for cancellation",
+                              "example": 1704067200
+                            },
+                            "price_in_dollars": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "description": "The Instantly Credits subscription price in dollars",
+                              "example": 97
+                            },
+                            "product_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "The ID of the Instantly Credits plan subscribed to",
+                              "enum": [
+                                "pid_nic_v1",
+                                "pid_nic_v1_annual",
+                                "pid_gic_v1",
+                                "pid_gic_v1_annual",
+                                "pid_sic_v1",
+                                "pid_sic_v1_annual",
+                                "pid_hic_v1",
+                                "pid_hic_v1_annual",
+                                null
+                              ],
+                              "example": "pid_gic_v1"
+                            },
+                            "price_option_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "The selected Instantly Credits price option ID",
+                              "example": "growth_2000"
+                            }
+                          }
+                        },
+                        "crm": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "Growth CRM"
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "example": "month"
+                            },
+                            "current_period_end": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "cancel_at_time": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "price_in_dollars": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 47
+                            },
+                            "product_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "pid_crm_g"
+                            },
+                            "available_credits": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": null
+                            },
+                            "plan_limit": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": null
+                            }
+                          }
+                        },
+                        "website_visitors": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "Hyper Visitors"
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "example": "month"
+                            },
+                            "current_period_end": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "cancel_at_time": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "price_in_dollars": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 97
+                            },
+                            "product_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "pid_hv_v1"
+                            },
+                            "available_credits": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 280
+                            },
+                            "plan_limit": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 500
+                            }
+                          }
+                        },
+                        "inbox_placement": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "Growth Inbox Placement"
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "example": "month"
+                            },
+                            "current_period_end": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "cancel_at_time": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "price_in_dollars": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 47
+                            },
+                            "product_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "pid_ip_g"
+                            },
+                            "available_credits": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": null
+                            },
+                            "plan_limit": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": null
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "addons": {
+                      "type": "object",
+                      "properties": {
+                        "outreach": {
+                          "type": "object",
+                          "properties": {
+                            "product_id": {
+                              "type": "string",
+                              "enum": [
+                                "pid_addon_25kl_v1"
+                              ],
+                              "description": "The product ID for the Outreach add-on.",
+                              "example": "pid_addon_25kl_v1"
+                            },
+                            "unit_lead_limit": {
+                              "type": "number",
+                              "description": "Number of additional contacts included in one add-on unit.",
+                              "example": 25000
+                            },
+                            "existing_quantity": {
+                              "type": "number",
+                              "description": "Current quantity of Outreach add-on units.",
+                              "example": 2
+                            },
+                            "max_quantity": {
+                              "type": "number",
+                              "description": "Maximum additional units selectable in one update.",
+                              "example": 20
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "description": "The current billing interval for the Outreach add-on subscription.",
+                              "example": "month"
+                            },
+                            "can_purchase": {
+                              "type": "boolean",
+                              "description": "Whether the workspace can purchase Outreach add-ons.",
+                              "example": true
+                            },
+                            "purchase_blocked_reason": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "Reason add-on purchase is blocked, null when purchase is allowed.",
+                              "example": "advanced_outreach_plan_required"
+                            },
+                            "annual_discount_percent": {
+                              "type": "number",
+                              "description": "Annual billing discount percentage.",
+                              "example": 20
+                            },
+                            "monthly_pricing_tiers": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "from_quantity": {
+                                    "type": "number",
+                                    "example": 1
+                                  },
+                                  "to_quantity": {
+                                    "type": [
+                                      "null",
+                                      "number"
+                                    ],
+                                    "example": 5
+                                  },
+                                  "price_in_dollars": {
+                                    "type": "number",
+                                    "example": 87
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "credits": {
+                          "type": "object",
+                          "properties": {
+                            "product_id": {
+                              "type": "string",
+                              "enum": [
+                                "pid_addon_ic_50k_v1"
+                              ],
+                              "description": "The monthly product ID for the Instantly Credits add-on.",
+                              "example": "pid_addon_ic_50k_v1"
+                            },
+                            "annual_product_id": {
+                              "type": "string",
+                              "enum": [
+                                "pid_addon_ic_50k_v1_annual"
+                              ],
+                              "description": "The annual product ID for the Instantly Credits add-on.",
+                              "example": "pid_addon_ic_50k_v1_annual"
+                            },
+                            "unit_credits": {
+                              "type": "number",
+                              "description": "Number of additional monthly credits included in one add-on unit.",
+                              "example": 50000
+                            },
+                            "annual_unit_credits": {
+                              "type": "number",
+                              "description": "Number of additional annual credits included in one add-on unit.",
+                              "example": 600000
+                            },
+                            "existing_quantity": {
+                              "type": "number",
+                              "description": "Current quantity of Instantly Credits add-on units.",
+                              "example": 2
+                            },
+                            "max_quantity": {
+                              "type": "number",
+                              "description": "Maximum additional units selectable in one update.",
+                              "example": 10
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "description": "The current billing interval for the Instantly Credits add-on subscription.",
+                              "example": "month"
+                            },
+                            "can_purchase": {
+                              "type": "boolean",
+                              "description": "Whether the workspace can purchase Instantly Credits add-ons.",
+                              "example": true
+                            },
+                            "purchase_blocked_reason": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "description": "Reason add-on purchase is blocked, null when purchase is allowed.",
+                              "example": "hyper_credits_plan_required"
+                            },
+                            "monthly_price_in_dollars": {
+                              "type": "number",
+                              "description": "Monthly price for one Instantly Credits add-on unit in dollars.",
+                              "example": 425
+                            },
+                            "annual_price_in_dollars": {
+                              "type": "number",
+                              "description": "Annual price for one Instantly Credits add-on unit in dollars.",
+                              "example": 5100
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -42539,7 +43311,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/WorkspaceGroupMember"
                 }
               }
             }
@@ -42764,7 +43536,7 @@
                       "type": "array",
                       "description": "The list of Workspace Group Member",
                       "items": {
-                        "$ref": "#/components/schemas/def-24"
+                        "$ref": "#/components/schemas/WorkspaceGroupMember"
                       }
                     },
                     "next_starting_after": {
@@ -42951,7 +43723,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/WorkspaceGroupMember"
                 }
               }
             }
@@ -43134,7 +43906,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-24"
+                  "$ref": "#/components/schemas/WorkspaceGroupMember"
                 }
               }
             }
@@ -43606,7 +44378,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -43851,7 +44623,7 @@
                       "type": "array",
                       "description": "The list of Workspace Member",
                       "items": {
-                        "$ref": "#/components/schemas/def-25"
+                        "$ref": "#/components/schemas/WorkspaceMember"
                       }
                     },
                     "next_starting_after": {
@@ -44038,7 +44810,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -44244,7 +45016,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -44427,7 +45199,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -44589,7 +45361,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -44776,7 +45548,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -44958,7 +45730,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -45318,7 +46090,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -45505,7 +46277,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -46969,7 +47741,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/def-23"
+                  "$ref": "#/components/schemas/SuperSearchEnrichment"
                 }
               }
             }
@@ -52583,162 +53355,162 @@
     {
       "name": "Analytics",
       "description": "Endpoints related to analytics",
-      "x-displayName": "Analytics"
+      "x-group": "Analytics"
     },
     {
       "name": "OAuth",
       "description": "OAuth authentication endpoints for connecting Google and Microsoft email accounts",
-      "x-displayName": "OAuth"
+      "x-group": "OAuth"
     },
     {
       "name": "Account",
       "description": "An email account that can be used to send campaigns",
-      "x-displayName": "Account"
+      "x-group": "Account"
     },
     {
       "name": "Campaign",
       "description": "A campaign that can be sent to a list of recipients",
-      "x-displayName": "Campaign"
+      "x-group": "Campaign"
     },
     {
       "name": "Email",
       "description": "A campaign email, a reply, a manually sent email, or any other email that\u0027s visible in the Unibox",
-      "x-displayName": "Email"
+      "x-group": "Email"
     },
     {
       "name": "EmailVerification",
       "description": "A single email verification",
-      "x-displayName": "Email Verification"
+      "x-group": "Email Verification"
     },
     {
       "name": "LeadList",
       "description": "A list used to store leads",
-      "x-displayName": "Lead List"
+      "x-group": "Lead List"
     },
     {
       "name": "InboxPlacementTest",
       "description": "An inbox placement test",
-      "x-displayName": "Inbox Placement Test"
+      "x-group": "Inbox Placement Test"
     },
     {
       "name": "InboxPlacementAnalytics",
       "description": "Analytics data for individual emails in inbox placement tests",
-      "x-displayName": "Inbox Placement Analytics"
+      "x-group": "Inbox Placement Analytics"
     },
     {
-      "name": "InboxPlacementBlacklist\u0026SpamAssassinReport",
+      "name": "InboxPlacementBlacklistAndSpamAssassinReport",
       "description": "Report data for an inbox placement test",
-      "x-displayName": "Inbox Placement Blacklist \u0026 SpamAssassin Report"
+      "x-group": "Inbox Placement Blacklist And SpamAssassin Report"
     },
     {
       "name": "APIKey",
       "description": "API Key",
-      "x-displayName": "API Key"
+      "x-group": "API Key"
     },
     {
       "name": "AccountCampaignMapping",
       "description": "Account Campaign Mapping",
-      "x-displayName": "Account Campaign Mapping"
+      "x-group": "Account Campaign Mapping"
     },
     {
       "name": "Lead",
       "description": "A lead entity representing an individual lead",
-      "x-displayName": "Lead"
+      "x-group": "Lead"
     },
     {
       "name": "BackgroundJob",
       "description": "A background job that can be used to perform long-running tasks",
-      "x-displayName": "Background Job"
+      "x-group": "Background Job"
     },
     {
       "name": "CustomTag",
       "description": "A custom tag for organizing and categorizing accounts and campaigns. You can use them as filters in apis that list accounts and campaigns.",
-      "x-displayName": "Custom Tag"
+      "x-group": "Custom Tag"
     },
     {
       "name": "CustomTagMapping",
       "description": "This entity represents a tag being assigned to a specific campaign or email account. When an email account is assigned a tag, a new custom tag mapping entry is created, which connects the tag (\u0060tag_id\u0060 field) with the email account (\u0060resource_id\u0060 field). You can use it to see which tag si connected to which resource.",
-      "x-displayName": "Custom Tag Mapping"
+      "x-group": "Custom Tag Mapping"
     },
     {
       "name": "BlockListEntry",
       "description": "A blocked email or domain",
-      "x-displayName": "Block List Entry"
+      "x-group": "Block List Entry"
     },
     {
       "name": "LeadLabel",
       "description": "A custom label for categorizing and managing leads",
-      "x-displayName": "Lead Label"
+      "x-group": "Lead Label"
     },
     {
       "name": "Workspace",
       "description": "A workspace entity representing a workspace",
-      "x-displayName": "Workspace"
+      "x-group": "Workspace"
     },
     {
       "name": "SuperSearchEnrichment",
       "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
-      "x-displayName": "SuperSearch Enrichment"
+      "x-group": "SuperSearch Enrichment"
     },
     {
       "name": "WorkspaceGroupMember",
       "description": "A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.",
-      "x-displayName": "Workspace Group Member"
+      "x-group": "Workspace Group Member"
     },
     {
       "name": "WorkspaceMember",
       "description": "A member of a workspace with associated user details",
-      "x-displayName": "Workspace Member"
+      "x-group": "Workspace Member"
     },
     {
       "name": "CampaignSubsequence",
       "description": "A subsequence entity representing a follow-up sequence",
-      "x-displayName": "Campaign Subsequence"
+      "x-group": "Campaign Subsequence"
     },
     {
       "name": "AuditLog",
       "description": "Audit log records for tracking system activities",
-      "x-displayName": "Audit Log"
+      "x-group": "Audit Log"
     },
     {
       "name": "Webhook",
       "description": "A webhook subscription for receiving event notifications",
-      "x-displayName": "Webhook"
+      "x-group": "Webhook"
     },
     {
       "name": "WebhookEvent",
       "description": "A webhook event that was sent or attempted to be sent",
-      "x-displayName": "Webhook Event"
+      "x-group": "Webhook Event"
     },
     {
       "name": "DFYEmailAccountOrder",
       "description": "A Done-For-You email account order",
-      "x-displayName": "DFY Email Account Order"
+      "x-group": "DFY Email Account Order"
     },
     {
       "name": "CustomPromptTemplate",
       "description": "Custom prompt templates for creating custom prompts",
-      "x-displayName": "Custom Prompt Template"
+      "x-group": "Custom Prompt Template"
     },
     {
       "name": "SalesFlow",
       "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
-      "x-displayName": "Sales Flow"
+      "x-group": "Sales Flow"
     },
     {
       "name": "EmailTemplate",
       "description": "A campaign email template",
-      "x-displayName": "Email Template"
+      "x-group": "Email Template"
     },
     {
       "name": "WorkspaceBilling",
       "description": "Workspace Billing",
-      "x-displayName": "Workspace Billing"
+      "x-group": "Workspace Billing"
     },
     {
       "name": "CRMActions",
       "description": "CRM related actions",
-      "x-displayName": "CRM Actions"
+      "x-group": "CRM Actions"
     }
   ]
 }

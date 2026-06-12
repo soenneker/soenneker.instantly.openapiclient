@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate
         /// <summary>
         /// &quot;Requires one of the following scopes: `campaigns:create`, `campaigns:all`, `all:create`, `all:all`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Def1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Campaign"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,11 +47,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.Duplicate429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def1?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.DuplicateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Campaign?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.DuplicateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Def1> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.DuplicateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.Campaign> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.DuplicateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Duplicate
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.Duplicate404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.Duplicate429Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Def1>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Def1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Campaign>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Campaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Requires one of the following scopes: `campaigns:create`, `campaigns:all`, `all:create`, `all:all`&quot;

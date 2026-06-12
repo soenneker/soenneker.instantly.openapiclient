@@ -15,10 +15,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The list of Workspace Group Member</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def24>? Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def24> Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember> Items { get; set; }
 #endif
         /// <summary>The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def24>(global::Soenneker.Instantly.OpenApiClient.Models.Def24.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember>(global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_starting_after", n => { NextStartingAfter = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def24>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember>("items", Items);
             writer.WriteStringValue("next_starting_after", NextStartingAfter);
         }
     }

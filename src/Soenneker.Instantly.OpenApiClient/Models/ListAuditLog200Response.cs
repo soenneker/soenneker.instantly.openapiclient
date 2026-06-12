@@ -15,10 +15,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The list of Audit Log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def32>? Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AuditLog>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.Def32> Items { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AuditLog> Items { get; set; }
 #endif
         /// <summary>The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def32>(global::Soenneker.Instantly.OpenApiClient.Models.Def32.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AuditLog>(global::Soenneker.Instantly.OpenApiClient.Models.AuditLog.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_starting_after", n => { NextStartingAfter = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.Def32>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AuditLog>("items", Items);
             writer.WriteStringValue("next_starting_after", NextStartingAfter);
         }
     }

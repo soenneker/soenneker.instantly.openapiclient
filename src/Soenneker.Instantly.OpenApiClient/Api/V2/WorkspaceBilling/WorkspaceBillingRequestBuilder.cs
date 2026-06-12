@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.PlanDetails;
 using Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.SubscriptionDetails;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkspaceBillingRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The planDetails property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.PlanDetails.PlanDetailsRequestBuilder PlanDetails
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.PlanDetails.PlanDetailsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The subscriptionDetails property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceBilling.SubscriptionDetails.SubscriptionDetailsRequestBuilder SubscriptionDetails
         {

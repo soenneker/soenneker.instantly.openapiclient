@@ -126,7 +126,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -365,7 +365,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -446,7 +446,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -527,7 +527,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -598,7 +598,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -669,7 +669,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -930,7 +930,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -1004,7 +1004,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -1078,7 +1078,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def0"
+                  "$ref": "#/components/schemas/Account"
                 }
               }
             }
@@ -1387,7 +1387,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def9"
+                  "$ref": "#/components/schemas/ApiKey"
                 }
               }
             }
@@ -1563,7 +1563,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def9"
+                  "$ref": "#/components/schemas/ApiKey"
                 }
               }
             }
@@ -1926,7 +1926,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -1998,7 +1998,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -2272,7 +2272,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -2354,7 +2354,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -2436,7 +2436,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def15"
+                  "$ref": "#/components/schemas/BlockListEntry"
                 }
               }
             }
@@ -2744,7 +2744,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -2947,7 +2947,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -3032,7 +3032,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -3117,7 +3117,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -3199,7 +3199,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -3281,7 +3281,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -4008,7 +4008,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -4093,7 +4093,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -4177,7 +4177,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -4333,7 +4333,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def1"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -4719,7 +4719,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -4913,7 +4913,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -4995,7 +4995,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -5077,7 +5077,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def13"
+                  "$ref": "#/components/schemas/CustomTag"
                 }
               }
             }
@@ -5821,7 +5821,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -5892,7 +5892,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -6220,7 +6220,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -6302,7 +6302,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -6384,7 +6384,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def2"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -6739,7 +6739,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def6"
+                  "$ref": "#/components/schemas/InboxPlacementAnalytics"
                 }
               }
             }
@@ -7003,11 +7003,11 @@
     "/api/v2/inbox-placement-reports": {
       "get": {
         "tags": [
-          "InboxPlacementBlacklist\u0026SpamAssassinReport"
+          "InboxPlacementBlacklistAndSpamAssassinReport"
         ],
-        "summary": "List inbox placement blacklist \u0026 spamassassin report",
+        "summary": "List inbox placement blacklist and spamassassin report",
         "description": "\u0022Requires one of the following scopes: \u0060inbox_placement_reports:read\u0060, \u0060inbox_placement_reports:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060\u0022",
-        "operationId": "ListInboxPlacementBlacklistSpamAssassinReport",
+        "operationId": "ListInboxPlacementBlacklistAndSpamAssassinReport",
         "parameters": [
           {
             "name": "limit",
@@ -7076,11 +7076,11 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of Inbox Placement Blacklist \u0026 SpamAssassin Report",
+            "description": "The list of Inbox Placement Blacklist And SpamAssassin Report",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport200Response"
+                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport200Response"
                 }
               }
             }
@@ -7090,7 +7090,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport401Response"
+                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport401Response"
                 }
               }
             }
@@ -7100,7 +7100,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport402Response"
+                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport402Response"
                 }
               }
             }
@@ -7110,7 +7110,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport404Response"
+                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport404Response"
                 }
               }
             }
@@ -7120,7 +7120,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport429Response"
+                  "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport429Response"
                 }
               }
             }
@@ -7131,11 +7131,11 @@
     "/api/v2/inbox-placement-reports/{id}": {
       "get": {
         "tags": [
-          "InboxPlacementBlacklist\u0026SpamAssassinReport"
+          "InboxPlacementBlacklistAndSpamAssassinReport"
         ],
-        "summary": "Get inbox placement blacklist \u0026 spamassassin report",
+        "summary": "Get inbox placement blacklist and spamassassin report",
         "description": "\u0022Requires one of the following scopes: \u0060inbox_placement_reports:read\u0060, \u0060inbox_placement_reports:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060\u0022",
-        "operationId": "GetInboxPlacementBlacklistSpamAssassinReport",
+        "operationId": "GetInboxPlacementBlacklistAndSpamAssassinReport",
         "parameters": [
           {
             "name": "id",
@@ -7151,11 +7151,11 @@
         ],
         "responses": {
           "200": {
-            "description": "The requested Inbox Placement Blacklist \u0026 SpamAssassin Report",
+            "description": "The requested Inbox Placement Blacklist And SpamAssassin Report",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def7"
+                  "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReport"
                 }
               }
             }
@@ -7165,7 +7165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport401Response"
+                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport401Response"
                 }
               }
             }
@@ -7175,7 +7175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport402Response"
+                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport402Response"
                 }
               }
             }
@@ -7185,7 +7185,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport404Response"
+                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport404Response"
                 }
               }
             }
@@ -7195,7 +7195,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport429Response"
+                  "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport429Response"
                 }
               }
             }
@@ -7227,7 +7227,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def5"
+                  "$ref": "#/components/schemas/InboxPlacementTest"
                 }
               }
             }
@@ -7508,7 +7508,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def5"
+                  "$ref": "#/components/schemas/InboxPlacementTest"
                 }
               }
             }
@@ -7590,7 +7590,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def5"
+                  "$ref": "#/components/schemas/InboxPlacementTest"
                 }
               }
             }
@@ -7724,7 +7724,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -7908,7 +7908,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -7990,7 +7990,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -8072,7 +8072,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def16"
+                  "$ref": "#/components/schemas/LeadLabel"
                 }
               }
             }
@@ -8225,7 +8225,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -8410,7 +8410,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -8492,7 +8492,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -8574,7 +8574,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def4"
+                  "$ref": "#/components/schemas/LeadList"
                 }
               }
             }
@@ -8720,7 +8720,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -8955,7 +8955,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -9037,7 +9037,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -9119,7 +9119,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -9190,7 +9190,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -9342,7 +9342,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -9494,7 +9494,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def12"
+                  "$ref": "#/components/schemas/BackgroundJob"
                 }
               }
             }
@@ -9565,7 +9565,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def11"
+                  "$ref": "#/components/schemas/Lead"
                 }
               }
             }
@@ -9897,7 +9897,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10093,7 +10093,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10168,7 +10168,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10243,7 +10243,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10318,7 +10318,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10400,7 +10400,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10482,7 +10482,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def26"
+                  "$ref": "#/components/schemas/CampaignSubsequence"
                 }
               }
             }
@@ -10639,7 +10639,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def3"
+                  "$ref": "#/components/schemas/EmailVerification"
                 }
               }
             }
@@ -10724,7 +10724,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def3"
+                  "$ref": "#/components/schemas/EmailVerification"
                 }
               }
             }
@@ -10921,7 +10921,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def41"
+                  "$ref": "#/components/schemas/WebhookEvent"
                 }
               }
             }
@@ -11261,7 +11261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -11346,7 +11346,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -11428,7 +11428,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -11510,7 +11510,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -11720,7 +11720,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def39"
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -11761,6 +11761,68 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResumeWebhook429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/workspace-billing/plan-details": {
+      "get": {
+        "tags": [
+          "WorkspaceBilling"
+        ],
+        "summary": "Get workspace plan details",
+        "description": "\u0022Requires one of the following scopes: \u0060workspace_billing:read\u0060, \u0060workspace_billing:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060\u0022",
+        "operationId": "GetWorkspacePlanDetails",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkspacePlanDetails200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkspacePlanDetails401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkspacePlanDetails402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkspacePlanDetails404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkspacePlanDetails429Response"
                 }
               }
             }
@@ -11854,7 +11916,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def24"
+                  "$ref": "#/components/schemas/WorkspaceGroupMember"
                 }
               }
             }
@@ -12021,7 +12083,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def24"
+                  "$ref": "#/components/schemas/WorkspaceGroupMember"
                 }
               }
             }
@@ -12103,7 +12165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def24"
+                  "$ref": "#/components/schemas/WorkspaceGroupMember"
                 }
               }
             }
@@ -12237,7 +12299,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -12422,7 +12484,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -12504,7 +12566,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -12586,7 +12648,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def25"
+                  "$ref": "#/components/schemas/WorkspaceMember"
                 }
               }
             }
@@ -12648,7 +12710,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -12717,7 +12779,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -12788,7 +12850,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -12908,7 +12970,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -12979,7 +13041,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def20"
+                  "$ref": "#/components/schemas/Workspace"
                 }
               }
             }
@@ -13355,7 +13417,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Def23"
+                  "$ref": "#/components/schemas/SuperSearchEnrichment"
                 }
               }
             }
@@ -13791,7 +13853,7 @@
   },
   "components": {
     "schemas": {
-      "Def0": {
+      "Account": {
         "title": "Account",
         "required": [
           "email",
@@ -13838,7 +13900,7 @@
             "example": "Doe"
           },
           "warmup": {
-            "$ref": "#/components/schemas/Def0Warmup"
+            "$ref": "#/components/schemas/AccountWarmup"
           },
           "added_by": {
             "type": "string",
@@ -13875,7 +13937,7 @@
             "example": "active"
           },
           "status": {
-            "$ref": "#/components/schemas/Def0Status"
+            "$ref": "#/components/schemas/AccountStatus"
           },
           "enable_slow_ramp": {
             "type": "boolean",
@@ -13906,10 +13968,10 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "warmup_status": {
-            "$ref": "#/components/schemas/Def0WarmupStatus"
+            "$ref": "#/components/schemas/AccountWarmupStatus"
           },
           "status_message": {
-            "$ref": "#/components/schemas/Def0StatusMessage"
+            "$ref": "#/components/schemas/AccountStatusMessage"
           },
           "timestamp_warmup_start": {
             "type": "string",
@@ -13920,7 +13982,7 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "provider_code": {
-            "$ref": "#/components/schemas/Def0ProviderCode"
+            "$ref": "#/components/schemas/AccountProviderCode"
           },
           "setup_pending": {
             "type": "boolean",
@@ -13998,7 +14060,7 @@
           "Account"
         ]
       },
-      "Def1": {
+      "Campaign": {
         "title": "Campaign",
         "required": [
           "id",
@@ -14029,7 +14091,7 @@
             "example": 100
           },
           "status": {
-            "$ref": "#/components/schemas/Def1Status"
+            "$ref": "#/components/schemas/CampaignStatus"
           },
           "is_evergreen": {
             "type": "boolean",
@@ -14038,12 +14100,12 @@
             "example": false
           },
           "campaign_schedule": {
-            "$ref": "#/components/schemas/Def1CampaignSchedule"
+            "$ref": "#/components/schemas/CampaignCampaignSchedule"
           },
           "sequences": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1SequencesItem"
+              "$ref": "#/components/schemas/CampaignSequencesItem"
             },
             "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array"
           },
@@ -14143,7 +14205,7 @@
             "example": false
           },
           "auto_variant_select": {
-            "$ref": "#/components/schemas/Def1AutoVariantSelect"
+            "$ref": "#/components/schemas/CampaignAutoVariantSelect"
           },
           "match_lead_esp": {
             "type": "boolean",
@@ -14152,7 +14214,7 @@
             "example": false
           },
           "not_sending_status": {
-            "$ref": "#/components/schemas/Def1NotSendingStatus"
+            "$ref": "#/components/schemas/CampaignNotSendingStatus"
           },
           "stop_for_company": {
             "type": "boolean",
@@ -14161,10 +14223,10 @@
             "example": false
           },
           "core_variables": {
-            "$ref": "#/components/schemas/Def1CoreVariables"
+            "$ref": "#/components/schemas/CampaignCoreVariables"
           },
           "custom_variables": {
-            "$ref": "#/components/schemas/Def1CustomVariables"
+            "$ref": "#/components/schemas/CampaignCustomVariables"
           },
           "insert_unsubscribe_header": {
             "type": "boolean",
@@ -14185,7 +14247,7 @@
             "example": false
           },
           "limit_emails_per_company_override": {
-            "$ref": "#/components/schemas/Def1LimitEmailsPerCompanyOverride"
+            "$ref": "#/components/schemas/CampaignLimitEmailsPerCompanyOverride"
           },
           "cc_list": {
             "type": "array",
@@ -14235,7 +14297,7 @@
             ],
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1ProviderRoutingRulesItem"
+              "$ref": "#/components/schemas/CampaignProviderRoutingRulesItem"
             },
             "description": "Auto variant select settings"
           }
@@ -14247,7 +14309,7 @@
           "Campaign"
         ]
       },
-      "Def2": {
+      "Email": {
         "title": "Email",
         "required": [
           "id",
@@ -14326,7 +14388,7 @@
             "example": "replyto@example.com"
           },
           "body": {
-            "$ref": "#/components/schemas/Def2Body"
+            "$ref": "#/components/schemas/EmailBody"
           },
           "organization_id": {
             "type": "string",
@@ -14375,7 +14437,7 @@
             "example": "eaccount-123"
           },
           "ue_type": {
-            "$ref": "#/components/schemas/Def2UeType"
+            "$ref": "#/components/schemas/EmailUeType"
           },
           "step": {
             "type": "string",
@@ -14441,7 +14503,7 @@
             "example": "This is a preview of the email content."
           },
           "attachment_json": {
-            "$ref": "#/components/schemas/Def2AttachmentJson"
+            "$ref": "#/components/schemas/EmailAttachmentJson"
           },
           "from_address_json": {
             "type": "array",
@@ -14473,7 +14535,7 @@
           "Email"
         ]
       },
-      "Def3": {
+      "EmailVerification": {
         "title": "Email Verification",
         "required": [
           "email",
@@ -14482,7 +14544,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/Def3Status"
+            "$ref": "#/components/schemas/EmailVerificationStatus"
           },
           "email": {
             "type": "string",
@@ -14490,10 +14552,10 @@
             "example": "example@example.com"
           },
           "verification_status": {
-            "$ref": "#/components/schemas/Def3VerificationStatus"
+            "$ref": "#/components/schemas/EmailVerificationVerificationStatus"
           },
           "catch_all": {
-            "$ref": "#/components/schemas/Def3CatchAll"
+            "$ref": "#/components/schemas/EmailVerificationCatchAll"
           },
           "credits": {
             "type": "number",
@@ -14517,7 +14579,7 @@
           "EmailVerification"
         ]
       },
-      "Def4": {
+      "LeadList": {
         "title": "Lead List",
         "required": [
           "id",
@@ -14574,7 +14636,7 @@
           "LeadList"
         ]
       },
-      "Def5": {
+      "InboxPlacementTest": {
         "title": "Inbox Placement Test",
         "required": [
           "id",
@@ -14610,7 +14672,7 @@
             "example": "My Inbox Placement Test"
           },
           "delivery_mode": {
-            "$ref": "#/components/schemas/Def5DeliveryMode"
+            "$ref": "#/components/schemas/InboxPlacementTestDeliveryMode"
           },
           "description": {
             "type": "string",
@@ -14619,13 +14681,13 @@
             "example": "This is a test description"
           },
           "schedule": {
-            "$ref": "#/components/schemas/Def5Schedule"
+            "$ref": "#/components/schemas/InboxPlacementTestSchedule"
           },
           "type": {
-            "$ref": "#/components/schemas/Def5Type"
+            "$ref": "#/components/schemas/InboxPlacementTestType"
           },
           "sending_method": {
-            "$ref": "#/components/schemas/Def5SendingMethod"
+            "$ref": "#/components/schemas/InboxPlacementTestSendingMethod"
           },
           "campaign_id": {
             "type": "string",
@@ -14684,7 +14746,7 @@
           "recipients_labels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def5RecipientsLabelsItem"
+              "$ref": "#/components/schemas/InboxPlacementTestRecipientsLabelsItem"
             },
             "description": "\u0022A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the \u0060GET: /inbox-placement-tests/email-service-provider-options\u0060 endpoint\u0022"
           },
@@ -14704,16 +14766,16 @@
             "minItems": 0,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def5AutomationsItem"
+              "$ref": "#/components/schemas/InboxPlacementTestAutomationsItem"
             },
             "description": "Optional automations to trigger based on conditions",
             "nullable": true
           },
           "status": {
-            "$ref": "#/components/schemas/Def5Status"
+            "$ref": "#/components/schemas/InboxPlacementTestStatus"
           },
           "not_sending_status": {
-            "$ref": "#/components/schemas/Def5NotSendingStatus"
+            "$ref": "#/components/schemas/InboxPlacementTestNotSendingStatus"
           }
         },
         "additionalProperties": false,
@@ -14723,7 +14785,7 @@
           "InboxPlacementTest"
         ]
       },
-      "Def6": {
+      "InboxPlacementAnalytics": {
         "title": "Inbox Placement Analytics",
         "required": [
           "id",
@@ -14785,7 +14847,7 @@
             "example": "sender@example.com"
           },
           "sender_esp": {
-            "$ref": "#/components/schemas/Def6SenderEsp"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsSenderEsp"
           },
           "recipient_email": {
             "type": "string",
@@ -14794,13 +14856,13 @@
             "example": "recipient@example.com"
           },
           "recipient_esp": {
-            "$ref": "#/components/schemas/Def6RecipientEsp"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsRecipientEsp"
           },
           "recipient_geo": {
-            "$ref": "#/components/schemas/Def6RecipientGeo"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsRecipientGeo"
           },
           "recipient_type": {
-            "$ref": "#/components/schemas/Def6RecipientType"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsRecipientType"
           },
           "spf_pass": {
             "type": "boolean",
@@ -14821,13 +14883,13 @@
             "example": true
           },
           "smtp_ip_blacklist_report": {
-            "$ref": "#/components/schemas/Def6SmtpIpBlacklistReport"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsSmtpIpBlacklistReport"
           },
           "authentication_failure_results": {
-            "$ref": "#/components/schemas/Def6AuthenticationFailureResults"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsAuthenticationFailureResults"
           },
           "record_type": {
-            "$ref": "#/components/schemas/Def6RecordType"
+            "$ref": "#/components/schemas/InboxPlacementAnalyticsRecordType"
           }
         },
         "additionalProperties": false,
@@ -14837,8 +14899,8 @@
           "InboxPlacementAnalytics"
         ]
       },
-      "Def7": {
-        "title": "Inbox Placement Blacklist \u0026 SpamAssassin Report",
+      "InboxPlacementBlacklistAndSpamAssassinReport": {
+        "title": "Inbox Placement Blacklist And SpamAssassin Report",
         "required": [
           "id",
           "timestamp_created",
@@ -14917,20 +14979,20 @@
             "example": 2.5
           },
           "spam_assassin_report": {
-            "$ref": "#/components/schemas/Def7SpamAssassinReport"
+            "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReport"
           },
           "blacklist_report": {
-            "$ref": "#/components/schemas/Def7BlacklistReport"
+            "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReportBlacklistReport"
           }
         },
         "additionalProperties": false,
         "description": "Report data for an inbox placement test",
         "x-tags": [
           "Schemas",
-          "InboxPlacementBlacklist\u0026SpamAssassinReport"
+          "InboxPlacementBlacklistAndSpamAssassinReport"
         ]
       },
-      "Def9": {
+      "ApiKey": {
         "title": "API Key",
         "required": [
           "id",
@@ -14956,7 +15018,7 @@
           "scopes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def9ScopesItem"
+              "$ref": "#/components/schemas/ApiKeyScopesItem"
             }
           },
           "key": {
@@ -14990,7 +15052,7 @@
           "APIKey"
         ]
       },
-      "Def10": {
+      "AccountCampaignMapping": {
         "title": "Account Campaign Mapping",
         "required": [
           "campaign_id",
@@ -15015,7 +15077,7 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "status": {
-            "$ref": "#/components/schemas/Def10Status"
+            "$ref": "#/components/schemas/AccountCampaignMappingStatus"
           }
         },
         "additionalProperties": false,
@@ -15025,7 +15087,7 @@
           "AccountCampaignMapping"
         ]
       },
-      "Def11": {
+      "Lead": {
         "title": "Lead",
         "required": [
           "id",
@@ -15077,7 +15139,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "status": {
-            "$ref": "#/components/schemas/Def11Status"
+            "$ref": "#/components/schemas/LeadStatus"
           },
           "email": {
             "type": "string",
@@ -15152,13 +15214,13 @@
             "example": "example.com"
           },
           "status_summary": {
-            "$ref": "#/components/schemas/Def11StatusSummary"
+            "$ref": "#/components/schemas/LeadStatusSummary"
           },
           "payload": {
-            "$ref": "#/components/schemas/Def11Payload"
+            "$ref": "#/components/schemas/LeadPayload"
           },
           "status_summary_subseq": {
-            "$ref": "#/components/schemas/Def11StatusSummarySubseq"
+            "$ref": "#/components/schemas/LeadStatusSummarySubseq"
           },
           "last_step_from": {
             "type": "string",
@@ -15226,7 +15288,7 @@
             "example": 1
           },
           "lt_interest_status": {
-            "$ref": "#/components/schemas/Def11LtInterestStatus"
+            "$ref": "#/components/schemas/LeadLtInterestStatus"
           },
           "subsequence_id": {
             "type": "string",
@@ -15236,7 +15298,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "verification_status": {
-            "$ref": "#/components/schemas/Def11VerificationStatus"
+            "$ref": "#/components/schemas/LeadVerificationStatus"
           },
           "pl_value_lead": {
             "type": "string",
@@ -15293,7 +15355,7 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "enrichment_status": {
-            "$ref": "#/components/schemas/Def11EnrichmentStatus"
+            "$ref": "#/components/schemas/LeadEnrichmentStatus"
           },
           "list_id": {
             "type": "string",
@@ -15318,7 +15380,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "upload_method": {
-            "$ref": "#/components/schemas/Def11UploadMethod"
+            "$ref": "#/components/schemas/LeadUploadMethod"
           },
           "assigned_to": {
             "type": "string",
@@ -15343,10 +15405,10 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "esp_code": {
-            "$ref": "#/components/schemas/Def11EspCode"
+            "$ref": "#/components/schemas/LeadEspCode"
           },
           "esg_code": {
-            "$ref": "#/components/schemas/Def11EsgCode"
+            "$ref": "#/components/schemas/LeadEsgCode"
           }
         },
         "additionalProperties": false,
@@ -15356,7 +15418,7 @@
           "Lead"
         ]
       },
-      "Def12": {
+      "BackgroundJob": {
         "title": "Background Job",
         "required": [
           "id",
@@ -15391,7 +15453,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "type": {
-            "$ref": "#/components/schemas/Def12Type"
+            "$ref": "#/components/schemas/BackgroundJobType"
           },
           "entity_id": {
             "type": "string",
@@ -15401,10 +15463,10 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "entity_type": {
-            "$ref": "#/components/schemas/Def12EntityType"
+            "$ref": "#/components/schemas/BackgroundJobEntityType"
           },
           "data": {
-            "$ref": "#/components/schemas/Def12Data"
+            "$ref": "#/components/schemas/BackgroundJobData"
           },
           "progress": {
             "maximum": 100,
@@ -15414,7 +15476,7 @@
             "example": 0
           },
           "status": {
-            "$ref": "#/components/schemas/Def12Status"
+            "$ref": "#/components/schemas/BackgroundJobStatus"
           },
           "created_at": {
             "type": "string",
@@ -15434,7 +15496,7 @@
           "BackgroundJob"
         ]
       },
-      "Def13": {
+      "CustomTag": {
         "title": "Custom Tag",
         "required": [
           "id",
@@ -15492,7 +15554,7 @@
           "CustomTag"
         ]
       },
-      "Def14": {
+      "CustomTagMapping": {
         "title": "Custom Tag Mapping",
         "required": [
           "id",
@@ -15526,7 +15588,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "resource_type": {
-            "$ref": "#/components/schemas/Def14ResourceType"
+            "$ref": "#/components/schemas/CustomTagMappingResourceType"
           },
           "timestamp_created": {
             "type": "string",
@@ -15550,7 +15612,7 @@
           "CustomTagMapping"
         ]
       },
-      "Def15": {
+      "BlockListEntry": {
         "title": "Block List Entry",
         "required": [
           "id",
@@ -15601,7 +15663,7 @@
           "BlockListEntry"
         ]
       },
-      "Def16": {
+      "LeadLabel": {
         "title": "Lead Label",
         "required": [
           "id",
@@ -15648,7 +15710,7 @@
             "example": "Hot Lead"
           },
           "interest_status_label": {
-            "$ref": "#/components/schemas/Def16InterestStatusLabel"
+            "$ref": "#/components/schemas/LeadLabelInterestStatusLabel"
           },
           "interest_status": {
             "type": "number",
@@ -15676,7 +15738,7 @@
           "LeadLabel"
         ]
       },
-      "Def20": {
+      "Workspace": {
         "title": "Workspace",
         "required": [
           "id",
@@ -15747,7 +15809,7 @@
             "example": "pid_lf_ls_v1"
           },
           "plan_id_verification": {
-            "$ref": "#/components/schemas/Def20PlanIdVerification"
+            "$ref": "#/components/schemas/WorkspacePlanIdVerification"
           },
           "org_logo_url": {
             "type": "string",
@@ -15791,7 +15853,7 @@
           "Workspace"
         ]
       },
-      "Def23": {
+      "SuperSearchEnrichment": {
         "title": "SuperSearch Enrichment",
         "required": [
           "id",
@@ -15821,7 +15883,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "enrichment_payload": {
-            "$ref": "#/components/schemas/Def23EnrichmentPayloadProperty"
+            "$ref": "#/components/schemas/SuperSearchEnrichmentEnrichmentPayloadProperty"
           },
           "auto_update": {
             "type": "boolean",
@@ -15842,7 +15904,7 @@
             "example": true
           },
           "type": {
-            "$ref": "#/components/schemas/Def23Type"
+            "$ref": "#/components/schemas/SuperSearchEnrichmentType"
           },
           "resource_id": {
             "type": "string",
@@ -15852,7 +15914,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "resource_type": {
-            "$ref": "#/components/schemas/Def23ResourceType"
+            "$ref": "#/components/schemas/SuperSearchEnrichmentResourceType"
           }
         },
         "additionalProperties": false,
@@ -15862,7 +15924,7 @@
           "SuperSearchEnrichment"
         ]
       },
-      "Def24": {
+      "WorkspaceGroupMember": {
         "title": "Workspace Group Member",
         "required": [
           "id",
@@ -15895,7 +15957,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "status": {
-            "$ref": "#/components/schemas/Def24Status"
+            "$ref": "#/components/schemas/WorkspaceGroupMemberStatus"
           },
           "timestamp_created": {
             "type": "string",
@@ -15931,7 +15993,7 @@
           "WorkspaceGroupMember"
         ]
       },
-      "Def25": {
+      "WorkspaceMember": {
         "title": "Workspace Member",
         "required": [
           "id",
@@ -15972,10 +16034,10 @@
             "example": "user@example.com"
           },
           "name": {
-            "$ref": "#/components/schemas/Def25Name"
+            "$ref": "#/components/schemas/WorkspaceMemberName"
           },
           "role": {
-            "$ref": "#/components/schemas/Def25Role"
+            "$ref": "#/components/schemas/WorkspaceMemberRole"
           },
           "timestamp_created": {
             "type": "string",
@@ -16008,7 +16070,7 @@
           "permissions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def25PermissionsItem"
+              "$ref": "#/components/schemas/WorkspaceMemberPermissionsItem"
             },
             "description": "The permissions for this workspace member. Used in the app to restrict access to certain sections",
             "nullable": true
@@ -16021,7 +16083,7 @@
           "WorkspaceMember"
         ]
       },
-      "Def26": {
+      "CampaignSubsequence": {
         "title": "Campaign Subsequence",
         "required": [
           "id",
@@ -16065,7 +16127,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "status": {
-            "$ref": "#/components/schemas/Def26Status"
+            "$ref": "#/components/schemas/CampaignSubsequenceStatus"
           },
           "timestamp_leads_updated": {
             "type": "string",
@@ -16080,20 +16142,20 @@
             "example": "Follow-up sequence"
           },
           "conditions": {
-            "$ref": "#/components/schemas/Def26Conditions"
+            "$ref": "#/components/schemas/CampaignSubsequenceConditions"
           },
           "subsequence_schedule": {
-            "$ref": "#/components/schemas/Def26SubsequenceSchedule"
+            "$ref": "#/components/schemas/CampaignSubsequenceSubsequenceSchedule"
           },
           "sequences": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26SequencesItem"
+              "$ref": "#/components/schemas/CampaignSubsequenceSequencesItem"
             },
             "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array"
           },
           "daily_limit_mode": {
-            "$ref": "#/components/schemas/Def26DailyLimitMode"
+            "$ref": "#/components/schemas/CampaignSubsequenceDailyLimitMode"
           },
           "daily_limit": {
             "type": "number",
@@ -16114,7 +16176,7 @@
           "CampaignSubsequence"
         ]
       },
-      "Def32": {
+      "AuditLog": {
         "title": "Audit Log",
         "required": [
           "id",
@@ -16147,7 +16209,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "activity_type": {
-            "$ref": "#/components/schemas/Def32ActivityType"
+            "$ref": "#/components/schemas/AuditLogActivityType"
           },
           "user_agent": {
             "type": "string",
@@ -16216,7 +16278,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "audit_metadata": {
-            "$ref": "#/components/schemas/Def32AuditMetadataProperty"
+            "$ref": "#/components/schemas/AuditLogAuditMetadataProperty"
           },
           "user_name": {
             "type": "string",
@@ -16233,7 +16295,7 @@
           "AuditLog"
         ]
       },
-      "Def39": {
+      "Webhook": {
         "title": "Webhook",
         "required": [
           "id",
@@ -16278,7 +16340,7 @@
             "example": "https://webhook.site/unique-url"
           },
           "event_type": {
-            "$ref": "#/components/schemas/Def39EventType"
+            "$ref": "#/components/schemas/WebhookEventType"
           },
           "custom_interest_value": {
             "type": "number",
@@ -16287,7 +16349,7 @@
             "example": 1
           },
           "headers": {
-            "$ref": "#/components/schemas/Def39Headers"
+            "$ref": "#/components/schemas/WebhookHeaders"
           },
           "timestamp_created": {
             "type": "string",
@@ -16319,7 +16381,7 @@
           "Webhook"
         ]
       },
-      "Def41": {
+      "WebhookEvent": {
         "title": "Webhook Event",
         "required": [
           "id",
@@ -16362,7 +16424,7 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "payload": {
-            "$ref": "#/components/schemas/Def41PayloadProperty"
+            "$ref": "#/components/schemas/WebhookEventPayloadProperty"
           },
           "success": {
             "type": "boolean",
@@ -16447,7 +16509,7 @@
           "WebhookEvent"
         ]
       },
-      "Def42": {
+      "DfyEmailAccountOrder": {
         "title": "DFY Email Account Order",
         "required": [
           "workspace_id",
@@ -16503,7 +16565,7 @@
           "DFYEmailAccountOrder"
         ]
       },
-      "Def43": {
+      "CustomPromptTemplate": {
         "title": "Custom Prompt Template",
         "required": [
           "id",
@@ -16543,12 +16605,12 @@
             "example": "Prompt template description"
           },
           "category": {
-            "$ref": "#/components/schemas/Def43Category"
+            "$ref": "#/components/schemas/CustomPromptTemplateCategory"
           },
           "properties": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def43PropertiesItem"
+              "$ref": "#/components/schemas/CustomPromptTemplatePropertiesItem"
             },
             "nullable": true
           },
@@ -16561,7 +16623,7 @@
             "example": true
           },
           "model_version": {
-            "$ref": "#/components/schemas/Def43ModelVersion"
+            "$ref": "#/components/schemas/CustomPromptTemplateModelVersion"
           },
           "from_shared": {
             "type": "boolean",
@@ -16587,7 +16649,7 @@
             "example": true
           },
           "template_type": {
-            "$ref": "#/components/schemas/Def43TemplateType"
+            "$ref": "#/components/schemas/CustomPromptTemplateTemplateType"
           },
           "created_by_instantly": {
             "type": "boolean",
@@ -16596,7 +16658,7 @@
             "example": true
           },
           "creator": {
-            "$ref": "#/components/schemas/Def43Creator"
+            "$ref": "#/components/schemas/CustomPromptTemplateCreator"
           }
         },
         "additionalProperties": false,
@@ -16606,7 +16668,7 @@
           "CustomPromptTemplate"
         ]
       },
-      "Def44": {
+      "SalesFlow": {
         "title": "Sales Flow",
         "required": [
           "id",
@@ -16652,7 +16714,7 @@
           "queries": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def44QueriesItem"
+              "$ref": "#/components/schemas/SalesFlowQueriesItem"
             },
             "description": "An object containing the sales flow queries"
           },
@@ -16697,7 +16759,7 @@
           "SalesFlow"
         ]
       },
-      "Def45": {
+      "EmailTemplate": {
         "title": "Email Template",
         "required": [
           "id",
@@ -16753,7 +16815,7 @@
           "EmailTemplate"
         ]
       },
-      "Def48": {
+      "WorkspaceBilling": {
         "title": "Workspace Billing",
         "type": "object",
         "description": "Workspace Billing",
@@ -16762,7 +16824,7 @@
           "WorkspaceBilling"
         ]
       },
-      "Def49": {
+      "CrmActions": {
         "title": "CRM Actions",
         "type": "object",
         "description": "CRM related actions",
@@ -16771,7 +16833,7 @@
           "CRMActions"
         ]
       },
-      "Def0Warmup": {
+      "AccountWarmup": {
         "type": "object",
         "properties": {
           "limit": {
@@ -16780,7 +16842,7 @@
             "example": 100
           },
           "advanced": {
-            "$ref": "#/components/schemas/Def0WarmupAdvanced"
+            "$ref": "#/components/schemas/AccountWarmupAdvanced"
           },
           "warmup_custom_ftag": {
             "type": "string",
@@ -16788,7 +16850,7 @@
             "example": "warmup"
           },
           "increment": {
-            "$ref": "#/components/schemas/Def0WarmupIncrement"
+            "$ref": "#/components/schemas/AccountWarmupIncrement"
           },
           "reply_rate": {
             "type": "number",
@@ -16798,7 +16860,7 @@
         },
         "description": "Warmup configuration for the account"
       },
-      "Def0StatusMessage": {
+      "AccountStatusMessage": {
         "type": "object",
         "properties": {
           "code": {
@@ -16825,7 +16887,7 @@
         "description": "Status message for the account",
         "readOnly": true
       },
-      "Def1CampaignSchedule": {
+      "CampaignCampaignSchedule": {
         "required": [
           "schedules"
         ],
@@ -16849,13 +16911,13 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1CampaignScheduleSchedulesItem"
+              "$ref": "#/components/schemas/CampaignCampaignScheduleSchedulesItem"
             }
           }
         },
         "description": "Campaign schedule"
       },
-      "Def1SequencesItem": {
+      "CampaignSequencesItem": {
         "required": [
           "steps"
         ],
@@ -16864,77 +16926,77 @@
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1SequencesItemStepsItem"
+              "$ref": "#/components/schemas/CampaignSequencesItemStepsItem"
             }
           }
         }
       },
-      "Def1AutoVariantSelect": {
+      "CampaignAutoVariantSelect": {
         "required": [
           "trigger"
         ],
         "type": "object",
         "properties": {
           "trigger": {
-            "$ref": "#/components/schemas/Def1AutoVariantSelectTrigger"
+            "$ref": "#/components/schemas/CampaignAutoVariantSelectTrigger"
           }
         },
         "description": "Auto variant select settings",
         "nullable": true
       },
-      "Def1CoreVariables": {
+      "CampaignCoreVariables": {
         "type": "object",
         "description": "Campaign core variables",
         "nullable": true,
         "readOnly": true
       },
-      "Def1CustomVariables": {
+      "CampaignCustomVariables": {
         "type": "object",
         "description": "Campaign custom variables",
         "nullable": true,
         "readOnly": true
       },
-      "Def1LimitEmailsPerCompanyOverride": {
+      "CampaignLimitEmailsPerCompanyOverride": {
         "required": [
           "mode"
         ],
         "type": "object",
         "properties": {
           "mode": {
-            "$ref": "#/components/schemas/Def1LimitEmailsPerCompanyOverrideMode"
+            "$ref": "#/components/schemas/CampaignLimitEmailsPerCompanyOverrideMode"
           },
           "daily_limit": {
             "minimum": 1,
             "type": "number"
           },
           "scope": {
-            "$ref": "#/components/schemas/Def1LimitEmailsPerCompanyOverrideScope"
+            "$ref": "#/components/schemas/CampaignLimitEmailsPerCompanyOverrideScope"
           }
         },
         "description": "Overrides the workspace-wide limit emails per company setting for this campaign.",
         "nullable": true
       },
-      "Def1ProviderRoutingRulesItem": {
+      "CampaignProviderRoutingRulesItem": {
         "type": "object",
         "properties": {
           "action": {
-            "$ref": "#/components/schemas/Def1ProviderRoutingRulesItemAction"
+            "$ref": "#/components/schemas/CampaignProviderRoutingRulesItemAction"
           },
           "recipient_esp": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1ProviderRoutingRulesItemRecipientEspItem"
+              "$ref": "#/components/schemas/CampaignProviderRoutingRulesItemRecipientEspItem"
             }
           },
           "sender_esp": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1ProviderRoutingRulesItemSenderEspItem"
+              "$ref": "#/components/schemas/CampaignProviderRoutingRulesItemSenderEspItem"
             }
           }
         }
       },
-      "Def2Body": {
+      "EmailBody": {
         "type": "object",
         "properties": {
           "text": {
@@ -16951,7 +17013,7 @@
         "description": "An object containing the email body in HTML and text format",
         "readOnly": true
       },
-      "Def2AttachmentJson": {
+      "EmailAttachmentJson": {
         "required": [
           "files"
         ],
@@ -16960,7 +17022,7 @@
           "files": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def2AttachmentJsonFilesItem"
+              "$ref": "#/components/schemas/EmailAttachmentJsonFilesItem"
             }
           }
         },
@@ -16980,17 +17042,17 @@
           ]
         }
       },
-      "Def5Schedule": {
+      "InboxPlacementTestSchedule": {
         "type": "object",
         "properties": {
           "days": {
-            "$ref": "#/components/schemas/Def5ScheduleDaysProperty"
+            "$ref": "#/components/schemas/InboxPlacementTestScheduleDaysProperty"
           },
           "timing": {
-            "$ref": "#/components/schemas/Def5ScheduleTiming"
+            "$ref": "#/components/schemas/InboxPlacementTestScheduleTiming"
           },
           "timezone": {
-            "$ref": "#/components/schemas/Def5ScheduleTimezone"
+            "$ref": "#/components/schemas/InboxPlacementTestScheduleTimezone"
           }
         },
         "description": "Specifies the date and time when the automated inbox placement tests will be sent.",
@@ -17005,7 +17067,7 @@
           "timezone": "America/Chihuahua"
         }
       },
-      "Def5RecipientsLabelsItem": {
+      "InboxPlacementTestRecipientsLabelsItem": {
         "required": [
           "region",
           "sub_region",
@@ -17036,7 +17098,7 @@
           }
         }
       },
-      "Def5AutomationsItem": {
+      "InboxPlacementTestAutomationsItem": {
         "required": [
           "when",
           "then"
@@ -17044,19 +17106,19 @@
         "type": "object",
         "properties": {
           "when": {
-            "$ref": "#/components/schemas/Def5AutomationsItemWhen"
+            "$ref": "#/components/schemas/InboxPlacementTestAutomationsItemWhen"
           },
           "then": {
-            "$ref": "#/components/schemas/Def5AutomationsItemThen"
+            "$ref": "#/components/schemas/InboxPlacementTestAutomationsItemThen"
           }
         }
       },
-      "Def6SmtpIpBlacklistReport": {
+      "InboxPlacementAnalyticsSmtpIpBlacklistReport": {
         "type": "object",
         "description": "Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).",
         "nullable": true
       },
-      "Def6AuthenticationFailureResults": {
+      "InboxPlacementAnalyticsAuthenticationFailureResults": {
         "type": "object",
         "properties": {
           "authentication_results": {
@@ -17075,7 +17137,7 @@
         "description": "Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).",
         "nullable": true
       },
-      "Def7SpamAssassinReport": {
+      "InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReport": {
         "type": "object",
         "properties": {
           "is_spam": {
@@ -17086,7 +17148,7 @@
           "report": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def7SpamAssassinReportReportItem"
+              "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem"
             },
             "description": "List of individual SpamAssassin rule evaluations"
           },
@@ -17099,7 +17161,7 @@
         "description": "Detailed SpamAssassin analysis report",
         "readOnly": true
       },
-      "Def7BlacklistReport": {
+      "InboxPlacementBlacklistAndSpamAssassinReportBlacklistReport": {
         "type": "object",
         "properties": {
           "address": {
@@ -17115,7 +17177,7 @@
           "details": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def7BlacklistReportDetailsItem"
+              "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem"
             },
             "description": "List of individual blacklist details"
           },
@@ -17138,11 +17200,11 @@
         "description": "Detailed blacklist report for the domain or IP",
         "readOnly": true
       },
-      "Def11StatusSummary": {
+      "LeadStatusSummary": {
         "type": "object",
         "properties": {
           "lastStep": {
-            "$ref": "#/components/schemas/Def11StatusSummaryLastStep"
+            "$ref": "#/components/schemas/LeadStatusSummaryLastStep"
           },
           "domain_complete": {
             "type": "boolean",
@@ -17152,7 +17214,7 @@
         "description": "Status summary of the lead",
         "readOnly": true
       },
-      "Def11Payload": {
+      "LeadPayload": {
         "type": "object",
         "properties": {
           "firstName": {
@@ -17178,13 +17240,13 @@
           }
         },
         "additionalProperties": {
-          "$ref": "#/components/schemas/Def11PayloadAdditionalProperties"
+          "$ref": "#/components/schemas/LeadPayloadAdditionalProperties"
         },
         "description": "Lead custom variables. This object can contain any key, but the values have to be of type string, number, boolean, or null. We do NOT allow objects or arrays as values.",
         "nullable": true,
         "readOnly": true
       },
-      "Def11StatusSummarySubseq": {
+      "LeadStatusSummarySubseq": {
         "type": "object",
         "properties": {
           "from": {
@@ -17204,7 +17266,7 @@
         "description": "Subsequence status summary of the lead",
         "readOnly": true
       },
-      "Def12Data": {
+      "BackgroundJobData": {
         "type": "object",
         "properties": {
           "moved_lead_emails": {
@@ -17219,7 +17281,7 @@
         },
         "description": "Data about the job, used to store any additional information we need to process the job"
       },
-      "Def20PlanIdVerification": {
+      "WorkspacePlanIdVerification": {
         "type": "object",
         "properties": {
           "quantity": {
@@ -17239,11 +17301,11 @@
         "description": "Plan ID for verification service",
         "readOnly": true
       },
-      "Def23EnrichmentPayload": {
+      "SuperSearchEnrichmentEnrichmentPayload": {
         "type": "object",
         "description": "Enrichment payload"
       },
-      "Def25Name": {
+      "WorkspaceMemberName": {
         "type": "object",
         "properties": {
           "first": {
@@ -17259,20 +17321,20 @@
         },
         "readOnly": true
       },
-      "Def26Conditions": {
+      "CampaignSubsequenceConditions": {
         "type": "object",
         "properties": {
           "crm_status": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26ConditionsCrmStatusItem"
+              "$ref": "#/components/schemas/CampaignSubsequenceConditionsCrmStatusItem"
             },
             "description": "Lead CRM statuses that trigger the subsequence."
           },
           "lead_activity": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26ConditionsLeadActivityItem"
+              "$ref": "#/components/schemas/CampaignSubsequenceConditionsLeadActivityItem"
             },
             "description": "Lead activities that trigger the subsequence."
           },
@@ -17283,7 +17345,7 @@
         },
         "description": "Conditions that trigger the subsequence"
       },
-      "Def26SubsequenceSchedule": {
+      "CampaignSubsequenceSubsequenceSchedule": {
         "required": [
           "schedules"
         ],
@@ -17307,13 +17369,13 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26SubsequenceScheduleSchedulesItem"
+              "$ref": "#/components/schemas/CampaignSubsequenceSubsequenceScheduleSchedulesItem"
             }
           }
         },
         "description": "Schedule configuration for the subsequence"
       },
-      "Def26SequencesItem": {
+      "CampaignSubsequenceSequencesItem": {
         "required": [
           "steps"
         ],
@@ -17322,17 +17384,17 @@
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26SequencesItemStepsItem"
+              "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItem"
             }
           }
         }
       },
-      "Def32AuditMetadata": {
+      "AuditLogAuditMetadata": {
         "type": "object",
         "description": "Metadata about the audit log",
         "readOnly": true
       },
-      "Def39Headers": {
+      "WebhookHeaders": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
@@ -17343,12 +17405,12 @@
           "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
         }
       },
-      "Def41Payload": {
+      "WebhookEventPayload": {
         "type": "object",
         "description": "JSON payload that was sent/attempted to be sent",
         "readOnly": true
       },
-      "Def43PropertiesItem": {
+      "CustomPromptTemplatePropertiesItem": {
         "type": "object",
         "properties": {
           "name": {
@@ -17359,20 +17421,20 @@
           }
         }
       },
-      "Def43Creator": {
+      "CustomPromptTemplateCreator": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string"
           },
           "payload": {
-            "$ref": "#/components/schemas/Def43CreatorPayload"
+            "$ref": "#/components/schemas/CustomPromptTemplateCreatorPayload"
           }
         },
         "nullable": true,
         "readOnly": true
       },
-      "Def44QueriesItem": {
+      "SalesFlowQueriesItem": {
         "required": [
           "actionType",
           "values"
@@ -17380,10 +17442,10 @@
         "type": "object",
         "properties": {
           "actionType": {
-            "$ref": "#/components/schemas/Def44QueriesItemActionType"
+            "$ref": "#/components/schemas/SalesFlowQueriesItemActionType"
           },
           "values": {
-            "$ref": "#/components/schemas/Def44QueriesItemValues"
+            "$ref": "#/components/schemas/SalesFlowQueriesItemValues"
           }
         },
         "description": "Smart view query to filter leads",
@@ -17394,7 +17456,7 @@
           }
         }
       },
-      "Def0WarmupAdvanced": {
+      "AccountWarmupAdvanced": {
         "type": "object",
         "properties": {
           "warm_ctd": {
@@ -17430,7 +17492,7 @@
         },
         "description": "Advanced settings for the account"
       },
-      "Def1CampaignScheduleSchedulesItem": {
+      "CampaignCampaignScheduleSchedulesItem": {
         "required": [
           "name",
           "timing",
@@ -17444,17 +17506,17 @@
             "example": "My Schedule"
           },
           "timing": {
-            "$ref": "#/components/schemas/Def1CampaignScheduleSchedulesItemTiming"
+            "$ref": "#/components/schemas/CampaignCampaignScheduleSchedulesItemTiming"
           },
           "days": {
-            "$ref": "#/components/schemas/Def1CampaignScheduleSchedulesItemDays"
+            "$ref": "#/components/schemas/CampaignCampaignScheduleSchedulesItemDays"
           },
           "timezone": {
-            "$ref": "#/components/schemas/Def1CampaignScheduleSchedulesItemTimezone"
+            "$ref": "#/components/schemas/CampaignCampaignScheduleSchedulesItemTimezone"
           }
         }
       },
-      "Def1SequencesItemStepsItem": {
+      "CampaignSequencesItemStepsItem": {
         "required": [
           "type",
           "delay",
@@ -17463,7 +17525,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/Def1SequencesItemStepsItemType"
+            "$ref": "#/components/schemas/CampaignSequencesItemStepsItemType"
           },
           "delay": {
             "type": "number",
@@ -17471,7 +17533,7 @@
             "example": 2
           },
           "delay_unit": {
-            "$ref": "#/components/schemas/Def1SequencesItemStepsItemDelayUnit"
+            "$ref": "#/components/schemas/CampaignSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
             "type": "number",
@@ -17479,17 +17541,17 @@
             "example": 2
           },
           "pre_delay_unit": {
-            "$ref": "#/components/schemas/Def1SequencesItemStepsItemPreDelayUnit"
+            "$ref": "#/components/schemas/CampaignSequencesItemStepsItemPreDelayUnit"
           },
           "variants": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1SequencesItemStepsItemVariantsItem"
+              "$ref": "#/components/schemas/CampaignSequencesItemStepsItemVariantsItem"
             }
           }
         }
       },
-      "Def2AttachmentJsonFilesItem": {
+      "EmailAttachmentJsonFilesItem": {
         "required": [
           "filename"
         ],
@@ -17520,7 +17582,7 @@
         },
         "additionalProperties": false
       },
-      "Def5ScheduleDays": {
+      "InboxPlacementTestScheduleDays": {
         "type": "object",
         "additionalProperties": {
           "type": "boolean"
@@ -17536,7 +17598,7 @@
           "6": false
         }
       },
-      "Def5ScheduleTiming": {
+      "InboxPlacementTestScheduleTiming": {
         "type": "object",
         "properties": {
           "from": {
@@ -17547,14 +17609,14 @@
         },
         "description": "Timing configuration for the scheduled test."
       },
-      "Def5AutomationsItemWhen": {
+      "InboxPlacementTestAutomationsItemWhen": {
         "required": [
           "condition"
         ],
         "type": "object",
         "properties": {
           "condition": {
-            "$ref": "#/components/schemas/Def5AutomationsItemWhenCondition"
+            "$ref": "#/components/schemas/InboxPlacementTestAutomationsItemWhenCondition"
           },
           "condition_value": {
             "type": "number",
@@ -17563,7 +17625,7 @@
           }
         }
       },
-      "Def5AutomationsItemThen": {
+      "InboxPlacementTestAutomationsItemThen": {
         "minProperties": 1,
         "type": "object",
         "properties": {
@@ -17600,7 +17662,7 @@
         },
         "description": "Actions to take when condition is met"
       },
-      "Def7SpamAssassinReportReportItem": {
+      "InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem": {
         "required": [
           "description",
           "name",
@@ -17625,7 +17687,7 @@
           }
         }
       },
-      "Def7BlacklistReportDetailsItem": {
+      "InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem": {
         "type": "object",
         "properties": {
           "blacklist": {
@@ -17645,7 +17707,7 @@
           }
         }
       },
-      "Def11StatusSummaryLastStep": {
+      "LeadStatusSummaryLastStep": {
         "type": "object",
         "properties": {
           "from": {
@@ -17663,10 +17725,10 @@
           }
         }
       },
-      "Def11PayloadAdditionalProperties": {
+      "LeadPayloadAdditionalProperties": {
         "nullable": true
       },
-      "Def26SubsequenceScheduleSchedulesItem": {
+      "CampaignSubsequenceSubsequenceScheduleSchedulesItem": {
         "required": [
           "name",
           "timing",
@@ -17680,17 +17742,17 @@
             "example": "My Schedule"
           },
           "timing": {
-            "$ref": "#/components/schemas/Def26SubsequenceScheduleSchedulesItemTiming"
+            "$ref": "#/components/schemas/CampaignSubsequenceSubsequenceScheduleSchedulesItemTiming"
           },
           "days": {
-            "$ref": "#/components/schemas/Def26SubsequenceScheduleSchedulesItemDays"
+            "$ref": "#/components/schemas/CampaignSubsequenceSubsequenceScheduleSchedulesItemDays"
           },
           "timezone": {
-            "$ref": "#/components/schemas/Def26SubsequenceScheduleSchedulesItemTimezone"
+            "$ref": "#/components/schemas/CampaignSubsequenceSubsequenceScheduleSchedulesItemTimezone"
           }
         }
       },
-      "Def26SequencesItemStepsItem": {
+      "CampaignSubsequenceSequencesItemStepsItem": {
         "required": [
           "type",
           "delay",
@@ -17699,7 +17761,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/Def26SequencesItemStepsItemType"
+            "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemType"
           },
           "delay": {
             "type": "number",
@@ -17707,7 +17769,7 @@
             "example": 2
           },
           "delay_unit": {
-            "$ref": "#/components/schemas/Def26SequencesItemStepsItemDelayUnit"
+            "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
             "type": "number",
@@ -17715,25 +17777,25 @@
             "example": 2
           },
           "pre_delay_unit": {
-            "$ref": "#/components/schemas/Def26SequencesItemStepsItemPreDelayUnit"
+            "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemPreDelayUnit"
           },
           "variants": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26SequencesItemStepsItemVariantsItem"
+              "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemVariantsItem"
             }
           }
         }
       },
-      "Def43CreatorPayload": {
+      "CustomPromptTemplateCreatorPayload": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/Def43CreatorPayloadName"
+            "$ref": "#/components/schemas/CustomPromptTemplateCreatorPayloadName"
           }
         }
       },
-      "Def44QueriesItemValues": {
+      "SalesFlowQueriesItemValues": {
         "type": "object",
         "properties": {
           "occurrence-days": {
@@ -17741,14 +17803,14 @@
             "example": 1
           },
           "occurrence-count": {
-            "$ref": "#/components/schemas/Def44QueriesItemValuesOccurrenceCount"
+            "$ref": "#/components/schemas/SalesFlowQueriesItemValuesOccurrenceCount"
           },
           "lead-status": {
-            "$ref": "#/components/schemas/Def44QueriesItemValuesLeadStatus"
+            "$ref": "#/components/schemas/SalesFlowQueriesItemValuesLeadStatus"
           }
         }
       },
-      "Def1CampaignScheduleSchedulesItemTiming": {
+      "CampaignCampaignScheduleSchedulesItemTiming": {
         "required": [
           "from",
           "to"
@@ -17767,7 +17829,7 @@
           }
         }
       },
-      "Def1CampaignScheduleSchedulesItemDays": {
+      "CampaignCampaignScheduleSchedulesItemDays": {
         "minProperties": 1,
         "type": "object",
         "properties": {
@@ -17801,7 +17863,7 @@
           }
         }
       },
-      "Def1SequencesItemStepsItemVariantsItem": {
+      "CampaignSequencesItemStepsItemVariantsItem": {
         "required": [
           "subject",
           "body"
@@ -17823,7 +17885,7 @@
           }
         }
       },
-      "Def26SubsequenceScheduleSchedulesItemTiming": {
+      "CampaignSubsequenceSubsequenceScheduleSchedulesItemTiming": {
         "required": [
           "from",
           "to"
@@ -17842,7 +17904,7 @@
           }
         }
       },
-      "Def26SubsequenceScheduleSchedulesItemDays": {
+      "CampaignSubsequenceSubsequenceScheduleSchedulesItemDays": {
         "minProperties": 1,
         "type": "object",
         "properties": {
@@ -17876,7 +17938,7 @@
           }
         }
       },
-      "Def26SequencesItemStepsItemVariantsItem": {
+      "CampaignSubsequenceSequencesItemStepsItemVariantsItem": {
         "required": [
           "subject",
           "body"
@@ -17898,7 +17960,7 @@
           }
         }
       },
-      "Def43CreatorPayloadName": {
+      "CustomPromptTemplateCreatorPayloadName": {
         "type": "object",
         "properties": {
           "first": {
@@ -17909,11 +17971,11 @@
           }
         }
       },
-      "Def44QueriesItemValuesOccurrenceCount": {
+      "SalesFlowQueriesItemValuesOccurrenceCount": {
         "type": "object",
         "properties": {
           "condition": {
-            "$ref": "#/components/schemas/Def44QueriesItemValuesOccurrenceCountCondition"
+            "$ref": "#/components/schemas/SalesFlowQueriesItemValuesOccurrenceCountCondition"
           },
           "count": {
             "type": "number",
@@ -17921,7 +17983,7 @@
           }
         }
       },
-      "Def44QueriesItemValuesLeadStatus": {
+      "SalesFlowQueriesItemValuesLeadStatus": {
         "type": "object",
         "properties": {
           "status": {
@@ -17929,7 +17991,7 @@
             "example": 1
           },
           "condition": {
-            "$ref": "#/components/schemas/Def44QueriesItemValuesLeadStatusCondition"
+            "$ref": "#/components/schemas/SalesFlowQueriesItemValuesLeadStatusCondition"
           }
         }
       },
@@ -20493,7 +20555,7 @@
       "DeleteallBlockListEntry200Response": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Def15"
+          "$ref": "#/components/schemas/BlockListEntry"
         }
       },
       "DeleteallBlockListEntry401Response": {
@@ -20973,7 +21035,7 @@
       "DeletebulkBlockListEntry200Response": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Def15"
+          "$ref": "#/components/schemas/BlockListEntry"
         }
       },
       "DeletebulkBlockListEntry401Response": {
@@ -26754,7 +26816,7 @@
           }
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport401Response": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport401Response": {
         "required": [
           "statusCode",
           "error",
@@ -26763,10 +26825,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport401ResponseStatusCode"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport401ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport401ResponseError"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport401ResponseError"
           },
           "message": {
             "type": "string",
@@ -26774,7 +26836,7 @@
           }
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport402Response": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport402Response": {
         "required": [
           "statusCode",
           "error",
@@ -26783,10 +26845,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport402ResponseStatusCode"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport402ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport402ResponseError"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport402ResponseError"
           },
           "message": {
             "type": "string",
@@ -26794,7 +26856,7 @@
           }
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport404Response": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport404Response": {
         "required": [
           "statusCode",
           "error",
@@ -26803,10 +26865,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport404ResponseStatusCode"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport404ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport404ResponseError"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport404ResponseError"
           },
           "message": {
             "type": "string",
@@ -26814,7 +26876,7 @@
           }
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport429Response": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport429Response": {
         "required": [
           "statusCode",
           "error",
@@ -26823,10 +26885,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport429ResponseStatusCode"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport429ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/ListInboxPlacementBlacklistSpamAssassinReport429ResponseError"
+            "$ref": "#/components/schemas/ListInboxPlacementBlacklistAndSpamAssassinReport429ResponseError"
           },
           "message": {
             "type": "string",
@@ -26834,7 +26896,7 @@
           }
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport401Response": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport401Response": {
         "required": [
           "statusCode",
           "error",
@@ -26843,10 +26905,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport401ResponseStatusCode"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport401ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport401ResponseError"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport401ResponseError"
           },
           "message": {
             "type": "string",
@@ -26854,7 +26916,7 @@
           }
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport402Response": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport402Response": {
         "required": [
           "statusCode",
           "error",
@@ -26863,10 +26925,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport402ResponseStatusCode"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport402ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport402ResponseError"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport402ResponseError"
           },
           "message": {
             "type": "string",
@@ -26874,7 +26936,7 @@
           }
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport404Response": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport404Response": {
         "required": [
           "statusCode",
           "error",
@@ -26883,10 +26945,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport404ResponseStatusCode"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport404ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport404ResponseError"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport404ResponseError"
           },
           "message": {
             "type": "string",
@@ -26894,7 +26956,7 @@
           }
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport429Response": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport429Response": {
         "required": [
           "statusCode",
           "error",
@@ -26903,10 +26965,10 @@
         "type": "object",
         "properties": {
           "statusCode": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport429ResponseStatusCode"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport429ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/GetInboxPlacementBlacklistSpamAssassinReport429ResponseError"
+            "$ref": "#/components/schemas/GetInboxPlacementBlacklistAndSpamAssassinReport429ResponseError"
           },
           "message": {
             "type": "string",
@@ -33347,6 +33409,108 @@
           }
         }
       },
+      "GetWorkspacePlanDetails200Response": {
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "description": "The id of workspace",
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_name": {
+            "type": "string",
+            "description": "The name of workspace",
+            "example": "My Default Workspace"
+          },
+          "subscriptions": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptions"
+          },
+          "addons": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddons"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails401ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails402ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails404ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails429ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
       "GetWorkspaceSubscriptionDetails200Response": {
         "type": "object",
         "properties": {
@@ -36551,7 +36715,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def10"
+              "$ref": "#/components/schemas/AccountCampaignMapping"
             },
             "description": "The list of Account Campaign Mapping"
           },
@@ -36578,7 +36742,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def9"
+              "$ref": "#/components/schemas/ApiKey"
             },
             "description": "The list of API Key"
           },
@@ -36599,7 +36763,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def32"
+              "$ref": "#/components/schemas/AuditLog"
             },
             "description": "The list of Audit Log"
           },
@@ -36620,7 +36784,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def12"
+              "$ref": "#/components/schemas/BackgroundJob"
             },
             "description": "The list of Background Job"
           },
@@ -36641,7 +36805,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def15"
+              "$ref": "#/components/schemas/BlockListEntry"
             },
             "description": "The list of Block List Entry"
           },
@@ -36656,7 +36820,7 @@
       "DeleteallBlockListEntry200ResponseResponseJson": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Def15"
+          "$ref": "#/components/schemas/BlockListEntry"
         }
       },
       "BulkCreatedBlockListEntries": {
@@ -36671,7 +36835,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def15"
+              "$ref": "#/components/schemas/BlockListEntry"
             }
           },
           "valid_count": {
@@ -36689,7 +36853,7 @@
       "DeletebulkBlockListEntry200ResponseResponseJson": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Def15"
+          "$ref": "#/components/schemas/BlockListEntry"
         }
       },
       "DownloadBlockListEntry200ResponseResponseCsv": {
@@ -36704,7 +36868,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1"
+              "$ref": "#/components/schemas/Campaign"
             },
             "description": "The list of Campaign"
           },
@@ -36722,7 +36886,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def1"
+              "$ref": "#/components/schemas/Campaign"
             }
           }
         }
@@ -36763,7 +36927,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def14"
+              "$ref": "#/components/schemas/CustomTagMapping"
             },
             "description": "The list of Custom Tag Mapping"
           },
@@ -36784,7 +36948,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def13"
+              "$ref": "#/components/schemas/CustomTag"
             },
             "description": "The list of Custom Tag"
           },
@@ -36805,7 +36969,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def42"
+              "$ref": "#/components/schemas/DfyEmailAccountOrder"
             },
             "description": "The list of DFY Email Account Order"
           },
@@ -36826,7 +36990,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def2"
+              "$ref": "#/components/schemas/Email"
             },
             "description": "The list of Email"
           },
@@ -36847,7 +37011,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def6"
+              "$ref": "#/components/schemas/InboxPlacementAnalytics"
             },
             "description": "The list of Inbox Placement Analytics"
           },
@@ -36877,7 +37041,7 @@
           "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem"
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport200Response": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport200Response": {
         "required": [
           "items"
         ],
@@ -36886,9 +37050,9 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def7"
+              "$ref": "#/components/schemas/InboxPlacementBlacklistAndSpamAssassinReport"
             },
-            "description": "The list of Inbox Placement Blacklist \u0026 SpamAssassin Report"
+            "description": "The list of Inbox Placement Blacklist And SpamAssassin Report"
           },
           "next_starting_after": {
             "type": "string",
@@ -36907,7 +37071,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def5"
+              "$ref": "#/components/schemas/InboxPlacementTest"
             },
             "description": "The list of Inbox Placement Test"
           },
@@ -36934,7 +37098,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def16"
+              "$ref": "#/components/schemas/LeadLabel"
             },
             "description": "The list of Lead Label"
           },
@@ -36955,7 +37119,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def4"
+              "$ref": "#/components/schemas/LeadList"
             },
             "description": "The list of Lead List"
           },
@@ -36976,7 +37140,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def11"
+              "$ref": "#/components/schemas/Lead"
             },
             "description": "The list of Lead"
           },
@@ -36997,7 +37161,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def26"
+              "$ref": "#/components/schemas/CampaignSubsequence"
             },
             "description": "The list of Campaign Subsequence"
           },
@@ -37018,7 +37182,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def41"
+              "$ref": "#/components/schemas/WebhookEvent"
             },
             "description": "The list of Webhook Event"
           },
@@ -37039,7 +37203,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def39"
+              "$ref": "#/components/schemas/Webhook"
             },
             "description": "The list of Webhook"
           },
@@ -37060,7 +37224,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def24"
+              "$ref": "#/components/schemas/WorkspaceGroupMember"
             },
             "description": "The list of Workspace Group Member"
           },
@@ -37081,7 +37245,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Def25"
+              "$ref": "#/components/schemas/WorkspaceMember"
             },
             "description": "The list of Workspace Member"
           },
@@ -37662,19 +37826,19 @@
           }
         ]
       },
-      "Def23EnrichmentPayloadProperty": {
+      "SuperSearchEnrichmentEnrichmentPayloadProperty": {
         "type": "object",
         "description": "Enrichment payload"
       },
-      "Def32AuditMetadataProperty": {
+      "AuditLogAuditMetadataProperty": {
         "type": "object",
         "description": "Metadata about the audit log"
       },
-      "Def41PayloadProperty": {
+      "WebhookEventPayloadProperty": {
         "type": "object",
         "description": "JSON payload that was sent/attempted to be sent"
       },
-      "Def5ScheduleDaysProperty": {
+      "InboxPlacementTestScheduleDaysProperty": {
         "type": "object",
         "additionalProperties": {
           "type": "boolean"
@@ -37754,7 +37918,7 @@
             "example": "Doe"
           },
           "warmup": {
-            "$ref": "#/components/schemas/Def0Warmup"
+            "$ref": "#/components/schemas/AccountWarmup"
           },
           "added_by": {
             "type": "string",
@@ -37791,7 +37955,7 @@
             "example": "active"
           },
           "status": {
-            "$ref": "#/components/schemas/Def0Status"
+            "$ref": "#/components/schemas/AccountStatus"
           },
           "enable_slow_ramp": {
             "type": "boolean",
@@ -37822,10 +37986,10 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "warmup_status": {
-            "$ref": "#/components/schemas/Def0WarmupStatus"
+            "$ref": "#/components/schemas/AccountWarmupStatus"
           },
           "status_message": {
-            "$ref": "#/components/schemas/Def0StatusMessage"
+            "$ref": "#/components/schemas/AccountStatusMessage"
           },
           "timestamp_warmup_start": {
             "type": "string",
@@ -37836,7 +38000,7 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "provider_code": {
-            "$ref": "#/components/schemas/Def0ProviderCode"
+            "$ref": "#/components/schemas/AccountProviderCode"
           },
           "setup_pending": {
             "type": "boolean",
@@ -39979,6 +40143,37 @@
           "type": {
             "type": "string",
             "example": "standard"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptions": {
+        "type": "object",
+        "properties": {
+          "outreach": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsOutreach"
+          },
+          "credits": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCredits"
+          },
+          "crm": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCrm"
+          },
+          "website_visitors": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors"
+          },
+          "inbox_placement": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddons": {
+        "type": "object",
+        "properties": {
+          "outreach": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsOutreach"
+          },
+          "credits": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsCredits"
           }
         }
       },
@@ -42704,6 +42899,342 @@
         },
         "description": "Lead availability status. May be missing when campaign is out of schedule."
       },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsOutreach": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "description": "Plan name",
+            "example": "Free Trial"
+          },
+          "addons_qty": {
+            "type": "number",
+            "description": "Addons total quantity",
+            "example": 2
+          },
+          "total_lead_limit": {
+            "type": "number",
+            "description": "Total Outreach plan limit including addons",
+            "example": 100
+          },
+          "current_lead_count": {
+            "type": "number",
+            "description": "Current number of leads counted toward the plan",
+            "example": 10
+          },
+          "base_lead_limit": {
+            "type": "number",
+            "description": "Base Outreach plan limit without add-ons",
+            "example": 25000
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsOutreachInterval"
+          },
+          "current_period_end": {
+            "type": "number",
+            "description": "Unix timestamp when the current outreach billing period ends",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "cancel_at_time": {
+            "type": "number",
+            "description": "Unix timestamp when the outreach subscription will be canceled, null if not scheduled for cancellation",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "description": "The outreach subscription price in dollars",
+            "nullable": true,
+            "example": 97
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsOutreachProductId"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsCredits": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "description": "Instantly Credits plan name",
+            "example": "Free Trial"
+          },
+          "total_credits": {
+            "type": "number",
+            "description": "Total Instantly Credits included in the current plan",
+            "example": 100
+          },
+          "available_credits": {
+            "type": "number",
+            "description": "Available Instantly Credits balance for the workspace",
+            "example": 75
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval"
+          },
+          "current_period_end": {
+            "type": "number",
+            "description": "Unix timestamp when the current Instantly Credits billing period ends",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "cancel_at_time": {
+            "type": "number",
+            "description": "Unix timestamp when the Instantly Credits subscription will be canceled, null if not scheduled for cancellation",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "description": "The Instantly Credits subscription price in dollars",
+            "nullable": true,
+            "example": 97
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId"
+          },
+          "price_option_id": {
+            "type": "string",
+            "description": "The selected Instantly Credits price option ID",
+            "nullable": true,
+            "example": "growth_2000"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsCrm": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Growth CRM"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCrmInterval"
+          },
+          "current_period_end": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "cancel_at_time": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "nullable": true,
+            "example": 47
+          },
+          "product_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "pid_crm_g"
+          },
+          "available_credits": {
+            "type": "number",
+            "nullable": true,
+            "example": null
+          },
+          "plan_limit": {
+            "type": "number",
+            "nullable": true,
+            "example": null
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Hyper Visitors"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval"
+          },
+          "current_period_end": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "cancel_at_time": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "nullable": true,
+            "example": 97
+          },
+          "product_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "pid_hv_v1"
+          },
+          "available_credits": {
+            "type": "number",
+            "nullable": true,
+            "example": 280
+          },
+          "plan_limit": {
+            "type": "number",
+            "nullable": true,
+            "example": 500
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Growth Inbox Placement"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval"
+          },
+          "current_period_end": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "cancel_at_time": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "nullable": true,
+            "example": 47
+          },
+          "product_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "pid_ip_g"
+          },
+          "available_credits": {
+            "type": "number",
+            "nullable": true,
+            "example": null
+          },
+          "plan_limit": {
+            "type": "number",
+            "nullable": true,
+            "example": null
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsOutreach": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsOutreachProductId"
+          },
+          "unit_lead_limit": {
+            "type": "number",
+            "description": "Number of additional contacts included in one add-on unit.",
+            "example": 25000
+          },
+          "existing_quantity": {
+            "type": "number",
+            "description": "Current quantity of Outreach add-on units.",
+            "example": 2
+          },
+          "max_quantity": {
+            "type": "number",
+            "description": "Maximum additional units selectable in one update.",
+            "example": 20
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsOutreachInterval"
+          },
+          "can_purchase": {
+            "type": "boolean",
+            "description": "Whether the workspace can purchase Outreach add-ons.",
+            "example": true
+          },
+          "purchase_blocked_reason": {
+            "type": "string",
+            "description": "Reason add-on purchase is blocked, null when purchase is allowed.",
+            "nullable": true,
+            "example": "advanced_outreach_plan_required"
+          },
+          "annual_discount_percent": {
+            "type": "number",
+            "description": "Annual billing discount percentage.",
+            "example": 20
+          },
+          "monthly_pricing_tiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem"
+            }
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsCredits": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsCreditsProductId"
+          },
+          "annual_product_id": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsCreditsAnnualProductId"
+          },
+          "unit_credits": {
+            "type": "number",
+            "description": "Number of additional monthly credits included in one add-on unit.",
+            "example": 50000
+          },
+          "annual_unit_credits": {
+            "type": "number",
+            "description": "Number of additional annual credits included in one add-on unit.",
+            "example": 600000
+          },
+          "existing_quantity": {
+            "type": "number",
+            "description": "Current quantity of Instantly Credits add-on units.",
+            "example": 2
+          },
+          "max_quantity": {
+            "type": "number",
+            "description": "Maximum additional units selectable in one update.",
+            "example": 10
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseAddonsCreditsInterval"
+          },
+          "can_purchase": {
+            "type": "boolean",
+            "description": "Whether the workspace can purchase Instantly Credits add-ons.",
+            "example": true
+          },
+          "purchase_blocked_reason": {
+            "type": "string",
+            "description": "Reason add-on purchase is blocked, null when purchase is allowed.",
+            "nullable": true,
+            "example": "hyper_credits_plan_required"
+          },
+          "monthly_price_in_dollars": {
+            "type": "number",
+            "description": "Monthly price for one Instantly Credits add-on unit in dollars.",
+            "example": 425
+          },
+          "annual_price_in_dollars": {
+            "type": "number",
+            "description": "Annual price for one Instantly Credits add-on unit in dollars.",
+            "example": 5100
+          }
+        }
+      },
       "GetEnrichmentForResource200ResponseEnrichmentPayloadAiEnrichment": {
         "type": "object"
       },
@@ -43377,6 +43908,24 @@
         },
         "description": "Breakdown of unavailable accounts by reason"
       },
+      "GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem": {
+        "type": "object",
+        "properties": {
+          "from_quantity": {
+            "type": "number",
+            "example": 1
+          },
+          "to_quantity": {
+            "type": "number",
+            "nullable": true,
+            "example": 5
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "example": 87
+          }
+        }
+      },
       "CreateSuperSearchEnrichmentRequestIntegrationActionsAdditionalPropertiesAdditionalProperties": {
         "required": [
           "mapping"
@@ -43396,7 +43945,7 @@
         },
         "description": "Maps action input field keys to lead column names"
       },
-      "Def0Status": {
+      "AccountStatus": {
         "enum": [
           1,
           2,
@@ -43419,7 +43968,7 @@
           "-3": "Sending Error"
         }
       },
-      "Def0WarmupStatus": {
+      "AccountWarmupStatus": {
         "enum": [
           0,
           1,
@@ -43440,7 +43989,7 @@
           "-3": "Permanent Suspension"
         }
       },
-      "Def0ProviderCode": {
+      "AccountProviderCode": {
         "enum": [
           1,
           2,
@@ -43460,7 +44009,7 @@
           "8": "AirMail"
         }
       },
-      "Def1Status": {
+      "CampaignStatus": {
         "enum": [
           -99,
           -1,
@@ -43487,7 +44036,7 @@
           "-2": "Bounce Protect"
         }
       },
-      "Def1NotSendingStatus": {
+      "CampaignNotSendingStatus": {
         "enum": [
           1,
           2,
@@ -43509,7 +44058,7 @@
           "99": "Campaign is currently not sending due to an error. Please contact support for assistance."
         }
       },
-      "Def2UeType": {
+      "EmailUeType": {
         "enum": [
           1,
           2,
@@ -43528,7 +44077,7 @@
           "4": "Scheduled"
         }
       },
-      "Def3Status": {
+      "EmailVerificationStatus": {
         "enum": [
           "success",
           "error"
@@ -43544,7 +44093,7 @@
           "error": "The verification was unsuccessful"
         },
         "x-ms-enum": {
-          "name": "Def3Status",
+          "name": "EmailVerificationStatus",
           "modelAsString": false,
           "values": [
             {
@@ -43558,7 +44107,7 @@
           ]
         }
       },
-      "Def3VerificationStatus": {
+      "EmailVerificationVerificationStatus": {
         "enum": [
           "pending",
           "verified",
@@ -43575,7 +44124,7 @@
           "invalid": "The verification is invalid"
         },
         "x-ms-enum": {
-          "name": "Def3VerificationStatus",
+          "name": "EmailVerificationVerificationStatus",
           "modelAsString": false,
           "values": [
             {
@@ -43593,7 +44142,7 @@
           ]
         }
       },
-      "Def3CatchAll": {
+      "EmailVerificationCatchAll": {
         "enum": [
           true,
           false,
@@ -43609,7 +44158,7 @@
           "pending": "The catch-all status is pending"
         },
         "x-ms-enum": {
-          "name": "Def3CatchAll",
+          "name": "EmailVerificationCatchAll",
           "modelAsString": false,
           "values": [
             {
@@ -43619,7 +44168,7 @@
           ]
         }
       },
-      "Def5DeliveryMode": {
+      "InboxPlacementTestDeliveryMode": {
         "enum": [
           1,
           2
@@ -43634,7 +44183,7 @@
           "2": "All together"
         }
       },
-      "Def5Type": {
+      "InboxPlacementTestType": {
         "enum": [
           1,
           2
@@ -43644,7 +44193,7 @@
         "description": "Whether the inbox placement test is a one-time test or an automated test",
         "example": 1
       },
-      "Def5SendingMethod": {
+      "InboxPlacementTestSendingMethod": {
         "enum": [
           1,
           2
@@ -43658,7 +44207,7 @@
           "2": "From Outside Instantly"
         }
       },
-      "Def5Status": {
+      "InboxPlacementTestStatus": {
         "enum": [
           1,
           2,
@@ -43675,7 +44224,7 @@
           "3": "Completed"
         }
       },
-      "Def5NotSendingStatus": {
+      "InboxPlacementTestNotSendingStatus": {
         "enum": [
           "daily_limits_hit",
           "other"
@@ -43690,7 +44239,7 @@
           "other": "Other reason"
         },
         "x-ms-enum": {
-          "name": "Def5NotSendingStatus",
+          "name": "InboxPlacementTestNotSendingStatus",
           "modelAsString": false,
           "values": [
             {
@@ -43704,7 +44253,7 @@
           ]
         }
       },
-      "Def6SenderEsp": {
+      "InboxPlacementAnalyticsSenderEsp": {
         "enum": [
           1,
           2,
@@ -43723,7 +44272,7 @@
           "13": "Libero.it"
         }
       },
-      "Def6RecipientEsp": {
+      "InboxPlacementAnalyticsRecipientEsp": {
         "enum": [
           1,
           2,
@@ -43742,7 +44291,7 @@
           "13": "Libero.it"
         }
       },
-      "Def6RecipientGeo": {
+      "InboxPlacementAnalyticsRecipientGeo": {
         "enum": [
           1,
           2,
@@ -43761,7 +44310,7 @@
           "4": "France"
         }
       },
-      "Def6RecipientType": {
+      "InboxPlacementAnalyticsRecipientType": {
         "enum": [
           1,
           2
@@ -43776,7 +44325,7 @@
           "2": "Personal"
         }
       },
-      "Def6RecordType": {
+      "InboxPlacementAnalyticsRecordType": {
         "enum": [
           1,
           2
@@ -43791,7 +44340,7 @@
           "2": "Received"
         }
       },
-      "Def9ScopesItem": {
+      "ApiKeyScopesItem": {
         "enum": [
           "all:all",
           "all:create",
@@ -43976,7 +44525,7 @@
         "additionalProperties": false,
         "example": "campaigns:create",
         "x-ms-enum": {
-          "name": "Def9ScopesItem",
+          "name": "ApiKeyScopesItem",
           "modelAsString": false,
           "values": [
             {
@@ -44694,7 +45243,7 @@
           ]
         }
       },
-      "Def10Status": {
+      "AccountCampaignMappingStatus": {
         "enum": [
           -99,
           -1,
@@ -44720,7 +45269,7 @@
           "-2": "Bounce Protect"
         }
       },
-      "Def11Status": {
+      "LeadStatus": {
         "enum": [
           1,
           2,
@@ -44743,7 +45292,7 @@
           "-3": "Skipped"
         }
       },
-      "Def11LtInterestStatus": {
+      "LeadLtInterestStatus": {
         "enum": [
           1,
           2,
@@ -44771,7 +45320,7 @@
           "-4": "No Show"
         }
       },
-      "Def11VerificationStatus": {
+      "LeadVerificationStatus": {
         "enum": [
           1,
           -1,
@@ -44796,7 +45345,7 @@
           "-4": "Job Change"
         }
       },
-      "Def11EnrichmentStatus": {
+      "LeadEnrichmentStatus": {
         "enum": [
           1,
           -1,
@@ -44815,7 +45364,7 @@
           "-2": "Error"
         }
       },
-      "Def11UploadMethod": {
+      "LeadUploadMethod": {
         "enum": [
           "manual",
           "api",
@@ -44832,7 +45381,7 @@
           "website-visitor": "Website Visitor"
         },
         "x-ms-enum": {
-          "name": "Def11UploadMethod",
+          "name": "LeadUploadMethod",
           "modelAsString": false,
           "values": [
             {
@@ -44850,7 +45399,7 @@
           ]
         }
       },
-      "Def11EspCode": {
+      "LeadEspCode": {
         "enum": [
           0,
           1,
@@ -44883,7 +45432,7 @@
           "1000": "Not Found"
         }
       },
-      "Def11EsgCode": {
+      "LeadEsgCode": {
         "enum": [
           0,
           1,
@@ -44904,7 +45453,7 @@
           "4": "Cisco"
         }
       },
-      "Def12Type": {
+      "BackgroundJobType": {
         "enum": [
           "move-leads",
           "import-leads",
@@ -44930,7 +45479,7 @@
           "import-subscribers-from-crm": "Import Subscribers From CRM"
         },
         "x-ms-enum": {
-          "name": "Def12Type",
+          "name": "BackgroundJobType",
           "modelAsString": false,
           "values": [
             {
@@ -44968,7 +45517,7 @@
           ]
         }
       },
-      "Def12EntityType": {
+      "BackgroundJobEntityType": {
         "enum": [
           "list",
           "campaign",
@@ -44988,7 +45537,7 @@
           "subscriber-group-sync": "The entity is a subscriber-group sync"
         },
         "x-ms-enum": {
-          "name": "Def12EntityType",
+          "name": "BackgroundJobEntityType",
           "modelAsString": false,
           "values": [
             {
@@ -45014,7 +45563,7 @@
           ]
         }
       },
-      "Def12Status": {
+      "BackgroundJobStatus": {
         "enum": [
           "pending",
           "in-progress",
@@ -45038,7 +45587,7 @@
           "cancelled": "The background job was cancelled by the user"
         },
         "x-ms-enum": {
-          "name": "Def12Status",
+          "name": "BackgroundJobStatus",
           "modelAsString": false,
           "values": [
             {
@@ -45072,7 +45621,7 @@
           ]
         }
       },
-      "Def14ResourceType": {
+      "CustomTagMappingResourceType": {
         "enum": [
           1,
           2
@@ -45087,7 +45636,7 @@
           "2": "Campaign"
         }
       },
-      "Def16InterestStatusLabel": {
+      "LeadLabelInterestStatusLabel": {
         "enum": [
           "positive",
           "negative",
@@ -45103,7 +45652,7 @@
           "neutral": "Neutral"
         },
         "x-ms-enum": {
-          "name": "Def16InterestStatusLabel",
+          "name": "LeadLabelInterestStatusLabel",
           "modelAsString": false,
           "values": [
             {
@@ -45121,7 +45670,7 @@
           ]
         }
       },
-      "Def23Type": {
+      "SuperSearchEnrichmentType": {
         "enum": [
           "work_email_enrichment",
           "fully_enriched_profile",
@@ -45150,7 +45699,7 @@
           "custom_flow": "Custom Flow Enrichment"
         },
         "x-ms-enum": {
-          "name": "Def23Type",
+          "name": "SuperSearchEnrichmentType",
           "modelAsString": false,
           "values": [
             {
@@ -45196,7 +45745,7 @@
           ]
         }
       },
-      "Def23ResourceType": {
+      "SuperSearchEnrichmentResourceType": {
         "enum": [
           1,
           2
@@ -45211,7 +45760,7 @@
           "2": "List"
         }
       },
-      "Def24Status": {
+      "WorkspaceGroupMemberStatus": {
         "enum": [
           "pending",
           "accepted",
@@ -45226,7 +45775,7 @@
           "rejected": "The member has rejected the invitation to the workspace group."
         },
         "x-ms-enum": {
-          "name": "Def24Status",
+          "name": "WorkspaceGroupMemberStatus",
           "modelAsString": false,
           "values": [
             {
@@ -45244,7 +45793,7 @@
           ]
         }
       },
-      "Def25Role": {
+      "WorkspaceMemberRole": {
         "enum": [
           "owner",
           "admin",
@@ -45264,7 +45813,7 @@
           "client": "This is a special role for users in the whitelabel (agency) view. It is not available in the API."
         },
         "x-ms-enum": {
-          "name": "Def25Role",
+          "name": "WorkspaceMemberRole",
           "modelAsString": false,
           "values": [
             {
@@ -45290,7 +45839,7 @@
           ]
         }
       },
-      "Def25PermissionsItem": {
+      "WorkspaceMemberPermissionsItem": {
         "enum": [
           "dashboard.view",
           "campaigns.view",
@@ -45356,7 +45905,7 @@
           "workspaceGroupMembers.leave": "Leave workspace group"
         },
         "x-ms-enum": {
-          "name": "Def25PermissionsItem",
+          "name": "WorkspaceMemberPermissionsItem",
           "modelAsString": false,
           "values": [
             {
@@ -45478,7 +46027,7 @@
           ]
         }
       },
-      "Def26Status": {
+      "CampaignSubsequenceStatus": {
         "enum": [
           -99,
           -1,
@@ -45505,7 +46054,7 @@
           "-2": "Bounce Protection - The subsequence is paused due to high bounce rates"
         }
       },
-      "Def26DailyLimitMode": {
+      "CampaignSubsequenceDailyLimitMode": {
         "enum": [
           "inherit",
           "custom",
@@ -45516,7 +46065,7 @@
         "description": "Daily limit mode for the subsequence. \u0022inherit\u0022 uses the parent campaign limit, \u0022custom\u0022 uses a subsequence-specific limit, \u0022unlimited\u0022 bypasses the campaign-level daily limit.",
         "example": "inherit",
         "x-ms-enum": {
-          "name": "Def26DailyLimitMode",
+          "name": "CampaignSubsequenceDailyLimitMode",
           "modelAsString": false,
           "values": [
             {
@@ -45534,7 +46083,7 @@
           ]
         }
       },
-      "Def32ActivityType": {
+      "AuditLogActivityType": {
         "enum": [
           1,
           2,
@@ -45605,7 +46154,7 @@
           "35": "SuperSearch enrichment created"
         }
       },
-      "Def39EventType": {
+      "WebhookEventType": {
         "enum": [
           "all_events",
           "email_sent",
@@ -45633,7 +46182,7 @@
         "nullable": true,
         "example": "email_sent",
         "x-ms-enum": {
-          "name": "Def39EventType",
+          "name": "WebhookEventType",
           "modelAsString": false,
           "values": [
             {
@@ -45715,7 +46264,7 @@
           ]
         }
       },
-      "Def43Category": {
+      "CustomPromptTemplateCategory": {
         "enum": [
           1,
           2,
@@ -45737,7 +46286,7 @@
           "6": "Personalization"
         }
       },
-      "Def43ModelVersion": {
+      "CustomPromptTemplateModelVersion": {
         "enum": [
           "3.5",
           "gpt-5",
@@ -45788,7 +46337,7 @@
           "instantly-ai-lightspeed-agent": "Instantly AI Lightspeed Agent"
         },
         "x-ms-enum": {
-          "name": "Def43ModelVersion",
+          "name": "CustomPromptTemplateModelVersion",
           "modelAsString": false,
           "values": [
             {
@@ -45878,7 +46427,7 @@
           ]
         }
       },
-      "Def43TemplateType": {
+      "CustomPromptTemplateTemplateType": {
         "enum": [
           "custom",
           "public"
@@ -45893,7 +46442,7 @@
           "public": "public"
         },
         "x-ms-enum": {
-          "name": "Def43TemplateType",
+          "name": "CustomPromptTemplateTemplateType",
           "modelAsString": false,
           "values": [
             {
@@ -45907,7 +46456,7 @@
           ]
         }
       },
-      "Def0WarmupIncrement": {
+      "AccountWarmupIncrement": {
         "enum": [
           "disabled",
           "0",
@@ -45929,7 +46478,7 @@
           "disabled": "Disabled"
         },
         "x-ms-enum": {
-          "name": "Def0WarmupIncrement",
+          "name": "AccountWarmupIncrement",
           "modelAsString": false,
           "values": [
             {
@@ -45959,7 +46508,7 @@
           ]
         }
       },
-      "Def1AutoVariantSelectTrigger": {
+      "CampaignAutoVariantSelectTrigger": {
         "enum": [
           "reply_rate",
           "click_rate",
@@ -45968,7 +46517,7 @@
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "Def1AutoVariantSelectTrigger",
+          "name": "CampaignAutoVariantSelectTrigger",
           "modelAsString": false,
           "values": [
             {
@@ -45986,7 +46535,7 @@
           ]
         }
       },
-      "Def1LimitEmailsPerCompanyOverrideMode": {
+      "CampaignLimitEmailsPerCompanyOverrideMode": {
         "enum": [
           "custom",
           "disabled"
@@ -45994,7 +46543,7 @@
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "Def1LimitEmailsPerCompanyOverrideMode",
+          "name": "CampaignLimitEmailsPerCompanyOverrideMode",
           "modelAsString": false,
           "values": [
             {
@@ -46008,7 +46557,7 @@
           ]
         }
       },
-      "Def1LimitEmailsPerCompanyOverrideScope": {
+      "CampaignLimitEmailsPerCompanyOverrideScope": {
         "enum": [
           "per_campaign",
           "across_workspace"
@@ -46016,7 +46565,7 @@
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "Def1LimitEmailsPerCompanyOverrideScope",
+          "name": "CampaignLimitEmailsPerCompanyOverrideScope",
           "modelAsString": false,
           "values": [
             {
@@ -46030,7 +46579,7 @@
           ]
         }
       },
-      "Def1ProviderRoutingRulesItemAction": {
+      "CampaignProviderRoutingRulesItemAction": {
         "enum": [
           "send",
           "do_not_send"
@@ -46039,7 +46588,7 @@
         "additionalProperties": false,
         "example": "send",
         "x-ms-enum": {
-          "name": "Def1ProviderRoutingRulesItemAction",
+          "name": "CampaignProviderRoutingRulesItemAction",
           "modelAsString": false,
           "values": [
             {
@@ -46053,7 +46602,7 @@
           ]
         }
       },
-      "Def1ProviderRoutingRulesItemRecipientEspItem": {
+      "CampaignProviderRoutingRulesItemRecipientEspItem": {
         "enum": [
           "all",
           "google",
@@ -46064,7 +46613,7 @@
         "additionalProperties": false,
         "example": "all",
         "x-ms-enum": {
-          "name": "Def1ProviderRoutingRulesItemRecipientEspItem",
+          "name": "CampaignProviderRoutingRulesItemRecipientEspItem",
           "modelAsString": false,
           "values": [
             {
@@ -46086,7 +46635,7 @@
           ]
         }
       },
-      "Def1ProviderRoutingRulesItemSenderEspItem": {
+      "CampaignProviderRoutingRulesItemSenderEspItem": {
         "enum": [
           "all",
           "google",
@@ -46097,7 +46646,7 @@
         "additionalProperties": false,
         "example": "all",
         "x-ms-enum": {
-          "name": "Def1ProviderRoutingRulesItemSenderEspItem",
+          "name": "CampaignProviderRoutingRulesItemSenderEspItem",
           "modelAsString": false,
           "values": [
             {
@@ -46119,7 +46668,7 @@
           ]
         }
       },
-      "Def5ScheduleTimezone": {
+      "InboxPlacementTestScheduleTimezone": {
         "enum": [
           "Etc/GMT\u002B12",
           "Etc/GMT\u002B11",
@@ -46229,7 +46778,7 @@
         "description": "Timezone in which the schedule is set, in IANA timezone format.",
         "example": "Etc/GMT\u002B12",
         "x-ms-enum": {
-          "name": "Def5ScheduleTimezone",
+          "name": "InboxPlacementTestScheduleTimezone",
           "modelAsString": false,
           "values": [
             {
@@ -46643,7 +47192,7 @@
           ]
         }
       },
-      "Def26ConditionsCrmStatusItem": {
+      "CampaignSubsequenceConditionsCrmStatusItem": {
         "enum": [
           1,
           2,
@@ -46670,7 +47219,7 @@
           "-4": "No Show"
         }
       },
-      "Def26ConditionsLeadActivityItem": {
+      "CampaignSubsequenceConditionsLeadActivityItem": {
         "enum": [
           4,
           91,
@@ -46685,7 +47234,7 @@
           "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
         }
       },
-      "Def44QueriesItemActionType": {
+      "SalesFlowQueriesItemActionType": {
         "enum": [
           "reply",
           "email-open",
@@ -46698,7 +47247,7 @@
         "additionalProperties": false,
         "example": "email-open",
         "x-ms-enum": {
-          "name": "Def44QueriesItemActionType",
+          "name": "SalesFlowQueriesItemActionType",
           "modelAsString": false,
           "values": [
             {
@@ -46728,7 +47277,7 @@
           ]
         }
       },
-      "Def1CampaignScheduleSchedulesItemTimezone": {
+      "CampaignCampaignScheduleSchedulesItemTimezone": {
         "enum": [
           "Etc/GMT\u002B12",
           "Etc/GMT\u002B11",
@@ -46837,7 +47386,7 @@
         "additionalProperties": false,
         "example": "Etc/GMT\u002B12",
         "x-ms-enum": {
-          "name": "Def1CampaignScheduleSchedulesItemTimezone",
+          "name": "CampaignCampaignScheduleSchedulesItemTimezone",
           "modelAsString": false,
           "values": [
             {
@@ -47251,7 +47800,7 @@
           ]
         }
       },
-      "Def1SequencesItemStepsItemType": {
+      "CampaignSequencesItemStepsItemType": {
         "enum": [
           "email"
         ],
@@ -47263,7 +47812,7 @@
           "email": "This steps represents an email"
         },
         "x-ms-enum": {
-          "name": "Def1SequencesItemStepsItemType",
+          "name": "CampaignSequencesItemStepsItemType",
           "modelAsString": false,
           "values": [
             {
@@ -47273,7 +47822,7 @@
           ]
         }
       },
-      "Def1SequencesItemStepsItemDelayUnit": {
+      "CampaignSequencesItemStepsItemDelayUnit": {
         "enum": [
           "minutes",
           "hours",
@@ -47285,7 +47834,7 @@
         "default": "days",
         "example": "days",
         "x-ms-enum": {
-          "name": "Def1SequencesItemStepsItemDelayUnit",
+          "name": "CampaignSequencesItemStepsItemDelayUnit",
           "modelAsString": false,
           "values": [
             {
@@ -47303,7 +47852,7 @@
           ]
         }
       },
-      "Def1SequencesItemStepsItemPreDelayUnit": {
+      "CampaignSequencesItemStepsItemPreDelayUnit": {
         "enum": [
           "minutes",
           "hours",
@@ -47315,7 +47864,7 @@
         "default": "days",
         "example": "days",
         "x-ms-enum": {
-          "name": "Def1SequencesItemStepsItemPreDelayUnit",
+          "name": "CampaignSequencesItemStepsItemPreDelayUnit",
           "modelAsString": false,
           "values": [
             {
@@ -47333,7 +47882,7 @@
           ]
         }
       },
-      "Def5AutomationsItemWhenCondition": {
+      "InboxPlacementTestAutomationsItemWhenCondition": {
         "enum": [
           "placement_goes_below",
           "placement_goes_above",
@@ -47344,7 +47893,7 @@
         "additionalProperties": false,
         "description": "Condition for automation trigger",
         "x-ms-enum": {
-          "name": "Def5AutomationsItemWhenCondition",
+          "name": "InboxPlacementTestAutomationsItemWhenCondition",
           "modelAsString": false,
           "values": [
             {
@@ -47366,7 +47915,7 @@
           ]
         }
       },
-      "Def26SubsequenceScheduleSchedulesItemTimezone": {
+      "CampaignSubsequenceSubsequenceScheduleSchedulesItemTimezone": {
         "enum": [
           "Etc/GMT\u002B12",
           "Etc/GMT\u002B11",
@@ -47475,7 +48024,7 @@
         "additionalProperties": false,
         "example": "Etc/GMT\u002B12",
         "x-ms-enum": {
-          "name": "Def26SubsequenceScheduleSchedulesItemTimezone",
+          "name": "CampaignSubsequenceSubsequenceScheduleSchedulesItemTimezone",
           "modelAsString": false,
           "values": [
             {
@@ -47889,7 +48438,7 @@
           ]
         }
       },
-      "Def26SequencesItemStepsItemType": {
+      "CampaignSubsequenceSequencesItemStepsItemType": {
         "enum": [
           "email"
         ],
@@ -47901,7 +48450,7 @@
           "email": "This steps represents an email"
         },
         "x-ms-enum": {
-          "name": "Def26SequencesItemStepsItemType",
+          "name": "CampaignSubsequenceSequencesItemStepsItemType",
           "modelAsString": false,
           "values": [
             {
@@ -47911,7 +48460,7 @@
           ]
         }
       },
-      "Def26SequencesItemStepsItemDelayUnit": {
+      "CampaignSubsequenceSequencesItemStepsItemDelayUnit": {
         "enum": [
           "minutes",
           "hours",
@@ -47923,7 +48472,7 @@
         "default": "days",
         "example": "days",
         "x-ms-enum": {
-          "name": "Def26SequencesItemStepsItemDelayUnit",
+          "name": "CampaignSubsequenceSequencesItemStepsItemDelayUnit",
           "modelAsString": false,
           "values": [
             {
@@ -47941,7 +48490,7 @@
           ]
         }
       },
-      "Def26SequencesItemStepsItemPreDelayUnit": {
+      "CampaignSubsequenceSequencesItemStepsItemPreDelayUnit": {
         "enum": [
           "minutes",
           "hours",
@@ -47953,7 +48502,7 @@
         "default": "days",
         "example": "days",
         "x-ms-enum": {
-          "name": "Def26SequencesItemStepsItemPreDelayUnit",
+          "name": "CampaignSubsequenceSequencesItemStepsItemPreDelayUnit",
           "modelAsString": false,
           "values": [
             {
@@ -47971,7 +48520,7 @@
           ]
         }
       },
-      "Def44QueriesItemValuesOccurrenceCountCondition": {
+      "SalesFlowQueriesItemValuesOccurrenceCountCondition": {
         "enum": [
           "more",
           "less",
@@ -47981,7 +48530,7 @@
         "additionalProperties": false,
         "example": "more",
         "x-ms-enum": {
-          "name": "Def44QueriesItemValuesOccurrenceCountCondition",
+          "name": "SalesFlowQueriesItemValuesOccurrenceCountCondition",
           "modelAsString": false,
           "values": [
             {
@@ -47999,7 +48548,7 @@
           ]
         }
       },
-      "Def44QueriesItemValuesLeadStatusCondition": {
+      "SalesFlowQueriesItemValuesLeadStatusCondition": {
         "enum": [
           "is",
           "is-not"
@@ -48008,7 +48557,7 @@
         "additionalProperties": false,
         "example": "is",
         "x-ms-enum": {
-          "name": "Def44QueriesItemValuesLeadStatusCondition",
+          "name": "SalesFlowQueriesItemValuesLeadStatusCondition",
           "modelAsString": false,
           "values": [
             {
@@ -57067,7 +57616,7 @@
           ]
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport401ResponseStatusCode": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport401ResponseStatusCode": {
         "enum": [
           401
         ],
@@ -57075,7 +57624,7 @@
         "additionalProperties": false,
         "example": 401
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport401ResponseError": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport401ResponseError": {
         "enum": [
           "Unauthorized"
         ],
@@ -57083,7 +57632,7 @@
         "additionalProperties": false,
         "example": "Unauthorized"
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport402ResponseStatusCode": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport402ResponseStatusCode": {
         "enum": [
           402
         ],
@@ -57091,7 +57640,7 @@
         "additionalProperties": false,
         "example": 402
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport402ResponseError": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport402ResponseError": {
         "enum": [
           "Payment Required"
         ],
@@ -57099,7 +57648,7 @@
         "additionalProperties": false,
         "example": "Payment Required",
         "x-ms-enum": {
-          "name": "ListInboxPlacementBlacklistSpamAssassinReport402ResponseError",
+          "name": "ListInboxPlacementBlacklistAndSpamAssassinReport402ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -57109,7 +57658,7 @@
           ]
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport404ResponseStatusCode": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport404ResponseStatusCode": {
         "enum": [
           404
         ],
@@ -57117,7 +57666,7 @@
         "additionalProperties": false,
         "example": 404
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport404ResponseError": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport404ResponseError": {
         "enum": [
           "Not Found"
         ],
@@ -57125,7 +57674,7 @@
         "additionalProperties": false,
         "example": "Not Found",
         "x-ms-enum": {
-          "name": "ListInboxPlacementBlacklistSpamAssassinReport404ResponseError",
+          "name": "ListInboxPlacementBlacklistAndSpamAssassinReport404ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -57135,7 +57684,7 @@
           ]
         }
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport429ResponseStatusCode": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport429ResponseStatusCode": {
         "enum": [
           429
         ],
@@ -57143,7 +57692,7 @@
         "additionalProperties": false,
         "example": 429
       },
-      "ListInboxPlacementBlacklistSpamAssassinReport429ResponseError": {
+      "ListInboxPlacementBlacklistAndSpamAssassinReport429ResponseError": {
         "enum": [
           "Too Many Requests"
         ],
@@ -57151,7 +57700,7 @@
         "additionalProperties": false,
         "example": "Too Many Requests",
         "x-ms-enum": {
-          "name": "ListInboxPlacementBlacklistSpamAssassinReport429ResponseError",
+          "name": "ListInboxPlacementBlacklistAndSpamAssassinReport429ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -57161,7 +57710,7 @@
           ]
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport401ResponseStatusCode": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport401ResponseStatusCode": {
         "enum": [
           401
         ],
@@ -57169,7 +57718,7 @@
         "additionalProperties": false,
         "example": 401
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport401ResponseError": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport401ResponseError": {
         "enum": [
           "Unauthorized"
         ],
@@ -57177,7 +57726,7 @@
         "additionalProperties": false,
         "example": "Unauthorized"
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport402ResponseStatusCode": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport402ResponseStatusCode": {
         "enum": [
           402
         ],
@@ -57185,7 +57734,7 @@
         "additionalProperties": false,
         "example": 402
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport402ResponseError": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport402ResponseError": {
         "enum": [
           "Payment Required"
         ],
@@ -57193,7 +57742,7 @@
         "additionalProperties": false,
         "example": "Payment Required",
         "x-ms-enum": {
-          "name": "GetInboxPlacementBlacklistSpamAssassinReport402ResponseError",
+          "name": "GetInboxPlacementBlacklistAndSpamAssassinReport402ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -57203,7 +57752,7 @@
           ]
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport404ResponseStatusCode": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport404ResponseStatusCode": {
         "enum": [
           404
         ],
@@ -57211,7 +57760,7 @@
         "additionalProperties": false,
         "example": 404
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport404ResponseError": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport404ResponseError": {
         "enum": [
           "Not Found"
         ],
@@ -57219,7 +57768,7 @@
         "additionalProperties": false,
         "example": "Not Found",
         "x-ms-enum": {
-          "name": "GetInboxPlacementBlacklistSpamAssassinReport404ResponseError",
+          "name": "GetInboxPlacementBlacklistAndSpamAssassinReport404ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -57229,7 +57778,7 @@
           ]
         }
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport429ResponseStatusCode": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport429ResponseStatusCode": {
         "enum": [
           429
         ],
@@ -57237,7 +57786,7 @@
         "additionalProperties": false,
         "example": 429
       },
-      "GetInboxPlacementBlacklistSpamAssassinReport429ResponseError": {
+      "GetInboxPlacementBlacklistAndSpamAssassinReport429ResponseError": {
         "enum": [
           "Too Many Requests"
         ],
@@ -57245,7 +57794,7 @@
         "additionalProperties": false,
         "example": "Too Many Requests",
         "x-ms-enum": {
-          "name": "GetInboxPlacementBlacklistSpamAssassinReport429ResponseError",
+          "name": "GetInboxPlacementBlacklistAndSpamAssassinReport429ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -63662,6 +64211,100 @@
         "example": "Too Many Requests",
         "x-ms-enum": {
           "name": "ResumeWebhook429ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails401ResponseStatusCode": {
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetWorkspacePlanDetails401ResponseError": {
+        "enum": [
+          "Unauthorized"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unauthorized"
+      },
+      "GetWorkspacePlanDetails402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetWorkspacePlanDetails402ResponseError": {
+        "enum": [
+          "Payment Required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Payment Required",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails402ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Payment Required",
+              "name": "PaymentRequired"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails404ResponseStatusCode": {
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetWorkspacePlanDetails404ResponseError": {
+        "enum": [
+          "Not Found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Not Found",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails404ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Not Found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails429ResponseStatusCode": {
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetWorkspacePlanDetails429ResponseError": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Too Many Requests",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails429ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -73778,6 +74421,533 @@
           ]
         }
       },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsOutreachInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The billing interval of the outreach subscription",
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsOutreachInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsOutreachProductId": {
+        "enum": [
+          "pid_ls_v1",
+          "pid_hg_v1",
+          "pid_g_v1",
+          "pid_g_v2",
+          "pid_nic_v1",
+          "pid_nic_v1_annual",
+          "pid_gic_v1",
+          "pid_gic_v1_annual",
+          "pid_sic_v1",
+          "pid_sic_v1_annual",
+          "pid_hic_v1",
+          "pid_hic_v1_annual",
+          "pid_verify_v1_monthly",
+          "pid_hv_v1",
+          "pid_hv_v1_annual",
+          "pid_lsv_v1",
+          "pid_lsv_v1_annual",
+          "pid_crm_hg",
+          "pid_crm_g",
+          "pid_ip_g",
+          "pid_ip_hg",
+          "pid_addon_25kl_v1",
+          "pid_addon_lf_10k_v1",
+          "pid_addon_ic_50k_v1",
+          "pid_addon_lf_10k_v1_annual",
+          "pid_addon_ic_50k_v1_annual"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The ID of the outreach plan subscribed to",
+        "nullable": true,
+        "example": "pid_g_v1",
+        "x-enumDescriptions": {
+          "pid_g_v1": "Growth Plan",
+          "pid_g_v2": "Growth Plan V2",
+          "pid_hg_v1": "Hypergrowth Plan",
+          "pid_ls_v1": "LightSpeed Plan",
+          "pid_nic_v1": "Instantly Credits Nano",
+          "pid_nic_v1_annual": "Instantly Credits Nano Annual",
+          "pid_gic_v1": "Instantly Credits Growth",
+          "pid_gic_v1_annual": "Instantly Credits Growth Annual",
+          "pid_sic_v1": "Instantly Credits Supersonic",
+          "pid_sic_v1_annual": "Instantly Credits Supersonic Annual",
+          "pid_hic_v1": "Instantly Credits Hyper Leads",
+          "pid_hic_v1_annual": "Instantly Credits Hyper Leads Annual",
+          "pid_verify_v1_monthly": "Verification Monthly",
+          "pid_hv_v1": "Website Visitor Hypergrowth Monthly",
+          "pid_hv_v1_annual": "Website Visitor Hypergrowth Annual",
+          "pid_lsv_v1": "Website Visitor Lightspeed Monthly",
+          "pid_lsv_v1_annual": "Website Visitor Lightspeed Annual",
+          "pid_crm_hg": "CRM",
+          "pid_crm_g": "Growth CRM",
+          "pid_ip_g": "Inbox Placement Growth Monthly",
+          "pid_ip_hg": "Inbox Placement Hypergrowth Monthly",
+          "pid_addon_25kl_v1": "Addon Lead 25K",
+          "pid_addon_lf_10k_v1": "Addon Lead Finder",
+          "pid_addon_ic_50k_v1": "Addon Instantly Credits",
+          "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
+          "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+        },
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsOutreachProductId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pid_ls_v1",
+              "name": "PidLsV1"
+            },
+            {
+              "value": "pid_hg_v1",
+              "name": "PidHgV1"
+            },
+            {
+              "value": "pid_g_v1",
+              "name": "PidGV1"
+            },
+            {
+              "value": "pid_g_v2",
+              "name": "PidGV2"
+            },
+            {
+              "value": "pid_nic_v1",
+              "name": "PidNicV1"
+            },
+            {
+              "value": "pid_nic_v1_annual",
+              "name": "PidNicV1Annual"
+            },
+            {
+              "value": "pid_gic_v1",
+              "name": "PidGicV1"
+            },
+            {
+              "value": "pid_gic_v1_annual",
+              "name": "PidGicV1Annual"
+            },
+            {
+              "value": "pid_sic_v1",
+              "name": "PidSicV1"
+            },
+            {
+              "value": "pid_sic_v1_annual",
+              "name": "PidSicV1Annual"
+            },
+            {
+              "value": "pid_hic_v1",
+              "name": "PidHicV1"
+            },
+            {
+              "value": "pid_hic_v1_annual",
+              "name": "PidHicV1Annual"
+            },
+            {
+              "value": "pid_verify_v1_monthly",
+              "name": "PidVerifyV1Monthly"
+            },
+            {
+              "value": "pid_hv_v1",
+              "name": "PidHvV1"
+            },
+            {
+              "value": "pid_hv_v1_annual",
+              "name": "PidHvV1Annual"
+            },
+            {
+              "value": "pid_lsv_v1",
+              "name": "PidLsvV1"
+            },
+            {
+              "value": "pid_lsv_v1_annual",
+              "name": "PidLsvV1Annual"
+            },
+            {
+              "value": "pid_crm_hg",
+              "name": "PidCrmHg"
+            },
+            {
+              "value": "pid_crm_g",
+              "name": "PidCrmG"
+            },
+            {
+              "value": "pid_ip_g",
+              "name": "PidIpG"
+            },
+            {
+              "value": "pid_ip_hg",
+              "name": "PidIpHg"
+            },
+            {
+              "value": "pid_addon_25kl_v1",
+              "name": "PidAddon25KlV1"
+            },
+            {
+              "value": "pid_addon_lf_10k_v1",
+              "name": "PidAddonLf10KV1"
+            },
+            {
+              "value": "pid_addon_ic_50k_v1",
+              "name": "PidAddonIc50KV1"
+            },
+            {
+              "value": "pid_addon_lf_10k_v1_annual",
+              "name": "PidAddonLf10KV1Annual"
+            },
+            {
+              "value": "pid_addon_ic_50k_v1_annual",
+              "name": "PidAddonIc50KV1Annual"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The billing interval of the Instantly Credits subscription",
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId": {
+        "enum": [
+          "pid_nic_v1",
+          "pid_nic_v1_annual",
+          "pid_gic_v1",
+          "pid_gic_v1_annual",
+          "pid_sic_v1",
+          "pid_sic_v1_annual",
+          "pid_hic_v1",
+          "pid_hic_v1_annual"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The ID of the Instantly Credits plan subscribed to",
+        "nullable": true,
+        "example": "pid_gic_v1",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pid_nic_v1",
+              "name": "PidNicV1"
+            },
+            {
+              "value": "pid_nic_v1_annual",
+              "name": "PidNicV1Annual"
+            },
+            {
+              "value": "pid_gic_v1",
+              "name": "PidGicV1"
+            },
+            {
+              "value": "pid_gic_v1_annual",
+              "name": "PidGicV1Annual"
+            },
+            {
+              "value": "pid_sic_v1",
+              "name": "PidSicV1"
+            },
+            {
+              "value": "pid_sic_v1_annual",
+              "name": "PidSicV1Annual"
+            },
+            {
+              "value": "pid_hic_v1",
+              "name": "PidHicV1"
+            },
+            {
+              "value": "pid_hic_v1_annual",
+              "name": "PidHicV1Annual"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsCrmInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsCrmInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsOutreachProductId": {
+        "enum": [
+          "pid_addon_25kl_v1"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The product ID for the Outreach add-on.",
+        "example": "pid_addon_25kl_v1",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseAddonsOutreachProductId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pid_addon_25kl_v1",
+              "name": "PidAddon25KlV1"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsOutreachInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The current billing interval for the Outreach add-on subscription.",
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseAddonsOutreachInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsCreditsProductId": {
+        "enum": [
+          "pid_addon_ic_50k_v1"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The monthly product ID for the Instantly Credits add-on.",
+        "example": "pid_addon_ic_50k_v1",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseAddonsCreditsProductId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pid_addon_ic_50k_v1",
+              "name": "PidAddonIc50KV1"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsCreditsAnnualProductId": {
+        "enum": [
+          "pid_addon_ic_50k_v1_annual"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The annual product ID for the Instantly Credits add-on.",
+        "example": "pid_addon_ic_50k_v1_annual",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseAddonsCreditsAnnualProductId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pid_addon_ic_50k_v1_annual",
+              "name": "PidAddonIc50KV1Annual"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseAddonsCreditsInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The current billing interval for the Instantly Credits add-on subscription.",
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseAddonsCreditsInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersIndustryExcludeItem": {
         "enum": [
           "Agriculture \u0026 Mining",
@@ -79509,162 +80679,162 @@
     {
       "name": "Analytics",
       "description": "Endpoints related to analytics",
-      "x-displayName": "Analytics"
+      "x-group": "Analytics"
     },
     {
       "name": "OAuth",
       "description": "OAuth authentication endpoints for connecting Google and Microsoft email accounts",
-      "x-displayName": "OAuth"
+      "x-group": "OAuth"
     },
     {
       "name": "Account",
       "description": "An email account that can be used to send campaigns",
-      "x-displayName": "Account"
+      "x-group": "Account"
     },
     {
       "name": "Campaign",
       "description": "A campaign that can be sent to a list of recipients",
-      "x-displayName": "Campaign"
+      "x-group": "Campaign"
     },
     {
       "name": "Email",
       "description": "A campaign email, a reply, a manually sent email, or any other email that\u0027s visible in the Unibox",
-      "x-displayName": "Email"
+      "x-group": "Email"
     },
     {
       "name": "EmailVerification",
       "description": "A single email verification",
-      "x-displayName": "Email Verification"
+      "x-group": "Email Verification"
     },
     {
       "name": "LeadList",
       "description": "A list used to store leads",
-      "x-displayName": "Lead List"
+      "x-group": "Lead List"
     },
     {
       "name": "InboxPlacementTest",
       "description": "An inbox placement test",
-      "x-displayName": "Inbox Placement Test"
+      "x-group": "Inbox Placement Test"
     },
     {
       "name": "InboxPlacementAnalytics",
       "description": "Analytics data for individual emails in inbox placement tests",
-      "x-displayName": "Inbox Placement Analytics"
+      "x-group": "Inbox Placement Analytics"
     },
     {
-      "name": "InboxPlacementBlacklist\u0026SpamAssassinReport",
+      "name": "InboxPlacementBlacklistAndSpamAssassinReport",
       "description": "Report data for an inbox placement test",
-      "x-displayName": "Inbox Placement Blacklist \u0026 SpamAssassin Report"
+      "x-group": "Inbox Placement Blacklist And SpamAssassin Report"
     },
     {
       "name": "APIKey",
       "description": "API Key",
-      "x-displayName": "API Key"
+      "x-group": "API Key"
     },
     {
       "name": "AccountCampaignMapping",
       "description": "Account Campaign Mapping",
-      "x-displayName": "Account Campaign Mapping"
+      "x-group": "Account Campaign Mapping"
     },
     {
       "name": "Lead",
       "description": "A lead entity representing an individual lead",
-      "x-displayName": "Lead"
+      "x-group": "Lead"
     },
     {
       "name": "BackgroundJob",
       "description": "A background job that can be used to perform long-running tasks",
-      "x-displayName": "Background Job"
+      "x-group": "Background Job"
     },
     {
       "name": "CustomTag",
       "description": "A custom tag for organizing and categorizing accounts and campaigns. You can use them as filters in apis that list accounts and campaigns.",
-      "x-displayName": "Custom Tag"
+      "x-group": "Custom Tag"
     },
     {
       "name": "CustomTagMapping",
       "description": "This entity represents a tag being assigned to a specific campaign or email account. When an email account is assigned a tag, a new custom tag mapping entry is created, which connects the tag (\u0060tag_id\u0060 field) with the email account (\u0060resource_id\u0060 field). You can use it to see which tag si connected to which resource.",
-      "x-displayName": "Custom Tag Mapping"
+      "x-group": "Custom Tag Mapping"
     },
     {
       "name": "BlockListEntry",
       "description": "A blocked email or domain",
-      "x-displayName": "Block List Entry"
+      "x-group": "Block List Entry"
     },
     {
       "name": "LeadLabel",
       "description": "A custom label for categorizing and managing leads",
-      "x-displayName": "Lead Label"
+      "x-group": "Lead Label"
     },
     {
       "name": "Workspace",
       "description": "A workspace entity representing a workspace",
-      "x-displayName": "Workspace"
+      "x-group": "Workspace"
     },
     {
       "name": "SuperSearchEnrichment",
       "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
-      "x-displayName": "SuperSearch Enrichment"
+      "x-group": "SuperSearch Enrichment"
     },
     {
       "name": "WorkspaceGroupMember",
       "description": "A member of a workspace group. You can use the endpoints within this entity to manage the members of a workspace group.",
-      "x-displayName": "Workspace Group Member"
+      "x-group": "Workspace Group Member"
     },
     {
       "name": "WorkspaceMember",
       "description": "A member of a workspace with associated user details",
-      "x-displayName": "Workspace Member"
+      "x-group": "Workspace Member"
     },
     {
       "name": "CampaignSubsequence",
       "description": "A subsequence entity representing a follow-up sequence",
-      "x-displayName": "Campaign Subsequence"
+      "x-group": "Campaign Subsequence"
     },
     {
       "name": "AuditLog",
       "description": "Audit log records for tracking system activities",
-      "x-displayName": "Audit Log"
+      "x-group": "Audit Log"
     },
     {
       "name": "Webhook",
       "description": "A webhook subscription for receiving event notifications",
-      "x-displayName": "Webhook"
+      "x-group": "Webhook"
     },
     {
       "name": "WebhookEvent",
       "description": "A webhook event that was sent or attempted to be sent",
-      "x-displayName": "Webhook Event"
+      "x-group": "Webhook Event"
     },
     {
       "name": "DFYEmailAccountOrder",
       "description": "A Done-For-You email account order",
-      "x-displayName": "DFY Email Account Order"
+      "x-group": "DFY Email Account Order"
     },
     {
       "name": "CustomPromptTemplate",
       "description": "Custom prompt templates for creating custom prompts",
-      "x-displayName": "Custom Prompt Template"
+      "x-group": "Custom Prompt Template"
     },
     {
       "name": "SalesFlow",
       "description": "Manages how sales users view and interact with campaign and lead lists within the sales flow.",
-      "x-displayName": "Sales Flow"
+      "x-group": "Sales Flow"
     },
     {
       "name": "EmailTemplate",
       "description": "A campaign email template",
-      "x-displayName": "Email Template"
+      "x-group": "Email Template"
     },
     {
       "name": "WorkspaceBilling",
       "description": "Workspace Billing",
-      "x-displayName": "Workspace Billing"
+      "x-group": "Workspace Billing"
     },
     {
       "name": "CRMActions",
       "description": "CRM related actions",
-      "x-displayName": "CRM Actions"
+      "x-group": "CRM Actions"
     }
   ]
 }
