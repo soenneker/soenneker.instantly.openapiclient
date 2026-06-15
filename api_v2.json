@@ -49397,6 +49397,75 @@
                       }
                     }
                   },
+                  "live_list": {
+                    "type": "object",
+                    "description": "Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Mutually exclusive with evergreen. Requires a list destination.",
+                    "required": [
+                      "schedule"
+                    ],
+                    "properties": {
+                      "schedule": {
+                        "type": "object",
+                        "required": [
+                          "frequency"
+                        ],
+                        "properties": {
+                          "frequency": {
+                            "type": "string",
+                            "enum": [
+                              "daily",
+                              "weekly",
+                              "monthly"
+                            ],
+                            "example": "weekly"
+                          },
+                          "day_of_week": {
+                            "type": "string",
+                            "enum": [
+                              "Monday",
+                              "Tuesday",
+                              "Wednesday",
+                              "Thursday",
+                              "Friday",
+                              "Saturday",
+                              "Sunday"
+                            ],
+                            "description": "Day name for weekly cadence",
+                            "example": "Monday"
+                          },
+                          "day_of_month": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 31,
+                            "description": "Day for monthly cadence",
+                            "example": 1
+                          },
+                          "time": {
+                            "type": "string",
+                            "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$",
+                            "description": "Run time; the minute is staggered per workflow",
+                            "example": "1970-01-01T00:00:00.000Z"
+                          },
+                          "timezone": {
+                            "type": "string",
+                            "example": "UTC"
+                          }
+                        }
+                      },
+                      "leads_per_run": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Max new leads enriched per scheduled run",
+                        "example": 25
+                      },
+                      "push_to_campaign_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Push each run\u0027s new leads to this campaign",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      }
+                    }
+                  },
                   "skip_rows_without_email": {
                     "type": "boolean",
                     "description": "Whether to skip leads without email",
@@ -49489,6 +49558,14 @@
                       ],
                       "description": "Identifier of an associated background import job, when one is spawned. \u0060null\u0060 when no background job was created for this request.",
                       "example": "000000000000000000000000"
+                    },
+                    "live_list_workflow_id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "description": "Id of the automation workflow created when live_list was requested. \u0060null\u0060 when not requested or when workflow creation failed.",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     }
                   },
                   "required": [

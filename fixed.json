@@ -35853,6 +35853,9 @@
           "evergreen": {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestEvergreen"
           },
+          "live_list": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestLiveList"
+          },
           "skip_rows_without_email": {
             "type": "boolean",
             "description": "Whether to skip leads without email",
@@ -35929,6 +35932,12 @@
             "description": "Identifier of an associated background import job, when one is spawned. \u0060null\u0060 when no background job was created for this request.",
             "nullable": true,
             "example": "000000000000000000000000"
+          },
+          "live_list_workflow_id": {
+            "type": "string",
+            "description": "Id of the automation workflow created when live_list was requested. \u0060null\u0060 when not requested or when workflow creation failed.",
+            "nullable": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         }
       },
@@ -40539,6 +40548,30 @@
           }
         }
       },
+      "EnrichLeadsFromSupersearchRequestLiveList": {
+        "required": [
+          "schedule"
+        ],
+        "type": "object",
+        "properties": {
+          "schedule": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestLiveListSchedule"
+          },
+          "leads_per_run": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Max new leads enriched per scheduled run",
+            "example": 25
+          },
+          "push_to_campaign_id": {
+            "type": "string",
+            "description": "Push each run\u0027s new leads to this campaign",
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "description": "\u0022Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Mutually exclusive with evergreen. Requires a list destination.\u0022"
+      },
       "EnrichLeadsFromSupersearchRequestAiEnrichment": {
         "type": "object",
         "description": "AI enrichment configuration. Keys are output column names, values are enrichment details."
@@ -43334,6 +43367,37 @@
               "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersSubIndustryIncludeItem"
             },
             "description": "Subindustries of the lead company to include in the search"
+          }
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestLiveListSchedule": {
+        "required": [
+          "frequency"
+        ],
+        "type": "object",
+        "properties": {
+          "frequency": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestLiveListScheduleFrequency"
+          },
+          "day_of_week": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestLiveListScheduleDayOfWeek"
+          },
+          "day_of_month": {
+            "maximum": 31,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Day for monthly cadence",
+            "example": 1
+          },
+          "time": {
+            "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$",
+            "type": "string",
+            "description": "Run time; the minute is staggered per workflow",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timezone": {
+            "type": "string",
+            "example": "UTC"
           }
         }
       },
@@ -76588,6 +76652,49 @@
             }
           ]
         }
+      },
+      "EnrichLeadsFromSupersearchRequestLiveListScheduleFrequency": {
+        "enum": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "weekly",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestLiveListScheduleFrequency",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "daily",
+              "name": "Daily"
+            },
+            {
+              "value": "weekly",
+              "name": "Weekly"
+            },
+            {
+              "value": "monthly",
+              "name": "Monthly"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestLiveListScheduleDayOfWeek": {
+        "enum": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Day name for weekly cadence",
+        "example": "Monday"
       },
       "CountLeadsFromSupersearchRequestSearchFiltersIndustryExcludeItem": {
         "enum": [

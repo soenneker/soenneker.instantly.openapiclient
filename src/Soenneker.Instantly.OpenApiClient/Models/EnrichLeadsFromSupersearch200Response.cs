@@ -48,6 +48,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ListName { get; set; }
 #endif
+        /// <summary>Id of the automation workflow created when live_list was requested. `null` when not requested or when workflow creation failed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LiveListWorkflowId { get; set; }
+#nullable restore
+#else
+        public string LiveListWorkflowId { get; set; }
+#endif
         /// <summary>Organization ID that created this enrichment</summary>
         public Guid? OrganizationId { get; set; }
         /// <summary>ID of the list</summary>
@@ -92,6 +100,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
+                { "live_list_workflow_id", n => { LiveListWorkflowId = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
@@ -110,6 +119,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
+            writer.WriteStringValue("live_list_workflow_id", LiveListWorkflowId);
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteGuidValue("resource_id", ResourceId);
             writer.WriteDoubleValue("resource_type", ResourceType);
