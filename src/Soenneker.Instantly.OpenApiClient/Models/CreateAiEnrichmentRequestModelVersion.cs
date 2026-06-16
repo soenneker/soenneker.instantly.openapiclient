@@ -59,9 +59,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         R1,
         #pragma warning restore CS1591
-        [EnumMember(Value = "grok-4")]
+        [EnumMember(Value = "grok-4.3")]
         #pragma warning disable CS1591
-        Grok4,
+        Grok43,
         #pragma warning restore CS1591
         [EnumMember(Value = "gemini-2.0-flash")]
         #pragma warning disable CS1591

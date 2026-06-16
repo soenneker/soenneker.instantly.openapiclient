@@ -46366,7 +46366,7 @@
           "claude-3.5-sonnet",
           "claude-4.5-sonnet",
           "r1",
-          "grok-4",
+          "grok-4.3",
           "gemini-2.0-flash",
           "gemini-3.0-flash",
           "gemini-3.0-pro",
@@ -46392,7 +46392,7 @@
           "claude-3.5-sonnet": "Claude 3.5 Sonnet",
           "claude-4.5-sonnet": "Claude 4.5 Sonnet",
           "r1": "R1",
-          "grok-4": "Grok 4",
+          "grok-4.3": "Grok 4.3",
           "gemini-2.0-flash": "Gemini 2.0 Flash",
           "gemini-3.0-flash": "Gemini 3.0 Flash",
           "gemini-3.0-pro": "Gemini 3.0 Pro",
@@ -46461,8 +46461,8 @@
               "name": "R1"
             },
             {
-              "value": "grok-4",
-              "name": "Grok4"
+              "value": "grok-4.3",
+              "name": "Grok43"
             },
             {
               "value": "gemini-2.0-flash",
@@ -66338,7 +66338,7 @@
           "claude-3.5-sonnet",
           "claude-4.5-sonnet",
           "r1",
-          "grok-4",
+          "grok-4.3",
           "gemini-2.0-flash",
           "gemini-3.0-flash",
           "gemini-3.0-pro",
@@ -66365,7 +66365,7 @@
           "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
           "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u0027s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
           "r1": "R1 - Deepseek\u0027s advanced chat model",
-          "grok-4": "Grok 4 - X AI\u0027s latest reasoning model",
+          "grok-4.3": "Grok 4.3 - X AI\u0027s latest reasoning model",
           "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s powerful and versatile model",
           "gemini-3.0-flash": "Gemini 3.0 Flash - Is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance",
           "gemini-3.0-pro": "Gemini 3.0 Pro - Google\u0027s latest model with improved capabilities",
@@ -66431,8 +66431,8 @@
               "name": "R1"
             },
             {
-              "value": "grok-4",
-              "name": "Grok4"
+              "value": "grok-4.3",
+              "name": "Grok43"
             },
             {
               "value": "gemini-2.0-flash",
