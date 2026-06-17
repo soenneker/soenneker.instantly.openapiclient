@@ -28,5 +28,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         SubscriberGroupSync,
         #pragma warning restore CS1591
+        [EnumMember(Value = "subscriber-group")]
+        #pragma warning disable CS1591
+        SubscriberGroup,
+        #pragma warning restore CS1591
     }
 }

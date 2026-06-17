@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Mutually exclusive with evergreen. Requires a list destination.&quot;
+    /// &quot;Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Requires a list destination.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrichLeadsFromSupersearchRequestLiveList : IAdditionalDataHolder, IParsable

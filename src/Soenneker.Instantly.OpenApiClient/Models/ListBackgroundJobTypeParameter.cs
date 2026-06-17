@@ -40,5 +40,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         ImportSubscribersFromCrm,
         #pragma warning restore CS1591
+        [EnumMember(Value = "resync-subscriber-crm-tags")]
+        #pragma warning disable CS1591
+        ResyncSubscriberCrmTags,
+        #pragma warning restore CS1591
     }
 }

@@ -55,6 +55,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Claude45Sonnet,
         #pragma warning restore CS1591
+        [EnumMember(Value = "claude-4.6-sonnet")]
+        #pragma warning disable CS1591
+        Claude46Sonnet,
+        #pragma warning restore CS1591
         [EnumMember(Value = "r1")]
         #pragma warning disable CS1591
         R1,

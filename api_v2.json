@@ -3566,7 +3566,8 @@
               "rename-variable",
               "broadcast-ai-generate",
               "broadcast-website-scrape",
-              "import-subscribers-from-crm"
+              "import-subscribers-from-crm",
+              "resync-subscriber-crm-tags"
             ],
             "x-enumDescriptions": {
               "move-leads": "Move Leads",
@@ -3576,7 +3577,8 @@
               "rename-variable": "Rename Variable",
               "broadcast-ai-generate": "AI broadcast generation",
               "broadcast-website-scrape": "Broadcast website analysis",
-              "import-subscribers-from-crm": "Import Subscribers From CRM"
+              "import-subscribers-from-crm": "Import Subscribers From CRM",
+              "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags"
             },
             "example": "move-leads"
           },
@@ -3597,14 +3599,16 @@
               "campaign",
               "workspace",
               "broadcast",
-              "subscriber-group-sync"
+              "subscriber-group-sync",
+              "subscriber-group"
             ],
             "x-enumDescriptions": {
               "list": "The entity is a lead list",
               "campaign": "The entity is a campaign",
               "workspace": "The entity is a workspace",
               "broadcast": "The entity is an email-marketing broadcast",
-              "subscriber-group-sync": "The entity is a subscriber-group sync"
+              "subscriber-group-sync": "The entity is a subscriber-group sync",
+              "subscriber-group": "The entity is a subscriber group"
             },
             "example": "list"
           },
@@ -5614,6 +5618,7 @@
               "gpt-4.1-mini",
               "claude-3.5-sonnet",
               "claude-4.5-sonnet",
+              "claude-4.6-sonnet",
               "r1",
               "grok-4.3",
               "gemini-2.0-flash",
@@ -5637,6 +5642,7 @@
               "gpt-4.1-mini": "GPT-4.1 Mini",
               "claude-3.5-sonnet": "Claude 3.5 Sonnet",
               "claude-4.5-sonnet": "Claude 4.5 Sonnet",
+              "claude-4.6-sonnet": "Claude 4.6 Sonnet",
               "r1": "R1",
               "grok-4.3": "Grok 4.3",
               "gemini-2.0-flash": "Gemini 2.0 Flash",
@@ -11202,7 +11208,8 @@
                 "rename-variable",
                 "broadcast-ai-generate",
                 "broadcast-website-scrape",
-                "import-subscribers-from-crm"
+                "import-subscribers-from-crm",
+                "resync-subscriber-crm-tags"
               ],
               "example": "move-leads"
             },
@@ -11219,7 +11226,8 @@
                 "campaign",
                 "workspace",
                 "broadcast",
-                "subscriber-group-sync"
+                "subscriber-group-sync",
+                "subscriber-group"
               ],
               "example": "list"
             },
@@ -46492,6 +46500,7 @@
                       "gpt-5.4",
                       "claude-3.5-sonnet",
                       "claude-4.5-sonnet",
+                      "claude-4.6-sonnet",
                       "r1",
                       "grok-4.3",
                       "gemini-2.0-flash",
@@ -46515,6 +46524,7 @@
                       "gpt-4.1-mini": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost.",
                       "claude-3.5-sonnet": "Claude 3.5 Sonnet - Anthropic\u0027s balanced model",
                       "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u0027s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
+                      "claude-4.6-sonnet": "Claude Sonnet 4.6 is Anthropic\u0027s latest Sonnet model, optimized for real-world agents and coding workflows.",
                       "r1": "R1 - Deepseek\u0027s advanced chat model",
                       "grok-4.3": "Grok 4.3 - X AI\u0027s latest reasoning model",
                       "gemini-2.0-flash": "Gemini 2.0 Flash - Google\u0027s powerful and versatile model",
@@ -49382,24 +49392,9 @@
                     "description": "Whether to auto-update new leads",
                     "example": true
                   },
-                  "evergreen": {
-                    "type": "object",
-                    "properties": {
-                      "leads_to_add": {
-                        "type": "number",
-                        "description": "Number of leads to add",
-                        "example": 100
-                      },
-                      "frequency": {
-                        "type": "string",
-                        "description": "Frequency of the evergreen",
-                        "example": "Daily"
-                      }
-                    }
-                  },
                   "live_list": {
                     "type": "object",
-                    "description": "Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Mutually exclusive with evergreen. Requires a list destination.",
+                    "description": "Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Requires a list destination.",
                     "required": [
                       "schedule"
                     ],

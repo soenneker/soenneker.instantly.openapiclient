@@ -32,14 +32,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> CustomFlow { get; set; }
 #endif
-        /// <summary>The evergreen property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestEvergreen? Evergreen { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestEvergreen Evergreen { get; set; }
-#endif
         /// <summary>Enable LinkedIn profile enrichment</summary>
         public bool? FullyEnrichedProfile { get; set; }
         /// <summary>Maximum number of leads to import</summary>
@@ -52,7 +44,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ListName { get; set; }
 #endif
-        /// <summary>&quot;Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Mutually exclusive with evergreen. Requires a list destination.&quot;</summary>
+        /// <summary>&quot;Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Requires a list destination.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList? LiveList { get; set; }
@@ -118,7 +110,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "ai_enrichment", n => { AiEnrichment = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestAiEnrichment>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestAiEnrichment.CreateFromDiscriminatorValue); } },
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
                 { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "evergreen", n => { Evergreen = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestEvergreen>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestEvergreen.CreateFromDiscriminatorValue); } },
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
@@ -141,7 +132,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestAiEnrichment>("ai_enrichment", AiEnrichment);
             writer.WriteBoolValue("auto_update", AutoUpdate);
             writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestEvergreen>("evergreen", Evergreen);
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
