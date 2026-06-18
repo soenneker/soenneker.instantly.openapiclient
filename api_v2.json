@@ -148,6 +148,24 @@
             "description": "Daily email sending limit",
             "example": 100
           },
+          "daily_limit_max": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum daily email sending limit for AirMail accounts",
+            "readOnly": true,
+            "example": 100
+          },
+          "warmup_limit_max": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum daily warmup sending limit for AirMail accounts",
+            "readOnly": true,
+            "example": 100
+          },
           "modified_by": {
             "type": [
               "null",
@@ -21722,9 +21740,24 @@
                       "example": 1
                     },
                     "price_per_account_per_month": {
-                      "type": "number",
-                      "description": "The monthly price charged per mailbox. Applies to per-account providers (Google, AirMail). For Microsoft/Outlook orders mailboxes are NOT charged individually \u2014 see \u0060price_per_domain_per_month\u0060 instead.",
-                      "example": 4
+                      "type": [
+                        "null",
+                        "number"
+                      ],
+                      "description": "Legacy monthly price charged per mailbox. Null for mixed mailbox-provider orders; use \u0060price_per_account_per_month_by_account_type\u0060 and \u0060order_items[].accounts[].price\u0060 for provider-specific prices. For Microsoft/Outlook orders mailboxes are NOT charged individually \u2014 see \u0060price_per_domain_per_month\u0060 instead.",
+                      "example": null
+                    },
+                    "price_per_account_per_month_by_account_type": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "number",
+                        "example": 4
+                      },
+                      "description": "Provider-specific monthly mailbox prices keyed by account type. Present when the order contains per-account providers with different mailbox prices.",
+                      "example": {
+                        "1": 5,
+                        "2": 4
+                      }
                     },
                     "price_per_domain_per_month": {
                       "type": [
@@ -34908,6 +34941,17 @@
                         "values"
                       ]
                     }
+                  },
+                  "assigned_to": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Filter leads by their current owner (the user they are currently assigned to).",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "has_clause": {
+                    "type": "boolean",
+                    "description": "Whether this endpoint should list data based on the filters currently applied in the web app.",
+                    "example": true
                   }
                 },
                 "required": [

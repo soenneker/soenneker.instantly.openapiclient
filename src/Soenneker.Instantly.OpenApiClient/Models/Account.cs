@@ -19,6 +19,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public bool? AutofixFailed { get; private set; }
         /// <summary>Daily email sending limit</summary>
         public double? DailyLimit { get; set; }
+        /// <summary>Maximum daily email sending limit for AirMail accounts</summary>
+        public double? DailyLimitMax { get; private set; }
         /// <summary>Whether DFY password has been changed</summary>
         public bool? DfyPasswordChanged { get; private set; }
         /// <summary>Email address of the account</summary>
@@ -123,6 +125,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup Warmup { get; set; }
 #endif
+        /// <summary>Maximum daily warmup sending limit for AirMail accounts</summary>
+        public double? WarmupLimitMax { get; private set; }
         /// <summary>ID of the warmup pool this account belongs to</summary>
         public Guid? WarmupPoolId { get; private set; }
         /// <summary>Current warmup status of the account</summary>
@@ -148,6 +152,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "added_by", n => { AddedBy = n.GetGuidValue(); } },
                 { "autofix_failed", n => { AutofixFailed = n.GetBoolValue(); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
+                { "daily_limit_max", n => { DailyLimitMax = n.GetDoubleValue(); } },
                 { "dfy_password_changed", n => { DfyPasswordChanged = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "enable_slow_ramp", n => { EnableSlowRamp = n.GetBoolValue(); } },
@@ -173,6 +178,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "tracking_domain_name", n => { TrackingDomainName = n.GetStringValue(); } },
                 { "tracking_domain_status", n => { TrackingDomainStatus = n.GetStringValue(); } },
                 { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup>(global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup.CreateFromDiscriminatorValue); } },
+                { "warmup_limit_max", n => { WarmupLimitMax = n.GetDoubleValue(); } },
                 { "warmup_pool_id", n => { WarmupPoolId = n.GetGuidValue(); } },
                 { "warmup_status", n => { WarmupStatus = n.GetDoubleValue(); } },
             };

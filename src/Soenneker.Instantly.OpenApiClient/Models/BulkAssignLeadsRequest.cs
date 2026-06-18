@@ -14,10 +14,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Filter leads by their current owner (the user they are currently assigned to).</summary>
+        public Guid? AssignedTo { get; set; }
         /// <summary>The ID of the campaign to filter leads by.</summary>
         public Guid? Campaign { get; set; }
         /// <summary>The filter to apply to the leads.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestFilter? Filter { get; set; }
+        /// <summary>Whether this endpoint should list data based on the filters currently applied in the web app.</summary>
+        public bool? HasClause { get; set; }
         /// <summary>The IDs of the leads to filter by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,8 +89,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
                 { "campaign", n => { Campaign = n.GetGuidValue(); } },
                 { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestFilter>(); } },
+                { "has_clause", n => { HasClause = n.GetBoolValue(); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "in_campaign", n => { InCampaign = n.GetBoolValue(); } },
                 { "in_list", n => { InList = n.GetBoolValue(); } },
@@ -105,8 +111,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteGuidValue("assigned_to", AssignedTo);
             writer.WriteGuidValue("campaign", Campaign);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestFilter>("filter", Filter);
+            writer.WriteBoolValue("has_clause", HasClause);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
             writer.WriteBoolValue("in_campaign", InCampaign);
             writer.WriteBoolValue("in_list", InList);

@@ -112,8 +112,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string PaymentMethodNameOnCard { get; set; }
 #endif
-        /// <summary>The monthly price charged per mailbox. Applies to per-account providers (Google, AirMail). For Microsoft/Outlook orders mailboxes are NOT charged individually — see `price_per_domain_per_month` instead.</summary>
+        /// <summary>Legacy monthly price charged per mailbox. Null for mixed mailbox-provider orders; use `price_per_account_per_month_by_account_type` and `order_items[].accounts[].price` for provider-specific prices. For Microsoft/Outlook orders mailboxes are NOT charged individually — see `price_per_domain_per_month` instead.</summary>
         public double? PricePerAccountPerMonth { get; set; }
+        /// <summary>Provider-specific monthly mailbox prices keyed by account type. Present when the order contains per-account providers with different mailbox prices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType? PricePerAccountPerMonthByAccountType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType PricePerAccountPerMonthByAccountType { get; set; }
+#endif
         /// <summary>&quot;The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for a fixed 50-mailbox bundle). Null for Google / AirMail-only orders.&quot;</summary>
         public double? PricePerDomainPerMonth { get; set; }
         /// <summary>The price per domain per year</summary>
@@ -206,6 +214,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "payment_method_last_4_digits", n => { PaymentMethodLast4Digits = n.GetStringValue(); } },
                 { "payment_method_name_on_card", n => { PaymentMethodNameOnCard = n.GetStringValue(); } },
                 { "price_per_account_per_month", n => { PricePerAccountPerMonth = n.GetDoubleValue(); } },
+                { "price_per_account_per_month_by_account_type", n => { PricePerAccountPerMonthByAccountType = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType>(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType.CreateFromDiscriminatorValue); } },
                 { "price_per_domain_per_month", n => { PricePerDomainPerMonth = n.GetDoubleValue(); } },
                 { "price_per_domain_per_year", n => { PricePerDomainPerYear = n.GetDoubleValue(); } },
                 { "provider_mismatch_domains", n => { ProviderMismatchDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -245,6 +254,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("payment_method_last_4_digits", PaymentMethodLast4Digits);
             writer.WriteStringValue("payment_method_name_on_card", PaymentMethodNameOnCard);
             writer.WriteDoubleValue("price_per_account_per_month", PricePerAccountPerMonth);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType>("price_per_account_per_month_by_account_type", PricePerAccountPerMonthByAccountType);
             writer.WriteDoubleValue("price_per_domain_per_month", PricePerDomainPerMonth);
             writer.WriteDoubleValue("price_per_domain_per_year", PricePerDomainPerYear);
             writer.WriteCollectionOfPrimitiveValues<string>("provider_mismatch_domains", ProviderMismatchDomains);
