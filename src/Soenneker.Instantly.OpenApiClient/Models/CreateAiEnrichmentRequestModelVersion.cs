@@ -47,10 +47,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Gpt54,
         #pragma warning restore CS1591
-        [EnumMember(Value = "claude-3.5-sonnet")]
-        #pragma warning disable CS1591
-        Claude35Sonnet,
-        #pragma warning restore CS1591
         [EnumMember(Value = "claude-4.5-sonnet")]
         #pragma warning disable CS1591
         Claude45Sonnet,
@@ -67,17 +63,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Grok43,
         #pragma warning restore CS1591
-        [EnumMember(Value = "gemini-2.0-flash")]
-        #pragma warning disable CS1591
-        Gemini20Flash,
-        #pragma warning restore CS1591
         [EnumMember(Value = "gemini-3.0-flash")]
         #pragma warning disable CS1591
         Gemini30Flash,
         #pragma warning restore CS1591
-        [EnumMember(Value = "gemini-3.0-pro")]
+        [EnumMember(Value = "gemini-3.5-flash")]
         #pragma warning disable CS1591
-        Gemini30Pro,
+        Gemini35Flash,
         #pragma warning restore CS1591
         [EnumMember(Value = "sonar")]
         #pragma warning disable CS1591
