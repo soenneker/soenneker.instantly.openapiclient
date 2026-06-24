@@ -97,7 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<Guid?> Tags { get; set; }
 #endif
-        /// <summary>Code for identifying the inbox placement tests in the email body from outside Instantly</summary>
+        /// <summary>Code for identifying inbox placement tests sent from outside Instantly. Use ptid_ followed by letters, numbers, hyphens, or underscores. When creating a test, the ptid_ prefix is added automatically if omitted. The full code must be at most 50 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TestCode { get; set; }

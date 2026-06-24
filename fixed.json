@@ -14729,8 +14729,9 @@
             "description": "Emails to send the inbox placement test to"
           },
           "test_code": {
+            "pattern": "^ptid_(?!ptid_)[A-Za-z0-9_-]{1,45}$",
             "type": "string",
-            "description": "Code for identifying the inbox placement tests in the email body from outside Instantly",
+            "description": "Code for identifying inbox placement tests sent from outside Instantly. Use ptid_ followed by letters, numbers, hyphens, or underscores. When creating a test, the ptid_ prefix is added automatically if omitted. The full code must be at most 50 characters.",
             "nullable": true,
             "example": "ptid_y8ujsCRs9972UH_LfKf3H"
           },
@@ -27055,8 +27056,9 @@
             "description": "Emails to send the inbox placement test to"
           },
           "test_code": {
+            "pattern": "^\\s*$|^(ptid_)?(?!ptid_)[A-Za-z0-9_-]{1,45}$",
             "type": "string",
-            "description": "Code for identifying the inbox placement tests in the email body from outside Instantly",
+            "description": "Code for identifying inbox placement tests sent from outside Instantly. Use ptid_ followed by letters, numbers, hyphens, or underscores. When creating a test, the ptid_ prefix is added automatically if omitted. The full code must be at most 50 characters.",
             "nullable": true,
             "example": "ptid_y8ujsCRs9972UH_LfKf3H"
           },
@@ -27359,8 +27361,9 @@
             "description": "Emails to send the inbox placement test to"
           },
           "test_code": {
+            "pattern": "^ptid_(?!ptid_)[A-Za-z0-9_-]{1,45}$",
             "type": "string",
-            "description": "Code for identifying the inbox placement tests in the email body from outside Instantly",
+            "description": "Code for identifying inbox placement tests sent from outside Instantly. Use ptid_ followed by letters, numbers, hyphens, or underscores. When creating a test, the ptid_ prefix is added automatically if omitted. The full code must be at most 50 characters.",
             "nullable": true,
             "example": "ptid_y8ujsCRs9972UH_LfKf3H"
           },
