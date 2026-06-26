@@ -6855,6 +6855,17 @@
             "name": "sort_order",
             "required": false,
             "description": "Sort direction. Defaults to \u0060desc\u0060 when \u0060sort_by\u0060 is provided."
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "example": 0
+            },
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "description": "Number of items to skip for offset-based pagination. Used with \u0060sort_by\u0060 when cursor pagination is not available."
           }
         ],
         "responses": {

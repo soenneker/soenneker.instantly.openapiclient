@@ -283,6 +283,16 @@
             "schema": {
               "$ref": "#/components/schemas/ListAccountSortOrderParameter"
             }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Number of items to skip for offset-based pagination. Used with \u0060sort_by\u0060 when cursor pagination is not available.",
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "example": 0
+            }
           }
         ],
         "responses": {
