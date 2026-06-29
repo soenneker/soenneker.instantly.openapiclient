@@ -53116,7 +53116,8 @@
                         "additionalProperties": false
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": true
                 }
               }
             }
