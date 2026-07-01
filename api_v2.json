@@ -3742,7 +3742,9 @@
           },
           "label": {
             "type": "string",
-            "description": "Display label for the custom tag",
+            "description": "Display label for the custom tag. Must be unique per workspace after trimming whitespace.",
+            "minLength": 1,
+            "pattern": ".*\\S.*",
             "example": "Important"
           },
           "description": {
@@ -4000,6 +4002,16 @@
           "timestamp_updated": {
             "type": "string",
             "description": "Timestamp when the workspace was last updated",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "scheduled_for_removal_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp when this workspace is scheduled to be removed",
             "readOnly": true,
             "format": "date-time",
             "example": "1970-01-01T00:00:00.000Z"
@@ -4362,6 +4374,15 @@
             "description": "Email address of the user",
             "format": "email",
             "example": "user@example.com"
+          },
+          "nickname": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Private workspace member nickname visible only to the workspace owner",
+            "maxLength": 80,
+            "example": "Finance lead"
           },
           "name": {
             "type": "object",
@@ -17495,7 +17516,7 @@
             "in": "query",
             "name": "include_opportunities_count",
             "required": false,
-            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060 and \u0060unique_opportunities\u0060 fields will be included in the response"
+            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060, \u0060unique_opportunities\u0060, and \u0060meetings_booked\u0060 fields will be included in the response"
           }
         ],
         "responses": {
@@ -17578,6 +17599,11 @@
                         "type": "integer",
                         "description": "The total number of unique opportunities created from this step. Unique meaning unique per lead. If a lead has multiple opportunities, it will be counted as 1 unique opportunity. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
                         "example": 8
+                      },
+                      "meetings_booked": {
+                        "type": "integer",
+                        "description": "The total number of opportunities from this step whose current CRM status is Meeting Booked. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
+                        "example": 2
                       }
                     },
                     "required": [
@@ -20066,7 +20092,9 @@
                 "properties": {
                   "label": {
                     "type": "string",
-                    "description": "Display label for the custom tag",
+                    "description": "Display label for the custom tag. Must be unique per workspace after trimming whitespace.",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*",
                     "example": "Important"
                   },
                   "description": {
@@ -20228,6 +20256,41 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A tag with the same normalized label already exists in this workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "A tag with this name already exists."
                     }
                   },
                   "required": [
@@ -20698,7 +20761,9 @@
                 "properties": {
                   "label": {
                     "type": "string",
-                    "description": "Display label for the custom tag",
+                    "description": "Display label for the custom tag. Must be unique per workspace after trimming whitespace.",
+                    "minLength": 1,
+                    "pattern": ".*\\S.*",
                     "example": "Important"
                   },
                   "description": {
@@ -20835,6 +20900,41 @@
                     "message": {
                       "type": "string",
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A tag with the same normalized label already exists in this workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "A tag with this name already exists."
                     }
                   },
                   "required": [
@@ -44330,6 +44430,15 @@
                     "format": "email",
                     "example": "user@example.com"
                   },
+                  "nickname": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Private workspace member nickname visible only to the workspace owner",
+                    "maxLength": 80,
+                    "example": "Finance lead"
+                  },
                   "role": {
                     "type": "string",
                     "description": "THe role of the workspace member defining their access level. While the \u0022owner\u0022 role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.",
@@ -45032,6 +45141,15 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "nickname": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Private workspace member nickname visible only to the workspace owner",
+                    "maxLength": 80,
+                    "example": "Finance lead"
+                  },
                   "role": {
                     "type": "string",
                     "description": "THe role of the workspace member defining their access level. While the \u0022owner\u0022 role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.",
@@ -45607,6 +45725,328 @@
         "responses": {
           "200": {
             "description": "The updated Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspace"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/workspaces/current/schedule-for-removal": {
+      "post": {
+        "operationId": "scheduleCurrentWorkspaceRemoval",
+        "summary": "Schedule Current Workspace Removal",
+        "tags": [
+          "Workspace"
+        ],
+        "description": "Schedule the current workspace to be removed in 24 hours.\n\n\nRequires one of the following scopes: \u0060workspaces:delete\u0060, \u0060workspaces:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "The requested Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspace"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "cancelCurrentWorkspaceRemoval",
+        "summary": "Cancel Current Workspace Removal",
+        "tags": [
+          "Workspace"
+        ],
+        "description": "Requires one of the following scopes: \u0060workspaces:delete\u0060, \u0060workspaces:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "The requested Workspace",
             "content": {
               "application/json": {
                 "schema": {

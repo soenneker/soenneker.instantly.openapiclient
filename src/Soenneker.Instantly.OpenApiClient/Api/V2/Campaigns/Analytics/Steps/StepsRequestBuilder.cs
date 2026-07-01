@@ -112,7 +112,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
-            /// <summary>Whether to include the opportunities count per step. If this field is true then `opportunities` and `unique_opportunities` fields will be included in the response</summary>
+            /// <summary>Whether to include the opportunities count per step. If this field is true then `opportunities`, `unique_opportunities`, and `meetings_booked` fields will be included in the response</summary>
             [QueryParameter("include_opportunities_count")]
             public bool? IncludeOpportunitiesCount { get; set; }
             /// <summary>Start date</summary>

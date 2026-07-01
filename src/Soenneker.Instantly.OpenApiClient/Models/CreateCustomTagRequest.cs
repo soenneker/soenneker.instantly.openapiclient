@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Display label for the custom tag</summary>
+        /// <summary>Display label for the custom tag. Must be unique per workspace after trimming whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Label { get; set; }

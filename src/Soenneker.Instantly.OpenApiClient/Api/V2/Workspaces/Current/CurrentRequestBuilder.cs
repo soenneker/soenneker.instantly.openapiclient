@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleForRemoval;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.WhitelabelDomain;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.ChangeOwnerRequestBuilder ChangeOwner
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwner.ChangeOwnerRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The scheduleForRemoval property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleForRemoval.ScheduleForRemovalRequestBuilder ScheduleForRemoval
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleForRemoval.ScheduleForRemovalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The whitelabelDomain property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.WhitelabelDomain.WhitelabelDomainRequestBuilder WhitelabelDomain

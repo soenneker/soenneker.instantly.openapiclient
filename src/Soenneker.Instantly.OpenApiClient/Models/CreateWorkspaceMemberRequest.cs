@@ -21,6 +21,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>Private workspace member nickname visible only to the workspace owner</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Nickname { get; set; }
+#nullable restore
+#else
+        public string Nickname { get; set; }
+#endif
         /// <summary>The permissions for this workspace member. Used in the app to restrict access to certain sections</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "nickname", n => { Nickname = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceMemberRequestPermissionsItem>()?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceMemberRequestRole>(); } },
                 { "user_email", n => { UserEmail = n.GetStringValue(); } },
@@ -71,6 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("nickname", Nickname);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceMemberRequestPermissionsItem>("permissions", Permissions);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateWorkspaceMemberRequestRole>("role", Role);
             writer.WriteStringValue("user_email", UserEmail);

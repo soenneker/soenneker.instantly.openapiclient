@@ -12,6 +12,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class PatchWorkspaceMemberRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Private workspace member nickname visible only to the workspace owner</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Nickname { get; set; }
+#nullable restore
+#else
+        public string Nickname { get; set; }
+#endif
         /// <summary>THe role of the workspace member defining their access level. While the &quot;owner&quot; role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.PatchWorkspaceMemberRequestRole? Role { get; set; }
         /// <summary>
@@ -32,6 +40,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "nickname", n => { Nickname = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchWorkspaceMemberRequestRole>(); } },
             };
         }
@@ -42,6 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("nickname", Nickname);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchWorkspaceMemberRequestRole>("role", Role);
         }
     }

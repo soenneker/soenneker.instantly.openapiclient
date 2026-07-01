@@ -23,7 +23,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Unique identifier for the custom tag</summary>
         public Guid? Id { get; private set; }
-        /// <summary>Display label for the custom tag</summary>
+        /// <summary>Display label for the custom tag. Must be unique per workspace after trimming whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Label { get; set; }

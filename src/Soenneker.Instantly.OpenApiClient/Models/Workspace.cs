@@ -93,6 +93,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string PlanIdWebsiteVisitor { get; private set; }
 #endif
+        /// <summary>Timestamp when this workspace is scheduled to be removed</summary>
+        public DateTimeOffset? ScheduledForRemovalAt { get; private set; }
         /// <summary>Timestamp when the workspace was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>Timestamp when the workspace was last updated</summary>
@@ -128,6 +130,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "plan_id_leadfinder", n => { PlanIdLeadfinder = n.GetStringValue(); } },
                 { "plan_id_verification", n => { PlanIdVerification = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspacePlanIdVerification>(global::Soenneker.Instantly.OpenApiClient.Models.WorkspacePlanIdVerification.CreateFromDiscriminatorValue); } },
                 { "plan_id_website_visitor", n => { PlanIdWebsiteVisitor = n.GetStringValue(); } },
+                { "scheduled_for_removal_at", n => { ScheduledForRemovalAt = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
             };

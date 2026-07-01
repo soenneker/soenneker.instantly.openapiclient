@@ -92,6 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CustomTag>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CustomTag.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

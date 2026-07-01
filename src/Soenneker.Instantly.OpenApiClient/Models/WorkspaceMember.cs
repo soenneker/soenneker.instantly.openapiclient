@@ -35,6 +35,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName Name { get; private set; }
 #endif
+        /// <summary>Private workspace member nickname visible only to the workspace owner</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Nickname { get; set; }
+#nullable restore
+#else
+        public string Nickname { get; set; }
+#endif
         /// <summary>The permissions for this workspace member. Used in the app to restrict access to certain sections</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +90,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "issuer_id", n => { IssuerId = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName>(global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName.CreateFromDiscriminatorValue); } },
+                { "nickname", n => { Nickname = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberPermissionsItem>()?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberRole>(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -98,6 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("nickname", Nickname);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberPermissionsItem>("permissions", Permissions);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberRole>("role", Role);
             writer.WriteStringValue("user_email", UserEmail);

@@ -3844,7 +3844,7 @@
           {
             "name": "include_opportunities_count",
             "in": "query",
-            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060 and \u0060unique_opportunities\u0060 fields will be included in the response",
+            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060, \u0060unique_opportunities\u0060, and \u0060meetings_booked\u0060 fields will be included in the response",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -4774,6 +4774,16 @@
               }
             }
           },
+          "409": {
+            "description": "A tag with the same normalized label already exists in this workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCustomTag409Response"
+                }
+              }
+            }
+          },
           "429": {
             "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
             "content": {
@@ -5036,6 +5046,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PatchCustomTag404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A tag with the same normalized label already exists in this workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchCustomTag409Response"
                 }
               }
             }
@@ -12837,6 +12857,128 @@
         }
       }
     },
+    "/api/v2/workspaces/current/schedule-for-removal": {
+      "post": {
+        "tags": [
+          "Workspace"
+        ],
+        "summary": "Schedule Current Workspace Removal",
+        "description": "\u0022Schedule the current workspace to be removed in 24 hours.\n\n\nRequires one of the following scopes: \u0060workspaces:delete\u0060, \u0060workspaces:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060\u0022",
+        "operationId": "ScheduleCurrentWorkspaceRemoval",
+        "responses": {
+          "200": {
+            "description": "The requested Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspace"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Workspace"
+        ],
+        "summary": "Cancel Current Workspace Removal",
+        "description": "\u0022Requires one of the following scopes: \u0060workspaces:delete\u0060, \u0060workspaces:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060\u0022",
+        "operationId": "CancelCurrentWorkspaceRemoval",
+        "responses": {
+          "200": {
+            "description": "The requested Workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspace"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/workspaces/current/whitelabel-domain": {
       "post": {
         "tags": [
@@ -15561,8 +15703,10 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "label": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
             "type": "string",
-            "description": "Display label for the custom tag",
+            "description": "Display label for the custom tag. Must be unique per workspace after trimming whitespace.",
             "example": "Important"
           },
           "description": {
@@ -15792,6 +15936,14 @@
             "type": "string",
             "description": "Timestamp when the workspace was last updated",
             "format": "date-time",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "scheduled_for_removal_at": {
+            "type": "string",
+            "description": "Timestamp when this workspace is scheduled to be removed",
+            "format": "date-time",
+            "nullable": true,
             "readOnly": true,
             "example": "1970-01-01T00:00:00.000Z"
           },
@@ -16057,6 +16209,13 @@
             "format": "email",
             "nullable": true,
             "example": "user@example.com"
+          },
+          "nickname": {
+            "maxLength": 80,
+            "type": "string",
+            "description": "Private workspace member nickname visible only to the workspace owner",
+            "nullable": true,
+            "example": "Finance lead"
           },
           "name": {
             "$ref": "#/components/schemas/WorkspaceMemberName"
@@ -23757,8 +23916,10 @@
         "type": "object",
         "properties": {
           "label": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
             "type": "string",
-            "description": "Display label for the custom tag",
+            "description": "Display label for the custom tag. Must be unique per workspace after trimming whitespace.",
             "example": "Important"
           },
           "description": {
@@ -23848,6 +24009,26 @@
           "message": {
             "type": "string",
             "example": "Resource not found"
+          }
+        }
+      },
+      "CreateCustomTag409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateCustomTag409ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CreateCustomTag409ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "A tag with this name already exists."
           }
         }
       },
@@ -24036,8 +24217,10 @@
         "type": "object",
         "properties": {
           "label": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
             "type": "string",
-            "description": "Display label for the custom tag",
+            "description": "Display label for the custom tag. Must be unique per workspace after trimming whitespace.",
             "example": "Important"
           },
           "description": {
@@ -24106,6 +24289,26 @@
           "message": {
             "type": "string",
             "example": "Resource not found"
+          }
+        }
+      },
+      "PatchCustomTag409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchCustomTag409ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PatchCustomTag409ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "A tag with this name already exists."
           }
         }
       },
@@ -34135,6 +34338,13 @@
             "nullable": true,
             "example": "user@example.com"
           },
+          "nickname": {
+            "maxLength": 80,
+            "type": "string",
+            "description": "Private workspace member nickname visible only to the workspace owner",
+            "nullable": true,
+            "example": "Finance lead"
+          },
           "role": {
             "$ref": "#/components/schemas/CreateWorkspaceMemberRequestRole"
           },
@@ -34414,6 +34624,13 @@
         "minProperties": 1,
         "type": "object",
         "properties": {
+          "nickname": {
+            "maxLength": 80,
+            "type": "string",
+            "description": "Private workspace member nickname visible only to the workspace owner",
+            "nullable": true,
+            "example": "Finance lead"
+          },
           "role": {
             "$ref": "#/components/schemas/PatchWorkspaceMemberRequestRole"
           }
@@ -34755,6 +34972,166 @@
           },
           "error": {
             "$ref": "#/components/schemas/PatchWorkspace429ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval401ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval402ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval404ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ScheduleCurrentWorkspaceRemoval429ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "CancelCurrentWorkspaceRemoval401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval401ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "CancelCurrentWorkspaceRemoval402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval402ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "CancelCurrentWorkspaceRemoval404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval404ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "CancelCurrentWorkspaceRemoval429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CancelCurrentWorkspaceRemoval429ResponseError"
           },
           "message": {
             "type": "string",
@@ -38872,6 +39249,11 @@
             "type": "integer",
             "description": "The total number of unique opportunities created from this step. Unique meaning unique per lead. If a lead has multiple opportunities, it will be counted as 1 unique opportunity. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
             "example": 8
+          },
+          "meetings_booked": {
+            "type": "integer",
+            "description": "The total number of opportunities from this step whose current CRM status is Meeting Booked. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
+            "example": 2
           }
         }
       },
@@ -41418,6 +41800,11 @@
             "type": "integer",
             "description": "The total number of unique opportunities created from this step. Unique meaning unique per lead. If a lead has multiple opportunities, it will be counted as 1 unique opportunity. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
             "example": 8
+          },
+          "meetings_booked": {
+            "type": "integer",
+            "description": "The total number of opportunities from this step whose current CRM status is Meeting Booked. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
+            "example": 2
           }
         }
       },
@@ -54919,6 +55306,22 @@
           ]
         }
       },
+      "CreateCustomTag409ResponseStatusCode": {
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "CreateCustomTag409ResponseError": {
+        "enum": [
+          "Conflict"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Conflict"
+      },
       "CreateCustomTag429ResponseStatusCode": {
         "enum": [
           429
@@ -55200,6 +55603,22 @@
             }
           ]
         }
+      },
+      "PatchCustomTag409ResponseStatusCode": {
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "PatchCustomTag409ResponseError": {
+        "enum": [
+          "Conflict"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Conflict"
       },
       "PatchCustomTag429ResponseStatusCode": {
         "enum": [
@@ -65980,6 +66399,194 @@
         "example": "Too Many Requests",
         "x-ms-enum": {
           "name": "PatchWorkspace429ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval401ResponseStatusCode": {
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "ScheduleCurrentWorkspaceRemoval401ResponseError": {
+        "enum": [
+          "Unauthorized"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unauthorized"
+      },
+      "ScheduleCurrentWorkspaceRemoval402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "ScheduleCurrentWorkspaceRemoval402ResponseError": {
+        "enum": [
+          "Payment Required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Payment Required",
+        "x-ms-enum": {
+          "name": "ScheduleCurrentWorkspaceRemoval402ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Payment Required",
+              "name": "PaymentRequired"
+            }
+          ]
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval404ResponseStatusCode": {
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "ScheduleCurrentWorkspaceRemoval404ResponseError": {
+        "enum": [
+          "Not Found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Not Found",
+        "x-ms-enum": {
+          "name": "ScheduleCurrentWorkspaceRemoval404ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Not Found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
+      "ScheduleCurrentWorkspaceRemoval429ResponseStatusCode": {
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "ScheduleCurrentWorkspaceRemoval429ResponseError": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Too Many Requests",
+        "x-ms-enum": {
+          "name": "ScheduleCurrentWorkspaceRemoval429ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
+      "CancelCurrentWorkspaceRemoval401ResponseStatusCode": {
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "CancelCurrentWorkspaceRemoval401ResponseError": {
+        "enum": [
+          "Unauthorized"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unauthorized"
+      },
+      "CancelCurrentWorkspaceRemoval402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "CancelCurrentWorkspaceRemoval402ResponseError": {
+        "enum": [
+          "Payment Required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Payment Required",
+        "x-ms-enum": {
+          "name": "CancelCurrentWorkspaceRemoval402ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Payment Required",
+              "name": "PaymentRequired"
+            }
+          ]
+        }
+      },
+      "CancelCurrentWorkspaceRemoval404ResponseStatusCode": {
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "CancelCurrentWorkspaceRemoval404ResponseError": {
+        "enum": [
+          "Not Found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Not Found",
+        "x-ms-enum": {
+          "name": "CancelCurrentWorkspaceRemoval404ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Not Found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
+      "CancelCurrentWorkspaceRemoval429ResponseStatusCode": {
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "CancelCurrentWorkspaceRemoval429ResponseError": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Too Many Requests",
+        "x-ms-enum": {
+          "name": "CancelCurrentWorkspaceRemoval429ResponseError",
           "modelAsString": false,
           "values": [
             {

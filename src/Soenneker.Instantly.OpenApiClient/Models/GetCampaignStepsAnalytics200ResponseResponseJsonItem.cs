@@ -16,6 +16,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total number of links clicked</summary>
         public int? Clicks { get; set; }
+        /// <summary>The total number of opportunities from this step whose current CRM status is Meeting Booked. Included only if `include_opportunities_count` is `true`</summary>
+        public int? MeetingsBooked { get; set; }
         /// <summary>The total number of opened emails</summary>
         public int? Opened { get; set; }
         /// <summary>The total number of opportunities created from this step. Included only if `include_opportunities_count` is `true`</summary>
@@ -78,6 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "clicks", n => { Clicks = n.GetIntValue(); } },
+                { "meetings_booked", n => { MeetingsBooked = n.GetIntValue(); } },
                 { "opened", n => { Opened = n.GetIntValue(); } },
                 { "opportunities", n => { Opportunities = n.GetIntValue(); } },
                 { "replies", n => { Replies = n.GetIntValue(); } },
@@ -100,6 +103,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("clicks", Clicks);
+            writer.WriteIntValue("meetings_booked", MeetingsBooked);
             writer.WriteIntValue("opened", Opened);
             writer.WriteIntValue("opportunities", Opportunities);
             writer.WriteIntValue("replies", Replies);
