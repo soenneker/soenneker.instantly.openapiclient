@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
         {
         }
         /// <summary>
-        /// &quot;This endpoint will check the availability of the provided domains.. It will return a list of domains with their availability status.. The only supported extensions (tlds) are: .com, .org.. Please do not abuse this endpoint and do not use it for anything other than checking availability before ordering a domain.. This request has a rate limit of 30 request per minute, or 900 requests per hour.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
+        /// &quot;This endpoint will check the availability of the provided domains.. It will return a list of domains with their availability status.. The only supported extensions (tlds) are: .com, .org.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.. Please do not abuse this endpoint and do not use it for anything other than checking availability before ordering a domain.. This request has a rate limit of 30 request per minute, or 900 requests per hour.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;This endpoint will check the availability of the provided domains.. It will return a list of domains with their availability status.. The only supported extensions (tlds) are: .com, .org.. Please do not abuse this endpoint and do not use it for anything other than checking availability before ordering a domain.. This request has a rate limit of 30 request per minute, or 900 requests per hour.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
+        /// &quot;This endpoint will check the availability of the provided domains.. It will return a list of domains with their availability status.. The only supported extensions (tlds) are: .com, .org.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.. Please do not abuse this endpoint and do not use it for anything other than checking availability before ordering a domain.. This request has a rate limit of 30 request per minute, or 900 requests per hour.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

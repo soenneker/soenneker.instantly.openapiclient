@@ -22,6 +22,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> BlacklistDomains { get; set; }
 #endif
+        /// <summary>The restricted keywords matched in `blacklist_domains` (if any)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? BlacklistKeywords { get; set; }
+#nullable restore
+#else
+        public List<string> BlacklistKeywords { get; set; }
+#endif
         /// <summary>The list of domains without accounts (if any). The `accounts` field for items in the `items` array for these domains was empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -198,6 +206,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "blacklist_domains", n => { BlacklistDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "blacklist_keywords", n => { BlacklistKeywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "domains_without_accounts", n => { DomainsWithoutAccounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "free_domains", n => { FreeDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "invalid_accounts", n => { InvalidAccounts = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -238,6 +247,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("blacklist_domains", BlacklistDomains);
+            writer.WriteCollectionOfPrimitiveValues<string>("blacklist_keywords", BlacklistKeywords);
             writer.WriteCollectionOfPrimitiveValues<string>("domains_without_accounts", DomainsWithoutAccounts);
             writer.WriteCollectionOfPrimitiveValues<string>("free_domains", FreeDomains);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>("invalid_accounts", InvalidAccounts);

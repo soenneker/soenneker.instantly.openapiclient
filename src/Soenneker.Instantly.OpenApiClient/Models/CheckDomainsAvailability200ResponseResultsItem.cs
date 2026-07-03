@@ -24,6 +24,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Domain { get; set; }
 #endif
+        /// <summary>The restricted keyword matched when `unavailable_reason` is `restricted`</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RestrictedKeyword { get; set; }
+#nullable restore
+#else
+        public string RestrictedKeyword { get; set; }
+#endif
+        /// <summary>Present when a domain is unavailable because it is restricted</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItemUnavailableReason? UnavailableReason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItem"/> and sets the default values.
         /// </summary>
@@ -51,6 +61,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "available", n => { Available = n.GetBoolValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
+                { "restricted_keyword", n => { RestrictedKeyword = n.GetStringValue(); } },
+                { "unavailable_reason", n => { UnavailableReason = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItemUnavailableReason>(); } },
             };
         }
         /// <summary>
@@ -62,6 +74,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("available", Available);
             writer.WriteStringValue("domain", Domain);
+            writer.WriteStringValue("restricted_keyword", RestrictedKeyword);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItemUnavailableReason>("unavailable_reason", UnavailableReason);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,7 +22,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The domain to use for the email accounts.For regular DFY accounts the only allowed domain extensions (tlds) are .com and .org.For regular DFY accounts - you can check the domain availability using the /dfy-email-account-orders/domains/check endpoint before placing an order.For pre-warmed up domains - use the /dfy-email-account-orders/domains endpoint to get a list of available domains.</summary>
+        /// <summary>The domain to use for the email accounts.For regular DFY accounts the only allowed domain extensions (tlds) are .com and .org.For regular DFY accounts - you can check the domain availability using the /dfy-email-account-orders/domains/check endpoint before placing an order.For pre-warmed up domains - use the /dfy-email-account-orders/domains endpoint to get a list of available domains.Domains containing trademarks of well-known companies are restricted and cannot be ordered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Domain { get; set; }
