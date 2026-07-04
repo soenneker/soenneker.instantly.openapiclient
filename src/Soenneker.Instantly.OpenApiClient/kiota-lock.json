@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "02B00D8D82E8932F82D2EE708F51D05C41B1F28C787B76604EFA3B7051A8F152B5BBAAF3E88B5692CFF2A1A2CEC0EDD9C78914CF681C3F049BF5A80F34A6CB14",
+  "descriptionHash": "2000F1E4DBA366B136FA3A0F4125F2857EDF181D1CE2DDBF01DD389AFDF27D470E62784C6D1A1150744C36E85795329B9B1C1E01000256C1AA2FC01A0A04F247",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.32.4",
+  "kiotaVersion": "1.32.5",
   "clientClassName": "InstantlyOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Instantly.OpenApiClient",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }

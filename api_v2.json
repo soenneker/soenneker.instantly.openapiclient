@@ -2255,12 +2255,14 @@
             "enum": [
               1,
               2,
+              8,
               12,
               13
             ],
             "x-enumDescriptions": {
               "1": "Google",
               "2": "Microsoft",
+              "8": "AirMail",
               "12": "Web.de",
               "13": "Libero.it"
             },
@@ -2283,12 +2285,14 @@
             "enum": [
               1,
               2,
+              8,
               12,
               13
             ],
             "x-enumDescriptions": {
               "1": "Google",
               "2": "Microsoft",
+              "8": "AirMail",
               "12": "Web.de",
               "13": "Libero.it"
             },
@@ -23429,7 +23433,7 @@
         "tags": [
           "DFYEmailAccountOrder"
         ],
-        "description": "This endpoint will cancel the DFY email accounts based on the provided email addresses.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:delete\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "description": "This endpoint will cancel the DFY email accounts based on the provided email addresses. Cancelling permanently deletes all Unibox emails and conversations associated with the cancelled accounts. This cannot be undone.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:delete\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -26322,12 +26326,14 @@
                       "enum": [
                         1,
                         2,
+                        8,
                         12,
                         13
                       ],
                       "x-enumDescriptions": {
                         "1": "Google",
                         "2": "Microsoft",
+                        "8": "AirMail",
                         "12": "Web.de",
                         "13": "Libero.it"
                       },
@@ -26639,12 +26645,14 @@
                       "enum": [
                         1,
                         2,
+                        8,
                         12,
                         13
                       ],
                       "x-enumDescriptions": {
                         "1": "Google",
                         "2": "Microsoft",
+                        "8": "AirMail",
                         "12": "Web.de",
                         "13": "Libero.it"
                       },
@@ -26712,12 +26720,14 @@
                         "enum": [
                           1,
                           2,
+                          8,
                           12,
                           13
                         ],
                         "x-enumDescriptions": {
                           "1": "Google",
                           "2": "Microsoft",
+                          "8": "AirMail",
                           "12": "Web.de",
                           "13": "Libero.it"
                         },
@@ -26728,12 +26738,14 @@
                         "enum": [
                           1,
                           2,
+                          8,
                           12,
                           13
                         ],
                         "x-enumDescriptions": {
                           "1": "Google",
                           "2": "Microsoft",
+                          "8": "AirMail",
                           "12": "Web.de",
                           "13": "Libero.it"
                         },
@@ -27004,12 +27016,14 @@
                       "enum": [
                         1,
                         2,
+                        8,
                         12,
                         13
                       ],
                       "x-enumDescriptions": {
                         "1": "Google",
                         "2": "Microsoft",
+                        "8": "AirMail",
                         "12": "Web.de",
                         "13": "Libero.it"
                       },

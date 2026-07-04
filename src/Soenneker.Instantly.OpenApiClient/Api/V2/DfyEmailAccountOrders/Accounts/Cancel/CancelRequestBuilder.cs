@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Account
         {
         }
         /// <summary>
-        /// &quot;This endpoint will cancel the DFY email accounts based on the provided email addresses.Requires one of the following scopes: `dfy_email_account_orders:delete`, `dfy_email_account_orders:all`, `all:delete`, `all:all`&quot;
+        /// &quot;This endpoint will cancel the DFY email accounts based on the provided email addresses. Cancelling permanently deletes all Unibox emails and conversations associated with the cancelled accounts. This cannot be undone.Requires one of the following scopes: `dfy_email_account_orders:delete`, `dfy_email_account_orders:all`, `all:delete`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CancelDfyEmailAccounts200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Account
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CancelDfyEmailAccounts200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CancelDfyEmailAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;This endpoint will cancel the DFY email accounts based on the provided email addresses.Requires one of the following scopes: `dfy_email_account_orders:delete`, `dfy_email_account_orders:all`, `all:delete`, `all:all`&quot;
+        /// &quot;This endpoint will cancel the DFY email accounts based on the provided email addresses. Cancelling permanently deletes all Unibox emails and conversations associated with the cancelled accounts. This cannot be undone.Requires one of the following scopes: `dfy_email_account_orders:delete`, `dfy_email_account_orders:all`, `all:delete`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
