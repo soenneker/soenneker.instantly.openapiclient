@@ -53,6 +53,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string PlanId { get; private set; }
 #endif
+        /// <summary>Plan ID for workspace bundle</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PlanIdBundle { get; private set; }
+#nullable restore
+#else
+        public string PlanIdBundle { get; private set; }
+#endif
         /// <summary>Plan ID for CRM</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,6 +133,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "org_logo_url", n => { OrgLogoUrl = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetGuidValue(); } },
                 { "plan_id", n => { PlanId = n.GetStringValue(); } },
+                { "plan_id_bundle", n => { PlanIdBundle = n.GetStringValue(); } },
                 { "plan_id_crm", n => { PlanIdCrm = n.GetStringValue(); } },
                 { "plan_id_inbox_placement", n => { PlanIdInboxPlacement = n.GetStringValue(); } },
                 { "plan_id_leadfinder", n => { PlanIdLeadfinder = n.GetStringValue(); } },

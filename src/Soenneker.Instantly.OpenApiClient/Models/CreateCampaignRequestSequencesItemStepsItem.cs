@@ -38,8 +38,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public CreateCampaignRequestSequencesItemStepsItem()
         {
             AdditionalData = new Dictionary<string, object>();
-            DelayUnit = global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestSequencesItemStepsItemDelayUnit.Days;
-            PreDelayUnit = global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestSequencesItemStepsItemPreDelayUnit.Days;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

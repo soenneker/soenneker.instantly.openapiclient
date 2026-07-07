@@ -14,6 +14,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The bundle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle? Bundle { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle Bundle { get; set; }
+#endif
         /// <summary>The credits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,6 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "bundle", n => { Bundle = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle.CreateFromDiscriminatorValue); } },
                 { "credits", n => { Credits = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits.CreateFromDiscriminatorValue); } },
                 { "crm", n => { Crm = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm.CreateFromDiscriminatorValue); } },
                 { "inbox_placement", n => { InboxPlacement = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement.CreateFromDiscriminatorValue); } },
@@ -93,6 +102,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle>("bundle", Bundle);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits>("credits", Credits);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm>("crm", Crm);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement>("inbox_placement", InboxPlacement);

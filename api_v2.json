@@ -4041,6 +4041,15 @@
             "readOnly": true,
             "example": "pid_hg_v1"
           },
+          "plan_id_bundle": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Plan ID for workspace bundle",
+            "readOnly": true,
+            "example": "pid_bundle_scale_v1"
+          },
           "add_unsub_to_block": {
             "type": [
               "null",
@@ -42567,6 +42576,9 @@
                                 "pid_addon_ic_50k_v1",
                                 "pid_addon_lf_10k_v1_annual",
                                 "pid_addon_ic_50k_v1_annual",
+                                "pid_bundle_starter_v1",
+                                "pid_bundle_scale_v1",
+                                "pid_bundle_agency_v1",
                                 null
                               ],
                               "x-enumDescriptions": {
@@ -42595,7 +42607,10 @@
                                 "pid_addon_lf_10k_v1": "Addon Lead Finder",
                                 "pid_addon_ic_50k_v1": "Addon Instantly Credits",
                                 "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
-                                "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+                                "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
+                                "pid_bundle_starter_v1": "Bundle Starter",
+                                "pid_bundle_scale_v1": "Bundle Scale",
+                                "pid_bundle_agency_v1": "Bundle Agency"
                               },
                               "example": "pid_g_v1"
                             }
@@ -42684,6 +42699,81 @@
                               ],
                               "description": "The selected Instantly Credits price option ID",
                               "example": "growth_2000"
+                            }
+                          }
+                        },
+                        "bundle": {
+                          "type": "object",
+                          "properties": {
+                            "plan_name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "example": "Scale Bundle"
+                            },
+                            "total_lead_limit": {
+                              "type": "number",
+                              "description": "Total bundled Outreach contact limit",
+                              "example": 25000
+                            },
+                            "current_lead_count": {
+                              "type": "number",
+                              "description": "Current number of contacts counted toward the bundled Outreach limit",
+                              "example": 10
+                            },
+                            "base_lead_limit": {
+                              "type": "number",
+                              "description": "Base bundled Outreach contact limit",
+                              "example": 25000
+                            },
+                            "interval": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year",
+                                null
+                              ],
+                              "example": "month"
+                            },
+                            "current_period_end": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "cancel_at_time": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 1704067200
+                            },
+                            "price_in_dollars": {
+                              "type": [
+                                "null",
+                                "number"
+                              ],
+                              "example": 175
+                            },
+                            "product_id": {
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "enum": [
+                                "pid_bundle_starter_v1",
+                                "pid_bundle_scale_v1",
+                                "pid_bundle_agency_v1",
+                                null
+                              ],
+                              "example": "pid_bundle_scale_v1"
                             }
                           }
                         },
@@ -43279,7 +43369,10 @@
                               "pid_addon_lf_10k_v1",
                               "pid_addon_ic_50k_v1",
                               "pid_addon_lf_10k_v1_annual",
-                              "pid_addon_ic_50k_v1_annual"
+                              "pid_addon_ic_50k_v1_annual",
+                              "pid_bundle_starter_v1",
+                              "pid_bundle_scale_v1",
+                              "pid_bundle_agency_v1"
                             ],
                             "x-enumDescriptions": {
                               "pid_g_v1": "Growth Plan",
@@ -43307,7 +43400,10 @@
                               "pid_addon_lf_10k_v1": "Addon Lead Finder",
                               "pid_addon_ic_50k_v1": "Addon Instantly Credits",
                               "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
-                              "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+                              "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
+                              "pid_bundle_starter_v1": "Bundle Starter",
+                              "pid_bundle_scale_v1": "Bundle Scale",
+                              "pid_bundle_agency_v1": "Bundle Agency"
                             },
                             "example": "pid_g_v1"
                           },

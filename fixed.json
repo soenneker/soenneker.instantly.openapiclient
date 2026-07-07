@@ -15976,6 +15976,13 @@
             "readOnly": true,
             "example": "pid_hg_v1"
           },
+          "plan_id_bundle": {
+            "type": "string",
+            "description": "Plan ID for workspace bundle",
+            "nullable": true,
+            "readOnly": true,
+            "example": "pid_bundle_scale_v1"
+          },
           "add_unsub_to_block": {
             "type": "boolean",
             "description": "Whether to add unsubscribes to block list",
@@ -40661,6 +40668,9 @@
           "credits": {
             "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCredits"
           },
+          "bundle": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsBundle"
+          },
           "crm": {
             "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsCrm"
           },
@@ -43520,6 +43530,52 @@
             "description": "The selected Instantly Credits price option ID",
             "nullable": true,
             "example": "growth_2000"
+          }
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsBundle": {
+        "type": "object",
+        "properties": {
+          "plan_name": {
+            "type": "string",
+            "nullable": true,
+            "example": "Scale Bundle"
+          },
+          "total_lead_limit": {
+            "type": "number",
+            "description": "Total bundled Outreach contact limit",
+            "example": 25000
+          },
+          "current_lead_count": {
+            "type": "number",
+            "description": "Current number of contacts counted toward the bundled Outreach limit",
+            "example": 10
+          },
+          "base_lead_limit": {
+            "type": "number",
+            "description": "Base bundled Outreach contact limit",
+            "example": 25000
+          },
+          "interval": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval"
+          },
+          "current_period_end": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "cancel_at_time": {
+            "type": "number",
+            "nullable": true,
+            "example": 1704067200
+          },
+          "price_in_dollars": {
+            "type": "number",
+            "nullable": true,
+            "example": 175
+          },
+          "product_id": {
+            "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId"
           }
         }
       },
@@ -48392,7 +48448,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CampaignSequencesItemStepsItemDelayUnit",
@@ -48422,7 +48477,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CampaignSequencesItemStepsItemPreDelayUnit",
@@ -49030,7 +49084,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CampaignSubsequenceSequencesItemStepsItemDelayUnit",
@@ -49060,7 +49113,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CampaignSubsequenceSequencesItemStepsItemPreDelayUnit",
@@ -71423,7 +71475,10 @@
           "pid_addon_lf_10k_v1",
           "pid_addon_ic_50k_v1",
           "pid_addon_lf_10k_v1_annual",
-          "pid_addon_ic_50k_v1_annual"
+          "pid_addon_ic_50k_v1_annual",
+          "pid_bundle_starter_v1",
+          "pid_bundle_scale_v1",
+          "pid_bundle_agency_v1"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -71455,7 +71510,10 @@
           "pid_addon_lf_10k_v1": "Addon Lead Finder",
           "pid_addon_ic_50k_v1": "Addon Instantly Credits",
           "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
-          "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+          "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
+          "pid_bundle_starter_v1": "Bundle Starter",
+          "pid_bundle_scale_v1": "Bundle Scale",
+          "pid_bundle_agency_v1": "Bundle Agency"
         },
         "x-ms-enum": {
           "name": "GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItemProductId",
@@ -71564,6 +71622,18 @@
             {
               "value": "pid_addon_ic_50k_v1_annual",
               "name": "PidAddonIc50KV1Annual"
+            },
+            {
+              "value": "pid_bundle_starter_v1",
+              "name": "PidBundleStarterV1"
+            },
+            {
+              "value": "pid_bundle_scale_v1",
+              "name": "PidBundleScaleV1"
+            },
+            {
+              "value": "pid_bundle_agency_v1",
+              "name": "PidBundleAgencyV1"
             }
           ]
         }
@@ -73880,7 +73950,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CreateCampaignRequestSequencesItemStepsItemDelayUnit",
@@ -73910,7 +73979,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CreateCampaignRequestSequencesItemStepsItemPreDelayUnit",
@@ -74485,7 +74553,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "PatchCampaignRequestSequencesItemStepsItemDelayUnit",
@@ -74515,7 +74582,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "PatchCampaignRequestSequencesItemStepsItemPreDelayUnit",
@@ -75192,7 +75258,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CreateCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit",
@@ -75222,7 +75287,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
-        "default": "days",
         "example": "days",
         "x-ms-enum": {
           "name": "CreateCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit",
@@ -75305,7 +75369,10 @@
           "pid_addon_lf_10k_v1",
           "pid_addon_ic_50k_v1",
           "pid_addon_lf_10k_v1_annual",
-          "pid_addon_ic_50k_v1_annual"
+          "pid_addon_ic_50k_v1_annual",
+          "pid_bundle_starter_v1",
+          "pid_bundle_scale_v1",
+          "pid_bundle_agency_v1"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -75338,7 +75405,10 @@
           "pid_addon_lf_10k_v1": "Addon Lead Finder",
           "pid_addon_ic_50k_v1": "Addon Instantly Credits",
           "pid_addon_lf_10k_v1_annual": "Addon Lead Finder Annual",
-          "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual"
+          "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
+          "pid_bundle_starter_v1": "Bundle Starter",
+          "pid_bundle_scale_v1": "Bundle Scale",
+          "pid_bundle_agency_v1": "Bundle Agency"
         },
         "x-ms-enum": {
           "name": "GetWorkspacePlanDetails200ResponseSubscriptionsOutreachProductId",
@@ -75447,6 +75517,18 @@
             {
               "value": "pid_addon_ic_50k_v1_annual",
               "name": "PidAddonIc50KV1Annual"
+            },
+            {
+              "value": "pid_bundle_starter_v1",
+              "name": "PidBundleStarterV1"
+            },
+            {
+              "value": "pid_bundle_scale_v1",
+              "name": "PidBundleScaleV1"
+            },
+            {
+              "value": "pid_bundle_agency_v1",
+              "name": "PidBundleAgencyV1"
             }
           ]
         }
@@ -75537,6 +75619,69 @@
             {
               "value": "pid_hic_v1_annual",
               "name": "PidHicV1Annual"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval": {
+        "enum": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "example": "month",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "day",
+              "name": "Day"
+            },
+            {
+              "value": "week",
+              "name": "Week"
+            },
+            {
+              "value": "month",
+              "name": "Month"
+            },
+            {
+              "value": "year",
+              "name": "Year"
+            }
+          ]
+        }
+      },
+      "GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId": {
+        "enum": [
+          "pid_bundle_starter_v1",
+          "pid_bundle_scale_v1",
+          "pid_bundle_agency_v1"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "example": "pid_bundle_scale_v1",
+        "x-ms-enum": {
+          "name": "GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pid_bundle_starter_v1",
+              "name": "PidBundleStarterV1"
+            },
+            {
+              "value": "pid_bundle_scale_v1",
+              "name": "PidBundleScaleV1"
+            },
+            {
+              "value": "pid_bundle_agency_v1",
+              "name": "PidBundleAgencyV1"
             }
           ]
         }
