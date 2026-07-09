@@ -16439,6 +16439,14 @@
             "readOnly": true,
             "example": false
           },
+          "api_key_id": {
+            "type": "string",
+            "description": "API key ID that performed the activity, when available",
+            "format": "uuid",
+            "nullable": true,
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "affected_count": {
             "type": "number",
             "description": "Number of items affected by the activity",
@@ -17592,7 +17600,7 @@
       },
       "AuditLogAuditMetadata": {
         "type": "object",
-        "description": "Metadata about the audit log",
+        "description": "Sanitized metadata about the audit log",
         "readOnly": true
       },
       "WebhookHeaders": {
@@ -38306,7 +38314,7 @@
       },
       "AuditLogAuditMetadataProperty": {
         "type": "object",
-        "description": "Metadata about the audit log"
+        "description": "Sanitized metadata about the audit log"
       },
       "WebhookEventPayloadProperty": {
         "type": "object",
@@ -46737,7 +46745,10 @@
           32,
           33,
           34,
-          35
+          35,
+          36,
+          37,
+          38
         ],
         "type": "number",
         "additionalProperties": false,
@@ -46774,7 +46785,10 @@
           "32": "Subscriber import started",
           "33": "Subscriber import cancelled",
           "34": "Lead exported",
-          "35": "SuperSearch enrichment created"
+          "35": "SuperSearch enrichment created",
+          "36": "Account update",
+          "37": "API key created",
+          "38": "API key deleted"
         }
       },
       "WebhookEventType": {

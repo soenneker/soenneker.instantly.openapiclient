@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Metadata about the audit log
+    /// Sanitized metadata about the audit log
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuditLogAuditMetadataProperty : IAdditionalDataHolder, IParsable

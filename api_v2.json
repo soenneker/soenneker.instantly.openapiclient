@@ -5082,7 +5082,10 @@
               32,
               33,
               34,
-              35
+              35,
+              36,
+              37,
+              38
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -5114,7 +5117,10 @@
               "32": "Subscriber import started",
               "33": "Subscriber import cancelled",
               "34": "Lead exported",
-              "35": "SuperSearch enrichment created"
+              "35": "SuperSearch enrichment created",
+              "36": "Account update",
+              "37": "API key created",
+              "38": "API key deleted"
             },
             "example": 1
           },
@@ -5148,6 +5154,16 @@
             "description": "Whether the activity was performed via API",
             "readOnly": true,
             "example": false
+          },
+          "api_key_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "API key ID that performed the activity, when available",
+            "readOnly": true,
+            "format": "uuid",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "affected_count": {
             "type": [
@@ -5200,7 +5216,7 @@
           },
           "audit_metadata": {
             "type": "object",
-            "description": "Metadata about the audit log",
+            "description": "Sanitized metadata about the audit log",
             "readOnly": true,
             "additionalProperties": true
           },

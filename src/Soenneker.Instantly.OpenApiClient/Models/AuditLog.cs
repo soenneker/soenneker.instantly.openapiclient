@@ -17,7 +17,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? ActivityType { get; private set; }
         /// <summary>Number of items affected by the activity</summary>
         public double? AffectedCount { get; private set; }
-        /// <summary>Metadata about the audit log</summary>
+        /// <summary>API key ID that performed the activity, when available</summary>
+        public Guid? ApiKeyId { get; private set; }
+        /// <summary>Sanitized metadata about the audit log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty? AuditMetadata { get; set; }
@@ -87,6 +89,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "activity_type", n => { ActivityType = n.GetDoubleValue(); } },
                 { "affected_count", n => { AffectedCount = n.GetDoubleValue(); } },
+                { "api_key_id", n => { ApiKeyId = n.GetGuidValue(); } },
                 { "audit_metadata", n => { AuditMetadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty>(global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
                 { "from_api", n => { FromApi = n.GetBoolValue(); } },
