@@ -13,7 +13,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>ID of the user assigned to the lead</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>Company name of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,7 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
                 { "company_name", n => { CompanyName = n.GetStringValue(); } },
                 { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItemCustomVariables>(global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItemCustomVariables.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
@@ -135,7 +141,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("assigned_to", AssignedTo);
             writer.WriteStringValue("company_name", CompanyName);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItemCustomVariables>("custom_variables", CustomVariables);
             writer.WriteStringValue("email", Email);

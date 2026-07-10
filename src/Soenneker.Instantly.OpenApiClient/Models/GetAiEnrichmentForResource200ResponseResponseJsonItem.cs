@@ -23,7 +23,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>Organization ID that owns this enrichment</summary>
-        public Guid? OrganizationId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; set; }
+#nullable restore
+#else
+        public string OrganizationId { get; set; }
+#endif
         /// <summary>Name of the column where results will be stored</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +39,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string OutputColumn { get; set; }
 #endif
         /// <summary>ID of the resource being enriched</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>Type of the resource (1 for Campaign, 2 for List)</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.GetAiEnrichmentForResource200ResponseItemResourceType? ResourceType { get; set; }
         /// <summary>Status of the enrichment job</summary>
@@ -64,9 +76,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetAiEnrichmentForResource200ResponseItemResourceType>(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
             };
@@ -79,9 +91,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteGuidValue("organization_id", OrganizationId);
+            writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteStringValue("output_column", OutputColumn);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetAiEnrichmentForResource200ResponseItemResourceType>("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);

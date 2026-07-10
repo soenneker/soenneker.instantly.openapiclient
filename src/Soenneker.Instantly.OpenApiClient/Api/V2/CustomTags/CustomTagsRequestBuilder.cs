@@ -27,7 +27,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.customTags.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item.CustomTagsItemRequestBuilder this[string position]
         {
             get
             {

@@ -101,7 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DailyRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by specific email accounts (optional). If not provided, returns data for all accounts in your workspace.</summary>
+            /// <summary>Email accounts to include. This filter is required and accepts at most 200 unique accounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("emails")]
@@ -111,7 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
             [QueryParameter("emails")]
             public string[] Emails { get; set; }
 #endif
-            /// <summary>End date for the analytics period (optional). If not provided, defaults to current date.</summary>
+            /// <summary>End date for the analytics period. Defaults to the current date.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("end_date")]
@@ -121,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
             [QueryParameter("end_date")]
             public string EndDate { get; set; }
 #endif
-            /// <summary>Start date for the analytics period (optional). If not provided, returns data for the last 30 days.</summary>
+            /// <summary>Start date for the analytics period. Defaults to a 30-day window ending at end_date. The maximum range is 31 days.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("start_date")]

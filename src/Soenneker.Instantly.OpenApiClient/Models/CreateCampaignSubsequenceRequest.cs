@@ -36,7 +36,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>ID of the parent campaign</summary>
-        public Guid? ParentCampaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentCampaign { get; set; }
+#nullable restore
+#else
+        public string ParentCampaign { get; set; }
+#endif
         /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +82,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestDailyLimitMode>(); } },
                 { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parent_campaign", n => { ParentCampaign = n.GetGuidValue(); } },
+                { "parent_campaign", n => { ParentCampaign = n.GetStringValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestSubsequenceSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestSubsequenceSchedule.CreateFromDiscriminatorValue); } },
             };
@@ -93,7 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestDailyLimitMode>("daily_limit_mode", DailyLimitMode);
             writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
-            writer.WriteGuidValue("parent_campaign", ParentCampaign);
+            writer.WriteStringValue("parent_campaign", ParentCampaign);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestSequencesItem>("sequences", Sequences);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignSubsequenceRequestSubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);
         }

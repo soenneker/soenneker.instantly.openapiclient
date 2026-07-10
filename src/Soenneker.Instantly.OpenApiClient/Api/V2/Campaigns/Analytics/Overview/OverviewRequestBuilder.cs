@@ -115,16 +115,23 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             [QueryParameter("expand_crm_events")]
             public bool? ExpandCrmEvents { get; set; }
             /// <summary>A campaign ID to get the analytics overview for. Leave this field empty to get the analytics overview for all campaigns</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("id")]
-            public Guid? Id { get; set; }
+            public string? Id { get; set; }
+#nullable restore
+#else
+            [QueryParameter("id")]
+            public string Id { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("ids")]
-            public Guid?[]? Ids { get; set; }
+            public string[]? Ids { get; set; }
 #nullable restore
 #else
             [QueryParameter("ids")]
-            public Guid?[] Ids { get; set; }
+            public string[] Ids { get; set; }
 #endif
             /// <summary>Start date</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class WorkspaceGroupMember : IParsable
     {
         /// <summary>The id of the admin workspace</summary>
-        public Guid? AdminWorkspaceId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AdminWorkspaceId { get; private set; }
+#nullable restore
+#else
+        public string AdminWorkspaceId { get; private set; }
+#endif
         /// <summary>The name of the admin workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,11 +30,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string AdminWorkspaceName { get; private set; }
 #endif
         /// <summary>The unique identifier of the workspace group member</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>The status property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus? Status { get; set; }
         /// <summary>The id of the sub workspace</summary>
-        public Guid? SubWorkspaceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubWorkspaceId { get; set; }
+#nullable restore
+#else
+        public string SubWorkspaceId { get; set; }
+#endif
         /// <summary>The name of the sub workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,11 +77,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "admin_workspace_id", n => { AdminWorkspaceId = n.GetGuidValue(); } },
+                { "admin_workspace_id", n => { AdminWorkspaceId = n.GetStringValue(); } },
                 { "admin_workspace_name", n => { AdminWorkspaceName = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus>(); } },
-                { "sub_workspace_id", n => { SubWorkspaceId = n.GetGuidValue(); } },
+                { "sub_workspace_id", n => { SubWorkspaceId = n.GetStringValue(); } },
                 { "sub_workspace_name", n => { SubWorkspaceName = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
@@ -77,7 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus>("status", Status);
-            writer.WriteGuidValue("sub_workspace_id", SubWorkspaceId);
+            writer.WriteStringValue("sub_workspace_id", SubWorkspaceId);
         }
     }
 }

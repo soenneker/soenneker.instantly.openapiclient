@@ -23,7 +23,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string ErrorMessage { get; private set; }
 #endif
         /// <summary>Unique identifier for the webhook event (UUID)</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Email address of the lead associated with this webhook event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +39,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string LeadEmail { get; private set; }
 #endif
         /// <summary>Organization (workspace) UUID that owns this webhook event</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>JSON payload that was sent/attempted to be sent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +59,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Number of retry attempts made</summary>
         public double? RetryCount { get; private set; }
         /// <summary>UUID for grouping retry attempts</summary>
-        public Guid? RetryGroupId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RetryGroupId { get; private set; }
+#nullable restore
+#else
+        public string RetryGroupId { get; private set; }
+#endif
         /// <summary>Whether the retry was successful (for retry events)</summary>
         public bool? RetrySuccessful { get; private set; }
         /// <summary>HTTP status code received from the webhook endpoint (if any)</summary>
@@ -89,13 +107,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "lead_email", n => { LeadEmail = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty>(global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty.CreateFromDiscriminatorValue); } },
                 { "response_time_ms", n => { ResponseTimeMs = n.GetDoubleValue(); } },
                 { "retry_count", n => { RetryCount = n.GetDoubleValue(); } },
-                { "retry_group_id", n => { RetryGroupId = n.GetGuidValue(); } },
+                { "retry_group_id", n => { RetryGroupId = n.GetStringValue(); } },
                 { "retry_successful", n => { RetrySuccessful = n.GetBoolValue(); } },
                 { "status_code", n => { StatusCode = n.GetDoubleValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },

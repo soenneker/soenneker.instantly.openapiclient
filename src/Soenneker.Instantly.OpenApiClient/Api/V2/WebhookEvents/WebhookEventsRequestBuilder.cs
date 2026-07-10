@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.webhookEvents.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.Item.WebhookEventsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.Item.WebhookEventsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WebhookEvents.Item.WebhookEventsItemRequestBuilder this[string position]
         {
             get
             {

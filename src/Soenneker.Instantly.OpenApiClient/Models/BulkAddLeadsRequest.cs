@@ -15,11 +15,29 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional user ID to assign all imported leads to. If omitted, leads are assigned to the campaign owner when `campaign_id` is defined, or the user making the request.</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.</summary>
-        public Guid? BlocklistId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BlocklistId { get; set; }
+#nullable restore
+#else
+        public string BlocklistId { get; set; }
+#endif
         /// <summary>The unique identifier for the campaign to add leads to. Use this field OR `list_id`, but not both.</summary>
-        public Guid? CampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
         /// <summary>&quot;An array of lead objects to create. When using `campaign_id`: Each lead object must contain an `email`. When using `list_id` Each lead object must contain at least one of the following: `email`, `first_name`, or `last_name`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,7 +47,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem> Leads { get; set; }
 #endif
         /// <summary>The unique identifier for the list to add leads to. Use this field OR `campaign_id`, but not both.</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>If true, any lead that already exists in ANY campaign in your workspace will be skipped.</summary>
         public bool? SkipIfInCampaign { get; set; }
         /// <summary>If true, any lead that already exists in ANY list in your workspace will be skipped.</summary>
@@ -63,11 +87,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
-                { "blocklist_id", n => { BlocklistId = n.GetGuidValue(); } },
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
+                { "blocklist_id", n => { BlocklistId = n.GetStringValue(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>(global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "skip_if_in_campaign", n => { SkipIfInCampaign = n.GetBoolValue(); } },
                 { "skip_if_in_list", n => { SkipIfInList = n.GetBoolValue(); } },
                 { "skip_if_in_workspace", n => { SkipIfInWorkspace = n.GetBoolValue(); } },
@@ -81,11 +105,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("assigned_to", AssignedTo);
-            writer.WriteGuidValue("blocklist_id", BlocklistId);
-            writer.WriteGuidValue("campaign_id", CampaignId);
+            writer.WriteStringValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("blocklist_id", BlocklistId);
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>("leads", Leads);
-            writer.WriteGuidValue("list_id", ListId);
+            writer.WriteStringValue("list_id", ListId);
             writer.WriteBoolValue("skip_if_in_campaign", SkipIfInCampaign);
             writer.WriteBoolValue("skip_if_in_list", SkipIfInList);
             writer.WriteBoolValue("skip_if_in_workspace", SkipIfInWorkspace);

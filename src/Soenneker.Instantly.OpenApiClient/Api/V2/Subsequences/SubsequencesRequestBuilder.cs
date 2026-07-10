@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.subsequences.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesItemRequestBuilder this[string position]
         {
             get
             {
@@ -168,8 +168,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>The ID of the campaign to list the subsequences of.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("parent_campaign")]
-            public Guid? ParentCampaign { get; set; }
+            public string? ParentCampaign { get; set; }
+#nullable restore
+#else
+            [QueryParameter("parent_campaign")]
+            public string ParentCampaign { get; set; }
+#endif
             /// <summary>The search query to filter the subsequences by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

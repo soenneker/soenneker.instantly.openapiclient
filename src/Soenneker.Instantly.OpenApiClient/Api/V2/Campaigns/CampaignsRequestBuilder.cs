@@ -39,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.campaigns.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.CampaignsItemRequestBuilder this[string position]
         {
             get
             {
@@ -183,8 +183,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         public partial class CampaignsRequestBuilderGetQueryParameters 
         {
             /// <summary>Filter campaigns by AI Sales Agent ID. Returns campaigns that were created by the specified AI Sales Agent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("ai_sales_agent_id")]
-            public Guid? AiSalesAgentId { get; set; }
+            public string? AiSalesAgentId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("ai_sales_agent_id")]
+            public string AiSalesAgentId { get; set; }
+#endif
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }

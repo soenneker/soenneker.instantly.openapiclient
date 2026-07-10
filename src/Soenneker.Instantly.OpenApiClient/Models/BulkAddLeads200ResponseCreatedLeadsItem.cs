@@ -31,7 +31,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string FirstName { get; set; }
 #endif
         /// <summary>The ID of the lead. Use it for GET, DELETE or PATCH operations.</summary>
-        public Guid? Id { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
         /// <summary>The index of the lead in the input array. For leads that have no email address you can use this field as the key to your input leads.</summary>
         public int? Index { get; set; }
         /// <summary>The last_name property</summary>
@@ -77,7 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "index", n => { Index = n.GetIntValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
@@ -92,7 +98,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
-            writer.WriteGuidValue("id", Id);
+            writer.WriteStringValue("id", Id);
             writer.WriteIntValue("index", Index);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteStringValue("phone", Phone);

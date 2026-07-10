@@ -29,7 +29,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The spam_percent property</summary>
         public double? SpamPercent { get; set; }
         /// <summary>The test_id property</summary>
-        public Guid? TestId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TestId { get; set; }
+#nullable restore
+#else
+        public string TestId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByTestId200ResponseResponseJsonItem"/> and sets the default values.
         /// </summary>
@@ -62,7 +68,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "inbox_percent", n => { InboxPercent = n.GetDoubleValue(); } },
                 { "spam_count", n => { SpamCount = n.GetDoubleValue(); } },
                 { "spam_percent", n => { SpamPercent = n.GetDoubleValue(); } },
-                { "test_id", n => { TestId = n.GetGuidValue(); } },
+                { "test_id", n => { TestId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -79,7 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("inbox_percent", InboxPercent);
             writer.WriteDoubleValue("spam_count", SpamCount);
             writer.WriteDoubleValue("spam_percent", SpamPercent);
-            writer.WriteGuidValue("test_id", TestId);
+            writer.WriteStringValue("test_id", TestId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

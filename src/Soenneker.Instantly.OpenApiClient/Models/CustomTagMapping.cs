@@ -14,15 +14,39 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class CustomTagMapping : IParsable
     {
         /// <summary>A Unique identifier</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Organization ID that owns this custom tag mapping</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>ID of the resource custom tag mapping belongs to, resource_type determines the type of resource</summary>
-        public Guid? ResourceId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; private set; }
+#nullable restore
+#else
+        public string ResourceId { get; private set; }
+#endif
         /// <summary>Resource type of custom tag, can be 1 for campaigns or 2 for accounts</summary>
         public double? ResourceType { get; private set; }
         /// <summary>ID of the tag this custom mapping belongs to</summary>
-        public Guid? TagId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TagId { get; private set; }
+#nullable restore
+#else
+        public string TagId { get; private set; }
+#endif
         /// <summary>Timestamp when the custom tag mapping was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>
@@ -43,11 +67,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
-                { "tag_id", n => { TagId = n.GetGuidValue(); } },
+                { "tag_id", n => { TagId = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
             };
         }

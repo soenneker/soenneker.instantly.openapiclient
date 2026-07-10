@@ -18,10 +18,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The add_tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? AddTags { get; set; }
+        public List<string>? AddTags { get; set; }
 #nullable restore
 #else
-        public List<Guid?> AddTags { get; set; }
+        public List<string> AddTags { get; set; }
 #endif
         /// <summary>The disable_slow_ramp property</summary>
         public bool? DisableSlowRamp { get; set; }
@@ -34,10 +34,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The remove_tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? RemoveTags { get; set; }
+        public List<string>? RemoveTags { get; set; }
 #nullable restore
 #else
-        public List<Guid?> RemoveTags { get; set; }
+        public List<string> RemoveTags { get; set; }
 #endif
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,12 +72,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "add_tags", n => { AddTags = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "add_tags", n => { AddTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "disable_slow_ramp", n => { DisableSlowRamp = n.GetBoolValue(); } },
                 { "enable_slow_ramp", n => { EnableSlowRamp = n.GetBoolValue(); } },
                 { "pause", n => { Pause = n.GetBoolValue(); } },
                 { "pause_sending_campaigns_for", n => { PauseSendingCampaignsFor = n.GetDoubleValue(); } },
-                { "remove_tags", n => { RemoveTags = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "remove_tags", n => { RemoveTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -88,12 +88,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("add_tags", AddTags);
+            writer.WriteCollectionOfPrimitiveValues<string>("add_tags", AddTags);
             writer.WriteBoolValue("disable_slow_ramp", DisableSlowRamp);
             writer.WriteBoolValue("enable_slow_ramp", EnableSlowRamp);
             writer.WriteBoolValue("pause", Pause);
             writer.WriteDoubleValue("pause_sending_campaigns_for", PauseSendingCampaignsFor);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("remove_tags", RemoveTags);
+            writer.WriteCollectionOfPrimitiveValues<string>("remove_tags", RemoveTags);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

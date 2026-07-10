@@ -27,7 +27,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.workspaceGroupMembers.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.WorkspaceGroupMembers.Item.WorkspaceGroupMembersItemRequestBuilder this[string position]
         {
             get
             {

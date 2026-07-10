@@ -55,7 +55,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The spam_percentage property</summary>
         public double? SpamPercentage { get; set; }
         /// <summary>The test_id property</summary>
-        public Guid? TestId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TestId { get; set; }
+#nullable restore
+#else
+        public string TestId { get; set; }
+#endif
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "recipient_esp", n => { RecipientEsp = n.GetDoubleValue(); } },
                 { "sender_esp", n => { SenderEsp = n.GetDoubleValue(); } },
                 { "spam_percentage", n => { SpamPercentage = n.GetDoubleValue(); } },
-                { "test_id", n => { TestId = n.GetGuidValue(); } },
+                { "test_id", n => { TestId = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
             };
         }
@@ -122,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("recipient_esp", RecipientEsp);
             writer.WriteDoubleValue("sender_esp", SenderEsp);
             writer.WriteDoubleValue("spam_percentage", SpamPercentage);
-            writer.WriteGuidValue("test_id", TestId);
+            writer.WriteStringValue("test_id", TestId);
             writer.WriteStringValue("to", To);
             writer.WriteAdditionalData(AdditionalData);
         }

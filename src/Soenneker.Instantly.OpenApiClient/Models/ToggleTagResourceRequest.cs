@@ -53,10 +53,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The list of tag ids to assign or unassign</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? TagIds { get; set; }
+        public List<string>? TagIds { get; set; }
 #nullable restore
 #else
-        public List<Guid?> TagIds { get; set; }
+        public List<string> TagIds { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -83,7 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "selected_all", n => { SelectedAll = n.GetBoolValue(); } },
-                { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -100,7 +100,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteStringValue("search", Search);
             writer.WriteBoolValue("selected_all", SelectedAll);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("tag_ids", TagIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("tag_ids", TagIds);
         }
     }
 }

@@ -39,7 +39,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The quantity of subscribed items</summary>
         public double? Quantity { get; set; }
         /// <summary>The ID of the workspace</summary>
-        public Guid? WorkspaceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItem"/> and sets the default values.
         /// </summary>
@@ -74,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "product_id", n => { ProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItemProductId>(); } },
                 { "product_type", n => { ProductType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItemProductType>(); } },
                 { "quantity", n => { Quantity = n.GetDoubleValue(); } },
-                { "workspace_id", n => { WorkspaceId = n.GetGuidValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -93,7 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItemProductId>("product_id", ProductId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItemProductType>("product_type", ProductType);
             writer.WriteDoubleValue("quantity", Quantity);
-            writer.WriteGuidValue("workspace_id", WorkspaceId);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

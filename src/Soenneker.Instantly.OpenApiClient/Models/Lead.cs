@@ -14,9 +14,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class Lead : IParsable
     {
         /// <summary>ID of the user assigned to the lead</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>Campaign ID associated with the lead</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>Company domain of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,7 +86,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string FirstName { get; set; }
 #endif
         /// <summary>Unique identifier for the lead</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Indicates if the lead is a website visitor</summary>
         public bool? IsWebsiteVisitor { get; private set; }
         /// <summary>Job title of the lead</summary>
@@ -110,15 +128,33 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string LastStepFrom { get; private set; }
 #endif
         /// <summary>ID of the last step</summary>
-        public Guid? LastStepId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastStepId { get; private set; }
+#nullable restore
+#else
+        public string LastStepId { get; private set; }
+#endif
         /// <summary>Timestamp when the last step was executed</summary>
         public DateTimeOffset? LastStepTimestampExecuted { get; private set; }
         /// <summary>List ID associated with the lead</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>Lead interest status. It can be either a static value (check below), or a custom status interest value</summary>
         public double? LtInterestStatus { get; set; }
         /// <summary>Organization ID associated with the lead</summary>
-        public Guid? Organization { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; private set; }
+#nullable restore
+#else
+        public string Organization { get; private set; }
+#endif
         /// <summary>Lead custom variables. This object can contain any key, but the values have to be of type string, number, boolean, or null. We do NOT allow objects or arrays as values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -196,7 +232,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Timestamp when the lead was last updated</summary>
         public DateTimeOffset? TimestampUpdated { get; private set; }
         /// <summary>ID of the user who uploaded the lead</summary>
-        public Guid? UploadedByUser { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UploadedByUser { get; private set; }
+#nullable restore
+#else
+        public string UploadedByUser { get; private set; }
+#endif
         /// <summary>Method used to upload the lead</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.LeadUploadMethod? UploadMethod { get; private set; }
         /// <summary>Verification status of the lead</summary>
@@ -227,8 +269,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "company_domain", n => { CompanyDomain = n.GetStringValue(); } },
                 { "company_name", n => { CompanyName = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
@@ -245,17 +287,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "esg_code", n => { EsgCode = n.GetDoubleValue(); } },
                 { "esp_code", n => { EspCode = n.GetDoubleValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "is_website_visitor", n => { IsWebsiteVisitor = n.GetBoolValue(); } },
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_contacted_from", n => { LastContactedFrom = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "last_step_from", n => { LastStepFrom = n.GetStringValue(); } },
-                { "last_step_id", n => { LastStepId = n.GetGuidValue(); } },
+                { "last_step_id", n => { LastStepId = n.GetStringValue(); } },
                 { "last_step_timestamp_executed", n => { LastStepTimestampExecuted = n.GetDateTimeOffsetValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "lt_interest_status", n => { LtInterestStatus = n.GetDoubleValue(); } },
-                { "organization", n => { Organization = n.GetGuidValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.LeadPayload>(global::Soenneker.Instantly.OpenApiClient.Models.LeadPayload.CreateFromDiscriminatorValue); } },
                 { "personalization", n => { Personalization = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
@@ -274,7 +316,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "timestamp_last_touch", n => { TimestampLastTouch = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
                 { "upload_method", n => { UploadMethod = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.LeadUploadMethod>(); } },
-                { "uploaded_by_user", n => { UploadedByUser = n.GetGuidValue(); } },
+                { "uploaded_by_user", n => { UploadedByUser = n.GetStringValue(); } },
                 { "verification_status", n => { VerificationStatus = n.GetDoubleValue(); } },
                 { "website", n => { Website = n.GetStringValue(); } },
             };
@@ -286,14 +328,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("assigned_to", AssignedTo);
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteStringValue("company_name", CompanyName);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("last_name", LastName);
-            writer.WriteGuidValue("list_id", ListId);
+            writer.WriteStringValue("list_id", ListId);
             writer.WriteDoubleValue("lt_interest_status", LtInterestStatus);
             writer.WriteStringValue("personalization", Personalization);
             writer.WriteStringValue("phone", Phone);

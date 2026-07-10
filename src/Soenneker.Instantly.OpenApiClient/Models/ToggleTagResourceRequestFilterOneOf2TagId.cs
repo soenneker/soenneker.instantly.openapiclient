@@ -8,13 +8,19 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagIdOneOf2"/>, <see cref="Guid"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagIdOneOf2"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToggleTagResourceRequestFilterOneOf2TagId : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="Guid"/></summary>
-        public Guid? Guid { get; set; }
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? String { get; set; }
+#nullable restore
+#else
+        public string String { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagIdOneOf2"/></summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagIdOneOf2? ToggleTagResourceRequestFilterOneOf2TagIdOneOf2 { get; set; }
         /// <summary>
@@ -31,9 +37,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 result.ToggleTagResourceRequestFilterOneOf2TagIdOneOf2 = toggleTagResourceRequestFilterOneOf2TagIdOneOf2Value;
             }
-            else if(parseNode.GetGuidValue() is Guid guidValue)
+            else if(parseNode.GetStringValue() is string stringValue)
             {
-                result.Guid = guidValue;
+                result.String = stringValue;
             }
             return result;
         }
@@ -56,9 +62,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagIdOneOf2>(null, ToggleTagResourceRequestFilterOneOf2TagIdOneOf2);
             }
-            else if(Guid != null)
+            else if(String != null)
             {
-                writer.WriteGuidValue(null, Guid);
+                writer.WriteStringValue(null, String);
             }
         }
     }

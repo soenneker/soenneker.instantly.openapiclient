@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.apiKeys.item collection</summary>
         /// <param name="position">The ID of the item to delete</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Item.ApiKeysItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Item.ApiKeysItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Item.ApiKeysItemRequestBuilder this[string position]
         {
             get
             {

@@ -28,11 +28,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Indicates if the email was categorized like promotions, social, etc. (null if not determined). Only present when record_type is 2 (received).</summary>
         public bool? HasCategory { get; set; }
         /// <summary>Unique identifier for the inbox placement analytics entry</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Indicates if the email landed in spam (null if not determined). Only present when record_type is 2 (received).</summary>
         public bool? IsSpam { get; set; }
         /// <summary>Organization ID</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>Email address of the recipient</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +82,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Indicates if the email passed SPF validation. Only present when record_type is 2 (received).</summary>
         public bool? SpfPass { get; set; }
         /// <summary>Inbox Placement Test ID</summary>
-        public Guid? TestId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TestId { get; set; }
+#nullable restore
+#else
+        public string TestId { get; set; }
+#endif
         /// <summary>Timestamp when the inbox placement analytics was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,9 +127,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "dkim_pass", n => { DkimPass = n.GetBoolValue(); } },
                 { "dmarc_pass", n => { DmarcPass = n.GetBoolValue(); } },
                 { "has_category", n => { HasCategory = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "is_spam", n => { IsSpam = n.GetBoolValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "recipient_email", n => { RecipientEmail = n.GetStringValue(); } },
                 { "recipient_esp", n => { RecipientEsp = n.GetDoubleValue(); } },
                 { "recipient_geo", n => { RecipientGeo = n.GetDoubleValue(); } },
@@ -121,7 +139,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "sender_esp", n => { SenderEsp = n.GetDoubleValue(); } },
                 { "smtp_ip_blacklist_report", n => { SmtpIpBlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport.CreateFromDiscriminatorValue); } },
                 { "spf_pass", n => { SpfPass = n.GetBoolValue(); } },
-                { "test_id", n => { TestId = n.GetGuidValue(); } },
+                { "test_id", n => { TestId = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
                 { "timestamp_created_date", n => { TimestampCreatedDate = n.GetStringValue(); } },
             };
@@ -147,7 +165,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("sender_esp", SenderEsp);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
             writer.WriteBoolValue("spf_pass", SpfPass);
-            writer.WriteGuidValue("test_id", TestId);
+            writer.WriteStringValue("test_id", TestId);
         }
     }
 }

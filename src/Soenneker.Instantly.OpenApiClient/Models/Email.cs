@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class Email : IParsable
     {
         /// <summary>ID of the AI agent that sent this email (if applicable)</summary>
-        public Guid? AiAgentId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AiAgentId { get; set; }
+#nullable restore
+#else
+        public string AiAgentId { get; set; }
+#endif
         /// <summary>Indicates if AI assistance was used</summary>
         public double? AiAssisted { get; set; }
         /// <summary>AI interest value</summary>
@@ -44,7 +50,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.EmailBody Body { get; private set; }
 #endif
         /// <summary>The id of the campaign that the email is associated with (it can be null for manually sent emails)</summary>
-        public Guid? CampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
         /// <summary>Comma-separated list of CC email addresses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +106,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public UntypedNode FromAddressJson { get; set; }
 #endif
         /// <summary>A Unique identifier</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Indicates if the email is an auto-reply. 0 (zero) - is false, and 1 is true</summary>
         public double? IsAutoReply { get; private set; }
         /// <summary>Indicates if the email is focused (is in the primary tab in the Unibox)</summary>
@@ -112,9 +130,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Lead { get; set; }
 #endif
         /// <summary>The lead id (if any)</summary>
-        public Guid? LeadId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LeadId { get; set; }
+#nullable restore
+#else
+        public string LeadId { get; set; }
+#endif
         /// <summary>The id of the list (if the lead is part of a list)</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>Unique email ID from the email server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,7 +154,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string MessageId { get; private set; }
 #endif
         /// <summary>The workspace ID</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>Timestamp for the reminder.</summary>
         public DateTimeOffset? ReminderTs { get; set; }
         /// <summary>Reply-to email address</summary>
@@ -152,9 +188,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Subject { get; set; }
 #endif
         /// <summary>The id of the campaign subsequence that the email is associated with (it can be null for manually sent emails)</summary>
-        public Guid? SubsequenceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubsequenceId { get; set; }
+#nullable restore
+#else
+        public string SubsequenceId { get; set; }
+#endif
         /// <summary>Identifier for the email thread. All the emails in the same thread have the same thread ID</summary>
-        public Guid? ThreadId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ThreadId { get; set; }
+#nullable restore
+#else
+        public string ThreadId { get; set; }
+#endif
         /// <summary>Timestamp when the email was added to our database. This is not the timestamp of the email itself, since the email could have been sent at a different time. Please check the `timestamp_email` field for the timestamp of the email.</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>The timestamp of the email, as provided by the email server. Please note that the timestamp is not always accurate, as it can be manipulated by the sender or the email server.</summary>
@@ -195,13 +243,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ai_agent_id", n => { AiAgentId = n.GetGuidValue(); } },
+                { "ai_agent_id", n => { AiAgentId = n.GetStringValue(); } },
                 { "ai_assisted", n => { AiAssisted = n.GetDoubleValue(); } },
                 { "ai_interest_value", n => { AiInterestValue = n.GetDoubleValue(); } },
                 { "attachment_json", n => { AttachmentJson = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailAttachmentJson>(global::Soenneker.Instantly.OpenApiClient.Models.EmailAttachmentJson.CreateFromDiscriminatorValue); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailBody>(global::Soenneker.Instantly.OpenApiClient.Models.EmailBody.CreateFromDiscriminatorValue); } },
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "cc_address_email_list", n => { CcAddressEmailList = n.GetStringValue(); } },
                 { "cc_address_json", n => { CcAddressJson = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "content_preview", n => { ContentPreview = n.GetStringValue(); } },
@@ -209,21 +257,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "from_address_email", n => { FromAddressEmail = n.GetStringValue(); } },
                 { "from_address_json", n => { FromAddressJson = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "i_status", n => { IStatus = n.GetDoubleValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "is_auto_reply", n => { IsAutoReply = n.GetDoubleValue(); } },
                 { "is_focused", n => { IsFocused = n.GetDoubleValue(); } },
                 { "is_unread", n => { IsUnread = n.GetDoubleValue(); } },
                 { "lead", n => { Lead = n.GetStringValue(); } },
-                { "lead_id", n => { LeadId = n.GetGuidValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
+                { "lead_id", n => { LeadId = n.GetStringValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "message_id", n => { MessageId = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "reminder_ts", n => { ReminderTs = n.GetDateTimeOffsetValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "step", n => { Step = n.GetStringValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
-                { "subsequence_id", n => { SubsequenceId = n.GetGuidValue(); } },
-                { "thread_id", n => { ThreadId = n.GetGuidValue(); } },
+                { "subsequence_id", n => { SubsequenceId = n.GetStringValue(); } },
+                { "thread_id", n => { ThreadId = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_email", n => { TimestampEmail = n.GetDateTimeOffsetValue(); } },
                 { "to_address_email_list", n => { ToAddressEmailList = n.GetStringValue(); } },
@@ -238,11 +286,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("ai_agent_id", AiAgentId);
+            writer.WriteStringValue("ai_agent_id", AiAgentId);
             writer.WriteDoubleValue("ai_assisted", AiAssisted);
             writer.WriteDoubleValue("ai_interest_value", AiInterestValue);
             writer.WriteStringValue("bcc_address_email_list", BccAddressEmailList);
-            writer.WriteGuidValue("campaign_id", CampaignId);
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteStringValue("cc_address_email_list", CcAddressEmailList);
             writer.WriteObjectValue<UntypedNode>("cc_address_json", CcAddressJson);
             writer.WriteStringValue("content_preview", ContentPreview);
@@ -252,14 +300,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("i_status", IStatus);
             writer.WriteDoubleValue("is_unread", IsUnread);
             writer.WriteStringValue("lead", Lead);
-            writer.WriteGuidValue("lead_id", LeadId);
-            writer.WriteGuidValue("list_id", ListId);
+            writer.WriteStringValue("lead_id", LeadId);
+            writer.WriteStringValue("list_id", ListId);
             writer.WriteDateTimeOffsetValue("reminder_ts", ReminderTs);
             writer.WriteStringValue("reply_to", ReplyTo);
             writer.WriteStringValue("step", Step);
             writer.WriteStringValue("subject", Subject);
-            writer.WriteGuidValue("subsequence_id", SubsequenceId);
-            writer.WriteGuidValue("thread_id", ThreadId);
+            writer.WriteStringValue("subsequence_id", SubsequenceId);
+            writer.WriteStringValue("thread_id", ThreadId);
             writer.WriteStringValue("to_address_email_list", ToAddressEmailList);
             writer.WriteObjectValue<UntypedNode>("to_address_json", ToAddressJson);
             writer.WriteDoubleValue("ue_type", UeType);

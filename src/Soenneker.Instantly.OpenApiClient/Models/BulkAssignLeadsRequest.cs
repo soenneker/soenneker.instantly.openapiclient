@@ -15,9 +15,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Filter leads by their current owner (the user they are currently assigned to).</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>The ID of the campaign to filter leads by.</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>The filter to apply to the leads.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestFilter? Filter { get; set; }
         /// <summary>Whether this endpoint should list data based on the filters currently applied in the web app.</summary>
@@ -25,10 +37,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The IDs of the leads to filter by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? Ids { get; set; }
+        public List<string>? Ids { get; set; }
 #nullable restore
 #else
-        public List<Guid?> Ids { get; set; }
+        public List<string> Ids { get; set; }
 #endif
         /// <summary>Whether the leads are in the campaign.</summary>
         public bool? InCampaign { get; set; }
@@ -37,14 +49,20 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The limit of the number of leads to return.</summary>
         public int? Limit { get; set; }
         /// <summary>The ID of the list to filter leads by.</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>The organization_user_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? OrganizationUserIds { get; set; }
+        public List<string>? OrganizationUserIds { get; set; }
 #nullable restore
 #else
-        public List<Guid?> OrganizationUserIds { get; set; }
+        public List<string> OrganizationUserIds { get; set; }
 #endif
         /// <summary>The queries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +81,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Search { get; set; }
 #endif
         /// <summary>The ID of the smart view to filter leads by.</summary>
-        public Guid? SmartViewId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SmartViewId { get; set; }
+#nullable restore
+#else
+        public string SmartViewId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequest"/> and sets the default values.
         /// </summary>
@@ -89,19 +113,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestFilter>(); } },
                 { "has_clause", n => { HasClause = n.GetBoolValue(); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "in_campaign", n => { InCampaign = n.GetBoolValue(); } },
                 { "in_list", n => { InList = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
-                { "organization_user_ids", n => { OrganizationUserIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
+                { "organization_user_ids", n => { OrganizationUserIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItem>(global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
-                { "smart_view_id", n => { SmartViewId = n.GetGuidValue(); } },
+                { "smart_view_id", n => { SmartViewId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -111,19 +135,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("assigned_to", AssignedTo);
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestFilter>("filter", Filter);
             writer.WriteBoolValue("has_clause", HasClause);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
+            writer.WriteCollectionOfPrimitiveValues<string>("ids", Ids);
             writer.WriteBoolValue("in_campaign", InCampaign);
             writer.WriteBoolValue("in_list", InList);
             writer.WriteIntValue("limit", Limit);
-            writer.WriteGuidValue("list_id", ListId);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("organization_user_ids", OrganizationUserIds);
+            writer.WriteStringValue("list_id", ListId);
+            writer.WriteCollectionOfPrimitiveValues<string>("organization_user_ids", OrganizationUserIds);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItem>("queries", Queries);
             writer.WriteStringValue("search", Search);
-            writer.WriteGuidValue("smart_view_id", SmartViewId);
+            writer.WriteStringValue("smart_view_id", SmartViewId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -24,9 +24,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>Unique identifier for the workspace member</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>ID of the user who added this member to the workspace</summary>
-        public Guid? IssuerId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuerId { get; private set; }
+#nullable restore
+#else
+        public string IssuerId { get; private set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,9 +76,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string UserEmail { get; set; }
 #endif
         /// <summary>User ID of the workspace member</summary>
-        public Guid? UserId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; private set; }
+#nullable restore
+#else
+        public string UserId { get; private set; }
+#endif
         /// <summary>ID of the workspace this member belongs to</summary>
-        public Guid? WorkspaceId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; private set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; private set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -87,16 +111,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "accepted", n => { Accepted = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "issuer_id", n => { IssuerId = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "issuer_id", n => { IssuerId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName>(global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName.CreateFromDiscriminatorValue); } },
                 { "nickname", n => { Nickname = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberPermissionsItem>()?.AsList(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberRole>(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "user_email", n => { UserEmail = n.GetStringValue(); } },
-                { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "workspace_id", n => { WorkspaceId = n.GetGuidValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class CreateWorkspaceGroupMemberRequest : IParsable
     {
         /// <summary>The id of the sub workspace</summary>
-        public Guid? SubWorkspaceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubWorkspaceId { get; set; }
+#nullable restore
+#else
+        public string SubWorkspaceId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sub_workspace_id", n => { SubWorkspaceId = n.GetGuidValue(); } },
+                { "sub_workspace_id", n => { SubWorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -43,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("sub_workspace_id", SubWorkspaceId);
+            writer.WriteStringValue("sub_workspace_id", SubWorkspaceId);
         }
     }
 }

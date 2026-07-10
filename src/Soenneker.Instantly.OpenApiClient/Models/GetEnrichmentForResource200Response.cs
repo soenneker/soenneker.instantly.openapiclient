@@ -31,7 +31,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether the enrichment is evergreen</summary>
         public bool? IsEvergreen { get; set; }
         /// <summary>ID of the resource being enriched</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>Search filters used to create this enrichment (only present for enrichments created from SuperSearch)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "has_no_leads", n => { HasNoLeads = n.GetBoolValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters.CreateFromDiscriminatorValue); } },
             };
         }
@@ -81,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("has_no_leads", HasNoLeads);
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>("search_filters", SearchFilters);
         }
     }

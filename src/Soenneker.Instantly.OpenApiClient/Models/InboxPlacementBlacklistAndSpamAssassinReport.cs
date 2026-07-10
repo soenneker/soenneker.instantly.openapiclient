@@ -42,9 +42,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Count of blacklists the domain IP is listed on</summary>
         public double? DomainIpBlacklistCount { get; private set; }
         /// <summary>Unique identifier for the inbox placement report entry</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Organization ID</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>Detailed SpamAssassin analysis report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +68,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>SpamAssassin score for the email, indicating spam likelihood</summary>
         public double? SpamAssassinScore { get; private set; }
         /// <summary>Inbox Placement Test ID</summary>
-        public Guid? TestId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TestId { get; private set; }
+#nullable restore
+#else
+        public string TestId { get; private set; }
+#endif
         /// <summary>Timestamp when the inbox placement report was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,11 +114,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "domain_blacklist_count", n => { DomainBlacklistCount = n.GetDoubleValue(); } },
                 { "domain_ip", n => { DomainIp = n.GetStringValue(); } },
                 { "domain_ip_blacklist_count", n => { DomainIpBlacklistCount = n.GetDoubleValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "spam_assassin_report", n => { SpamAssassinReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReport>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReport.CreateFromDiscriminatorValue); } },
                 { "spam_assassin_score", n => { SpamAssassinScore = n.GetDoubleValue(); } },
-                { "test_id", n => { TestId = n.GetGuidValue(); } },
+                { "test_id", n => { TestId = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
                 { "timestamp_created_date", n => { TimestampCreatedDate = n.GetStringValue(); } },
             };

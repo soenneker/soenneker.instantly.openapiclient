@@ -33,18 +33,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The tag_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? TagIds { get; set; }
+        public List<string>? TagIds { get; set; }
 #nullable restore
 #else
-        public List<Guid?> TagIds { get; set; }
+        public List<string> TagIds { get; set; }
 #endif
         /// <summary>The tag_ids_all property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? TagIdsAll { get; set; }
+        public List<string>? TagIdsAll { get; set; }
 #nullable restore
 #else
-        public List<Guid?> TagIdsAll { get; set; }
+        public List<string> TagIdsAll { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -67,8 +67,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter>(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "tag_id", n => { TagId = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagId>(global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagId.CreateFromDiscriminatorValue); } },
-                { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "tag_ids_all", n => { TagIdsAll = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "tag_ids_all", n => { TagIdsAll = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -81,8 +81,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter>("filter", Filter);
             writer.WriteStringValue("search", Search);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagId>("tag_id", TagId);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("tag_ids", TagIds);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("tag_ids_all", TagIdsAll);
+            writer.WriteCollectionOfPrimitiveValues<string>("tag_ids", TagIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("tag_ids_all", TagIdsAll);
         }
     }
 }

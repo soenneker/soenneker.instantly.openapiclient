@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.leadLists.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.LeadListsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.LeadListsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists.Item.LeadListsItemRequestBuilder this[string position]
         {
             get
             {

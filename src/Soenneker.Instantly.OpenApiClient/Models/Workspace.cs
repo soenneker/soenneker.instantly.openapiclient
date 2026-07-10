@@ -18,7 +18,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Default value for opportunities</summary>
         public double? DefaultOpportunityValue { get; set; }
         /// <summary>Unique identifier for the workspace</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Name of the workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,7 +50,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string OrgLogoUrl { get; set; }
 #endif
         /// <summary>User ID of the workspace owner</summary>
-        public Guid? Owner { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Owner { get; private set; }
+#nullable restore
+#else
+        public string Owner { get; private set; }
+#endif
         /// <summary>Plan ID for workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,11 +139,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "add_unsub_to_block", n => { AddUnsubToBlock = n.GetBoolValue(); } },
                 { "default_opportunity_value", n => { DefaultOpportunityValue = n.GetDoubleValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_client_domain", n => { OrgClientDomain = n.GetStringValue(); } },
                 { "org_logo_url", n => { OrgLogoUrl = n.GetStringValue(); } },
-                { "owner", n => { Owner = n.GetGuidValue(); } },
+                { "owner", n => { Owner = n.GetStringValue(); } },
                 { "plan_id", n => { PlanId = n.GetStringValue(); } },
                 { "plan_id_bundle", n => { PlanIdBundle = n.GetStringValue(); } },
                 { "plan_id_crm", n => { PlanIdCrm = n.GetStringValue(); } },

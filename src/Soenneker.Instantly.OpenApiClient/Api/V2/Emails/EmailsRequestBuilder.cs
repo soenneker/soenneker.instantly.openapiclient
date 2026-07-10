@@ -51,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.emails.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Item.EmailsItemRequestBuilder this[string position]
         {
             get
             {
@@ -150,8 +150,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             public string AssignedTo { get; set; }
 #endif
             /// <summary>The ID of the campaign to filter emails by.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("campaign_id")]
-            public Guid? CampaignId { get; set; }
+            public string? CampaignId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("campaign_id")]
+            public string CampaignId { get; set; }
+#endif
             /// <summary>The domain of the company to filter emails by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -200,8 +207,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>The ID of the lead list to filter emails by.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("list_id")]
-            public Guid? ListId { get; set; }
+            public string? ListId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("list_id")]
+            public string ListId { get; set; }
+#endif
             /// <summary>Whether the email is marked as done.</summary>
             [QueryParameter("marked_as_done")]
             public bool? MarkedAsDone { get; set; }

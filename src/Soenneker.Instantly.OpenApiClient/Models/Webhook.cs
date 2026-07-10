@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class Webhook : IParsable
     {
         /// <summary>Optional campaign UUID to filter events (null = all campaigns in workspace)</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)</summary>
         public double? CustomInterestValue { get; set; }
         /// <summary>Type of event to trigger the webhook (null for custom label events). Set to &quot;all_events&quot; to subscribe to all events - including custom label events</summary>
@@ -28,7 +34,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders Headers { get; set; }
 #endif
         /// <summary>Unique identifier for the webhook (UUID)</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Optional user-defined name for the webhook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +50,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Organization (workspace) UUID that owns this webhook</summary>
-        public Guid? Organization { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; private set; }
+#nullable restore
+#else
+        public string Organization { get; private set; }
+#endif
         /// <summary>&quot;Webhook status: 1 = active, -1 = error (disabled due to delivery failures)&quot;</summary>
         public double? Status { get; private set; }
         /// <summary>Target URL to send webhook payloads</summary>
@@ -71,13 +89,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "custom_interest_value", n => { CustomInterestValue = n.GetDoubleValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventType>(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders>(global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "organization", n => { Organization = n.GetGuidValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "target_hook_url", n => { TargetHookUrl = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -91,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteDoubleValue("custom_interest_value", CustomInterestValue);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventType>("event_type", EventType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders>("headers", Headers);

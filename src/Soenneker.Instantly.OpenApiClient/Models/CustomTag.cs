@@ -22,7 +22,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>Unique identifier for the custom tag</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Display label for the custom tag. Must be unique per workspace after trimming whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +38,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Label { get; set; }
 #endif
         /// <summary>Organization ID that owns this custom tag</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>Timestamp when the custom tag was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>Timestamp when the custom tag was last updated</summary>
@@ -56,9 +68,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
             };

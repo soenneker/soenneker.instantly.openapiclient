@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.inboxPlacementReports.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports.Item.InboxPlacementReportsItemRequestBuilder this[string position]
         {
             get
             {
@@ -146,8 +146,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
 #endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("test_id")]
-            public Guid? TestId { get; set; }
+            public string? TestId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("test_id")]
+            public string TestId { get; set; }
+#endif
         }
     }
 }

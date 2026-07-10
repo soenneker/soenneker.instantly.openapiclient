@@ -22,7 +22,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestAutomationsItem> Automations { get; set; }
 #endif
         /// <summary>Campaign ID</summary>
-        public Guid? CampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
         /// <summary>Whether to send emails one by one or all together</summary>
         public double? DeliveryMode { get; set; }
         /// <summary>Description of the inbox placement test</summary>
@@ -58,7 +64,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string EmailSubject { get; set; }
 #endif
         /// <summary>Unique identifier for the inbox placement test</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Name of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +82,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Why the inbox placement test is currently not sending. It will be an empty string if there are no issues.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestNotSendingStatus? NotSendingStatus { get; set; }
         /// <summary>Organization ID</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>The recipients property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,10 +120,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of tag IDs to use for sending emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? Tags { get; set; }
+        public List<string>? Tags { get; set; }
 #nullable restore
 #else
-        public List<Guid?> Tags { get; set; }
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>Code for identifying inbox placement tests sent from outside Instantly. Use ptid_ followed by letters, numbers, hyphens, or underscores. When creating a test, the ptid_ prefix is added automatically if omitted. The full code must be at most 50 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -154,22 +172,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestAutomationsItem>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestAutomationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "delivery_mode", n => { DeliveryMode = n.GetDoubleValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "email_body", n => { EmailBody = n.GetStringValue(); } },
                 { "email_subject", n => { EmailSubject = n.GetStringValue(); } },
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "not_sending_status", n => { NotSendingStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestNotSendingStatus>(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "recipients_labels", n => { RecipientsLabels = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestRecipientsLabelsItem>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestRecipientsLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "schedule", n => { Schedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestSchedule.CreateFromDiscriminatorValue); } },
                 { "sending_method", n => { SendingMethod = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "test_code", n => { TestCode = n.GetStringValue(); } },
                 { "text_only", n => { TextOnly = n.GetBoolValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
@@ -185,7 +203,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestAutomationsItem>("automations", Automations);
-            writer.WriteGuidValue("campaign_id", CampaignId);
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteDoubleValue("delivery_mode", DeliveryMode);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("email_body", EmailBody);
@@ -197,7 +215,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestSchedule>("schedule", Schedule);
             writer.WriteDoubleValue("sending_method", SendingMethod);
             writer.WriteDoubleValue("status", Status);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("test_code", TestCode);
             writer.WriteBoolValue("text_only", TextOnly);
             writer.WriteStringValue("timestamp_next_run", TimestampNextRun);

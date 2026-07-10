@@ -13,7 +13,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>User ID who added the account</summary>
-        public Guid? AddedBy { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddedBy { get; private set; }
+#nullable restore
+#else
+        public string AddedBy { get; private set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether automatic reconnection attempts have failed. null = in progress, true = failed, false = succeeded.</summary>
@@ -57,9 +63,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string LastName { get; set; }
 #endif
         /// <summary>User ID who last modified the account</summary>
-        public Guid? ModifiedBy { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ModifiedBy { get; private set; }
+#nullable restore
+#else
+        public string ModifiedBy { get; private set; }
+#endif
         /// <summary>Organization ID that owns this account</summary>
-        public Guid? Organization { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; private set; }
+#nullable restore
+#else
+        public string Organization { get; private set; }
+#endif
         /// <summary>Provider code for the account. Please make sure to specify the right provider code, otherwise your account will not work.</summary>
         public double? ProviderCode { get; set; }
         /// <summary>Custom reply-to email address for the account</summary>
@@ -137,7 +155,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Maximum daily warmup sending limit for AirMail accounts</summary>
         public double? WarmupLimitMax { get; private set; }
         /// <summary>ID of the warmup pool this account belongs to</summary>
-        public Guid? WarmupPoolId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WarmupPoolId { get; private set; }
+#nullable restore
+#else
+        public string WarmupPoolId { get; private set; }
+#endif
         /// <summary>Current warmup status of the account</summary>
         public double? WarmupStatus { get; private set; }
         /// <summary>
@@ -165,7 +189,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "added_by", n => { AddedBy = n.GetGuidValue(); } },
+                { "added_by", n => { AddedBy = n.GetStringValue(); } },
                 { "autofix_failed", n => { AutofixFailed = n.GetBoolValue(); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_max", n => { DailyLimitMax = n.GetDoubleValue(); } },
@@ -177,8 +201,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "is_managed_account", n => { IsManagedAccount = n.GetBoolValue(); } },
                 { "is_ready_made_account", n => { IsReadyMadeAccount = n.GetBoolValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
-                { "modified_by", n => { ModifiedBy = n.GetGuidValue(); } },
-                { "organization", n => { Organization = n.GetGuidValue(); } },
+                { "modified_by", n => { ModifiedBy = n.GetStringValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
                 { "provider_code", n => { ProviderCode = n.GetDoubleValue(); } },
                 { "reply_to", n => { ReplyTo = n.GetStringValue(); } },
                 { "sending_gap", n => { SendingGap = n.GetDoubleValue(); } },
@@ -196,7 +220,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "tracking_domain_status", n => { TrackingDomainStatus = n.GetStringValue(); } },
                 { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup>(global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup.CreateFromDiscriminatorValue); } },
                 { "warmup_limit_max", n => { WarmupLimitMax = n.GetDoubleValue(); } },
-                { "warmup_pool_id", n => { WarmupPoolId = n.GetGuidValue(); } },
+                { "warmup_pool_id", n => { WarmupPoolId = n.GetStringValue(); } },
                 { "warmup_status", n => { WarmupStatus = n.GetDoubleValue(); } },
             };
         }

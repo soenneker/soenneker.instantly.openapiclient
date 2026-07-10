@@ -45,7 +45,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>(AI re-run parameter) If true, run even if column has value. If false (default), only process empty/null columns. Requires column_name.</summary>
         public bool? Overwrite { get; set; }
         /// <summary>The ID of the resource (list or campaign) to run enrichments for</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>(AI re-run parameter) Starting lead position (inclusive, 1-indexed). Defaults to 1 if not provided. Requires column_name.</summary>
         public int? StartingRow { get; set; }
         /// <summary>
@@ -79,7 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "lead_ids", n => { LeadIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "starting_row", n => { StartingRow = n.GetIntValue(); } },
             };
         }
@@ -96,7 +102,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
             writer.WriteIntValue("limit", Limit);
             writer.WriteBoolValue("overwrite", Overwrite);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteIntValue("starting_row", StartingRow);
             writer.WriteAdditionalData(AdditionalData);
         }

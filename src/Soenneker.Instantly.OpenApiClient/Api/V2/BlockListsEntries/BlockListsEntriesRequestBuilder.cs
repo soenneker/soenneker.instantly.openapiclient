@@ -39,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.blockListsEntries.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item.BlockListsEntriesItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item.BlockListsEntriesItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item.BlockListsEntriesItemRequestBuilder this[string position]
         {
             get
             {

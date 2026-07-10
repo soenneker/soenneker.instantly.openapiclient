@@ -17,7 +17,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The number of bounced leads</summary>
         public int? BouncedCount { get; set; }
         /// <summary>The ID of the campaign</summary>
-        public Guid? CampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
         /// <summary>Whether the campaign is evergreen</summary>
         public bool? CampaignIsEvergreen { get; set; }
         /// <summary>The name of the campaign</summary>
@@ -96,7 +102,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "bounced_count", n => { BouncedCount = n.GetIntValue(); } },
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "campaign_is_evergreen", n => { CampaignIsEvergreen = n.GetBoolValue(); } },
                 { "campaign_name", n => { CampaignName = n.GetStringValue(); } },
                 { "campaign_status", n => { CampaignStatus = n.GetDoubleValue(); } },
@@ -130,7 +136,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bounced_count", BouncedCount);
-            writer.WriteGuidValue("campaign_id", CampaignId);
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteBoolValue("campaign_is_evergreen", CampaignIsEvergreen);
             writer.WriteStringValue("campaign_name", CampaignName);
             writer.WriteDoubleValue("campaign_status", CampaignStatus);

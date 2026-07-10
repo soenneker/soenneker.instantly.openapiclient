@@ -100,8 +100,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
         public partial class StepsRequestBuilderGetQueryParameters 
         {
             /// <summary>Campaign ID (optional). Leave this field empty to get the analytics for all campaigns</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("campaign_id")]
-            public Guid? CampaignId { get; set; }
+            public string? CampaignId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("campaign_id")]
+            public string CampaignId { get; set; }
+#endif
             /// <summary>End date</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

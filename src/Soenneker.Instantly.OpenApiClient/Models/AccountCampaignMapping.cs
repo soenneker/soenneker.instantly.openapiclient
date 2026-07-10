@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class AccountCampaignMapping : IParsable
     {
         /// <summary>The campaign_id property</summary>
-        public Guid? CampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
         /// <summary>The campaign_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,7 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "campaign_name", n => { CampaignName = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
@@ -64,7 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("campaign_id", CampaignId);
+            writer.WriteStringValue("campaign_id", CampaignId);
             writer.WriteStringValue("campaign_name", CampaignName);
             writer.WriteDoubleValue("status", Status);
         }

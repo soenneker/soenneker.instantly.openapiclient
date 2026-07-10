@@ -27,7 +27,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.webhooks.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.WebhooksItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.WebhooksItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.WebhooksItemRequestBuilder this[string position]
         {
             get
             {
@@ -171,8 +171,15 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
         public partial class WebhooksRequestBuilderGetQueryParameters 
         {
             /// <summary>Filter by campaign ID</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("campaign")]
-            public Guid? Campaign { get; set; }
+            public string? Campaign { get; set; }
+#nullable restore
+#else
+            [QueryParameter("campaign")]
+            public string Campaign { get; set; }
+#endif
             /// <summary>Filter by event type (e.g., email_sent, lead_interested, all_events)</summary>
             [QueryParameter("event_type")]
             public global::Soenneker.Instantly.OpenApiClient.Models.ListWebhookEventTypeParameter? EventType { get; set; }

@@ -30,7 +30,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobData Data { get; set; }
 #endif
         /// <summary>The id of the entity that the job is related to</summary>
-        public Guid? EntityId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EntityId { get; set; }
+#nullable restore
+#else
+        public string EntityId { get; set; }
+#endif
         /// <summary>Type of entity</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobEntityType? EntityType { get; set; }
         /// <summary>Unique identifier for the background job</summary>
@@ -56,9 +62,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>The id of the user that triggered the action that created the job</summary>
-        public Guid? UserId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; private set; }
+#nullable restore
+#else
+        public string UserId { get; private set; }
+#endif
         /// <summary>Workspace ID</summary>
-        public Guid? WorkspaceId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; private set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; private set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,15 +97,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobData>(global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobData.CreateFromDiscriminatorValue); } },
-                { "entity_id", n => { EntityId = n.GetGuidValue(); } },
+                { "entity_id", n => { EntityId = n.GetStringValue(); } },
                 { "entity_type", n => { EntityType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobEntityType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "progress", n => { Progress = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "workspace_id", n => { WorkspaceId = n.GetGuidValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -99,7 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobData>("data", Data);
-            writer.WriteGuidValue("entity_id", EntityId);
+            writer.WriteStringValue("entity_id", EntityId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobEntityType>("entity_type", EntityType);
             writer.WriteDoubleValue("progress", Progress);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobStatus>("status", Status);

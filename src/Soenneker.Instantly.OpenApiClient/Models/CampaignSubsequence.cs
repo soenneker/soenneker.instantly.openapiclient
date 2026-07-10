@@ -26,7 +26,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Daily limit mode for the subsequence. &quot;inherit&quot; uses the parent campaign limit, &quot;custom&quot; uses a subsequence-specific limit, &quot;unlimited&quot; bypasses the campaign-level daily limit.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode? DailyLimitMode { get; set; }
         /// <summary>Unique identifier for the subsequence</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>When enabled, the subsequence will send even when sending accounts have reached their daily limit.</summary>
         public bool? IgnoreAccountDailyLimit { get; set; }
         /// <summary>Name of the subsequence</summary>
@@ -38,7 +44,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>ID of the parent campaign</summary>
-        public Guid? ParentCampaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentCampaign { get; set; }
+#nullable restore
+#else
+        public string ParentCampaign { get; set; }
+#endif
         /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +74,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Timestamp when the leads were last updated</summary>
         public DateTimeOffset? TimestampLeadsUpdated { get; private set; }
         /// <summary>ID of the workspace this subsequence belongs to</summary>
-        public Guid? Workspace { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Workspace { get; private set; }
+#nullable restore
+#else
+        public string Workspace { get; private set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -84,16 +102,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode>(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parent_campaign", n => { ParentCampaign = n.GetGuidValue(); } },
+                { "parent_campaign", n => { ParentCampaign = n.GetStringValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule.CreateFromDiscriminatorValue); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_leads_updated", n => { TimestampLeadsUpdated = n.GetDateTimeOffsetValue(); } },
-                { "workspace", n => { Workspace = n.GetGuidValue(); } },
+                { "workspace", n => { Workspace = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -108,7 +126,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode>("daily_limit_mode", DailyLimitMode);
             writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
-            writer.WriteGuidValue("parent_campaign", ParentCampaign);
+            writer.WriteStringValue("parent_campaign", ParentCampaign);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem>("sequences", Sequences);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);
         }

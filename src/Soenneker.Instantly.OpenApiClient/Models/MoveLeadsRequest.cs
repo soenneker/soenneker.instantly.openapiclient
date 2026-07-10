@@ -15,9 +15,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the user to assign the leads to.</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>Campaign ID to filter leads</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>Whether to check duplicates.</summary>
         public bool? CheckDuplicates { get; set; }
         /// <summary>Whether to check duplicates in campaigns.</summary>
@@ -39,10 +51,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Array of lead IDs to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? ExcludedIds { get; set; }
+        public List<string>? ExcludedIds { get; set; }
 #nullable restore
 #else
-        public List<Guid?> ExcludedIds { get; set; }
+        public List<string> ExcludedIds { get; set; }
 #endif
         /// <summary>Filter criteria for leads. For custom lead labels, use the `interest_status` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,10 +67,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Array of lead IDs to include. When using this parameter, you must provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? Ids { get; set; }
+        public List<string>? Ids { get; set; }
 #nullable restore
 #else
-        public List<Guid?> Ids { get; set; }
+        public List<string> Ids { get; set; }
 #endif
         /// <summary>Whether to ignore saved lead-finder clauses for the source campaign/list when selecting leads to move.</summary>
         public bool? IgnoreResourceFilterClauses { get; set; }
@@ -69,7 +81,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The limit of the number of leads to move.</summary>
         public double? Limit { get; set; }
         /// <summary>List ID to filter leads</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>The queries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,9 +109,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether to skip leads in verification.</summary>
         public bool? SkipLeadsInVerification { get; set; }
         /// <summary>The ID of the campaign to move the leads to.</summary>
-        public Guid? ToCampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ToCampaignId { get; set; }
+#nullable restore
+#else
+        public string ToCampaignId { get; set; }
+#endif
         /// <summary>The ID of the list to move the leads to.</summary>
-        public Guid? ToListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ToListId { get; set; }
+#nullable restore
+#else
+        public string ToListId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequest"/> and sets the default values.
         /// </summary>
@@ -119,28 +149,28 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "check_duplicates", n => { CheckDuplicates = n.GetBoolValue(); } },
                 { "check_duplicates_in_campaigns", n => { CheckDuplicatesInCampaigns = n.GetBoolValue(); } },
                 { "contacts", n => { Contacts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "copy_leads", n => { CopyLeads = n.GetBoolValue(); } },
                 { "esg_code", n => { EsgCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode>(); } },
                 { "esp_code", n => { EspCode = n.GetDoubleValue(); } },
-                { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "ignore_resource_filter_clauses", n => { IgnoreResourceFilterClauses = n.GetBoolValue(); } },
                 { "in_campaign", n => { InCampaign = n.GetBoolValue(); } },
                 { "in_list", n => { InList = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>(global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reset_interest_status", n => { ResetInterestStatus = n.GetBoolValue(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "skip_leads_in_verification", n => { SkipLeadsInVerification = n.GetBoolValue(); } },
-                { "to_campaign_id", n => { ToCampaignId = n.GetGuidValue(); } },
-                { "to_list_id", n => { ToListId = n.GetGuidValue(); } },
+                { "to_campaign_id", n => { ToCampaignId = n.GetStringValue(); } },
+                { "to_list_id", n => { ToListId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -150,28 +180,28 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("assigned_to", AssignedTo);
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteBoolValue("check_duplicates", CheckDuplicates);
             writer.WriteBoolValue("check_duplicates_in_campaigns", CheckDuplicatesInCampaigns);
             writer.WriteCollectionOfPrimitiveValues<string>("contacts", Contacts);
             writer.WriteBoolValue("copy_leads", CopyLeads);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode>("esg_code", EsgCode);
             writer.WriteDoubleValue("esp_code", EspCode);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("excluded_ids", ExcludedIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("excluded_ids", ExcludedIds);
             writer.WriteStringValue("filter", Filter);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
+            writer.WriteCollectionOfPrimitiveValues<string>("ids", Ids);
             writer.WriteBoolValue("ignore_resource_filter_clauses", IgnoreResourceFilterClauses);
             writer.WriteBoolValue("in_campaign", InCampaign);
             writer.WriteBoolValue("in_list", InList);
             writer.WriteDoubleValue("limit", Limit);
-            writer.WriteGuidValue("list_id", ListId);
+            writer.WriteStringValue("list_id", ListId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>("queries", Queries);
             writer.WriteBoolValue("reset_interest_status", ResetInterestStatus);
             writer.WriteStringValue("search", Search);
             writer.WriteBoolValue("skip_leads_in_verification", SkipLeadsInVerification);
-            writer.WriteGuidValue("to_campaign_id", ToCampaignId);
-            writer.WriteGuidValue("to_list_id", ToListId);
+            writer.WriteStringValue("to_campaign_id", ToCampaignId);
+            writer.WriteStringValue("to_list_id", ToListId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

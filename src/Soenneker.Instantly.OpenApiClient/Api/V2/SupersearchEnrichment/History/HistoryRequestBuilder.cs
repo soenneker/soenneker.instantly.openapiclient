@@ -18,7 +18,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.supersearchEnrichment.history.item collection</summary>
         /// <param name="position">ID of the resource to retrieve</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResourceItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResourceItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.Item.WithResourceItemRequestBuilder this[string position]
         {
             get
             {

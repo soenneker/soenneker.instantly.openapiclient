@@ -41,7 +41,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Maximum number of leads to enrich.</summary>
         public double? Limit { get; set; }
         /// <summary>Unique identifier for the resource (list or campaign)</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>Enrichment type to add to the resource</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType? Type { get; set; }
         /// <summary>
@@ -73,7 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "integration_actions", n => { IntegrationActions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions.CreateFromDiscriminatorValue); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType>(); } },
             };
         }
@@ -88,7 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>("filters", Filters);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions>("integration_actions", IntegrationActions);
             writer.WriteDoubleValue("limit", Limit);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

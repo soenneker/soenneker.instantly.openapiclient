@@ -15,9 +15,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the destination lead to merge into.</summary>
-        public Guid? DestinationLeadId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DestinationLeadId { get; set; }
+#nullable restore
+#else
+        public string DestinationLeadId { get; set; }
+#endif
         /// <summary>The ID of the lead to merge.</summary>
-        public Guid? LeadId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LeadId { get; set; }
+#nullable restore
+#else
+        public string LeadId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MergeLeadsRequest"/> and sets the default values.
         /// </summary>
@@ -43,8 +55,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "destination_lead_id", n => { DestinationLeadId = n.GetGuidValue(); } },
-                { "lead_id", n => { LeadId = n.GetGuidValue(); } },
+                { "destination_lead_id", n => { DestinationLeadId = n.GetStringValue(); } },
+                { "lead_id", n => { LeadId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -54,8 +66,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("destination_lead_id", DestinationLeadId);
-            writer.WriteGuidValue("lead_id", LeadId);
+            writer.WriteStringValue("destination_lead_id", DestinationLeadId);
+            writer.WriteStringValue("lead_id", LeadId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

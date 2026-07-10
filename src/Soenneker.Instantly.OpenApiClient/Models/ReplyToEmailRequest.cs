@@ -23,7 +23,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<string> AdditionalRecipients { get; set; }
 #endif
         /// <summary>The user id assigned to the lead</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>Comma-separated list of BCC email addresses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "additional_recipients", n => { AdditionalRecipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody>(global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody.CreateFromDiscriminatorValue); } },
                 { "cc_address_email_list", n => { CcAddressEmailList = n.GetStringValue(); } },
@@ -118,7 +124,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("additional_recipients", AdditionalRecipients);
-            writer.WriteGuidValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("assigned_to", AssignedTo);
             writer.WriteStringValue("bcc_address_email_list", BccAddressEmailList);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody>("body", Body);
             writer.WriteStringValue("cc_address_email_list", CcAddressEmailList);

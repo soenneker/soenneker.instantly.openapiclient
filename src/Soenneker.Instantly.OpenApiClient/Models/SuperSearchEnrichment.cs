@@ -36,9 +36,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The maximum number of leads to enrich</summary>
         public double? Limit { get; set; }
         /// <summary>Organization ID that created this enrichment</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>Unique identifier for the entity to enrich leads into</summary>
-        public Guid? ResourceId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; private set; }
+#nullable restore
+#else
+        public string ResourceId { get; private set; }
+#endif
         /// <summary>Type of the entity to enrich leads into</summary>
         public double? ResourceType { get; private set; }
         /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
@@ -68,8 +80,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SuperSearchEnrichmentType>(); } },

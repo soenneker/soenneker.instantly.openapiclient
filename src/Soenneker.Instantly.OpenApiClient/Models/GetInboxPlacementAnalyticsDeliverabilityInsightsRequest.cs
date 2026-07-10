@@ -73,7 +73,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The show_previous property</summary>
         public bool? ShowPrevious { get; set; }
         /// <summary>The test_id property</summary>
-        public Guid? TestId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TestId { get; set; }
+#nullable restore
+#else
+        public string TestId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsDeliverabilityInsightsRequest"/> and sets the default values.
         /// </summary>
@@ -107,7 +113,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "recipient_geo", n => { RecipientGeo = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "recipient_type", n => { RecipientType = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "show_previous", n => { ShowPrevious = n.GetBoolValue(); } },
-                { "test_id", n => { TestId = n.GetGuidValue(); } },
+                { "test_id", n => { TestId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -125,7 +131,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<double?>("recipient_geo", RecipientGeo);
             writer.WriteCollectionOfPrimitiveValues<double?>("recipient_type", RecipientType);
             writer.WriteBoolValue("show_previous", ShowPrevious);
-            writer.WriteGuidValue("test_id", TestId);
+            writer.WriteStringValue("test_id", TestId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

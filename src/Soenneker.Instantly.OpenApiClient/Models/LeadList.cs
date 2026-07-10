@@ -16,7 +16,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether this list runs the enrichment process on every added lead or not</summary>
         public bool? HasEnrichmentTask { get; set; }
         /// <summary>Unique identifier for the lead list</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Name of the lead list</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,9 +32,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Organization ID that owns this lead list</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>User ID of the owner of this lead list. Defaults to the user that created the list</summary>
-        public Guid? OwnedBy { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnedBy { get; set; }
+#nullable restore
+#else
+        public string OwnedBy { get; set; }
+#endif
         /// <summary>Timestamp when the lead list was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>
@@ -50,10 +68,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "has_enrichment_task", n => { HasEnrichmentTask = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
+                { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -66,7 +84,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("has_enrichment_task", HasEnrichmentTask);
             writer.WriteStringValue("name", Name);
-            writer.WriteGuidValue("owned_by", OwnedBy);
+            writer.WriteStringValue("owned_by", OwnedBy);
         }
     }
 }

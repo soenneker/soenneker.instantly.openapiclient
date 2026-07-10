@@ -57,9 +57,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string LiveListWorkflowId { get; set; }
 #endif
         /// <summary>Organization ID that created this enrichment</summary>
-        public Guid? OrganizationId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; set; }
+#nullable restore
+#else
+        public string OrganizationId { get; set; }
+#endif
         /// <summary>ID of the list</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>&quot;Resource type: 1=Campaign, 2=List (default)&quot;</summary>
         public double? ResourceType { get; set; }
         /// <summary>The search filters used for enrichment</summary>
@@ -101,8 +113,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
                 { "live_list_workflow_id", n => { LiveListWorkflowId = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch200ResponseSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch200ResponseSearchFilters.CreateFromDiscriminatorValue); } },
             };
@@ -120,8 +132,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
             writer.WriteStringValue("live_list_workflow_id", LiveListWorkflowId);
-            writer.WriteGuidValue("organization_id", OrganizationId);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("organization_id", OrganizationId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch200ResponseSearchFilters>("search_filters", SearchFilters);
             writer.WriteAdditionalData(AdditionalData);

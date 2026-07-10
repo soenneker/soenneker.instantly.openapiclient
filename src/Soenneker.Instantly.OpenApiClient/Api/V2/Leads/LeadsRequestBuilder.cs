@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.leads.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Item.LeadsItemRequestBuilder"/></returns>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Item.LeadsItemRequestBuilder this[Guid position]
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Item.LeadsItemRequestBuilder this[string position]
         {
             get
             {

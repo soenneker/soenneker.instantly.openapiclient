@@ -15,7 +15,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Campaign ID to filter leads</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>Array of emails the leads needs to have</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,10 +39,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Array of lead IDs to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? ExcludedIds { get; set; }
+        public List<string>? ExcludedIds { get; set; }
 #nullable restore
 #else
-        public List<Guid?> ExcludedIds { get; set; }
+        public List<string> ExcludedIds { get; set; }
 #endif
         /// <summary>Filter criteria for leads. For custom lead labels, use the `interest_status` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,10 +55,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Array of lead IDs to include</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? Ids { get; set; }
+        public List<string>? Ids { get; set; }
 #nullable restore
 #else
-        public List<Guid?> Ids { get; set; }
+        public List<string> Ids { get; set; }
 #endif
         /// <summary>Whether the lead is in a campaign</summary>
         public bool? InCampaign { get; set; }
@@ -63,14 +69,20 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The number of items to return</summary>
         public int? Limit { get; set; }
         /// <summary>List ID to filter leads</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>Array of organization user IDs to filter leads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? OrganizationUserIds { get; set; }
+        public List<string>? OrganizationUserIds { get; set; }
 #nullable restore
 #else
-        public List<Guid?> OrganizationUserIds { get; set; }
+        public List<string> OrganizationUserIds { get; set; }
 #endif
         /// <summary>The queries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,7 +101,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Search { get; set; }
 #endif
         /// <summary>Smart view ID to filter leads</summary>
-        public Guid? SmartViewId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SmartViewId { get; set; }
+#nullable restore
+#else
+        public string SmartViewId { get; set; }
+#endif
         /// <summary>Forward pagination cursor. When distinct_contacts is false, provide the `id` value from the last lead of the previous page; when true, provide the lead&apos;s email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -123,23 +141,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "contacts", n => { Contacts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "distinct_contacts", n => { DistinctContacts = n.GetBoolValue(); } },
                 { "enrichment_status", n => { EnrichmentStatus = n.GetDoubleValue(); } },
                 { "esg_code", n => { EsgCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequestEsgCode>(); } },
-                { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "in_campaign", n => { InCampaign = n.GetBoolValue(); } },
                 { "in_list", n => { InList = n.GetBoolValue(); } },
                 { "is_website_visitor", n => { IsWebsiteVisitor = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
-                { "organization_user_ids", n => { OrganizationUserIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
+                { "organization_user_ids", n => { OrganizationUserIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequestQueriesItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequestQueriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
-                { "smart_view_id", n => { SmartViewId = n.GetGuidValue(); } },
+                { "smart_view_id", n => { SmartViewId = n.GetStringValue(); } },
                 { "starting_after", n => { StartingAfter = n.GetStringValue(); } },
             };
         }
@@ -150,23 +168,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteCollectionOfPrimitiveValues<string>("contacts", Contacts);
             writer.WriteBoolValue("distinct_contacts", DistinctContacts);
             writer.WriteDoubleValue("enrichment_status", EnrichmentStatus);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequestEsgCode>("esg_code", EsgCode);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("excluded_ids", ExcludedIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("excluded_ids", ExcludedIds);
             writer.WriteStringValue("filter", Filter);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
+            writer.WriteCollectionOfPrimitiveValues<string>("ids", Ids);
             writer.WriteBoolValue("in_campaign", InCampaign);
             writer.WriteBoolValue("in_list", InList);
             writer.WriteBoolValue("is_website_visitor", IsWebsiteVisitor);
             writer.WriteIntValue("limit", Limit);
-            writer.WriteGuidValue("list_id", ListId);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("organization_user_ids", OrganizationUserIds);
+            writer.WriteStringValue("list_id", ListId);
+            writer.WriteCollectionOfPrimitiveValues<string>("organization_user_ids", OrganizationUserIds);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequestQueriesItem>("queries", Queries);
             writer.WriteStringValue("search", Search);
-            writer.WriteGuidValue("smart_view_id", SmartViewId);
+            writer.WriteStringValue("smart_view_id", SmartViewId);
             writer.WriteStringValue("starting_after", StartingAfter);
             writer.WriteAdditionalData(AdditionalData);
         }

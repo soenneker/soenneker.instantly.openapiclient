@@ -51,7 +51,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether to overwrite existing data</summary>
         public bool? Overwrite { get; set; }
         /// <summary>ID of the resource being enriched</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>Type of the resource (1 for Campaign, 2 for List)</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichment200ResponseResourceType? ResourceType { get; set; }
         /// <summary>Status of the enrichment job</summary>
@@ -89,7 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "model_version", n => { ModelVersion = n.GetStringValue(); } },
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichment200ResponseResourceType>(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "template_id", n => { TemplateId = n.GetStringValue(); } },
@@ -109,7 +115,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("model_version", ModelVersion);
             writer.WriteStringValue("output_column", OutputColumn);
             writer.WriteBoolValue("overwrite", Overwrite);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichment200ResponseResourceType>("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
             writer.WriteStringValue("template_id", TemplateId);

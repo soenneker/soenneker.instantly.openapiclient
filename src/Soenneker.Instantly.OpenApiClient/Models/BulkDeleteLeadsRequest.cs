@@ -15,19 +15,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the campaign to delete leads from. Required if `list_id` is not provided.</summary>
-        public Guid? CampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; set; }
+#nullable restore
+#else
+        public string CampaignId { get; set; }
+#endif
         /// <summary>Optional array of specific lead IDs to delete. When provided, only these leads will be deleted from the specified campaign or list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? Ids { get; set; }
+        public List<string>? Ids { get; set; }
 #nullable restore
 #else
-        public List<Guid?> Ids { get; set; }
+        public List<string> Ids { get; set; }
 #endif
         /// <summary>Maximum number of leads to delete. If not specified, all matching leads will be deleted.</summary>
         public int? Limit { get; set; }
         /// <summary>The ID of the list to delete leads from. Required if `campaign_id` is not provided.</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>Optional status filter. Only delete leads with this status.</summary>
         public double? Status { get; set; }
         /// <summary>
@@ -55,10 +67,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
+                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
             };
         }
@@ -69,10 +81,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("campaign_id", CampaignId);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
+            writer.WriteStringValue("campaign_id", CampaignId);
+            writer.WriteCollectionOfPrimitiveValues<string>("ids", Ids);
             writer.WriteIntValue("limit", Limit);
-            writer.WriteGuidValue("list_id", ListId);
+            writer.WriteStringValue("list_id", ListId);
             writer.WriteDoubleValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

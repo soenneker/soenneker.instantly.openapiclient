@@ -31,9 +31,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The maximum number of leads to enrich</summary>
         public double? Limit { get; set; }
         /// <summary>Organization ID that created this enrichment</summary>
-        public Guid? OrganizationId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; set; }
+#nullable restore
+#else
+        public string OrganizationId { get; set; }
+#endif
         /// <summary>Unique identifier for the entity to enrich leads into</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,8 +67,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,8 +81,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload>("enrichment_payload", EnrichmentPayload);
             writer.WriteStringValue("id", Id);
             writer.WriteDoubleValue("limit", Limit);
-            writer.WriteGuidValue("organization_id", OrganizationId);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("organization_id", OrganizationId);
+            writer.WriteStringValue("resource_id", ResourceId);
         }
     }
 }

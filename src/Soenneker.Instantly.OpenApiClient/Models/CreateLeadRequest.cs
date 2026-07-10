@@ -14,11 +14,29 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class CreateLeadRequest : IParsable
     {
         /// <summary>ID of the user assigned to the lead</summary>
-        public Guid? AssignedTo { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssignedTo { get; set; }
+#nullable restore
+#else
+        public string AssignedTo { get; set; }
+#endif
         /// <summary>The ID of the blocklist to check for the lead.</summary>
-        public Guid? BlocklistId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BlocklistId { get; set; }
+#nullable restore
+#else
+        public string BlocklistId { get; set; }
+#endif
         /// <summary>Campaign ID associated with the lead</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>Company name of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +86,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string LastName { get; set; }
 #endif
         /// <summary>List ID associated with the lead</summary>
-        public Guid? ListId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; set; }
+#nullable restore
+#else
+        public string ListId { get; set; }
+#endif
         /// <summary>Lead interest status. It can be either a static value (check below), or a custom status interest value</summary>
         public double? LtInterestStatus { get; set; }
         /// <summary>Personalization of the lead</summary>
@@ -131,16 +155,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_to", n => { AssignedTo = n.GetGuidValue(); } },
-                { "blocklist_id", n => { BlocklistId = n.GetGuidValue(); } },
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
+                { "blocklist_id", n => { BlocklistId = n.GetStringValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "company_name", n => { CompanyName = n.GetStringValue(); } },
                 { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequestCustomVariables>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequestCustomVariables.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "lt_interest_status", n => { LtInterestStatus = n.GetDoubleValue(); } },
                 { "personalization", n => { Personalization = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
@@ -160,16 +184,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("assigned_to", AssignedTo);
-            writer.WriteGuidValue("blocklist_id", BlocklistId);
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("assigned_to", AssignedTo);
+            writer.WriteStringValue("blocklist_id", BlocklistId);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteStringValue("company_name", CompanyName);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadRequestCustomVariables>("custom_variables", CustomVariables);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("last_name", LastName);
-            writer.WriteGuidValue("list_id", ListId);
+            writer.WriteStringValue("list_id", ListId);
             writer.WriteDoubleValue("lt_interest_status", LtInterestStatus);
             writer.WriteStringValue("personalization", Personalization);
             writer.WriteStringValue("phone", Phone);

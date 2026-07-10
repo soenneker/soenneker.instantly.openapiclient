@@ -13,7 +13,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Optional campaign UUID to filter events (null = all campaigns in workspace)</summary>
-        public Guid? Campaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Campaign { get; set; }
+#nullable restore
+#else
+        public string Campaign { get; set; }
+#endif
         /// <summary>Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events)</summary>
         public double? CustomInterestValue { get; set; }
         /// <summary>Type of event to trigger the webhook (null for custom label events). Set to &quot;all_events&quot; to subscribe to all events - including custom label events</summary>
@@ -60,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "campaign", n => { Campaign = n.GetGuidValue(); } },
+                { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "custom_interest_value", n => { CustomInterestValue = n.GetDoubleValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchWebhookRequestEventType>(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchWebhookRequestHeaders>(global::Soenneker.Instantly.OpenApiClient.Models.PatchWebhookRequestHeaders.CreateFromDiscriminatorValue); } },
@@ -75,7 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("campaign", Campaign);
+            writer.WriteStringValue("campaign", Campaign);
             writer.WriteDoubleValue("custom_interest_value", CustomInterestValue);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchWebhookRequestEventType>("event_type", EventType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchWebhookRequestHeaders>("headers", Headers);

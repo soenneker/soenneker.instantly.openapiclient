@@ -23,7 +23,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The ID of the campaign to duplicate the subsequence to.</summary>
-        public Guid? ParentCampaign { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentCampaign { get; set; }
+#nullable restore
+#else
+        public string ParentCampaign { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DuplicateSubsequenceRequest"/> and sets the default values.
         /// </summary>
@@ -50,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parent_campaign", n => { ParentCampaign = n.GetGuidValue(); } },
+                { "parent_campaign", n => { ParentCampaign = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteGuidValue("parent_campaign", ParentCampaign);
+            writer.WriteStringValue("parent_campaign", ParentCampaign);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

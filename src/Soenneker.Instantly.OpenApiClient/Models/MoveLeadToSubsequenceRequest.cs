@@ -15,9 +15,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id property</summary>
-        public Guid? Id { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
         /// <summary>The subsequence_id property</summary>
-        public Guid? SubsequenceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubsequenceId { get; set; }
+#nullable restore
+#else
+        public string SubsequenceId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadToSubsequenceRequest"/> and sets the default values.
         /// </summary>
@@ -43,8 +55,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "subsequence_id", n => { SubsequenceId = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "subsequence_id", n => { SubsequenceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -54,8 +66,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("id", Id);
-            writer.WriteGuidValue("subsequence_id", SubsequenceId);
+            writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("subsequence_id", SubsequenceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

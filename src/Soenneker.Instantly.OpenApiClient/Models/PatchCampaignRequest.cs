@@ -65,10 +65,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of tags to use for sending emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? EmailTagList { get; set; }
+        public List<string>? EmailTagList { get; set; }
 #nullable restore
 #else
-        public List<Guid?> EmailTagList { get; set; }
+        public List<string> EmailTagList { get; set; }
 #endif
         /// <summary>Whether the campaign is send the first email as a text only</summary>
         public bool? FirstEmailTextOnly { get; set; }
@@ -99,7 +99,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether to track opens in emails</summary>
         public bool? OpenTracking { get; set; }
         /// <summary>Owner ID</summary>
-        public Guid? OwnedBy { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnedBy { get; set; }
+#nullable restore
+#else
+        public string OwnedBy { get; set; }
+#endif
         /// <summary>Value of every positive lead</summary>
         public double? PlValue { get; set; }
         /// <summary>Whether to prioritize new leads</summary>
@@ -158,7 +164,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
                 { "email_gap", n => { EmailGap = n.GetDoubleValue(); } },
                 { "email_list", n => { EmailList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "email_tag_list", n => { EmailTagList = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "email_tag_list", n => { EmailTagList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "first_email_text_only", n => { FirstEmailTextOnly = n.GetBoolValue(); } },
                 { "insert_unsubscribe_header", n => { InsertUnsubscribeHeader = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
@@ -167,7 +173,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "match_lead_esp", n => { MatchLeadEsp = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "open_tracking", n => { OpenTracking = n.GetBoolValue(); } },
-                { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },
+                { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
                 { "pl_value", n => { PlValue = n.GetDoubleValue(); } },
                 { "prioritize_new_leads", n => { PrioritizeNewLeads = n.GetBoolValue(); } },
                 { "provider_routing_rules", n => { ProviderRoutingRules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestProviderRoutingRulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestProviderRoutingRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -196,7 +202,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("disable_bounce_protect", DisableBounceProtect);
             writer.WriteDoubleValue("email_gap", EmailGap);
             writer.WriteCollectionOfPrimitiveValues<string>("email_list", EmailList);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("email_tag_list", EmailTagList);
+            writer.WriteCollectionOfPrimitiveValues<string>("email_tag_list", EmailTagList);
             writer.WriteBoolValue("first_email_text_only", FirstEmailTextOnly);
             writer.WriteBoolValue("insert_unsubscribe_header", InsertUnsubscribeHeader);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
@@ -205,7 +211,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("match_lead_esp", MatchLeadEsp);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("open_tracking", OpenTracking);
-            writer.WriteGuidValue("owned_by", OwnedBy);
+            writer.WriteStringValue("owned_by", OwnedBy);
             writer.WriteDoubleValue("pl_value", PlValue);
             writer.WriteBoolValue("prioritize_new_leads", PrioritizeNewLeads);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestProviderRoutingRulesItem>("provider_routing_rules", ProviderRoutingRules);

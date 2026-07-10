@@ -18,7 +18,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Max new leads enriched per scheduled run</summary>
         public int? LeadsPerRun { get; set; }
         /// <summary>Push each run&apos;s new leads to this campaign</summary>
-        public Guid? PushToCampaignId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PushToCampaignId { get; set; }
+#nullable restore
+#else
+        public string PushToCampaignId { get; set; }
+#endif
         /// <summary>The schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "leads_per_run", n => { LeadsPerRun = n.GetIntValue(); } },
-                { "push_to_campaign_id", n => { PushToCampaignId = n.GetGuidValue(); } },
+                { "push_to_campaign_id", n => { PushToCampaignId = n.GetStringValue(); } },
                 { "schedule", n => { Schedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveListSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveListSchedule.CreateFromDiscriminatorValue); } },
             };
         }
@@ -65,7 +71,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("leads_per_run", LeadsPerRun);
-            writer.WriteGuidValue("push_to_campaign_id", PushToCampaignId);
+            writer.WriteStringValue("push_to_campaign_id", PushToCampaignId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveListSchedule>("schedule", Schedule);
             writer.WriteAdditionalData(AdditionalData);
         }

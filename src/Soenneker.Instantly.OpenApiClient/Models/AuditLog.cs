@@ -18,7 +18,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Number of items affected by the activity</summary>
         public double? AffectedCount { get; private set; }
         /// <summary>API key ID that performed the activity, when available</summary>
-        public Guid? ApiKeyId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApiKeyId { get; private set; }
+#nullable restore
+#else
+        public string ApiKeyId { get; private set; }
+#endif
         /// <summary>Sanitized metadata about the audit log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,11 +34,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty AuditMetadata { get; set; }
 #endif
         /// <summary>Associated campaign ID if applicable</summary>
-        public Guid? CampaignId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignId { get; private set; }
+#nullable restore
+#else
+        public string CampaignId { get; private set; }
+#endif
         /// <summary>Whether the activity was performed via API</summary>
         public bool? FromApi { get; private set; }
         /// <summary>The id property</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>IP address from which the activity was performed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,11 +60,29 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string IpAddress { get; private set; }
 #endif
         /// <summary>Associated list ID if applicable</summary>
-        public Guid? ListId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ListId { get; private set; }
+#nullable restore
+#else
+        public string ListId { get; private set; }
+#endif
         /// <summary>Organization ID associated with the activity</summary>
-        public Guid? OrganizationId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; private set; }
+#nullable restore
+#else
+        public string OrganizationId { get; private set; }
+#endif
         /// <summary>Associated subsequence ID if applicable</summary>
-        public Guid? SubsequenceId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubsequenceId { get; private set; }
+#nullable restore
+#else
+        public string SubsequenceId { get; private set; }
+#endif
         /// <summary>When the activity occurred</summary>
         public DateTimeOffset? Timestamp { get; private set; }
         /// <summary>User agent of the client that performed the activity</summary>
@@ -58,7 +94,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string UserAgent { get; private set; }
 #endif
         /// <summary>ID of the user who performed the activity</summary>
-        public Guid? UserId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; private set; }
+#nullable restore
+#else
+        public string UserId { get; private set; }
+#endif
         /// <summary>Name of the user who performed the activity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +110,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string UserName { get; private set; }
 #endif
         /// <summary>Associated webhook ID if applicable</summary>
-        public Guid? WebhookId { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookId { get; private set; }
+#nullable restore
+#else
+        public string WebhookId { get; private set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -89,20 +137,20 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "activity_type", n => { ActivityType = n.GetDoubleValue(); } },
                 { "affected_count", n => { AffectedCount = n.GetDoubleValue(); } },
-                { "api_key_id", n => { ApiKeyId = n.GetGuidValue(); } },
+                { "api_key_id", n => { ApiKeyId = n.GetStringValue(); } },
                 { "audit_metadata", n => { AuditMetadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty>(global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty.CreateFromDiscriminatorValue); } },
-                { "campaign_id", n => { CampaignId = n.GetGuidValue(); } },
+                { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "from_api", n => { FromApi = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "ip_address", n => { IpAddress = n.GetStringValue(); } },
-                { "list_id", n => { ListId = n.GetGuidValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
-                { "subsequence_id", n => { SubsequenceId = n.GetGuidValue(); } },
+                { "list_id", n => { ListId = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
+                { "subsequence_id", n => { SubsequenceId = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
                 { "user_agent", n => { UserAgent = n.GetStringValue(); } },
-                { "user_id", n => { UserId = n.GetGuidValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
-                { "webhook_id", n => { WebhookId = n.GetGuidValue(); } },
+                { "webhook_id", n => { WebhookId = n.GetStringValue(); } },
             };
         }
         /// <summary>

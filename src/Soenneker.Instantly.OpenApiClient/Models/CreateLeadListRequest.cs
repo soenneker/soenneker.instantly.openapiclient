@@ -24,7 +24,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>User ID of the owner of this lead list. Defaults to the user that created the list</summary>
-        public Guid? OwnedBy { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnedBy { get; set; }
+#nullable restore
+#else
+        public string OwnedBy { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "has_enrichment_task", n => { HasEnrichmentTask = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },
+                { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("has_enrichment_task", HasEnrichmentTask);
             writer.WriteStringValue("name", Name);
-            writer.WriteGuidValue("owned_by", OwnedBy);
+            writer.WriteStringValue("owned_by", OwnedBy);
         }
     }
 }

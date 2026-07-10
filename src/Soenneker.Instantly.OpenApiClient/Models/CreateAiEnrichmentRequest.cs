@@ -55,7 +55,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Prompt { get; set; }
 #endif
         /// <summary>Id of the resource (list or campaign) to enrich</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>Type of the entity to enrich</summary>
         public double? ResourceType { get; set; }
         /// <summary>When true, leads without an email will be skipped.</summary>
@@ -105,7 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "skip_leads_without_email", n => { SkipLeadsWithoutEmail = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
@@ -128,7 +134,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("output_column", OutputColumn);
             writer.WriteBoolValue("overwrite", Overwrite);
             writer.WriteStringValue("prompt", Prompt);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteBoolValue("skip_leads_without_email", SkipLeadsWithoutEmail);
             writer.WriteDoubleValue("status", Status);

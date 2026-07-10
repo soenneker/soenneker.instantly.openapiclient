@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class Campaign : IParsable
     {
         /// <summary>AI Sales Agent ID that created this campaign</summary>
-        public Guid? AiSdrId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AiSdrId { get; set; }
+#nullable restore
+#else
+        public string AiSdrId { get; set; }
+#endif
         /// <summary>Whether to allow risky contacts</summary>
         public bool? AllowRiskyContacts { get; set; }
         /// <summary>Auto variant select settings</summary>
@@ -84,15 +90,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of tags to use for sending emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? EmailTagList { get; set; }
+        public List<string>? EmailTagList { get; set; }
 #nullable restore
 #else
-        public List<Guid?> EmailTagList { get; set; }
+        public List<string> EmailTagList { get; set; }
 #endif
         /// <summary>Whether the campaign is send the first email as a text only</summary>
         public bool? FirstEmailTextOnly { get; set; }
         /// <summary>Unique identifier for the campaign</summary>
-        public Guid? Id { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; private set; }
+#nullable restore
+#else
+        public string Id { get; private set; }
+#endif
         /// <summary>Whether to insert an unsubscribe header in emails</summary>
         public bool? InsertUnsubscribeHeader { get; set; }
         /// <summary>Whether the campaign is evergreen</summary>
@@ -122,9 +134,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether to track opens in emails</summary>
         public bool? OpenTracking { get; set; }
         /// <summary>Organization ID</summary>
-        public Guid? Organization { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; private set; }
+#nullable restore
+#else
+        public string Organization { get; private set; }
+#endif
         /// <summary>Owner ID</summary>
-        public Guid? OwnedBy { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnedBy { get; set; }
+#nullable restore
+#else
+        public string OwnedBy { get; set; }
+#endif
         /// <summary>Value of every positive lead</summary>
         public double? PlValue { get; set; }
         /// <summary>Whether to prioritize new leads</summary>
@@ -191,7 +215,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ai_sdr_id", n => { AiSdrId = n.GetGuidValue(); } },
+                { "ai_sdr_id", n => { AiSdrId = n.GetStringValue(); } },
                 { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -204,9 +228,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
                 { "email_gap", n => { EmailGap = n.GetDoubleValue(); } },
                 { "email_list", n => { EmailList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "email_tag_list", n => { EmailTagList = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
+                { "email_tag_list", n => { EmailTagList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "first_email_text_only", n => { FirstEmailTextOnly = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "insert_unsubscribe_header", n => { InsertUnsubscribeHeader = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
                 { "limit_emails_per_company_override", n => { LimitEmailsPerCompanyOverride = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride.CreateFromDiscriminatorValue); } },
@@ -215,8 +239,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "not_sending_status", n => { NotSendingStatus = n.GetDoubleValue(); } },
                 { "open_tracking", n => { OpenTracking = n.GetBoolValue(); } },
-                { "organization", n => { Organization = n.GetGuidValue(); } },
-                { "owned_by", n => { OwnedBy = n.GetGuidValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
+                { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
                 { "pl_value", n => { PlValue = n.GetDoubleValue(); } },
                 { "prioritize_new_leads", n => { PrioritizeNewLeads = n.GetBoolValue(); } },
                 { "provider_routing_rules", n => { ProviderRoutingRules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -238,7 +262,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("ai_sdr_id", AiSdrId);
+            writer.WriteStringValue("ai_sdr_id", AiSdrId);
             writer.WriteBoolValue("allow_risky_contacts", AllowRiskyContacts);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect>("auto_variant_select", AutoVariantSelect);
             writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);
@@ -249,7 +273,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("disable_bounce_protect", DisableBounceProtect);
             writer.WriteDoubleValue("email_gap", EmailGap);
             writer.WriteCollectionOfPrimitiveValues<string>("email_list", EmailList);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("email_tag_list", EmailTagList);
+            writer.WriteCollectionOfPrimitiveValues<string>("email_tag_list", EmailTagList);
             writer.WriteBoolValue("first_email_text_only", FirstEmailTextOnly);
             writer.WriteBoolValue("insert_unsubscribe_header", InsertUnsubscribeHeader);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
@@ -258,7 +282,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("match_lead_esp", MatchLeadEsp);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("open_tracking", OpenTracking);
-            writer.WriteGuidValue("owned_by", OwnedBy);
+            writer.WriteStringValue("owned_by", OwnedBy);
             writer.WriteDoubleValue("pl_value", PlValue);
             writer.WriteBoolValue("prioritize_new_leads", PrioritizeNewLeads);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem>("provider_routing_rules", ProviderRoutingRules);

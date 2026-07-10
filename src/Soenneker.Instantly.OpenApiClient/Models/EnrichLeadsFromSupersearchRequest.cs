@@ -53,7 +53,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList LiveList { get; set; }
 #endif
         /// <summary>ID of the list to target. A list is automatically created if not provided.</summary>
-        public Guid? ResourceId { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceId { get; set; }
+#nullable restore
+#else
+        public string ResourceId { get; set; }
+#endif
         /// <summary>Search filters to find leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,7 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
                 { "live_list", n => { LiveList = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList.CreateFromDiscriminatorValue); } },
-                { "resource_id", n => { ResourceId = n.GetGuidValue(); } },
+                { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters.CreateFromDiscriminatorValue); } },
                 { "search_name", n => { SearchName = n.GetStringValue(); } },
                 { "signal_enrichment", n => { SignalEnrichment = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -136,7 +142,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList>("live_list", LiveList);
-            writer.WriteGuidValue("resource_id", ResourceId);
+            writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters>("search_filters", SearchFilters);
             writer.WriteStringValue("search_name", SearchName);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem>("signal_enrichment", SignalEnrichment);
