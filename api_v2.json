@@ -235,16 +235,6 @@
             "readOnly": true,
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
-          "timestamp_last_used": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Timestamp when the account was last used",
-            "readOnly": true,
-            "format": "date-time",
-            "example": "1970-01-01T00:00:00.000Z"
-          },
           "warmup_status": {
             "type": "number",
             "description": "Current warmup status of the account",
@@ -328,36 +318,9 @@
             "readOnly": true,
             "example": false
           },
-          "warmup_pool_id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "ID of the warmup pool this account belongs to",
-            "readOnly": true,
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
           "is_managed_account": {
             "type": "boolean",
             "description": "Whether this is a managed account",
-            "readOnly": true,
-            "example": false
-          },
-          "dfy_password_changed": {
-            "type": [
-              "null",
-              "boolean"
-            ],
-            "description": "Whether DFY password has been changed",
-            "readOnly": true,
-            "example": false
-          },
-          "is_ready_made_account": {
-            "type": [
-              "null",
-              "boolean"
-            ],
-            "description": "Whether this is a pre-warmed account",
             "readOnly": true,
             "example": false
           },

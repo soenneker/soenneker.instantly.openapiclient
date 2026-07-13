@@ -27,8 +27,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? DailyLimit { get; set; }
         /// <summary>Maximum daily email sending limit for AirMail accounts</summary>
         public double? DailyLimitMax { get; private set; }
-        /// <summary>Whether DFY password has been changed</summary>
-        public bool? DfyPasswordChanged { get; private set; }
         /// <summary>Email address of the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,8 +49,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? InboxPlacementTestLimit { get; set; }
         /// <summary>Whether this is a managed account</summary>
         public bool? IsManagedAccount { get; private set; }
-        /// <summary>Whether this is a pre-warmed account</summary>
-        public bool? IsReadyMadeAccount { get; private set; }
         /// <summary>Last name associated with the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,8 +109,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? StatWarmupScore { get; private set; }
         /// <summary>Timestamp when the account was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
-        /// <summary>Timestamp when the account was last used</summary>
-        public DateTimeOffset? TimestampLastUsed { get; private set; }
         /// <summary>Timestamp when the account was last updated</summary>
         public DateTimeOffset? TimestampUpdated { get; private set; }
         /// <summary>Timestamp when warmup was started</summary>
@@ -145,14 +139,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Maximum daily warmup sending limit for AirMail accounts</summary>
         public double? WarmupLimitMax { get; private set; }
-        /// <summary>ID of the warmup pool this account belongs to</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? WarmupPoolId { get; private set; }
-#nullable restore
-#else
-        public string WarmupPoolId { get; private set; }
-#endif
         /// <summary>Current warmup status of the account</summary>
         public double? WarmupStatus { get; private set; }
         /// <summary>
@@ -177,13 +163,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "autofix_failed", n => { AutofixFailed = n.GetBoolValue(); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_max", n => { DailyLimitMax = n.GetDoubleValue(); } },
-                { "dfy_password_changed", n => { DfyPasswordChanged = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "enable_slow_ramp", n => { EnableSlowRamp = n.GetBoolValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "inbox_placement_test_limit", n => { InboxPlacementTestLimit = n.GetDoubleValue(); } },
                 { "is_managed_account", n => { IsManagedAccount = n.GetBoolValue(); } },
-                { "is_ready_made_account", n => { IsReadyMadeAccount = n.GetBoolValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "modified_by", n => { ModifiedBy = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
@@ -196,14 +180,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "status_message", n => { StatusMessage = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountStatusMessage>(global::Soenneker.Instantly.OpenApiClient.Models.AccountStatusMessage.CreateFromDiscriminatorValue); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
-                { "timestamp_last_used", n => { TimestampLastUsed = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_warmup_start", n => { TimestampWarmupStart = n.GetDateTimeOffsetValue(); } },
                 { "tracking_domain_name", n => { TrackingDomainName = n.GetStringValue(); } },
                 { "tracking_domain_status", n => { TrackingDomainStatus = n.GetStringValue(); } },
                 { "warmup", n => { Warmup = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup>(global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmup.CreateFromDiscriminatorValue); } },
                 { "warmup_limit_max", n => { WarmupLimitMax = n.GetDoubleValue(); } },
-                { "warmup_pool_id", n => { WarmupPoolId = n.GetStringValue(); } },
                 { "warmup_status", n => { WarmupStatus = n.GetDoubleValue(); } },
             };
         }
