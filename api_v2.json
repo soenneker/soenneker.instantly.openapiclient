@@ -17397,7 +17397,7 @@
             "in": "query",
             "name": "include_opportunities_count",
             "required": false,
-            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060, \u0060unique_opportunities\u0060, and \u0060meetings_booked\u0060 fields will be included in the response"
+            "description": "Whether to include the opportunities count per step. If this field is true then \u0060opportunities\u0060, \u0060unique_opportunities\u0060, \u0060meetings_booked\u0060, and \u0060won\u0060 fields will be included in the response"
           }
         ],
         "responses": {
@@ -17485,6 +17485,11 @@
                         "type": "integer",
                         "description": "The total number of opportunities from this step whose current CRM status is Meeting Booked. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
                         "example": 2
+                      },
+                      "won": {
+                        "type": "integer",
+                        "description": "The total number of opportunities from this step whose current CRM status is Won. Included only if \u0060include_opportunities_count\u0060 is \u0060true\u0060",
+                        "example": 1
                       }
                     },
                     "required": [

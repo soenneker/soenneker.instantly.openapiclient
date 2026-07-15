@@ -54,6 +54,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Variant { get; set; }
 #endif
+        /// <summary>The total number of opportunities from this step whose current CRM status is Won. Included only if `include_opportunities_count` is `true`</summary>
+        public int? Won { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignStepsAnalytics200ResponseResponseJsonItem"/> and sets the default values.
         /// </summary>
@@ -93,6 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "unique_replies", n => { UniqueReplies = n.GetIntValue(); } },
                 { "unique_replies_automatic", n => { UniqueRepliesAutomatic = n.GetIntValue(); } },
                 { "variant", n => { Variant = n.GetStringValue(); } },
+                { "won", n => { Won = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -116,6 +119,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteIntValue("unique_replies", UniqueReplies);
             writer.WriteIntValue("unique_replies_automatic", UniqueRepliesAutomatic);
             writer.WriteStringValue("variant", Variant);
+            writer.WriteIntValue("won", Won);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
