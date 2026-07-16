@@ -18,15 +18,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The error property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402ResponseError? Error { get; set; }
         /// <summary>The primary error message.</summary>
-        public override string Message { get => MessageEscaped ?? string.Empty; }
+        public override string Message { get => base.Message; }
         /// <summary>The message property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MessageEscaped { get; set; }
-#nullable restore
-#else
-        public string MessageEscaped { get; set; }
-#endif
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402ResponseMessage? MessageEscaped { get; set; }
         /// <summary>The statusCode property</summary>
         public double? StatusCode { get; set; }
         /// <summary>
@@ -55,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402ResponseError>(); } },
-                { "message", n => { MessageEscaped = n.GetStringValue(); } },
+                { "message", n => { MessageEscaped = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402ResponseMessage>(); } },
                 { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
         }
@@ -67,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402ResponseError>("error", Error);
-            writer.WriteStringValue("message", MessageEscaped);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402ResponseMessage>("message", MessageEscaped);
             writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -8,9 +8,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public enum PreviewLeadsFromSupersearch402ResponseError
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "Payment Required")]
+        [EnumMember(Value = "Rate limit exceeded")]
         #pragma warning disable CS1591
-        PaymentRequired,
+        RateLimitExceeded,
         #pragma warning restore CS1591
     }
 }

@@ -51872,7 +51872,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -51888,13 +51888,16 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "Payment Required"
+                        "Rate limit exceeded"
                       ],
-                      "example": "Payment Required"
+                      "example": "Rate limit exceeded"
                     },
                     "message": {
                       "type": "string",
-                      "example": "Workspace does not have an active paid plan"
+                      "enum": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
                     }
                   },
                   "required": [
@@ -51942,7 +51945,7 @@
             }
           },
           "429": {
-            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -51958,12 +51961,15 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "Too Many Requests"
+                        "Rate limit exceeded"
                       ],
-                      "example": "Too Many Requests"
+                      "example": "Rate limit exceeded"
                     },
                     "message": {
                       "type": "string",
+                      "enum": [
+                        "Rate limit exceeded"
+                      ],
                       "example": "Rate limit exceeded"
                     }
                   },
@@ -53504,7 +53510,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -53520,13 +53526,16 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "Payment Required"
+                        "Rate limit exceeded"
                       ],
-                      "example": "Payment Required"
+                      "example": "Rate limit exceeded"
                     },
                     "message": {
                       "type": "string",
-                      "example": "Workspace does not have an active paid plan"
+                      "enum": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
                     }
                   },
                   "required": [
@@ -53574,7 +53583,7 @@
             }
           },
           "429": {
-            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -53590,12 +53599,15 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "Too Many Requests"
+                        "Rate limit exceeded"
                       ],
-                      "example": "Too Many Requests"
+                      "example": "Rate limit exceeded"
                     },
                     "message": {
                       "type": "string",
+                      "enum": [
+                        "Rate limit exceeded"
+                      ],
                       "example": "Rate limit exceeded"
                     }
                   },

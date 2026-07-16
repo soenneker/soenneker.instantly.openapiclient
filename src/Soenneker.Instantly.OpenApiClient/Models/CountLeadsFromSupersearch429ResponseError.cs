@@ -8,9 +8,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public enum CountLeadsFromSupersearch429ResponseError
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "Too Many Requests")]
+        [EnumMember(Value = "Rate limit exceeded")]
         #pragma warning disable CS1591
-        TooManyRequests,
+        RateLimitExceeded,
         #pragma warning restore CS1591
     }
 }

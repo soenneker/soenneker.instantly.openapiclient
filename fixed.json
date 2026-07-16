@@ -13750,7 +13750,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -13770,7 +13770,7 @@
             }
           },
           "429": {
-            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -13821,7 +13821,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -13841,7 +13841,7 @@
             }
           },
           "429": {
-            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -17745,9 +17745,7 @@
           }
         }
       },
-      "LeadPayloadAdditionalProperties": {
-        "nullable": true
-      },
+      "LeadPayloadAdditionalProperties": {},
       "CampaignSubsequenceSubsequenceScheduleSchedulesItem": {
         "required": [
           "name",
@@ -18668,7 +18666,9 @@
         }
       },
       "DeleteAccountRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteAccount401Response": {
@@ -20049,7 +20049,9 @@
         }
       },
       "DeleteApiKeyRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteApiKey401Response": {
@@ -20569,7 +20571,9 @@
         }
       },
       "DeleteallBlockListEntryRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteallBlockListEntry200Response": {
@@ -20831,7 +20835,9 @@
         }
       },
       "DeleteBlockListEntryRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteBlockListEntry401Response": {
@@ -22150,7 +22156,9 @@
         }
       },
       "DeleteCampaignRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteCampaign401Response": {
@@ -24164,7 +24172,9 @@
         }
       },
       "DeleteCustomTagRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteCustomTag401Response": {
@@ -26088,7 +26098,9 @@
         }
       },
       "DeleteEmailRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteEmail401Response": {
@@ -27575,7 +27587,9 @@
         }
       },
       "DeleteInboxPlacementTestRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteInboxPlacementTest401Response": {
@@ -28842,7 +28856,9 @@
         }
       },
       "DeleteLeadListRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteLeadList401Response": {
@@ -29839,7 +29855,9 @@
         }
       },
       "DeleteLeadRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteLead401Response": {
@@ -31938,7 +31956,9 @@
         }
       },
       "DeleteCampaignSubsequenceRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteCampaignSubsequence401Response": {
@@ -33104,7 +33124,9 @@
         }
       },
       "DeleteWebhookRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteWebhook401Response": {
@@ -33937,7 +33959,9 @@
         }
       },
       "DeleteWorkspaceGroupMemberRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteWorkspaceGroupMember401Response": {
@@ -34525,7 +34549,9 @@
         }
       },
       "DeleteWorkspaceMemberRequest": {
-        "nullable": true,
+        "enum": [
+          null
+        ],
         "example": null
       },
       "DeleteWorkspaceMember401Response": {
@@ -36465,8 +36491,7 @@
             "$ref": "#/components/schemas/CountLeadsFromSupersearch402ResponseError"
           },
           "message": {
-            "type": "string",
-            "example": "Workspace does not have an active paid plan"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch402ResponseMessage"
           }
         }
       },
@@ -36505,8 +36530,7 @@
             "$ref": "#/components/schemas/CountLeadsFromSupersearch429ResponseError"
           },
           "message": {
-            "type": "string",
-            "example": "Rate limit exceeded"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch429ResponseMessage"
           }
         }
       },
@@ -36588,8 +36612,7 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearch402ResponseError"
           },
           "message": {
-            "type": "string",
-            "example": "Workspace does not have an active paid plan"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch402ResponseMessage"
           }
         }
       },
@@ -36628,8 +36651,7 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearch429ResponseError"
           },
           "message": {
-            "type": "string",
-            "example": "Rate limit exceeded"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch429ResponseMessage"
           }
         }
       },
@@ -39922,9 +39944,7 @@
       },
       "CreateLeadRequestCustomVariables": {
         "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        },
+        "additionalProperties": {},
         "description": "Custom variables can include any metadata about the lead that is relevant to the campaign, the campaign will be updated to allow all the other leads in the campaign to have the same custom variables. The custom variables will be added to the lead payload field",
         "example": {
           "past_customer": true,
@@ -39955,9 +39975,7 @@
       },
       "PatchLeadRequestCustomVariables": {
         "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        },
+        "additionalProperties": {},
         "description": "Custom variables can include any metadata about the lead that is relevant to the campaign, the campaign will be updated to allow all the other leads in the campaign to have the same custom variables. The custom variables will be added to the lead payload field",
         "example": {
           "past_customer": true,
@@ -42862,9 +42880,7 @@
       },
       "BulkAddLeadsRequestLeadsItemCustomVariables": {
         "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        },
+        "additionalProperties": {},
         "description": "Custom variables can include any metadata about the lead that is relevant to the campaign, the campaign will be updated to allow all the other leads in the campaign to have the same custom variables. The custom variables will be added to the lead payload field",
         "example": {
           "past_customer": true,
@@ -67777,18 +67793,36 @@
       },
       "CountLeadsFromSupersearch402ResponseError": {
         "enum": [
-          "Payment Required"
+          "Rate limit exceeded"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Payment Required",
+        "example": "Rate limit exceeded",
         "x-ms-enum": {
           "name": "CountLeadsFromSupersearch402ResponseError",
           "modelAsString": false,
           "values": [
             {
-              "value": "Payment Required",
-              "name": "PaymentRequired"
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearch402ResponseMessage": {
+        "enum": [
+          "Rate limit exceeded"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Rate limit exceeded",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearch402ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
             }
           ]
         }
@@ -67829,18 +67863,36 @@
       },
       "CountLeadsFromSupersearch429ResponseError": {
         "enum": [
-          "Too Many Requests"
+          "Rate limit exceeded"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Too Many Requests",
+        "example": "Rate limit exceeded",
         "x-ms-enum": {
           "name": "CountLeadsFromSupersearch429ResponseError",
           "modelAsString": false,
           "values": [
             {
-              "value": "Too Many Requests",
-              "name": "TooManyRequests"
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearch429ResponseMessage": {
+        "enum": [
+          "Rate limit exceeded"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Rate limit exceeded",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearch429ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
             }
           ]
         }
@@ -67871,18 +67923,36 @@
       },
       "PreviewLeadsFromSupersearch402ResponseError": {
         "enum": [
-          "Payment Required"
+          "Rate limit exceeded"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Payment Required",
+        "example": "Rate limit exceeded",
         "x-ms-enum": {
           "name": "PreviewLeadsFromSupersearch402ResponseError",
           "modelAsString": false,
           "values": [
             {
-              "value": "Payment Required",
-              "name": "PaymentRequired"
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearch402ResponseMessage": {
+        "enum": [
+          "Rate limit exceeded"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Rate limit exceeded",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearch402ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
             }
           ]
         }
@@ -67923,18 +67993,36 @@
       },
       "PreviewLeadsFromSupersearch429ResponseError": {
         "enum": [
-          "Too Many Requests"
+          "Rate limit exceeded"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Too Many Requests",
+        "example": "Rate limit exceeded",
         "x-ms-enum": {
           "name": "PreviewLeadsFromSupersearch429ResponseError",
           "modelAsString": false,
           "values": [
             {
-              "value": "Too Many Requests",
-              "name": "TooManyRequests"
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearch429ResponseMessage": {
+        "enum": [
+          "Rate limit exceeded"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Rate limit exceeded",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearch429ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Rate limit exceeded",
+              "name": "RateLimitExceeded"
             }
           ]
         }
