@@ -5209,7 +5209,7 @@
           "DFYEmailAccountOrder"
         ],
         "summary": "Place a DFY email account order",
-        "description": "\u0022Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: exactly 50 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an Outreach plan and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060\u0022",
+        "description": "\u0022Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: exactly 50 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060\u0022",
         "operationId": "CreateDfyEmailAccountOrder",
         "requestBody": {
           "content": {
@@ -5362,7 +5362,7 @@
           "DFYEmailAccountOrder"
         ],
         "summary": "Generate similar available domains",
-        "description": "\u0022This endpoint will generate a list of similar AND available domains based on the provided domain.. It will return a maximum number of 66 suggestions per extension (tld) requested.. All the returned domains will be available for order.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060\u0022",
+        "description": "\u0022This endpoint will generate a list of similar AND available domains based on the provided domain.. It will return a maximum number of 67 suggestions per extension (tld) requested.. All the returned domains will be available for order.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060\u0022",
         "operationId": "GenerateSimilarDomains",
         "requestBody": {
           "content": {
@@ -24644,6 +24644,21 @@
             "type": "string",
             "description": "The name on the card used for the order",
             "example": "John Doe"
+          },
+          "checkout_required": {
+            "type": "boolean",
+            "description": "Whether the order requires payment through a hosted checkout before it can be placed.",
+            "example": true
+          },
+          "checkout_url": {
+            "type": "string",
+            "description": "The hosted checkout URL. Returned only for browser-authenticated orders that require a payment method.",
+            "example": "https://checkout.stripe.com/c/pay/example"
+          },
+          "cart_order_id": {
+            "type": "string",
+            "description": "The identifier used to fulfill the order after hosted checkout payment succeeds.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "simulation": {
             "type": "boolean",

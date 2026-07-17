@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
         {
         }
         /// <summary>
-        /// &quot;This endpoint will generate a list of similar AND available domains based on the provided domain.. It will return a maximum number of 66 suggestions per extension (tld) requested.. All the returned domains will be available for order.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
+        /// &quot;This endpoint will generate a list of similar AND available domains based on the provided domain.. It will return a maximum number of 67 suggestions per extension (tld) requested.. All the returned domains will be available for order.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GenerateSimilarDomains200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Domains
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GenerateSimilarDomains200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GenerateSimilarDomains200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;This endpoint will generate a list of similar AND available domains based on the provided domain.. It will return a maximum number of 66 suggestions per extension (tld) requested.. All the returned domains will be available for order.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
+        /// &quot;This endpoint will generate a list of similar AND available domains based on the provided domain.. It will return a maximum number of 67 suggestions per extension (tld) requested.. All the returned domains will be available for order.. Domains containing trademarks of well-known companies are restricted and cannot be ordered.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

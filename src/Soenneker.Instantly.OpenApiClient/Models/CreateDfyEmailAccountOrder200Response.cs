@@ -30,6 +30,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> BlacklistKeywords { get; set; }
 #endif
+        /// <summary>The identifier used to fulfill the order after hosted checkout payment succeeds.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CartOrderId { get; set; }
+#nullable restore
+#else
+        public string CartOrderId { get; set; }
+#endif
+        /// <summary>Whether the order requires payment through a hosted checkout before it can be placed.</summary>
+        public bool? CheckoutRequired { get; set; }
+        /// <summary>The hosted checkout URL. Returned only for browser-authenticated orders that require a payment method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CheckoutUrl { get; set; }
+#nullable restore
+#else
+        public string CheckoutUrl { get; set; }
+#endif
         /// <summary>The list of domains without accounts (if any). The `accounts` field for items in the `items` array for these domains was empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -207,6 +225,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "blacklist_domains", n => { BlacklistDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "blacklist_keywords", n => { BlacklistKeywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "cart_order_id", n => { CartOrderId = n.GetStringValue(); } },
+                { "checkout_required", n => { CheckoutRequired = n.GetBoolValue(); } },
+                { "checkout_url", n => { CheckoutUrl = n.GetStringValue(); } },
                 { "domains_without_accounts", n => { DomainsWithoutAccounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "free_domains", n => { FreeDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "invalid_accounts", n => { InvalidAccounts = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -248,6 +269,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("blacklist_domains", BlacklistDomains);
             writer.WriteCollectionOfPrimitiveValues<string>("blacklist_keywords", BlacklistKeywords);
+            writer.WriteStringValue("cart_order_id", CartOrderId);
+            writer.WriteBoolValue("checkout_required", CheckoutRequired);
+            writer.WriteStringValue("checkout_url", CheckoutUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("domains_without_accounts", DomainsWithoutAccounts);
             writer.WriteCollectionOfPrimitiveValues<string>("free_domains", FreeDomains);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>("invalid_accounts", InvalidAccounts);
