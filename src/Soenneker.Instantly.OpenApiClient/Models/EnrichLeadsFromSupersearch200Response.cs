@@ -48,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ListName { get; set; }
 #endif
-        /// <summary>Id of the automation workflow created when live_list was requested. `null` when not requested or when workflow creation failed.</summary>
+        /// <summary>&quot;Deprecated: always `null`. Live lists are retired — use a Lead Finder Agent instead.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LiveListWorkflowId { get; set; }

@@ -44,14 +44,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ListName { get; set; }
 #endif
-        /// <summary>&quot;Keep the destination list updated automatically: re-runs this search on a schedule via an Automation workflow. Requires a list destination.&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList? LiveList { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList LiveList { get; set; }
-#endif
         /// <summary>ID of the list to target. A list is automatically created if not provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,7 +111,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "fully_enriched_profile", n => { FullyEnrichedProfile = n.GetBoolValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
-                { "live_list", n => { LiveList = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList.CreateFromDiscriminatorValue); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters.CreateFromDiscriminatorValue); } },
                 { "search_name", n => { SearchName = n.GetStringValue(); } },
@@ -141,7 +132,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("list_name", ListName);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestLiveList>("live_list", LiveList);
             writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters>("search_filters", SearchFilters);
             writer.WriteStringValue("search_name", SearchName);
