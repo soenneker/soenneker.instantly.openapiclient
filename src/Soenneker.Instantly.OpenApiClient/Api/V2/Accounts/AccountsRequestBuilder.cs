@@ -7,6 +7,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Ctd;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Move;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Pause;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.WarmupAnalytics;
@@ -38,6 +39,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Move.MoveRequestBuilder Move
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Move.MoveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pause property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Pause.PauseRequestBuilder Pause
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Pause.PauseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The test property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test.TestRequestBuilder Test

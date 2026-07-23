@@ -8831,6 +8831,218 @@
         }
       }
     },
+    "/api/v2/accounts/pause": {
+      "post": {
+        "operationId": "pauseAccounts",
+        "summary": "Pause multiple accounts",
+        "tags": [
+          "Account"
+        ],
+        "description": "Pauses up to 100 email accounts in the authenticated workspace. Each unique email is returned in either \u0060paused_emails\u0060 or \u0060failed_emails\u0060.\n\n\nRequires one of the following scopes: \u0060accounts:update\u0060, \u0060accounts:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "emails": {
+                    "type": "array",
+                    "description": "Email addresses to pause. Duplicate values are ignored.",
+                    "items": {
+                      "type": "string",
+                      "example": "user@example.com"
+                    },
+                    "minItems": 1,
+                    "maxItems": 100
+                  }
+                },
+                "required": [
+                  "emails"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The result of the bulk pause operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "description": "The result of the bulk pause operation.",
+                  "properties": {
+                    "paused_emails": {
+                      "type": "array",
+                      "description": "Email addresses whose accounts were successfully paused.",
+                      "items": {
+                        "type": "string",
+                        "example": "paused@example.com"
+                      }
+                    },
+                    "failed_emails": {
+                      "type": "array",
+                      "description": "Email addresses that were invalid or whose account status was not changed.",
+                      "items": {
+                        "type": "string",
+                        "example": "failed@example.com"
+                      }
+                    }
+                  },
+                  "required": [
+                    "paused_emails",
+                    "failed_emails"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/accounts/{email}/pause": {
       "post": {
         "operationId": "pauseAccount",
@@ -14320,6 +14532,36 @@
             "name": "status",
             "required": false,
             "description": "Filter campaigns by status using the campaign status enum value (e.g., ACTIVE, PAUSED)."
+          },
+          {
+            "schema": {
+              "type": "number",
+              "enum": [
+                -99,
+                -1,
+                -2,
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "x-enumDescriptions": {
+                "0": "Draft",
+                "1": "Active",
+                "2": "Paused",
+                "3": "Completed",
+                "4": "Running Subsequences",
+                "-99": "Account Suspended",
+                "-1": "Accounts Unhealthy",
+                "-2": "Bounce Protect"
+              },
+              "example": 1
+            },
+            "in": "query",
+            "name": "exclude_status",
+            "required": false,
+            "description": "Exclude campaigns with this status using the campaign status enum value (e.g., exclude ACTIVE to list only campaigns that are not currently active)."
           }
         ],
         "responses": {

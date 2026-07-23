@@ -916,6 +916,77 @@
         }
       }
     },
+    "/api/v2/accounts/pause": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Pause multiple accounts",
+        "description": "\u0022Pauses up to 100 email accounts in the authenticated workspace. Each unique email is returned in either \u0060paused_emails\u0060 or \u0060failed_emails\u0060.\n\n\nRequires one of the following scopes: \u0060accounts:update\u0060, \u0060accounts:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060\u0022",
+        "operationId": "PauseAccounts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PauseAccountsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The result of the bulk pause operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PauseAccounts200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PauseAccounts401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PauseAccounts402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PauseAccounts404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PauseAccounts429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/accounts/{email}/pause": {
       "post": {
         "tags": [
@@ -2870,6 +2941,14 @@
             "description": "Filter campaigns by status using the campaign status enum value (e.g., ACTIVE, PAUSED).",
             "schema": {
               "$ref": "#/components/schemas/ListCampaignStatusParameter"
+            }
+          },
+          {
+            "name": "exclude_status",
+            "in": "query",
+            "description": "Exclude campaigns with this status using the campaign status enum value (e.g., exclude ACTIVE to list only campaigns that are not currently active).",
+            "schema": {
+              "$ref": "#/components/schemas/ListCampaignExcludeStatusParameter"
             }
           }
         ],
@@ -19241,6 +19320,132 @@
           },
           "error": {
             "$ref": "#/components/schemas/GetDailyAccountAnalytics429ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "PauseAccountsRequest": {
+        "required": [
+          "emails"
+        ],
+        "type": "object",
+        "properties": {
+          "emails": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "user@example.com"
+            },
+            "description": "Email addresses to pause. Duplicate values are ignored."
+          }
+        },
+        "additionalProperties": false
+      },
+      "PauseAccounts200Response": {
+        "required": [
+          "paused_emails",
+          "failed_emails"
+        ],
+        "type": "object",
+        "properties": {
+          "paused_emails": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "paused@example.com"
+            },
+            "description": "Email addresses whose accounts were successfully paused."
+          },
+          "failed_emails": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "failed@example.com"
+            },
+            "description": "Email addresses that were invalid or whose account status was not changed."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The result of the bulk pause operation."
+      },
+      "PauseAccounts401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PauseAccounts401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PauseAccounts401ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "PauseAccounts402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PauseAccounts402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PauseAccounts402ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "PauseAccounts404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PauseAccounts404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PauseAccounts404ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "PauseAccounts429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PauseAccounts429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PauseAccounts429ResponseError"
           },
           "message": {
             "type": "string",
@@ -49869,6 +50074,100 @@
         "example": "Too Many Requests",
         "x-ms-enum": {
           "name": "GetDailyAccountAnalytics429ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
+      "PauseAccounts401ResponseStatusCode": {
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "PauseAccounts401ResponseError": {
+        "enum": [
+          "Unauthorized"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unauthorized"
+      },
+      "PauseAccounts402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "PauseAccounts402ResponseError": {
+        "enum": [
+          "Payment Required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Payment Required",
+        "x-ms-enum": {
+          "name": "PauseAccounts402ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Payment Required",
+              "name": "PaymentRequired"
+            }
+          ]
+        }
+      },
+      "PauseAccounts404ResponseStatusCode": {
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "PauseAccounts404ResponseError": {
+        "enum": [
+          "Not Found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Not Found",
+        "x-ms-enum": {
+          "name": "PauseAccounts404ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Not Found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
+      "PauseAccounts429ResponseStatusCode": {
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "PauseAccounts429ResponseError": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Too Many Requests",
+        "x-ms-enum": {
+          "name": "PauseAccounts429ResponseError",
           "modelAsString": false,
           "values": [
             {
@@ -81075,6 +81374,31 @@
         }
       },
       "ListCampaignStatusParameter": {
+        "enum": [
+          -99,
+          -1,
+          -2,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 1,
+        "x-enumDescriptions": {
+          "0": "Draft",
+          "1": "Active",
+          "2": "Paused",
+          "3": "Completed",
+          "4": "Running Subsequences",
+          "-99": "Account Suspended",
+          "-1": "Accounts Unhealthy",
+          "-2": "Bounce Protect"
+        }
+      },
+      "ListCampaignExcludeStatusParameter": {
         "enum": [
           -99,
           -1,
