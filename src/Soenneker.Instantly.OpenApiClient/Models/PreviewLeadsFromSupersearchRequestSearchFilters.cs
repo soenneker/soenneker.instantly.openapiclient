@@ -63,6 +63,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry Industry { get; set; }
 #endif
+        /// <summary>Canonical filter for companies that are hiring for the specified job titles.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobListing { get; set; }
+#nullable restore
+#else
+        public List<string> JobListing { get; set; }
+#endif
+        /// <summary>Deprecated compatibility key for Job Listing filters. Use `jobListing` instead. If both keys are present, `jobListing` takes precedence.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobListingFilter { get; set; }
+#nullable restore
+#else
+        public List<string> JobListingFilter { get; set; }
+#endif
         /// <summary>The keyword_filter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -180,6 +197,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "employeeCount", n => { EmployeeCount = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "funding_type", n => { FundingType = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>()?.AsList(); } },
                 { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry.CreateFromDiscriminatorValue); } },
+                { "jobListing", n => { JobListing = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "jobListingFilter", n => { JobListingFilter = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "keyword_filter", n => { KeywordFilter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter.CreateFromDiscriminatorValue); } },
                 { "level", n => { Level = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem>()?.AsList(); } },
                 { "location_mode", n => { LocationMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>(); } },
@@ -208,6 +227,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem>("employeeCount", EmployeeCount);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>("funding_type", FundingType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry>("industry", Industry);
+            writer.WriteCollectionOfPrimitiveValues<string>("jobListing", JobListing);
+            writer.WriteCollectionOfPrimitiveValues<string>("jobListingFilter", JobListingFilter);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter>("keyword_filter", KeywordFilter);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem>("level", Level);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>("location_mode", LocationMode);

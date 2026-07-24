@@ -40919,6 +40919,23 @@
               "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersNewsItem"
             }
           },
+          "jobListing": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            },
+            "description": "Canonical filter for companies that are hiring for the specified job titles."
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            },
+            "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence.",
+            "deprecated": true
+          },
           "title": {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersTitle"
           },
@@ -41062,6 +41079,23 @@
               "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersNewsItem"
             }
           },
+          "jobListing": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            },
+            "description": "Canonical filter for companies that are hiring for the specified job titles."
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            },
+            "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence.",
+            "deprecated": true
+          },
           "title": {
             "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersTitle"
           },
@@ -41163,6 +41197,23 @@
             "items": {
               "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem"
             }
+          },
+          "jobListing": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            },
+            "description": "Canonical filter for companies that are hiring for the specified job titles."
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            },
+            "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence.",
+            "deprecated": true
           },
           "title": {
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersTitle"
