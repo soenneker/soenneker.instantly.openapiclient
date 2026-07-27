@@ -27,7 +27,8 @@
             "schema": {
               "type": "number",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -35,7 +36,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "email",
@@ -45,7 +47,8 @@
             "schema": {
               "type": "string",
               "example": "user@example.com"
-            }
+            },
+            "example": "user@example.com"
           }
         ],
         "responses": {
@@ -200,7 +203,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -209,7 +213,8 @@
             "schema": {
               "type": "string",
               "example": "2026-01-01T00:00:00.000Z\u0026jon@doe.com"
-            }
+            },
+            "example": "2026-01-01T00:00:00.000Z\u0026jon@doe.com"
           },
           {
             "name": "search",
@@ -217,21 +222,24 @@
             "schema": {
               "type": "string",
               "example": "gmail.com"
-            }
+            },
+            "example": "gmail.com"
           },
           {
             "name": "status",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/ListAccountStatusParameter"
-            }
+            },
+            "example": 1
           },
           {
             "name": "provider_code",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/ListAccountProviderCodeParameter"
-            }
+            },
+            "example": 2
           },
           {
             "name": "tag_ids",
@@ -240,7 +248,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "tag_ids_all",
@@ -249,7 +258,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "include_tags",
@@ -258,7 +268,8 @@
             "schema": {
               "type": "boolean",
               "example": true
-            }
+            },
+            "example": true
           },
           {
             "name": "filter",
@@ -266,6 +277,35 @@
             "description": "The filter to apply to the accounts.",
             "schema": {
               "$ref": "#/components/schemas/ListAccountFilterParameter"
+            },
+            "examples": {
+              "ACC_FILTER_PAUSED": {
+                "value": "ACC_FILTER_PAUSED"
+              },
+              "ACC_FILTER_ERROR": {
+                "value": "ACC_FILTER_ERROR"
+              },
+              "ACC_FILTER_NO_CTD": {
+                "value": "ACC_FILTER_NO_CTD"
+              },
+              "ACC_FILTER_PW_ACCOUNTS": {
+                "value": "ACC_FILTER_PW_ACCOUNTS"
+              },
+              "ACC_FILTER_DFY": {
+                "value": "ACC_FILTER_DFY"
+              },
+              "ACC_FILTER_DFY_SETUP_PENDING": {
+                "value": "ACC_FILTER_DFY_SETUP_PENDING"
+              },
+              "ACC_FILTER_W_ACTIVE": {
+                "value": "ACC_FILTER_W_ACTIVE"
+              },
+              "ACC_FILTER_W_PAUSED": {
+                "value": "ACC_FILTER_W_PAUSED"
+              },
+              "ACC_FILTER_W_ERROR": {
+                "value": "ACC_FILTER_W_ERROR"
+              }
             }
           },
           {
@@ -274,7 +314,8 @@
             "description": "Column to sort results by.",
             "schema": {
               "$ref": "#/components/schemas/ListAccountSortByParameter"
-            }
+            },
+            "example": "stat_warmup_score"
           },
           {
             "name": "sort_order",
@@ -282,7 +323,8 @@
             "description": "Sort direction. Defaults to \u0060desc\u0060 when \u0060sort_by\u0060 is provided.",
             "schema": {
               "$ref": "#/components/schemas/ListAccountSortOrderParameter"
-            }
+            },
+            "example": "desc"
           },
           {
             "name": "skip",
@@ -292,7 +334,8 @@
               "minimum": 0,
               "type": "integer",
               "example": 0
-            }
+            },
+            "example": 0
           }
         ],
         "responses": {
@@ -366,7 +409,8 @@
             "schema": {
               "type": "string",
               "example": "jon@doe.com"
-            }
+            },
+            "example": "jon@doe.com"
           }
         ],
         "responses": {
@@ -438,7 +482,8 @@
             "schema": {
               "type": "string",
               "example": "jon@doe.com"
-            }
+            },
+            "example": "jon@doe.com"
           }
         ],
         "requestBody": {
@@ -519,7 +564,8 @@
             "schema": {
               "type": "string",
               "example": "jon@doe.com"
-            }
+            },
+            "example": "jon@doe.com"
           }
         ],
         "requestBody": {
@@ -527,7 +573,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteAccountRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -752,6 +799,46 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetWarmupAnalytics200Response"
+                },
+                "example": {
+                  "email_date_data": {
+                    "example1@example.com": {
+                      "2023-10-01": {
+                        "sent": 10,
+                        "landed_inbox": 8,
+                        "landed_spam": 2,
+                        "received": 10
+                      },
+                      "2023-10-02": {
+                        "sent": 5,
+                        "landed_inbox": 5,
+                        "received": 5
+                      }
+                    },
+                    "example2@example.com": {
+                      "2023-10-01": {
+                        "sent": 7,
+                        "landed_inbox": 7,
+                        "received": 7
+                      }
+                    }
+                  },
+                  "aggregate_data": {
+                    "example1@example.com": {
+                      "sent": 15,
+                      "landed_inbox": 13,
+                      "landed_spam": 2,
+                      "received": 15,
+                      "health_score_label": "87%",
+                      "health_score": 87
+                    },
+                    "example2@example.com": {
+                      "sent": 7,
+                      "landed_inbox": 7,
+                      "health_score_label": "100%",
+                      "health_score": 100
+                    }
+                  }
                 }
               }
             }
@@ -816,6 +903,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -825,6 +920,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-31": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-31T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -1004,7 +1107,8 @@
             "schema": {
               "type": "string",
               "example": "user@example.com"
-            }
+            },
+            "example": "user@example.com"
           }
         ],
         "responses": {
@@ -1078,7 +1182,8 @@
             "schema": {
               "type": "string",
               "example": "user@example.com"
-            }
+            },
+            "example": "user@example.com"
           }
         ],
         "responses": {
@@ -1152,7 +1257,8 @@
             "schema": {
               "type": "string",
               "example": "user@example.com"
-            }
+            },
+            "example": "user@example.com"
           }
         ],
         "responses": {
@@ -1226,7 +1332,8 @@
             "schema": {
               "type": "string",
               "example": "example.com"
-            }
+            },
+            "example": "example.com"
           }
         ],
         "responses": {
@@ -1544,7 +1651,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -1553,7 +1661,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -1627,7 +1736,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -1635,7 +1745,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteApiKeyRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -1711,7 +1822,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -1720,7 +1832,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "activity_type",
@@ -1729,7 +1842,8 @@
             "schema": {
               "type": "number",
               "example": 1
-            }
+            },
+            "example": 1
           },
           {
             "name": "search",
@@ -1738,7 +1852,8 @@
             "schema": {
               "type": "string",
               "example": "login"
-            }
+            },
+            "example": "login"
           },
           {
             "name": "start_date",
@@ -1747,7 +1862,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "end_date",
@@ -1756,7 +1872,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           }
         ],
         "responses": {
@@ -1831,7 +1948,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -1839,7 +1957,8 @@
             "schema": {
               "type": "string",
               "example": "000000000000000000000000"
-            }
+            },
+            "example": "000000000000000000000000"
           },
           {
             "name": "ids",
@@ -1848,7 +1967,8 @@
             "schema": {
               "type": "string",
               "example": "000000000000000000000000"
-            }
+            },
+            "example": "000000000000000000000000"
           },
           {
             "name": "included_ids",
@@ -1857,7 +1977,8 @@
             "schema": {
               "type": "string",
               "example": "000000000000000000000000"
-            }
+            },
+            "example": "000000000000000000000000"
           },
           {
             "name": "excluded_ids",
@@ -1866,7 +1987,8 @@
             "schema": {
               "type": "string",
               "example": "000000000000000000000000"
-            }
+            },
+            "example": "000000000000000000000000"
           },
           {
             "name": "type",
@@ -1874,7 +1996,8 @@
             "description": "The type of the job",
             "schema": {
               "$ref": "#/components/schemas/ListBackgroundJobTypeParameter"
-            }
+            },
+            "example": "move-leads"
           },
           {
             "name": "entity_type",
@@ -1882,7 +2005,8 @@
             "description": "The type of the entity",
             "schema": {
               "$ref": "#/components/schemas/ListBackgroundJobEntityTypeParameter"
-            }
+            },
+            "example": "list"
           },
           {
             "name": "entity_id",
@@ -1891,7 +2015,8 @@
             "schema": {
               "type": "string",
               "example": "000000000000000000000000"
-            }
+            },
+            "example": "000000000000000000000000"
           },
           {
             "name": "status",
@@ -1900,7 +2025,8 @@
             "schema": {
               "type": "string",
               "example": "pending,in-progress"
-            }
+            },
+            "example": "pending,in-progress"
           },
           {
             "name": "sort_column",
@@ -1908,7 +2034,8 @@
             "description": "The column to sort the results by",
             "schema": {
               "$ref": "#/components/schemas/ListBackgroundJobSortColumnParameter"
-            }
+            },
+            "example": "created_at"
           },
           {
             "name": "sort_order",
@@ -1916,7 +2043,8 @@
             "description": "The order to sort the results by",
             "schema": {
               "$ref": "#/components/schemas/ListBackgroundJobSortOrderParameter"
-            }
+            },
+            "example": "desc"
           }
         ],
         "responses": {
@@ -1989,6 +2117,14 @@
             "schema": {
               "type": "string",
               "example": "success_count,failed_count,total_to_process"
+            },
+            "examples": {
+              "success_count,failed_count,total_to_process": {
+                "value": "success_count,failed_count,total_to_process"
+              },
+              "moved_lead_emails,moved_leads": {
+                "value": "moved_lead_emails,moved_leads"
+              }
             }
           },
           {
@@ -1999,7 +2135,8 @@
             "schema": {
               "type": "string",
               "example": "000000000000000000000000"
-            }
+            },
+            "example": "000000000000000000000000"
           }
         ],
         "responses": {
@@ -2154,7 +2291,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -2163,7 +2301,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "domains_only",
@@ -2172,6 +2311,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -2181,6 +2328,14 @@
             "schema": {
               "type": "string",
               "example": "example.com"
+            },
+            "examples": {
+              "example.com": {
+                "value": "example.com"
+              },
+              "example.org": {
+                "value": "example.org"
+              }
             }
           }
         ],
@@ -2252,6 +2407,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -2261,6 +2424,14 @@
             "schema": {
               "type": "string",
               "example": "example.com"
+            },
+            "examples": {
+              "example.com": {
+                "value": "example.com"
+              },
+              "user@example.org": {
+                "value": "user@example.org"
+              }
             }
           }
         ],
@@ -2269,7 +2440,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteallBlockListEntryRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -2344,7 +2516,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -2416,7 +2589,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -2497,7 +2671,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -2505,7 +2680,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteBlockListEntryRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -2733,6 +2909,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -2742,6 +2926,14 @@
             "schema": {
               "type": "string",
               "example": "example.com"
+            },
+            "examples": {
+              "example.com": {
+                "value": "example.com"
+              },
+              "user@example.org": {
+                "value": "user@example.org"
+              }
             }
           }
         ],
@@ -2897,7 +3089,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -2906,7 +3099,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "search",
@@ -2915,7 +3109,8 @@
             "schema": {
               "type": "string",
               "example": "Summer Sale Campaign"
-            }
+            },
+            "example": "Summer Sale Campaign"
           },
           {
             "name": "tag_ids",
@@ -2924,7 +3119,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "ai_sales_agent_id",
@@ -2933,7 +3129,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "status",
@@ -2941,6 +3138,14 @@
             "description": "Filter campaigns by status using the campaign status enum value (e.g., ACTIVE, PAUSED).",
             "schema": {
               "$ref": "#/components/schemas/ListCampaignStatusParameter"
+            },
+            "examples": {
+              "1": {
+                "value": 1
+              },
+              "2": {
+                "value": 2
+              }
             }
           },
           {
@@ -2949,7 +3154,8 @@
             "description": "Exclude campaigns with this status using the campaign status enum value (e.g., exclude ACTIVE to list only campaigns that are not currently active).",
             "schema": {
               "$ref": "#/components/schemas/ListCampaignExcludeStatusParameter"
-            }
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -3023,7 +3229,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -3107,7 +3314,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -3191,7 +3399,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -3263,7 +3472,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -3344,7 +3554,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -3352,7 +3563,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteCampaignRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -3426,7 +3638,8 @@
             "schema": {
               "type": "string",
               "example": "lead-email@example.com"
-            }
+            },
+            "example": "lead-email@example.com"
           },
           {
             "name": "sort_column",
@@ -3436,6 +3649,14 @@
               "type": "string",
               "default": "timestamp_created",
               "example": "timestamp_created"
+            },
+            "examples": {
+              "timestamp_created": {
+                "value": "timestamp_created"
+              },
+              "name": {
+                "value": "name"
+              }
             }
           },
           {
@@ -3446,6 +3667,14 @@
               "type": "string",
               "default": "asc",
               "example": "asc"
+            },
+            "examples": {
+              "asc": {
+                "value": "asc"
+              },
+              "desc": {
+                "value": "desc"
+              }
             }
           }
         ],
@@ -3520,7 +3749,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "ids",
@@ -3541,6 +3771,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -3550,6 +3788,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -3560,7 +3806,8 @@
               "type": "boolean",
               "default": false,
               "example": true
-            }
+            },
+            "example": true
           }
         ],
         "responses": {
@@ -3644,7 +3891,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "ids",
@@ -3665,6 +3913,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -3674,6 +3930,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -3682,6 +3946,17 @@
             "description": "Filter by campaign status (only the analytics for the campaigns with the specified status will be returned)",
             "schema": {
               "$ref": "#/components/schemas/GetCampaignAnalyticsOverviewCampaignStatusParameter"
+            },
+            "examples": {
+              "1": {
+                "value": 1
+              },
+              "2": {
+                "value": 2
+              },
+              "3": {
+                "value": 3
+              }
             }
           },
           {
@@ -3692,7 +3967,8 @@
               "type": "boolean",
               "default": false,
               "example": true
-            }
+            },
+            "example": true
           }
         ],
         "responses": {
@@ -3776,7 +4052,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "start_date",
@@ -3785,7 +4062,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "end_date",
@@ -3794,7 +4072,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "campaign_status",
@@ -3802,6 +4081,17 @@
             "description": "Filter by campaign status (only the analytics for the campaigns with the specified status will be returned)",
             "schema": {
               "$ref": "#/components/schemas/GetDailyCampaignAnalyticsCampaignStatusParameter"
+            },
+            "examples": {
+              "1": {
+                "value": 1
+              },
+              "2": {
+                "value": 2
+              },
+              "3": {
+                "value": 3
+              }
             }
           }
         ],
@@ -3886,7 +4176,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "start_date",
@@ -3895,6 +4186,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -3904,6 +4203,14 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T00:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
             }
           },
           {
@@ -3914,7 +4221,8 @@
               "type": "boolean",
               "default": false,
               "example": true
-            }
+            },
+            "example": true
           }
         ],
         "responses": {
@@ -3998,7 +4306,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -4072,7 +4381,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -4156,7 +4466,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -4230,7 +4541,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -4385,7 +4697,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -4468,7 +4781,8 @@
               "type": "boolean",
               "default": false,
               "example": false
-            }
+            },
+            "example": false
           },
           {
             "name": "id",
@@ -4478,7 +4792,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -4614,7 +4929,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -4689,7 +5005,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -4698,7 +5015,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "resource_ids",
@@ -4707,7 +5025,8 @@
             "schema": {
               "type": "string",
               "example": "id1,id2,id3"
-            }
+            },
+            "example": "id1,id2,id3"
           }
         ],
         "responses": {
@@ -4872,7 +5191,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -4881,7 +5201,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "search",
@@ -4890,7 +5211,8 @@
             "schema": {
               "type": "string",
               "example": "Important"
-            }
+            },
+            "example": "Important"
           },
           {
             "name": "resource_ids",
@@ -4899,7 +5221,8 @@
             "schema": {
               "type": "string",
               "example": "id1,id2,id3"
-            }
+            },
+            "example": "id1,id2,id3"
           },
           {
             "name": "tag_ids",
@@ -4908,7 +5231,8 @@
             "schema": {
               "type": "string",
               "example": "id1,id2,id3"
-            }
+            },
+            "example": "id1,id2,id3"
           }
         ],
         "responses": {
@@ -4982,7 +5306,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -5054,7 +5379,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -5145,7 +5471,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -5153,7 +5480,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteCustomTagRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -5369,7 +5697,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -5378,7 +5707,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -5677,7 +6007,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -5686,7 +6017,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "with_passwords",
@@ -5695,6 +6027,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           }
         ],
@@ -6054,7 +6394,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -6063,7 +6404,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "search",
@@ -6072,7 +6414,8 @@
             "schema": {
               "type": "string",
               "example": "search term"
-            }
+            },
+            "example": "search term"
           },
           {
             "name": "campaign_id",
@@ -6081,7 +6424,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "list_id",
@@ -6090,7 +6434,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "i_status",
@@ -6099,6 +6444,17 @@
             "schema": {
               "type": "number",
               "example": 1
+            },
+            "examples": {
+              "1": {
+                "value": 1
+              },
+              "2": {
+                "value": 2
+              },
+              "3": {
+                "value": 3
+              }
             }
           },
           {
@@ -6108,6 +6464,14 @@
             "schema": {
               "type": "string",
               "example": "jon@example.com"
+            },
+            "examples": {
+              "jon@example.com": {
+                "value": "jon@example.com"
+              },
+              "jon@example.com,alex@example.com": {
+                "value": "jon@example.com,alex@example.com"
+              }
             }
           },
           {
@@ -6117,6 +6481,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -6125,6 +6497,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -6133,7 +6513,8 @@
             "description": "The mode to filter emails by.",
             "schema": {
               "$ref": "#/components/schemas/ListEmailModeParameter"
-            }
+            },
+            "example": "emode_focused"
           },
           {
             "name": "preview_only",
@@ -6142,6 +6523,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -6150,6 +6539,14 @@
             "description": "The order to sort the emails by (based on the email creation date). Default is \u0022desc\u0022.",
             "schema": {
               "$ref": "#/components/schemas/ListEmailSortOrderParameter"
+            },
+            "examples": {
+              "asc": {
+                "value": "asc"
+              },
+              "desc": {
+                "value": "desc"
+              }
             }
           },
           {
@@ -6159,6 +6556,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -6168,7 +6573,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "lead",
@@ -6177,7 +6583,8 @@
             "schema": {
               "type": "string",
               "example": "jondoe@example.com"
-            }
+            },
+            "example": "jondoe@example.com"
           },
           {
             "name": "company_domain",
@@ -6186,7 +6593,8 @@
             "schema": {
               "type": "string",
               "example": "example.com"
-            }
+            },
+            "example": "example.com"
           },
           {
             "name": "marked_as_done",
@@ -6195,6 +6603,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -6203,6 +6619,17 @@
             "description": "The type of the email to filter by.",
             "schema": {
               "$ref": "#/components/schemas/ListEmailEmailTypeParameter"
+            },
+            "examples": {
+              "received": {
+                "value": "received"
+              },
+              "sent": {
+                "value": "sent"
+              },
+              "manual": {
+                "value": "manual"
+              }
             }
           },
           {
@@ -6212,7 +6639,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "max_timestamp_created",
@@ -6221,7 +6649,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "latest_of_thread",
@@ -6230,6 +6659,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           }
         ],
@@ -6304,7 +6741,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -6376,7 +6814,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -6457,7 +6896,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -6465,7 +6905,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteEmailRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -6601,7 +7042,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -6676,7 +7118,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -6685,7 +7128,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "test_id",
@@ -6694,7 +7138,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "date_from",
@@ -6702,7 +7147,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "date_to",
@@ -6710,7 +7156,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "recipient_geo",
@@ -6719,7 +7166,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "recipient_type",
@@ -6728,7 +7176,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "recipient_esp",
@@ -6737,7 +7186,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "sender_email",
@@ -6745,7 +7195,8 @@
             "schema": {
               "type": "string",
               "example": "john@doe.com"
-            }
+            },
+            "example": "john@doe.com"
           }
         ],
         "responses": {
@@ -6819,7 +7270,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -7107,7 +7559,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -7116,7 +7569,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "test_id",
@@ -7125,7 +7579,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "date_from",
@@ -7133,7 +7588,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "date_to",
@@ -7141,7 +7597,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "skip_spam_assassin_report",
@@ -7150,7 +7607,8 @@
             "schema": {
               "type": "boolean",
               "example": false
-            }
+            },
+            "example": false
           },
           {
             "name": "skip_blacklist_report",
@@ -7159,7 +7617,8 @@
             "schema": {
               "type": "boolean",
               "example": false
-            }
+            },
+            "example": false
           }
         ],
         "responses": {
@@ -7233,7 +7692,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -7388,7 +7848,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -7397,7 +7858,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "search",
@@ -7405,14 +7867,16 @@
             "schema": {
               "type": "string",
               "example": "test"
-            }
+            },
+            "example": "test"
           },
           {
             "name": "status",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/ListInboxPlacementTestStatusParameter"
-            }
+            },
+            "example": 1
           },
           {
             "name": "sort_order",
@@ -7420,7 +7884,8 @@
             "description": "Sort order for the results. Results are always sorted by id (which is timestamp-sorted due to UUIDv7).",
             "schema": {
               "$ref": "#/components/schemas/ListInboxPlacementTestSortOrderParameter"
-            }
+            },
+            "example": "desc"
           }
         ],
         "responses": {
@@ -7493,7 +7958,8 @@
             "schema": {
               "type": "boolean",
               "example": true
-            }
+            },
+            "example": true
           },
           {
             "name": "id",
@@ -7503,7 +7969,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -7575,7 +8042,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -7583,7 +8051,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteInboxPlacementTestRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -7656,7 +8125,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -7882,7 +8352,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -7891,7 +8362,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "search",
@@ -7900,7 +8372,8 @@
             "schema": {
               "type": "string",
               "example": "Hot Lead"
-            }
+            },
+            "example": "Hot Lead"
           },
           {
             "name": "interest_status",
@@ -7908,7 +8381,8 @@
             "description": "The interest status to filter lead labels by.",
             "schema": {
               "$ref": "#/components/schemas/ListLeadLabelInterestStatusParameter"
-            }
+            },
+            "example": "positive"
           }
         ],
         "responses": {
@@ -7982,7 +8456,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -8054,7 +8529,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -8135,7 +8611,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -8380,7 +8857,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -8389,7 +8867,8 @@
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "has_enrichment_task",
@@ -8398,7 +8877,8 @@
             "schema": {
               "type": "boolean",
               "example": true
-            }
+            },
+            "example": true
           },
           {
             "name": "search",
@@ -8407,7 +8887,8 @@
             "schema": {
               "type": "string",
               "example": "Summer 2025 List"
-            }
+            },
+            "example": "Summer 2025 List"
           }
         ],
         "responses": {
@@ -8481,7 +8962,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -8553,7 +9035,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -8634,7 +9117,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -8642,7 +9126,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteLeadListRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -8716,7 +9201,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -9022,7 +9508,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -9094,7 +9581,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -9175,7 +9663,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -9183,7 +9672,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteLeadRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -10045,7 +10535,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -10054,7 +10545,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "parent_campaign",
@@ -10064,7 +10556,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "search",
@@ -10073,7 +10566,8 @@
             "schema": {
               "type": "string",
               "example": "test"
-            }
+            },
+            "example": "test"
           }
         ],
         "responses": {
@@ -10147,7 +10641,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -10230,7 +10725,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -10304,7 +10800,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -10378,7 +10875,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -10450,7 +10948,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -10531,7 +11030,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -10539,7 +11039,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteCampaignSubsequenceRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -10614,7 +11115,8 @@
               "type": "boolean",
               "default": false,
               "example": false
-            }
+            },
+            "example": false
           },
           {
             "name": "id",
@@ -10624,7 +11126,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -10781,7 +11284,8 @@
               "type": "string",
               "format": "email",
               "example": "user@example.com"
-            }
+            },
+            "example": "user@example.com"
           }
         ],
         "responses": {
@@ -10856,7 +11360,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -10865,7 +11370,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "success",
@@ -10874,6 +11380,14 @@
             "schema": {
               "type": "boolean",
               "example": true
+            },
+            "examples": {
+              "true": {
+                "value": true
+              },
+              "false": {
+                "value": false
+              }
             }
           },
           {
@@ -10884,7 +11398,8 @@
               "type": "string",
               "format": "date",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "to",
@@ -10894,7 +11409,8 @@
               "type": "string",
               "format": "date",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "search",
@@ -10903,6 +11419,14 @@
             "schema": {
               "type": "string",
               "example": "https://webhook.site/unique-url"
+            },
+            "examples": {
+              "https://webhook.site/unique-url": {
+                "value": "https://webhook.site/unique-url"
+              },
+              "lead@example.com": {
+                "value": "lead@example.com"
+              }
             }
           }
         ],
@@ -10977,7 +11501,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -11051,7 +11576,8 @@
               "type": "string",
               "format": "date",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "to",
@@ -11061,7 +11587,8 @@
               "type": "string",
               "format": "date",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           }
         ],
         "responses": {
@@ -11135,7 +11662,8 @@
               "type": "string",
               "format": "date",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           },
           {
             "name": "to",
@@ -11145,7 +11673,8 @@
               "type": "string",
               "format": "date",
               "example": "1970-01-01T00:00:00.000Z"
-            }
+            },
+            "example": "1970-01-01T00:00:00.000Z"
           }
         ],
         "responses": {
@@ -11220,7 +11749,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -11229,7 +11759,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "campaign",
@@ -11238,7 +11769,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "event_type",
@@ -11246,6 +11778,14 @@
             "description": "Filter by event type (e.g., email_sent, lead_interested, all_events)",
             "schema": {
               "$ref": "#/components/schemas/ListWebhookEventTypeParameter"
+            },
+            "examples": {
+              "all_events": {
+                "value": "all_events"
+              },
+              "email_sent": {
+                "value": "email_sent"
+              }
             }
           }
         ],
@@ -11400,7 +11940,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -11472,7 +12013,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -11553,7 +12095,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -11561,7 +12104,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteWebhookRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -11697,7 +12241,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -11770,7 +12315,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -12049,7 +12595,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -12058,7 +12605,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -12132,7 +12680,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -12204,7 +12753,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -12212,7 +12762,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteWorkspaceGroupMemberRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -12430,7 +12981,8 @@
               "minimum": 1,
               "type": "integer",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "starting_after",
@@ -12439,7 +12991,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
             "name": "accepted",
@@ -12448,7 +13001,8 @@
             "schema": {
               "type": "boolean",
               "example": true
-            }
+            },
+            "example": true
           },
           {
             "name": "search",
@@ -12457,7 +13011,8 @@
             "schema": {
               "type": "string",
               "example": "John"
-            }
+            },
+            "example": "John"
           }
         ],
         "responses": {
@@ -12531,7 +13086,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -12603,7 +13159,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -12684,7 +13241,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -12692,7 +13250,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteWorkspaceMemberRequest"
-              }
+              },
+              "example": null
             }
           }
         },
@@ -13353,7 +13912,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -13427,7 +13987,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -13572,7 +14133,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "requestBody": {
@@ -13947,7 +14509,8 @@
             "schema": {
               "type": "number",
               "example": 0
-            }
+            },
+            "example": 0
           },
           {
             "name": "limit",
@@ -13955,7 +14518,8 @@
             "schema": {
               "type": "number",
               "example": 10
-            }
+            },
+            "example": 10
           },
           {
             "name": "resourceId",
@@ -13965,7 +14529,8 @@
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-            }
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -14858,7 +15423,8 @@
           "tags": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
             "description": "List of tag IDs to use for sending emails",
             "nullable": true
@@ -17068,7 +17634,8 @@
           },
           "daily_limit": {
             "minimum": 1,
-            "type": "number"
+            "type": "number",
+            "example": 3
           },
           "scope": {
             "$ref": "#/components/schemas/CampaignLimitEmailsPerCompanyOverrideScope"
@@ -17224,15 +17791,18 @@
         "properties": {
           "authentication_results": {
             "type": "string",
-            "description": "Authentication results"
+            "description": "Authentication results",
+            "example": "Authentication-Results: smtp.local;\r\n\tdkim=pass header.d=gappssmtp.com\r\n header.b=ABC123"
           },
           "dkim_signature": {
             "type": "string",
-            "description": "DKIM signature"
+            "description": "DKIM signature",
+            "example": "DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gappssmtp.com; s=20161025;\r\n h=mime-version:from:date:message-id:subject:to; bh=ABC123; b=ABC123"
           },
           "received_spf": {
             "type": "string",
-            "description": "Received SPF"
+            "description": "Received SPF",
+            "example": "Received-SPF: pass"
           }
         },
         "description": "Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).",
@@ -17319,25 +17889,32 @@
         "type": "object",
         "properties": {
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "example": "John"
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "example": "Doe"
           },
           "companyName": {
-            "type": "string"
+            "type": "string",
+            "example": "Acme Corp"
           },
           "jobTitle": {
-            "type": "string"
+            "type": "string",
+            "example": "Head of Growth"
           },
           "website": {
-            "type": "string"
+            "type": "string",
+            "example": "https://example.com"
           },
           "phone": {
-            "type": "string"
+            "type": "string",
+            "example": "\u002B1234567890"
           },
           "personalization": {
-            "type": "string"
+            "type": "string",
+            "example": "Hi {{first_name}}, I noticed you work at {{company_name}}..."
           }
         },
         "additionalProperties": {
@@ -17498,7 +18075,8 @@
       "WebhookHeaders": {
         "type": "object",
         "additionalProperties": {
-          "type": "string"
+          "type": "string",
+          "example": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
         },
         "description": "Optional HTTP headers to include when delivering webhook payloads (key-value pairs)",
         "nullable": true,
@@ -17515,10 +18093,12 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "Property name"
           },
           "property": {
-            "type": "string"
+            "type": "string",
+            "example": "{{property1}}"
           }
         }
       },
@@ -17526,7 +18106,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "payload": {
             "$ref": "#/components/schemas/CustomPromptTemplateCreatorPayload"
@@ -17660,25 +18241,30 @@
         "properties": {
           "filename": {
             "type": "string",
-            "description": "Attachment file name"
+            "description": "Attachment file name",
+            "example": "attachment.pdf"
           },
           "size": {
             "type": "number",
-            "description": "Attachment file size in bytes"
+            "description": "Attachment file size in bytes",
+            "example": 1927
           },
           "type": {
             "type": "string",
-            "description": "Attachment MIME type"
+            "description": "Attachment MIME type",
+            "example": "application/pdf"
           },
           "url": {
             "type": "string",
             "description": "Download URL when available",
-            "format": "uri"
+            "format": "uri",
+            "example": "https://cdn.instantly.ai/example-attachment/file.pdf"
           },
           "error": {
             "type": "string",
             "description": "Error description when the attachment failed to upload",
-            "nullable": true
+            "nullable": true,
+            "example": "Upload failed"
           }
         },
         "additionalProperties": false
@@ -17686,7 +18272,8 @@
       "InboxPlacementTestScheduleDays": {
         "type": "object",
         "additionalProperties": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "description": "Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.",
         "example": {
@@ -17722,7 +18309,8 @@
           "condition_value": {
             "type": "number",
             "description": "Value for condition, if applicable",
-            "nullable": true
+            "nullable": true,
+            "example": 80
           }
         }
       },
@@ -17731,31 +18319,38 @@
         "type": "object",
         "properties": {
           "webhook_url": {
-            "type": "string"
+            "type": "string",
+            "example": "https://example.com/webhook"
           },
           "pause_sending_campaigns_for": {
             "type": "number",
-            "description": "Number of days to pause sending campaigns for"
+            "description": "Number of days to pause sending campaigns for",
+            "example": 14
           },
           "pause": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "enable_slow_ramp": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "disable_slow_ramp": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "add_tags": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             }
           },
           "remove_tags": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             }
           }
         },
@@ -18061,10 +18656,12 @@
         "type": "object",
         "properties": {
           "first": {
-            "type": "string"
+            "type": "string",
+            "example": "John"
           },
           "last": {
-            "type": "string"
+            "type": "string",
+            "example": "Smith"
           }
         }
       },
@@ -18747,8 +19344,7 @@
       "DeleteAccountRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteAccount401Response": {
         "required": [
@@ -19088,46 +19684,6 @@
           },
           "aggregate_data": {
             "$ref": "#/components/schemas/GetWarmupAnalytics200ResponseAggregateData"
-          }
-        },
-        "example": {
-          "email_date_data": {
-            "example1@example.com": {
-              "2023-10-01": {
-                "sent": 10,
-                "landed_inbox": 8,
-                "landed_spam": 2,
-                "received": 10
-              },
-              "2023-10-02": {
-                "sent": 5,
-                "landed_inbox": 5,
-                "received": 5
-              }
-            },
-            "example2@example.com": {
-              "2023-10-01": {
-                "sent": 7,
-                "landed_inbox": 7,
-                "received": 7
-              }
-            }
-          },
-          "aggregate_data": {
-            "example1@example.com": {
-              "sent": 15,
-              "landed_inbox": 13,
-              "landed_spam": 2,
-              "received": 15,
-              "health_score_label": "87%",
-              "health_score": 87
-            },
-            "example2@example.com": {
-              "sent": 7,
-              "landed_inbox": 7,
-              "health_score_label": "100%",
-              "health_score": 100
-            }
           }
         }
       },
@@ -20256,8 +20812,7 @@
       "DeleteApiKeyRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteApiKey401Response": {
         "required": [
@@ -20778,8 +21333,7 @@
       "DeleteallBlockListEntryRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteallBlockListEntry200Response": {
         "type": "array",
@@ -21042,8 +21596,7 @@
       "DeleteBlockListEntryRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteBlockListEntry401Response": {
         "required": [
@@ -22363,8 +22916,7 @@
       "DeleteCampaignRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteCampaign401Response": {
         "required": [
@@ -24379,8 +24931,7 @@
       "DeleteCustomTagRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteCustomTag401Response": {
         "required": [
@@ -26320,8 +26871,7 @@
       "DeleteEmailRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteEmail401Response": {
         "required": [
@@ -27809,8 +28359,7 @@
       "DeleteInboxPlacementTestRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteInboxPlacementTest401Response": {
         "required": [
@@ -29078,8 +29627,7 @@
       "DeleteLeadListRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteLeadList401Response": {
         "required": [
@@ -30077,8 +30625,7 @@
       "DeleteLeadRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteLead401Response": {
         "required": [
@@ -32178,8 +32725,7 @@
       "DeleteCampaignSubsequenceRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteCampaignSubsequence401Response": {
         "required": [
@@ -33346,8 +33892,7 @@
       "DeleteWebhookRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteWebhook401Response": {
         "required": [
@@ -34181,8 +34726,7 @@
       "DeleteWorkspaceGroupMemberRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteWorkspaceGroupMember401Response": {
         "required": [
@@ -34771,8 +35315,7 @@
       "DeleteWorkspaceMemberRequest": {
         "enum": [
           null
-        ],
-        "example": null
+        ]
       },
       "DeleteWorkspaceMember401Response": {
         "required": [
@@ -38299,7 +38842,8 @@
       "InboxPlacementTestScheduleDaysProperty": {
         "type": "object",
         "additionalProperties": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "description": "Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days."
       },
@@ -39919,7 +40463,17 @@
             "$ref": "#/components/schemas/CreateInboxPlacementTestRequestScheduleTimezone"
           }
         },
-        "description": "Specifies the date and time when the automated inbox placement tests will be sent."
+        "description": "Specifies the date and time when the automated inbox placement tests will be sent.",
+        "example": {
+          "days": {
+            "2": true,
+            "3": true
+          },
+          "timing": {
+            "from": "1970-01-01T00:00:00.000Z"
+          },
+          "timezone": "America/Chihuahua"
+        }
       },
       "CreateInboxPlacementTestRequestRecipientsLabelsItem": {
         "required": [
@@ -39980,7 +40534,17 @@
             "$ref": "#/components/schemas/GetInboxPlacementTest200ResponseScheduleTimezone"
           }
         },
-        "description": "Specifies the date and time when the automated inbox placement tests will be sent."
+        "description": "Specifies the date and time when the automated inbox placement tests will be sent.",
+        "example": {
+          "days": {
+            "2": true,
+            "3": true
+          },
+          "timing": {
+            "from": "1970-01-01T00:00:00.000Z"
+          },
+          "timezone": "America/Chihuahua"
+        }
       },
       "GetInboxPlacementTest200ResponseRecipientsLabelsItem": {
         "required": [
@@ -40065,7 +40629,17 @@
             "$ref": "#/components/schemas/PatchInboxPlacementTestRequestScheduleTimezone"
           }
         },
-        "description": "Specifies the date and time when the automated inbox placement tests will be sent."
+        "description": "Specifies the date and time when the automated inbox placement tests will be sent.",
+        "example": {
+          "days": {
+            "2": true,
+            "3": true
+          },
+          "timing": {
+            "from": "1970-01-01T00:00:00.000Z"
+          },
+          "timezone": "America/Chihuahua"
+        }
       },
       "PatchInboxPlacementTestRequestAutomationsItem": {
         "required": [
@@ -46428,6 +47002,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "example": "unibox.all",
         "x-enumDescriptions": {
           "dashboard.view": "View the dashboard",
           "campaigns.view": "View campaigns",
@@ -47071,6 +47646,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "example": "click_rate",
         "x-ms-enum": {
           "name": "CampaignAutoVariantSelectTrigger",
           "modelAsString": false,
@@ -47097,6 +47673,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "example": "custom",
         "x-ms-enum": {
           "name": "CampaignLimitEmailsPerCompanyOverrideMode",
           "modelAsString": false,
@@ -47119,6 +47696,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "example": "per_campaign",
         "x-ms-enum": {
           "name": "CampaignLimitEmailsPerCompanyOverrideScope",
           "modelAsString": false,
@@ -48445,6 +49023,7 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Condition for automation trigger",
+        "example": "placement_goes_below",
         "x-ms-enum": {
           "name": "InboxPlacementTestAutomationsItemWhenCondition",
           "modelAsString": false,
