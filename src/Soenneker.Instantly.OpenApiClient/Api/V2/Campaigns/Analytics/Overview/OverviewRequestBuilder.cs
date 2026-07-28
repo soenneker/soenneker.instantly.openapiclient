@@ -101,7 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             /// <summary>Filter by campaign status (only the analytics for the campaigns with the specified status will be returned)</summary>
             [QueryParameter("campaign_status")]
             public double? CampaignStatus { get; set; }
-            /// <summary>End date</summary>
+            /// <summary>End of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("end_date")]
@@ -133,7 +133,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
             [QueryParameter("ids")]
             public string[] Ids { get; set; }
 #endif
-            /// <summary>Start date</summary>
+            /// <summary>Start of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("start_date")]

@@ -3767,7 +3767,7 @@
           {
             "name": "start_date",
             "in": "query",
-            "description": "Start date",
+            "description": "Start of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -3784,7 +3784,7 @@
           {
             "name": "end_date",
             "in": "query",
-            "description": "End date",
+            "description": "End of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -3909,7 +3909,7 @@
           {
             "name": "start_date",
             "in": "query",
-            "description": "Start date",
+            "description": "Start of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -3926,7 +3926,7 @@
           {
             "name": "end_date",
             "in": "query",
-            "description": "End date",
+            "description": "End of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -4058,7 +4058,7 @@
           {
             "name": "start_date",
             "in": "query",
-            "description": "Start date",
+            "description": "Start of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -4068,7 +4068,7 @@
           {
             "name": "end_date",
             "in": "query",
-            "description": "End date",
+            "description": "End of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -4182,7 +4182,7 @@
           {
             "name": "start_date",
             "in": "query",
-            "description": "Start date",
+            "description": "Start of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -4199,7 +4199,7 @@
           {
             "name": "end_date",
             "in": "query",
-            "description": "End date",
+            "description": "End of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight \u2014 e.g. \u00602026-04-07\u0060 is treated as \u00602026-04-07T00:00:00.000Z\u0060.",
             "schema": {
               "type": "string",
               "example": "1970-01-01T00:00:00.000Z"
@@ -24028,6 +24028,9 @@
         }
       },
       "AddVariablesRequest": {
+        "required": [
+          "variables"
+        ],
         "type": "object",
         "properties": {
           "variables": {

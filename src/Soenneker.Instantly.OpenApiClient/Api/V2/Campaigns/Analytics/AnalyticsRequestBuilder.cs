@@ -117,7 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AnalyticsRequestBuilderGetQueryParameters 
         {
-            /// <summary>End date</summary>
+            /// <summary>End of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("end_date")]
@@ -149,7 +149,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
             [QueryParameter("ids")]
             public string[] Ids { get; set; }
 #endif
-            /// <summary>Start date</summary>
+            /// <summary>Start of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("start_date")]

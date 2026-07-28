@@ -109,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             [QueryParameter("campaign_id")]
             public string CampaignId { get; set; }
 #endif
-            /// <summary>End date</summary>
+            /// <summary>End of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("end_date")]
@@ -122,7 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Steps
             /// <summary>Whether to include the opportunities count per step. If this field is true then `opportunities`, `unique_opportunities`, `meetings_booked`, and `won` fields will be included in the response</summary>
             [QueryParameter("include_opportunities_count")]
             public bool? IncludeOpportunitiesCount { get; set; }
-            /// <summary>Start date</summary>
+            /// <summary>Start of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("start_date")]
