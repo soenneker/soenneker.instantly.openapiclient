@@ -30,6 +30,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Include { get; set; }
 #endif
+        /// <summary>The include_mode property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode? IncludeMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersKeywordFilter"/> and sets the default values.
         /// </summary>
@@ -57,6 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "exclude", n => { Exclude = n.GetStringValue(); } },
                 { "include", n => { Include = n.GetStringValue(); } },
+                { "include_mode", n => { IncludeMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode>(); } },
             };
         }
         /// <summary>
@@ -68,6 +71,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("exclude", Exclude);
             writer.WriteStringValue("include", Include);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode>("include_mode", IncludeMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

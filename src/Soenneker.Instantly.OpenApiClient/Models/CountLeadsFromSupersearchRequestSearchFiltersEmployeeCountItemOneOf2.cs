@@ -8,23 +8,17 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Custom employee count range
+    /// Employee count greater-than-or-equal range
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 : IParsable
     {
-        /// <summary>Maximum employee count (inclusive), used for &quot;between&quot; and &quot;lte&quot; operations</summary>
+        /// <summary>Deprecated opposite bound accepted for compatibility and removed during normalization.</summary>
         public double? Max { get; set; }
-        /// <summary>Minimum employee count (inclusive), used for &quot;between&quot; and &quot;gte&quot; operations</summary>
+        /// <summary>Minimum employee count (inclusive).</summary>
         public double? Min { get; set; }
-        /// <summary>Operation type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Op { get; set; }
-#nullable restore
-#else
-        public string Op { get; set; }
-#endif
+        /// <summary>Greater than or equal operation.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op? Op { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "max", n => { Max = n.GetDoubleValue(); } },
                 { "min", n => { Min = n.GetDoubleValue(); } },
-                { "op", n => { Op = n.GetStringValue(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op>(); } },
             };
         }
         /// <summary>
@@ -57,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("max", Max);
             writer.WriteDoubleValue("min", Min);
-            writer.WriteStringValue("op", Op);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op>("op", Op);
         }
     }
 }

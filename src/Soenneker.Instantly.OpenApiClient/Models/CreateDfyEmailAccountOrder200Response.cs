@@ -114,6 +114,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Whether the order was placed or not. If true, then the order was placed successfully. If false, then the order was not placed due to an error or simulation mode was enabled.</summary>
         public bool? OrderPlaced { get; set; }
+        /// <summary>A safe, provider-independent payment failure reason. Present only when a payment attempt failed.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason? PaymentFailureReason { get; set; }
         /// <summary>The brand of the payment method used for the order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -240,6 +242,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "order_is_valid", n => { OrderIsValid = n.GetBoolValue(); } },
                 { "order_items", n => { OrderItems = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "order_placed", n => { OrderPlaced = n.GetBoolValue(); } },
+                { "payment_failure_reason", n => { PaymentFailureReason = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason>(); } },
                 { "payment_method_brand", n => { PaymentMethodBrand = n.GetStringValue(); } },
                 { "payment_method_last_4_digits", n => { PaymentMethodLast4Digits = n.GetStringValue(); } },
                 { "payment_method_name_on_card", n => { PaymentMethodNameOnCard = n.GetStringValue(); } },
@@ -284,6 +287,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("order_is_valid", OrderIsValid);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>("order_items", OrderItems);
             writer.WriteBoolValue("order_placed", OrderPlaced);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason>("payment_failure_reason", PaymentFailureReason);
             writer.WriteStringValue("payment_method_brand", PaymentMethodBrand);
             writer.WriteStringValue("payment_method_last_4_digits", PaymentMethodLast4Digits);
             writer.WriteStringValue("payment_method_name_on_card", PaymentMethodNameOnCard);

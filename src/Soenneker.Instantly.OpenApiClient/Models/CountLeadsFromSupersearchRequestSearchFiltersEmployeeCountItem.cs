@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemBranch1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemBranch1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem : IComposedTypeWrapper, IParsable
@@ -29,6 +29,30 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3? CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4? CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5? CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,6 +71,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 result.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2();
             }
+            else if("CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 = new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3();
+            }
             return result;
         }
         /// <summary>
@@ -62,6 +90,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 != null)
             {
                 return CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2.GetFieldDeserializers();
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 != null)
+            {
+                return CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3.GetFieldDeserializers();
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 != null)
+            {
+                return CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4.GetFieldDeserializers();
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 != null)
+            {
+                return CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -79,6 +119,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2>(null, CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2);
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3>(null, CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3);
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4>(null, CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4);
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5>(null, CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5);
             }
         }
     }

@@ -25235,6 +25235,9 @@
           "order_error": {
             "$ref": "#/components/schemas/CreateDfyEmailAccountOrder200ResponseOrderError"
           },
+          "payment_failure_reason": {
+            "$ref": "#/components/schemas/CreateDfyEmailAccountOrder200ResponsePaymentFailureReason"
+          },
           "unavailable_domains": {
             "type": "array",
             "items": {
@@ -38353,6 +38356,15 @@
           },
           {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"
+          },
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"
           }
         ]
       },
@@ -38397,6 +38409,15 @@
           },
           {
             "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"
+          },
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"
           }
         ]
       },
@@ -38430,6 +38451,15 @@
           },
           {
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"
+          },
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"
           }
         ]
       },
@@ -38517,28 +38547,117 @@
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2": {
         "required": [
-          "op"
+          "op",
+          "min"
         ],
         "type": "object",
         "properties": {
           "op": {
-            "type": "string",
-            "description": "Operation type.",
-            "example": "between"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op"
           },
           "min": {
             "type": "number",
-            "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+            "description": "Minimum employee count (inclusive).",
             "example": 50
           },
           "max": {
             "type": "number",
-            "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+            "description": "Deprecated opposite bound accepted for compatibility and removed during normalization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Employee count greater-than-or-equal range"
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3": {
+        "required": [
+          "op",
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op"
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          },
+          "min": {
+            "type": "number",
+            "description": "Deprecated opposite bound accepted for compatibility and removed during normalization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Employee count less-than-or-equal range"
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+          }
+        ],
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op"
+          },
+          "min": {
+            "type": "number",
+            "description": "Minimum employee count (inclusive).",
+            "nullable": true,
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "nullable": true,
             "example": 200
           }
         },
         "additionalProperties": false,
-        "description": "Custom employee count range"
+        "description": "Custom employee count bounded range"
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+          }
+        ],
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op"
+          },
+          "min": {
+            "type": "number",
+            "description": "Minimum employee count (inclusive).",
+            "nullable": true,
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "nullable": true,
+            "example": 200
+          }
+        },
+        "additionalProperties": false,
+        "description": "Preset employee count bounded range"
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2": {
         "required": [
@@ -38606,28 +38725,117 @@
       },
       "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2": {
         "required": [
-          "op"
+          "op",
+          "min"
         ],
         "type": "object",
         "properties": {
           "op": {
-            "type": "string",
-            "description": "Operation type.",
-            "example": "between"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op"
           },
           "min": {
             "type": "number",
-            "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+            "description": "Minimum employee count (inclusive).",
             "example": 50
           },
           "max": {
             "type": "number",
-            "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+            "description": "Deprecated opposite bound accepted for compatibility and removed during normalization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Employee count greater-than-or-equal range"
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3": {
+        "required": [
+          "op",
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op"
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          },
+          "min": {
+            "type": "number",
+            "description": "Deprecated opposite bound accepted for compatibility and removed during normalization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Employee count less-than-or-equal range"
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+          }
+        ],
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op"
+          },
+          "min": {
+            "type": "number",
+            "description": "Minimum employee count (inclusive).",
+            "nullable": true,
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "nullable": true,
             "example": 200
           }
         },
         "additionalProperties": false,
-        "description": "Custom employee count range"
+        "description": "Custom employee count bounded range"
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+          }
+        ],
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op"
+          },
+          "min": {
+            "type": "number",
+            "description": "Minimum employee count (inclusive).",
+            "nullable": true,
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "nullable": true,
+            "example": 200
+          }
+        },
+        "additionalProperties": false,
+        "description": "Preset employee count bounded range"
       },
       "CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2": {
         "required": [
@@ -38673,28 +38881,117 @@
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2": {
         "required": [
-          "op"
+          "op",
+          "min"
         ],
         "type": "object",
         "properties": {
           "op": {
-            "type": "string",
-            "description": "Operation type.",
-            "example": "between"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op"
           },
           "min": {
             "type": "number",
-            "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+            "description": "Minimum employee count (inclusive).",
             "example": 50
           },
           "max": {
             "type": "number",
-            "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+            "description": "Deprecated opposite bound accepted for compatibility and removed during normalization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Employee count greater-than-or-equal range"
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3": {
+        "required": [
+          "op",
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op"
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          },
+          "min": {
+            "type": "number",
+            "description": "Deprecated opposite bound accepted for compatibility and removed during normalization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Employee count less-than-or-equal range"
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+          }
+        ],
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op"
+          },
+          "min": {
+            "type": "number",
+            "description": "Minimum employee count (inclusive).",
+            "nullable": true,
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "nullable": true,
             "example": 200
           }
         },
         "additionalProperties": false,
-        "description": "Custom employee count range"
+        "description": "Custom employee count bounded range"
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+          }
+        ],
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op"
+          },
+          "min": {
+            "type": "number",
+            "description": "Minimum employee count (inclusive).",
+            "nullable": true,
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "description": "Maximum employee count (inclusive).",
+            "nullable": true,
+            "example": 200
+          }
+        },
+        "additionalProperties": false,
+        "description": "Preset employee count bounded range"
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2": {
         "required": [
@@ -38754,6 +39051,50 @@
           }
         }
       },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1": {
+        "required": [
+          "min"
+        ],
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          }
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2": {
+        "required": [
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          }
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1": {
+        "required": [
+          "min"
+        ],
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          }
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2": {
+        "required": [
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          }
+        }
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
         "type": "object",
         "oneOf": [
@@ -38792,6 +39133,50 @@
           }
         ]
       },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1": {
+        "required": [
+          "min"
+        ],
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          }
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2": {
+        "required": [
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          }
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1": {
+        "required": [
+          "min"
+        ],
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          }
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2": {
+        "required": [
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          }
+        }
+      },
       "CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
         "type": "object",
         "oneOf": [
@@ -38810,6 +39195,50 @@
             "description": "\u0022Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \\\u0022objection_type\\\u0022: [\\\u0022security\\\u0022], \\\u0022buying_stage\\\u0022: [\\\u0022consideration\\\u0022] }\u0060.\u0022"
           }
         ]
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1": {
+        "required": [
+          "min"
+        ],
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          }
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2": {
+        "required": [
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          }
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1": {
+        "required": [
+          "min"
+        ],
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          }
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2": {
+        "required": [
+          "max"
+        ],
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          }
+        }
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
         "type": "object",
@@ -44413,6 +44842,9 @@
           "include": {
             "type": "string",
             "example": "marketing"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode"
           }
         }
       },
@@ -44505,6 +44937,9 @@
           "include": {
             "type": "string",
             "example": "marketing"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode"
           }
         }
       },
@@ -44597,6 +45032,9 @@
           "include": {
             "type": "string",
             "example": "marketing"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode"
           }
         }
       },
@@ -56680,6 +57118,40 @@
             {
               "value": "provider_unavailable",
               "name": "ProviderUnavailable"
+            }
+          ]
+        }
+      },
+      "CreateDfyEmailAccountOrder200ResponsePaymentFailureReason": {
+        "enum": [
+          "payment_method_not_supported",
+          "authentication_required",
+          "card_expired",
+          "generic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A safe, provider-independent payment failure reason. Present only when a payment attempt failed.",
+        "example": "payment_method_not_supported",
+        "x-ms-enum": {
+          "name": "CreateDfyEmailAccountOrder200ResponsePaymentFailureReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "payment_method_not_supported",
+              "name": "PaymentMethodNotSupported"
+            },
+            {
+              "value": "authentication_required",
+              "name": "AuthenticationRequired"
+            },
+            {
+              "value": "card_expired",
+              "name": "CardExpired"
+            },
+            {
+              "value": "generic_decline",
+              "name": "GenericDecline"
             }
           ]
         }
@@ -69391,6 +69863,234 @@
           ]
         }
       },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op": {
+        "enum": [
+          "gte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Greater than or equal operation.",
+        "example": "gte",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "gte",
+              "name": "Gte"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op": {
+        "enum": [
+          "lte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Less than or equal operation.",
+        "example": "lte",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "lte",
+              "name": "Lte"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op": {
+        "enum": [
+          "between"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Between operation.",
+        "example": "between",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "between",
+              "name": "Between"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op": {
+        "enum": [
+          "preset_between"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Preset between operation.",
+        "example": "preset_between",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "preset_between",
+              "name": "PresetBetween"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op": {
+        "enum": [
+          "gte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Greater than or equal operation.",
+        "example": "gte",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "gte",
+              "name": "Gte"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op": {
+        "enum": [
+          "lte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Less than or equal operation.",
+        "example": "lte",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "lte",
+              "name": "Lte"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op": {
+        "enum": [
+          "between"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Between operation.",
+        "example": "between",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "between",
+              "name": "Between"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op": {
+        "enum": [
+          "preset_between"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Preset between operation.",
+        "example": "preset_between",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "preset_between",
+              "name": "PresetBetween"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op": {
+        "enum": [
+          "gte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Greater than or equal operation.",
+        "example": "gte",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "gte",
+              "name": "Gte"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op": {
+        "enum": [
+          "lte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Less than or equal operation.",
+        "example": "lte",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "lte",
+              "name": "Lte"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op": {
+        "enum": [
+          "between"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Between operation.",
+        "example": "between",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "between",
+              "name": "Between"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op": {
+        "enum": [
+          "preset_between"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Preset between operation.",
+        "example": "preset_between",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5Op",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "preset_between",
+              "name": "PresetBetween"
+            }
+          ]
+        }
+      },
       "ToggleTagResourceRequestFilterOneOf2TagIdOneOf2": {
         "enum": [
           "no-tag"
@@ -76601,6 +77301,29 @@
           ]
         }
       },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
+            }
+          ]
+        }
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersIndustryExcludeItem": {
         "enum": [
           "Agriculture \u0026 Mining",
@@ -78242,6 +78965,29 @@
           ]
         }
       },
+      "CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
+            }
+          ]
+        }
+      },
       "CountLeadsFromSupersearchRequestSearchFiltersIndustryExcludeItem": {
         "enum": [
           "Agriculture \u0026 Mining",
@@ -79879,6 +80625,29 @@
             {
               "value": "Wine and Spirits",
               "name": "WineAndSpirits"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
             }
           ]
         }

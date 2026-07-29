@@ -24629,6 +24629,17 @@
                       },
                       "example": "unavailable_domains"
                     },
+                    "payment_failure_reason": {
+                      "type": "string",
+                      "description": "A safe, provider-independent payment failure reason. Present only when a payment attempt failed.",
+                      "enum": [
+                        "payment_method_not_supported",
+                        "authentication_required",
+                        "card_expired",
+                        "generic_decline"
+                      ],
+                      "example": "payment_method_not_supported"
+                    },
                     "unavailable_domains": {
                       "type": "array",
                       "items": {
@@ -56274,29 +56285,110 @@
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count range",
+                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
-                                  "description": "Operation type.",
-                                  "examples": [
-                                    "between",
-                                    "gte",
-                                    "lte"
+                                  "enum": [
+                                    "gte"
                                   ],
-                                  "example": "between"
+                                  "description": "Greater than or equal operation.",
+                                  "examples": [
+                                    "gte"
+                                  ],
+                                  "example": "gte"
                                 },
                                 "min": {
                                   "type": "number",
-                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+                                  "description": "Minimum employee count (inclusive).",
                                   "examples": [
                                     50
                                   ],
                                   "example": 50
                                 },
                                 "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Deprecated opposite bound accepted for compatibility and removed during normalization."
+                                }
+                              },
+                              "required": [
+                                "op",
+                                "min"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Employee count less-than-or-equal range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "lte"
+                                  ],
+                                  "description": "Less than or equal operation.",
+                                  "examples": [
+                                    "lte"
+                                  ],
+                                  "example": "lte"
+                                },
+                                "max": {
                                   "type": "number",
-                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+                                  "description": "Maximum employee count (inclusive).",
+                                  "examples": [
+                                    200
+                                  ],
+                                  "example": 200
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Deprecated opposite bound accepted for compatibility and removed during normalization."
+                                }
+                              },
+                              "required": [
+                                "op",
+                                "max"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Custom employee count bounded range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "between"
+                                  ],
+                                  "description": "Between operation.",
+                                  "examples": [
+                                    "between"
+                                  ],
+                                  "example": "between"
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Minimum employee count (inclusive).",
+                                  "examples": [
+                                    50
+                                  ],
+                                  "example": 50
+                                },
+                                "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Maximum employee count (inclusive).",
                                   "examples": [
                                     200
                                   ],
@@ -56305,6 +56397,93 @@
                               },
                               "required": [
                                 "op"
+                              ],
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ],
+                                  "properties": {
+                                    "min": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ],
+                                  "properties": {
+                                    "max": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Preset employee count bounded range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "preset_between"
+                                  ],
+                                  "description": "Preset between operation.",
+                                  "examples": [
+                                    "preset_between"
+                                  ],
+                                  "example": "preset_between"
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Minimum employee count (inclusive).",
+                                  "examples": [
+                                    50
+                                  ],
+                                  "example": 50
+                                },
+                                "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Maximum employee count (inclusive).",
+                                  "examples": [
+                                    200
+                                  ],
+                                  "example": 200
+                                }
+                              },
+                              "required": [
+                                "op"
+                              ],
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ],
+                                  "properties": {
+                                    "min": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ],
+                                  "properties": {
+                                    "max": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
                               ],
                               "additionalProperties": false
                             }
@@ -56489,6 +56668,14 @@
                           "include": {
                             "type": "string",
                             "example": "marketing"
+                          },
+                          "include_mode": {
+                            "type": "string",
+                            "enum": [
+                              "ANY",
+                              "ALL"
+                            ],
+                            "example": "ANY"
                           }
                         }
                       },
@@ -58505,29 +58692,110 @@
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count range",
+                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
-                                  "description": "Operation type.",
-                                  "examples": [
-                                    "between",
-                                    "gte",
-                                    "lte"
+                                  "enum": [
+                                    "gte"
                                   ],
-                                  "example": "between"
+                                  "description": "Greater than or equal operation.",
+                                  "examples": [
+                                    "gte"
+                                  ],
+                                  "example": "gte"
                                 },
                                 "min": {
                                   "type": "number",
-                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+                                  "description": "Minimum employee count (inclusive).",
                                   "examples": [
                                     50
                                   ],
                                   "example": 50
                                 },
                                 "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Deprecated opposite bound accepted for compatibility and removed during normalization."
+                                }
+                              },
+                              "required": [
+                                "op",
+                                "min"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Employee count less-than-or-equal range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "lte"
+                                  ],
+                                  "description": "Less than or equal operation.",
+                                  "examples": [
+                                    "lte"
+                                  ],
+                                  "example": "lte"
+                                },
+                                "max": {
                                   "type": "number",
-                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+                                  "description": "Maximum employee count (inclusive).",
+                                  "examples": [
+                                    200
+                                  ],
+                                  "example": 200
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Deprecated opposite bound accepted for compatibility and removed during normalization."
+                                }
+                              },
+                              "required": [
+                                "op",
+                                "max"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Custom employee count bounded range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "between"
+                                  ],
+                                  "description": "Between operation.",
+                                  "examples": [
+                                    "between"
+                                  ],
+                                  "example": "between"
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Minimum employee count (inclusive).",
+                                  "examples": [
+                                    50
+                                  ],
+                                  "example": 50
+                                },
+                                "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Maximum employee count (inclusive).",
                                   "examples": [
                                     200
                                   ],
@@ -58536,6 +58804,93 @@
                               },
                               "required": [
                                 "op"
+                              ],
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ],
+                                  "properties": {
+                                    "min": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ],
+                                  "properties": {
+                                    "max": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Preset employee count bounded range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "preset_between"
+                                  ],
+                                  "description": "Preset between operation.",
+                                  "examples": [
+                                    "preset_between"
+                                  ],
+                                  "example": "preset_between"
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Minimum employee count (inclusive).",
+                                  "examples": [
+                                    50
+                                  ],
+                                  "example": 50
+                                },
+                                "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Maximum employee count (inclusive).",
+                                  "examples": [
+                                    200
+                                  ],
+                                  "example": 200
+                                }
+                              },
+                              "required": [
+                                "op"
+                              ],
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ],
+                                  "properties": {
+                                    "min": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ],
+                                  "properties": {
+                                    "max": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
                               ],
                               "additionalProperties": false
                             }
@@ -58720,6 +59075,14 @@
                           "include": {
                             "type": "string",
                             "example": "marketing"
+                          },
+                          "include_mode": {
+                            "type": "string",
+                            "enum": [
+                              "ANY",
+                              "ALL"
+                            ],
+                            "example": "ANY"
                           }
                         }
                       },
@@ -60198,29 +60561,110 @@
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count range",
+                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
-                                  "description": "Operation type.",
-                                  "examples": [
-                                    "between",
-                                    "gte",
-                                    "lte"
+                                  "enum": [
+                                    "gte"
                                   ],
-                                  "example": "between"
+                                  "description": "Greater than or equal operation.",
+                                  "examples": [
+                                    "gte"
+                                  ],
+                                  "example": "gte"
                                 },
                                 "min": {
                                   "type": "number",
-                                  "description": "Minimum employee count (inclusive), used for \u0022between\u0022 and \u0022gte\u0022 operations",
+                                  "description": "Minimum employee count (inclusive).",
                                   "examples": [
                                     50
                                   ],
                                   "example": 50
                                 },
                                 "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Deprecated opposite bound accepted for compatibility and removed during normalization."
+                                }
+                              },
+                              "required": [
+                                "op",
+                                "min"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Employee count less-than-or-equal range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "lte"
+                                  ],
+                                  "description": "Less than or equal operation.",
+                                  "examples": [
+                                    "lte"
+                                  ],
+                                  "example": "lte"
+                                },
+                                "max": {
                                   "type": "number",
-                                  "description": "Maximum employee count (inclusive), used for \u0022between\u0022 and \u0022lte\u0022 operations",
+                                  "description": "Maximum employee count (inclusive).",
+                                  "examples": [
+                                    200
+                                  ],
+                                  "example": 200
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Deprecated opposite bound accepted for compatibility and removed during normalization."
+                                }
+                              },
+                              "required": [
+                                "op",
+                                "max"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Custom employee count bounded range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "between"
+                                  ],
+                                  "description": "Between operation.",
+                                  "examples": [
+                                    "between"
+                                  ],
+                                  "example": "between"
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Minimum employee count (inclusive).",
+                                  "examples": [
+                                    50
+                                  ],
+                                  "example": 50
+                                },
+                                "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Maximum employee count (inclusive).",
                                   "examples": [
                                     200
                                   ],
@@ -60229,6 +60673,93 @@
                               },
                               "required": [
                                 "op"
+                              ],
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ],
+                                  "properties": {
+                                    "min": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ],
+                                  "properties": {
+                                    "max": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "description": "Preset employee count bounded range",
+                              "properties": {
+                                "op": {
+                                  "type": "string",
+                                  "enum": [
+                                    "preset_between"
+                                  ],
+                                  "description": "Preset between operation.",
+                                  "examples": [
+                                    "preset_between"
+                                  ],
+                                  "example": "preset_between"
+                                },
+                                "min": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Minimum employee count (inclusive).",
+                                  "examples": [
+                                    50
+                                  ],
+                                  "example": 50
+                                },
+                                "max": {
+                                  "type": [
+                                    "number",
+                                    "null"
+                                  ],
+                                  "description": "Maximum employee count (inclusive).",
+                                  "examples": [
+                                    200
+                                  ],
+                                  "example": 200
+                                }
+                              },
+                              "required": [
+                                "op"
+                              ],
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "min"
+                                  ],
+                                  "properties": {
+                                    "min": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                {
+                                  "required": [
+                                    "max"
+                                  ],
+                                  "properties": {
+                                    "max": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
                               ],
                               "additionalProperties": false
                             }
@@ -60413,6 +60944,14 @@
                           "include": {
                             "type": "string",
                             "example": "marketing"
+                          },
+                          "include_mode": {
+                            "type": "string",
+                            "enum": [
+                              "ANY",
+                              "ALL"
+                            ],
+                            "example": "ANY"
                           }
                         }
                       },

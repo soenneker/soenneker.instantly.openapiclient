@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemBranch1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemBranch1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem : IComposedTypeWrapper, IParsable
@@ -29,6 +29,30 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3? PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4? PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5? PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,6 +71,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 result.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2();
             }
+            else if("PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 = new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3();
+            }
             return result;
         }
         /// <summary>
@@ -62,6 +90,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 != null)
             {
                 return PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2.GetFieldDeserializers();
+            }
+            else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 != null)
+            {
+                return PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3.GetFieldDeserializers();
+            }
+            else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 != null)
+            {
+                return PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4.GetFieldDeserializers();
+            }
+            else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 != null)
+            {
+                return PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -79,6 +119,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2>(null, PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf2);
+            }
+            else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3>(null, PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3);
+            }
+            else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4>(null, PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4);
+            }
+            else if(PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5>(null, PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5);
             }
         }
     }
