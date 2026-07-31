@@ -166,6 +166,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitle Title { get; set; }
 #endif
+        /// <summary>Restrict the search to companies that visited your website (requires a connected Website Visitors pixel). Combines with `domains` as an intersection.</summary>
+        public bool? WebsiteVisitors { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters"/> and sets the default values.
         /// </summary>
@@ -212,6 +214,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
                 { "subIndustry", n => { SubIndustry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersSubIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersSubIndustry.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitle>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitle.CreateFromDiscriminatorValue); } },
+                { "website_visitors", n => { WebsiteVisitors = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -242,6 +245,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersSubIndustry>("subIndustry", SubIndustry);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitle>("title", Title);
+            writer.WriteBoolValue("website_visitors", WebsiteVisitors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

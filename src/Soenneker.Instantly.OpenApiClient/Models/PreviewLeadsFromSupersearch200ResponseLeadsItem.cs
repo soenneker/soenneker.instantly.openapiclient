@@ -52,6 +52,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string FullName { get; set; }
 #endif
+        /// <summary>True when the workspace already owns this lead (previously acquired, e.g. delivered by Website Visitors) — enriching it will not charge again</summary>
+        public bool? IsOwned { get; set; }
         /// <summary>The current job title of the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,6 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "fullName", n => { FullName = n.GetStringValue(); } },
+                { "isOwned", n => { IsOwned = n.GetBoolValue(); } },
                 { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
                 { "linkedIn", n => { LinkedIn = n.GetStringValue(); } },
@@ -125,6 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("fullName", FullName);
+            writer.WriteBoolValue("isOwned", IsOwned);
             writer.WriteStringValue("jobTitle", JobTitle);
             writer.WriteStringValue("lastName", LastName);
             writer.WriteStringValue("linkedIn", LinkedIn);

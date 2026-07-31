@@ -41978,6 +41978,11 @@
               "example": "google.com"
             }
           },
+          "website_visitors": {
+            "type": "boolean",
+            "description": "Restrict the search to companies that visited your website (requires a connected Website Visitors pixel). Combines with \u0060domains\u0060 as an intersection.",
+            "example": true
+          },
           "funding_type": {
             "type": "array",
             "items": {
@@ -42138,6 +42143,11 @@
               "example": "google.com"
             }
           },
+          "website_visitors": {
+            "type": "boolean",
+            "description": "Restrict the search to companies that visited your website (requires a connected Website Visitors pixel). Combines with \u0060domains\u0060 as an intersection.",
+            "example": true
+          },
           "funding_type": {
             "type": "array",
             "items": {
@@ -42257,6 +42267,11 @@
               "example": "google.com"
             }
           },
+          "website_visitors": {
+            "type": "boolean",
+            "description": "Restrict the search to companies that visited your website (requires a connected Website Visitors pixel). Combines with \u0060domains\u0060 as an intersection.",
+            "example": true
+          },
           "funding_type": {
             "type": "array",
             "items": {
@@ -42333,6 +42348,11 @@
             "type": "string",
             "description": "The LinkedIn company ID, used for viewing company details",
             "example": "123456"
+          },
+          "isOwned": {
+            "type": "boolean",
+            "description": "True when the workspace already owns this lead (previously acquired, e.g. delivered by Website Visitors) \u2014 enriching it will not charge again",
+            "example": true
           }
         },
         "additionalProperties": false
@@ -45549,7 +45569,8 @@
           2,
           3,
           4,
-          8
+          8,
+          11
         ],
         "type": "number",
         "additionalProperties": false,
@@ -45560,7 +45581,8 @@
           "2": "Google",
           "3": "Microsoft",
           "4": "AWS",
-          "8": "AirMail"
+          "8": "AirMail",
+          "11": "Airmail Instant"
         }
       },
       "CampaignStatus": {
@@ -50242,7 +50264,8 @@
           2,
           3,
           4,
-          8
+          8,
+          11
         ],
         "type": "number",
         "additionalProperties": false,
@@ -50253,7 +50276,8 @@
           "2": "Google",
           "3": "Microsoft",
           "4": "AWS",
-          "8": "AirMail"
+          "8": "AirMail",
+          "11": "Airmail Instant"
         }
       },
       "CreateAccount400ResponseStatusCode": {
@@ -82482,7 +82506,8 @@
           2,
           3,
           4,
-          8
+          8,
+          11
         ],
         "type": "number",
         "additionalProperties": false,
@@ -82492,7 +82517,8 @@
           "2": "Google",
           "3": "Microsoft",
           "4": "AWS",
-          "8": "AirMail"
+          "8": "AirMail",
+          "11": "Airmail Instant"
         }
       },
       "ListAccountFilterParameter": {
