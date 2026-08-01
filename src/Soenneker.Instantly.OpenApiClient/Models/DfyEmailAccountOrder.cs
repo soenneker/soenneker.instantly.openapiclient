@@ -29,6 +29,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ForwardingDomain { get; set; }
 #endif
+        /// <summary>How the forwarding domain is applied. Null when no forwarding is configured.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode? ForwardingMode { get; set; }
         /// <summary>Indicates if the account is pre-warmed up</summary>
         public bool? IsPreWarmedUp { get; set; }
         /// <summary>Timestamp when the order was cancelled, if applicable</summary>
@@ -63,6 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "forwarding_domain", n => { ForwardingDomain = n.GetStringValue(); } },
+                { "forwarding_mode", n => { ForwardingMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode>(); } },
                 { "is_pre_warmed_up", n => { IsPreWarmedUp = n.GetBoolValue(); } },
                 { "timestamp_cancelled", n => { TimestampCancelled = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -77,6 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("forwarding_domain", ForwardingDomain);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode>("forwarding_mode", ForwardingMode);
             writer.WriteBoolValue("is_pre_warmed_up", IsPreWarmedUp);
         }
     }

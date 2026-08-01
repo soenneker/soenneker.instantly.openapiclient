@@ -9,7 +9,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GetInboxPlacementTestEspOptions200ResponseResponseJsonItem : IAdditionalDataHolder, IParsable
+    public partial class GetInboxPlacementTestEspOptions200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,21 +47,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseResponseJsonItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
-        public GetInboxPlacementTestEspOptions200ResponseResponseJsonItem()
+        public GetInboxPlacementTestEspOptions200ResponseSchemaItem()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseResponseJsonItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseSchemaItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseResponseJsonItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseResponseJsonItem();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTestEspOptions200ResponseSchemaItem();
         }
         /// <summary>
         /// The deserialization information for the current model

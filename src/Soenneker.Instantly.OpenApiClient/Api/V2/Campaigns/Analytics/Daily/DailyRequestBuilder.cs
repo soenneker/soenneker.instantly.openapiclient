@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         /// <summary>
         /// Get campaign daily analytics
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseResponseJsonItem&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics400Response">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily.DailyRequestBuilder.DailyRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily.DailyRequestBuilder.DailyRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily.DailyRequestBuilder.DailyRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily.DailyRequestBuilder.DailyRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Daily
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics429Response.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseResponseJsonItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseSchemaItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetDailyCampaignAnalytics200ResponseSchemaItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

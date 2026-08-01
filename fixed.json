@@ -951,7 +951,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetDailyAccountAnalytics200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetDailyAccountAnalytics200ResponseSchema"
                 }
               }
             }
@@ -2451,7 +2451,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteallBlockListEntry200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteallBlockListEntry200ResponseSchema"
                 }
               }
             }
@@ -2845,7 +2845,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeletebulkBlockListEntry200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeletebulkBlockListEntry200ResponseSchema"
                 }
               }
             }
@@ -2943,7 +2943,7 @@
             "content": {
               "text/csv": {
                 "schema": {
-                  "$ref": "#/components/schemas/DownloadBlockListEntry200ResponseResponseCsv"
+                  "$ref": "#/components/schemas/DownloadBlockListEntry200CsvResponseSchema"
                 }
               }
             }
@@ -3816,7 +3816,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCampaignAnalytics200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetCampaignAnalytics200ResponseSchema"
                 }
               }
             }
@@ -4101,7 +4101,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetDailyCampaignAnalytics200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetDailyCampaignAnalytics200ResponseSchema"
                 }
               }
             }
@@ -4231,7 +4231,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCampaignStepsAnalytics200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetCampaignStepsAnalytics200ResponseSchema"
                 }
               }
             }
@@ -4316,7 +4316,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ShareCampaign204ResponseResponseJson"
+                  "$ref": "#/components/schemas/ShareCampaign204ResponseSchema"
                 }
               }
             }
@@ -4864,7 +4864,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListPhoneNumbers200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ListPhoneNumbers200ResponseSchema"
                 }
               }
             }
@@ -5616,7 +5616,7 @@
           "DFYEmailAccountOrder"
         ],
         "summary": "Place a DFY email account order",
-        "description": "\u0022Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: exactly 50 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060\u0022",
+        "description": "\u0022Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060\u0022",
         "operationId": "CreateDfyEmailAccountOrder",
         "requestBody": {
           "content": {
@@ -7351,7 +7351,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByTestId200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByTestId200ResponseSchema"
                 }
               }
             }
@@ -7422,7 +7422,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseSchema"
                 }
               }
             }
@@ -7493,7 +7493,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByDate200ResponseSchema"
                 }
               }
             }
@@ -8206,7 +8206,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInboxPlacementTestEspOptions200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetInboxPlacementTestEspOptions200ResponseSchema"
                 }
               }
             }
@@ -13922,7 +13922,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetAiEnrichmentForResource200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetAiEnrichmentForResource200ResponseSchema"
                 }
               }
             }
@@ -14539,7 +14539,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseSchema"
                 }
               }
             }
@@ -17209,6 +17209,9 @@
             "description": "Forwarding domain for the email account, if any",
             "nullable": true,
             "example": "forward.example.com"
+          },
+          "forwarding_mode": {
+            "$ref": "#/components/schemas/DfyEmailAccountOrderForwardingMode"
           },
           "is_pre_warmed_up": {
             "type": "boolean",
@@ -21902,7 +21905,7 @@
           }
         }
       },
-      "DownloadBlockListEntry200Response": {
+      "DownloadBlockListEntry200CsvResponse": {
         "type": "string",
         "example": "Blocked Email,Date\r\nexample.com,2023-09-15T12:00:00Z\r\nuser@example.org,2023-09-15T12:00:00Z"
       },
@@ -25353,7 +25356,7 @@
           },
           "price_per_domain_per_month": {
             "type": "number",
-            "description": "\u0022The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for a fixed 50-mailbox bundle). Null for Google / AirMail-only orders.\u0022",
+            "description": "\u0022The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for 50-100 mailboxes). Null for Google / AirMail-only orders.\u0022",
             "nullable": true,
             "example": 20
           },
@@ -25369,7 +25372,7 @@
           },
           "total_accounts_price_per_month": {
             "type": "number",
-            "description": "The total monthly price charged for accounts in the order. For Google / AirMail this is \u0060per-account price \u00D7 mailbox count\u0060. For Microsoft/Outlook it is \u0060$20 \u00D7 domain count\u0060 (domain-level billing, fixed 50-mailbox bundle).",
+            "description": "The total monthly price charged for accounts in the order. For Google / AirMail this is \u0060per-account price \u00D7 mailbox count\u0060. For Microsoft/Outlook it is \u0060$20 \u00D7 domain count\u0060 (domain-level billing for 50-100 mailboxes per domain).",
             "example": 10
           },
           "total_price_per_month": {
@@ -37737,10 +37740,10 @@
         },
         "additionalProperties": false
       },
-      "GetDailyAccountAnalytics200ResponseResponseJson": {
+      "GetDailyAccountAnalytics200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetDailyAccountAnalytics200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetDailyAccountAnalytics200ResponseSchemaItem"
         }
       },
       "ListApiKey200Response": {
@@ -37827,7 +37830,7 @@
         },
         "additionalProperties": false
       },
-      "DeleteallBlockListEntry200ResponseResponseJson": {
+      "DeleteallBlockListEntry200ResponseSchema": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/BlockListEntry"
@@ -37860,13 +37863,13 @@
           }
         }
       },
-      "DeletebulkBlockListEntry200ResponseResponseJson": {
+      "DeletebulkBlockListEntry200ResponseSchema": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/BlockListEntry"
         }
       },
-      "DownloadBlockListEntry200ResponseResponseCsv": {
+      "DownloadBlockListEntry200CsvResponseSchema": {
         "type": "string"
       },
       "ListCampaign200Response": {
@@ -37901,31 +37904,31 @@
           }
         }
       },
-      "GetCampaignAnalytics200ResponseResponseJson": {
+      "GetCampaignAnalytics200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetCampaignAnalytics200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetCampaignAnalytics200ResponseSchemaItem"
         }
       },
-      "GetDailyCampaignAnalytics200ResponseResponseJson": {
+      "GetDailyCampaignAnalytics200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetDailyCampaignAnalytics200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetDailyCampaignAnalytics200ResponseSchemaItem"
         }
       },
-      "GetCampaignStepsAnalytics200ResponseResponseJson": {
+      "GetCampaignStepsAnalytics200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetCampaignStepsAnalytics200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetCampaignStepsAnalytics200ResponseSchemaItem"
         }
       },
-      "ShareCampaign204ResponseResponseJson": {
+      "ShareCampaign204ResponseSchema": {
         "type": "object"
       },
-      "ListPhoneNumbers200ResponseResponseJson": {
+      "ListPhoneNumbers200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ListPhoneNumbers200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/ListPhoneNumbers200ResponseSchemaItem"
         }
       },
       "ListCustomTagMapping200Response": {
@@ -38033,22 +38036,22 @@
         },
         "additionalProperties": false
       },
-      "GetInboxPlacementAnalyticsStatsByTestId200ResponseResponseJson": {
+      "GetInboxPlacementAnalyticsStatsByTestId200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByTestId200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem"
         }
       },
-      "GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseResponseJson": {
+      "GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseSchemaItem"
         }
       },
-      "GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJson": {
+      "GetInboxPlacementAnalyticsStatsByDate200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem"
         }
       },
       "ListInboxPlacementBlacklistAndSpamAssassinReport200Response": {
@@ -38093,10 +38096,10 @@
         },
         "additionalProperties": false
       },
-      "GetInboxPlacementTestEspOptions200ResponseResponseJson": {
+      "GetInboxPlacementTestEspOptions200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetInboxPlacementTestEspOptions200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetInboxPlacementTestEspOptions200ResponseSchemaItem"
         }
       },
       "ListLeadLabel200Response": {
@@ -38267,16 +38270,16 @@
         },
         "additionalProperties": false
       },
-      "GetAiEnrichmentForResource200ResponseResponseJson": {
+      "GetAiEnrichmentForResource200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetAiEnrichmentForResource200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetAiEnrichmentForResource200ResponseSchemaItem"
         }
       },
-      "GetEnrichmentHistory200ResponseResponseJson": {
+      "GetEnrichmentHistory200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseSchemaItem"
         }
       },
       "ToggleTagResourceRequestFilter": {
@@ -40406,12 +40409,12 @@
             "example": "forward-to-this-domain.com"
           },
           "accounts": {
-            "maxItems": 50,
+            "maxItems": 100,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateDfyEmailAccountOrderRequestItemsItemAccountsItem"
             },
-            "description": "List of email accounts to create (only if \u0060pre_warmed_up\u0060 field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can\u0027t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or exactly 50 for Microsoft/Outlook.",
+            "description": "List of email accounts to create (only if \u0060pre_warmed_up\u0060 field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can\u0027t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or 50-100 for Microsoft/Outlook.",
             "default": []
           }
         }
@@ -40509,7 +40512,7 @@
           },
           "domain_monthly_price": {
             "type": "number",
-            "description": "The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook \u2014 $20/month/domain, 50 mailboxes). Null for per-account providers.",
+            "description": "The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook \u2014 $20/month/domain, 50-100 mailboxes). Null for per-account providers.",
             "nullable": true,
             "example": 20
           },
@@ -42450,7 +42453,7 @@
           }
         }
       },
-      "GetDailyAccountAnalytics200ResponseResponseJsonItem": {
+      "GetDailyAccountAnalytics200ResponseSchemaItem": {
         "required": [
           "date",
           "email_account",
@@ -42541,7 +42544,7 @@
           }
         }
       },
-      "GetCampaignAnalytics200ResponseResponseJsonItem": {
+      "GetCampaignAnalytics200ResponseSchemaItem": {
         "required": [
           "campaign_name",
           "campaign_id",
@@ -42699,7 +42702,7 @@
           }
         }
       },
-      "GetDailyCampaignAnalytics200ResponseResponseJsonItem": {
+      "GetDailyCampaignAnalytics200ResponseSchemaItem": {
         "type": "object",
         "properties": {
           "date": {
@@ -42774,7 +42777,7 @@
           }
         }
       },
-      "GetCampaignStepsAnalytics200ResponseResponseJsonItem": {
+      "GetCampaignStepsAnalytics200ResponseSchemaItem": {
         "required": [
           "step",
           "variant",
@@ -42869,7 +42872,7 @@
           }
         }
       },
-      "ListPhoneNumbers200ResponseResponseJsonItem": {
+      "ListPhoneNumbers200ResponseSchemaItem": {
         "type": "object",
         "properties": {
           "id": {
@@ -42926,7 +42929,7 @@
           }
         }
       },
-      "GetInboxPlacementAnalyticsStatsByTestId200ResponseResponseJsonItem": {
+      "GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem": {
         "required": [
           "test_id",
           "count",
@@ -42973,7 +42976,7 @@
           }
         }
       },
-      "GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseResponseJsonItem": {
+      "GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseSchemaItem": {
         "type": "object",
         "properties": {
           "test_id": {
@@ -43038,7 +43041,7 @@
           }
         }
       },
-      "GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem": {
+      "GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem": {
         "required": [
           "timestamp_created_date",
           "sent_count",
@@ -43075,7 +43078,7 @@
           }
         }
       },
-      "GetInboxPlacementTestEspOptions200ResponseResponseJsonItem": {
+      "GetInboxPlacementTestEspOptions200ResponseSchemaItem": {
         "required": [
           "region",
           "sub_region",
@@ -43102,7 +43105,7 @@
           }
         }
       },
-      "GetAiEnrichmentForResource200ResponseResponseJsonItem": {
+      "GetAiEnrichmentForResource200ResponseSchemaItem": {
         "required": [
           "organization_id",
           "resource_id",
@@ -43142,7 +43145,7 @@
           }
         }
       },
-      "GetEnrichmentHistory200ResponseResponseJsonItem": {
+      "GetEnrichmentHistory200ResponseSchemaItem": {
         "type": "object"
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItem": {
@@ -47859,6 +47862,35 @@
             {
               "value": "supersearch_enrichment_completed",
               "name": "SupersearchEnrichmentCompleted"
+            }
+          ]
+        }
+      },
+      "DfyEmailAccountOrderForwardingMode": {
+        "enum": [
+          "redirect",
+          "stealth"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How the forwarding domain is applied. Null when no forwarding is configured.",
+        "nullable": true,
+        "example": "redirect",
+        "x-enumDescriptions": {
+          "redirect": "Visitors are redirected and the browser URL changes to the forwarding domain",
+          "stealth": "Visitors stay on this domain while the content is proxied from the forwarding domain"
+        },
+        "x-ms-enum": {
+          "name": "DfyEmailAccountOrderForwardingMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "redirect",
+              "name": "Redirect"
+            },
+            {
+              "value": "stealth",
+              "name": "Stealth"
             }
           ]
         }
@@ -70820,7 +70852,7 @@
         ],
         "type": "number",
         "additionalProperties": false,
-        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.\u0022",
+        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.\u0022",
         "default": 1,
         "example": 1,
         "x-enumDescriptions": {
@@ -70837,7 +70869,7 @@
         ],
         "type": "number",
         "additionalProperties": false,
-        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.\u0022",
+        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.\u0022",
         "example": 1,
         "x-enumDescriptions": {
           "1": "Google",
@@ -70872,7 +70904,7 @@
         ],
         "type": "number",
         "additionalProperties": false,
-        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.\u0022",
+        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.\u0022",
         "example": 2,
         "x-enumDescriptions": {
           "1": "Google",
@@ -70888,7 +70920,7 @@
         ],
         "type": "number",
         "additionalProperties": false,
-        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.\u0022",
+        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.\u0022",
         "example": 1,
         "x-enumDescriptions": {
           "1": "Google",
@@ -70904,7 +70936,7 @@
         ],
         "type": "number",
         "additionalProperties": false,
-        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.\u0022",
+        "description": "\u0022The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.\u0022",
         "example": 1,
         "x-enumDescriptions": {
           "1": "Google",

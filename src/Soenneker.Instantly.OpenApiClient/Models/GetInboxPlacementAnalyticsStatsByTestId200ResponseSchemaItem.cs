@@ -9,45 +9,49 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem : IAdditionalDataHolder, IParsable
+    public partial class GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category_count property</summary>
         public double? CategoryCount { get; set; }
+        /// <summary>The category_percent property</summary>
+        public double? CategoryPercent { get; set; }
+        /// <summary>The count property</summary>
+        public double? Count { get; set; }
         /// <summary>The inbox_count property</summary>
         public double? InboxCount { get; set; }
-        /// <summary>The received_count property</summary>
-        public double? ReceivedCount { get; set; }
-        /// <summary>The sent_count property</summary>
-        public double? SentCount { get; set; }
+        /// <summary>The inbox_percent property</summary>
+        public double? InboxPercent { get; set; }
         /// <summary>The spam_count property</summary>
         public double? SpamCount { get; set; }
-        /// <summary>The timestamp_created_date property</summary>
+        /// <summary>The spam_percent property</summary>
+        public double? SpamPercent { get; set; }
+        /// <summary>The test_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimestampCreatedDate { get; set; }
+        public string? TestId { get; set; }
 #nullable restore
 #else
-        public string TimestampCreatedDate { get; set; }
+        public string TestId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
-        public GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem()
+        public GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,11 +62,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "category_count", n => { CategoryCount = n.GetDoubleValue(); } },
+                { "category_percent", n => { CategoryPercent = n.GetDoubleValue(); } },
+                { "count", n => { Count = n.GetDoubleValue(); } },
                 { "inbox_count", n => { InboxCount = n.GetDoubleValue(); } },
-                { "received_count", n => { ReceivedCount = n.GetDoubleValue(); } },
-                { "sent_count", n => { SentCount = n.GetDoubleValue(); } },
+                { "inbox_percent", n => { InboxPercent = n.GetDoubleValue(); } },
                 { "spam_count", n => { SpamCount = n.GetDoubleValue(); } },
-                { "timestamp_created_date", n => { TimestampCreatedDate = n.GetStringValue(); } },
+                { "spam_percent", n => { SpamPercent = n.GetDoubleValue(); } },
+                { "test_id", n => { TestId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -73,11 +79,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("category_count", CategoryCount);
+            writer.WriteDoubleValue("category_percent", CategoryPercent);
+            writer.WriteDoubleValue("count", Count);
             writer.WriteDoubleValue("inbox_count", InboxCount);
-            writer.WriteDoubleValue("received_count", ReceivedCount);
-            writer.WriteDoubleValue("sent_count", SentCount);
+            writer.WriteDoubleValue("inbox_percent", InboxPercent);
             writer.WriteDoubleValue("spam_count", SpamCount);
-            writer.WriteStringValue("timestamp_created_date", TimestampCreatedDate);
+            writer.WriteDoubleValue("spam_percent", SpamPercent);
+            writer.WriteStringValue("test_id", TestId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

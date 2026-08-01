@@ -12,7 +12,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class CreateDfyEmailAccountOrderRequestItemsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>List of email accounts to create (only if `pre_warmed_up` field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can&apos;t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or exactly 50 for Microsoft/Outlook.</summary>
+        /// <summary>List of email accounts to create (only if `pre_warmed_up` field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can&apos;t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or 50-100 for Microsoft/Outlook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem>? Accounts { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Domain { get; set; }
 #endif
-        /// <summary>&quot;The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.&quot;</summary>
+        /// <summary>&quot;The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.&quot;</summary>
         public double? EmailProvider { get; set; }
         /// <summary>An optional domain to forward emails to. This domain must be different from the main domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -150,7 +150,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType PricePerAccountPerMonthByAccountType { get; set; }
 #endif
-        /// <summary>&quot;The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for a fixed 50-mailbox bundle). Null for Google / AirMail-only orders.&quot;</summary>
+        /// <summary>&quot;The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for 50-100 mailboxes). Null for Google / AirMail-only orders.&quot;</summary>
         public double? PricePerDomainPerMonth { get; set; }
         /// <summary>The price per domain per year</summary>
         public double? PricePerDomainPerYear { get; set; }
@@ -164,7 +164,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Whether to run the request in simulation mode or not. If set to true, the order will NOT be placed, your card will NOT be charged, and only a price quote will be returned. We will still check the validity of the order and the accounts, and return the results of the validation (if the order_is_valid field is true, then the order would be valid and could be placed).</summary>
         public bool? Simulation { get; set; }
-        /// <summary>The total monthly price charged for accounts in the order. For Google / AirMail this is `per-account price × mailbox count`. For Microsoft/Outlook it is `$20 × domain count` (domain-level billing, fixed 50-mailbox bundle).</summary>
+        /// <summary>The total monthly price charged for accounts in the order. For Google / AirMail this is `per-account price × mailbox count`. For Microsoft/Outlook it is `$20 × domain count` (domain-level billing for 50-100 mailboxes per domain).</summary>
         public double? TotalAccountsPricePerMonth { get; set; }
         /// <summary>The total discount you will get for the order at the moment. Discounts are applied automatically when we&apos;re running promotions.</summary>
         public double? TotalDiscount { get; set; }

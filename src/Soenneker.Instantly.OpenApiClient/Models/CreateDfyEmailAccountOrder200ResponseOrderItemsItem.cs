@@ -32,11 +32,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Domain { get; set; }
 #endif
-        /// <summary>The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook — $20/month/domain, 50 mailboxes). Null for per-account providers.</summary>
+        /// <summary>The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook — $20/month/domain, 50-100 mailboxes). Null for per-account providers.</summary>
         public double? DomainMonthlyPrice { get; set; }
         /// <summary>The price for the domain.</summary>
         public double? DomainPrice { get; set; }
-        /// <summary>&quot;The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.&quot;</summary>
+        /// <summary>&quot;The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.&quot;</summary>
         public double? EmailProvider { get; set; }
         /// <summary>The forwarding domain to use for the domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

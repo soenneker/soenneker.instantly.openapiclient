@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         /// <summary>
         /// Get analytics for one or multiple campaigns. Specify the `id` field to get the analytics for a single campaign, or leave it empty to get the analytics for all campaigns
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseResponseJsonItem&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics400Response">When receiving a 400 status code</exception>
@@ -64,11 +64,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -80,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics429Response.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseResponseJsonItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseSchemaItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalytics200ResponseSchemaItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

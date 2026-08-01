@@ -5465,6 +5465,23 @@
             "description": "Forwarding domain for the email account, if any",
             "example": "forward.example.com"
           },
+          "forwarding_mode": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "How the forwarding domain is applied. Null when no forwarding is configured.",
+            "enum": [
+              "redirect",
+              "stealth",
+              null
+            ],
+            "x-enumDescriptions": {
+              "redirect": "Visitors are redirected and the browser URL changes to the forwarding domain",
+              "stealth": "Visitors stay on this domain while the content is proxied from the forwarding domain"
+            },
+            "example": "redirect"
+          },
           "is_pre_warmed_up": {
             "type": [
               "null",
@@ -24479,7 +24496,7 @@
         "tags": [
           "DFYEmailAccountOrder"
         ],
-        "description": "Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: exactly 50 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -24499,7 +24516,7 @@
                         },
                         "email_provider": {
                           "type": "number",
-                          "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.",
+                          "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.",
                           "enum": [
                             1,
                             2,
@@ -24520,7 +24537,7 @@
                         },
                         "accounts": {
                           "type": "array",
-                          "description": "List of email accounts to create (only if \u0060pre_warmed_up\u0060 field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can\u0027t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or exactly 50 for Microsoft/Outlook.",
+                          "description": "List of email accounts to create (only if \u0060pre_warmed_up\u0060 field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can\u0027t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or 50-100 for Microsoft/Outlook.",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -24547,7 +24564,7 @@
                             ]
                           },
                           "default": [],
-                          "maxItems": 50
+                          "maxItems": 100
                         }
                       },
                       "required": [
@@ -24850,7 +24867,7 @@
                         "null",
                         "number"
                       ],
-                      "description": "The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for a fixed 50-mailbox bundle). Null for Google / AirMail-only orders.",
+                      "description": "The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for 50-100 mailboxes). Null for Google / AirMail-only orders.",
                       "example": 20
                     },
                     "price_per_domain_per_year": {
@@ -24865,7 +24882,7 @@
                     },
                     "total_accounts_price_per_month": {
                       "type": "number",
-                      "description": "The total monthly price charged for accounts in the order. For Google / AirMail this is \u0060per-account price \u00D7 mailbox count\u0060. For Microsoft/Outlook it is \u0060$20 \u00D7 domain count\u0060 (domain-level billing, fixed 50-mailbox bundle).",
+                      "description": "The total monthly price charged for accounts in the order. For Google / AirMail this is \u0060per-account price \u00D7 mailbox count\u0060. For Microsoft/Outlook it is \u0060$20 \u00D7 domain count\u0060 (domain-level billing for 50-100 mailboxes per domain).",
                       "example": 10
                     },
                     "total_price_per_month": {
@@ -24965,7 +24982,7 @@
                           },
                           "email_provider": {
                             "type": "number",
-                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.",
+                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.",
                             "enum": [
                               1,
                               2,
@@ -24998,7 +25015,7 @@
                               "null",
                               "number"
                             ],
-                            "description": "The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook \u2014 $20/month/domain, 50 mailboxes). Null for per-account providers.",
+                            "description": "The monthly price for the domain bundle. Populated only for providers whose billing is domain-level (Microsoft/Outlook \u2014 $20/month/domain, 50-100 mailboxes). Null for per-account providers.",
                             "example": 20
                           },
                           "total_price": {
@@ -26097,7 +26114,7 @@
                           },
                           "account_type": {
                             "type": "number",
-                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.",
+                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.",
                             "enum": [
                               1,
                               2,
@@ -26394,7 +26411,7 @@
                           },
                           "email_provider": {
                             "type": "number",
-                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.",
+                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.",
                             "enum": [
                               1,
                               2,
@@ -26732,7 +26749,7 @@
                           },
                           "email_provider": {
                             "type": "number",
-                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. Exactly 50 mailboxes per new DFY domain; priced per domain monthly.",
+                            "description": "The mailbox product to order. Defaults to Google when omitted.\n\nOptions:\n- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.\n- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.",
                             "enum": [
                               1,
                               2,

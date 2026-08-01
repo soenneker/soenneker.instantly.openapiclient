@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
         /// <summary>
         /// &quot;Provides a time series representing the distribution of emails sent to inbox, spam, or category folders for scheduled inbox placement tests.Requires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem>?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem>?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem>> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem>> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate429Response.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseResponseJsonItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
