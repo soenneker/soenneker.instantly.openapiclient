@@ -5,12 +5,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum CountLeadsFromSupersearch404ResponseError
+    public enum CountLeadsFromSupersearch409ResponseErrorCode
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "Not Found")]
+        [EnumMember(Value = "COMPANY_LIST_NOT_READY")]
         #pragma warning disable CS1591
-        NotFound,
+        CompanyListNotReady,
         #pragma warning restore CS1591
     }
 }

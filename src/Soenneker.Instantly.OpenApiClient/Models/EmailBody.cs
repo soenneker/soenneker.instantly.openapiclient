@@ -15,7 +15,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>HTML content of the email</summary>
+        /// <summary>HTML content of the email. Use `&lt;br/&gt;` tags for delivered email line breaks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Html { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Html { get; set; }
 #endif
-        /// <summary>Text content of the email</summary>
+        /// <summary>Plain-text representation of the email body. Newline characters are preserved as line breaks in this text view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Text { get; set; }

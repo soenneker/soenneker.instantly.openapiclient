@@ -717,7 +717,8 @@
                             },
                             "body": {
                               "type": "string",
-                              "example": "Hey {{firstName}},\n\nI hope you are doing well."
+                              "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                              "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
                             },
                             "v_disabled": {
                               "type": "boolean",
@@ -1194,13 +1195,13 @@
             "properties": {
               "text": {
                 "type": "string",
-                "description": "Text content of the email",
+                "description": "Plain-text representation of the email body. Newline characters are preserved as line breaks in this text view.",
                 "example": "This is a test email"
               },
               "html": {
                 "type": "string",
-                "description": "HTML content of the email",
-                "example": "\u003Cp\u003EThis is a test email\u003C/p\u003E"
+                "description": "HTML content of the email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                "example": "This is a test email.\u003Cbr/\u003E\u003Cbr/\u003ESecond line."
               }
             }
           },
@@ -4882,7 +4883,8 @@
                             },
                             "body": {
                               "type": "string",
-                              "example": "Hey {{firstName}},\n\nI hope you are doing well."
+                              "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                              "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
                             },
                             "v_disabled": {
                               "type": "boolean",
@@ -15411,7 +15413,8 @@
                                     },
                                     "body": {
                                       "type": "string",
-                                      "example": "Hey {{firstName}},\n\nI hope you are doing well."
+                                      "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                                      "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
                                     },
                                     "v_disabled": {
                                       "type": "boolean",
@@ -17347,7 +17350,8 @@
                                     },
                                     "body": {
                                       "type": "string",
-                                      "example": "Hey {{firstName}},\n\nI hope you are doing well."
+                                      "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                                      "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
                                     },
                                     "v_disabled": {
                                       "type": "boolean",
@@ -27019,12 +27023,12 @@
                   },
                   "body": {
                     "type": "object",
-                    "description": "HTML body of the test email.",
+                    "description": "HTML body of the test email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
                     "properties": {
                       "html": {
                         "type": "string",
-                        "description": "HTML body of the test email.",
-                        "example": "\u003Cp\u003EThis is a test email\u003C/p\u003E"
+                        "description": "HTML body of the test email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                        "example": "This is a test email.\u003Cbr/\u003E\u003Cbr/\u003ESecond line."
                       }
                     },
                     "required": [
@@ -27302,17 +27306,17 @@
                     "example": "Re: Your inquiry"
                   },
                   "body": {
-                    "description": "The email body. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both",
+                    "description": "The email body. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
                     "type": "object",
                     "properties": {
                       "html": {
                         "type": "string",
-                        "description": "HTML body of the email message",
-                        "example": "\u003Cp\u003EHello, how are you?\u003C/p\u003E"
+                        "description": "HTML body of the email message. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                        "example": "Hello, how are you?\u003Cbr/\u003E\u003Cbr/\u003ELooking forward to hearing from you."
                       },
                       "text": {
                         "type": "string",
-                        "description": "Text body of the email message",
+                        "description": "Text body of the email message. For delivered email line breaks, use \u0060html\u0060 with \u0060\u003Cbr/\u003E\u0060 tags.",
                         "example": "Hello, how are you?"
                       }
                     }
@@ -27588,16 +27592,16 @@
                   },
                   "body": {
                     "type": "object",
-                    "description": "Optional body content for the forwarded email. When \u0060include_original_body\u0060 is \u0060true\u0060, this can be used as a note before the appended original email content. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both.",
+                    "description": "Optional body content for the forwarded email. When \u0060include_original_body\u0060 is \u0060true\u0060, this can be used as a note before the appended original email content. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both. For HTML content, Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks. For text content, Newline characters are preserved as delivered line breaks.",
                     "properties": {
                       "html": {
                         "type": "string",
-                        "description": "HTML body of the forwarded email",
-                        "example": "\u003Cp\u003ESharing this with you.\u003C/p\u003E"
+                        "description": "HTML body of the forwarded email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                        "example": "Sharing this with you.\u003Cbr/\u003E\u003Cbr/\u003ELet me know what you think."
                       },
                       "text": {
                         "type": "string",
-                        "description": "Text body of the forwarded email",
+                        "description": "Text body of the forwarded email. Newline characters are preserved as delivered line breaks.",
                         "example": "Sharing this with you."
                       }
                     }
@@ -42747,7 +42751,8 @@
                                     },
                                     "body": {
                                       "type": "string",
-                                      "example": "Hey {{firstName}},\n\nI hope you are doing well."
+                                      "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                                      "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
                                     },
                                     "v_disabled": {
                                       "type": "boolean",
@@ -50328,6 +50333,50 @@
               }
             }
           },
+          "409": {
+            "description": "The requested workspace hierarchy conflicts with an active workspace group relationship",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "examples": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "examples": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "The sub workspace already has an active parent or invitation"
+                      ],
+                      "example": "The sub workspace already has an active parent or invitation"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "429": {
             "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
             "content": {
@@ -55945,6 +55994,12 @@
                     "type": "object",
                     "description": "Search filters to find leads.",
                     "properties": {
+                      "company_list_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                        "description": "Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
                       "locations": {
                         "oneOf": [
                           {
@@ -57914,7 +57969,7 @@
             }
           },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -57925,27 +57980,61 @@
                       "enum": [
                         404
                       ],
-                      "examples": [
-                        404
-                      ],
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
-                      "example": "Not Found"
+                      "example": "COMPANY_LIST_NOT_FOUND"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
+                      "example": "Company list not found"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "COMPANY_LIST_NOT_FOUND"
                       ],
-                      "example": "Resource not found"
+                      "example": "COMPANY_LIST_NOT_FOUND"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "COMPANY_LIST_NOT_READY"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Company list is not ready"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "COMPANY_LIST_NOT_READY"
+                      ],
+                      "example": "COMPANY_LIST_NOT_READY"
                     }
                   },
                   "required": [
@@ -58357,6 +58446,12 @@
                     "type": "object",
                     "description": "Search filters to find leads.",
                     "properties": {
+                      "company_list_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                        "description": "Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
                       "locations": {
                         "oneOf": [
                           {
@@ -60126,7 +60221,7 @@
             }
           },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -60137,27 +60232,61 @@
                       "enum": [
                         404
                       ],
-                      "examples": [
-                        404
-                      ],
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
-                      "example": "Not Found"
+                      "example": "COMPANY_LIST_NOT_FOUND"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
+                      "example": "Company list not found"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "COMPANY_LIST_NOT_FOUND"
                       ],
-                      "example": "Resource not found"
+                      "example": "COMPANY_LIST_NOT_FOUND"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "COMPANY_LIST_NOT_READY"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Company list is not ready"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "COMPANY_LIST_NOT_READY"
+                      ],
+                      "example": "COMPANY_LIST_NOT_READY"
                     }
                   },
                   "required": [
@@ -60231,6 +60360,12 @@
                     "type": "object",
                     "description": "Search filters to find leads.",
                     "properties": {
+                      "company_list_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                        "description": "Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
                       "locations": {
                         "oneOf": [
                           {
@@ -62066,7 +62201,7 @@
             }
           },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -62077,27 +62212,61 @@
                       "enum": [
                         404
                       ],
-                      "examples": [
-                        404
-                      ],
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
-                      "example": "Not Found"
+                      "example": "COMPANY_LIST_NOT_FOUND"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
+                      "example": "Company list not found"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "COMPANY_LIST_NOT_FOUND"
                       ],
-                      "example": "Resource not found"
+                      "example": "COMPANY_LIST_NOT_FOUND"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "COMPANY_LIST_NOT_READY"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Company list is not ready"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "COMPANY_LIST_NOT_READY"
+                      ],
+                      "example": "COMPANY_LIST_NOT_READY"
                     }
                   },
                   "required": [

@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// The email body. You can specify either the `html` or the `text` field, or both
+    /// The email body. You can specify either the `html` or the `text` field, or both. Use `&lt;br/&gt;` tags for delivered email line breaks.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReplyToEmailRequestBody : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>HTML body of the email message</summary>
+        /// <summary>HTML body of the email message. Use `&lt;br/&gt;` tags for delivered email line breaks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Html { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Html { get; set; }
 #endif
-        /// <summary>Text body of the email message</summary>
+        /// <summary>Text body of the email message. For delivered email line breaks, use `html` with `&lt;br/&gt;` tags.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Text { get; set; }

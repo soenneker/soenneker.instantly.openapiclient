@@ -12566,6 +12566,16 @@
               }
             }
           },
+          "409": {
+            "description": "The requested workspace hierarchy conflicts with an active workspace group relationship",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkspaceGroupMember409Response"
+                }
+              }
+            }
+          },
           "429": {
             "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
             "content": {
@@ -14249,11 +14259,21 @@
             }
           },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EnrichLeadsFromSupersearch404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnrichLeadsFromSupersearch409Response"
                 }
               }
             }
@@ -14401,11 +14421,21 @@
             }
           },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CountLeadsFromSupersearch404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountLeadsFromSupersearch409Response"
                 }
               }
             }
@@ -14472,11 +14502,21 @@
             }
           },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PreviewLeadsFromSupersearch404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewLeadsFromSupersearch409Response"
                 }
               }
             }
@@ -17672,13 +17712,13 @@
         "properties": {
           "text": {
             "type": "string",
-            "description": "Text content of the email",
+            "description": "Plain-text representation of the email body. Newline characters are preserved as line breaks in this text view.",
             "example": "This is a test email"
           },
           "html": {
             "type": "string",
-            "description": "HTML content of the email",
-            "example": "\u003Cp\u003EThis is a test email\u003C/p\u003E"
+            "description": "HTML content of the email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "This is a test email.\u003Cbr/\u003E\u003Cbr/\u003ESecond line."
           }
         },
         "description": "An object containing the email body in HTML and text format",
@@ -18571,7 +18611,8 @@
           },
           "body": {
             "type": "string",
-            "example": "Hey {{firstName}},\n\nI hope you are doing well."
+            "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
           },
           "v_disabled": {
             "type": "boolean",
@@ -18646,7 +18687,8 @@
           },
           "body": {
             "type": "string",
-            "example": "Hey {{firstName}},\n\nI hope you are doing well."
+            "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
           },
           "v_disabled": {
             "type": "boolean",
@@ -34552,6 +34594,26 @@
           }
         }
       },
+      "CreateWorkspaceGroupMember409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateWorkspaceGroupMember409ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CreateWorkspaceGroupMember409ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "The sub workspace already has an active parent or invitation"
+          }
+        }
+      },
       "CreateWorkspaceGroupMember429Response": {
         "required": [
           "statusCode",
@@ -37002,11 +37064,39 @@
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearch404ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearch404ResponseError"
+            "type": "string",
+            "example": "COMPANY_LIST_NOT_FOUND"
           },
           "message": {
             "type": "string",
-            "example": "Resource not found"
+            "example": "Company list not found"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearch404ResponseErrorCode"
+          }
+        }
+      },
+      "EnrichLeadsFromSupersearch409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearch409ResponseStatusCode"
+          },
+          "error": {
+            "type": "string",
+            "example": "COMPANY_LIST_NOT_READY"
+          },
+          "message": {
+            "type": "string",
+            "example": "Company list is not ready"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearch409ResponseErrorCode"
           }
         }
       },
@@ -37276,11 +37366,39 @@
             "$ref": "#/components/schemas/CountLeadsFromSupersearch404ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearch404ResponseError"
+            "type": "string",
+            "example": "COMPANY_LIST_NOT_FOUND"
           },
           "message": {
             "type": "string",
-            "example": "Resource not found"
+            "example": "Company list not found"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch404ResponseErrorCode"
+          }
+        }
+      },
+      "CountLeadsFromSupersearch409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch409ResponseStatusCode"
+          },
+          "error": {
+            "type": "string",
+            "example": "COMPANY_LIST_NOT_READY"
+          },
+          "message": {
+            "type": "string",
+            "example": "Company list is not ready"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch409ResponseErrorCode"
           }
         }
       },
@@ -37397,11 +37515,39 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearch404ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch404ResponseError"
+            "type": "string",
+            "example": "COMPANY_LIST_NOT_FOUND"
           },
           "message": {
             "type": "string",
-            "example": "Resource not found"
+            "example": "Company list not found"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch404ResponseErrorCode"
+          }
+        }
+      },
+      "PreviewLeadsFromSupersearch409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch409ResponseStatusCode"
+          },
+          "error": {
+            "type": "string",
+            "example": "COMPANY_LIST_NOT_READY"
+          },
+          "message": {
+            "type": "string",
+            "example": "Company list is not ready"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch409ResponseErrorCode"
           }
         }
       },
@@ -40698,43 +40844,43 @@
         "properties": {
           "html": {
             "type": "string",
-            "description": "HTML body of the test email.",
-            "example": "\u003Cp\u003EThis is a test email\u003C/p\u003E"
+            "description": "HTML body of the test email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "This is a test email.\u003Cbr/\u003E\u003Cbr/\u003ESecond line."
           }
         },
-        "description": "HTML body of the test email."
+        "description": "HTML body of the test email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks."
       },
       "ReplyToEmailRequestBody": {
         "type": "object",
         "properties": {
           "html": {
             "type": "string",
-            "description": "HTML body of the email message",
-            "example": "\u003Cp\u003EHello, how are you?\u003C/p\u003E"
+            "description": "HTML body of the email message. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hello, how are you?\u003Cbr/\u003E\u003Cbr/\u003ELooking forward to hearing from you."
           },
           "text": {
             "type": "string",
-            "description": "Text body of the email message",
+            "description": "Text body of the email message. For delivered email line breaks, use \u0060html\u0060 with \u0060\u003Cbr/\u003E\u0060 tags.",
             "example": "Hello, how are you?"
           }
         },
-        "description": "The email body. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both"
+        "description": "The email body. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks."
       },
       "ForwardEmailRequestBody": {
         "type": "object",
         "properties": {
           "html": {
             "type": "string",
-            "description": "HTML body of the forwarded email",
-            "example": "\u003Cp\u003ESharing this with you.\u003C/p\u003E"
+            "description": "HTML body of the forwarded email. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Sharing this with you.\u003Cbr/\u003E\u003Cbr/\u003ELet me know what you think."
           },
           "text": {
             "type": "string",
-            "description": "Text body of the forwarded email",
+            "description": "Text body of the forwarded email. Newline characters are preserved as delivered line breaks.",
             "example": "Sharing this with you."
           }
         },
-        "description": "Optional body content for the forwarded email. When \u0060include_original_body\u0060 is \u0060true\u0060, this can be used as a note before the appended original email content. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both."
+        "description": "Optional body content for the forwarded email. When \u0060include_original_body\u0060 is \u0060true\u0060, this can be used as a note before the appended original email content. You can specify either the \u0060html\u0060 or the \u0060text\u0060 field, or both. For HTML content, Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks. For text content, Newline characters are preserved as delivered line breaks."
       },
       "GetInboxPlacementAnalyticsStatsByTestId200ResponseItem": {
         "required": [
@@ -41894,6 +42040,12 @@
       "EnrichLeadsFromSupersearchRequestSearchFilters": {
         "type": "object",
         "properties": {
+          "company_list_id": {
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            "type": "string",
+            "description": "Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "locations": {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocations"
           },
@@ -42059,6 +42211,12 @@
       "CountLeadsFromSupersearchRequestSearchFilters": {
         "type": "object",
         "properties": {
+          "company_list_id": {
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            "type": "string",
+            "description": "Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "locations": {
             "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocations"
           },
@@ -42183,6 +42341,12 @@
       "PreviewLeadsFromSupersearchRequestSearchFilters": {
         "type": "object",
         "properties": {
+          "company_list_id": {
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            "type": "string",
+            "description": "Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "locations": {
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocations"
           },
@@ -45185,7 +45349,8 @@
           },
           "body": {
             "type": "string",
-            "example": "Hey {{firstName}},\n\nI hope you are doing well."
+            "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
           },
           "v_disabled": {
             "type": "boolean",
@@ -45260,7 +45425,8 @@
           },
           "body": {
             "type": "string",
-            "example": "Hey {{firstName}},\n\nI hope you are doing well."
+            "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
           },
           "v_disabled": {
             "type": "boolean",
@@ -45450,7 +45616,8 @@
           },
           "body": {
             "type": "string",
-            "example": "Hey {{firstName}},\n\nI hope you are doing well."
+            "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
           },
           "v_disabled": {
             "type": "boolean",
@@ -66313,6 +66480,22 @@
           ]
         }
       },
+      "CreateWorkspaceGroupMember409ResponseStatusCode": {
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "CreateWorkspaceGroupMember409ResponseError": {
+        "enum": [
+          "Conflict"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Conflict"
+      },
       "CreateWorkspaceGroupMember429ResponseStatusCode": {
         "enum": [
           429
@@ -69047,20 +69230,46 @@
         "additionalProperties": false,
         "example": 404
       },
-      "EnrichLeadsFromSupersearch404ResponseError": {
+      "EnrichLeadsFromSupersearch404ResponseErrorCode": {
         "enum": [
-          "Not Found"
+          "COMPANY_LIST_NOT_FOUND"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Not Found",
+        "example": "COMPANY_LIST_NOT_FOUND",
         "x-ms-enum": {
-          "name": "EnrichLeadsFromSupersearch404ResponseError",
+          "name": "EnrichLeadsFromSupersearch404ResponseErrorCode",
           "modelAsString": false,
           "values": [
             {
-              "value": "Not Found",
-              "name": "NotFound"
+              "value": "COMPANY_LIST_NOT_FOUND",
+              "name": "CompanyListNotFound"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearch409ResponseStatusCode": {
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "EnrichLeadsFromSupersearch409ResponseErrorCode": {
+        "enum": [
+          "COMPANY_LIST_NOT_READY"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "COMPANY_LIST_NOT_READY",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearch409ResponseErrorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "COMPANY_LIST_NOT_READY",
+              "name": "CompanyListNotReady"
             }
           ]
         }
@@ -69253,20 +69462,46 @@
         "additionalProperties": false,
         "example": 404
       },
-      "CountLeadsFromSupersearch404ResponseError": {
+      "CountLeadsFromSupersearch404ResponseErrorCode": {
         "enum": [
-          "Not Found"
+          "COMPANY_LIST_NOT_FOUND"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Not Found",
+        "example": "COMPANY_LIST_NOT_FOUND",
         "x-ms-enum": {
-          "name": "CountLeadsFromSupersearch404ResponseError",
+          "name": "CountLeadsFromSupersearch404ResponseErrorCode",
           "modelAsString": false,
           "values": [
             {
-              "value": "Not Found",
-              "name": "NotFound"
+              "value": "COMPANY_LIST_NOT_FOUND",
+              "name": "CompanyListNotFound"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearch409ResponseStatusCode": {
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "CountLeadsFromSupersearch409ResponseErrorCode": {
+        "enum": [
+          "COMPANY_LIST_NOT_READY"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "COMPANY_LIST_NOT_READY",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearch409ResponseErrorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "COMPANY_LIST_NOT_READY",
+              "name": "CompanyListNotReady"
             }
           ]
         }
@@ -69383,20 +69618,46 @@
         "additionalProperties": false,
         "example": 404
       },
-      "PreviewLeadsFromSupersearch404ResponseError": {
+      "PreviewLeadsFromSupersearch404ResponseErrorCode": {
         "enum": [
-          "Not Found"
+          "COMPANY_LIST_NOT_FOUND"
         ],
         "type": "string",
         "additionalProperties": false,
-        "example": "Not Found",
+        "example": "COMPANY_LIST_NOT_FOUND",
         "x-ms-enum": {
-          "name": "PreviewLeadsFromSupersearch404ResponseError",
+          "name": "PreviewLeadsFromSupersearch404ResponseErrorCode",
           "modelAsString": false,
           "values": [
             {
-              "value": "Not Found",
-              "name": "NotFound"
+              "value": "COMPANY_LIST_NOT_FOUND",
+              "name": "CompanyListNotFound"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearch409ResponseStatusCode": {
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "PreviewLeadsFromSupersearch409ResponseErrorCode": {
+        "enum": [
+          "COMPANY_LIST_NOT_READY"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "COMPANY_LIST_NOT_READY",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearch409ResponseErrorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "COMPANY_LIST_NOT_READY",
+              "name": "CompanyListNotReady"
             }
           ]
         }

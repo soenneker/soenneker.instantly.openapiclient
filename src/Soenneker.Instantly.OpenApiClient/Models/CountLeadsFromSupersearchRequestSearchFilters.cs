@@ -15,6 +15,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompanyListId { get; set; }
+#nullable restore
+#else
+        public string CompanyListId { get; set; }
+#endif
         /// <summary>The company_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,6 +201,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "company_list_id", n => { CompanyListId = n.GetStringValue(); } },
                 { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersCompanyName>(global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersCompanyName.CreateFromDiscriminatorValue); } },
                 { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersDepartmentItem>()?.AsList(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -224,6 +233,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("company_list_id", CompanyListId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersCompanyName>("company_name", CompanyName);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersDepartmentItem>("department", Department);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);

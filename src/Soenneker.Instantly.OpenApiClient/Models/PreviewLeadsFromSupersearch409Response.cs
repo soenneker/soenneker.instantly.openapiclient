@@ -10,7 +10,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PreviewLeadsFromSupersearch404Response : ApiException, IAdditionalDataHolder, IParsable
+    public partial class PreviewLeadsFromSupersearch409Response : ApiException, IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Error { get; set; }
 #endif
         /// <summary>The errorCode property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404ResponseErrorCode? ErrorCode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409ResponseErrorCode? ErrorCode { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>The message property</summary>
@@ -38,21 +38,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The statusCode property</summary>
         public double? StatusCode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404Response"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409Response"/> and sets the default values.
         /// </summary>
-        public PreviewLeadsFromSupersearch404Response()
+        public PreviewLeadsFromSupersearch409Response()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404Response CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404Response();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409Response();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "errorCode", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404ResponseErrorCode>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409ResponseErrorCode>(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404ResponseErrorCode>("errorCode", ErrorCode);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409ResponseErrorCode>("errorCode", ErrorCode);
             writer.WriteStringValue("message", MessageEscaped);
             writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);

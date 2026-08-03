@@ -43,6 +43,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,6 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLe
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

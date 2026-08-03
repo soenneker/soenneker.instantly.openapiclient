@@ -38,7 +38,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string BccAddressEmailList { get; set; }
 #endif
-        /// <summary>The email body. You can specify either the `html` or the `text` field, or both</summary>
+        /// <summary>The email body. You can specify either the `html` or the `text` field, or both. Use `&lt;br/&gt;` tags for delivered email line breaks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody? Body { get; set; }
