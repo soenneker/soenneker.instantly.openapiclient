@@ -4912,6 +4912,30 @@
               ]
             }
           },
+          "auto_variant_select": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+            "properties": {
+              "trigger": {
+                "type": "string",
+                "enum": [
+                  "reply_rate",
+                  "click_rate",
+                  "open_rate"
+                ],
+                "examples": [
+                  "click_rate"
+                ],
+                "example": "click_rate"
+              }
+            },
+            "required": [
+              "trigger"
+            ]
+          },
           "daily_limit_mode": {
             "type": "string",
             "description": "Daily limit mode for the subsequence. \u0022inherit\u0022 uses the parent campaign limit, \u0022custom\u0022 uses a subsequence-specific limit, \u0022unlimited\u0022 bypasses the campaign-level daily limit.",
@@ -42780,6 +42804,30 @@
                       ]
                     }
                   },
+                  "auto_variant_select": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+                    "properties": {
+                      "trigger": {
+                        "type": "string",
+                        "enum": [
+                          "reply_rate",
+                          "click_rate",
+                          "open_rate"
+                        ],
+                        "examples": [
+                          "click_rate"
+                        ],
+                        "example": "click_rate"
+                      }
+                    },
+                    "required": [
+                      "trigger"
+                    ]
+                  },
                   "daily_limit_mode": {
                     "type": "string",
                     "description": "Daily limit mode for the subsequence. \u0022inherit\u0022 uses the parent campaign limit, \u0022custom\u0022 uses a subsequence-specific limit, \u0022unlimited\u0022 bypasses the campaign-level daily limit.",
@@ -44204,6 +44252,124 @@
                     "type": "string",
                     "description": "Name of the subsequence",
                     "example": "Follow-up sequence"
+                  },
+                  "sequences": {
+                    "type": "array",
+                    "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "steps": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "email"
+                                ],
+                                "x-enumDescriptions": {
+                                  "email": "This steps represents an email"
+                                },
+                                "description": "Type of step. This has to be \u0027email\u0027 always - it\u0027s the only supported type for now",
+                                "example": "email"
+                              },
+                              "delay": {
+                                "type": "number",
+                                "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+                                "example": 2
+                              },
+                              "delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+                                "example": "days"
+                              },
+                              "pre_delay": {
+                                "type": "number",
+                                "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+                                "example": 2
+                              },
+                              "pre_delay_unit": {
+                                "type": "string",
+                                "enum": [
+                                  "minutes",
+                                  "hours",
+                                  "days"
+                                ],
+                                "default": "days",
+                                "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+                                "example": "days"
+                              },
+                              "variants": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "subject": {
+                                      "type": "string",
+                                      "example": "Hello {{firstName}}"
+                                    },
+                                    "body": {
+                                      "type": "string",
+                                      "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+                                      "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
+                                    },
+                                    "v_disabled": {
+                                      "type": "boolean",
+                                      "description": "Whether this variant is disabled. By default, all the variants are enabled. Please set this to true if you want to disable this variant",
+                                      "example": true
+                                    }
+                                  },
+                                  "required": [
+                                    "subject",
+                                    "body"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "delay",
+                              "variants"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "steps"
+                      ]
+                    }
+                  },
+                  "auto_variant_select": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+                    "properties": {
+                      "trigger": {
+                        "type": "string",
+                        "enum": [
+                          "reply_rate",
+                          "click_rate",
+                          "open_rate"
+                        ],
+                        "examples": [
+                          "click_rate"
+                        ],
+                        "example": "click_rate"
+                      }
+                    },
+                    "required": [
+                      "trigger"
+                    ]
                   },
                   "daily_limit_mode": {
                     "type": "string",

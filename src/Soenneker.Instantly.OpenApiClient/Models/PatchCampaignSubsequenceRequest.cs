@@ -12,6 +12,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class PatchCampaignSubsequenceRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect? AutoVariantSelect { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect AutoVariantSelect { get; set; }
+#endif
         /// <summary>Custom daily limit for the subsequence. Only used when `daily_limit_mode` is &quot;custom&quot;.</summary>
         public double? DailyLimit { get; set; }
         /// <summary>Daily limit mode for the subsequence. &quot;inherit&quot; uses the parent campaign limit, &quot;custom&quot; uses a subsequence-specific limit, &quot;unlimited&quot; bypasses the campaign-level daily limit.</summary>
@@ -25,6 +33,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>? Sequences { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem> Sequences { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,10 +60,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestDailyLimitMode>(); } },
                 { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,10 +75,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect>("auto_variant_select", AutoVariantSelect);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestDailyLimitMode>("daily_limit_mode", DailyLimitMode);
             writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>("sequences", Sequences);
         }
     }
 }

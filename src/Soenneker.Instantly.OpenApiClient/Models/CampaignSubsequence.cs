@@ -13,6 +13,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CampaignSubsequence : IParsable
     {
+        /// <summary>Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect? AutoVariantSelect { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect AutoVariantSelect { get; set; }
+#endif
         /// <summary>Conditions that trigger the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode>(); } },
@@ -121,6 +130,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect>("auto_variant_select", AutoVariantSelect);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions>("conditions", Conditions);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode>("daily_limit_mode", DailyLimitMode);

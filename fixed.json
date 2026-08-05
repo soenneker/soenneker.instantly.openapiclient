@@ -16874,6 +16874,9 @@
             },
             "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array"
           },
+          "auto_variant_select": {
+            "$ref": "#/components/schemas/CampaignSubsequenceAutoVariantSelect"
+          },
           "daily_limit_mode": {
             "$ref": "#/components/schemas/CampaignSubsequenceDailyLimitMode"
           },
@@ -18109,6 +18112,19 @@
             }
           }
         }
+      },
+      "CampaignSubsequenceAutoVariantSelect": {
+        "required": [
+          "trigger"
+        ],
+        "type": "object",
+        "properties": {
+          "trigger": {
+            "$ref": "#/components/schemas/CampaignSubsequenceAutoVariantSelectTrigger"
+          }
+        },
+        "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+        "nullable": true
       },
       "AuditLogAuditMetadata": {
         "type": "object",
@@ -32130,6 +32146,9 @@
             },
             "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array"
           },
+          "auto_variant_select": {
+            "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestAutoVariantSelect"
+          },
           "daily_limit_mode": {
             "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestDailyLimitMode"
           },
@@ -32675,6 +32694,16 @@
             "type": "string",
             "description": "Name of the subsequence",
             "example": "Follow-up sequence"
+          },
+          "sequences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItem"
+            },
+            "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array"
+          },
+          "auto_variant_select": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestAutoVariantSelect"
           },
           "daily_limit_mode": {
             "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestDailyLimitMode"
@@ -41590,6 +41619,46 @@
           }
         }
       },
+      "CreateCampaignSubsequenceRequestAutoVariantSelect": {
+        "required": [
+          "trigger"
+        ],
+        "type": "object",
+        "properties": {
+          "trigger": {
+            "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestAutoVariantSelectTrigger"
+          }
+        },
+        "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+        "nullable": true
+      },
+      "PatchCampaignSubsequenceRequestSequencesItem": {
+        "required": [
+          "steps"
+        ],
+        "type": "object",
+        "properties": {
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItem"
+            }
+          }
+        }
+      },
+      "PatchCampaignSubsequenceRequestAutoVariantSelect": {
+        "required": [
+          "trigger"
+        ],
+        "type": "object",
+        "properties": {
+          "trigger": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestAutoVariantSelectTrigger"
+          }
+        },
+        "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+        "nullable": true
+      },
       "GetSubsequenceSendingStatus200ResponseDiagnostics": {
         "type": "object",
         "properties": {
@@ -44384,6 +44453,41 @@
           }
         }
       },
+      "PatchCampaignSubsequenceRequestSequencesItemStepsItem": {
+        "required": [
+          "type",
+          "delay",
+          "variants"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemType"
+          },
+          "delay": {
+            "type": "number",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "example": 2
+          },
+          "delay_unit": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit"
+          },
+          "pre_delay": {
+            "type": "number",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "example": 2
+          },
+          "pre_delay_unit": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit"
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem"
+            }
+          }
+        }
+      },
       "GetSubsequenceSendingStatus200ResponseDiagnosticsIssueTracking": {
         "type": "object",
         "properties": {
@@ -45604,6 +45708,29 @@
         }
       },
       "CreateCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem": {
+        "required": [
+          "subject",
+          "body"
+        ],
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "example": "Hello {{firstName}}"
+          },
+          "body": {
+            "type": "string",
+            "description": "Email body HTML. Use \u0060\u003Cbr/\u003E\u0060 tags for delivered email line breaks.",
+            "example": "Hey {{firstName}},\u003Cbr/\u003E\u003Cbr/\u003EI hope you are doing well."
+          },
+          "v_disabled": {
+            "type": "boolean",
+            "description": "Whether this variant is disabled. By default, all the variants are enabled. Please set this to true if you want to disable this variant",
+            "example": true
+          }
+        }
+      },
+      "PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem": {
         "required": [
           "subject",
           "body"
@@ -49027,6 +49154,34 @@
           "2": "Email Opened - Triggered when a lead opens an email",
           "4": "Email Link Clicked - Triggered when a lead clicks a link in an email",
           "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
+        }
+      },
+      "CampaignSubsequenceAutoVariantSelectTrigger": {
+        "enum": [
+          "reply_rate",
+          "click_rate",
+          "open_rate"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "click_rate",
+        "x-ms-enum": {
+          "name": "CampaignSubsequenceAutoVariantSelectTrigger",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reply_rate",
+              "name": "ReplyRate"
+            },
+            {
+              "value": "click_rate",
+              "name": "ClickRate"
+            },
+            {
+              "value": "open_rate",
+              "name": "OpenRate"
+            }
+          ]
         }
       },
       "SalesFlowQueriesItemActionType": {
@@ -73022,6 +73177,62 @@
           "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
         }
       },
+      "CreateCampaignSubsequenceRequestAutoVariantSelectTrigger": {
+        "enum": [
+          "reply_rate",
+          "click_rate",
+          "open_rate"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "click_rate",
+        "x-ms-enum": {
+          "name": "CreateCampaignSubsequenceRequestAutoVariantSelectTrigger",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reply_rate",
+              "name": "ReplyRate"
+            },
+            {
+              "value": "click_rate",
+              "name": "ClickRate"
+            },
+            {
+              "value": "open_rate",
+              "name": "OpenRate"
+            }
+          ]
+        }
+      },
+      "PatchCampaignSubsequenceRequestAutoVariantSelectTrigger": {
+        "enum": [
+          "reply_rate",
+          "click_rate",
+          "open_rate"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "click_rate",
+        "x-ms-enum": {
+          "name": "PatchCampaignSubsequenceRequestAutoVariantSelectTrigger",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reply_rate",
+              "name": "ReplyRate"
+            },
+            {
+              "value": "click_rate",
+              "name": "ClickRate"
+            },
+            {
+              "value": "open_rate",
+              "name": "OpenRate"
+            }
+          ]
+        }
+      },
       "GetSubsequenceSendingStatus200ResponseDiagnosticsStatus": {
         "enum": [
           "campaign_paused",
@@ -76993,6 +77204,86 @@
         "example": "days",
         "x-ms-enum": {
           "name": "CreateCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "minutes",
+              "name": "Minutes"
+            },
+            {
+              "value": "hours",
+              "name": "Hours"
+            },
+            {
+              "value": "days",
+              "name": "Days"
+            }
+          ]
+        }
+      },
+      "PatchCampaignSubsequenceRequestSequencesItemStepsItemType": {
+        "enum": [
+          "email"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Type of step. This has to be \u0027email\u0027 always - it\u0027s the only supported type for now",
+        "example": "email",
+        "x-enumDescriptions": {
+          "email": "This steps represents an email"
+        },
+        "x-ms-enum": {
+          "name": "PatchCampaignSubsequenceRequestSequencesItemStepsItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "email",
+              "name": "Email"
+            }
+          ]
+        }
+      },
+      "PatchCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit": {
+        "enum": [
+          "minutes",
+          "hours",
+          "days"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.",
+        "example": "days",
+        "x-ms-enum": {
+          "name": "PatchCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "minutes",
+              "name": "Minutes"
+            },
+            {
+              "value": "hours",
+              "name": "Hours"
+            },
+            {
+              "value": "days",
+              "name": "Days"
+            }
+          ]
+        }
+      },
+      "PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit": {
+        "enum": [
+          "minutes",
+          "hours",
+          "days"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.",
+        "example": "days",
+        "x-ms-enum": {
+          "name": "PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit",
           "modelAsString": false,
           "values": [
             {
