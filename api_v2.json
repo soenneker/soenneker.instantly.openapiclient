@@ -56902,6 +56902,37 @@
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
                         "example": "google.com"
                       },
+                      "lookAlike": {
+                        "type": "string",
+                        "description": "Product-UI alias of \u0060look_alike\u0060; both keys are accepted",
+                        "example": "google.com"
+                      },
+                      "lookAlikeMode": {
+                        "type": "string",
+                        "description": "How to interpret the look-alike domain (\u0060targeted\u0060 or \u0060broad\u0060). Written by the product UI.",
+                        "example": "targeted"
+                      },
+                      "technologies": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "Salesforce"
+                        },
+                        "description": "Technologies the lead company uses"
+                      },
+                      "fundingType": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "seed"
+                        },
+                        "description": "Product-UI alias of \u0060funding_type\u0060; both keys are accepted. See \u0060funding_type\u0060 for the canonical values."
+                      },
+                      "locationMode": {
+                        "type": "string",
+                        "description": "Product-UI alias of \u0060location_mode\u0060 (\u0060contact\u0060 or \u0060company\u0060); both keys are accepted",
+                        "example": "contact"
+                      },
                       "keyword_filter": {
                         "type": "object",
                         "properties": {
@@ -59354,6 +59385,37 @@
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
                         "example": "google.com"
                       },
+                      "lookAlike": {
+                        "type": "string",
+                        "description": "Product-UI alias of \u0060look_alike\u0060; both keys are accepted",
+                        "example": "google.com"
+                      },
+                      "lookAlikeMode": {
+                        "type": "string",
+                        "description": "How to interpret the look-alike domain (\u0060targeted\u0060 or \u0060broad\u0060). Written by the product UI.",
+                        "example": "targeted"
+                      },
+                      "technologies": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "Salesforce"
+                        },
+                        "description": "Technologies the lead company uses"
+                      },
+                      "fundingType": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "seed"
+                        },
+                        "description": "Product-UI alias of \u0060funding_type\u0060; both keys are accepted. See \u0060funding_type\u0060 for the canonical values."
+                      },
+                      "locationMode": {
+                        "type": "string",
+                        "description": "Product-UI alias of \u0060location_mode\u0060 (\u0060contact\u0060 or \u0060company\u0060); both keys are accepted",
+                        "example": "contact"
+                      },
                       "keyword_filter": {
                         "type": "object",
                         "properties": {
@@ -61267,6 +61329,37 @@
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
                         "example": "google.com"
+                      },
+                      "lookAlike": {
+                        "type": "string",
+                        "description": "Product-UI alias of \u0060look_alike\u0060; both keys are accepted",
+                        "example": "google.com"
+                      },
+                      "lookAlikeMode": {
+                        "type": "string",
+                        "description": "How to interpret the look-alike domain (\u0060targeted\u0060 or \u0060broad\u0060). Written by the product UI.",
+                        "example": "targeted"
+                      },
+                      "technologies": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "Salesforce"
+                        },
+                        "description": "Technologies the lead company uses"
+                      },
+                      "fundingType": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "seed"
+                        },
+                        "description": "Product-UI alias of \u0060funding_type\u0060; both keys are accepted. See \u0060funding_type\u0060 for the canonical values."
+                      },
+                      "locationMode": {
+                        "type": "string",
+                        "description": "Product-UI alias of \u0060location_mode\u0060 (\u0060contact\u0060 or \u0060company\u0060); both keys are accepted",
+                        "example": "contact"
                       },
                       "keyword_filter": {
                         "type": "object",

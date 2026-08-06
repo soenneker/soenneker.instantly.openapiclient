@@ -58,10 +58,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The funding_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?>? FundingType { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?>? Funding_type { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?> FundingType { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?> Funding_type { get; set; }
+#endif
+        /// <summary>Product-UI alias of `funding_type`; both keys are accepted. See `funding_type` for the canonical values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FundingType { get; set; }
+#nullable restore
+#else
+        public List<string> FundingType { get; set; }
 #endif
         /// <summary>The industry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,7 +113,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?> Level { get; set; }
 #endif
         /// <summary>Whether to filter/display by contact location or company HQ location. Defaults to contact.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode? LocationMode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode? Location_mode { get; set; }
+        /// <summary>Product-UI alias of `location_mode` (`contact` or `company`); both keys are accepted</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LocationMode { get; set; }
+#nullable restore
+#else
+        public string LocationMode { get; set; }
+#endif
         /// <summary>The locations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,10 +133,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>If set, the lead finder will find companies that are similar to the look-alike domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+        public string? Look_alike { get; set; }
+#nullable restore
+#else
+        public string Look_alike { get; set; }
+#endif
+        /// <summary>Product-UI alias of `look_alike`; both keys are accepted</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? LookAlike { get; set; }
 #nullable restore
 #else
         public string LookAlike { get; set; }
+#endif
+        /// <summary>How to interpret the look-alike domain (`targeted` or `broad`). Written by the product UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LookAlikeMode { get; set; }
+#nullable restore
+#else
+        public string LookAlikeMode { get; set; }
 #endif
         /// <summary>Names of the lead to include in the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,6 +198,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry SubIndustry { get; set; }
 #endif
+        /// <summary>Technologies the lead company uses</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Technologies { get; set; }
+#nullable restore
+#else
+        public List<string> Technologies { get; set; }
+#endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -206,15 +246,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem>()?.AsList(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "employeeCount", n => { EmployeeCount = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "funding_type", n => { FundingType = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>()?.AsList(); } },
+                { "fundingType", n => { FundingType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry.CreateFromDiscriminatorValue); } },
                 { "jobListing", n => { JobListing = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "jobListingFilter", n => { JobListingFilter = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "keyword_filter", n => { KeywordFilter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter.CreateFromDiscriminatorValue); } },
                 { "level", n => { Level = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem>()?.AsList(); } },
-                { "location_mode", n => { LocationMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>(); } },
+                { "locationMode", n => { LocationMode = n.GetStringValue(); } },
                 { "locations", n => { Locations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations.CreateFromDiscriminatorValue); } },
-                { "look_alike", n => { LookAlike = n.GetStringValue(); } },
+                { "lookAlike", n => { LookAlike = n.GetStringValue(); } },
+                { "lookAlikeMode", n => { LookAlikeMode = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "news", n => { News = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem>()?.AsList(); } },
                 { "revenue", n => { Revenue = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem>()?.AsList(); } },
@@ -222,8 +263,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "signals", n => { Signals = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItem>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
                 { "subIndustry", n => { SubIndustry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry.CreateFromDiscriminatorValue); } },
+                { "technologies", n => { Technologies = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle.CreateFromDiscriminatorValue); } },
                 { "website_visitors", n => { WebsiteVisitors = n.GetBoolValue(); } },
+                { "funding_type", n => { Funding_type = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>()?.AsList(); } },
+                { "location_mode", n => { Location_mode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>(); } },
+                { "look_alike", n => { Look_alike = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -238,15 +283,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem>("department", Department);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItem>("employeeCount", EmployeeCount);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>("funding_type", FundingType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>("funding_type", Funding_type);
+            writer.WriteCollectionOfPrimitiveValues<string>("fundingType", FundingType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry>("industry", Industry);
             writer.WriteCollectionOfPrimitiveValues<string>("jobListing", JobListing);
             writer.WriteCollectionOfPrimitiveValues<string>("jobListingFilter", JobListingFilter);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter>("keyword_filter", KeywordFilter);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem>("level", Level);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>("location_mode", LocationMode);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>("location_mode", Location_mode);
+            writer.WriteStringValue("locationMode", LocationMode);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations>("locations", Locations);
-            writer.WriteStringValue("look_alike", LookAlike);
+            writer.WriteStringValue("look_alike", Look_alike);
+            writer.WriteStringValue("lookAlike", LookAlike);
+            writer.WriteStringValue("lookAlikeMode", LookAlikeMode);
             writer.WriteCollectionOfPrimitiveValues<string>("name", Name);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem>("news", News);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem>("revenue", Revenue);
@@ -254,6 +303,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItem>("signals", Signals);
             writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry>("subIndustry", SubIndustry);
+            writer.WriteCollectionOfPrimitiveValues<string>("technologies", Technologies);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle>("title", Title);
             writer.WriteBoolValue("website_visitors", WebsiteVisitors);
             writer.WriteAdditionalData(AdditionalData);
