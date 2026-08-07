@@ -20,6 +20,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect AutoVariantSelect { get; set; }
 #endif
+        /// <summary>Conditions that trigger the subsequence</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions? Conditions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions Conditions { get; set; }
+#endif
         /// <summary>Custom daily limit for the subsequence. Only used when `daily_limit_mode` is &quot;custom&quot;.</summary>
         public double? DailyLimit { get; set; }
         /// <summary>Daily limit mode for the subsequence. &quot;inherit&quot; uses the parent campaign limit, &quot;custom&quot; uses a subsequence-specific limit, &quot;unlimited&quot; bypasses the campaign-level daily limit.</summary>
@@ -42,6 +50,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem> Sequences { get; set; }
 #endif
+        /// <summary>Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign&apos;s schedule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule? SubsequenceSchedule { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule SubsequenceSchedule { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,11 +77,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect.CreateFromDiscriminatorValue); } },
+                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_limit_mode", n => { DailyLimitMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestDailyLimitMode>(); } },
                 { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,11 +94,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect>("auto_variant_select", AutoVariantSelect);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions>("conditions", Conditions);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestDailyLimitMode>("daily_limit_mode", DailyLimitMode);
             writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>("sequences", Sequences);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);
         }
     }
 }

@@ -3989,7 +3989,7 @@
             ],
             "description": "Plan ID for workspace bundle",
             "readOnly": true,
-            "example": "pid_bundle_scale_v1"
+            "example": "pid_bundle_scale_v2"
           },
           "add_unsub_to_block": {
             "type": [
@@ -4559,20 +4559,11 @@
             "properties": {
               "crm_status": {
                 "type": "array",
-                "description": "Lead CRM statuses that trigger the subsequence.",
+                "description": "Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label.",
                 "items": {
                   "type": "number",
-                  "enum": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    0,
-                    -1,
-                    -2,
-                    -3,
-                    -4
-                  ],
+                  "minimum": -30000,
+                  "maximum": 30000,
                   "x-enumDescriptions": {
                     "0": "Out of Office",
                     "1": "Interested",
@@ -4613,7 +4604,7 @@
           },
           "subsequence_schedule": {
             "type": "object",
-            "description": "Schedule configuration for the subsequence",
+            "description": "Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign\u0027s schedule.",
             "properties": {
               "start_date": {
                 "type": [
@@ -4968,9 +4959,7 @@
           "status",
           "timestamp_leads_updated",
           "name",
-          "conditions",
-          "subsequence_schedule",
-          "sequences"
+          "conditions"
         ],
         "additionalProperties": false
       },
@@ -42451,20 +42440,11 @@
                     "properties": {
                       "crm_status": {
                         "type": "array",
-                        "description": "Lead CRM statuses that trigger the subsequence.",
+                        "description": "Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label.",
                         "items": {
                           "type": "number",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            0,
-                            -1,
-                            -2,
-                            -3,
-                            -4
-                          ],
+                          "minimum": -30000,
+                          "maximum": 30000,
                           "x-enumDescriptions": {
                             "0": "Out of Office",
                             "1": "Interested",
@@ -42505,7 +42485,7 @@
                   },
                   "subsequence_schedule": {
                     "type": "object",
-                    "description": "Schedule configuration for the subsequence",
+                    "description": "Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign\u0027s schedule.",
                     "properties": {
                       "start_date": {
                         "type": [
@@ -42855,9 +42835,7 @@
                 "required": [
                   "parent_campaign",
                   "name",
-                  "conditions",
-                  "subsequence_schedule",
-                  "sequences"
+                  "conditions"
                 ],
                 "additionalProperties": false
               }
@@ -43139,8 +43117,19 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460",
             "in": "query",
             "name": "parent_campaign",
-            "required": true,
+            "required": false,
             "description": "The ID of the campaign to list the subsequences of."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "query",
+            "name": "parent_campaign_not",
+            "required": false,
+            "description": "The ID of a campaign to exclude subsequences of, returning reusable subsequences from the workspace\u0027s other campaigns instead."
           },
           {
             "schema": {
@@ -43387,13 +43376,12 @@
                   },
                   "name": {
                     "type": "string",
-                    "description": "The name of the duplicate subsequence.",
+                    "description": "The name of the duplicate subsequence. Defaults to the source subsequence name when omitted.",
                     "example": "My Duplicate Subsequence"
                   }
                 },
                 "required": [
-                  "parent_campaign",
-                  "name"
+                  "parent_campaign"
                 ]
               }
             }
@@ -44025,6 +44013,256 @@
         }
       }
     },
+    "/api/v2/subsequences/analytics": {
+      "get": {
+        "operationId": "getSubsequenceAnalytics",
+        "summary": "Get subsequence analytics summary",
+        "tags": [
+          "CampaignSubsequence"
+        ],
+        "description": "Returns per-subsequence engagement totals (emails sent, unique opens, unique replies) for the subsequences of a campaign.\n\n\nRequires one of the following scopes: \u0060subsequences:read\u0060, \u0060subsequences:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "query",
+            "name": "campaign_id",
+            "required": true,
+            "description": "The ID of the campaign to fetch subsequence analytics for."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Per-subsequence analytics totals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "subsequence_id": {
+                        "type": "string",
+                        "examples": [
+                          "f9cc070d-8dba-4341-b847-f083c358e460"
+                        ],
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "emails_sent": {
+                        "type": "number",
+                        "examples": [
+                          100
+                        ],
+                        "example": 100
+                      },
+                      "unique_opens": {
+                        "type": "number",
+                        "examples": [
+                          50
+                        ],
+                        "example": 50
+                      },
+                      "unique_replies": {
+                        "type": "number",
+                        "examples": [
+                          10
+                        ],
+                        "example": 10
+                      }
+                    },
+                    "required": [
+                      "subsequence_id",
+                      "emails_sent",
+                      "unique_opens",
+                      "unique_replies"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/subsequences/{id}": {
       "get": {
         "operationId": "getCampaignSubsequence",
@@ -44252,6 +44490,262 @@
                     "type": "string",
                     "description": "Name of the subsequence",
                     "example": "Follow-up sequence"
+                  },
+                  "conditions": {
+                    "type": "object",
+                    "description": "Conditions that trigger the subsequence",
+                    "properties": {
+                      "crm_status": {
+                        "type": "array",
+                        "description": "Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label.",
+                        "items": {
+                          "type": "number",
+                          "minimum": -30000,
+                          "maximum": 30000,
+                          "x-enumDescriptions": {
+                            "0": "Out of Office",
+                            "1": "Interested",
+                            "2": "Meeting Booked",
+                            "3": "Meeting Completed",
+                            "4": "Won",
+                            "-1": "Not Interested",
+                            "-2": "Wrong Person",
+                            "-3": "Lost",
+                            "-4": "No Show"
+                          },
+                          "example": 1
+                        }
+                      },
+                      "lead_activity": {
+                        "type": "array",
+                        "description": "Lead activities that trigger the subsequence.",
+                        "items": {
+                          "type": "number",
+                          "enum": [
+                            4,
+                            91,
+                            2
+                          ],
+                          "x-enumDescriptions": {
+                            "2": "Email Opened - Triggered when a lead opens an email",
+                            "4": "Email Link Clicked - Triggered when a lead clicks a link in an email",
+                            "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
+                          },
+                          "example": 4
+                        }
+                      },
+                      "reply_contains": {
+                        "type": "string",
+                        "example": "yes"
+                      }
+                    }
+                  },
+                  "subsequence_schedule": {
+                    "type": "object",
+                    "description": "Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign\u0027s schedule.",
+                    "properties": {
+                      "start_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date",
+                        "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
+                        "example": "1970-01-01T00:00:00.000Z"
+                      },
+                      "end_date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date",
+                        "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
+                        "example": "1970-01-01T00:00:00.000Z"
+                      },
+                      "schedules": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "My Schedule"
+                            },
+                            "timing": {
+                              "type": "object",
+                              "properties": {
+                                "from": {
+                                  "type": "string",
+                                  "pattern": "^([01][0-9]|2[0-3]):([0-5][0-9])$",
+                                  "example": "1970-01-01T00:00:00.000Z"
+                                },
+                                "to": {
+                                  "type": "string",
+                                  "pattern": "^([01][0-9]|2[0-3]):([0-5][0-9])$",
+                                  "example": "1970-01-01T00:00:00.000Z"
+                                }
+                              },
+                              "required": [
+                                "from",
+                                "to"
+                              ]
+                            },
+                            "days": {
+                              "type": "object",
+                              "minProperties": 1,
+                              "properties": {
+                                "0": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "1": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "2": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "3": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "4": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "5": {
+                                  "type": "boolean",
+                                  "example": false
+                                },
+                                "6": {
+                                  "type": "boolean",
+                                  "example": false
+                                }
+                              }
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "enum": [
+                                "Etc/GMT\u002B12",
+                                "Etc/GMT\u002B11",
+                                "Etc/GMT\u002B10",
+                                "America/Anchorage",
+                                "America/Dawson",
+                                "America/Creston",
+                                "America/Chihuahua",
+                                "America/Boise",
+                                "America/Belize",
+                                "America/Chicago",
+                                "America/Bahia_Banderas",
+                                "America/Regina",
+                                "America/Bogota",
+                                "America/Detroit",
+                                "America/Indiana/Marengo",
+                                "America/Caracas",
+                                "America/Asuncion",
+                                "America/Glace_Bay",
+                                "America/Campo_Grande",
+                                "America/Anguilla",
+                                "America/Santiago",
+                                "America/St_Johns",
+                                "America/Sao_Paulo",
+                                "America/Argentina/La_Rioja",
+                                "America/Araguaina",
+                                "America/Godthab",
+                                "America/Montevideo",
+                                "America/Bahia",
+                                "America/Noronha",
+                                "America/Scoresbysund",
+                                "Atlantic/Cape_Verde",
+                                "Africa/Casablanca",
+                                "America/Danmarkshavn",
+                                "Europe/Isle_of_Man",
+                                "Atlantic/Canary",
+                                "Africa/Abidjan",
+                                "Arctic/Longyearbyen",
+                                "Europe/Belgrade",
+                                "Africa/Ceuta",
+                                "Europe/Sarajevo",
+                                "Africa/Algiers",
+                                "Africa/Windhoek",
+                                "Asia/Nicosia",
+                                "Asia/Beirut",
+                                "Africa/Cairo",
+                                "Asia/Damascus",
+                                "Europe/Bucharest",
+                                "Africa/Blantyre",
+                                "Europe/Helsinki",
+                                "Europe/Istanbul",
+                                "Asia/Jerusalem",
+                                "Africa/Tripoli",
+                                "Asia/Amman",
+                                "Asia/Baghdad",
+                                "Europe/Kaliningrad",
+                                "Asia/Aden",
+                                "Africa/Addis_Ababa",
+                                "Europe/Kirov",
+                                "Europe/Astrakhan",
+                                "Asia/Tehran",
+                                "Asia/Dubai",
+                                "Asia/Baku",
+                                "Indian/Mahe",
+                                "Asia/Tbilisi",
+                                "Asia/Yerevan",
+                                "Asia/Kabul",
+                                "Antarctica/Mawson",
+                                "Asia/Yekaterinburg",
+                                "Asia/Karachi",
+                                "Asia/Kolkata",
+                                "Asia/Colombo",
+                                "Asia/Kathmandu",
+                                "Antarctica/Vostok",
+                                "Asia/Dhaka",
+                                "Asia/Rangoon",
+                                "Antarctica/Davis",
+                                "Asia/Novokuznetsk",
+                                "Asia/Hong_Kong",
+                                "Asia/Krasnoyarsk",
+                                "Asia/Brunei",
+                                "Australia/Perth",
+                                "Asia/Taipei",
+                                "Asia/Choibalsan",
+                                "Asia/Irkutsk",
+                                "Asia/Dili",
+                                "Asia/Pyongyang",
+                                "Australia/Adelaide",
+                                "Australia/Darwin",
+                                "Australia/Brisbane",
+                                "Australia/Melbourne",
+                                "Antarctica/DumontDUrville",
+                                "Australia/Currie",
+                                "Asia/Chita",
+                                "Antarctica/Macquarie",
+                                "Asia/Sakhalin",
+                                "Pacific/Auckland",
+                                "Etc/GMT-12",
+                                "Pacific/Fiji",
+                                "Asia/Anadyr",
+                                "Asia/Kamchatka",
+                                "Etc/GMT-13",
+                                "Pacific/Apia"
+                              ],
+                              "example": "Etc/GMT\u002B12"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "timing",
+                            "days",
+                            "timezone"
+                          ]
+                        },
+                        "minItems": 1
+                      }
+                    },
+                    "required": [
+                      "schedules"
+                    ]
                   },
                   "sequences": {
                     "type": "array",
@@ -49183,7 +49677,9 @@
                                 "pid_addon_ic_50k_v1_annual",
                                 "pid_bundle_starter_v1",
                                 "pid_bundle_scale_v1",
+                                "pid_bundle_scale_v2",
                                 "pid_bundle_agency_v1",
+                                "pid_bundle_agency_v2",
                                 null
                               ],
                               "x-enumDescriptions": {
@@ -49215,7 +49711,9 @@
                                 "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
                                 "pid_bundle_starter_v1": "Bundle Starter",
                                 "pid_bundle_scale_v1": "Bundle Scale",
-                                "pid_bundle_agency_v1": "Bundle Agency"
+                                "pid_bundle_scale_v2": "Bundle Scale V2",
+                                "pid_bundle_agency_v1": "Bundle Agency",
+                                "pid_bundle_agency_v2": "Bundle Agency V2"
                               },
                               "example": "pid_g_v1"
                             }
@@ -49365,7 +49863,7 @@
                                 "null",
                                 "number"
                               ],
-                              "example": 175
+                              "example": 265
                             },
                             "product_id": {
                               "type": [
@@ -49375,10 +49873,12 @@
                               "enum": [
                                 "pid_bundle_starter_v1",
                                 "pid_bundle_scale_v1",
+                                "pid_bundle_scale_v2",
                                 "pid_bundle_agency_v1",
+                                "pid_bundle_agency_v2",
                                 null
                               ],
-                              "example": "pid_bundle_scale_v1"
+                              "example": "pid_bundle_scale_v2"
                             }
                           }
                         },
@@ -50012,7 +50512,9 @@
                               "pid_addon_ic_50k_v1_annual",
                               "pid_bundle_starter_v1",
                               "pid_bundle_scale_v1",
-                              "pid_bundle_agency_v1"
+                              "pid_bundle_scale_v2",
+                              "pid_bundle_agency_v1",
+                              "pid_bundle_agency_v2"
                             ],
                             "x-enumDescriptions": {
                               "pid_g_v1": "Growth Plan",
@@ -50043,7 +50545,9 @@
                               "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
                               "pid_bundle_starter_v1": "Bundle Starter",
                               "pid_bundle_scale_v1": "Bundle Scale",
-                              "pid_bundle_agency_v1": "Bundle Agency"
+                              "pid_bundle_scale_v2": "Bundle Scale V2",
+                              "pid_bundle_agency_v1": "Bundle Agency",
+                              "pid_bundle_agency_v2": "Bundle Agency V2"
                             },
                             "example": "pid_g_v1"
                           },

@@ -16,9 +16,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         PidBundleScaleV1,
         #pragma warning restore CS1591
+        [EnumMember(Value = "pid_bundle_scale_v2")]
+        #pragma warning disable CS1591
+        PidBundleScaleV2,
+        #pragma warning restore CS1591
         [EnumMember(Value = "pid_bundle_agency_v1")]
         #pragma warning disable CS1591
         PidBundleAgencyV1,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "pid_bundle_agency_v2")]
+        #pragma warning disable CS1591
+        PidBundleAgencyV2,
         #pragma warning restore CS1591
     }
 }

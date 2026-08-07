@@ -69,7 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Status of the subsequence</summary>
         public double? Status { get; private set; }
-        /// <summary>Schedule configuration for the subsequence</summary>
+        /// <summary>Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign&apos;s schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule? SubsequenceSchedule { get; set; }

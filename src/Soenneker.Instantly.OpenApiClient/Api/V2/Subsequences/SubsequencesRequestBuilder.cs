@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Analytics;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SubsequencesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The analytics property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Analytics.AnalyticsRequestBuilder Analytics
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Analytics.AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.subsequences.item collection</summary>
         /// <param name="position">The ID of the requested item</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.SubsequencesItemRequestBuilder"/></returns>
@@ -35,7 +41,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SubsequencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/subsequences{?limit*,search*,starting_after*}", pathParameters)
+        public SubsequencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/subsequences{?limit*,parent_campaign*,parent_campaign_not*,search*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SubsequencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/subsequences{?limit*,search*,starting_after*}", rawUrl)
+        public SubsequencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/subsequences{?limit*,parent_campaign*,parent_campaign_not*,search*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -122,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.SubsequencesRequestBuilder.SubsequencesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v2/subsequences?parent_campaign={parent_campaign}{&limit*,search*,starting_after*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -176,6 +182,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
 #else
             [QueryParameter("parent_campaign")]
             public string ParentCampaign { get; set; }
+#endif
+            /// <summary>The ID of a campaign to exclude subsequences of, returning reusable subsequences from the workspace&apos;s other campaigns instead.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("parent_campaign_not")]
+            public string? ParentCampaignNot { get; set; }
+#nullable restore
+#else
+            [QueryParameter("parent_campaign_not")]
+            public string ParentCampaignNot { get; set; }
 #endif
             /// <summary>The search query to filter the subsequences by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -11,7 +11,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Conditions that trigger the subsequence
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CampaignSubsequenceConditions : IAdditionalDataHolder, IParsable
+    public partial class PatchCampaignSubsequenceRequestConditions : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -40,21 +40,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string ReplyContains { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions"/> and sets the default values.
         /// </summary>
-        public CampaignSubsequenceConditions()
+        public PatchCampaignSubsequenceRequestConditions()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions();
         }
         /// <summary>
         /// The deserialization information for the current model

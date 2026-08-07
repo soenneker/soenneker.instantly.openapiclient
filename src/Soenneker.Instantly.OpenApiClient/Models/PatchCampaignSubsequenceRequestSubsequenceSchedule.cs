@@ -12,7 +12,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign&apos;s schedule.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CampaignSubsequenceSubsequenceSchedule : IAdditionalDataHolder, IParsable
+    public partial class PatchCampaignSubsequenceRequestSubsequenceSchedule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -21,29 +21,29 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The schedules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceScheduleSchedulesItem>? Schedules { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem>? Schedules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceScheduleSchedulesItem> Schedules { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem> Schedules { get; set; }
 #endif
         /// <summary>Start date in YYYY-MM-DD format. Uses the campaign&apos;s timezone.</summary>
         public Date? StartDate { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule"/> and sets the default values.
         /// </summary>
-        public CampaignSubsequenceSubsequenceSchedule()
+        public PatchCampaignSubsequenceRequestSubsequenceSchedule()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "end_date", n => { EndDate = n.GetDateValue(); } },
-                { "schedules", n => { Schedules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceScheduleSchedulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceScheduleSchedulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "schedules", n => { Schedules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateValue("end_date", EndDate);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceScheduleSchedulesItem>("schedules", Schedules);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem>("schedules", Schedules);
             writer.WriteDateValue("start_date", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

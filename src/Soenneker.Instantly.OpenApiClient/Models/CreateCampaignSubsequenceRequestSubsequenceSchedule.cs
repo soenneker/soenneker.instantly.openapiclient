@@ -9,7 +9,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Schedule configuration for the subsequence
+    /// Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign&apos;s schedule.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateCampaignSubsequenceRequestSubsequenceSchedule : IAdditionalDataHolder, IParsable

@@ -10552,7 +10552,16 @@
             "name": "parent_campaign",
             "in": "query",
             "description": "The ID of the campaign to list the subsequences of.",
-            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          {
+            "name": "parent_campaign_not",
+            "in": "query",
+            "description": "The ID of a campaign to exclude subsequences of, returning reusable subsequences from the workspace\u0027s other campaigns instead.",
             "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
@@ -10851,6 +10860,81 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResumeSubsequence429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/subsequences/analytics": {
+      "get": {
+        "tags": [
+          "CampaignSubsequence"
+        ],
+        "summary": "Get subsequence analytics summary",
+        "description": "\u0022Returns per-subsequence engagement totals (emails sent, unique opens, unique replies) for the subsequences of a campaign.\n\n\nRequires one of the following scopes: \u0060subsequences:read\u0060, \u0060subsequences:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060\u0022",
+        "operationId": "GetSubsequenceAnalytics",
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "in": "query",
+            "description": "The ID of the campaign to fetch subsequence analytics for.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Per-subsequence analytics totals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceAnalytics200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceAnalytics401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceAnalytics402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceAnalytics404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceAnalytics429Response"
                 }
               }
             }
@@ -16512,7 +16596,7 @@
             "description": "Plan ID for workspace bundle",
             "nullable": true,
             "readOnly": true,
-            "example": "pid_bundle_scale_v1"
+            "example": "pid_bundle_scale_v2"
           },
           "add_unsub_to_block": {
             "type": "boolean",
@@ -16816,9 +16900,7 @@
           "status",
           "timestamp_leads_updated",
           "name",
-          "conditions",
-          "subsequence_schedule",
-          "sequences"
+          "conditions"
         ],
         "type": "object",
         "properties": {
@@ -18051,9 +18133,23 @@
           "crm_status": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CampaignSubsequenceConditionsCrmStatusItem"
+              "maximum": 30000,
+              "minimum": -30000,
+              "type": "number",
+              "example": 1,
+              "x-enumDescriptions": {
+                "0": "Out of Office",
+                "1": "Interested",
+                "2": "Meeting Booked",
+                "3": "Meeting Completed",
+                "4": "Won",
+                "-1": "Not Interested",
+                "-2": "Wrong Person",
+                "-3": "Lost",
+                "-4": "No Show"
+              }
             },
-            "description": "Lead CRM statuses that trigger the subsequence."
+            "description": "Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label."
           },
           "lead_activity": {
             "type": "array",
@@ -18097,7 +18193,7 @@
             }
           }
         },
-        "description": "Schedule configuration for the subsequence"
+        "description": "Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign\u0027s schedule."
       },
       "CampaignSubsequenceSequencesItem": {
         "required": [
@@ -32117,9 +32213,7 @@
         "required": [
           "parent_campaign",
           "name",
-          "conditions",
-          "subsequence_schedule",
-          "sequences"
+          "conditions"
         ],
         "type": "object",
         "properties": {
@@ -32349,8 +32443,7 @@
       },
       "DuplicateSubsequenceRequest": {
         "required": [
-          "parent_campaign",
-          "name"
+          "parent_campaign"
         ],
         "type": "object",
         "properties": {
@@ -32361,7 +32454,7 @@
           },
           "name": {
             "type": "string",
-            "description": "The name of the duplicate subsequence.",
+            "description": "The name of the duplicate subsequence. Defaults to the source subsequence name when omitted.",
             "example": "My Duplicate Subsequence"
           }
         }
@@ -32606,6 +32699,92 @@
           }
         }
       },
+      "GetSubsequenceAnalytics200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GetSubsequenceAnalytics200ResponseItem"
+        }
+      },
+      "GetSubsequenceAnalytics401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics401ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetSubsequenceAnalytics402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics402ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetSubsequenceAnalytics404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics404ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetSubsequenceAnalytics429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceAnalytics429ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
       "GetCampaignSubsequence401Response": {
         "required": [
           "statusCode",
@@ -32694,6 +32873,12 @@
             "type": "string",
             "description": "Name of the subsequence",
             "example": "Follow-up sequence"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestConditions"
+          },
+          "subsequence_schedule": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSubsequenceSchedule"
           },
           "sequences": {
             "type": "array",
@@ -38361,6 +38546,12 @@
         },
         "additionalProperties": false
       },
+      "GetSubsequenceAnalytics200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GetSubsequenceAnalytics200ResponseSchemaItem"
+        }
+      },
       "ListWebhookEvent200Response": {
         "required": [
           "items"
@@ -41557,9 +41748,23 @@
           "crm_status": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestConditionsCrmStatusItem"
+              "maximum": 30000,
+              "minimum": -30000,
+              "type": "number",
+              "example": 1,
+              "x-enumDescriptions": {
+                "0": "Out of Office",
+                "1": "Interested",
+                "2": "Meeting Booked",
+                "3": "Meeting Completed",
+                "4": "Won",
+                "-1": "Not Interested",
+                "-2": "Wrong Person",
+                "-3": "Lost",
+                "-4": "No Show"
+              }
             },
-            "description": "Lead CRM statuses that trigger the subsequence."
+            "description": "Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label."
           },
           "lead_activity": {
             "type": "array",
@@ -41603,7 +41808,7 @@
             }
           }
         },
-        "description": "Schedule configuration for the subsequence"
+        "description": "Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign\u0027s schedule."
       },
       "CreateCampaignSubsequenceRequestSequencesItem": {
         "required": [
@@ -41631,6 +41836,101 @@
         },
         "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
         "nullable": true
+      },
+      "GetSubsequenceAnalytics200ResponseItem": {
+        "required": [
+          "subsequence_id",
+          "emails_sent",
+          "unique_opens",
+          "unique_replies"
+        ],
+        "type": "object",
+        "properties": {
+          "subsequence_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "emails_sent": {
+            "type": "number",
+            "example": 100
+          },
+          "unique_opens": {
+            "type": "number",
+            "example": 50
+          },
+          "unique_replies": {
+            "type": "number",
+            "example": 10
+          }
+        }
+      },
+      "PatchCampaignSubsequenceRequestConditions": {
+        "type": "object",
+        "properties": {
+          "crm_status": {
+            "type": "array",
+            "items": {
+              "maximum": 30000,
+              "minimum": -30000,
+              "type": "number",
+              "example": 1,
+              "x-enumDescriptions": {
+                "0": "Out of Office",
+                "1": "Interested",
+                "2": "Meeting Booked",
+                "3": "Meeting Completed",
+                "4": "Won",
+                "-1": "Not Interested",
+                "-2": "Wrong Person",
+                "-3": "Lost",
+                "-4": "No Show"
+              }
+            },
+            "description": "Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label."
+          },
+          "lead_activity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestConditionsLeadActivityItem"
+            },
+            "description": "Lead activities that trigger the subsequence."
+          },
+          "reply_contains": {
+            "type": "string",
+            "example": "yes"
+          }
+        },
+        "description": "Conditions that trigger the subsequence"
+      },
+      "PatchCampaignSubsequenceRequestSubsequenceSchedule": {
+        "required": [
+          "schedules"
+        ],
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "Start date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
+            "format": "date",
+            "nullable": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End date in YYYY-MM-DD format. Uses the campaign\u0027s timezone.",
+            "format": "date",
+            "nullable": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "schedules": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem"
+            }
+          }
+        },
+        "description": "Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign\u0027s schedule."
       },
       "PatchCampaignSubsequenceRequestSequencesItem": {
         "required": [
@@ -43431,6 +43731,33 @@
           }
         }
       },
+      "GetSubsequenceAnalytics200ResponseSchemaItem": {
+        "required": [
+          "subsequence_id",
+          "emails_sent",
+          "unique_opens",
+          "unique_replies"
+        ],
+        "type": "object",
+        "properties": {
+          "subsequence_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "emails_sent": {
+            "type": "number",
+            "example": 100
+          },
+          "unique_opens": {
+            "type": "number",
+            "example": 50
+          },
+          "unique_replies": {
+            "type": "number",
+            "example": 10
+          }
+        }
+      },
       "GetAiEnrichmentForResource200ResponseSchemaItem": {
         "required": [
           "organization_id",
@@ -44546,6 +44873,30 @@
           }
         }
       },
+      "PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItem": {
+        "required": [
+          "name",
+          "timing",
+          "days",
+          "timezone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "My Schedule"
+          },
+          "timing": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemTiming"
+          },
+          "days": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays"
+          },
+          "timezone": {
+            "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemTimezone"
+          }
+        }
+      },
       "PatchCampaignSubsequenceRequestSequencesItemStepsItem": {
         "required": [
           "type",
@@ -44925,7 +45276,7 @@
           "price_in_dollars": {
             "type": "number",
             "nullable": true,
-            "example": 175
+            "example": 265
           },
           "product_id": {
             "$ref": "#/components/schemas/GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId"
@@ -45820,6 +46171,59 @@
             "type": "boolean",
             "description": "Whether this variant is disabled. By default, all the variants are enabled. Please set this to true if you want to disable this variant",
             "example": true
+          }
+        }
+      },
+      "PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemTiming": {
+        "required": [
+          "from",
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "pattern": "^([01][0-9]|2[0-3]):([0-5][0-9])$",
+            "type": "string",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "to": {
+            "pattern": "^([01][0-9]|2[0-3]):([0-5][0-9])$",
+            "type": "string",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        }
+      },
+      "PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays": {
+        "minProperties": 1,
+        "type": "object",
+        "properties": {
+          "0": {
+            "type": "boolean",
+            "example": true
+          },
+          "1": {
+            "type": "boolean",
+            "example": true
+          },
+          "2": {
+            "type": "boolean",
+            "example": true
+          },
+          "3": {
+            "type": "boolean",
+            "example": true
+          },
+          "4": {
+            "type": "boolean",
+            "example": true
+          },
+          "5": {
+            "type": "boolean",
+            "example": false
+          },
+          "6": {
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -49205,33 +49609,6 @@
               "name": "PacificApia"
             }
           ]
-        }
-      },
-      "CampaignSubsequenceConditionsCrmStatusItem": {
-        "enum": [
-          1,
-          2,
-          3,
-          4,
-          0,
-          -1,
-          -2,
-          -3,
-          -4
-        ],
-        "type": "number",
-        "additionalProperties": false,
-        "example": 1,
-        "x-enumDescriptions": {
-          "0": "Out of Office",
-          "1": "Interested",
-          "2": "Meeting Booked",
-          "3": "Meeting Completed",
-          "4": "Won",
-          "-1": "Not Interested",
-          "-2": "Wrong Person",
-          "-3": "Lost",
-          "-4": "No Show"
         }
       },
       "CampaignSubsequenceConditionsLeadActivityItem": {
@@ -64453,6 +64830,100 @@
           ]
         }
       },
+      "GetSubsequenceAnalytics401ResponseStatusCode": {
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetSubsequenceAnalytics401ResponseError": {
+        "enum": [
+          "Unauthorized"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unauthorized"
+      },
+      "GetSubsequenceAnalytics402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetSubsequenceAnalytics402ResponseError": {
+        "enum": [
+          "Payment Required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Payment Required",
+        "x-ms-enum": {
+          "name": "GetSubsequenceAnalytics402ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Payment Required",
+              "name": "PaymentRequired"
+            }
+          ]
+        }
+      },
+      "GetSubsequenceAnalytics404ResponseStatusCode": {
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetSubsequenceAnalytics404ResponseError": {
+        "enum": [
+          "Not Found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Not Found",
+        "x-ms-enum": {
+          "name": "GetSubsequenceAnalytics404ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Not Found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
+      "GetSubsequenceAnalytics429ResponseStatusCode": {
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetSubsequenceAnalytics429ResponseError": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Too Many Requests",
+        "x-ms-enum": {
+          "name": "GetSubsequenceAnalytics429ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
       "GetCampaignSubsequence401ResponseStatusCode": {
         "enum": [
           401
@@ -73228,33 +73699,6 @@
           "-4": "No Show"
         }
       },
-      "CreateCampaignSubsequenceRequestConditionsCrmStatusItem": {
-        "enum": [
-          1,
-          2,
-          3,
-          4,
-          0,
-          -1,
-          -2,
-          -3,
-          -4
-        ],
-        "type": "number",
-        "additionalProperties": false,
-        "example": 1,
-        "x-enumDescriptions": {
-          "0": "Out of Office",
-          "1": "Interested",
-          "2": "Meeting Booked",
-          "3": "Meeting Completed",
-          "4": "Won",
-          "-1": "Not Interested",
-          "-2": "Wrong Person",
-          "-3": "Lost",
-          "-4": "No Show"
-        }
-      },
       "CreateCampaignSubsequenceRequestConditionsLeadActivityItem": {
         "enum": [
           4,
@@ -73296,6 +73740,21 @@
               "name": "OpenRate"
             }
           ]
+        }
+      },
+      "PatchCampaignSubsequenceRequestConditionsLeadActivityItem": {
+        "enum": [
+          4,
+          91,
+          2
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 4,
+        "x-enumDescriptions": {
+          "2": "Email Opened - Triggered when a lead opens an email",
+          "4": "Email Link Clicked - Triggered when a lead clicks a link in an email",
+          "91": "Campaign Completed Without Reply - Triggered when a campaign completes for a lead without receiving a reply"
         }
       },
       "PatchCampaignSubsequenceRequestAutoVariantSelectTrigger": {
@@ -73485,7 +73944,9 @@
           "pid_addon_ic_50k_v1_annual",
           "pid_bundle_starter_v1",
           "pid_bundle_scale_v1",
-          "pid_bundle_agency_v1"
+          "pid_bundle_scale_v2",
+          "pid_bundle_agency_v1",
+          "pid_bundle_agency_v2"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -73520,7 +73981,9 @@
           "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
           "pid_bundle_starter_v1": "Bundle Starter",
           "pid_bundle_scale_v1": "Bundle Scale",
-          "pid_bundle_agency_v1": "Bundle Agency"
+          "pid_bundle_scale_v2": "Bundle Scale V2",
+          "pid_bundle_agency_v1": "Bundle Agency",
+          "pid_bundle_agency_v2": "Bundle Agency V2"
         },
         "x-ms-enum": {
           "name": "GetWorkspaceSubscriptionDetails200ResponseSubscriptionsItemProductId",
@@ -73639,8 +74102,16 @@
               "name": "PidBundleScaleV1"
             },
             {
+              "value": "pid_bundle_scale_v2",
+              "name": "PidBundleScaleV2"
+            },
+            {
               "value": "pid_bundle_agency_v1",
               "name": "PidBundleAgencyV1"
+            },
+            {
+              "value": "pid_bundle_agency_v2",
+              "name": "PidBundleAgencyV2"
             }
           ]
         }
@@ -77314,6 +77785,529 @@
           ]
         }
       },
+      "PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemTimezone": {
+        "enum": [
+          "Etc/GMT\u002B12",
+          "Etc/GMT\u002B11",
+          "Etc/GMT\u002B10",
+          "America/Anchorage",
+          "America/Dawson",
+          "America/Creston",
+          "America/Chihuahua",
+          "America/Boise",
+          "America/Belize",
+          "America/Chicago",
+          "America/Bahia_Banderas",
+          "America/Regina",
+          "America/Bogota",
+          "America/Detroit",
+          "America/Indiana/Marengo",
+          "America/Caracas",
+          "America/Asuncion",
+          "America/Glace_Bay",
+          "America/Campo_Grande",
+          "America/Anguilla",
+          "America/Santiago",
+          "America/St_Johns",
+          "America/Sao_Paulo",
+          "America/Argentina/La_Rioja",
+          "America/Araguaina",
+          "America/Godthab",
+          "America/Montevideo",
+          "America/Bahia",
+          "America/Noronha",
+          "America/Scoresbysund",
+          "Atlantic/Cape_Verde",
+          "Africa/Casablanca",
+          "America/Danmarkshavn",
+          "Europe/Isle_of_Man",
+          "Atlantic/Canary",
+          "Africa/Abidjan",
+          "Arctic/Longyearbyen",
+          "Europe/Belgrade",
+          "Africa/Ceuta",
+          "Europe/Sarajevo",
+          "Africa/Algiers",
+          "Africa/Windhoek",
+          "Asia/Nicosia",
+          "Asia/Beirut",
+          "Africa/Cairo",
+          "Asia/Damascus",
+          "Europe/Bucharest",
+          "Africa/Blantyre",
+          "Europe/Helsinki",
+          "Europe/Istanbul",
+          "Asia/Jerusalem",
+          "Africa/Tripoli",
+          "Asia/Amman",
+          "Asia/Baghdad",
+          "Europe/Kaliningrad",
+          "Asia/Aden",
+          "Africa/Addis_Ababa",
+          "Europe/Kirov",
+          "Europe/Astrakhan",
+          "Asia/Tehran",
+          "Asia/Dubai",
+          "Asia/Baku",
+          "Indian/Mahe",
+          "Asia/Tbilisi",
+          "Asia/Yerevan",
+          "Asia/Kabul",
+          "Antarctica/Mawson",
+          "Asia/Yekaterinburg",
+          "Asia/Karachi",
+          "Asia/Kolkata",
+          "Asia/Colombo",
+          "Asia/Kathmandu",
+          "Antarctica/Vostok",
+          "Asia/Dhaka",
+          "Asia/Rangoon",
+          "Antarctica/Davis",
+          "Asia/Novokuznetsk",
+          "Asia/Hong_Kong",
+          "Asia/Krasnoyarsk",
+          "Asia/Brunei",
+          "Australia/Perth",
+          "Asia/Taipei",
+          "Asia/Choibalsan",
+          "Asia/Irkutsk",
+          "Asia/Dili",
+          "Asia/Pyongyang",
+          "Australia/Adelaide",
+          "Australia/Darwin",
+          "Australia/Brisbane",
+          "Australia/Melbourne",
+          "Antarctica/DumontDUrville",
+          "Australia/Currie",
+          "Asia/Chita",
+          "Antarctica/Macquarie",
+          "Asia/Sakhalin",
+          "Pacific/Auckland",
+          "Etc/GMT-12",
+          "Pacific/Fiji",
+          "Asia/Anadyr",
+          "Asia/Kamchatka",
+          "Etc/GMT-13",
+          "Pacific/Apia"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Etc/GMT\u002B12",
+        "x-ms-enum": {
+          "name": "PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemTimezone",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Etc/GMT\u002B12",
+              "name": "EtcGMTPlus12"
+            },
+            {
+              "value": "Etc/GMT\u002B11",
+              "name": "EtcGMTPlus11"
+            },
+            {
+              "value": "Etc/GMT\u002B10",
+              "name": "EtcGMTPlus10"
+            },
+            {
+              "value": "America/Anchorage",
+              "name": "AmericaAnchorage"
+            },
+            {
+              "value": "America/Dawson",
+              "name": "AmericaDawson"
+            },
+            {
+              "value": "America/Creston",
+              "name": "AmericaCreston"
+            },
+            {
+              "value": "America/Chihuahua",
+              "name": "AmericaChihuahua"
+            },
+            {
+              "value": "America/Boise",
+              "name": "AmericaBoise"
+            },
+            {
+              "value": "America/Belize",
+              "name": "AmericaBelize"
+            },
+            {
+              "value": "America/Chicago",
+              "name": "AmericaChicago"
+            },
+            {
+              "value": "America/Bahia_Banderas",
+              "name": "AmericaBahiaBanderas"
+            },
+            {
+              "value": "America/Regina",
+              "name": "AmericaRegina"
+            },
+            {
+              "value": "America/Bogota",
+              "name": "AmericaBogota"
+            },
+            {
+              "value": "America/Detroit",
+              "name": "AmericaDetroit"
+            },
+            {
+              "value": "America/Indiana/Marengo",
+              "name": "AmericaIndianaMarengo"
+            },
+            {
+              "value": "America/Caracas",
+              "name": "AmericaCaracas"
+            },
+            {
+              "value": "America/Asuncion",
+              "name": "AmericaAsuncion"
+            },
+            {
+              "value": "America/Glace_Bay",
+              "name": "AmericaGlaceBay"
+            },
+            {
+              "value": "America/Campo_Grande",
+              "name": "AmericaCampoGrande"
+            },
+            {
+              "value": "America/Anguilla",
+              "name": "AmericaAnguilla"
+            },
+            {
+              "value": "America/Santiago",
+              "name": "AmericaSantiago"
+            },
+            {
+              "value": "America/St_Johns",
+              "name": "AmericaStJohns"
+            },
+            {
+              "value": "America/Sao_Paulo",
+              "name": "AmericaSaoPaulo"
+            },
+            {
+              "value": "America/Argentina/La_Rioja",
+              "name": "AmericaArgentinaLaRioja"
+            },
+            {
+              "value": "America/Araguaina",
+              "name": "AmericaAraguaina"
+            },
+            {
+              "value": "America/Godthab",
+              "name": "AmericaGodthab"
+            },
+            {
+              "value": "America/Montevideo",
+              "name": "AmericaMontevideo"
+            },
+            {
+              "value": "America/Bahia",
+              "name": "AmericaBahia"
+            },
+            {
+              "value": "America/Noronha",
+              "name": "AmericaNoronha"
+            },
+            {
+              "value": "America/Scoresbysund",
+              "name": "AmericaScoresbysund"
+            },
+            {
+              "value": "Atlantic/Cape_Verde",
+              "name": "AtlanticCapeVerde"
+            },
+            {
+              "value": "Africa/Casablanca",
+              "name": "AfricaCasablanca"
+            },
+            {
+              "value": "America/Danmarkshavn",
+              "name": "AmericaDanmarkshavn"
+            },
+            {
+              "value": "Europe/Isle_of_Man",
+              "name": "EuropeIsleOfMan"
+            },
+            {
+              "value": "Atlantic/Canary",
+              "name": "AtlanticCanary"
+            },
+            {
+              "value": "Africa/Abidjan",
+              "name": "AfricaAbidjan"
+            },
+            {
+              "value": "Arctic/Longyearbyen",
+              "name": "ArcticLongyearbyen"
+            },
+            {
+              "value": "Europe/Belgrade",
+              "name": "EuropeBelgrade"
+            },
+            {
+              "value": "Africa/Ceuta",
+              "name": "AfricaCeuta"
+            },
+            {
+              "value": "Europe/Sarajevo",
+              "name": "EuropeSarajevo"
+            },
+            {
+              "value": "Africa/Algiers",
+              "name": "AfricaAlgiers"
+            },
+            {
+              "value": "Africa/Windhoek",
+              "name": "AfricaWindhoek"
+            },
+            {
+              "value": "Asia/Nicosia",
+              "name": "AsiaNicosia"
+            },
+            {
+              "value": "Asia/Beirut",
+              "name": "AsiaBeirut"
+            },
+            {
+              "value": "Africa/Cairo",
+              "name": "AfricaCairo"
+            },
+            {
+              "value": "Asia/Damascus",
+              "name": "AsiaDamascus"
+            },
+            {
+              "value": "Europe/Bucharest",
+              "name": "EuropeBucharest"
+            },
+            {
+              "value": "Africa/Blantyre",
+              "name": "AfricaBlantyre"
+            },
+            {
+              "value": "Europe/Helsinki",
+              "name": "EuropeHelsinki"
+            },
+            {
+              "value": "Europe/Istanbul",
+              "name": "EuropeIstanbul"
+            },
+            {
+              "value": "Asia/Jerusalem",
+              "name": "AsiaJerusalem"
+            },
+            {
+              "value": "Africa/Tripoli",
+              "name": "AfricaTripoli"
+            },
+            {
+              "value": "Asia/Amman",
+              "name": "AsiaAmman"
+            },
+            {
+              "value": "Asia/Baghdad",
+              "name": "AsiaBaghdad"
+            },
+            {
+              "value": "Europe/Kaliningrad",
+              "name": "EuropeKaliningrad"
+            },
+            {
+              "value": "Asia/Aden",
+              "name": "AsiaAden"
+            },
+            {
+              "value": "Africa/Addis_Ababa",
+              "name": "AfricaAddisAbaba"
+            },
+            {
+              "value": "Europe/Kirov",
+              "name": "EuropeKirov"
+            },
+            {
+              "value": "Europe/Astrakhan",
+              "name": "EuropeAstrakhan"
+            },
+            {
+              "value": "Asia/Tehran",
+              "name": "AsiaTehran"
+            },
+            {
+              "value": "Asia/Dubai",
+              "name": "AsiaDubai"
+            },
+            {
+              "value": "Asia/Baku",
+              "name": "AsiaBaku"
+            },
+            {
+              "value": "Indian/Mahe",
+              "name": "IndianMahe"
+            },
+            {
+              "value": "Asia/Tbilisi",
+              "name": "AsiaTbilisi"
+            },
+            {
+              "value": "Asia/Yerevan",
+              "name": "AsiaYerevan"
+            },
+            {
+              "value": "Asia/Kabul",
+              "name": "AsiaKabul"
+            },
+            {
+              "value": "Antarctica/Mawson",
+              "name": "AntarcticaMawson"
+            },
+            {
+              "value": "Asia/Yekaterinburg",
+              "name": "AsiaYekaterinburg"
+            },
+            {
+              "value": "Asia/Karachi",
+              "name": "AsiaKarachi"
+            },
+            {
+              "value": "Asia/Kolkata",
+              "name": "AsiaKolkata"
+            },
+            {
+              "value": "Asia/Colombo",
+              "name": "AsiaColombo"
+            },
+            {
+              "value": "Asia/Kathmandu",
+              "name": "AsiaKathmandu"
+            },
+            {
+              "value": "Antarctica/Vostok",
+              "name": "AntarcticaVostok"
+            },
+            {
+              "value": "Asia/Dhaka",
+              "name": "AsiaDhaka"
+            },
+            {
+              "value": "Asia/Rangoon",
+              "name": "AsiaRangoon"
+            },
+            {
+              "value": "Antarctica/Davis",
+              "name": "AntarcticaDavis"
+            },
+            {
+              "value": "Asia/Novokuznetsk",
+              "name": "AsiaNovokuznetsk"
+            },
+            {
+              "value": "Asia/Hong_Kong",
+              "name": "AsiaHongKong"
+            },
+            {
+              "value": "Asia/Krasnoyarsk",
+              "name": "AsiaKrasnoyarsk"
+            },
+            {
+              "value": "Asia/Brunei",
+              "name": "AsiaBrunei"
+            },
+            {
+              "value": "Australia/Perth",
+              "name": "AustraliaPerth"
+            },
+            {
+              "value": "Asia/Taipei",
+              "name": "AsiaTaipei"
+            },
+            {
+              "value": "Asia/Choibalsan",
+              "name": "AsiaChoibalsan"
+            },
+            {
+              "value": "Asia/Irkutsk",
+              "name": "AsiaIrkutsk"
+            },
+            {
+              "value": "Asia/Dili",
+              "name": "AsiaDili"
+            },
+            {
+              "value": "Asia/Pyongyang",
+              "name": "AsiaPyongyang"
+            },
+            {
+              "value": "Australia/Adelaide",
+              "name": "AustraliaAdelaide"
+            },
+            {
+              "value": "Australia/Darwin",
+              "name": "AustraliaDarwin"
+            },
+            {
+              "value": "Australia/Brisbane",
+              "name": "AustraliaBrisbane"
+            },
+            {
+              "value": "Australia/Melbourne",
+              "name": "AustraliaMelbourne"
+            },
+            {
+              "value": "Antarctica/DumontDUrville",
+              "name": "AntarcticaDumontDUrville"
+            },
+            {
+              "value": "Australia/Currie",
+              "name": "AustraliaCurrie"
+            },
+            {
+              "value": "Asia/Chita",
+              "name": "AsiaChita"
+            },
+            {
+              "value": "Antarctica/Macquarie",
+              "name": "AntarcticaMacquarie"
+            },
+            {
+              "value": "Asia/Sakhalin",
+              "name": "AsiaSakhalin"
+            },
+            {
+              "value": "Pacific/Auckland",
+              "name": "PacificAuckland"
+            },
+            {
+              "value": "Etc/GMT-12",
+              "name": "EtcGmt12"
+            },
+            {
+              "value": "Pacific/Fiji",
+              "name": "PacificFiji"
+            },
+            {
+              "value": "Asia/Anadyr",
+              "name": "AsiaAnadyr"
+            },
+            {
+              "value": "Asia/Kamchatka",
+              "name": "AsiaKamchatka"
+            },
+            {
+              "value": "Etc/GMT-13",
+              "name": "EtcGmt13"
+            },
+            {
+              "value": "Pacific/Apia",
+              "name": "PacificApia"
+            }
+          ]
+        }
+      },
       "PatchCampaignSubsequenceRequestSequencesItemStepsItemType": {
         "enum": [
           "email"
@@ -77459,7 +78453,9 @@
           "pid_addon_ic_50k_v1_annual",
           "pid_bundle_starter_v1",
           "pid_bundle_scale_v1",
-          "pid_bundle_agency_v1"
+          "pid_bundle_scale_v2",
+          "pid_bundle_agency_v1",
+          "pid_bundle_agency_v2"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -77495,7 +78491,9 @@
           "pid_addon_ic_50k_v1_annual": "Addon Instantly Credits Annual",
           "pid_bundle_starter_v1": "Bundle Starter",
           "pid_bundle_scale_v1": "Bundle Scale",
-          "pid_bundle_agency_v1": "Bundle Agency"
+          "pid_bundle_scale_v2": "Bundle Scale V2",
+          "pid_bundle_agency_v1": "Bundle Agency",
+          "pid_bundle_agency_v2": "Bundle Agency V2"
         },
         "x-ms-enum": {
           "name": "GetWorkspacePlanDetails200ResponseSubscriptionsOutreachProductId",
@@ -77614,8 +78612,16 @@
               "name": "PidBundleScaleV1"
             },
             {
+              "value": "pid_bundle_scale_v2",
+              "name": "PidBundleScaleV2"
+            },
+            {
               "value": "pid_bundle_agency_v1",
               "name": "PidBundleAgencyV1"
+            },
+            {
+              "value": "pid_bundle_agency_v2",
+              "name": "PidBundleAgencyV2"
             }
           ]
         }
@@ -77748,12 +78754,14 @@
         "enum": [
           "pid_bundle_starter_v1",
           "pid_bundle_scale_v1",
-          "pid_bundle_agency_v1"
+          "pid_bundle_scale_v2",
+          "pid_bundle_agency_v1",
+          "pid_bundle_agency_v2"
         ],
         "type": "string",
         "additionalProperties": false,
         "nullable": true,
-        "example": "pid_bundle_scale_v1",
+        "example": "pid_bundle_scale_v2",
         "x-ms-enum": {
           "name": "GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId",
           "modelAsString": false,
@@ -77767,8 +78775,16 @@
               "name": "PidBundleScaleV1"
             },
             {
+              "value": "pid_bundle_scale_v2",
+              "name": "PidBundleScaleV2"
+            },
+            {
               "value": "pid_bundle_agency_v1",
               "name": "PidBundleAgencyV1"
+            },
+            {
+              "value": "pid_bundle_agency_v2",
+              "name": "PidBundleAgencyV2"
             }
           ]
         }
