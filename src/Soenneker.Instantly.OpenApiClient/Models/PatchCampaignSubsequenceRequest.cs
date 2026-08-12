@@ -12,7 +12,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class PatchCampaignSubsequenceRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.</summary>
+        /// <summary>Automatically select the winning variant for each step using open, click, or reply rate. Set to `null` to disable automatic selection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect? AutoVariantSelect { get; set; }

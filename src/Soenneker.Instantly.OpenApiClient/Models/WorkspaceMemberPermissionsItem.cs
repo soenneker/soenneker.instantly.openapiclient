@@ -68,6 +68,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         AnalyticsView,
         #pragma warning restore CS1591
+        [EnumMember(Value = "websiteChat.view")]
+        #pragma warning disable CS1591
+        WebsiteChatView,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "websiteChat.manage")]
+        #pragma warning disable CS1591
+        WebsiteChatManage,
+        #pragma warning restore CS1591
         [EnumMember(Value = "agency.manage")]
         #pragma warning disable CS1591
         AgencyManage,

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.
+    /// Automatically select the winning variant for each step using open, click, or reply rate. Set to `null` to disable automatic selection.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateCampaignSubsequenceRequestAutoVariantSelect : IAdditionalDataHolder, IParsable

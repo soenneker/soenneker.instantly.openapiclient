@@ -11182,6 +11182,136 @@
         }
       }
     },
+    "/api/v2/subsequences/{id}/analytics/steps": {
+      "get": {
+        "tags": [
+          "CampaignSubsequence",
+          "Analytics"
+        ],
+        "summary": "Get subsequence step and variant analytics",
+        "description": "\u0022Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.\n\n\nRequires one of the following scopes: \u0060subsequences:read\u0060, \u0060subsequences:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060\u0022",
+        "operationId": "GetSubsequenceStepsAnalytics",
+        "parameters": [
+          {
+            "name": "start_date",
+            "in": "query",
+            "description": "Inclusive start of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or an ISO 8601 timestamp. Timestamps are normalized to their UTC calendar date.",
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-01": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-01T12:00:00.000Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "description": "Inclusive end of the analytics range. Accepts a date-only value (\u0060YYYY-MM-DD\u0060) or an ISO 8601 timestamp. Timestamps are normalized to their UTC calendar date.",
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "examples": {
+              "2024-01-31": {
+                "value": "1970-01-01T00:00:00.000Z"
+              },
+              "2024-01-31T23:59:59.999Z": {
+                "value": "1970-01-01T00:00:00.000Z"
+              }
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the subsequence to analyze.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Engagement metrics grouped by subsequence step and variant.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics200ResponseSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics400Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics402Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics403Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/subsequences/{id}/sending-status": {
       "get": {
         "tags": [
@@ -18219,7 +18349,7 @@
             "$ref": "#/components/schemas/CampaignSubsequenceAutoVariantSelectTrigger"
           }
         },
-        "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+        "description": "Automatically select the winning variant for each step using open, click, or reply rate. Set to \u0060null\u0060 to disable automatic selection.",
         "nullable": true
       },
       "AuditLogAuditMetadata": {
@@ -18627,9 +18757,26 @@
             "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemPreDelayUnit"
           },
           "variants": {
+            "maxItems": 26,
+            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemVariantsItem"
+            },
+            "x-jsonschema-contains": {
+              "type": "object",
+              "not": {
+                "required": [
+                  "v_disabled"
+                ],
+                "properties": {
+                  "v_disabled": {
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
             }
           }
         }
@@ -33072,6 +33219,133 @@
           }
         }
       },
+      "GetSubsequenceStepsAnalytics200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics200ResponseItem"
+        },
+        "description": "Engagement metrics grouped by subsequence step and variant."
+      },
+      "GetSubsequenceStepsAnalytics400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics400ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics400ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          }
+        }
+      },
+      "GetSubsequenceStepsAnalytics401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics401ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetSubsequenceStepsAnalytics402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics402ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetSubsequenceStepsAnalytics403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics403ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Forbidden"
+          }
+        }
+      },
+      "GetSubsequenceStepsAnalytics404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics404ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetSubsequenceStepsAnalytics429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics429ResponseError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
       "GetSubsequenceSendingStatus200Response": {
         "type": "object",
         "properties": {
@@ -38552,6 +38826,13 @@
           "$ref": "#/components/schemas/GetSubsequenceAnalytics200ResponseSchemaItem"
         }
       },
+      "GetSubsequenceStepsAnalytics200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics200ResponseSchemaItem"
+        },
+        "description": "Engagement metrics grouped by subsequence step and variant."
+      },
       "ListWebhookEvent200Response": {
         "required": [
           "items"
@@ -41834,7 +42115,7 @@
             "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestAutoVariantSelectTrigger"
           }
         },
-        "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+        "description": "Automatically select the winning variant for each step using open, click, or reply rate. Set to \u0060null\u0060 to disable automatic selection.",
         "nullable": true
       },
       "GetSubsequenceAnalytics200ResponseItem": {
@@ -41956,8 +42237,83 @@
             "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestAutoVariantSelectTrigger"
           }
         },
-        "description": "Automatically choose a winning variant using campaign-compatible open, click, or reply rate settings.",
+        "description": "Automatically select the winning variant for each step using open, click, or reply rate. Set to \u0060null\u0060 to disable automatic selection.",
         "nullable": true
+      },
+      "GetSubsequenceStepsAnalytics200ResponseItem": {
+        "required": [
+          "step",
+          "variant",
+          "sent",
+          "opened",
+          "unique_opened",
+          "replies",
+          "unique_replies",
+          "replies_automatic",
+          "unique_replies_automatic",
+          "clicks",
+          "unique_clicks"
+        ],
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": "string",
+            "description": "Zero-based step index. \u00600\u0060 is the first step. Null when the event could not be attributed to a step.",
+            "nullable": true,
+            "example": "0"
+          },
+          "variant": {
+            "type": "string",
+            "description": "Zero-based variant index. \u00600\u0060 is variant A, \u00601\u0060 is variant B, and so on. Null when the event could not be attributed to a variant.",
+            "nullable": true,
+            "example": "0"
+          },
+          "sent": {
+            "type": "integer",
+            "description": "Total emails sent from this step and variant.",
+            "example": 100
+          },
+          "opened": {
+            "type": "integer",
+            "description": "Total open events attributed to this step and variant.",
+            "example": 45
+          },
+          "unique_opened": {
+            "type": "integer",
+            "description": "Number of unique leads that opened an email from this step and variant.",
+            "example": 40
+          },
+          "replies": {
+            "type": "integer",
+            "description": "Total replies attributed to this step and variant.",
+            "example": 12
+          },
+          "unique_replies": {
+            "type": "integer",
+            "description": "Number of unique leads that replied to this step and variant.",
+            "example": 11
+          },
+          "replies_automatic": {
+            "type": "integer",
+            "description": "Total automatic replies attributed to this step and variant.",
+            "example": 2
+          },
+          "unique_replies_automatic": {
+            "type": "integer",
+            "description": "Number of unique leads that sent an automatic reply to this step and variant.",
+            "example": 2
+          },
+          "clicks": {
+            "type": "integer",
+            "description": "Total link click events attributed to this step and variant.",
+            "example": 18
+          },
+          "unique_clicks": {
+            "type": "integer",
+            "description": "Number of unique leads that clicked a link in this step and variant.",
+            "example": 15
+          }
+        }
       },
       "GetSubsequenceSendingStatus200ResponseDiagnostics": {
         "type": "object",
@@ -43758,6 +44114,81 @@
           }
         }
       },
+      "GetSubsequenceStepsAnalytics200ResponseSchemaItem": {
+        "required": [
+          "step",
+          "variant",
+          "sent",
+          "opened",
+          "unique_opened",
+          "replies",
+          "unique_replies",
+          "replies_automatic",
+          "unique_replies_automatic",
+          "clicks",
+          "unique_clicks"
+        ],
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": "string",
+            "description": "Zero-based step index. \u00600\u0060 is the first step. Null when the event could not be attributed to a step.",
+            "nullable": true,
+            "example": "0"
+          },
+          "variant": {
+            "type": "string",
+            "description": "Zero-based variant index. \u00600\u0060 is variant A, \u00601\u0060 is variant B, and so on. Null when the event could not be attributed to a variant.",
+            "nullable": true,
+            "example": "0"
+          },
+          "sent": {
+            "type": "integer",
+            "description": "Total emails sent from this step and variant.",
+            "example": 100
+          },
+          "opened": {
+            "type": "integer",
+            "description": "Total open events attributed to this step and variant.",
+            "example": 45
+          },
+          "unique_opened": {
+            "type": "integer",
+            "description": "Number of unique leads that opened an email from this step and variant.",
+            "example": 40
+          },
+          "replies": {
+            "type": "integer",
+            "description": "Total replies attributed to this step and variant.",
+            "example": 12
+          },
+          "unique_replies": {
+            "type": "integer",
+            "description": "Number of unique leads that replied to this step and variant.",
+            "example": 11
+          },
+          "replies_automatic": {
+            "type": "integer",
+            "description": "Total automatic replies attributed to this step and variant.",
+            "example": 2
+          },
+          "unique_replies_automatic": {
+            "type": "integer",
+            "description": "Number of unique leads that sent an automatic reply to this step and variant.",
+            "example": 2
+          },
+          "clicks": {
+            "type": "integer",
+            "description": "Total link click events attributed to this step and variant.",
+            "example": 18
+          },
+          "unique_clicks": {
+            "type": "integer",
+            "description": "Number of unique leads that clicked a link in this step and variant.",
+            "example": 15
+          }
+        }
+      },
       "GetAiEnrichmentForResource200ResponseSchemaItem": {
         "required": [
           "organization_id",
@@ -44866,9 +45297,26 @@
             "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit"
           },
           "variants": {
+            "maxItems": 26,
+            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem"
+            },
+            "x-jsonschema-contains": {
+              "type": "object",
+              "not": {
+                "required": [
+                  "v_disabled"
+                ],
+                "properties": {
+                  "v_disabled": {
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
             }
           }
         }
@@ -44925,9 +45373,26 @@
             "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit"
           },
           "variants": {
+            "maxItems": 26,
+            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem"
+            },
+            "x-jsonschema-contains": {
+              "type": "object",
+              "not": {
+                "required": [
+                  "v_disabled"
+                ],
+                "properties": {
+                  "v_disabled": {
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              }
             }
           }
         }
@@ -48242,6 +48707,8 @@
           "customLeadLabels.delete",
           "unibox.all",
           "analytics.view",
+          "websiteChat.view",
+          "websiteChat.manage",
           "agency.manage",
           "accounts.view",
           "accounts.manage",
@@ -48276,6 +48743,8 @@
           "customLeadLabels.delete": "Delete custom lead labels",
           "unibox.all": "View all unibox",
           "analytics.view": "View analytics",
+          "websiteChat.view": "View Website Chat configuration",
+          "websiteChat.manage": "Manage Website Chat configuration",
           "agency.manage": "Manage agency",
           "accounts.view": "View accounts",
           "accounts.manage": "Manage accounts",
@@ -48354,6 +48823,14 @@
             {
               "value": "analytics.view",
               "name": "AnalyticsView"
+            },
+            {
+              "value": "websiteChat.view",
+              "name": "WebsiteChatView"
+            },
+            {
+              "value": "websiteChat.manage",
+              "name": "WebsiteChatManage"
             },
             {
               "value": "agency.manage",
@@ -65235,6 +65712,142 @@
           ]
         }
       },
+      "GetSubsequenceStepsAnalytics400ResponseStatusCode": {
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 400
+      },
+      "GetSubsequenceStepsAnalytics400ResponseError": {
+        "enum": [
+          "Bad Request"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Bad Request",
+        "x-ms-enum": {
+          "name": "GetSubsequenceStepsAnalytics400ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Bad Request",
+              "name": "BadRequest"
+            }
+          ]
+        }
+      },
+      "GetSubsequenceStepsAnalytics401ResponseStatusCode": {
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetSubsequenceStepsAnalytics401ResponseError": {
+        "enum": [
+          "Unauthorized"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unauthorized"
+      },
+      "GetSubsequenceStepsAnalytics402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetSubsequenceStepsAnalytics402ResponseError": {
+        "enum": [
+          "Payment Required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Payment Required",
+        "x-ms-enum": {
+          "name": "GetSubsequenceStepsAnalytics402ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Payment Required",
+              "name": "PaymentRequired"
+            }
+          ]
+        }
+      },
+      "GetSubsequenceStepsAnalytics403ResponseStatusCode": {
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
+      },
+      "GetSubsequenceStepsAnalytics403ResponseError": {
+        "enum": [
+          "Forbidden"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Forbidden"
+      },
+      "GetSubsequenceStepsAnalytics404ResponseStatusCode": {
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetSubsequenceStepsAnalytics404ResponseError": {
+        "enum": [
+          "Not Found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Not Found",
+        "x-ms-enum": {
+          "name": "GetSubsequenceStepsAnalytics404ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Not Found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
+      "GetSubsequenceStepsAnalytics429ResponseStatusCode": {
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetSubsequenceStepsAnalytics429ResponseError": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Too Many Requests",
+        "x-ms-enum": {
+          "name": "GetSubsequenceStepsAnalytics429ResponseError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
       "GetSubsequenceSendingStatus401ResponseStatusCode": {
         "enum": [
           401
@@ -67680,6 +68293,8 @@
           "customLeadLabels.delete",
           "unibox.all",
           "analytics.view",
+          "websiteChat.view",
+          "websiteChat.manage",
           "agency.manage",
           "accounts.view",
           "accounts.manage",
@@ -67714,6 +68329,8 @@
           "customLeadLabels.delete": "Delete custom lead labels",
           "unibox.all": "View all unibox",
           "analytics.view": "View analytics",
+          "websiteChat.view": "View Website Chat configuration",
+          "websiteChat.manage": "Manage Website Chat configuration",
           "agency.manage": "Manage agency",
           "accounts.view": "View accounts",
           "accounts.manage": "Manage accounts",
@@ -67792,6 +68409,14 @@
             {
               "value": "analytics.view",
               "name": "AnalyticsView"
+            },
+            {
+              "value": "websiteChat.view",
+              "name": "WebsiteChatView"
+            },
+            {
+              "value": "websiteChat.manage",
+              "name": "WebsiteChatManage"
             },
             {
               "value": "agency.manage",
