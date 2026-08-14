@@ -14,7 +14,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class EmailVerification : IParsable
     {
         /// <summary>Whether this is a catch-all email address</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.EmailVerificationCatchAll? CatchAll { get; private set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.EmailVerificationCatchAll CatchAll { get; private set; }
+#endif
         /// <summary>The number of verification credits available after the verification</summary>
         public double? Credits { get; private set; }
         /// <summary>The number of verification credits used</summary>
@@ -49,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "catch_all", n => { CatchAll = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailVerificationCatchAll>(); } },
+                { "catch_all", n => { CatchAll = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailVerificationCatchAll>(global::Soenneker.Instantly.OpenApiClient.Models.EmailVerificationCatchAll.CreateFromDiscriminatorValue); } },
                 { "credits", n => { Credits = n.GetDoubleValue(); } },
                 { "credits_used", n => { CreditsUsed = n.GetDoubleValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },

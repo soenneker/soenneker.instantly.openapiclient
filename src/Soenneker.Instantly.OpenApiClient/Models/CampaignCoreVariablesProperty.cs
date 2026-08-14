@@ -11,26 +11,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Campaign core variables
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CampaignCoreVariables : IAdditionalDataHolder, IParsable
+    public partial class CampaignCoreVariablesProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty"/> and sets the default values.
         /// </summary>
-        public CampaignCoreVariables()
+        public CampaignCoreVariablesProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

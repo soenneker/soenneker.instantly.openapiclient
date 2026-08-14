@@ -28,10 +28,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Optional HTTP headers to include when delivering webhook payloads (key-value pairs)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders? Headers { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeadersProperty? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders Headers { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeadersProperty Headers { get; set; }
 #endif
         /// <summary>Unique identifier for the webhook (UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "campaign", n => { Campaign = n.GetStringValue(); } },
                 { "custom_interest_value", n => { CustomInterestValue = n.GetDoubleValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventType>(); } },
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders>(global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeadersProperty>(global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
@@ -112,7 +112,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("campaign", Campaign);
             writer.WriteDoubleValue("custom_interest_value", CustomInterestValue);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventType>("event_type", EventType);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeaders>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookHeadersProperty>("headers", Headers);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("target_hook_url", TargetHookUrl);
         }

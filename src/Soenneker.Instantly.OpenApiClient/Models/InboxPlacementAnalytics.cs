@@ -74,10 +74,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport? SmtpIpBlacklistReport { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty? SmtpIpBlacklistReport { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport SmtpIpBlacklistReport { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty SmtpIpBlacklistReport { get; set; }
 #endif
         /// <summary>Indicates if the email passed SPF validation. Only present when record_type is 2 (received).</summary>
         public bool? SpfPass { get; set; }
@@ -137,7 +137,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetDoubleValue(); } },
                 { "sender_email", n => { SenderEmail = n.GetStringValue(); } },
                 { "sender_esp", n => { SenderEsp = n.GetDoubleValue(); } },
-                { "smtp_ip_blacklist_report", n => { SmtpIpBlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport.CreateFromDiscriminatorValue); } },
+                { "smtp_ip_blacklist_report", n => { SmtpIpBlacklistReport = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty>(global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty.CreateFromDiscriminatorValue); } },
                 { "spf_pass", n => { SpfPass = n.GetBoolValue(); } },
                 { "test_id", n => { TestId = n.GetStringValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
@@ -163,7 +163,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("record_type", RecordType);
             writer.WriteStringValue("sender_email", SenderEmail);
             writer.WriteDoubleValue("sender_esp", SenderEsp);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
             writer.WriteBoolValue("spf_pass", SpfPass);
             writer.WriteStringValue("test_id", TestId);
         }

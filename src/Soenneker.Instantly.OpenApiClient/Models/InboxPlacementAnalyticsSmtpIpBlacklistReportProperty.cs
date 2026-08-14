@@ -11,26 +11,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class InboxPlacementAnalyticsSmtpIpBlacklistReport : IAdditionalDataHolder, IParsable
+    public partial class InboxPlacementAnalyticsSmtpIpBlacklistReportProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty"/> and sets the default values.
         /// </summary>
-        public InboxPlacementAnalyticsSmtpIpBlacklistReport()
+        public InboxPlacementAnalyticsSmtpIpBlacklistReportProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReport();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

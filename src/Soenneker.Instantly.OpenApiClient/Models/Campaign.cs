@@ -58,18 +58,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Campaign core variables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables? CoreVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty? CoreVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables CoreVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty CoreVariables { get; set; }
 #endif
         /// <summary>Campaign custom variables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariables? CustomVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty? CustomVariables { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariables CustomVariables { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty CustomVariables { get; set; }
 #endif
         /// <summary>The daily limit for sending emails</summary>
         public double? DailyLimit { get; set; }
@@ -221,8 +221,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule.CreateFromDiscriminatorValue); } },
                 { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariables.CreateFromDiscriminatorValue); } },
-                { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariables>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariables.CreateFromDiscriminatorValue); } },
+                { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty.CreateFromDiscriminatorValue); } },
+                { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_max_leads", n => { DailyMaxLeads = n.GetIntValue(); } },
                 { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
@@ -268,6 +268,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule>("campaign_schedule", CampaignSchedule);
             writer.WriteCollectionOfPrimitiveValues<string>("cc_list", CcList);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty>("core_variables", CoreVariables);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty>("custom_variables", CustomVariables);
             writer.WriteDoubleValue("daily_limit", DailyLimit);
             writer.WriteIntValue("daily_max_leads", DailyMaxLeads);
             writer.WriteBoolValue("disable_bounce_protect", DisableBounceProtect);
