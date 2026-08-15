@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkCreatedBlockListEntries"/></returns>
         /// <param name="body">Domains or emails to block</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkCreate
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BulkCreatedBlockListEntries>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BulkCreatedBlockListEntries.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Domains or emails to block</param>

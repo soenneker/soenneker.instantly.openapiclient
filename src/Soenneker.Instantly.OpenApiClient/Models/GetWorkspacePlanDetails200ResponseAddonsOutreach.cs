@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem> MonthlyPricingTiers { get; set; }
 #endif
         /// <summary>The product ID for the Outreach add-on.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachProductId? ProductId { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddon25KlV1ProductId? ProductId { get; set; }
         /// <summary>Reason add-on purchase is blocked, null when purchase is allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval>(); } },
                 { "max_quantity", n => { MaxQuantity = n.GetDoubleValue(); } },
                 { "monthly_pricing_tiers", n => { MonthlyPricingTiers = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "product_id", n => { ProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachProductId>(); } },
+                { "product_id", n => { ProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddon25KlV1ProductId>(); } },
                 { "purchase_blocked_reason", n => { PurchaseBlockedReason = n.GetStringValue(); } },
                 { "unit_lead_limit", n => { UnitLeadLimit = n.GetDoubleValue(); } },
             };
@@ -93,7 +93,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval>("interval", Interval);
             writer.WriteDoubleValue("max_quantity", MaxQuantity);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem>("monthly_pricing_tiers", MonthlyPricingTiers);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachProductId>("product_id", ProductId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddon25KlV1ProductId>("product_id", ProductId);
             writer.WriteStringValue("purchase_blocked_reason", PurchaseBlockedReason);
             writer.WriteDoubleValue("unit_lead_limit", UnitLeadLimit);
             writer.WriteAdditionalData(AdditionalData);

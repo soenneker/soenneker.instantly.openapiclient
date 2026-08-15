@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Resume
         {
         }
         /// <summary>
-        /// &quot;Resume a webhook that was disabled due to repeated delivery failuresRequires one of the following scopes: `webhooks:update`, `webhooks:all`, `all:update`, `all:all`&quot;
+        /// Resume a webhook that was disabled due to repeated delivery failuresRequires one of the following scopes: `webhooks:update`, `webhooks:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Webhook"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks.Item.Resume
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Webhook>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Webhook.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Resume a webhook that was disabled due to repeated delivery failuresRequires one of the following scopes: `webhooks:update`, `webhooks:all`, `all:update`, `all:all`&quot;
+        /// Resume a webhook that was disabled due to repeated delivery failuresRequires one of the following scopes: `webhooks:update`, `webhooks:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

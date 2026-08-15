@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -94,7 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:update`, `block_list_entries:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:update`, `block_list_entries:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry"/></returns>
         /// <param name="body">The request body</param>
@@ -125,7 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -147,7 +147,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -166,7 +166,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:update`, `block_list_entries:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:update`, `block_list_entries:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

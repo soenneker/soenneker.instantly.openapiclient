@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Pause
         {
         }
         /// <summary>
-        /// &quot;Pauses up to 100 email accounts in the authenticated workspace. Each unique email is returned in either `paused_emails` or `failed_emails`.Requires one of the following scopes: `accounts:update`, `accounts:all`, `all:update`, `all:all`&quot;
+        /// Pauses up to 100 email accounts in the authenticated workspace. Each unique email is returned in either `paused_emails` or `failed_emails`.Requires one of the following scopes: `accounts:update`, `accounts:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PauseAccounts200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Pause
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.PauseAccounts200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.PauseAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Pauses up to 100 email accounts in the authenticated workspace. Each unique email is returned in either `paused_emails` or `failed_emails`.Requires one of the following scopes: `accounts:update`, `accounts:all`, `all:update`, `all:all`&quot;
+        /// Pauses up to 100 email accounts in the authenticated workspace. Each unique email is returned in either `paused_emails` or `failed_emails`.Requires one of the following scopes: `accounts:update`, `accounts:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

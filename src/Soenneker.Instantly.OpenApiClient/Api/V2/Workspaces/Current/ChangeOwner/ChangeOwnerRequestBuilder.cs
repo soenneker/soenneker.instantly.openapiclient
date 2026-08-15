@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwne
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ChangeOwne
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -18,7 +18,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Deprecated opposite bound accepted for compatibility and removed during normalization.</summary>
         public double? Min { get; set; }
         /// <summary>Less than or equal operation.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op? Op { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.LteOp? Op { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "max", n => { Max = n.GetDoubleValue(); } },
                 { "min", n => { Min = n.GetDoubleValue(); } },
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.LteOp>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("max", Max);
             writer.WriteDoubleValue("min", Min);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf3Op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.LteOp>("op", Op);
         }
     }
 }

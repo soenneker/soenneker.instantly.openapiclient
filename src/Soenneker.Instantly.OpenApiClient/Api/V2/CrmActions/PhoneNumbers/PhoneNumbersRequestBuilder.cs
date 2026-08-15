@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.PhoneNumbers
         {
         }
         /// <summary>
-        /// &quot;Retrieve all phone numbers associated with the current organization.Requires one of the following scopes: `crm_actions:read`, `crm_actions:all`, `all:read`, `all:all`&quot;
+        /// Retrieve all phone numbers associated with the current organization.Requires one of the following scopes: `crm_actions:read`, `crm_actions:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.ListPhoneNumbers200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.PhoneNumbers
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Retrieve all phone numbers associated with the current organization.Requires one of the following scopes: `crm_actions:read`, `crm_actions:all`, `all:read`, `all:all`&quot;
+        /// Retrieve all phone numbers associated with the current organization.Requires one of the following scopes: `crm_actions:read`, `crm_actions:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -77,7 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
         {
         }
         /// <summary>
-        /// &quot;**Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`&quot;
+        /// **Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListEmail200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;**Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`&quot;
+        /// **Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +134,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;**Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`&quot;
+        /// **Rate Limit:** This endpoint has a rate limit of 20 requests per minute, unlike other API endpoints.Requires one of the following scopes: `emails:read`, `emails:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EmailsRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Subsequence.Move
         {
         }
         /// <summary>
-        /// &quot;Move a lead to a subsequenceRequires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`&quot;
+        /// Move a lead to a subsequenceRequires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Lead"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Subsequence.Move
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Lead>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Lead.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Move a lead to a subsequenceRequires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`&quot;
+        /// Move a lead to a subsequenceRequires one of the following scopes: `leads:update`, `leads:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

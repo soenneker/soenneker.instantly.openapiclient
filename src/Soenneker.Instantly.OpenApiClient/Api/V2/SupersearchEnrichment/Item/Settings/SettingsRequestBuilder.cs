@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
         {
         }
         /// <summary>
-        /// &quot;Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`&quot;
+        /// Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SuperSearchEnrichment"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item.Se
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.SuperSearchEnrichment>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.SuperSearchEnrichment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`&quot;
+        /// Update auto-update and skip settings for a SuperSearch enrichment tied to a specific resourceRequires one of the following scopes: `supersearch_enrichments:create`, `supersearch_enrichments:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

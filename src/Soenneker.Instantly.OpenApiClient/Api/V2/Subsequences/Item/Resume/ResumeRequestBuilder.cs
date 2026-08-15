@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Resume
         {
         }
         /// <summary>
-        /// &quot;Resume a paused subsequenceRequires one of the following scopes: `subsequences:update`, `subsequences:all`, `all:update`, `all:all`&quot;
+        /// Resume a paused subsequenceRequires one of the following scopes: `subsequences:update`, `subsequences:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Resume
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Resume a paused subsequenceRequires one of the following scopes: `subsequences:update`, `subsequences:all`, `all:update`, `all:all`&quot;
+        /// Resume a paused subsequenceRequires one of the following scopes: `subsequences:update`, `subsequences:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

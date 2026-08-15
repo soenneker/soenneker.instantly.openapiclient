@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry&gt;</returns>
         /// <param name="body">The request body</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry"/></returns>
         /// <param name="body">The Block List Entry to create</param>
@@ -159,7 +159,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -181,7 +181,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +200,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:create`, `block_list_entries:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The Block List Entry to create</param>
@@ -231,7 +231,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BlockListsEntriesRequestBuilderDeleteQueryParameters 
@@ -251,7 +251,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
 #endif
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:read`, `block_list_entries:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BlockListsEntriesRequestBuilderGetQueryParameters 

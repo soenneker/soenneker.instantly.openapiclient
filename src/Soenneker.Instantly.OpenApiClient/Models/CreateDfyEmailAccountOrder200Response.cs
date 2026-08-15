@@ -150,7 +150,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType PricePerAccountPerMonthByAccountType { get; set; }
 #endif
-        /// <summary>&quot;The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for 50-100 mailboxes). Null for Google / AirMail-only orders.&quot;</summary>
+        /// <summary>The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for 50-100 mailboxes). Null for Google / AirMail-only orders.</summary>
         public double? PricePerDomainPerMonth { get; set; }
         /// <summary>The price per domain per year</summary>
         public double? PricePerDomainPerYear { get; set; }

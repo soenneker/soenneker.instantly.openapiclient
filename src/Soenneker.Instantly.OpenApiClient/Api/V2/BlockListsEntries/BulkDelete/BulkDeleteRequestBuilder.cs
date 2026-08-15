@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry&gt;</returns>
         /// <param name="body">Block list entry ids to delete</param>
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BulkDelete
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Block list entry ids to delete</param>

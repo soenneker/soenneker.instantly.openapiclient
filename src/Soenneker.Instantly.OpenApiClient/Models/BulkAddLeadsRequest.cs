@@ -38,7 +38,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string CampaignId { get; set; }
 #endif
-        /// <summary>&quot;An array of lead objects to create. When using `campaign_id`: Each lead object must contain an `email`. When using `list_id` Each lead object must contain at least one of the following: `email`, `first_name`, or `last_name`.&quot;</summary>
+        /// <summary>An array of lead objects to create. When using `campaign_id`: Each lead object must contain an `email`. When using `list_id` Each lead object must contain at least one of the following: `email`, `first_name`, or `last_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>? Leads { get; set; }

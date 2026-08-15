@@ -7,28 +7,24 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf2"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SendTestEmail200Response : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class SendTestEmail200Response : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf1? SendTestEmail200ResponseOneOf1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf1 SendTestEmail200ResponseOneOf1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf2? SendTestEmail200ResponseOneOf2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf2 SendTestEmail200ResponseOneOf2 { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The error property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseError? Error { get; set; }
+        /// <summary>The status property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.SuccessStatus? Status { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response"/> and sets the default values.
+        /// </summary>
+        public SendTestEmail200Response()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response();
-            if("SendTestEmail200ResponseOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.SendTestEmail200ResponseOneOf1 = new global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf1();
-            }
-            else if("SendTestEmail200ResponseOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.SendTestEmail200ResponseOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf2();
-            }
-            return result;
+            return new global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,15 +41,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(SendTestEmail200ResponseOneOf1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return SendTestEmail200ResponseOneOf1.GetFieldDeserializers();
-            }
-            else if(SendTestEmail200ResponseOneOf2 != null)
-            {
-                return SendTestEmail200ResponseOneOf2.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseError>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SuccessStatus>(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -72,14 +54,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(SendTestEmail200ResponseOneOf1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf1>(null, SendTestEmail200ResponseOneOf1);
-            }
-            else if(SendTestEmail200ResponseOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseOneOf2>(null, SendTestEmail200ResponseOneOf2);
-            }
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200ResponseError>("error", Error);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SuccessStatus>("status", Status);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

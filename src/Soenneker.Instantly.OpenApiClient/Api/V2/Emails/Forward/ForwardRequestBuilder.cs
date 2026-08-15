@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward
         {
         }
         /// <summary>
-        /// &quot;Forward an existing email to another recipient. You must specify the `reply_to_uuid` field, which represents the `id` of an existing email returned by the `/emails` endpoints. By default only the provided body is sent. Set `include_original_body` to `true` to append the original email context.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`&quot;
+        /// Forward an existing email to another recipient. You must specify the `reply_to_uuid` field, which represents the `id` of an existing email returned by the `/emails` endpoints. By default only the provided body is sent. Set `include_original_body` to `true` to append the original email context.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Email"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Forward
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Email>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Email.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Forward an existing email to another recipient. You must specify the `reply_to_uuid` field, which represents the `id` of an existing email returned by the `/emails` endpoints. By default only the provided body is sent. Set `include_original_body` to `true` to append the original email context.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`&quot;
+        /// Forward an existing email to another recipient. You must specify the `reply_to_uuid` field, which represents the `id` of an existing email returned by the `/emails` endpoints. By default only the provided body is sent. Set `include_original_body` to `true` to append the original email context.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

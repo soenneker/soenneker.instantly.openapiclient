@@ -57,7 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Organization { get; private set; }
 #endif
-        /// <summary>&quot;Webhook status: 1 = active, -1 = error (disabled due to delivery failures)&quot;</summary>
+        /// <summary>Webhook status: 1 = active, -1 = error (disabled due to delivery failures)</summary>
         public double? Status { get; private set; }
         /// <summary>Target URL to send webhook payloads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

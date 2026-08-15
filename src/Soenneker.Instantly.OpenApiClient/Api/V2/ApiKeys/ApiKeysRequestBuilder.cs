@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:read`, `api_keys:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:read`, `api_keys:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListApiKey200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListApiKey200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListApiKey200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:create`, `api_keys:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:create`, `api_keys:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ApiKey"/></returns>
         /// <param name="body">The API Key to create</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ApiKey>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ApiKey.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:read`, `api_keys:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:read`, `api_keys:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:create`, `api_keys:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:create`, `api_keys:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The API Key to create</param>
@@ -159,7 +159,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeysRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:read`, `api_keys:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:read`, `api_keys:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ApiKeysRequestBuilderGetQueryParameters 

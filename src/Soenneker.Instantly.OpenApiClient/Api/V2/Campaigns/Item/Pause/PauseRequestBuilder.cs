@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `campaigns:update`, `campaigns:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `campaigns:update`, `campaigns:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Campaign"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Pause
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Campaign>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Campaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `campaigns:update`, `campaigns:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `campaigns:update`, `campaigns:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

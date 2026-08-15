@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Error { get; set; }
 #endif
         /// <summary>The errorCode property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch409ResponseErrorCode? ErrorCode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CompanyListNotReadyErrorCode? ErrorCode { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>The message property</summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "errorCode", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch409ResponseErrorCode>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CompanyListNotReadyErrorCode>(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch409ResponseErrorCode>("errorCode", ErrorCode);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CompanyListNotReadyErrorCode>("errorCode", ErrorCode);
             writer.WriteStringValue("message", MessageEscaped);
             writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);

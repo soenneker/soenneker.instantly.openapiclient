@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SearchByContact200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.SearchByContact200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.SearchByContact200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.SearchByContact.SearchByContactRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchByContactRequestBuilderGetQueryParameters 

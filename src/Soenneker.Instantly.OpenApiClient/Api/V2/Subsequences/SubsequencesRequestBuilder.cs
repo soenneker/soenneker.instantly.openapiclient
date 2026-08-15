@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCampaignSubsequence200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListCampaignSubsequence200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListCampaignSubsequence200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence"/></returns>
         /// <param name="body">The Campaign Subsequence to create</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +134,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The Campaign Subsequence to create</param>
@@ -165,7 +165,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.SubsequencesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SubsequencesRequestBuilderGetQueryParameters 

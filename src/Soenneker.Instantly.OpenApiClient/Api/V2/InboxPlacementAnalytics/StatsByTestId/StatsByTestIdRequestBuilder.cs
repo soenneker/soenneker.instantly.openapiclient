@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
         {
         }
         /// <summary>
-        /// &quot;Provides aggregated inbox, spam and category counts for specified test IDsRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
+        /// Provides aggregated inbox, spam and category counts for specified test IDsRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByTestId200ResponseSchemaItem&gt;</returns>
         /// <param name="body">The request body</param>
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Provides aggregated inbox, spam and category counts for specified test IDsRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
+        /// Provides aggregated inbox, spam and category counts for specified test IDsRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

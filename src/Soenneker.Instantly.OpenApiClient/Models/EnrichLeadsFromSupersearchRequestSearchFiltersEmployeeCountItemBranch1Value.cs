@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>&quot;Legacy format: Predefined employee count range&quot;</summary>
+    /// <summary>Legacy format: Predefined employee count range</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemBranch1Value
     {

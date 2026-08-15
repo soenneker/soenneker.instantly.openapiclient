@@ -48,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ListName { get; set; }
 #endif
-        /// <summary>&quot;Deprecated: always `null`. Live lists are retired — use a Lead Finder Agent instead.&quot;</summary>
+        /// <summary>Deprecated: always `null`. Live lists are retired — use a Lead Finder Agent instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LiveListWorkflowId { get; set; }
@@ -72,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ResourceId { get; set; }
 #endif
-        /// <summary>&quot;Resource type: 1=Campaign, 2=List (default)&quot;</summary>
+        /// <summary>Resource type: 1=Campaign, 2=List (default)</summary>
         public double? ResourceType { get; set; }
         /// <summary>The search filters used for enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

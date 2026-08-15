@@ -46,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Place a Done-For-You (DFY) email account order for your workspace.**Order types**- `dfy`: Buy new DFY accounts on new custom domains.- `pre_warmed_up`: Buy available pre-warmed domains returned by `/dfy-email-account-orders/domains/pre-warmed-up-list`.- `extra_accounts`: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same `email_provider`.**Provider limits and pricing**- `1` Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `2` AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `3` Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.**Before ordering**- Regular DFY domains must use supported TLDs: .com, .org.- Check new-domain availability with `/dfy-email-account-orders/domains/check`.- Domains containing trademarks of well-known companies are restricted and cannot be ordered.- For pre-warmed orders, choose a domain from `/dfy-email-account-orders/domains/pre-warmed-up-list`; if none are available, use a regular `dfy` order instead.- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
+        /// Place a Done-For-You (DFY) email account order for your workspace.**Order types**- `dfy`: Buy new DFY accounts on new custom domains.- `pre_warmed_up`: Buy available pre-warmed domains returned by `/dfy-email-account-orders/domains/pre-warmed-up-list`.- `extra_accounts`: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same `email_provider`.**Provider limits and pricing**- `1` Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `2` AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `3` Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.**Before ordering**- Regular DFY domains must use supported TLDs: .com, .org.- Check new-domain availability with `/dfy-email-account-orders/domains/check`.- Domains containing trademarks of well-known companies are restricted and cannot be ordered.- For pre-warmed orders, choose a domain from `/dfy-email-account-orders/domains/pre-warmed-up-list`; if none are available, use a regular `dfy` order instead.- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -106,7 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -125,7 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Place a Done-For-You (DFY) email account order for your workspace.**Order types**- `dfy`: Buy new DFY accounts on new custom domains.- `pre_warmed_up`: Buy available pre-warmed domains returned by `/dfy-email-account-orders/domains/pre-warmed-up-list`.- `extra_accounts`: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same `email_provider`.**Provider limits and pricing**- `1` Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `2` AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `3` Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.**Before ordering**- Regular DFY domains must use supported TLDs: .com, .org.- Check new-domain availability with `/dfy-email-account-orders/domains/check`.- Domains containing trademarks of well-known companies are restricted and cannot be ordered.- For pre-warmed orders, choose a domain from `/dfy-email-account-orders/domains/pre-warmed-up-list`; if none are available, use a regular `dfy` order instead.- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`&quot;
+        /// Place a Done-For-You (DFY) email account order for your workspace.**Order types**- `dfy`: Buy new DFY accounts on new custom domains.- `pre_warmed_up`: Buy available pre-warmed domains returned by `/dfy-email-account-orders/domains/pre-warmed-up-list`.- `extra_accounts`: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same `email_provider`.**Provider limits and pricing**- `1` Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `2` AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.- `3` Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.**Before ordering**- Regular DFY domains must use supported TLDs: .com, .org.- Check new-domain availability with `/dfy-email-account-orders/domains/check`.- Domains containing trademarks of well-known companies are restricted and cannot be ordered.- For pre-warmed orders, choose a domain from `/dfy-email-account-orders/domains/pre-warmed-up-list`; if none are available, use a regular `dfy` order instead.- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.Requires one of the following scopes: `dfy_email_account_orders:create`, `dfy_email_account_orders:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -156,7 +156,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `dfy_email_account_orders:read`, `dfy_email_account_orders:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DfyEmailAccountOrdersRequestBuilderGetQueryParameters 

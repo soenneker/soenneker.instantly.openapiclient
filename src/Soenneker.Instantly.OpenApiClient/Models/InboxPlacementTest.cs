@@ -97,7 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> Recipients { get; private set; }
 #endif
-        /// <summary>&quot;A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the `GET: /inbox-placement-tests/email-service-provider-options` endpoint&quot;</summary>
+        /// <summary>A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the `GET: /inbox-placement-tests/email-service-provider-options` endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTestRecipientsLabelsItem>? RecipientsLabels { get; set; }

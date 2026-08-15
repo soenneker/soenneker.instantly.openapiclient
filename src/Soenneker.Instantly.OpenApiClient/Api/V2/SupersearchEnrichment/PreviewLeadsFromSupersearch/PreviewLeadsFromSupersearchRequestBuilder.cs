@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
         {
         }
         /// <summary>
-        /// &quot;Preview the leads matching a SuperSearch query without enriching themRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`&quot;
+        /// Preview the leads matching a SuperSearch query without enriching themRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Preview the leads matching a SuperSearch query without enriching themRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`&quot;
+        /// Preview the leads matching a SuperSearch query without enriching themRequires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

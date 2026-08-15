@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Test
         {
         }
         /// <summary>
-        /// &quot;Send a preview/test email without creating an email entity in Unibox. Rate limit: 10 requests per minute per workspace.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`&quot;
+        /// Send a preview/test email without creating an email entity in Unibox. Rate limit: 10 requests per minute per workspace.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Test
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.SendTestEmail200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Send a preview/test email without creating an email entity in Unibox. Rate limit: 10 requests per minute per workspace.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`&quot;
+        /// Send a preview/test email without creating an email entity in Unibox. Rate limit: 10 requests per minute per workspace.Requires one of the following scopes: `emails:create`, `emails:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

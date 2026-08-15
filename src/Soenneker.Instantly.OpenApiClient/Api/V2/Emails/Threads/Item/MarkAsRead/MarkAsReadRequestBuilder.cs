@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRea
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `emails:update`, `emails:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `emails:update`, `emails:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MarkThreadAsRead200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails.Threads.Item.MarkAsRea
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.MarkThreadAsRead200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.MarkThreadAsRead200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `emails:update`, `emails:all`, `all:update`, `all:all`&quot;
+        /// Requires one of the following scopes: `emails:update`, `emails:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

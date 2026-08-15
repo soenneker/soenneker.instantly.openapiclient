@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Deliv
         {
         }
         /// <summary>
-        /// &quot;Provides deliverability insights for a specific inbox placement testRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
+        /// Provides deliverability insights for a specific inbox placement testRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsDeliverabilityInsights200ResponseSchemaItem&gt;</returns>
         /// <param name="body">The request body</param>
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Deliv
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Provides deliverability insights for a specific inbox placement testRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
+        /// Provides deliverability insights for a specific inbox placement testRequires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

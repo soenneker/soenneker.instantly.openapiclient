@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Duplicate
         {
         }
         /// <summary>
-        /// &quot;Duplicate a subsequence with the same trigger conditionsRequires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`&quot;
+        /// Duplicate a subsequence with the same trigger conditionsRequires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Duplicate
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Duplicate a subsequence with the same trigger conditionsRequires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`&quot;
+        /// Duplicate a subsequence with the same trigger conditionsRequires one of the following scopes: `subsequences:create`, `subsequences:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

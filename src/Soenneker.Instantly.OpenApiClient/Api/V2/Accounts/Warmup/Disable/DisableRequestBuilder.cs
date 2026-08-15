@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
         {
         }
         /// <summary>
-        /// &quot;Initiates a background job to disable warmup for the specified accounts. The response will contain the initial background job object. You can monitor the job&apos;s progress by polling the `GET: /api/v2/background-jobs/:id` endpoint.&quot;
+        /// Initiates a background job to disable warmup for the specified accounts. The response will contain the initial background job object. You can monitor the job&apos;s progress by polling the `GET: /api/v2/background-jobs/:id` endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Warmup.Disable
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Initiates a background job to disable warmup for the specified accounts. The response will contain the initial background job object. You can monitor the job&apos;s progress by polling the `GET: /api/v2/background-jobs/:id` endpoint.&quot;
+        /// Initiates a background job to disable warmup for the specified accounts. The response will contain the initial background job object. You can monitor the job&apos;s progress by polling the `GET: /api/v2/background-jobs/:id` endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

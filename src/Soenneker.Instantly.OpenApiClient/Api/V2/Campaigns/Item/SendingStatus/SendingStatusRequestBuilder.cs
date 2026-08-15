@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus
         {
         }
         /// <summary>
-        /// &quot;Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`&quot;
+        /// Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`&quot;
+        /// Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.SendingStatus.SendingStatusRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`&quot;
+        /// Returns sending status data explaining why a campaign may not be sending emails or is sending slower than expected. Note: Some fields may be missing when the campaign is out of schedule. Always-present fields: campaign_id, last_updated, status, issue_tracking.Requires one of the following scopes: `campaigns:read`, `campaigns:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SendingStatusRequestBuilderGetQueryParameters 

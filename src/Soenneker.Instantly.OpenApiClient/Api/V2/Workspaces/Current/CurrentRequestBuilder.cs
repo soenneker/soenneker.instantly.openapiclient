@@ -52,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
         {
         }
         /// <summary>
-        /// &quot;Get your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will return the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:read`, `workspaces:all`, `all:read`, `all:all`&quot;
+        /// Get your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will return the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:read`, `workspaces:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -81,7 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Update your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will update the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;
+        /// Update your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will update the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="body">The request body</param>
@@ -112,7 +112,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will return the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:read`, `workspaces:all`, `all:read`, `all:all`&quot;
+        /// Get your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will return the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:read`, `workspaces:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -131,7 +131,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Update your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will update the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`&quot;
+        /// Update your current workspace details. Note that this endpoint doesn&apos;t require any parameters. It will update the workspace based on the API key sent in the headers.Requires one of the following scopes: `workspaces:update`, `workspaces:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

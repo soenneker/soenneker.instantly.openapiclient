@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJob.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.Item.BackgroundJobsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BackgroundJobsItemRequestBuilderGetQueryParameters 

@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `custom_tags:create`, `custom_tags:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `custom_tags:create`, `custom_tags:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CustomTag"/></returns>
         /// <param name="body">The Custom Tag to create</param>
@@ -117,7 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CustomTag>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CustomTag.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +136,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `custom_tags:create`, `custom_tags:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `custom_tags:create`, `custom_tags:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The Custom Tag to create</param>
@@ -167,7 +167,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.CustomTagsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `custom_tags:read`, `custom_tags:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CustomTagsRequestBuilderGetQueryParameters 

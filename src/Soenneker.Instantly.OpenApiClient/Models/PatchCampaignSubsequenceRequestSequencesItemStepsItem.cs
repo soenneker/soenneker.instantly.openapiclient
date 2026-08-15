@@ -23,7 +23,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit? PreDelayUnit { get; set; }
         /// <summary>Type of step. This has to be &apos;email&apos; always - it&apos;s the only supported type for now</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemType? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.EmailType? Type { get; set; }
         /// <summary>The variants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "delay_unit", n => { DelayUnit = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit>(); } },
                 { "pre_delay", n => { PreDelay = n.GetDoubleValue(); } },
                 { "pre_delay_unit", n => { PreDelayUnit = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailType>(); } },
                 { "variants", n => { Variants = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit>("delay_unit", DelayUnit);
             writer.WriteDoubleValue("pre_delay", PreDelay);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemPreDelayUnit>("pre_delay_unit", PreDelayUnit);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailType>("type", Type);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem>("variants", Variants);
             writer.WriteAdditionalData(AdditionalData);
         }

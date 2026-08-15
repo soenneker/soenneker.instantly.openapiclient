@@ -17,7 +17,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Annual price for one Instantly Credits add-on unit in dollars.</summary>
         public double? AnnualPriceInDollars { get; set; }
         /// <summary>The annual product ID for the Instantly Credits add-on.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsAnnualProductId? AnnualProductId { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId? AnnualProductId { get; set; }
         /// <summary>Number of additional annual credits included in one add-on unit.</summary>
         public double? AnnualUnitCredits { get; set; }
         /// <summary>Whether the workspace can purchase Instantly Credits add-ons.</summary>
@@ -31,7 +31,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Monthly price for one Instantly Credits add-on unit in dollars.</summary>
         public double? MonthlyPriceInDollars { get; set; }
         /// <summary>The monthly product ID for the Instantly Credits add-on.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsProductId? ProductId { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId? ProductId { get; set; }
         /// <summary>Reason add-on purchase is blocked, null when purchase is allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,14 +68,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "annual_price_in_dollars", n => { AnnualPriceInDollars = n.GetDoubleValue(); } },
-                { "annual_product_id", n => { AnnualProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsAnnualProductId>(); } },
+                { "annual_product_id", n => { AnnualProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId>(); } },
                 { "annual_unit_credits", n => { AnnualUnitCredits = n.GetDoubleValue(); } },
                 { "can_purchase", n => { CanPurchase = n.GetBoolValue(); } },
                 { "existing_quantity", n => { ExistingQuantity = n.GetDoubleValue(); } },
                 { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval>(); } },
                 { "max_quantity", n => { MaxQuantity = n.GetDoubleValue(); } },
                 { "monthly_price_in_dollars", n => { MonthlyPriceInDollars = n.GetDoubleValue(); } },
-                { "product_id", n => { ProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsProductId>(); } },
+                { "product_id", n => { ProductId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId>(); } },
                 { "purchase_blocked_reason", n => { PurchaseBlockedReason = n.GetStringValue(); } },
                 { "unit_credits", n => { UnitCredits = n.GetDoubleValue(); } },
             };
@@ -88,14 +88,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("annual_price_in_dollars", AnnualPriceInDollars);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsAnnualProductId>("annual_product_id", AnnualProductId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId>("annual_product_id", AnnualProductId);
             writer.WriteDoubleValue("annual_unit_credits", AnnualUnitCredits);
             writer.WriteBoolValue("can_purchase", CanPurchase);
             writer.WriteDoubleValue("existing_quantity", ExistingQuantity);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval>("interval", Interval);
             writer.WriteDoubleValue("max_quantity", MaxQuantity);
             writer.WriteDoubleValue("monthly_price_in_dollars", MonthlyPriceInDollars);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsProductId>("product_id", ProductId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId>("product_id", ProductId);
             writer.WriteStringValue("purchase_blocked_reason", PurchaseBlockedReason);
             writer.WriteDoubleValue("unit_credits", UnitCredits);
             writer.WriteAdditionalData(AdditionalData);

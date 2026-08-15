@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
         {
         }
         /// <summary>
-        /// &quot;Provides a time series representing the distribution of emails sent to inbox, spam, or category folders for scheduled inbox placement tests.Requires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
+        /// Provides a time series representing the distribution of emails sent to inbox, spam, or category folders for scheduled inbox placement tests.Requires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementAnalyticsStatsByDate200ResponseSchemaItem&gt;</returns>
         /// <param name="body">The request body</param>
@@ -66,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics.Stats
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Provides a time series representing the distribution of emails sent to inbox, spam, or category folders for scheduled inbox placement tests.Requires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`&quot;
+        /// Provides a time series representing the distribution of emails sent to inbox, spam, or category folders for scheduled inbox placement tests.Requires one of the following scopes: `inbox_placement_analytics:read`, `inbox_placement_analytics:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel
         {
         }
         /// <summary>
-        /// &quot;Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`&quot;
+        /// Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.AiReplyLabel
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.TestAiReplyLabelLeadLabels200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`&quot;
+        /// Returns the AI-predicted lead label for a reply text. This simulates how AI auto-tagging would label an incoming reply for testing custom labels and descriptions. Rate limit: 500 requests per 30 days per workspace. This rate limit applies only to this testing endpoint; live reply processing does not use this limiter.Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

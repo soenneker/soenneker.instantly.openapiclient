@@ -16,11 +16,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The error property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402ResponseError? Error { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.RateLimitExceededError? Error { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
         /// <summary>The message property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402ResponseMessage? MessageEscaped { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.RateLimitExceededMessage? MessageEscaped { get; set; }
         /// <summary>The statusCode property</summary>
         public double? StatusCode { get; set; }
         /// <summary>
@@ -48,8 +48,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402ResponseError>(); } },
-                { "message", n => { MessageEscaped = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402ResponseMessage>(); } },
+                { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RateLimitExceededError>(); } },
+                { "message", n => { MessageEscaped = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RateLimitExceededMessage>(); } },
                 { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
         }
@@ -60,8 +60,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402ResponseError>("error", Error);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402ResponseMessage>("message", MessageEscaped);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RateLimitExceededError>("error", Error);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RateLimitExceededMessage>("message", MessageEscaped);
             writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
         {
         }
         /// <summary>
-        /// &quot;Adds up to 1000 leads to either a campaign or a list. You must provide a `campaign_id` or a `list_id`, but not both. The endpoint validates emails, checks against blocklists and existing leads.Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`&quot;
+        /// Adds up to 1000 leads to either a campaign or a list. You must provide a `campaign_id` or a `list_id`, but not both. The endpoint validates emails, checks against blocklists and existing leads.Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.Add
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Adds up to 1000 leads to either a campaign or a list. You must provide a `campaign_id` or a `list_id`, but not both. The endpoint validates emails, checks against blocklists and existing leads.Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`&quot;
+        /// Adds up to 1000 leads to either a campaign or a list. You must provide a `campaign_id` or a `list_id`, but not both. The endpoint validates emails, checks against blocklists and existing leads.Requires one of the following scopes: `leads:create`, `leads:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

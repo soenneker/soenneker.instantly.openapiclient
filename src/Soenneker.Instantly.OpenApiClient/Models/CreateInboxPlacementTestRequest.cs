@@ -73,7 +73,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Why the inbox placement test is currently not sending. It will be an empty string if there are no issues.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestNotSendingStatus? NotSendingStatus { get; set; }
-        /// <summary>&quot;A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the `GET: /inbox-placement-tests/email-service-provider-options` endpoint&quot;</summary>
+        /// <summary>A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the `GET: /inbox-placement-tests/email-service-provider-options` endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestRecipientsLabelsItem>? RecipientsLabels { get; set; }

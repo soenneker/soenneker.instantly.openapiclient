@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJob200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `background-jobs:read`, `background-jobs:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BackgroundJobsRequestBuilderGetQueryParameters 
@@ -170,7 +170,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
 #endif
-            /// <summary>&quot;The status of the job. Multiple statuses can be provided as a comma-separated list. Valid statuses are: pending, in-progress, success, failed, draining, paused, cancelled&quot;</summary>
+            /// <summary>The status of the job. Multiple statuses can be provided as a comma-separated list. Valid statuses are: pending, in-progress, success, failed, draining, paused, cancelled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("status")]

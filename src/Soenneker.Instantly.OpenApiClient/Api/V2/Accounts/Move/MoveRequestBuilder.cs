@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Move
         {
         }
         /// <summary>
-        /// &quot;Move accounts between workspaces. IMPORTANT: this endpoint should be called ONLY with an ADMIN workspace API key (check the workspace group docs: https://developer.instantly.ai/workspace-group), and both the source and destination workspaces must have the same admin workspace.&quot;
+        /// Move accounts between workspaces. IMPORTANT: this endpoint should be called ONLY with an ADMIN workspace API key (check the workspace group docs: https://developer.instantly.ai/workspace-group), and both the source and destination workspaces must have the same admin workspace.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MoveAccounts200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Move
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.MoveAccounts200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.MoveAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Move accounts between workspaces. IMPORTANT: this endpoint should be called ONLY with an ADMIN workspace API key (check the workspace group docs: https://developer.instantly.ai/workspace-group), and both the source and destination workspaces must have the same admin workspace.&quot;
+        /// Move accounts between workspaces. IMPORTANT: this endpoint should be called ONLY with an ADMIN workspace API key (check the workspace group docs: https://developer.instantly.ai/workspace-group), and both the source and destination workspaces must have the same admin workspace.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

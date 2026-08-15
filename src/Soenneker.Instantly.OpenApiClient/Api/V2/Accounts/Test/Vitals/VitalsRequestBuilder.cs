@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test.Vitals
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `accounts:read`, `accounts:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `accounts:read`, `accounts:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Test.Vitals
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `accounts:read`, `accounts:all`, `all:read`, `all:all`&quot;
+        /// Requires one of the following scopes: `accounts:read`, `accounts:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

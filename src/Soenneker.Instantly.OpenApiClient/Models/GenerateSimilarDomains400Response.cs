@@ -16,7 +16,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GenerateSimilarDomains400ResponseCode? Code { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.RestrictedDomainCode? Code { get; set; }
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GenerateSimilarDomains400ResponseCode>(); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RestrictedDomainCode>(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "keyword", n => { Keyword = n.GetStringValue(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GenerateSimilarDomains400ResponseCode>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RestrictedDomainCode>("code", Code);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("keyword", Keyword);
             writer.WriteStringValue("message", MessageEscaped);

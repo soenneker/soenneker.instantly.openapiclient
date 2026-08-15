@@ -18,7 +18,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Minimum employee count (inclusive).</summary>
         public double? Min { get; set; }
         /// <summary>Between operation.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op? Op { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.BetweenOp? Op { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "max", n => { Max = n.GetDoubleValue(); } },
                 { "min", n => { Min = n.GetDoubleValue(); } },
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BetweenOp>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("max", Max);
             writer.WriteDoubleValue("min", Min);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4Op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.BetweenOp>("op", Op);
         }
     }
 }

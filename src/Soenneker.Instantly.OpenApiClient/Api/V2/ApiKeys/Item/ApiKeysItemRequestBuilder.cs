@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Item
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:delete`, `api_keys:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:delete`, `api_keys:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ApiKey"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ApiKey>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ApiKey.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `api_keys:delete`, `api_keys:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `api_keys:delete`, `api_keys:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

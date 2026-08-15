@@ -33,7 +33,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string RestrictedKeyword { get; set; }
 #endif
         /// <summary>Present when a domain is unavailable because it is restricted</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItemUnavailableReason? UnavailableReason { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason? UnavailableReason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItem"/> and sets the default values.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "available", n => { Available = n.GetBoolValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "restricted_keyword", n => { RestrictedKeyword = n.GetStringValue(); } },
-                { "unavailable_reason", n => { UnavailableReason = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItemUnavailableReason>(); } },
+                { "unavailable_reason", n => { UnavailableReason = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason>(); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("available", Available);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("restricted_keyword", RestrictedKeyword);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItemUnavailableReason>("unavailable_reason", UnavailableReason);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason>("unavailable_reason", UnavailableReason);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

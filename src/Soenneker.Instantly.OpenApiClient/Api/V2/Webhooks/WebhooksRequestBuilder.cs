@@ -82,7 +82,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListWebhook200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListWebhook200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `webhooks:create`, `webhooks:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `webhooks:create`, `webhooks:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Webhook"/></returns>
         /// <param name="body">The Webhook to create</param>
@@ -134,7 +134,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Webhooks
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `webhooks:create`, `webhooks:all`, `all:create`, `all:all`&quot;
+        /// Requires one of the following scopes: `webhooks:create`, `webhooks:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The Webhook to create</param>

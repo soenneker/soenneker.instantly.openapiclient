@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalK
         {
         }
         /// <summary>
-        /// &quot;Return the top matching keyword tokens for a given signal category and keyword field, aggregated from the last 90 days of signal data. Powers the Signals filter autocomplete in the Lead Finder. Unknown (category, field) pairs return 400.Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`&quot;
+        /// Return the top matching keyword tokens for a given signal category and keyword field, aggregated from the last 90 days of signal data. Powers the Signals filter autocomplete in the Lead Finder. Unknown (category, field) pairs return 400.Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SignalKeywordsFacet200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalK
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.SignalKeywordsFacet200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.SignalKeywordsFacet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Return the top matching keyword tokens for a given signal category and keyword field, aggregated from the last 90 days of signal data. Powers the Signals filter autocomplete in the Lead Finder. Unknown (category, field) pairs return 400.Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`&quot;
+        /// Return the top matching keyword tokens for a given signal category and keyword field, aggregated from the last 90 days of signal data. Powers the Signals filter autocomplete in the Lead Finder. Unknown (category, field) pairs return 400.Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification
         {
         }
         /// <summary>
-        /// &quot;If an email takes longer than 10 seconds to verify, the endpoint will return the status as `pending`. In that case, you may use the `/email-verification/:email` endpoint to check the status of the verification job.Alternatively, you can send a `webhook_url` to receive the results instead of polling the status endpoint.Requires one of the following scopes: `email_verifications:create`Requires one of the following scopes: `email_verifications:create`, `email_verifications:all`, `all:create`, `all:all`&quot;
+        /// If an email takes longer than 10 seconds to verify, the endpoint will return the status as `pending`. In that case, you may use the `/email-verification/:email` endpoint to check the status of the verification job.Alternatively, you can send a `webhook_url` to receive the results instead of polling the status endpoint.Requires one of the following scopes: `email_verifications:create`Requires one of the following scopes: `email_verifications:create`, `email_verifications:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification"/></returns>
         /// <param name="body">The Email Verification to create</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.EmailVerification.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;If an email takes longer than 10 seconds to verify, the endpoint will return the status as `pending`. In that case, you may use the `/email-verification/:email` endpoint to check the status of the verification job.Alternatively, you can send a `webhook_url` to receive the results instead of polling the status endpoint.Requires one of the following scopes: `email_verifications:create`Requires one of the following scopes: `email_verifications:create`, `email_verifications:all`, `all:create`, `all:all`&quot;
+        /// If an email takes longer than 10 seconds to verify, the endpoint will return the status as `pending`. In that case, you may use the `/email-verification/:email` endpoint to check the status of the verification job.Alternatively, you can send a `webhook_url` to receive the results instead of polling the status endpoint.Requires one of the following scopes: `email_verifications:create`Requires one of the following scopes: `email_verifications:create`, `email_verifications:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The Email Verification to create</param>

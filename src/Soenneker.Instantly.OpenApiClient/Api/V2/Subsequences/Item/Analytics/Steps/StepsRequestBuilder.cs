@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Analytics.S
         {
         }
         /// <summary>
-        /// &quot;Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`&quot;
+        /// Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceStepsAnalytics200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -68,7 +68,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Analytics.S
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`&quot;
+        /// Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -96,7 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Analytics.S
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences.Item.Analytics.Steps.StepsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`&quot;
+        /// Returns engagement metrics grouped by zero-based step and variant for one subsequence. Results include only activity from the requested subsequence, excluding its parent campaign and sibling subsequences.Requires one of the following scopes: `subsequences:read`, `subsequences:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class StepsRequestBuilderGetQueryParameters 

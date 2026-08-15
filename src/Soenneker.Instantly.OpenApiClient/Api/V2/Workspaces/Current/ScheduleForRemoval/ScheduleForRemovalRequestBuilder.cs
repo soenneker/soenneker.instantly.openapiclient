@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleFo
         {
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleFo
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Schedule the current workspace to be removed in 24 hours.Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`&quot;
+        /// Schedule the current workspace to be removed in 24 hours.Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Workspace"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleFo
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Workspace>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Workspace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`&quot;
+        /// Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Workspaces.Current.ScheduleFo
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Schedule the current workspace to be removed in 24 hours.Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`&quot;
+        /// Schedule the current workspace to be removed in 24 hours.Requires one of the following scopes: `workspaces:delete`, `workspaces:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
