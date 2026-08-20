@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AccountCampaignMappings;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents;
 using Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs;
@@ -13,6 +14,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTagMappings;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags;
 using Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Domains;
 using Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails;
 using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics;
@@ -51,6 +53,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder Accounts
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The aiAgents property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.AiAgentsRequestBuilder AiAgents
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.AiAgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The apiKeys property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys.ApiKeysRequestBuilder ApiKeys
@@ -96,6 +103,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder DfyEmailAccountOrders
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.DfyEmailAccountOrdersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The domains property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Domains.DomainsRequestBuilder Domains
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Domains.DomainsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The emails property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder Emails
