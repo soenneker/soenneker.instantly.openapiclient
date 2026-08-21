@@ -6661,7 +6661,7 @@
     "/api/v2/ai-agents/deliverability": {
       "get": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Get the default AI Deliverability Agent",
         "description": "Retrieve the workspace default AI Deliverability Agent. The \u0060agent\u0060 field is \u0060null\u0060 if one has not been deployed. Use the returned \u0060agent.id\u0060 with endpoints that require an agent ID.\n\n\nRequires one of the following scopes: \u0060ai_agents:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
@@ -6739,7 +6739,7 @@
     "/api/v2/ai-agents/deliverability/settings": {
       "patch": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Update the default AI Deliverability Agent settings",
         "description": "Update Slack notification settings for the workspace default AI Deliverability Agent. Set \u0060slack\u0060 to \u0060null\u0060 to disconnect Slack notifications.\n\n\nRequires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
@@ -6827,7 +6827,7 @@
     "/api/v2/ai-agents/deliverability/state": {
       "get": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Get the default AI Deliverability Agent state",
         "description": "Get the live state of the workspace default AI Deliverability Agent, including current activity, schedule, latest run summary, and activity feed. If no agent has been deployed, this endpoint returns an empty state with \u0060agent\u0060 set to \u0060null\u0060.\n\n\nRequires one of the following scopes: \u0060ai_agents:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
@@ -6922,7 +6922,7 @@
     "/api/v2/ai-agents/deliverability/feed-items/{id}/pause-affected-accounts": {
       "post": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Pause accounts affected by a deliverability recommendation",
         "description": "Pause active email accounts currently affected by the default agent\u0027s DNS-health or blocklist recommendation. The recommendation is revalidated before account statuses are changed. Calling this endpoint for an already completed feed item is idempotent.\n\n\nRequires all of the following scope groups:\n- One of \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060\n- One of \u0060accounts:update\u0060, \u0060accounts:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
@@ -7017,7 +7017,7 @@
     "/api/v2/ai-agents/deliverability/feed-items/{id}/pause-campaign-sending": {
       "post": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Pause campaign sending for affected accounts",
         "description": "Pause campaign sending for 14 days on self-managed accounts affected by the default agent\u0027s bounce-health or warmup-score recommendation. Calling this endpoint for an already completed feed item is idempotent.\n\n\nRequires all of the following scope groups:\n- One of \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060\n- One of \u0060accounts:update\u0060, \u0060accounts:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
@@ -7112,7 +7112,7 @@
     "/api/v2/ai-agents/deliverability/feed-items/{id}/complete": {
       "post": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Complete a Deliverability Agent feed item",
         "description": "Mark a supported pending recommendation complete after the default agent verifies that its underlying issue has been resolved. Currently, workspace-settings recommendations support manual completion. Calling this endpoint for an already completed feed item is idempotent.\n\n\nRequires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
@@ -7207,7 +7207,7 @@
     "/api/v2/ai-agents/deliverability/run-now": {
       "post": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Run Deliverability Agent now",
         "description": "Requires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
@@ -7289,7 +7289,7 @@
     "/api/v2/ai-agents/deliverability/deploy": {
       "post": {
         "tags": [
-          "AIAgent"
+          "AIDeliverabilityAgent"
         ],
         "summary": "Deploy the default AI Deliverability Agent",
         "description": "Create or reactivate the workspace default AI Deliverability Agent. This operation is idempotent when the agent is already active and schedules an initial cycle after deployment.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
@@ -83061,6 +83061,8 @@
           "3.5",
           "gpt-5",
           "gpt-5.4",
+          "gpt-5.6-luna",
+          "gpt-5.6-terra",
           "gpt-5-mini",
           "gpt-5-nano",
           "4.0",
@@ -83071,10 +83073,13 @@
           "gpt-4.1-mini",
           "claude-4.5-sonnet",
           "claude-4.6-sonnet",
+          "claude-5-sonnet",
           "r1",
           "grok-4.3",
+          "grok-4.6",
           "gemini-3.0-flash",
           "gemini-3.5-flash",
+          "gemini-3.7-flash",
           "instantly-ai-lightspeed-agent",
           "sonar",
           "sonar-pro"
@@ -83085,7 +83090,9 @@
         "x-enumDescriptions": {
           "3.5": "GPT-3.5",
           "gpt-5": "GPT-5",
-          "gpt-5.4": "GPT-5.4",
+          "gpt-5.4": "GPT-5.4 Mini",
+          "gpt-5.6-luna": "GPT-5.6 Luna",
+          "gpt-5.6-terra": "GPT-5.6 Terra",
           "gpt-5-mini": "GPT-5 Mini",
           "gpt-5-nano": "GPT-5 Nano",
           "4.0": "GPT-4.0",
@@ -83096,10 +83103,13 @@
           "gpt-4.1-mini": "GPT-4.1 Mini",
           "claude-4.5-sonnet": "Claude 4.5 Sonnet",
           "claude-4.6-sonnet": "Claude 4.6 Sonnet",
+          "claude-5-sonnet": "Claude Sonnet 5",
           "r1": "R1",
           "grok-4.3": "Grok 4.3",
+          "grok-4.6": "Grok 4.6",
           "gemini-3.0-flash": "Gemini 3.0 Flash",
           "gemini-3.5-flash": "Gemini 3.5 Flash",
+          "gemini-3.7-flash": "Gemini 3.7 Flash",
           "sonar": "Sonar",
           "sonar-pro": "Sonar Pro",
           "instantly-ai-lightspeed-agent": "Instantly AI Lightspeed Agent"
@@ -83119,6 +83129,14 @@
             {
               "value": "gpt-5.4",
               "name": "Gpt54"
+            },
+            {
+              "value": "gpt-5.6-luna",
+              "name": "Gpt56Luna"
+            },
+            {
+              "value": "gpt-5.6-terra",
+              "name": "Gpt56Terra"
             },
             {
               "value": "gpt-5-mini",
@@ -83161,6 +83179,10 @@
               "name": "Claude46Sonnet"
             },
             {
+              "value": "claude-5-sonnet",
+              "name": "Claude5Sonnet"
+            },
+            {
               "value": "r1",
               "name": "R1"
             },
@@ -83169,12 +83191,20 @@
               "name": "Grok43"
             },
             {
+              "value": "grok-4.6",
+              "name": "Grok46"
+            },
+            {
               "value": "gemini-3.0-flash",
               "name": "Gemini30Flash"
             },
             {
               "value": "gemini-3.5-flash",
               "name": "Gemini35Flash"
+            },
+            {
+              "value": "gemini-3.7-flash",
+              "name": "Gemini37Flash"
             },
             {
               "value": "instantly-ai-lightspeed-agent",
@@ -99690,12 +99720,17 @@
           "gpt-5-nano",
           "gpt-5",
           "gpt-5.4",
+          "gpt-5.6-luna",
+          "gpt-5.6-terra",
           "claude-4.5-sonnet",
           "claude-4.6-sonnet",
+          "claude-5-sonnet",
           "r1",
           "grok-4.3",
+          "grok-4.6",
           "gemini-3.0-flash",
           "gemini-3.5-flash",
+          "gemini-3.7-flash",
           "sonar",
           "sonar-pro",
           "instantly-ai-lightspeed-agent-for-web-research",
@@ -99708,7 +99743,9 @@
         "x-enumDescriptions": {
           "3.5": "GPT-3.5 Turbo - OpenAI\u0027s standard model with good performance and low cost",
           "gpt-5": "GPT-5 is OpenAI\u2019s most advanced model, offering major improvements in reasoning, code quality, and user experience.",
-          "gpt-5.4": "GPT-5.4 is the latest generation non-reasoning model, optimized for fast, high-quality responses at low latency.",
+          "gpt-5.4": "GPT-5.4 Mini is a compact non-reasoning model, optimized for fast, high-quality responses at low latency.",
+          "gpt-5.6-luna": "GPT-5.6 Luna is the fast, cost-efficient tier of OpenAI\u0027s GPT-5.6 series, suited for high-volume classification and lightweight reasoning.",
+          "gpt-5.6-terra": "GPT-5.6 Terra is the balanced tier of OpenAI\u0027s GPT-5.6 series, offering stronger reasoning than Luna for everyday tasks.",
           "gpt-5-mini": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks.",
           "gpt-5-nano": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments.",
           "4.0": "GPT-4 - OpenAI\u0027s advanced model with improved reasoning",
@@ -99717,11 +99754,14 @@
           "gpt-4.1": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning.",
           "gpt-4.1-mini": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost.",
           "claude-4.5-sonnet": "Claude Sonnet 4.5 is Anthropic\u0027s most advanced Sonnet model to date, optimized for real-world agents and coding workflows.",
-          "claude-4.6-sonnet": "Claude Sonnet 4.6 is Anthropic\u0027s latest Sonnet model, optimized for real-world agents and coding workflows.",
+          "claude-4.6-sonnet": "Claude Sonnet 4.6 is Anthropic\u0027s previous-generation Sonnet model, optimized for real-world agents and coding workflows.",
+          "claude-5-sonnet": "Claude Sonnet 5 is Anthropic\u0027s most capable Sonnet-class model, with frontier performance across agents and professional work.",
           "r1": "R1 - Deepseek\u0027s advanced chat model",
-          "grok-4.3": "Grok 4.3 - X AI\u0027s latest reasoning model",
+          "grok-4.3": "Grok 4.3 - xAI\u0027s previous-generation reasoning model",
+          "grok-4.6": "Grok 4.6 - xAI\u0027s latest reasoning model",
           "gemini-3.0-flash": "Gemini 3.0 Flash - Is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance",
           "gemini-3.5-flash": "Gemini 3.5 Flash - Google\u0027s high-speed flash model.",
+          "gemini-3.7-flash": "Gemini 3.7 Flash - Google\u0027s latest fast multimodal model for agentic workflows and multi-step reasoning.",
           "sonar": "Sonar - Perplexity\u0027s lightweight, affordable, fast, and simple to use model.",
           "sonar-pro": "Sonar Pro  - Perplexity\u0027s most advanced model.",
           "instantly-ai-lightspeed-agent-for-web-research": "Instantly AI - LightSpeed Agent for Web Research",
@@ -99772,12 +99812,24 @@
               "name": "Gpt54"
             },
             {
+              "value": "gpt-5.6-luna",
+              "name": "Gpt56Luna"
+            },
+            {
+              "value": "gpt-5.6-terra",
+              "name": "Gpt56Terra"
+            },
+            {
               "value": "claude-4.5-sonnet",
               "name": "Claude45Sonnet"
             },
             {
               "value": "claude-4.6-sonnet",
               "name": "Claude46Sonnet"
+            },
+            {
+              "value": "claude-5-sonnet",
+              "name": "Claude5Sonnet"
             },
             {
               "value": "r1",
@@ -99788,12 +99840,20 @@
               "name": "Grok43"
             },
             {
+              "value": "grok-4.6",
+              "name": "Grok46"
+            },
+            {
               "value": "gemini-3.0-flash",
               "name": "Gemini30Flash"
             },
             {
               "value": "gemini-3.5-flash",
               "name": "Gemini35Flash"
+            },
+            {
+              "value": "gemini-3.7-flash",
+              "name": "Gemini37Flash"
             },
             {
               "value": "sonar",
