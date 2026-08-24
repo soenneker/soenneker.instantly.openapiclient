@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,limit*,search*,starting_after*,status*,tag_ids*}", pathParameters)
+        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,include_ai_sales_agent_campaigns*,limit*,search*,starting_after*,status*,tag_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,limit*,search*,starting_after*,status*,tag_ids*}", rawUrl)
+        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,include_ai_sales_agent_campaigns*,limit*,search*,starting_after*,status*,tag_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -195,6 +195,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             /// <summary>Exclude campaigns with this status using the campaign status enum value (e.g., exclude ACTIVE to list only campaigns that are not currently active).</summary>
             [QueryParameter("exclude_status")]
             public double? ExcludeStatus { get; set; }
+            /// <summary>Campaigns managed by an AI Sales Agent are excluded from the results by default. Set to true to include them.</summary>
+            [QueryParameter("include_ai_sales_agent_campaigns")]
+            public bool? IncludeAiSalesAgentCampaigns { get; set; }
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }

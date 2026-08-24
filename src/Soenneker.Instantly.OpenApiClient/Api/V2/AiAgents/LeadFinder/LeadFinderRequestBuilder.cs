@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.EnrichmentWorkflows;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.Item;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.SuggestAudience;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +20,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadFinderRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The enrichmentWorkflows property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.EnrichmentWorkflows.EnrichmentWorkflowsRequestBuilder EnrichmentWorkflows
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.EnrichmentWorkflows.EnrichmentWorkflowsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The suggestAudience property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.SuggestAudience.SuggestAudienceRequestBuilder SuggestAudience
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.SuggestAudience.SuggestAudienceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.aiAgents.leadFinder.item collection</summary>
         /// <param name="position">AI Lead Finder Agent ID</param>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.Item.LeadFinderItemRequestBuilder"/></returns>
@@ -35,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LeadFinderRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/lead-finder{?limit*,starting_after*}", pathParameters)
+        public LeadFinderRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/lead-finder{?campaign_id*,limit*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LeadFinderRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/lead-finder{?limit*,starting_after*}", rawUrl)
+        public LeadFinderRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/lead-finder{?campaign_id*,limit*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -166,6 +178,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LeadFinderRequestBuilderGetQueryParameters 
         {
+            /// <summary>Only return the agent keeping this campaign stocked (active or paused). A campaign has at most one agent, so the list holds zero or one item and `limit` / `starting_after` are ignored; `next_starting_after` is omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("campaign_id")]
+            public string? CampaignId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("campaign_id")]
+            public string CampaignId { get; set; }
+#endif
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }

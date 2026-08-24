@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string CampaignId { get; set; }
 #endif
-        /// <summary>Whether to disable the auto interest.</summary>
+        /// <summary>Suppresses AI-authored interest handling when `ai_interest_value` is supplied. Without an AI value, an explicit `interest_value` update retains normal effects: campaign leads may be completed, opportunities updated or created, and matching automations and CRM-status subsequences triggered.</summary>
         public bool? DisableAutoInterest { get; set; }
         /// <summary>Set this field to &quot;null&quot; to reset the lead value to &quot;Lead&quot;. This is the same as moving the lead to the &quot;Lead&quot; status in the web app. Please check the `lt_interest_status` field for the list of possible values.</summary>
         public double? InterestValue { get; set; }

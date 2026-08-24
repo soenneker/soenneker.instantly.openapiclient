@@ -30113,6 +30113,17 @@
             "name": "starting_after",
             "required": false,
             "description": "The ID of the last item in the previous page - used for pagination. You can use the value of the \u0060next_starting_after\u0060 field from the previous response."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "query",
+            "name": "campaign_id",
+            "required": false,
+            "description": "Only return the agent keeping this campaign stocked (active or paused). A campaign has at most one agent, so the list holds zero or one item and \u0060limit\u0060 / \u0060starting_after\u0060 are ignored; \u0060next_starting_after\u0060 is omitted."
           }
         ],
         "responses": {
@@ -38789,6 +38800,272 @@
             }
           }
         }
+      },
+      "delete": {
+        "operationId": "deleteLeadFinderAgentV2",
+        "summary": "Delete an AI Lead Finder Agent",
+        "tags": [
+          "AILeadFinderAgent"
+        ],
+        "description": "Delete an AI Lead Finder Agent. Leads it already added to the campaign stay in the campaign.\n\n\nRequires one of the following scopes: \u0060ai_agents:delete\u0060, \u0060ai_agents:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "AI Lead Finder Agent ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The agent was deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "examples": [
+                        true
+                      ],
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "examples": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "examples": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "body must have required property \u0027name\u0027"
+                      ],
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v2/ai-agents/lead-finder/{id}/pause": {
@@ -39723,6 +40000,1194 @@
                     "statusCode",
                     "error",
                     "message"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/lead-finder/suggest-audience": {
+      "post": {
+        "operationId": "suggestLeadFinderAudienceV2",
+        "summary": "Suggest audiences from a campaign",
+        "tags": [
+          "AILeadFinderAgent"
+        ],
+        "description": "Analyze the leads already in a campaign and suggest SuperSearch audiences that match them. Each suggestion returns a natural-language \u0060query\u0060 plus store-format \u0060filters\u0060. Rate limited per workspace.\n\n\nRequires one of the following scopes: \u0060ai_agents:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "campaign_id"
+                ],
+                "properties": {
+                  "campaign_id": {
+                    "type": "string",
+                    "description": "Campaign whose existing leads to analyze",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 5,
+                    "description": "Number of suggestions (1-5)",
+                    "example": 3
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Audience suggestions derived from the campaign",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "campaign_id": {
+                      "type": "string",
+                      "examples": [
+                        "f9cc070d-8dba-4341-b847-f083c358e460"
+                      ],
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "analyzed_lead_count": {
+                      "type": "integer",
+                      "examples": [
+                        4820
+                      ],
+                      "example": 4820
+                    },
+                    "total_lead_count": {
+                      "type": "integer",
+                      "examples": [
+                        4820
+                      ],
+                      "example": 4820
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low"
+                      ],
+                      "examples": [
+                        "high"
+                      ],
+                      "example": "high"
+                    },
+                    "profile_summary": {
+                      "type": "string",
+                      "examples": [
+                        "Mostly VP/Director-level Sales leaders at US B2B software companies."
+                      ],
+                      "example": "Mostly VP/Director-level Sales leaders at US B2B software companies."
+                    },
+                    "suggestions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "type": "string",
+                            "examples": [
+                              "Same profile"
+                            ],
+                            "example": "Same profile"
+                          },
+                          "query": {
+                            "type": "string",
+                            "examples": [
+                              "VP of Sales at US software companies, 50-200 employees"
+                            ],
+                            "example": "VP of Sales at US software companies, 50-200 employees"
+                          },
+                          "rationale": {
+                            "type": "string",
+                            "examples": [
+                              "Matches the dominant title, industry, size and geo in this campaign."
+                            ],
+                            "example": "Matches the dominant title, industry, size and geo in this campaign."
+                          },
+                          "filters": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "SuperSearch filters in the product-UI store format expressing the query; not directly accepted as \u0060search_filters\u0060 \u2014 use \u0060query\u0060 with enrichment_generate_filters, or translate the keys. Absent when unavailable."
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "query",
+                          "rationale"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "campaign_id",
+                    "analyzed_lead_count",
+                    "total_lead_count",
+                    "confidence",
+                    "profile_summary",
+                    "suggestions"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The request is well-formed but cannot be processed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        422
+                      ],
+                      "examples": [
+                        422
+                      ],
+                      "example": 422
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unprocessable Entity"
+                      ],
+                      "examples": [
+                        "Unprocessable Entity"
+                      ],
+                      "example": "Unprocessable Entity"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "The request cannot be processed"
+                      ],
+                      "example": "The request cannot be processed"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The suggestion model failed or returned nothing usable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        502
+                      ],
+                      "examples": [
+                        502
+                      ],
+                      "example": 502
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Gateway"
+                      ],
+                      "examples": [
+                        "Bad Gateway"
+                      ],
+                      "example": "Bad Gateway"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Failed to generate audience suggestions."
+                      ],
+                      "example": "Failed to generate audience suggestions."
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/lead-finder/enrichment-workflows": {
+      "get": {
+        "operationId": "listLeadFinderAgentEnrichmentWorkflowsV2",
+        "summary": "List saved enrichment workflows",
+        "tags": [
+          "AIAgent"
+        ],
+        "description": "Reusable AI-enrichment chains saved by the workspace, ready to apply to a Lead Finder Agent.\n\n\nRequires one of the following scopes: \u0060ai_agents:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                          },
+                          "organization_id": {
+                            "type": "string",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Opening line \u002B case study"
+                          },
+                          "payload": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "timestamp_created": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "1970-01-01T00:00:00.000Z"
+                          },
+                          "timestamp_updated": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "1970-01-01T00:00:00.000Z"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "organization_id",
+                          "name",
+                          "payload",
+                          "timestamp_created",
+                          "timestamp_updated"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createLeadFinderAgentEnrichmentWorkflowV2",
+        "summary": "Save an enrichment workflow",
+        "tags": [
+          "AIAgent"
+        ],
+        "description": "Save an AI-enrichment chain as a named, workspace-wide reusable workflow.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "ai_enrichment"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "example": "Opening line \u002B case study"
+                  },
+                  "ai_enrichment": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "required": [
+                        "model_version"
+                      ],
+                      "properties": {
+                        "model_version": {
+                          "type": "string",
+                          "examples": [
+                            "gpt-5"
+                          ],
+                          "example": "gpt-5"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "input_columns": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Ignored \u2014 derived server-side from the prompt\u0027s {{variables}}."
+                        },
+                        "use_instantly_account": {
+                          "type": "boolean"
+                        },
+                        "overwrite": {
+                          "type": "boolean"
+                        },
+                        "order": {
+                          "type": "number",
+                          "description": "Execution order of this column within the chain."
+                        },
+                        "required": {
+                          "type": "boolean",
+                          "description": "Ignored \u2014 derived server-side: a step without a fallback is required, and its lead is held rather than emailed on failure."
+                        },
+                        "verb": {
+                          "type": "string",
+                          "description": "Editor metadata: sentence verb shown in the chain UI."
+                        },
+                        "object": {
+                          "type": "string",
+                          "description": "Editor metadata: sentence object shown in the chain UI."
+                        },
+                        "fallback": {
+                          "type": "string",
+                          "description": "Value the email sends if this step fails."
+                        },
+                        "skip_if_input_empty": {
+                          "type": "boolean",
+                          "description": "Skip the lead when an input field is empty."
+                        }
+                      }
+                    },
+                    "description": "AI enrichment columns filled on every top-up, keyed by output column name. Leads are held back until they are filled."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "workflow": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "organization_id": {
+                          "type": "string",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Opening line \u002B case study"
+                        },
+                        "payload": {
+                          "type": "object",
+                          "additionalProperties": true
+                        },
+                        "timestamp_created": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        },
+                        "timestamp_updated": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "1970-01-01T00:00:00.000Z"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "organization_id",
+                        "name",
+                        "payload",
+                        "timestamp_created",
+                        "timestamp_updated"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "workflow"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/lead-finder/enrichment-workflows/{id}": {
+      "delete": {
+        "operationId": "deleteLeadFinderAgentEnrichmentWorkflowV2",
+        "summary": "Delete a saved enrichment workflow",
+        "tags": [
+          "AIAgent"
+        ],
+        "description": "Delete a saved workflow. Agents that already loaded it keep their copied chain.\n\n\nRequires one of the following scopes: \u0060ai_agents:delete\u0060, \u0060ai_agents:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  },
+                  "required": [
+                    "success"
                   ]
                 }
               }
@@ -53119,6 +54584,17 @@
             "name": "exclude_status",
             "required": false,
             "description": "Exclude campaigns with this status using the campaign status enum value (e.g., exclude ACTIVE to list only campaigns that are not currently active)."
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "example": true,
+            "in": "query",
+            "name": "include_ai_sales_agent_campaigns",
+            "required": false,
+            "description": "Campaigns managed by an AI Sales Agent are excluded from the results by default. Set to true to include them."
           }
         ],
         "responses": {
@@ -77825,7 +79301,7 @@
                   },
                   "disable_auto_interest": {
                     "type": "boolean",
-                    "description": "Whether to disable the auto interest.",
+                    "description": "Suppresses AI-authored interest handling when \u0060ai_interest_value\u0060 is supplied. Without an AI value, an explicit \u0060interest_value\u0060 update retains normal effects: campaign leads may be completed, opportunities updated or created, and matching automations and CRM-status subsequences triggered.",
                     "example": true
                   },
                   "list_id": {
@@ -94239,6 +95715,2801 @@
         }
       }
     },
+    "/api/v2/supersearch-enrichment/company-lists/recipes": {
+      "get": {
+        "operationId": "listCompanyListRecipes",
+        "summary": "List company-list recipes",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "recipe_id",
+                      "source_id",
+                      "company_source_id",
+                      "title",
+                      "description",
+                      "prefilled"
+                    ],
+                    "properties": {
+                      "recipe_id": {
+                        "type": "string",
+                        "example": "ecommerce"
+                      },
+                      "source_id": {
+                        "type": "string",
+                        "example": "store_leads"
+                      },
+                      "company_source_id": {
+                        "type": "string",
+                        "example": "search_companies"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "Find e-commerce companies"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Search companies by criteria."
+                      },
+                      "prefilled": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/sources": {
+      "get": {
+        "operationId": "listCompanyListSources",
+        "summary": "List company-list sources",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "provider_id",
+                      "provider_name",
+                      "logo_id",
+                      "company_source_id",
+                      "source_name",
+                      "credential_sources",
+                      "credit_cost_per_saved_record",
+                      "max_records_per_build",
+                      "filters",
+                      "recipes"
+                    ],
+                    "properties": {
+                      "provider_id": {
+                        "type": "string",
+                        "example": "store_leads"
+                      },
+                      "provider_name": {
+                        "type": "string",
+                        "example": "Store Leads"
+                      },
+                      "logo_id": {
+                        "type": "string",
+                        "example": "store_leads"
+                      },
+                      "company_source_id": {
+                        "type": "string",
+                        "example": "search_companies"
+                      },
+                      "source_name": {
+                        "type": "string",
+                        "example": "Search Companies"
+                      },
+                      "credential_sources": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "workspace_key",
+                            "instantly_key"
+                          ]
+                        }
+                      },
+                      "credit_cost_per_saved_record": {
+                        "type": "integer",
+                        "example": 6
+                      },
+                      "max_records_per_build": {
+                        "type": "integer",
+                        "example": 2500
+                      },
+                      "connected": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "filters": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "key",
+                            "label",
+                            "type"
+                          ],
+                          "properties": {
+                            "key": {
+                              "type": "string",
+                              "example": "platform"
+                            },
+                            "label": {
+                              "type": "string",
+                              "example": "Platform"
+                            },
+                            "description_key": {
+                              "type": "string",
+                              "example": "field_desc_store_leads_technology"
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "text",
+                                "string_list",
+                                "number_list",
+                                "number",
+                                "boolean",
+                                "date",
+                                "range",
+                                "threshold",
+                                "select",
+                                "multiselect",
+                                "location"
+                              ]
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "value_type": {
+                              "type": "string",
+                              "enum": [
+                                "number",
+                                "date"
+                              ]
+                            },
+                            "max_values": {
+                              "type": "integer"
+                            },
+                            "min": {
+                              "type": "number"
+                            },
+                            "max": {
+                              "type": "number"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "label",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "boolean"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "options_source": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "catalog_id",
+                                "supports_search"
+                              ],
+                              "properties": {
+                                "catalog_id": {
+                                  "type": "string",
+                                  "example": "theirstack_industries"
+                                },
+                                "supports_search": {
+                                  "type": "boolean"
+                                }
+                              }
+                            },
+                            "allow_custom": {
+                              "type": "boolean"
+                            },
+                            "presets": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "label"
+                                ],
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  },
+                                  "min": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  "max": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "threshold_presets": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "label",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "anyOf": [
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "operators": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "eq",
+                                  "lt",
+                                  "lte",
+                                  "gt",
+                                  "gte"
+                                ]
+                              }
+                            },
+                            "default_operator": {
+                              "type": "string",
+                              "enum": [
+                                "eq",
+                                "lt",
+                                "lte",
+                                "gt",
+                                "gte"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "recipes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "recipe_id",
+                            "title",
+                            "description",
+                            "visible_filter_keys",
+                            "prefilled"
+                          ],
+                          "properties": {
+                            "recipe_id": {
+                              "type": "string",
+                              "example": "ecommerce"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Find e-commerce companies"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Search companies by criteria."
+                            },
+                            "visible_filter_keys": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "prefilled": {
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/filter-options": {
+      "get": {
+        "operationId": "getCompanyListFilterOptions",
+        "summary": "Get remote filter options for a catalog-backed company-list filter",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "example": "theirstack_industries"
+            },
+            "example": "theirstack_industries",
+            "in": "query",
+            "name": "catalog_id",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "soft"
+            },
+            "example": "soft",
+            "in": "query",
+            "name": "q",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500,
+              "default": 100,
+              "example": 100
+            },
+            "example": 100,
+            "in": "query",
+            "name": "limit",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "options",
+                    "stale"
+                  ],
+                  "properties": {
+                    "options": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "label"
+                        ],
+                        "properties": {
+                          "label": {
+                            "type": "string",
+                            "example": "Software Development"
+                          },
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "boolean"
+                              }
+                            ]
+                          },
+                          "children": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "label"
+                              ],
+                              "properties": {
+                                "label": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "stale": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Failed to load filter options"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists": {
+      "post": {
+        "operationId": "createCompanyList",
+        "summary": "Create a company list build",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "provider_id",
+                  "company_source_id",
+                  "filters",
+                  "limit"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "example": "US SaaS companies hiring engineers"
+                  },
+                  "provider_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "theirstack"
+                  },
+                  "company_source_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "search_companies"
+                  },
+                  "filters": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65536,
+                    "example": 10000
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "status"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING"
+                      ],
+                      "example": "PENDING"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Insufficient credits"
+                      ],
+                      "example": "Insufficient credits"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Insufficient credits"
+                    },
+                    "creditsRequired": {
+                      "type": "number",
+                      "example": 15000
+                    },
+                    "creditsAvailable": {
+                      "type": "number",
+                      "example": 250
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "listCompanyLists",
+        "summary": "List company lists",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 50
+            },
+            "example": 50,
+            "in": "query",
+            "name": "limit",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+            "in": "query",
+            "name": "cursor",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "data"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "company_list_id",
+                          "name",
+                          "provider_id",
+                          "company_source_id",
+                          "status",
+                          "requested_count",
+                          "company_count",
+                          "timestamp_created",
+                          "timestamp_updated"
+                        ],
+                        "properties": {
+                          "company_list_id": {
+                            "type": "string",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "US SaaS companies"
+                          },
+                          "provider_id": {
+                            "type": "string",
+                            "example": "fullenrich"
+                          },
+                          "company_source_id": {
+                            "type": "string",
+                            "example": "fullenrich_company_search"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "PENDING",
+                              "IN_PROGRESS",
+                              "COMPLETED",
+                              "FAILED"
+                            ],
+                            "example": "PENDING"
+                          },
+                          "terminal_reason": {
+                            "type": "string",
+                            "enum": [
+                              "MAX_COMPANIES_REACHED",
+                              "PROVIDER_EXHAUSTED",
+                              "NO_RESULTS",
+                              "PROVIDER_ERROR",
+                              "INTERNAL_ERROR",
+                              "OUT_OF_CREDITS",
+                              "UPLOAD_ABORTED"
+                            ],
+                            "example": "NO_RESULTS"
+                          },
+                          "requested_count": {
+                            "type": "integer",
+                            "example": 10000
+                          },
+                          "company_count": {
+                            "type": "integer",
+                            "example": 8742
+                          },
+                          "saved_count": {
+                            "type": "integer",
+                            "example": 9100
+                          },
+                          "credits_charged": {
+                            "type": "integer",
+                            "example": 10000
+                          },
+                          "filters": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog \u2014 \u0060company_technology_slug_or\u0060, \u0060industry_or\u0060 \u2014 is returned as \u0060{ value, label }\u0060 instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create."
+                          },
+                          "timestamp_created": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "1970-01-01T00:00:00.000Z"
+                          },
+                          "timestamp_updated": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "1970-01-01T00:00:00.000Z"
+                          }
+                        }
+                      }
+                    },
+                    "next_cursor": {
+                      "type": "string",
+                      "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/{company_list_id}": {
+      "get": {
+        "operationId": "getCompanyList",
+        "summary": "Get company-list status",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "company_list_id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "company_list_id",
+                    "name",
+                    "provider_id",
+                    "company_source_id",
+                    "status",
+                    "requested_count",
+                    "company_count",
+                    "credit_cost_per_saved_record",
+                    "timestamp_created",
+                    "timestamp_updated"
+                  ],
+                  "properties": {
+                    "company_list_id": {
+                      "type": "string",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "US SaaS companies"
+                    },
+                    "provider_id": {
+                      "type": "string",
+                      "example": "fullenrich"
+                    },
+                    "company_source_id": {
+                      "type": "string",
+                      "example": "fullenrich_company_search"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING",
+                        "IN_PROGRESS",
+                        "COMPLETED",
+                        "FAILED"
+                      ],
+                      "example": "PENDING"
+                    },
+                    "terminal_reason": {
+                      "type": "string",
+                      "enum": [
+                        "MAX_COMPANIES_REACHED",
+                        "PROVIDER_EXHAUSTED",
+                        "NO_RESULTS",
+                        "PROVIDER_ERROR",
+                        "INTERNAL_ERROR",
+                        "OUT_OF_CREDITS",
+                        "UPLOAD_ABORTED"
+                      ],
+                      "example": "NO_RESULTS"
+                    },
+                    "requested_count": {
+                      "type": "integer",
+                      "example": 10000
+                    },
+                    "company_count": {
+                      "type": "integer",
+                      "example": 8742
+                    },
+                    "saved_count": {
+                      "type": "integer",
+                      "example": 9100
+                    },
+                    "credits_charged": {
+                      "type": "integer",
+                      "example": 10000
+                    },
+                    "filters": {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "description": "Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog \u2014 \u0060company_technology_slug_or\u0060, \u0060industry_or\u0060 \u2014 is returned as \u0060{ value, label }\u0060 instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create."
+                    },
+                    "timestamp_created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
+                    "timestamp_updated": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
+                    "credit_cost_per_saved_record": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "renameCompanyList",
+        "summary": "Rename a terminal company list",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:update\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "example": "US SaaS companies"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "company_list_id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "company_list_id",
+                    "name",
+                    "provider_id",
+                    "company_source_id",
+                    "status",
+                    "requested_count",
+                    "company_count",
+                    "credit_cost_per_saved_record",
+                    "timestamp_created",
+                    "timestamp_updated"
+                  ],
+                  "properties": {
+                    "company_list_id": {
+                      "type": "string",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "US SaaS companies"
+                    },
+                    "provider_id": {
+                      "type": "string",
+                      "example": "fullenrich"
+                    },
+                    "company_source_id": {
+                      "type": "string",
+                      "example": "fullenrich_company_search"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING",
+                        "IN_PROGRESS",
+                        "COMPLETED",
+                        "FAILED"
+                      ],
+                      "example": "PENDING"
+                    },
+                    "terminal_reason": {
+                      "type": "string",
+                      "enum": [
+                        "MAX_COMPANIES_REACHED",
+                        "PROVIDER_EXHAUSTED",
+                        "NO_RESULTS",
+                        "PROVIDER_ERROR",
+                        "INTERNAL_ERROR",
+                        "OUT_OF_CREDITS",
+                        "UPLOAD_ABORTED"
+                      ],
+                      "example": "NO_RESULTS"
+                    },
+                    "requested_count": {
+                      "type": "integer",
+                      "example": 10000
+                    },
+                    "company_count": {
+                      "type": "integer",
+                      "example": 8742
+                    },
+                    "saved_count": {
+                      "type": "integer",
+                      "example": 9100
+                    },
+                    "credits_charged": {
+                      "type": "integer",
+                      "example": 10000
+                    },
+                    "filters": {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "description": "Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog \u2014 \u0060company_technology_slug_or\u0060, \u0060industry_or\u0060 \u2014 is returned as \u0060{ value, label }\u0060 instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create."
+                    },
+                    "timestamp_created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
+                    "timestamp_updated": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
+                    "credit_cost_per_saved_record": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteCompanyList",
+        "summary": "Delete a terminal company list",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:delete\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "company_list_id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/{company_list_id}/companies": {
+      "get": {
+        "operationId": "listCompanyListMembers",
+        "summary": "List company-list members",
+        "tags": [
+          "CompanyList"
+        ],
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 50
+            },
+            "example": 50,
+            "in": "query",
+            "name": "limit",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+            "in": "query",
+            "name": "cursor",
+            "required": false
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "company_list_id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "data"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "member_identity",
+                          "normalized_domain"
+                        ],
+                        "properties": {
+                          "member_identity": {
+                            "type": "string",
+                            "example": "domain:instantly.ai"
+                          },
+                          "normalized_domain": {
+                            "type": "string",
+                            "example": "instantly.ai"
+                          },
+                          "company_name": {
+                            "type": "string",
+                            "example": "Instantly"
+                          },
+                          "website": {
+                            "type": "string",
+                            "example": "https://instantly.ai"
+                          },
+                          "provider_company_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "provider-company-1"
+                            },
+                            "example": [
+                              "provider-company-1"
+                            ]
+                          },
+                          "linkedin_company_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "123456"
+                            },
+                            "example": [
+                              "123456"
+                            ]
+                          },
+                          "linkedin_company_urls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "https://linkedin.com/company/instantly"
+                            },
+                            "example": [
+                              "https://linkedin.com/company/instantly"
+                            ]
+                          },
+                          "linkedin_company_slugs": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "instantly"
+                            },
+                            "example": [
+                              "instantly"
+                            ]
+                          },
+                          "industry": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "software"
+                            },
+                            "example": [
+                              "software"
+                            ]
+                          },
+                          "sub_industry": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "sales-automation"
+                            },
+                            "example": [
+                              "sales-automation"
+                            ]
+                          },
+                          "technologies": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "React"
+                            },
+                            "example": [
+                              "React"
+                            ]
+                          },
+                          "headquarters_country": {
+                            "type": "string",
+                            "example": "United States"
+                          },
+                          "headquarters_region": {
+                            "type": "string",
+                            "example": "California"
+                          },
+                          "headquarters_city": {
+                            "type": "string",
+                            "example": "San Francisco"
+                          },
+                          "employee_count": {
+                            "type": "integer",
+                            "example": 100
+                          },
+                          "founded_year": {
+                            "type": "integer",
+                            "example": 2018
+                          },
+                          "revenue_usd": {
+                            "type": "number",
+                            "example": 1000000
+                          },
+                          "funding_total_usd": {
+                            "type": "number",
+                            "example": 2000000
+                          }
+                        }
+                      }
+                    },
+                    "next_cursor": {
+                      "type": "string",
+                      "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/supersearch-enrichment/{resource_id}": {
       "get": {
         "operationId": "getEnrichmentForResource",
@@ -101746,6 +106017,573 @@
                     "error",
                     "message"
                   ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/integrations/providers": {
+      "get": {
+        "operationId": "getIntegrationProviders",
+        "summary": "Returns the full integration provider registry",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected).\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "apify"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Apify"
+                      },
+                      "creditCostPerAction": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "requiresUserConnection": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "isFeatured": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "isConnected": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "actions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "example": "apify_scrape_website"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Scrape Website"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "Crawl a URL and return structured content."
+                            },
+                            "outputColumn": {
+                              "type": "string",
+                              "example": "apifyScrapedData"
+                            },
+                            "category": {
+                              "type": "string",
+                              "enum": [
+                                "person",
+                                "company",
+                                "verification"
+                              ],
+                              "example": "company"
+                            },
+                            "subcategory": {
+                              "type": "string",
+                              "enum": [
+                                "firmographics",
+                                "ads_marketing",
+                                "technology",
+                                "funding_investors",
+                                "jobs",
+                                "web_ecommerce"
+                              ],
+                              "example": "web_ecommerce"
+                            },
+                            "inputs": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "example": "url"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "URL"
+                                  },
+                                  "required": {
+                                    "type": "boolean",
+                                    "example": true
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "column",
+                                      "text",
+                                      "list"
+                                    ],
+                                    "example": "column"
+                                  },
+                                  "placeholder": {
+                                    "type": "string",
+                                    "example": "e.g. website"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/integrations/run": {
+      "post": {
+        "operationId": "runIntegrationAction",
+        "summary": "Run a single integration lookup action synchronously",
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "description": "Executes one lookup action for a single record with literal inputs and returns the provider payload inline, under the action\u0027s output column.\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "provider_id",
+                  "action_id",
+                  "inputs",
+                  "credential_source"
+                ],
+                "properties": {
+                  "provider_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "adyntel"
+                  },
+                  "action_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "adyntel_get_linkedin_ads"
+                  },
+                  "inputs": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "example": {
+                      "domain": "example.com"
+                    }
+                  },
+                  "credential_source": {
+                    "type": "string",
+                    "enum": [
+                      "workspace_key",
+                      "instantly_key"
+                    ],
+                    "description": "Which credentials to run this action with. Providers marked requiresUserConnection only accept \u0022workspace_key\u0022.",
+                    "example": "instantly_key"
+                  },
+                  "app_connection_id": {
+                    "type": "string",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The provider payload under the action\u0027s output column.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "description": "The provider payload under the action\u0027s output column."
+                },
+                "example": {
+                  "success": true,
+                  "credits_cost": 1,
+                  "adyntelLinkedinAds": {
+                    "ads": []
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Insufficient credits"
+                      ],
+                      "example": "Insufficient credits"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Insufficient credits"
+                    },
+                    "creditsRequired": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "creditsAvailable": {
+                      "type": "number",
+                      "example": 0
+                    }
+                  }
                 }
               }
             }

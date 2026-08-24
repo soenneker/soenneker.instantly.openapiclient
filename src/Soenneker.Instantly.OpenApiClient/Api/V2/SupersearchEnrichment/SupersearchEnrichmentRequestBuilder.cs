@@ -4,9 +4,11 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CompanyLists;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.EnrichLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integrations;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run;
@@ -30,6 +32,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Ai.AiRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The companyLists property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CompanyLists.CompanyListsRequestBuilder CompanyLists
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CompanyLists.CompanyListsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The countLeadsFromSupersearch property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.CountLeadsFromSupersearch.CountLeadsFromSupersearchRequestBuilder CountLeadsFromSupersearch
         {
@@ -44,6 +51,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder History
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The integrations property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integrations.IntegrationsRequestBuilder Integrations
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integrations.IntegrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The previewLeadsFromSupersearch property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch.PreviewLeadsFromSupersearchRequestBuilder PreviewLeadsFromSupersearch

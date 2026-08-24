@@ -5993,6 +5993,16 @@
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          {
+            "name": "campaign_id",
+            "in": "query",
+            "description": "Only return the agent keeping this campaign stocked (active or paused). A campaign has at most one agent, so the list holds zero or one item and \u0060limit\u0060 / \u0060starting_after\u0060 are ignored; \u0060next_starting_after\u0060 is omitted.",
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
@@ -6309,6 +6319,89 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateLeadFinderAgent429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AILeadFinderAgent"
+        ],
+        "summary": "Delete an AI Lead Finder Agent",
+        "description": "Delete an AI Lead Finder Agent. Leads it already added to the campaign stay in the campaign.\n\n\nRequires one of the following scopes: \u0060ai_agents:delete\u0060, \u0060ai_agents:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "operationId": "DeleteLeadFinderAgentV2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "AI Lead Finder Agent ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The agent was deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentV2200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentV2400Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentV2401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentV2402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentV2404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentV2429Response"
                 }
               }
             }
@@ -6651,6 +6744,304 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListLeadFinderAgentActivitiesById429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/lead-finder/suggest-audience": {
+      "post": {
+        "tags": [
+          "AILeadFinderAgent"
+        ],
+        "summary": "Suggest audiences from a campaign",
+        "description": "Analyze the leads already in a campaign and suggest SuperSearch audiences that match them. Each suggestion returns a natural-language \u0060query\u0060 plus store-format \u0060filters\u0060. Rate limited per workspace.\n\n\nRequires one of the following scopes: \u0060ai_agents:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "SuggestLeadFinderAudienceV2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2Request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Audience suggestions derived from the campaign",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2404Response"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The request is well-formed but cannot be processed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2422Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2429Response"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The suggestion model failed or returned nothing usable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2502Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/lead-finder/enrichment-workflows": {
+      "get": {
+        "tags": [
+          "AIAgent"
+        ],
+        "summary": "List saved enrichment workflows",
+        "description": "Reusable AI-enrichment chains saved by the workspace, ready to apply to a Lead Finder Agent.\n\n\nRequires one of the following scopes: \u0060ai_agents:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListLeadFinderAgentEnrichmentWorkflowsV2",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AIAgent"
+        ],
+        "summary": "Save an enrichment workflow",
+        "description": "Save an AI-enrichment chain as a named, workspace-wide reusable workflow.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "operationId": "CreateLeadFinderAgentEnrichmentWorkflowV2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2Request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/lead-finder/enrichment-workflows/{id}": {
+      "delete": {
+        "tags": [
+          "AIAgent"
+        ],
+        "summary": "Delete a saved enrichment workflow",
+        "description": "Delete a saved workflow. Agents that already loaded it keep their copied chain.\n\n\nRequires one of the following scopes: \u0060ai_agents:delete\u0060, \u0060ai_agents:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "operationId": "DeleteLeadFinderAgentEnrichmentWorkflowV2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2429Response"
                 }
               }
             }
@@ -9346,6 +9737,16 @@
               "$ref": "#/components/schemas/ListCampaignExcludeStatusParameter"
             },
             "example": 1
+          },
+          {
+            "name": "include_ai_sales_agent_campaigns",
+            "in": "query",
+            "description": "Campaigns managed by an AI Sales Agent are excluded from the results by default. Set to true to include them.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "example": true
           }
         ],
         "responses": {
@@ -20750,6 +21151,694 @@
         }
       }
     },
+    "/api/v2/supersearch-enrichment/company-lists/recipes": {
+      "get": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "List company-list recipes",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListCompanyListRecipes",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListRecipes200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListRecipes401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListRecipes402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListRecipes404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListRecipes429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/sources": {
+      "get": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "List company-list sources",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListCompanyListSources",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListSources200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListSources401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListSources402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListSources404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListSources429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/filter-options": {
+      "get": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "Get remote filter options for a catalog-backed company-list filter",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetCompanyListFilterOptions",
+        "parameters": [
+          {
+            "name": "catalog_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "example": "theirstack_industries"
+            },
+            "example": "theirstack_industries"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "soft"
+            },
+            "example": "soft"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "maximum": 500,
+              "minimum": 1,
+              "type": "integer",
+              "default": 100,
+              "example": 100
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyListFilterOptions200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyListFilterOptions401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyListFilterOptions402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyListFilterOptions404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyListFilterOptions429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists": {
+      "post": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "Create a company list build",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "operationId": "CreateCompanyList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCompanyListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompanyList202Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompanyList401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompanyList402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompanyList404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompanyList429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "List company lists",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListCompanyLists",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 50
+            },
+            "example": 50
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyLists200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyLists401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyLists402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyLists404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyLists429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/{companyListId}": {
+      "get": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "Get company-list status",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetCompanyList",
+        "parameters": [
+          {
+            "name": "companyListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyList200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyList401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyList402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyList404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCompanyList429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "Rename a terminal company list",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:update\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "operationId": "RenameCompanyList",
+        "parameters": [
+          {
+            "name": "companyListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenameCompanyListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RenameCompanyList200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RenameCompanyList401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RenameCompanyList402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RenameCompanyList404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RenameCompanyList429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "Delete a terminal company list",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:delete\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "operationId": "DeleteCompanyList",
+        "parameters": [
+          {
+            "name": "companyListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCompanyList401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCompanyList402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCompanyList404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteCompanyList429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/company-lists/{companyListId}/companies": {
+      "get": {
+        "tags": [
+          "CompanyList"
+        ],
+        "summary": "List company-list members",
+        "description": "Requires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListCompanyListMembers",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 50
+            },
+            "example": 50
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          },
+          {
+            "name": "companyListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListMembers200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListMembers401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListMembers402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListMembers404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCompanyListMembers429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/supersearch-enrichment/{resourceId}": {
       "get": {
         "tags": [
@@ -21395,6 +22484,147 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetEnrichmentHistory429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/integrations/providers": {
+      "get": {
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "summary": "Returns the full integration provider registry",
+        "description": "Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected).\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetIntegrationProviders",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIntegrationProviders200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIntegrationProviders401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIntegrationProviders402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIntegrationProviders404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIntegrationProviders429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/supersearch-enrichment/integrations/run": {
+      "post": {
+        "tags": [
+          "SuperSearchEnrichment"
+        ],
+        "summary": "Run a single integration lookup action synchronously",
+        "description": "Executes one lookup action for a single record with literal inputs and returns the provider payload inline, under the action\u0027s output column.\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:create\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "operationId": "RunIntegrationAction",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunIntegrationActionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The provider payload under the action\u0027s output column.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunIntegrationAction200ResponseSchema"
+                },
+                "example": {
+                  "success": true,
+                  "credits_cost": 1,
+                  "adyntelLinkedinAds": {
+                    "ads": []
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunIntegrationAction401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunIntegrationAction402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunIntegrationAction404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunIntegrationAction429Response"
                 }
               }
             }
@@ -37225,6 +38455,137 @@
           }
         }
       },
+      "DeleteLeadFinderAgentV2200Response": {
+        "required": [
+          "success"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "examples": [
+              true
+            ],
+            "type": "boolean",
+            "example": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteLeadFinderAgentV2400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentV2400ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "examples": [
+              "body must have required property \u0027name\u0027"
+            ],
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentV2401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentV2401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentV2402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentV2402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentV2404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentV2404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentV2429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentV2429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
       "PauseLeadFinderAgentById401Response": {
         "required": [
           "statusCode",
@@ -37684,6 +39045,547 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ListLeadFinderAgentActivitiesById429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2Request": {
+        "required": [
+          "campaign_id"
+        ],
+        "type": "object",
+        "properties": {
+          "campaign_id": {
+            "type": "string",
+            "description": "Campaign whose existing leads to analyze",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "count": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Number of suggestions (1-5)",
+            "example": 3
+          }
+        },
+        "additionalProperties": false
+      },
+      "SuggestLeadFinderAudienceV2200Response": {
+        "required": [
+          "campaign_id",
+          "analyzed_lead_count",
+          "total_lead_count",
+          "confidence",
+          "profile_summary",
+          "suggestions"
+        ],
+        "type": "object",
+        "properties": {
+          "campaign_id": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460"
+            ],
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "analyzed_lead_count": {
+            "examples": [
+              4820
+            ],
+            "type": "integer",
+            "example": 4820
+          },
+          "total_lead_count": {
+            "examples": [
+              4820
+            ],
+            "type": "integer",
+            "example": 4820
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2200ResponseConfidence"
+          },
+          "profile_summary": {
+            "examples": [
+              "Mostly VP/Director-level Sales leaders at US B2B software companies."
+            ],
+            "type": "string",
+            "example": "Mostly VP/Director-level Sales leaders at US B2B software companies."
+          },
+          "suggestions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2200ResponseSuggestionsItem"
+            }
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2422Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2422ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnprocessableEntityError"
+          },
+          "message": {
+            "examples": [
+              "The request cannot be processed"
+            ],
+            "type": "string",
+            "example": "The request cannot be processed"
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "SuggestLeadFinderAudienceV2502Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2502ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadGatewayError"
+          },
+          "message": {
+            "examples": [
+              "Failed to generate audience suggestions."
+            ],
+            "type": "string",
+            "example": "Failed to generate audience suggestions."
+          }
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2200Response": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2200ResponseItemsItem"
+            }
+          }
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2Request": {
+        "required": [
+          "name",
+          "ai_enrichment"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string",
+            "example": "Opening line \u002B case study"
+          },
+          "ai_enrichment": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2RequestAiEnrichment"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2200Response": {
+        "required": [
+          "workflow"
+        ],
+        "type": "object",
+        "properties": {
+          "workflow": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2200ResponseWorkflow"
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2200Response": {
+        "required": [
+          "success"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteLeadFinderAgentEnrichmentWorkflowV2429ResponseStatusCode"
           },
           "error": {
             "$ref": "#/components/schemas/TooManyRequestsError"
@@ -51310,7 +53212,7 @@
           },
           "disable_auto_interest": {
             "type": "boolean",
-            "description": "Whether to disable the auto interest.",
+            "description": "Suppresses AI-authored interest handling when \u0060ai_interest_value\u0060 is supplied. Without an AI value, an explicit \u0060interest_value\u0060 update retains normal effects: campaign leads may be completed, opportunities updated or created, and matching automations and CRM-status subsequences triggered.",
             "example": true
           },
           "list_id": {
@@ -57848,6 +59750,1124 @@
           }
         }
       },
+      "ListCompanyListRecipes200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListCompanyListRecipes200ResponseItem"
+        }
+      },
+      "ListCompanyListRecipes401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListRecipes401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListCompanyListRecipes402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListRecipes402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListCompanyListRecipes404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListRecipes404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListCompanyListRecipes429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListRecipes429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListCompanyListSources200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListCompanyListSources200ResponseItem"
+        }
+      },
+      "ListCompanyListSources401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListSources401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListCompanyListSources402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListSources402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListCompanyListSources404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListSources404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListCompanyListSources429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListSources429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetCompanyListFilterOptions200Response": {
+        "required": [
+          "options",
+          "stale"
+        ],
+        "type": "object",
+        "properties": {
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItem"
+            }
+          },
+          "stale": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "example": "Failed to load filter options"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCompanyListFilterOptions401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetCompanyListFilterOptions402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetCompanyListFilterOptions404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetCompanyListFilterOptions429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "CreateCompanyListRequest": {
+        "required": [
+          "name",
+          "provider_id",
+          "company_source_id",
+          "filters",
+          "limit"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "example": "US SaaS companies hiring engineers"
+          },
+          "provider_id": {
+            "minLength": 1,
+            "type": "string",
+            "example": "theirstack"
+          },
+          "company_source_id": {
+            "minLength": 1,
+            "type": "string",
+            "example": "search_companies"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/CreateCompanyListRequestFilters"
+          },
+          "limit": {
+            "maximum": 65536,
+            "minimum": 1,
+            "type": "integer",
+            "example": 10000
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCompanyList202Response": {
+        "required": [
+          "id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PendingStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCompanyList401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateCompanyList401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "CreateCompanyList402Response": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateCompanyList402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/InsufficientCreditsError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Insufficient credits"
+          },
+          "creditsRequired": {
+            "type": "number",
+            "example": 15000
+          },
+          "creditsAvailable": {
+            "type": "number",
+            "example": 250
+          }
+        }
+      },
+      "CreateCompanyList404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateCompanyList404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "CreateCompanyList429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateCompanyList429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListCompanyLists200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyLists200ResponseDataItem"
+            }
+          },
+          "next_cursor": {
+            "type": "string",
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyLists401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyLists401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListCompanyLists402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyLists402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListCompanyLists404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyLists404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListCompanyLists429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyLists429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetCompanyList200Response": {
+        "required": [
+          "company_list_id",
+          "name",
+          "provider_id",
+          "company_source_id",
+          "status",
+          "requested_count",
+          "company_count",
+          "credit_cost_per_saved_record",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "example": "US SaaS companies"
+          },
+          "provider_id": {
+            "type": "string",
+            "example": "fullenrich"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "fullenrich_company_search"
+          },
+          "status": {
+            "$ref": "#/components/schemas/GetCompanyList200ResponseStatus"
+          },
+          "terminal_reason": {
+            "$ref": "#/components/schemas/GetCompanyList200ResponseTerminalReason"
+          },
+          "requested_count": {
+            "type": "integer",
+            "example": 10000
+          },
+          "company_count": {
+            "type": "integer",
+            "example": 8742
+          },
+          "saved_count": {
+            "type": "integer",
+            "example": 9100
+          },
+          "credits_charged": {
+            "type": "integer",
+            "example": 10000
+          },
+          "filters": {
+            "$ref": "#/components/schemas/GetCompanyList200ResponseFilters"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "credit_cost_per_saved_record": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCompanyList401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyList401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetCompanyList402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyList402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetCompanyList404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyList404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetCompanyList429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetCompanyList429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "RenameCompanyListRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "example": "US SaaS companies"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RenameCompanyList200Response": {
+        "required": [
+          "company_list_id",
+          "name",
+          "provider_id",
+          "company_source_id",
+          "status",
+          "requested_count",
+          "company_count",
+          "credit_cost_per_saved_record",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "example": "US SaaS companies"
+          },
+          "provider_id": {
+            "type": "string",
+            "example": "fullenrich"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "fullenrich_company_search"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RenameCompanyList200ResponseStatus"
+          },
+          "terminal_reason": {
+            "$ref": "#/components/schemas/RenameCompanyList200ResponseTerminalReason"
+          },
+          "requested_count": {
+            "type": "integer",
+            "example": 10000
+          },
+          "company_count": {
+            "type": "integer",
+            "example": 8742
+          },
+          "saved_count": {
+            "type": "integer",
+            "example": 9100
+          },
+          "credits_charged": {
+            "type": "integer",
+            "example": 10000
+          },
+          "filters": {
+            "$ref": "#/components/schemas/RenameCompanyList200ResponseFilters"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "credit_cost_per_saved_record": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "RenameCompanyList401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RenameCompanyList401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "RenameCompanyList402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RenameCompanyList402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "RenameCompanyList404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RenameCompanyList404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "RenameCompanyList429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RenameCompanyList429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "DeleteCompanyList401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteCompanyList401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "DeleteCompanyList402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteCompanyList402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "DeleteCompanyList404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteCompanyList404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "DeleteCompanyList429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteCompanyList429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListCompanyListMembers200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListMembers200ResponseDataItem"
+            }
+          },
+          "next_cursor": {
+            "type": "string",
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListMembers401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListMembers401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListCompanyListMembers402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListMembers402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListCompanyListMembers404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListMembers404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListCompanyListMembers429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListCompanyListMembers429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
       "GetEnrichmentForResource200Response": {
         "required": [
           "resource_id",
@@ -59072,6 +62092,232 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/GetEnrichmentHistory429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetIntegrationProviders200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItem"
+        }
+      },
+      "GetIntegrationProviders401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetIntegrationProviders401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetIntegrationProviders402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetIntegrationProviders402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetIntegrationProviders404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetIntegrationProviders404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetIntegrationProviders429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetIntegrationProviders429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "RunIntegrationActionRequest": {
+        "required": [
+          "provider_id",
+          "action_id",
+          "inputs",
+          "credential_source"
+        ],
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "minLength": 1,
+            "type": "string",
+            "example": "adyntel"
+          },
+          "action_id": {
+            "minLength": 1,
+            "type": "string",
+            "example": "adyntel_get_linkedin_ads"
+          },
+          "inputs": {
+            "$ref": "#/components/schemas/RunIntegrationActionRequestInputs"
+          },
+          "credential_source": {
+            "$ref": "#/components/schemas/RunIntegrationActionRequestCredentialSource"
+          },
+          "app_connection_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RunIntegrationAction200Response": {
+        "type": "object",
+        "description": "The provider payload under the action\u0027s output column."
+      },
+      "RunIntegrationAction401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RunIntegrationAction401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "RunIntegrationAction402Response": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RunIntegrationAction402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/InsufficientCreditsError"
+          },
+          "message": {
+            "type": "string",
+            "example": "Insufficient credits"
+          },
+          "creditsRequired": {
+            "type": "number",
+            "example": 1
+          },
+          "creditsAvailable": {
+            "type": "number",
+            "example": 0
+          }
+        }
+      },
+      "RunIntegrationAction404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RunIntegrationAction404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "RunIntegrationAction429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RunIntegrationAction429ResponseStatusCode"
           },
           "error": {
             "$ref": "#/components/schemas/TooManyRequestsError"
@@ -60509,11 +63755,33 @@
           "$ref": "#/components/schemas/GetAiEnrichmentForResource200ResponseSchemaItem"
         }
       },
+      "ListCompanyListRecipes200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListCompanyListRecipes200ResponseSchemaItem"
+        }
+      },
+      "ListCompanyListSources200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListCompanyListSources200ResponseSchemaItem"
+        }
+      },
       "GetEnrichmentHistory200ResponseSchema": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseSchemaItem"
         }
+      },
+      "GetIntegrationProviders200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/GetIntegrationProviders200ResponseSchemaItem"
+        }
+      },
+      "RunIntegrationAction200ResponseSchema": {
+        "type": "object",
+        "description": "The provider payload under the action\u0027s output column."
       },
       "CreateAiAgentRequestPayloadTagsItem": {
         "type": "object",
@@ -61720,6 +64988,81 @@
           }
         }
       },
+      "ListCompanyListSources200ResponseItemFiltersItemOptionsItemValue": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "GetCompanyListFilterOptions200ResponseOptionsItemValue": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+      "GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersLocations": {
         "type": "object",
         "oneOf": [
@@ -62076,6 +65419,20 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords"
           }
         }
+      },
+      "RunIntegrationActionRequestInputsAdditionalProperties": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
       },
       "CreateLeadFinderAgentRequestSearchFiltersLocations": {
         "type": "object",
@@ -66563,6 +69920,123 @@
           }
         }
       },
+      "SuggestLeadFinderAudienceV2200ResponseSuggestionsItem": {
+        "required": [
+          "label",
+          "query",
+          "rationale"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "examples": [
+              "Same profile"
+            ],
+            "type": "string",
+            "example": "Same profile"
+          },
+          "query": {
+            "examples": [
+              "VP of Sales at US software companies, 50-200 employees"
+            ],
+            "type": "string",
+            "example": "VP of Sales at US software companies, 50-200 employees"
+          },
+          "rationale": {
+            "examples": [
+              "Matches the dominant title, industry, size and geo in this campaign."
+            ],
+            "type": "string",
+            "example": "Matches the dominant title, industry, size and geo in this campaign."
+          },
+          "filters": {
+            "$ref": "#/components/schemas/SuggestLeadFinderAudienceV2200ResponseSuggestionsItemFilters"
+          }
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2200ResponseItemsItem": {
+        "required": [
+          "id",
+          "organization_id",
+          "name",
+          "payload",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "example": "Opening line \u002B case study"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/ListLeadFinderAgentEnrichmentWorkflowsV2200ResponseItemsItemPayload"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2RequestAiEnrichment": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2RequestAiEnrichmentAdditionalProperties"
+        },
+        "description": "AI enrichment columns filled on every top-up, keyed by output column name. Leads are held back until they are filled."
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2200ResponseWorkflow": {
+        "required": [
+          "id",
+          "organization_id",
+          "name",
+          "payload",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "example": "Opening line \u002B case study"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentEnrichmentWorkflowV2200ResponseWorkflowPayload"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        }
+      },
       "UpdateDeliverabilityAgentSettingsRequestSlack": {
         "required": [
           "connection_id",
@@ -69936,6 +73410,315 @@
           }
         }
       },
+      "ListCompanyListRecipes200ResponseItem": {
+        "required": [
+          "recipe_id",
+          "source_id",
+          "company_source_id",
+          "title",
+          "description",
+          "prefilled"
+        ],
+        "type": "object",
+        "properties": {
+          "recipe_id": {
+            "type": "string",
+            "example": "ecommerce"
+          },
+          "source_id": {
+            "type": "string",
+            "example": "store_leads"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "search_companies"
+          },
+          "title": {
+            "type": "string",
+            "example": "Find e-commerce companies"
+          },
+          "description": {
+            "type": "string",
+            "example": "Search companies by criteria."
+          },
+          "prefilled": {
+            "$ref": "#/components/schemas/ListCompanyListRecipes200ResponseItemPrefilled"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseItem": {
+        "required": [
+          "provider_id",
+          "provider_name",
+          "logo_id",
+          "company_source_id",
+          "source_name",
+          "credential_sources",
+          "credit_cost_per_saved_record",
+          "max_records_per_build",
+          "filters",
+          "recipes"
+        ],
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "example": "store_leads"
+          },
+          "provider_name": {
+            "type": "string",
+            "example": "Store Leads"
+          },
+          "logo_id": {
+            "type": "string",
+            "example": "store_leads"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "search_companies"
+          },
+          "source_name": {
+            "type": "string",
+            "example": "Search Companies"
+          },
+          "credential_sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemCredentialSourcesItem"
+            }
+          },
+          "credit_cost_per_saved_record": {
+            "type": "integer",
+            "example": 6
+          },
+          "max_records_per_build": {
+            "type": "integer",
+            "example": 2500
+          },
+          "connected": {
+            "type": "boolean",
+            "example": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItem"
+            }
+          },
+          "recipes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemRecipesItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCompanyListFilterOptions200ResponseOptionsItem": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "example": "Software Development"
+          },
+          "value": {
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemValue"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemChildrenItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCompanyListRequestFilters": {
+        "type": "object"
+      },
+      "ListCompanyLists200ResponseDataItem": {
+        "required": [
+          "company_list_id",
+          "name",
+          "provider_id",
+          "company_source_id",
+          "status",
+          "requested_count",
+          "company_count",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "example": "US SaaS companies"
+          },
+          "provider_id": {
+            "type": "string",
+            "example": "fullenrich"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "fullenrich_company_search"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ListCompanyLists200ResponseDataItemStatus"
+          },
+          "terminal_reason": {
+            "$ref": "#/components/schemas/ListCompanyLists200ResponseDataItemTerminalReason"
+          },
+          "requested_count": {
+            "type": "integer",
+            "example": 10000
+          },
+          "company_count": {
+            "type": "integer",
+            "example": 8742
+          },
+          "saved_count": {
+            "type": "integer",
+            "example": 9100
+          },
+          "credits_charged": {
+            "type": "integer",
+            "example": 10000
+          },
+          "filters": {
+            "$ref": "#/components/schemas/ListCompanyLists200ResponseDataItemFilters"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCompanyList200ResponseFilters": {
+        "type": "object",
+        "description": "Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog \u2014 \u0060company_technology_slug_or\u0060, \u0060industry_or\u0060 \u2014 is returned as \u0060{ value, label }\u0060 instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create."
+      },
+      "RenameCompanyList200ResponseFilters": {
+        "type": "object",
+        "description": "Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog \u2014 \u0060company_technology_slug_or\u0060, \u0060industry_or\u0060 \u2014 is returned as \u0060{ value, label }\u0060 instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create."
+      },
+      "ListCompanyListMembers200ResponseDataItem": {
+        "required": [
+          "member_identity",
+          "normalized_domain"
+        ],
+        "type": "object",
+        "properties": {
+          "member_identity": {
+            "type": "string",
+            "example": "domain:instantly.ai"
+          },
+          "normalized_domain": {
+            "type": "string",
+            "example": "instantly.ai"
+          },
+          "company_name": {
+            "type": "string",
+            "example": "Instantly"
+          },
+          "website": {
+            "type": "string",
+            "example": "https://instantly.ai"
+          },
+          "provider_company_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "provider-company-1"
+            }
+          },
+          "linkedin_company_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "123456"
+            }
+          },
+          "linkedin_company_urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://linkedin.com/company/instantly"
+            }
+          },
+          "linkedin_company_slugs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "instantly"
+            }
+          },
+          "industry": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software"
+            }
+          },
+          "sub_industry": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "sales-automation"
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "React"
+            }
+          },
+          "headquarters_country": {
+            "type": "string",
+            "example": "United States"
+          },
+          "headquarters_region": {
+            "type": "string",
+            "example": "California"
+          },
+          "headquarters_city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "employee_count": {
+            "type": "integer",
+            "example": 100
+          },
+          "founded_year": {
+            "type": "integer",
+            "example": 2018
+          },
+          "revenue_usd": {
+            "type": "number",
+            "example": 1000000
+          },
+          "funding_total_usd": {
+            "type": "number",
+            "example": 2000000
+          }
+        },
+        "additionalProperties": false
+      },
       "GetEnrichmentForResource200ResponseEnrichmentPayload": {
         "minProperties": 1,
         "type": "object",
@@ -70636,6 +74419,50 @@
       },
       "GetEnrichmentHistory200ResponseItem": {
         "type": "object"
+      },
+      "GetIntegrationProviders200ResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "apify"
+          },
+          "name": {
+            "type": "string",
+            "example": "Apify"
+          },
+          "creditCostPerAction": {
+            "type": "number",
+            "example": 0
+          },
+          "requiresUserConnection": {
+            "type": "boolean",
+            "example": false
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "example": false
+          },
+          "isConnected": {
+            "type": "boolean",
+            "example": false
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemActionsItem"
+            }
+          }
+        }
+      },
+      "RunIntegrationActionRequestInputs": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/RunIntegrationActionRequestInputsAdditionalProperties"
+        },
+        "example": {
+          "domain": "example.com"
+        }
       },
       "CreateLeadFinderAgentRequestSearchFiltersLocationsBranch1ValueItem": {
         "type": "object",
@@ -71870,8 +75697,148 @@
           }
         }
       },
+      "ListCompanyListRecipes200ResponseSchemaItem": {
+        "required": [
+          "recipe_id",
+          "source_id",
+          "company_source_id",
+          "title",
+          "description",
+          "prefilled"
+        ],
+        "type": "object",
+        "properties": {
+          "recipe_id": {
+            "type": "string",
+            "example": "ecommerce"
+          },
+          "source_id": {
+            "type": "string",
+            "example": "store_leads"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "search_companies"
+          },
+          "title": {
+            "type": "string",
+            "example": "Find e-commerce companies"
+          },
+          "description": {
+            "type": "string",
+            "example": "Search companies by criteria."
+          },
+          "prefilled": {
+            "$ref": "#/components/schemas/ListCompanyListRecipes200ResponseItemPrefilled"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseSchemaItem": {
+        "required": [
+          "provider_id",
+          "provider_name",
+          "logo_id",
+          "company_source_id",
+          "source_name",
+          "credential_sources",
+          "credit_cost_per_saved_record",
+          "max_records_per_build",
+          "filters",
+          "recipes"
+        ],
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "example": "store_leads"
+          },
+          "provider_name": {
+            "type": "string",
+            "example": "Store Leads"
+          },
+          "logo_id": {
+            "type": "string",
+            "example": "store_leads"
+          },
+          "company_source_id": {
+            "type": "string",
+            "example": "search_companies"
+          },
+          "source_name": {
+            "type": "string",
+            "example": "Search Companies"
+          },
+          "credential_sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemCredentialSourcesItem"
+            }
+          },
+          "credit_cost_per_saved_record": {
+            "type": "integer",
+            "example": 6
+          },
+          "max_records_per_build": {
+            "type": "integer",
+            "example": 2500
+          },
+          "connected": {
+            "type": "boolean",
+            "example": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItem"
+            }
+          },
+          "recipes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemRecipesItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "GetEnrichmentHistory200ResponseSchemaItem": {
         "type": "object"
+      },
+      "GetIntegrationProviders200ResponseSchemaItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "apify"
+          },
+          "name": {
+            "type": "string",
+            "example": "Apify"
+          },
+          "creditCostPerAction": {
+            "type": "number",
+            "example": 0
+          },
+          "requiresUserConnection": {
+            "type": "boolean",
+            "example": false
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "example": false
+          },
+          "isConnected": {
+            "type": "boolean",
+            "example": false
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemActionsItem"
+            }
+          }
+        }
       },
       "CreateLeadFinderAgentRequestSearchFiltersTitle": {
         "type": "object",
@@ -73857,6 +77824,71 @@
           }
         },
         "description": "Event-specific details. Fields depend on \u0060event_type\u0060; events without details carry an empty object."
+      },
+      "SuggestLeadFinderAudienceV2200ResponseSuggestionsItemFilters": {
+        "type": "object",
+        "description": "SuperSearch filters in the product-UI store format expressing the query; not directly accepted as \u0060search_filters\u0060 \u2014 use \u0060query\u0060 with enrichment_generate_filters, or translate the keys. Absent when unavailable."
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2200ResponseItemsItemPayload": {
+        "type": "object"
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2RequestAiEnrichmentAdditionalProperties": {
+        "required": [
+          "model_version"
+        ],
+        "type": "object",
+        "properties": {
+          "model_version": {
+            "examples": [
+              "gpt-5"
+            ],
+            "type": "string",
+            "example": "gpt-5"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "input_columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Ignored \u2014 derived server-side from the prompt\u0027s {{variables}}."
+          },
+          "use_instantly_account": {
+            "type": "boolean"
+          },
+          "overwrite": {
+            "type": "boolean"
+          },
+          "order": {
+            "type": "number",
+            "description": "Execution order of this column within the chain."
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Ignored \u2014 derived server-side: a step without a fallback is required, and its lead is held rather than emailed on failure."
+          },
+          "verb": {
+            "type": "string",
+            "description": "Editor metadata: sentence verb shown in the chain UI."
+          },
+          "object": {
+            "type": "string",
+            "description": "Editor metadata: sentence object shown in the chain UI."
+          },
+          "fallback": {
+            "type": "string",
+            "description": "Value the email sends if this step fails."
+          },
+          "skip_if_input_empty": {
+            "type": "boolean",
+            "description": "Skip the lead when an input field is empty."
+          }
+        }
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2200ResponseWorkflowPayload": {
+        "type": "object"
       },
       "GetDeliverabilityAgentState200ResponseCurrentActivityActive": {
         "required": [
@@ -77009,6 +81041,136 @@
           }
         }
       },
+      "ListCompanyListRecipes200ResponseItemPrefilled": {
+        "type": "object"
+      },
+      "ListCompanyListSources200ResponseItemFiltersItem": {
+        "required": [
+          "key",
+          "label",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "platform"
+          },
+          "label": {
+            "type": "string",
+            "example": "Platform"
+          },
+          "description_key": {
+            "type": "string",
+            "example": "field_desc_store_leads_technology"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemType"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "value_type": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemValueType"
+          },
+          "max_values": {
+            "type": "integer"
+          },
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemOptionsItem"
+            }
+          },
+          "options_source": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemOptionsSource"
+          },
+          "allow_custom": {
+            "type": "boolean"
+          },
+          "presets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItem"
+            }
+          },
+          "threshold_presets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem"
+            }
+          },
+          "operators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemOperatorsItem"
+            }
+          },
+          "default_operator": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemDefaultOperator"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseItemRecipesItem": {
+        "required": [
+          "recipe_id",
+          "title",
+          "description",
+          "visible_filter_keys",
+          "prefilled"
+        ],
+        "type": "object",
+        "properties": {
+          "recipe_id": {
+            "type": "string",
+            "example": "ecommerce"
+          },
+          "title": {
+            "type": "string",
+            "example": "Find e-commerce companies"
+          },
+          "description": {
+            "type": "string",
+            "example": "Search companies by criteria."
+          },
+          "visible_filter_keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prefilled": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemRecipesItemPrefilled"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCompanyListFilterOptions200ResponseOptionsItemChildrenItem": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyLists200ResponseDataItemFilters": {
+        "type": "object",
+        "description": "Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog \u2014 \u0060company_technology_slug_or\u0060, \u0060industry_or\u0060 \u2014 is returned as \u0060{ value, label }\u0060 instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create."
+      },
       "GetEnrichmentForResource200ResponseEnrichmentPayloadAiEnrichment": {
         "type": "object"
       },
@@ -77301,6 +81463,39 @@
               "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustryIncludeItem"
             },
             "description": "Subindustries of the lead company to include in the search"
+          }
+        }
+      },
+      "GetIntegrationProviders200ResponseItemActionsItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "apify_scrape_website"
+          },
+          "name": {
+            "type": "string",
+            "example": "Scrape Website"
+          },
+          "description": {
+            "type": "string",
+            "example": "Crawl a URL and return structured content."
+          },
+          "outputColumn": {
+            "type": "string",
+            "example": "apifyScrapedData"
+          },
+          "category": {
+            "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemActionsItemCategory"
+          },
+          "subcategory": {
+            "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemActionsItemSubcategory"
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemActionsItemInputsItem"
+            }
           }
         }
       },
@@ -79276,6 +83471,76 @@
           }
         }
       },
+      "ListCompanyListSources200ResponseItemFiltersItemOptionsItem": {
+        "required": [
+          "label",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemOptionsItemValue"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemOptionsSource": {
+        "required": [
+          "catalog_id",
+          "supports_search"
+        ],
+        "type": "object",
+        "properties": {
+          "catalog_id": {
+            "type": "string",
+            "example": "theirstack_industries"
+          },
+          "supports_search": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemPresetsItem": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "min": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin"
+          },
+          "max": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem": {
+        "required": [
+          "label",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListCompanyListSources200ResponseItemRecipesItemPrefilled": {
+        "type": "object"
+      },
       "CreateSuperSearchEnrichmentRequestIntegrationActionsAdditionalPropertiesAdditionalProperties": {
         "required": [
           "mapping"
@@ -79284,6 +83549,30 @@
         "properties": {
           "mapping": {
             "$ref": "#/components/schemas/CreateSuperSearchEnrichmentRequestIntegrationActionsAdditionalPropertiesAdditionalPropertiesMapping"
+          }
+        }
+      },
+      "GetIntegrationProviders200ResponseItemActionsItemInputsItem": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "url"
+          },
+          "label": {
+            "type": "string",
+            "example": "URL"
+          },
+          "required": {
+            "type": "boolean",
+            "example": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemActionsItemInputsItemType"
+          },
+          "placeholder": {
+            "type": "string",
+            "example": "e.g. website"
           }
         }
       },
@@ -89337,6 +93626,61 @@
         "additionalProperties": false,
         "example": 429
       },
+      "DeleteLeadFinderAgentV2400ResponseStatusCode": {
+        "examples": [
+          400
+        ],
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 400
+      },
+      "DeleteLeadFinderAgentV2401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "DeleteLeadFinderAgentV2402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "DeleteLeadFinderAgentV2404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "DeleteLeadFinderAgentV2429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
       "PauseLeadFinderAgentById401ResponseStatusCode": {
         "examples": [
           401
@@ -89525,6 +93869,272 @@
         "example": 404
       },
       "ListLeadFinderAgentActivitiesById429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "SuggestLeadFinderAudienceV2200ResponseConfidence": {
+        "examples": [
+          "high"
+        ],
+        "enum": [
+          "high",
+          "low"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "high",
+        "x-ms-enum": {
+          "name": "SuggestLeadFinderAudienceV2200ResponseConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "low",
+              "name": "Low"
+            }
+          ]
+        }
+      },
+      "SuggestLeadFinderAudienceV2401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "SuggestLeadFinderAudienceV2402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "SuggestLeadFinderAudienceV2404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "SuggestLeadFinderAudienceV2422ResponseStatusCode": {
+        "examples": [
+          422
+        ],
+        "enum": [
+          422
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 422
+      },
+      "UnprocessableEntityError": {
+        "examples": [
+          "Unprocessable Entity"
+        ],
+        "enum": [
+          "Unprocessable Entity"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Unprocessable Entity",
+        "x-ms-enum": {
+          "name": "UnprocessableEntityError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Unprocessable Entity",
+              "name": "UnprocessableEntity"
+            }
+          ]
+        }
+      },
+      "SuggestLeadFinderAudienceV2429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "SuggestLeadFinderAudienceV2502ResponseStatusCode": {
+        "examples": [
+          502
+        ],
+        "enum": [
+          502
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 502
+      },
+      "BadGatewayError": {
+        "examples": [
+          "Bad Gateway"
+        ],
+        "enum": [
+          "Bad Gateway"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Bad Gateway",
+        "x-ms-enum": {
+          "name": "BadGatewayError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Bad Gateway",
+              "name": "BadGateway"
+            }
+          ]
+        }
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "ListLeadFinderAgentEnrichmentWorkflowsV2429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "CreateLeadFinderAgentEnrichmentWorkflowV2429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "DeleteLeadFinderAgentEnrichmentWorkflowV2429ResponseStatusCode": {
         "examples": [
           429
         ],
@@ -93799,27 +98409,6 @@
         "additionalProperties": false,
         "example": 422
       },
-      "UnprocessableEntityError": {
-        "examples": [
-          "Unprocessable Entity"
-        ],
-        "enum": [
-          "Unprocessable Entity"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "example": "Unprocessable Entity",
-        "x-ms-enum": {
-          "name": "UnprocessableEntityError",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Unprocessable Entity",
-              "name": "UnprocessableEntity"
-            }
-          ]
-        }
-      },
       "UpdateDomainForwarding429ResponseStatusCode": {
         "examples": [
           429
@@ -93841,27 +98430,6 @@
         "type": "number",
         "additionalProperties": false,
         "example": 502
-      },
-      "BadGatewayError": {
-        "examples": [
-          "Bad Gateway"
-        ],
-        "enum": [
-          "Bad Gateway"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "example": "Bad Gateway",
-        "x-ms-enum": {
-          "name": "BadGatewayError",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Bad Gateway",
-              "name": "BadGateway"
-            }
-          ]
-        }
       },
       "DeleteDomainForwarding400ResponseStatusCode": {
         "examples": [
@@ -100010,6 +104578,597 @@
         "additionalProperties": false,
         "example": 429
       },
+      "ListCompanyListRecipes401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "ListCompanyListRecipes402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "ListCompanyListRecipes404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "ListCompanyListRecipes429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "ListCompanyListSources401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "ListCompanyListSources402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "ListCompanyListSources404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "ListCompanyListSources429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetCompanyListFilterOptions401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetCompanyListFilterOptions402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetCompanyListFilterOptions404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetCompanyListFilterOptions429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "PendingStatus": {
+        "enum": [
+          "PENDING"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "PENDING",
+        "x-ms-enum": {
+          "name": "PendingStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PENDING",
+              "name": "Pending"
+            }
+          ]
+        }
+      },
+      "CreateCompanyList401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "CreateCompanyList402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "InsufficientCreditsError": {
+        "enum": [
+          "Insufficient credits"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Insufficient credits",
+        "x-ms-enum": {
+          "name": "InsufficientCreditsError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Insufficient credits",
+              "name": "InsufficientCredits"
+            }
+          ]
+        }
+      },
+      "CreateCompanyList404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "CreateCompanyList429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "ListCompanyLists401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "ListCompanyLists402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "ListCompanyLists404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "ListCompanyLists429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetCompanyList200ResponseStatus": {
+        "enum": [
+          "PENDING",
+          "IN_PROGRESS",
+          "COMPLETED",
+          "FAILED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "PENDING",
+        "x-ms-enum": {
+          "name": "GetCompanyList200ResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PENDING",
+              "name": "Pending"
+            },
+            {
+              "value": "IN_PROGRESS",
+              "name": "InProgress"
+            },
+            {
+              "value": "COMPLETED",
+              "name": "Completed"
+            },
+            {
+              "value": "FAILED",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "GetCompanyList200ResponseTerminalReason": {
+        "enum": [
+          "MAX_COMPANIES_REACHED",
+          "PROVIDER_EXHAUSTED",
+          "NO_RESULTS",
+          "PROVIDER_ERROR",
+          "INTERNAL_ERROR",
+          "OUT_OF_CREDITS",
+          "UPLOAD_ABORTED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "NO_RESULTS",
+        "x-ms-enum": {
+          "name": "GetCompanyList200ResponseTerminalReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "MAX_COMPANIES_REACHED",
+              "name": "MaxCompaniesReached"
+            },
+            {
+              "value": "PROVIDER_EXHAUSTED",
+              "name": "ProviderExhausted"
+            },
+            {
+              "value": "NO_RESULTS",
+              "name": "NoResults"
+            },
+            {
+              "value": "PROVIDER_ERROR",
+              "name": "ProviderError"
+            },
+            {
+              "value": "INTERNAL_ERROR",
+              "name": "InternalError"
+            },
+            {
+              "value": "OUT_OF_CREDITS",
+              "name": "OutOfCredits"
+            },
+            {
+              "value": "UPLOAD_ABORTED",
+              "name": "UploadAborted"
+            }
+          ]
+        }
+      },
+      "GetCompanyList401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetCompanyList402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetCompanyList404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetCompanyList429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "RenameCompanyList200ResponseStatus": {
+        "enum": [
+          "PENDING",
+          "IN_PROGRESS",
+          "COMPLETED",
+          "FAILED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "PENDING",
+        "x-ms-enum": {
+          "name": "RenameCompanyList200ResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PENDING",
+              "name": "Pending"
+            },
+            {
+              "value": "IN_PROGRESS",
+              "name": "InProgress"
+            },
+            {
+              "value": "COMPLETED",
+              "name": "Completed"
+            },
+            {
+              "value": "FAILED",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "RenameCompanyList200ResponseTerminalReason": {
+        "enum": [
+          "MAX_COMPANIES_REACHED",
+          "PROVIDER_EXHAUSTED",
+          "NO_RESULTS",
+          "PROVIDER_ERROR",
+          "INTERNAL_ERROR",
+          "OUT_OF_CREDITS",
+          "UPLOAD_ABORTED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "NO_RESULTS",
+        "x-ms-enum": {
+          "name": "RenameCompanyList200ResponseTerminalReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "MAX_COMPANIES_REACHED",
+              "name": "MaxCompaniesReached"
+            },
+            {
+              "value": "PROVIDER_EXHAUSTED",
+              "name": "ProviderExhausted"
+            },
+            {
+              "value": "NO_RESULTS",
+              "name": "NoResults"
+            },
+            {
+              "value": "PROVIDER_ERROR",
+              "name": "ProviderError"
+            },
+            {
+              "value": "INTERNAL_ERROR",
+              "name": "InternalError"
+            },
+            {
+              "value": "OUT_OF_CREDITS",
+              "name": "OutOfCredits"
+            },
+            {
+              "value": "UPLOAD_ABORTED",
+              "name": "UploadAborted"
+            }
+          ]
+        }
+      },
+      "RenameCompanyList401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "RenameCompanyList402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "RenameCompanyList404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "RenameCompanyList429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "DeleteCompanyList401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "DeleteCompanyList402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "DeleteCompanyList404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "DeleteCompanyList429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "ListCompanyListMembers401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "ListCompanyListMembers402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "ListCompanyListMembers404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "ListCompanyListMembers429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
       "GetEnrichmentForResource401ResponseStatusCode": {
         "examples": [
           401
@@ -100512,6 +105671,115 @@
         "example": 404
       },
       "GetEnrichmentHistory429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetIntegrationProviders401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetIntegrationProviders402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetIntegrationProviders404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetIntegrationProviders429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "RunIntegrationActionRequestCredentialSource": {
+        "enum": [
+          "workspace_key",
+          "instantly_key"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Which credentials to run this action with. Providers marked requiresUserConnection only accept \u0022workspace_key\u0022.",
+        "example": "instantly_key",
+        "x-ms-enum": {
+          "name": "RunIntegrationActionRequestCredentialSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "workspace_key",
+              "name": "WorkspaceKey"
+            },
+            {
+              "value": "instantly_key",
+              "name": "InstantlyKey"
+            }
+          ]
+        }
+      },
+      "RunIntegrationAction401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "RunIntegrationAction402ResponseStatusCode": {
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "RunIntegrationAction404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "RunIntegrationAction429ResponseStatusCode": {
         "examples": [
           429
         ],
@@ -108440,6 +113708,109 @@
             {
               "value": "LIST",
               "name": "List"
+            }
+          ]
+        }
+      },
+      "ListCompanyListSources200ResponseItemCredentialSourcesItem": {
+        "enum": [
+          "workspace_key",
+          "instantly_key"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListCompanyListSources200ResponseItemCredentialSourcesItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "workspace_key",
+              "name": "WorkspaceKey"
+            },
+            {
+              "value": "instantly_key",
+              "name": "InstantlyKey"
+            }
+          ]
+        }
+      },
+      "ListCompanyLists200ResponseDataItemStatus": {
+        "enum": [
+          "PENDING",
+          "IN_PROGRESS",
+          "COMPLETED",
+          "FAILED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "PENDING",
+        "x-ms-enum": {
+          "name": "ListCompanyLists200ResponseDataItemStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PENDING",
+              "name": "Pending"
+            },
+            {
+              "value": "IN_PROGRESS",
+              "name": "InProgress"
+            },
+            {
+              "value": "COMPLETED",
+              "name": "Completed"
+            },
+            {
+              "value": "FAILED",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "ListCompanyLists200ResponseDataItemTerminalReason": {
+        "enum": [
+          "MAX_COMPANIES_REACHED",
+          "PROVIDER_EXHAUSTED",
+          "NO_RESULTS",
+          "PROVIDER_ERROR",
+          "INTERNAL_ERROR",
+          "OUT_OF_CREDITS",
+          "UPLOAD_ABORTED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "NO_RESULTS",
+        "x-ms-enum": {
+          "name": "ListCompanyLists200ResponseDataItemTerminalReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "MAX_COMPANIES_REACHED",
+              "name": "MaxCompaniesReached"
+            },
+            {
+              "value": "PROVIDER_EXHAUSTED",
+              "name": "ProviderExhausted"
+            },
+            {
+              "value": "NO_RESULTS",
+              "name": "NoResults"
+            },
+            {
+              "value": "PROVIDER_ERROR",
+              "name": "ProviderError"
+            },
+            {
+              "value": "INTERNAL_ERROR",
+              "name": "InternalError"
+            },
+            {
+              "value": "OUT_OF_CREDITS",
+              "name": "OutOfCredits"
+            },
+            {
+              "value": "UPLOAD_ABORTED",
+              "name": "UploadAborted"
             }
           ]
         }
@@ -120545,6 +125916,169 @@
           ]
         }
       },
+      "ListCompanyListSources200ResponseItemFiltersItemType": {
+        "enum": [
+          "text",
+          "string_list",
+          "number_list",
+          "number",
+          "boolean",
+          "date",
+          "range",
+          "threshold",
+          "select",
+          "multiselect",
+          "location"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListCompanyListSources200ResponseItemFiltersItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "text",
+              "name": "Text"
+            },
+            {
+              "value": "string_list",
+              "name": "StringList"
+            },
+            {
+              "value": "number_list",
+              "name": "NumberList"
+            },
+            {
+              "value": "number",
+              "name": "Number"
+            },
+            {
+              "value": "boolean",
+              "name": "Boolean"
+            },
+            {
+              "value": "date",
+              "name": "Date"
+            },
+            {
+              "value": "range",
+              "name": "Range"
+            },
+            {
+              "value": "threshold",
+              "name": "Threshold"
+            },
+            {
+              "value": "select",
+              "name": "Select"
+            },
+            {
+              "value": "multiselect",
+              "name": "Multiselect"
+            },
+            {
+              "value": "location",
+              "name": "Location"
+            }
+          ]
+        }
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemValueType": {
+        "enum": [
+          "number",
+          "date"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListCompanyListSources200ResponseItemFiltersItemValueType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "number",
+              "name": "Number"
+            },
+            {
+              "value": "date",
+              "name": "Date"
+            }
+          ]
+        }
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemOperatorsItem": {
+        "enum": [
+          "eq",
+          "lt",
+          "lte",
+          "gt",
+          "gte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListCompanyListSources200ResponseItemFiltersItemOperatorsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "eq",
+              "name": "Eq"
+            },
+            {
+              "value": "lt",
+              "name": "Lt"
+            },
+            {
+              "value": "lte",
+              "name": "Lte"
+            },
+            {
+              "value": "gt",
+              "name": "Gt"
+            },
+            {
+              "value": "gte",
+              "name": "Gte"
+            }
+          ]
+        }
+      },
+      "ListCompanyListSources200ResponseItemFiltersItemDefaultOperator": {
+        "enum": [
+          "eq",
+          "lt",
+          "lte",
+          "gt",
+          "gte"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListCompanyListSources200ResponseItemFiltersItemDefaultOperator",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "eq",
+              "name": "Eq"
+            },
+            {
+              "value": "lt",
+              "name": "Lt"
+            },
+            {
+              "value": "lte",
+              "name": "Lte"
+            },
+            {
+              "value": "gt",
+              "name": "Gt"
+            },
+            {
+              "value": "gte",
+              "name": "Gte"
+            }
+          ]
+        }
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode": {
         "enum": [
           "ANY",
@@ -125537,6 +131071,77 @@
           ]
         }
       },
+      "GetIntegrationProviders200ResponseItemActionsItemCategory": {
+        "enum": [
+          "person",
+          "company",
+          "verification"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "company",
+        "x-ms-enum": {
+          "name": "GetIntegrationProviders200ResponseItemActionsItemCategory",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "person",
+              "name": "Person"
+            },
+            {
+              "value": "company",
+              "name": "Company"
+            },
+            {
+              "value": "verification",
+              "name": "Verification"
+            }
+          ]
+        }
+      },
+      "GetIntegrationProviders200ResponseItemActionsItemSubcategory": {
+        "enum": [
+          "firmographics",
+          "ads_marketing",
+          "technology",
+          "funding_investors",
+          "jobs",
+          "web_ecommerce"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "web_ecommerce",
+        "x-ms-enum": {
+          "name": "GetIntegrationProviders200ResponseItemActionsItemSubcategory",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "firmographics",
+              "name": "Firmographics"
+            },
+            {
+              "value": "ads_marketing",
+              "name": "AdsMarketing"
+            },
+            {
+              "value": "technology",
+              "name": "Technology"
+            },
+            {
+              "value": "funding_investors",
+              "name": "FundingInvestors"
+            },
+            {
+              "value": "jobs",
+              "name": "Jobs"
+            },
+            {
+              "value": "web_ecommerce",
+              "name": "WebEcommerce"
+            }
+          ]
+        }
+      },
       "GetDeliverabilityAgentState200ResponseCurrentActivityActiveSubMessagesItemStatus": {
         "examples": [
           "in_progress"
@@ -126172,6 +131777,34 @@
             {
               "value": "is-not",
               "name": "IsNot"
+            }
+          ]
+        }
+      },
+      "GetIntegrationProviders200ResponseItemActionsItemInputsItemType": {
+        "enum": [
+          "column",
+          "text",
+          "list"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "column",
+        "x-ms-enum": {
+          "name": "GetIntegrationProviders200ResponseItemActionsItemInputsItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "column",
+              "name": "Column"
+            },
+            {
+              "value": "text",
+              "name": "Text"
+            },
+            {
+              "value": "list",
+              "name": "List"
             }
           ]
         }
