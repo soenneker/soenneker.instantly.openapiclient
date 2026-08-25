@@ -22,6 +22,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> Exclude { get; set; }
 #endif
+        /// <summary>How excluded titles are matched. Defaults to CONTAINS.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitleExcludeMode? ExcludeMode { get; set; }
         /// <summary>Titles of the lead to include in the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +32,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> Include { get; set; }
 #endif
+        /// <summary>How included titles are matched. Defaults to CONTAINS.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitleIncludeMode? IncludeMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitle"/> and sets the default values.
         /// </summary>
@@ -56,7 +60,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exclude", n => { Exclude = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "excludeMode", n => { ExcludeMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitleExcludeMode>(); } },
                 { "include", n => { Include = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "includeMode", n => { IncludeMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitleIncludeMode>(); } },
             };
         }
         /// <summary>
@@ -67,7 +73,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("exclude", Exclude);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitleExcludeMode>("excludeMode", ExcludeMode);
             writer.WriteCollectionOfPrimitiveValues<string>("include", Include);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFiltersTitleIncludeMode>("includeMode", IncludeMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

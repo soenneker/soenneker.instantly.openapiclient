@@ -20,6 +20,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string CatalogId { get; set; }
 #endif
+        /// <summary>The renderer property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSourceRenderer? Renderer { get; set; }
         /// <summary>The supports_search property</summary>
         public bool? SupportsSearch { get; set; }
         /// <summary>
@@ -41,6 +43,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "catalog_id", n => { CatalogId = n.GetStringValue(); } },
+                { "renderer", n => { Renderer = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSourceRenderer>(); } },
                 { "supports_search", n => { SupportsSearch = n.GetBoolValue(); } },
             };
         }
@@ -52,6 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("catalog_id", CatalogId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSourceRenderer>("renderer", Renderer);
             writer.WriteBoolValue("supports_search", SupportsSearch);
         }
     }

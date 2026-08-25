@@ -12,6 +12,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integration
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Item;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.PreviewLeadsFromSupersearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run;
+using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SavedSearches;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalKeywordsFacet;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -66,6 +67,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunRequestBuilder Run
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Run.RunRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The savedSearches property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SavedSearches.SavedSearchesRequestBuilder SavedSearches
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SavedSearches.SavedSearchesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The signalKeywordsFacet property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SignalKeywordsFacet.SignalKeywordsFacetRequestBuilder SignalKeywordsFacet

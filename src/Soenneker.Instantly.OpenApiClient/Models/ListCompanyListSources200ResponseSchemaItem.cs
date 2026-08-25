@@ -74,6 +74,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem> Recipes { get; set; }
 #endif
+        /// <summary>The require_any_of property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RequireAnyOf { get; set; }
+#nullable restore
+#else
+        public List<string> RequireAnyOf { get; set; }
+#endif
         /// <summary>The source_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "provider_id", n => { ProviderId = n.GetStringValue(); } },
                 { "provider_name", n => { ProviderName = n.GetStringValue(); } },
                 { "recipes", n => { Recipes = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "require_any_of", n => { RequireAnyOf = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "source_name", n => { SourceName = n.GetStringValue(); } },
             };
         }
@@ -130,6 +139,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("provider_id", ProviderId);
             writer.WriteStringValue("provider_name", ProviderName);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem>("recipes", Recipes);
+            writer.WriteCollectionOfPrimitiveValues<string>("require_any_of", RequireAnyOf);
             writer.WriteStringValue("source_name", SourceName);
         }
     }

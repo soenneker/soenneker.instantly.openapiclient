@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.Approve;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.ImportedLeads;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.Reject;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -18,10 +20,20 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActivitiesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The approve property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.Approve.ApproveRequestBuilder Approve
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.Approve.ApproveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The importedLeads property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.ImportedLeads.ImportedLeadsRequestBuilder ImportedLeads
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.ImportedLeads.ImportedLeadsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reject property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.Reject.RejectRequestBuilder Reject
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.Reject.RejectRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Activities.ActivitiesRequestBuilder"/> and sets the default values.

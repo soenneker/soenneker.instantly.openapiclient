@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Analytics.Locations;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Analytics
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AnalyticsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The locations property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Analytics.Locations.LocationsRequestBuilder Locations
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Analytics.Locations.LocationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Item.Analytics.AnalyticsRequestBuilder"/> and sets the default values.
         /// </summary>

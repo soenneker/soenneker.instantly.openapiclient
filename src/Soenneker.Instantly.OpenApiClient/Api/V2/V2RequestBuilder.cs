@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AccountCampaignMappings;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Accounts;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents;
 using Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs;
@@ -53,6 +54,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder Accounts
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The agentItems property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems.AgentItemsRequestBuilder AgentItems
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems.AgentItemsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The aiAgents property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.AiAgentsRequestBuilder AiAgents
