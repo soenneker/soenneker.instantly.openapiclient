@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>How to interpret the look-alike domain. Written by the product UI.</summary>
+    /// <summary>Deprecated. No longer written by the product UI; still accepted and forwarded so existing integrations keep working.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UpdateLeadFinderAgentRequestFallbackSearchFiltersLookAlikeMode
     {

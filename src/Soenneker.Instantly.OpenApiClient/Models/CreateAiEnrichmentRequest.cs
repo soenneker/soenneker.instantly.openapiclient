@@ -35,7 +35,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Maximum number of leads to enrich.</summary>
         public double? Limit { get; set; }
         /// <summary>Version of the AI model to use for enrichment. Different models have different capabilities, costs, and token limits.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestModelVersion? ModelVersion { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ModelVersion { get; set; }
+#nullable restore
+#else
+        public string ModelVersion { get; set; }
+#endif
         /// <summary>Name of the column where the AI enrichment results will be stored</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,7 +113,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestFiltersItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "input_columns", n => { InputColumns = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
-                { "model_version", n => { ModelVersion = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestModelVersion>(); } },
+                { "model_version", n => { ModelVersion = n.GetStringValue(); } },
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
@@ -130,7 +136,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestFiltersItem>("filters", Filters);
             writer.WriteCollectionOfPrimitiveValues<string>("input_columns", InputColumns);
             writer.WriteDoubleValue("limit", Limit);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestModelVersion>("model_version", ModelVersion);
+            writer.WriteStringValue("model_version", ModelVersion);
             writer.WriteStringValue("output_column", OutputColumn);
             writer.WriteBoolValue("overwrite", Overwrite);
             writer.WriteStringValue("prompt", Prompt);

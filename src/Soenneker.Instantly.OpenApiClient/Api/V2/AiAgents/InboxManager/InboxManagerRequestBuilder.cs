@@ -35,7 +35,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InboxManagerRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/inbox-manager", pathParameters)
+        public InboxManagerRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/inbox-manager{?limit*,search*,starting_after*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,8 +43,37 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InboxManagerRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/inbox-manager", rawUrl)
+        public InboxManagerRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/inbox-manager{?limit*,search*,starting_after*,status*}", rawUrl)
         {
+        }
+        /// <summary>
+        /// List the AI Inbox Managers of the workspace, newest first.Requires one of the following scopes: `ai_agents:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents429Response">When receiving a 429 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.InboxManagerRequestBuilder.InboxManagerRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.InboxManagerRequestBuilder.InboxManagerRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents429Response.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new AI Inbox Manager with its configuration. The agent is created active.Requires one of the following scopes: `ai_agents:create`, `ai_agents:all`, `all:create`, `all:all`
@@ -82,6 +111,25 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// List the AI Inbox Managers of the workspace, newest first.Requires one of the following scopes: `ai_agents:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.InboxManagerRequestBuilder.InboxManagerRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.InboxManagerRequestBuilder.InboxManagerRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
         /// Create a new AI Inbox Manager with its configuration. The agent is created active.Requires one of the following scopes: `ai_agents:create`, `ai_agents:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -111,6 +159,39 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.InboxManagerRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.InboxManagerRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// List the AI Inbox Managers of the workspace, newest first.Requires one of the following scopes: `ai_agents:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class InboxManagerRequestBuilderGetQueryParameters 
+        {
+            /// <summary>The number of items to return</summary>
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
+            /// <summary>Filter agents whose name contains this text (case-insensitive).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("search")]
+            public string Search { get; set; }
+#endif
+            /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("starting_after")]
+            public string? StartingAfter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("starting_after")]
+            public string StartingAfter { get; set; }
+#endif
+            /// <summary>Filter by agent status.</summary>
+            [QueryParameter("status")]
+            public double? Status { get; set; }
         }
     }
 }

@@ -46,6 +46,37 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item
         {
         }
         /// <summary>
+        /// Delete an AI Deliverability Agent, removing its activity history and any queued runs. Returns the core fields of the deleted agent. Deploying again creates a fresh agent.Requires one of the following scopes: `ai_agents:delete`, `ai_agents:all`, `all:delete`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent429Response">When receiving a 429 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDeliverabilityAgent429Response.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Retrieve a single AI Deliverability Agent.Requires one of the following scopes: `ai_agents:read`, `ai_agents:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiDeliverabilityAgent"/></returns>
@@ -106,6 +137,25 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PatchDeliverabilityAgent429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiDeliverabilityAgent>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiDeliverabilityAgent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Delete an AI Deliverability Agent, removing its activity history and any queued runs. Returns the core fields of the deleted agent. Deploying again creates a fresh agent.Requires one of the following scopes: `ai_agents:delete`, `ai_agents:all`, `all:delete`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// Retrieve a single AI Deliverability Agent.Requires one of the following scopes: `ai_agents:read`, `ai_agents:all`, `all:read`, `all:all`

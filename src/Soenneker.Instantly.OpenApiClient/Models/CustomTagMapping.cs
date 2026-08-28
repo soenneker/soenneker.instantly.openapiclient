@@ -37,7 +37,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string ResourceId { get; private set; }
 #endif
-        /// <summary>Resource type of custom tag, can be 1 for campaigns or 2 for accounts</summary>
+        /// <summary>Resource type of custom tag: 1 for accounts, 2 for campaigns, 3 for workspaces</summary>
         public double? ResourceType { get; private set; }
         /// <summary>ID of the tag this custom mapping belongs to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

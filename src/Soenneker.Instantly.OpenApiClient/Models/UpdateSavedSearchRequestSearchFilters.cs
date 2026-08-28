@@ -146,7 +146,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string LookAlike { get; set; }
 #endif
-        /// <summary>How to interpret the look-alike domain (`targeted` or `broad`). Written by the product UI.</summary>
+        /// <summary>Deprecated. No longer written by the product UI; still accepted and forwarded so existing integrations keep working.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LookAlikeMode { get; set; }

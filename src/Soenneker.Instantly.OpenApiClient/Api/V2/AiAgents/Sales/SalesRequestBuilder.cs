@@ -35,7 +35,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SalesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales", pathParameters)
+        public SalesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales{?agent_type*,limit*,search*,starting_after*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,8 +43,37 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SalesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales", rawUrl)
+        public SalesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales{?agent_type*,limit*,search*,starting_after*,status*}", rawUrl)
         {
+        }
+        /// <summary>
+        /// List the AI Sales Agents of the workspace, newest first.Requires one of the following scopes: `ai_sdr:read`, `ai_agents:read`, `ai_sdr:all`, `all:read`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents200Response"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents429Response">When receiving a 429 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.SalesRequestBuilder.SalesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.SalesRequestBuilder.SalesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents401Response.CreateFromDiscriminatorValue },
+                { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents402Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents404Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents429Response.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListSalesAgents200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new AI Sales Agent. Provide `type` and `input` to extract business details from a website or pitch deck, or skip the scrape by setting `memory_from_workspace` to true to copy the workspace business details, or `is_duplicate` with `source_ai_sdr_id` to copy an existing agent.Requires one of the following scopes: `ai_sdr:create`, `ai_sdr:all`, `all:create`, `all:all`
@@ -80,6 +109,25 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// List the AI Sales Agents of the workspace, newest first.Requires one of the following scopes: `ai_sdr:read`, `ai_agents:read`, `ai_sdr:all`, `all:read`, `all:all`
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.SalesRequestBuilder.SalesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.SalesRequestBuilder.SalesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
         /// Create a new AI Sales Agent. Provide `type` and `input` to extract business details from a website or pitch deck, or skip the scrape by setting `memory_from_workspace` to true to copy the workspace business details, or `is_duplicate` with `source_ai_sdr_id` to copy an existing agent.Requires one of the following scopes: `ai_sdr:create`, `ai_sdr:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -109,6 +157,42 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.SalesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.SalesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// List the AI Sales Agents of the workspace, newest first.Requires one of the following scopes: `ai_sdr:read`, `ai_agents:read`, `ai_sdr:all`, `all:read`, `all:all`
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class SalesRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Filter by a single outbound agent type. 2 = Sales, 7 = Recruiting, 8 = Investment, 9 = User Research, 10 = Partnership.</summary>
+            [QueryParameter("agent_type")]
+            public double? AgentType { get; set; }
+            /// <summary>The number of items to return</summary>
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
+            /// <summary>Filter agents whose name contains this text (case-insensitive).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("search")]
+            public string Search { get; set; }
+#endif
+            /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("starting_after")]
+            public string? StartingAfter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("starting_after")]
+            public string StartingAfter { get; set; }
+#endif
+            /// <summary>Filter by agent status.</summary>
+            [QueryParameter("status")]
+            public double? Status { get; set; }
         }
     }
 }
