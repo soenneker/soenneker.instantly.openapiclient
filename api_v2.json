@@ -42647,7 +42647,7 @@
                 "properties": {
                   "search": {
                     "type": "string",
-                    "description": "A search string to search the leads against - can be First Name, Last Name, or Email",
+                    "description": "Search term matched against the lead\u0027s email and profile fields (first and last name, company, job title, and similar). Matches whole words, and the beginning of a field\u0027s value \u2014 \u0022smith\u0022 finds \u0022John Smith\u0022, \u0022mith\u0022 does not. Provide \u0060campaign\u0060 or \u0060list_id\u0060 to also match inside values. Newly created or updated leads can take a few seconds to become searchable.",
                     "example": "John Doe"
                   },
                   "filter": {

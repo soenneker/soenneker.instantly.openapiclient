@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.ListLeadsRequestQueriesItem> Queries { get; set; }
 #endif
-        /// <summary>A search string to search the leads against - can be First Name, Last Name, or Email</summary>
+        /// <summary>Search term matched against the lead&apos;s email and profile fields (first and last name, company, job title, and similar). Matches whole words, and the beginning of a field&apos;s value — &quot;smith&quot; finds &quot;John Smith&quot;, &quot;mith&quot; does not. Provide `campaign` or `list_id` to also match inside values. Newly created or updated leads can take a few seconds to become searchable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Search { get; set; }
