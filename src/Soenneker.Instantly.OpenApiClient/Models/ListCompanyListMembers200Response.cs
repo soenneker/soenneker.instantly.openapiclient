@@ -20,13 +20,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListMembers200ResponseDataItem> Data { get; set; }
 #endif
-        /// <summary>The next_cursor property</summary>
+        /// <summary>Deprecated alias of `next_starting_after`, always identical to it.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextCursor { get; set; }
 #nullable restore
 #else
         public string NextCursor { get; set; }
+#endif
+        /// <summary>The next_starting_after property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NextStartingAfter { get; set; }
+#nullable restore
+#else
+        public string NextStartingAfter { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,6 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListMembers200ResponseDataItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListMembers200ResponseDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_cursor", n => { NextCursor = n.GetStringValue(); } },
+                { "next_starting_after", n => { NextStartingAfter = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -59,6 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListMembers200ResponseDataItem>("data", Data);
             writer.WriteStringValue("next_cursor", NextCursor);
+            writer.WriteStringValue("next_starting_after", NextStartingAfter);
         }
     }
 }

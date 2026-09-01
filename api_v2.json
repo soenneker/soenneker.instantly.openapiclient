@@ -10592,16 +10592,6 @@
           "Account"
         ],
         "description": "Requires one of the following scopes: \u0060accounts:delete\u0060, \u0060accounts:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -15118,16 +15108,6 @@
           "APIKey"
         ],
         "description": "Requires one of the following scopes: \u0060api_keys:delete\u0060, \u0060api_keys:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -16781,16 +16761,6 @@
           "BlockListEntry"
         ],
         "description": "Requires one of the following scopes: \u0060block_list_entries:delete\u0060, \u0060block_list_entries:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -17467,16 +17437,6 @@
           "BlockListEntry"
         ],
         "description": "Requires one of the following scopes: \u0060block_list_entries:delete\u0060, \u0060block_list_entries:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -21231,16 +21191,6 @@
           "Campaign"
         ],
         "description": "Requires one of the following scopes: \u0060campaigns:delete\u0060, \u0060campaigns:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -27227,16 +27177,6 @@
           "CustomTag"
         ],
         "description": "Requires one of the following scopes: \u0060custom_tags:delete\u0060, \u0060custom_tags:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -33316,16 +33256,6 @@
           "Email"
         ],
         "description": "Requires one of the following scopes: \u0060emails:delete\u0060, \u0060emails:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -37987,16 +37917,6 @@
           "InboxPlacementTest"
         ],
         "description": "Requires one of the following scopes: \u0060inbox_placement_tests:delete\u0060, \u0060inbox_placement_tests:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -41448,16 +41368,6 @@
           "LeadList"
         ],
         "description": "Requires one of the following scopes: \u0060lead_lists:delete\u0060, \u0060lead_lists:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -43695,16 +43605,6 @@
           "Lead"
         ],
         "description": "Requires one of the following scopes: \u0060leads:delete\u0060, \u0060leads:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -49545,16 +49445,6 @@
           "CampaignSubsequence"
         ],
         "description": "Requires one of the following scopes: \u0060subsequences:delete\u0060, \u0060subsequences:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -53527,16 +53417,6 @@
           "Webhook"
         ],
         "description": "Requires one of the following scopes: \u0060webhooks:delete\u0060, \u0060webhooks:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -56411,16 +56291,6 @@
           "WorkspaceGroupMember"
         ],
         "description": "Requires one of the following scopes: \u0060workspace_group_members:delete\u0060, \u0060workspace_group_members:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -57962,16 +57832,6 @@
           "WorkspaceMember"
         ],
         "description": "Requires one of the following scopes: \u0060workspace_members:delete\u0060, \u0060workspace_members:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "null"
-              },
-              "example": null
-            }
-          }
-        },
         "parameters": [
           {
             "schema": {
@@ -92930,7 +92790,7 @@
                       },
                       "credit_cost_per_saved_record": {
                         "type": "integer",
-                        "example": 6
+                        "example": 4
                       },
                       "max_records_per_build": {
                         "type": "integer",
@@ -93949,12 +93809,13 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 100,
-              "example": 50
+              "example": 10
             },
-            "example": 50,
+            "example": 10,
             "in": "query",
             "name": "limit",
-            "required": false
+            "required": false,
+            "description": "The number of items to return"
           },
           {
             "schema": {
@@ -93964,7 +93825,33 @@
             },
             "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
             "in": "query",
+            "name": "starting_after",
+            "required": false,
+            "description": "Pagination cursor. Pass the \u0060next_starting_after\u0060 value from the previous response. Takes precedence over the deprecated \u0060cursor\u0060 when both are sent."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "deprecated": true,
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+            "in": "query",
             "name": "cursor",
+            "required": false,
+            "description": "Deprecated alias of \u0060starting_after\u0060. Pass the \u0060next_cursor\u0060 value from the previous response. Ignored when \u0060starting_after\u0060 is also sent."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "example": "acme"
+            },
+            "example": "acme",
+            "in": "query",
+            "name": "search",
             "required": false
           }
         ],
@@ -94070,9 +93957,20 @@
                         }
                       }
                     },
-                    "next_cursor": {
+                    "next_starting_after": {
                       "type": "string",
                       "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+                    },
+                    "next_cursor": {
+                      "type": "string",
+                      "deprecated": true,
+                      "description": "Deprecated alias of \u0060next_starting_after\u0060, always identical to it.",
+                      "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Number of lists matching the request, counted exactly up to 10000. A workspace with more matches than that reports 10000.",
+                      "example": 137
                     }
                   }
                 }
@@ -95088,12 +94986,13 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 100,
-              "example": 50
+              "example": 10
             },
-            "example": 50,
+            "example": 10,
             "in": "query",
             "name": "limit",
-            "required": false
+            "required": false,
+            "description": "The number of items to return"
           },
           {
             "schema": {
@@ -95103,8 +95002,22 @@
             },
             "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
             "in": "query",
+            "name": "starting_after",
+            "required": false,
+            "description": "Pagination cursor. Pass the \u0060next_starting_after\u0060 value from the previous response. Takes precedence over the deprecated \u0060cursor\u0060 when both are sent."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "deprecated": true,
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+            "in": "query",
             "name": "cursor",
-            "required": false
+            "required": false,
+            "description": "Deprecated alias of \u0060starting_after\u0060. Pass the \u0060next_cursor\u0060 value from the previous response. Ignored when \u0060starting_after\u0060 is also sent."
           },
           {
             "schema": {
@@ -95256,8 +95169,14 @@
                         }
                       }
                     },
+                    "next_starting_after": {
+                      "type": "string",
+                      "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+                    },
                     "next_cursor": {
                       "type": "string",
+                      "deprecated": true,
+                      "description": "Deprecated alias of \u0060next_starting_after\u0060, always identical to it.",
                       "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
                     }
                   }

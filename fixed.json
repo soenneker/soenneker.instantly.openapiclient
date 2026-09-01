@@ -569,16 +569,6 @@
             "example": "jon@doe.com"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteAccountRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Account",
@@ -1945,16 +1935,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteApiKeyRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted API Key",
@@ -2641,16 +2621,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteallBlockListEntryRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "List of deleted Block List Entry",
@@ -2881,16 +2851,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteBlockListEntryRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Block List Entry",
@@ -3777,16 +3737,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteCampaignRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Campaign",
@@ -5702,16 +5652,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteCustomTagRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Custom Tag",
@@ -7462,16 +7402,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteEmailRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Email",
@@ -8612,16 +8542,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteInboxPlacementTestRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Inbox Placement Test",
@@ -9690,16 +9610,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteLeadListRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Lead List",
@@ -10236,16 +10146,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteLeadRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Lead",
@@ -11696,16 +11596,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteCampaignSubsequenceRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Campaign Subsequence",
@@ -12893,16 +12783,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteWebhookRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Webhook",
@@ -13562,16 +13442,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteWorkspaceGroupMemberRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Workspace Group Member",
@@ -14051,16 +13921,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteWorkspaceMemberRequest"
-              },
-              "example": null
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "The deleted Workspace Member",
@@ -20743,23 +20603,48 @@
           {
             "name": "limit",
             "in": "query",
+            "description": "The number of items to return",
             "schema": {
               "maximum": 100,
               "minimum": 1,
               "type": "integer",
-              "example": 50
+              "example": 10
             },
-            "example": 50
+            "example": 10
           },
           {
-            "name": "cursor",
+            "name": "starting_after",
             "in": "query",
+            "description": "Pagination cursor. Pass the \u0060next_starting_after\u0060 value from the previous response. Takes precedence over the deprecated \u0060cursor\u0060 when both are sent.",
             "schema": {
               "minLength": 1,
               "type": "string",
               "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
             },
             "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Deprecated alias of \u0060starting_after\u0060. Pass the \u0060next_cursor\u0060 value from the previous response. Ignored when \u0060starting_after\u0060 is also sent.",
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+              "deprecated": true
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string",
+              "example": "acme"
+            },
+            "example": "acme"
           }
         ],
         "responses": {
@@ -21046,21 +20931,35 @@
           {
             "name": "limit",
             "in": "query",
+            "description": "The number of items to return",
             "schema": {
               "maximum": 100,
               "minimum": 1,
               "type": "integer",
-              "example": 50
+              "example": 10
             },
-            "example": 50
+            "example": 10
           },
           {
-            "name": "cursor",
+            "name": "starting_after",
             "in": "query",
+            "description": "Pagination cursor. Pass the \u0060next_starting_after\u0060 value from the previous response. Takes precedence over the deprecated \u0060cursor\u0060 when both are sent.",
             "schema": {
               "minLength": 1,
               "type": "string",
               "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+            },
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Deprecated alias of \u0060starting_after\u0060. Pass the \u0060next_cursor\u0060 value from the previous response. Ignored when \u0060starting_after\u0060 is also sent.",
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+              "deprecated": true
             },
             "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
           },
@@ -30344,9 +30243,6 @@
           }
         }
       },
-      "DeleteAccountRequest": {
-        "type": "null"
-      },
       "DeleteAccount401Response": {
         "required": [
           "statusCode",
@@ -32210,9 +32106,6 @@
           }
         }
       },
-      "DeleteApiKeyRequest": {
-        "type": "null"
-      },
       "DeleteApiKey401Response": {
         "required": [
           "statusCode",
@@ -32804,9 +32697,6 @@
           }
         }
       },
-      "DeleteallBlockListEntryRequest": {
-        "type": "null"
-      },
       "DeleteallBlockListEntry200Response": {
         "type": "array",
         "items": {
@@ -33100,9 +32990,6 @@
             "example": "Rate limit exceeded"
           }
         }
-      },
-      "DeleteBlockListEntryRequest": {
-        "type": "null"
       },
       "DeleteBlockListEntry401Response": {
         "required": [
@@ -34624,9 +34511,6 @@
             "example": "Rate limit exceeded"
           }
         }
-      },
-      "DeleteCampaignRequest": {
-        "type": "null"
       },
       "DeleteCampaign401Response": {
         "required": [
@@ -36893,9 +36777,6 @@
             "example": "Rate limit exceeded"
           }
         }
-      },
-      "DeleteCustomTagRequest": {
-        "type": "null"
       },
       "DeleteCustomTag401Response": {
         "required": [
@@ -39508,9 +39389,6 @@
           }
         }
       },
-      "DeleteEmailRequest": {
-        "type": "null"
-      },
       "DeleteEmail401Response": {
         "required": [
           "statusCode",
@@ -41241,9 +41119,6 @@
           }
         }
       },
-      "DeleteInboxPlacementTestRequest": {
-        "type": "null"
-      },
       "DeleteInboxPlacementTest401Response": {
         "required": [
           "statusCode",
@@ -42687,9 +42562,6 @@
           }
         }
       },
-      "DeleteLeadListRequest": {
-        "type": "null"
-      },
       "DeleteLeadList401Response": {
         "required": [
           "statusCode",
@@ -43814,9 +43686,6 @@
             "example": "Rate limit exceeded"
           }
         }
-      },
-      "DeleteLeadRequest": {
-        "type": "null"
       },
       "DeleteLead401Response": {
         "required": [
@@ -46234,9 +46103,6 @@
           }
         }
       },
-      "DeleteCampaignSubsequenceRequest": {
-        "type": "null"
-      },
       "DeleteCampaignSubsequence401Response": {
         "required": [
           "statusCode",
@@ -47706,9 +47572,6 @@
           }
         }
       },
-      "DeleteWebhookRequest": {
-        "type": "null"
-      },
       "DeleteWebhook401Response": {
         "required": [
           "statusCode",
@@ -48672,9 +48535,6 @@
           }
         }
       },
-      "DeleteWorkspaceGroupMemberRequest": {
-        "type": "null"
-      },
       "DeleteWorkspaceGroupMember401Response": {
         "required": [
           "statusCode",
@@ -49341,9 +49201,6 @@
             "example": "Rate limit exceeded"
           }
         }
-      },
-      "DeleteWorkspaceMemberRequest": {
-        "type": "null"
       },
       "DeleteWorkspaceMember401Response": {
         "required": [
@@ -58933,9 +58790,20 @@
               "$ref": "#/components/schemas/ListCompanyLists200ResponseDataItem"
             }
           },
-          "next_cursor": {
+          "next_starting_after": {
             "type": "string",
             "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          },
+          "next_cursor": {
+            "type": "string",
+            "description": "Deprecated alias of \u0060next_starting_after\u0060, always identical to it.",
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+            "deprecated": true
+          },
+          "total": {
+            "type": "integer",
+            "description": "Number of lists matching the request, counted exactly up to 10000. A workspace with more matches than that reports 10000.",
+            "example": 137
           }
         },
         "additionalProperties": false
@@ -59481,9 +59349,15 @@
               "$ref": "#/components/schemas/ListCompanyListMembers200ResponseDataItem"
             }
           },
-          "next_cursor": {
+          "next_starting_after": {
             "type": "string",
             "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
+          },
+          "next_cursor": {
+            "type": "string",
+            "description": "Deprecated alias of \u0060next_starting_after\u0060, always identical to it.",
+            "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd",
+            "deprecated": true
           }
         },
         "additionalProperties": false
@@ -73315,7 +73189,7 @@
           },
           "credit_cost_per_saved_record": {
             "type": "integer",
-            "example": 6
+            "example": 4
           },
           "max_records_per_build": {
             "type": "integer",
@@ -76115,7 +75989,7 @@
           },
           "credit_cost_per_saved_record": {
             "type": "integer",
-            "example": 6
+            "example": 4
           },
           "max_records_per_build": {
             "type": "integer",

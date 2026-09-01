@@ -20,7 +20,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyLists200ResponseDataItem> Data { get; set; }
 #endif
-        /// <summary>The next_cursor property</summary>
+        /// <summary>Deprecated alias of `next_starting_after`, always identical to it.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NextCursor { get; set; }
@@ -28,6 +29,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string NextCursor { get; set; }
 #endif
+        /// <summary>The next_starting_after property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NextStartingAfter { get; set; }
+#nullable restore
+#else
+        public string NextStartingAfter { get; set; }
+#endif
+        /// <summary>Number of lists matching the request, counted exactly up to 10000. A workspace with more matches than that reports 10000.</summary>
+        public int? Total { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,6 +59,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyLists200ResponseDataItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyLists200ResponseDataItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_cursor", n => { NextCursor = n.GetStringValue(); } },
+                { "next_starting_after", n => { NextStartingAfter = n.GetStringValue(); } },
+                { "total", n => { Total = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -59,6 +72,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyLists200ResponseDataItem>("data", Data);
             writer.WriteStringValue("next_cursor", NextCursor);
+            writer.WriteStringValue("next_starting_after", NextStartingAfter);
+            writer.WriteIntValue("total", Total);
         }
     }
 }

@@ -68,7 +68,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry&gt;</returns>
-        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry401Response">When receiving a 401 status code</exception>
@@ -77,15 +76,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>?> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>> DeleteAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry401Response.CreateFromDiscriminatorValue },
@@ -162,22 +160,19 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// Requires one of the following scopes: `block_list_entries:delete`, `block_list_entries:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(UntypedNode body, Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

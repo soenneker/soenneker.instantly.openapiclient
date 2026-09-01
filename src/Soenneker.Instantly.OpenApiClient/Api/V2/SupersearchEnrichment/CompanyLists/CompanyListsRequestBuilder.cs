@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Company
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CompanyListsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/supersearch-enrichment/company-lists{?cursor*,limit*}", pathParameters)
+        public CompanyListsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/supersearch-enrichment/company-lists{?cursor*,limit*,search*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Company
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CompanyListsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/supersearch-enrichment/company-lists{?cursor*,limit*}", rawUrl)
+        public CompanyListsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/supersearch-enrichment/company-lists{?cursor*,limit*,search*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -180,6 +180,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Company
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CompanyListsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Deprecated alias of `starting_after`. Pass the `next_cursor` value from the previous response. Ignored when `starting_after` is also sent.</summary>
+            [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cursor")]
@@ -189,8 +191,28 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Company
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
+            /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("search")]
+            public string? Search { get; set; }
+#nullable restore
+#else
+            [QueryParameter("search")]
+            public string Search { get; set; }
+#endif
+            /// <summary>Pagination cursor. Pass the `next_starting_after` value from the previous response. Takes precedence over the deprecated `cursor` when both are sent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("starting_after")]
+            public string? StartingAfter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("starting_after")]
+            public string StartingAfter { get; set; }
+#endif
         }
     }
 }
