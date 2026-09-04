@@ -126,12 +126,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Analytics.Overview
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("ids")]
             public string[]? Ids { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("ids")]
             public string[] Ids { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Start of the analytics range. Accepts a date-only value (`YYYY-MM-DD`) or a full ISO 8601 timestamp. Date-only values are interpreted as UTC midnight — e.g. `2026-04-07` is treated as `2026-04-07T00:00:00.000Z`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

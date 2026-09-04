@@ -39,13 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The provider_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProviderId { get; set; }
-#nullable restore
-#else
-        public string ProviderId { get; set; }
-#endif
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateCompanyListRequestProviderId? ProviderId { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -68,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCompanyListRequestFilters>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCompanyListRequestFilters.CreateFromDiscriminatorValue); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "provider_id", n => { ProviderId = n.GetStringValue(); } },
+                { "provider_id", n => { ProviderId = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCompanyListRequestProviderId>(); } },
             };
         }
         /// <summary>
@@ -82,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCompanyListRequestFilters>("filters", Filters);
             writer.WriteIntValue("limit", Limit);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("provider_id", ProviderId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCompanyListRequestProviderId>("provider_id", ProviderId);
         }
     }
 }

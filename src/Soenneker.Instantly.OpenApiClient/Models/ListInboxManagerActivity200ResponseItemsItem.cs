@@ -44,7 +44,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether the entry is an automatic follow-up</summary>
         public bool? IsFollowup { get; set; }
         /// <summary>Work type: 1 = inbox reply, 2 = inbox follow-up, 3 = no-show follow-up. Null for recoveries.</summary>
-        public double? JobType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType? JobType { get; set; }
         /// <summary>Lead email address the activity relates to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,7 +104,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "information_requested", n => { InformationRequested = n.GetStringValue(); } },
                 { "is_followup", n => { IsFollowup = n.GetBoolValue(); } },
-                { "job_type", n => { JobType = n.GetDoubleValue(); } },
+                { "job_type", n => { JobType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType>(); } },
                 { "lead_email", n => { LeadEmail = n.GetStringValue(); } },
                 { "recovery_method", n => { RecoveryMethod = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod>(); } },
                 { "requires_hitl", n => { RequiresHitl = n.GetBoolValue(); } },
@@ -129,7 +129,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("information_requested", InformationRequested);
             writer.WriteBoolValue("is_followup", IsFollowup);
-            writer.WriteDoubleValue("job_type", JobType);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType>("job_type", JobType);
             writer.WriteStringValue("lead_email", LeadEmail);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod>("recovery_method", RecoveryMethod);
             writer.WriteBoolValue("requires_hitl", RequiresHitl);

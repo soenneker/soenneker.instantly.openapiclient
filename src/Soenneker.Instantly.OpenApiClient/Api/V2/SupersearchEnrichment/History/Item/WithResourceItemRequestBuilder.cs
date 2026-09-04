@@ -97,10 +97,14 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithResourceItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public double? Limit { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("offset")]
             public double? Offset { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

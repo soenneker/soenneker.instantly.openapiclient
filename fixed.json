@@ -58648,9 +58648,7 @@
             "example": "US SaaS companies hiring engineers"
           },
           "provider_id": {
-            "minLength": 1,
-            "type": "string",
-            "example": "theirstack"
+            "$ref": "#/components/schemas/CreateCompanyListRequestProviderId"
           },
           "company_source_id": {
             "minLength": 1,
@@ -73156,6 +73154,7 @@
           "credential_sources",
           "credit_cost_per_saved_record",
           "max_records_per_build",
+          "supports_preview",
           "filters",
           "recipes"
         ],
@@ -73194,6 +73193,10 @@
           "max_records_per_build": {
             "type": "integer",
             "example": 2500
+          },
+          "supports_preview": {
+            "type": "boolean",
+            "example": true
           },
           "connected": {
             "type": "boolean",
@@ -75956,6 +75959,7 @@
           "credential_sources",
           "credit_cost_per_saved_record",
           "max_records_per_build",
+          "supports_preview",
           "filters",
           "recipes"
         ],
@@ -75994,6 +75998,10 @@
           "max_records_per_build": {
             "type": "integer",
             "example": 2500
+          },
+          "supports_preview": {
+            "type": "boolean",
+            "example": true
           },
           "connected": {
             "type": "boolean",
@@ -104018,6 +104026,64 @@
         "type": "number",
         "additionalProperties": false,
         "example": 429
+      },
+      "CreateCompanyListRequestProviderId": {
+        "enum": [
+          "a_leads",
+          "builtwith",
+          "diffbot",
+          "discolike",
+          "fullenrich",
+          "rocketreach",
+          "store_leads",
+          "theirstack",
+          "the_swarm"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "theirstack",
+        "x-ms-enum": {
+          "name": "CreateCompanyListRequestProviderId",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "a_leads",
+              "name": "ALeads"
+            },
+            {
+              "value": "builtwith",
+              "name": "Builtwith"
+            },
+            {
+              "value": "diffbot",
+              "name": "Diffbot"
+            },
+            {
+              "value": "discolike",
+              "name": "Discolike"
+            },
+            {
+              "value": "fullenrich",
+              "name": "Fullenrich"
+            },
+            {
+              "value": "rocketreach",
+              "name": "Rocketreach"
+            },
+            {
+              "value": "store_leads",
+              "name": "StoreLeads"
+            },
+            {
+              "value": "theirstack",
+              "name": "Theirstack"
+            },
+            {
+              "value": "the_swarm",
+              "name": "TheSwarm"
+            }
+          ]
+        }
       },
       "PendingStatus": {
         "enum": [

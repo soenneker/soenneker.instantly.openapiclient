@@ -163,12 +163,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs
             public global::Soenneker.Instantly.OpenApiClient.Models.ListBackgroundJobSortOrderParameter? SortOrder { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("starting_after")]
             public string? StartingAfter { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>The status of the job. Multiple statuses can be provided as a comma-separated list. Valid statuses are: pending, in-progress, success, failed, draining, paused, cancelled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

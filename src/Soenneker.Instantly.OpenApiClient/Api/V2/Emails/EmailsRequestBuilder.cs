@@ -182,8 +182,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>The type of the email to filter by.</summary>
             [QueryParameter("email_type")]
             public global::Soenneker.Instantly.OpenApiClient.Models.ListEmailEmailTypeParameter? EmailType { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("has_reminder")]
             public bool? HasReminder { get; set; }
+            #pragma warning restore CS1591
             /// <summary>The status of the emails to filter by.</summary>
             [QueryParameter("i_status")]
             public double? IStatus { get; set; }

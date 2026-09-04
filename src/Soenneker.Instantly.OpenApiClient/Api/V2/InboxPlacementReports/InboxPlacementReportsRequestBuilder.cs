@@ -111,21 +111,29 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("date_from")]
             public string? DateFrom { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("date_from")]
             public string DateFrom { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("date_to")]
             public string? DateTo { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("date_to")]
             public string DateTo { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
@@ -148,12 +156,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementReports
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("test_id")]
             public string? TestId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("test_id")]
             public string TestId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

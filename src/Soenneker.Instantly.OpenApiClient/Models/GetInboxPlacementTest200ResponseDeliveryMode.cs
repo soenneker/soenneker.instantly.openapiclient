@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>How much autonomy the agent runs with. Null for agent types that have no autonomy setting, and for agents whose mode is not configured yet.</summary>
+    /// <summary>Whether to send emails one by one or all together</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum AiAgentSummaryConfigurationMode
+    public enum GetInboxPlacementTest200ResponseDeliveryMode
     {
-        [EnumMember(Value = "copilot")]
+        [EnumMember(Value = "1")]
         #pragma warning disable CS1591
-        Copilot,
+        One,
         #pragma warning restore CS1591
-        [EnumMember(Value = "fully_automatic")]
+        [EnumMember(Value = "2")]
         #pragma warning disable CS1591
-        FullyAutomatic,
+        Two,
         #pragma warning restore CS1591
         [EnumMember(Value = "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464")]
         #pragma warning disable CS1591

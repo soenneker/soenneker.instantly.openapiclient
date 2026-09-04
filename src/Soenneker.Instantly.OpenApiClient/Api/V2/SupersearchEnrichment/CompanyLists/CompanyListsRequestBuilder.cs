@@ -196,12 +196,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Company
             public int? Limit { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search")]
             public string? Search { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search")]
             public string Search { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Pagination cursor. Pass the `next_starting_after` value from the previous response. Takes precedence over the deprecated `cursor` when both are sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

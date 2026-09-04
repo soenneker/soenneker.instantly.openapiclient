@@ -90,6 +90,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string SourceName { get; set; }
 #endif
+        /// <summary>The supports_preview property</summary>
+        public bool? SupportsPreview { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -120,6 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "recipes", n => { Recipes = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "require_any_of", n => { RequireAnyOf = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "source_name", n => { SourceName = n.GetStringValue(); } },
+                { "supports_preview", n => { SupportsPreview = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -141,6 +144,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemRecipesItem>("recipes", Recipes);
             writer.WriteCollectionOfPrimitiveValues<string>("require_any_of", RequireAnyOf);
             writer.WriteStringValue("source_name", SourceName);
+            writer.WriteBoolValue("supports_preview", SupportsPreview);
         }
     }
 }

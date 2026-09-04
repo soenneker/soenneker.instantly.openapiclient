@@ -92754,6 +92754,7 @@
                       "credential_sources",
                       "credit_cost_per_saved_record",
                       "max_records_per_build",
+                      "supports_preview",
                       "filters",
                       "recipes"
                     ],
@@ -92795,6 +92796,10 @@
                       "max_records_per_build": {
                         "type": "integer",
                         "example": 2500
+                      },
+                      "supports_preview": {
+                        "type": "boolean",
+                        "example": true
                       },
                       "connected": {
                         "type": "boolean",
@@ -93571,7 +93576,17 @@
                   },
                   "provider_id": {
                     "type": "string",
-                    "minLength": 1,
+                    "enum": [
+                      "a_leads",
+                      "builtwith",
+                      "diffbot",
+                      "discolike",
+                      "fullenrich",
+                      "rocketreach",
+                      "store_leads",
+                      "theirstack",
+                      "the_swarm"
+                    ],
                     "example": "theirstack"
                   },
                   "company_source_id": {

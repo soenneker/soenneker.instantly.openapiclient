@@ -3,45 +3,46 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>The ID of the Instantly Credits plan subscribed to</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId
+    #pragma warning disable CS1591
+    public enum CreateCompanyListRequestProviderId
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "pid_nic_v1")]
+        [EnumMember(Value = "a_leads")]
         #pragma warning disable CS1591
-        PidNicV1,
+        ALeads,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_nic_v1_annual")]
+        [EnumMember(Value = "builtwith")]
         #pragma warning disable CS1591
-        PidNicV1Annual,
+        Builtwith,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_gic_v1")]
+        [EnumMember(Value = "diffbot")]
         #pragma warning disable CS1591
-        PidGicV1,
+        Diffbot,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_gic_v1_annual")]
+        [EnumMember(Value = "discolike")]
         #pragma warning disable CS1591
-        PidGicV1Annual,
+        Discolike,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_sic_v1")]
+        [EnumMember(Value = "fullenrich")]
         #pragma warning disable CS1591
-        PidSicV1,
+        Fullenrich,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_sic_v1_annual")]
+        [EnumMember(Value = "rocketreach")]
         #pragma warning disable CS1591
-        PidSicV1Annual,
+        Rocketreach,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_hic_v1")]
+        [EnumMember(Value = "store_leads")]
         #pragma warning disable CS1591
-        PidHicV1,
+        StoreLeads,
         #pragma warning restore CS1591
-        [EnumMember(Value = "pid_hic_v1_annual")]
+        [EnumMember(Value = "theirstack")]
         #pragma warning disable CS1591
-        PidHicV1Annual,
+        Theirstack,
         #pragma warning restore CS1591
-        [EnumMember(Value = "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464")]
+        [EnumMember(Value = "the_swarm")]
         #pragma warning disable CS1591
-        OpenapiJsonNullSentinelValue2BF936000FE44250987AE5DDB203E464,
+        TheSwarm,
         #pragma warning restore CS1591
     }
 }

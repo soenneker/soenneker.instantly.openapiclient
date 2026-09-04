@@ -129,21 +129,29 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("date_from")]
             public string? DateFrom { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("date_from")]
             public string DateFrom { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("date_to")]
             public string? DateTo { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("date_to")]
             public string DateTo { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
@@ -180,12 +188,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sender_email")]
             public string? SenderEmail { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sender_email")]
             public string SenderEmail { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -199,12 +211,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("test_id")]
             public string? TestId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("test_id")]
             public string TestId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }
