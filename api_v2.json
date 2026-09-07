@@ -92833,6 +92833,7 @@
                               "enum": [
                                 "text",
                                 "string_list",
+                                "domain_list",
                                 "number_list",
                                 "number",
                                 "boolean",
@@ -93582,6 +93583,7 @@
                       "diffbot",
                       "discolike",
                       "fullenrich",
+                      "predict_leads",
                       "rocketreach",
                       "store_leads",
                       "theirstack",
@@ -95828,6 +95830,14 @@
                       "type": "string",
                       "description": "Unique identifier for the enrichment",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "job_id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "description": "Identifier of the enrichment job scheduled by this request. \u0060null\u0060 when no job was scheduled.",
+                      "example": "12345"
                     },
                     "limit": {
                       "type": "number",

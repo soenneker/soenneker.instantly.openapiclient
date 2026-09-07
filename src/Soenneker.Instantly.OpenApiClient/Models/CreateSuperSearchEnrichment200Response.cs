@@ -28,6 +28,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Identifier of the enrichment job scheduled by this request. `null` when no job was scheduled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JobId { get; set; }
+#nullable restore
+#else
+        public string JobId { get; set; }
+#endif
         /// <summary>The maximum number of leads to enrich</summary>
         public double? Limit { get; set; }
         /// <summary>Organization ID that created this enrichment</summary>
@@ -66,6 +74,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "job_id", n => { JobId = n.GetStringValue(); } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
@@ -80,6 +89,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload>("enrichment_payload", EnrichmentPayload);
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("job_id", JobId);
             writer.WriteDoubleValue("limit", Limit);
             writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteStringValue("resource_id", ResourceId);

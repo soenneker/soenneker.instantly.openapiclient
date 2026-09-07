@@ -28,6 +28,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Fullenrich,
         #pragma warning restore CS1591
+        [EnumMember(Value = "predict_leads")]
+        #pragma warning disable CS1591
+        PredictLeads,
+        #pragma warning restore CS1591
         [EnumMember(Value = "rocketreach")]
         #pragma warning disable CS1591
         Rocketreach,

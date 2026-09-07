@@ -16,6 +16,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         StringList,
         #pragma warning restore CS1591
+        [EnumMember(Value = "domain_list")]
+        #pragma warning disable CS1591
+        DomainList,
+        #pragma warning restore CS1591
         [EnumMember(Value = "number_list")]
         #pragma warning disable CS1591
         NumberList,
