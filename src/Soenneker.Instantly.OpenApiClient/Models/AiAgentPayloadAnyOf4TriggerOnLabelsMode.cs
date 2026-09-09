@@ -5,7 +5,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>Whether to include or exclude the selected labels. Defaults to include.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum AiAgentPayloadAnyOf3TriggerOnLabelsMode
+    public enum AiAgentPayloadAnyOf4TriggerOnLabelsMode
     {
         [EnumMember(Value = "include")]
         #pragma warning disable CS1591

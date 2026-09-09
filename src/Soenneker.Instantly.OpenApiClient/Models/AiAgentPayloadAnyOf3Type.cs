@@ -5,7 +5,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>SDR source type</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum AiAgentPayloadAnyOf2Type
+    public enum AiAgentPayloadAnyOf3Type
     {
         [EnumMember(Value = "website")]
         #pragma warning disable CS1591

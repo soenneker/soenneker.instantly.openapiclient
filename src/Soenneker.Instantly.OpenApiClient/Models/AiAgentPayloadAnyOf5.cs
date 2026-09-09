@@ -8,28 +8,28 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Configurations for Deliverability Agent app integrations
+    /// Deliverability Agent payload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AiAgentPayloadAnyOf4Integrations : IParsable
+    public partial class AiAgentPayloadAnyOf5 : IParsable
     {
-        /// <summary>The slack property</summary>
+        /// <summary>Configurations for Deliverability Agent app integrations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsSlack? Slack { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5Integrations? Integrations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsSlack Slack { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5Integrations Integrations { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4Integrations"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4Integrations CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4Integrations();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "slack", n => { Slack = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsSlack>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsSlack.CreateFromDiscriminatorValue); } },
+                { "integrations", n => { Integrations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5Integrations>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5Integrations.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsSlack>("slack", Slack);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5Integrations>("integrations", Integrations);
         }
     }
 }

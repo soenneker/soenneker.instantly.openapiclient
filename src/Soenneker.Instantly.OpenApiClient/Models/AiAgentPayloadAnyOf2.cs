@@ -8,47 +8,55 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Sales agent (SDR) payload
+    /// Voice Agent payload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiAgentPayloadAnyOf2 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>AI Sales Agent agent config</summary>
+        /// <summary>Opening line</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfig? AiSdrConfig { get; set; }
+        public string? FirstMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfig AiSdrConfig { get; set; }
+        public string FirstMessage { get; set; }
 #endif
-        /// <summary>Whether initial scrape is ready</summary>
-        public bool? InitialScrapeReady { get; set; }
-        /// <summary>SDR input (e.g. website URL or pitch deck reference)</summary>
+        /// <summary>Agent language</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Input { get; set; }
+        public string? Language { get; set; }
 #nullable restore
 #else
-        public string Input { get; set; }
+        public string Language { get; set; }
 #endif
-        /// <summary>Master lead list ID for the SDR</summary>
+        /// <summary>Assigned phone number id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MasterLeadListId { get; set; }
+        public string? PhoneNumberId { get; set; }
 #nullable restore
 #else
-        public string MasterLeadListId { get; set; }
+        public string PhoneNumberId { get; set; }
 #endif
-        /// <summary>Scheduled time for next decision</summary>
-        public DateTimeOffset? NextDecisionTime { get; set; }
-        /// <summary>Timestamp of last SDR action</summary>
-        public DateTimeOffset? TimestampLastAction { get; set; }
-        /// <summary>Timestamp of last SDR decision</summary>
-        public DateTimeOffset? TimestampLastDecision { get; set; }
-        /// <summary>SDR source type</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2Type? Type { get; set; }
+        /// <summary>Voice provider adapter key</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.ElevenlabsProvider? Provider { get; set; }
+        /// <summary>Agent system prompt</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SystemPrompt { get; set; }
+#nullable restore
+#else
+        public string SystemPrompt { get; set; }
+#endif
+        /// <summary>Selected provider voice id</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VoiceId { get; set; }
+#nullable restore
+#else
+        public string VoiceId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2"/> and sets the default values.
         /// </summary>
@@ -74,14 +82,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ai_sdr_config", n => { AiSdrConfig = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfig>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfig.CreateFromDiscriminatorValue); } },
-                { "initial_scrape_ready", n => { InitialScrapeReady = n.GetBoolValue(); } },
-                { "input", n => { Input = n.GetStringValue(); } },
-                { "master_lead_list_id", n => { MasterLeadListId = n.GetStringValue(); } },
-                { "next_decision_time", n => { NextDecisionTime = n.GetDateTimeOffsetValue(); } },
-                { "timestamp_last_action", n => { TimestampLastAction = n.GetDateTimeOffsetValue(); } },
-                { "timestamp_last_decision", n => { TimestampLastDecision = n.GetDateTimeOffsetValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2Type>(); } },
+                { "first_message", n => { FirstMessage = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "phone_number_id", n => { PhoneNumberId = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ElevenlabsProvider>(); } },
+                { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
+                { "voice_id", n => { VoiceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -91,14 +97,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfig>("ai_sdr_config", AiSdrConfig);
-            writer.WriteBoolValue("initial_scrape_ready", InitialScrapeReady);
-            writer.WriteStringValue("input", Input);
-            writer.WriteStringValue("master_lead_list_id", MasterLeadListId);
-            writer.WriteDateTimeOffsetValue("next_decision_time", NextDecisionTime);
-            writer.WriteDateTimeOffsetValue("timestamp_last_action", TimestampLastAction);
-            writer.WriteDateTimeOffsetValue("timestamp_last_decision", TimestampLastDecision);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2Type>("type", Type);
+            writer.WriteStringValue("first_message", FirstMessage);
+            writer.WriteStringValue("language", Language);
+            writer.WriteStringValue("phone_number_id", PhoneNumberId);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ElevenlabsProvider>("provider", Provider);
+            writer.WriteStringValue("system_prompt", SystemPrompt);
+            writer.WriteStringValue("voice_id", VoiceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

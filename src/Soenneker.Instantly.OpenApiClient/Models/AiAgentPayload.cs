@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiAgentPayload : IComposedTypeWrapper, IParsable
@@ -45,6 +45,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4 AiAgentPayloadAnyOf4 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5? AiAgentPayloadAnyOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5 AiAgentPayloadAnyOf5 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -58,6 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             result.AiAgentPayloadAnyOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2();
             result.AiAgentPayloadAnyOf3 = new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3();
             result.AiAgentPayloadAnyOf4 = new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4();
+            result.AiAgentPayloadAnyOf5 = new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf5();
             return result;
         }
         /// <summary>
@@ -66,9 +75,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AiAgentPayloadAnyOf1 != null || AiAgentPayloadAnyOf2 != null || AiAgentPayloadAnyOf3 != null || AiAgentPayloadAnyOf4 != null)
+            if(AiAgentPayloadAnyOf1 != null || AiAgentPayloadAnyOf2 != null || AiAgentPayloadAnyOf3 != null || AiAgentPayloadAnyOf4 != null || AiAgentPayloadAnyOf5 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AiAgentPayloadAnyOf1, AiAgentPayloadAnyOf2, AiAgentPayloadAnyOf3, AiAgentPayloadAnyOf4);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AiAgentPayloadAnyOf1, AiAgentPayloadAnyOf2, AiAgentPayloadAnyOf3, AiAgentPayloadAnyOf4, AiAgentPayloadAnyOf5);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -79,7 +88,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf1>(null, AiAgentPayloadAnyOf1, AiAgentPayloadAnyOf2, AiAgentPayloadAnyOf3, AiAgentPayloadAnyOf4);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf1>(null, AiAgentPayloadAnyOf1, AiAgentPayloadAnyOf2, AiAgentPayloadAnyOf3, AiAgentPayloadAnyOf4, AiAgentPayloadAnyOf5);
         }
     }
 }

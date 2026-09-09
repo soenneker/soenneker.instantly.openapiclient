@@ -11,7 +11,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Business context and memory for the AI Sales Agent
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AiAgentPayloadAnyOf2AiSdrConfigMemory : IAdditionalDataHolder, IParsable
+    public partial class AiAgentPayloadAnyOf3AiSdrConfigMemory : IAdditionalDataHolder, IParsable
     {
         /// <summary>The active_business_offers_indexes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,27 +66,27 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The icps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem>? Icps { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem>? Icps { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem> Icps { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem> Icps { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemory"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory"/> and sets the default values.
         /// </summary>
-        public AiAgentPayloadAnyOf2AiSdrConfigMemory()
+        public AiAgentPayloadAnyOf3AiSdrConfigMemory()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemory"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemory();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,7 +102,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "business_offers", n => { BusinessOffers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "custom_fields", n => { CustomFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "icps", n => { Icps = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "icps", n => { Icps = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -118,7 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("business_offers", BusinessOffers);
             writer.WriteStringValue("company", Company);
             writer.WriteCollectionOfPrimitiveValues<string>("custom_fields", CustomFields);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem>("icps", Icps);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem>("icps", Icps);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

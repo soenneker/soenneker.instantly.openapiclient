@@ -7,34 +7,45 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>
-    /// Settings for AI Sales Agent autonomy
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
+        /// <summary>The accounts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Accounts { get; set; }
+#nullable restore
+#else
+        public List<string> Accounts { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether autopilot mode is enabled</summary>
-        public bool? AutopilotMode { get; set; }
-        /// <summary>Whether to auto-reply to responses</summary>
-        public bool? AutoReplyToResponses { get; set; }
+        /// <summary>The tag_ids property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? TagIds { get; set; }
+#nullable restore
+#else
+        public List<string> TagIds { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts"/> and sets the default values.
         /// </summary>
-        public AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings()
+        public AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +55,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_reply_to_responses", n => { AutoReplyToResponses = n.GetBoolValue(); } },
-                { "autopilot_mode", n => { AutopilotMode = n.GetBoolValue(); } },
+                { "accounts", n => { Accounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -55,8 +66,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("autopilot_mode", AutopilotMode);
-            writer.WriteBoolValue("auto_reply_to_responses", AutoReplyToResponses);
+            writer.WriteCollectionOfPrimitiveValues<string>("accounts", Accounts);
+            writer.WriteCollectionOfPrimitiveValues<string>("tag_ids", TagIds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

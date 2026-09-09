@@ -2690,6 +2690,70 @@
               },
               {
                 "type": "object",
+                "description": "Voice Agent payload",
+                "additionalProperties": true,
+                "required": [
+                  "provider"
+                ],
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "elevenlabs"
+                    ],
+                    "examples": [
+                      "elevenlabs"
+                    ],
+                    "description": "Voice provider adapter key",
+                    "example": "elevenlabs"
+                  },
+                  "voice_id": {
+                    "type": "string",
+                    "examples": [
+                      "21m00Tcm4TlvDq8ikWAM"
+                    ],
+                    "description": "Selected provider voice id",
+                    "example": "21m00Tcm4TlvDq8ikWAM"
+                  },
+                  "language": {
+                    "type": "string",
+                    "examples": [
+                      "en"
+                    ],
+                    "description": "Agent language",
+                    "example": "en"
+                  },
+                  "system_prompt": {
+                    "type": "string",
+                    "examples": [
+                      "You are a friendly SDR."
+                    ],
+                    "description": "Agent system prompt",
+                    "example": "You are a friendly SDR."
+                  },
+                  "first_message": {
+                    "type": "string",
+                    "examples": [
+                      "Hi, is this {{lead.first_name}}?"
+                    ],
+                    "description": "Opening line",
+                    "example": "Hi, is this {{lead.first_name}}?"
+                  },
+                  "phone_number_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "examples": [
+                      "f9cc070d-8dba-4341-b847-f083c358e460"
+                    ],
+                    "description": "Assigned phone number id",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  }
+                }
+              },
+              {
+                "type": "object",
                 "description": "Sales agent (SDR) payload",
                 "required": [
                   "ai_sdr_config"
@@ -3398,7 +3462,8 @@
               7,
               8,
               9,
-              10
+              10,
+              11
             ],
             "x-enumDescriptions": {
               "1": "Inbox Manager Agent",
@@ -3409,7 +3474,8 @@
               "7": "Recruiting Agent",
               "8": "Investment Agent",
               "9": "User Research Agent",
-              "10": "Partnership Agent"
+              "10": "Partnership Agent",
+              "11": "Voice Agent"
             },
             "example": 1
           },
@@ -3508,7 +3574,8 @@
               7,
               8,
               9,
-              10
+              10,
+              11
             ],
             "x-enumDescriptions": {
               "1": "Inbox Manager Agent",
@@ -3519,7 +3586,8 @@
               "7": "Recruiting Agent",
               "8": "Investment Agent",
               "9": "User Research Agent",
-              "10": "Partnership Agent"
+              "10": "Partnership Agent",
+              "11": "Voice Agent"
             },
             "example": 1
           },
@@ -3776,7 +3844,8 @@
               7,
               8,
               9,
-              10
+              10,
+              11
             ],
             "x-enumDescriptions": {
               "1": "Inbox Manager Agent",
@@ -3787,7 +3856,8 @@
               "7": "Recruiting Agent",
               "8": "Investment Agent",
               "9": "User Research Agent",
-              "10": "Partnership Agent"
+              "10": "Partnership Agent",
+              "11": "Voice Agent"
             },
             "example": 1
           },
@@ -4030,7 +4100,8 @@
               7,
               8,
               9,
-              10
+              10,
+              11
             ],
             "x-enumDescriptions": {
               "1": "Inbox Manager Agent",
@@ -4041,7 +4112,8 @@
               "7": "Recruiting Agent",
               "8": "Investment Agent",
               "9": "User Research Agent",
-              "10": "Partnership Agent"
+              "10": "Partnership Agent",
+              "11": "Voice Agent"
             },
             "example": 1
           },
@@ -6759,7 +6831,12 @@
               36,
               37,
               38,
-              40
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -6795,7 +6872,12 @@
               "36": "Account update",
               "37": "API key created",
               "38": "API key deleted",
-              "40": "Domain forwarding updated"
+              "40": "Domain forwarding updated",
+              "41": "Voice agent phone number added",
+              "42": "Voice agent phone number updated",
+              "43": "Voice agent phone number deleted",
+              "44": "Voice agent number added to do-not-call list",
+              "45": "Voice agent number removed from do-not-call list"
             },
             "example": 1
           },

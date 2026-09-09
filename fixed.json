@@ -26642,6 +26642,9 @@
           },
           {
             "$ref": "#/components/schemas/AiAgentPayloadAnyOf4"
+          },
+          {
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf5"
           }
         ],
         "properties": {
@@ -26692,11 +26695,57 @@
             "description": "Workflow template the enrichment chain was loaded from \u2014 a built-in key or \u0060custom:\u003Cid\u003E\u0060.",
             "example": "custom:0198c2a4-3f1e-7000-8000-000000000000"
           },
+          "provider": {
+            "$ref": "#/components/schemas/ElevenlabsProvider"
+          },
+          "voice_id": {
+            "examples": [
+              "21m00Tcm4TlvDq8ikWAM"
+            ],
+            "type": "string",
+            "description": "Selected provider voice id",
+            "example": "21m00Tcm4TlvDq8ikWAM"
+          },
+          "language": {
+            "examples": [
+              "en"
+            ],
+            "type": "string",
+            "description": "Agent language",
+            "example": "en"
+          },
+          "system_prompt": {
+            "examples": [
+              "You are a friendly SDR."
+            ],
+            "type": "string",
+            "description": "Agent system prompt",
+            "example": "You are a friendly SDR."
+          },
+          "first_message": {
+            "examples": [
+              "Hi, is this {{lead.first_name}}?"
+            ],
+            "type": "string",
+            "description": "Opening line",
+            "example": "Hi, is this {{lead.first_name}}?"
+          },
+          "phone_number_id": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Assigned phone number id",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "ai_sdr_config": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfig"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfig"
           },
           "type": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2Type"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3Type"
           },
           "input": {
             "examples": [
@@ -26750,12 +26799,12 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "configuration_type": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3ConfigurationType"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4ConfigurationType"
           },
           "tags": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3TagsItem"
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf4TagsItem"
             },
             "description": "List of tags to use for AI Agent"
           },
@@ -26784,7 +26833,7 @@
             "example": true
           },
           "no_show": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3NoShow"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4NoShow"
           },
           "trigger_on_labels_enabled": {
             "examples": [
@@ -26812,7 +26861,7 @@
             "description": "Array of interest_status values to trigger the agent on"
           },
           "trigger_on_labels_mode": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3TriggerOnLabelsMode"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4TriggerOnLabelsMode"
           },
           "monthly_credit_budget": {
             "examples": [
@@ -26906,15 +26955,70 @@
       },
       "AiAgentPayloadAnyOf2": {
         "required": [
+          "provider"
+        ],
+        "type": "object",
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/ElevenlabsProvider"
+          },
+          "voice_id": {
+            "examples": [
+              "21m00Tcm4TlvDq8ikWAM"
+            ],
+            "type": "string",
+            "description": "Selected provider voice id",
+            "example": "21m00Tcm4TlvDq8ikWAM"
+          },
+          "language": {
+            "examples": [
+              "en"
+            ],
+            "type": "string",
+            "description": "Agent language",
+            "example": "en"
+          },
+          "system_prompt": {
+            "examples": [
+              "You are a friendly SDR."
+            ],
+            "type": "string",
+            "description": "Agent system prompt",
+            "example": "You are a friendly SDR."
+          },
+          "first_message": {
+            "examples": [
+              "Hi, is this {{lead.first_name}}?"
+            ],
+            "type": "string",
+            "description": "Opening line",
+            "example": "Hi, is this {{lead.first_name}}?"
+          },
+          "phone_number_id": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Assigned phone number id",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "description": "Voice Agent payload"
+      },
+      "AiAgentPayloadAnyOf3": {
+        "required": [
           "ai_sdr_config"
         ],
         "type": "object",
         "properties": {
           "ai_sdr_config": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfig"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfig"
           },
           "type": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2Type"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3Type"
           },
           "input": {
             "examples": [
@@ -26970,16 +27074,16 @@
         },
         "description": "Sales agent (SDR) payload"
       },
-      "AiAgentPayloadAnyOf3": {
+      "AiAgentPayloadAnyOf4": {
         "type": "object",
         "properties": {
           "configuration_type": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3ConfigurationType"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4ConfigurationType"
           },
           "tags": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3TagsItem"
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf4TagsItem"
             },
             "description": "List of tags to use for AI Agent"
           },
@@ -27008,10 +27112,10 @@
             "example": true
           },
           "integrations": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3IntegrationsProperty"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4IntegrationsProperty"
           },
           "no_show": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3NoShow"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4NoShow"
           },
           "trigger_on_labels_enabled": {
             "examples": [
@@ -27039,7 +27143,7 @@
             "description": "Array of interest_status values to trigger the agent on"
           },
           "trigger_on_labels_mode": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3TriggerOnLabelsMode"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4TriggerOnLabelsMode"
           },
           "monthly_credit_budget": {
             "examples": [
@@ -27064,24 +27168,24 @@
         },
         "description": "Reply agent (Inbox Manager) payload"
       },
-      "AiAgentPayloadAnyOf4": {
+      "AiAgentPayloadAnyOf5": {
         "type": "object",
         "properties": {
           "integrations": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4Integrations"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf5Integrations"
           }
         },
         "additionalProperties": false,
         "description": "Deliverability Agent payload"
       },
-      "AiAgentPayloadAnyOf3TagsItem": {
+      "AiAgentPayloadAnyOf4TagsItem": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3TagsItemWrapper"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4TagsItemWrapper"
           },
           {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3TagsItemBranch2"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4TagsItemBranch2"
           }
         ]
       },
@@ -28083,25 +28187,25 @@
         ],
         "description": "AI enrichment columns the agent fills on every top-up, keyed by output column name. Returned in the stored executor shape; the write shape is documented on the create and update endpoints."
       },
-      "AiAgentPayloadAnyOf2AiSdrConfig": {
+      "AiAgentPayloadAnyOf3AiSdrConfig": {
         "type": "object",
         "properties": {
           "memory": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigMemory"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemory"
           },
           "enrichment_settings": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigEnrichmentSettings"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings"
           },
           "outreach_settings": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigOutreachSettings"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings"
           },
           "autonomy_settings": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings"
           }
         },
         "description": "AI Sales Agent agent config"
       },
-      "AiAgentPayloadAnyOf3Integrations": {
+      "AiAgentPayloadAnyOf4Integrations": {
         "examples": [
           {
             "slack": {
@@ -28119,7 +28223,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf3NoShow": {
+      "AiAgentPayloadAnyOf4NoShow": {
         "examples": [
           {
             "enabled": true,
@@ -28147,7 +28251,7 @@
             "example": 3
           },
           "fallback_sending_accounts": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3NoShowFallbackSendingAccounts"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts"
           }
         },
         "description": "No-show recovery feature configuration",
@@ -28156,11 +28260,11 @@
           "max_followups": 3
         }
       },
-      "AiAgentPayloadAnyOf4Integrations": {
+      "AiAgentPayloadAnyOf5Integrations": {
         "type": "object",
         "properties": {
           "slack": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf4IntegrationsSlack"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf5IntegrationsSlack"
           }
         },
         "additionalProperties": false,
@@ -28739,7 +28843,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigMemory": {
+      "AiAgentPayloadAnyOf3AiSdrConfigMemory": {
         "type": "object",
         "properties": {
           "company": {
@@ -28769,7 +28873,7 @@
           "icps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem"
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem"
             }
           },
           "custom_fields": {
@@ -28805,7 +28909,7 @@
         },
         "description": "Business context and memory for the AI Sales Agent"
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigEnrichmentSettings": {
+      "AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings": {
         "type": "object",
         "properties": {
           "enrichment_limit_per_run": {
@@ -28819,11 +28923,11 @@
         },
         "description": "Settings for lead enrichment"
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigOutreachSettings": {
+      "AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings": {
         "type": "object",
         "properties": {
           "campaign_schedule": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignSchedule"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignSchedule"
           },
           "email_list": {
             "type": "array",
@@ -28891,7 +28995,7 @@
         },
         "description": "Settings for email outreach"
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigAutonomySettings": {
+      "AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings": {
         "type": "object",
         "properties": {
           "autopilot_mode": {
@@ -28913,7 +29017,7 @@
         },
         "description": "Settings for AI Sales Agent autonomy"
       },
-      "AiAgentPayloadAnyOf3NoShowFallbackSendingAccounts": {
+      "AiAgentPayloadAnyOf4NoShowFallbackSendingAccounts": {
         "examples": [
           {
             "accounts": [],
@@ -28949,7 +29053,7 @@
           "tag_ids": []
         }
       },
-      "AiAgentPayloadAnyOf4IntegrationsSlack": {
+      "AiAgentPayloadAnyOf5IntegrationsSlack": {
         "type": [
           "null",
           "object"
@@ -29301,7 +29405,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItem": {
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem": {
         "type": "object",
         "properties": {
           "name": {
@@ -29356,7 +29460,7 @@
             "example": "Case study"
           },
           "keywords": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItemKeywords"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemKeywords"
           },
           "company_size": {
             "type": "array",
@@ -29379,22 +29483,22 @@
             }
           },
           "job_title": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItemJobTitle"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemJobTitle"
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignSchedule": {
+      "AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignSchedule": {
         "type": "object",
         "properties": {
           "schedules": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItem"
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItem"
             }
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItemKeywords": {
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemKeywords": {
         "type": "object",
         "properties": {
           "include": {
@@ -29419,7 +29523,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigMemoryIcpsItemJobTitle": {
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemJobTitle": {
         "type": "object",
         "properties": {
           "include": {
@@ -29444,7 +29548,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItem": {
+      "AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItem": {
         "type": "object",
         "properties": {
           "name": {
@@ -29455,10 +29559,10 @@
             "example": "Default"
           },
           "timing": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemTiming"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemTiming"
           },
           "days": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemDaysProperty"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemDaysProperty"
           },
           "timezone": {
             "examples": [
@@ -29469,7 +29573,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemTiming": {
+      "AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemTiming": {
         "type": "object",
         "properties": {
           "from": {
@@ -29488,7 +29592,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemDays": {
+      "AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemDays": {
         "type": "object",
         "additionalProperties": {
           "examples": [
@@ -61646,7 +61750,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf3TagsItemWrapper": {
+      "AiAgentPayloadAnyOf4TagsItemWrapper": {
         "required": [
           "value"
         ],
@@ -61676,7 +61780,7 @@
           }
         }
       },
-      "AiAgentPayloadAnyOf3TagsItemBranch2": {
+      "AiAgentPayloadAnyOf4TagsItemBranch2": {
         "required": [
           "value"
         ],
@@ -68201,7 +68305,7 @@
         "type": "object",
         "description": "AI enrichment columns the agent fills on every top-up, keyed by output column name. Returned in the stored executor shape; the write shape is documented on the create and update endpoints."
       },
-      "AiAgentPayloadAnyOf3IntegrationsProperty": {
+      "AiAgentPayloadAnyOf4IntegrationsProperty": {
         "type": "object",
         "description": "Configurations for app integrations"
       },
@@ -68250,7 +68354,7 @@
         "type": "object",
         "description": "Business context and memory for the AI Sales Agent"
       },
-      "AiAgentPayloadAnyOf2AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemDaysProperty": {
+      "AiAgentPayloadAnyOf3AiSdrConfigOutreachSettingsCampaignScheduleSchedulesItemDaysProperty": {
         "type": "object",
         "additionalProperties": {
           "examples": [
@@ -84641,7 +84745,8 @@
           7,
           8,
           9,
-          10
+          10,
+          11
         ],
         "type": [
           "null",
@@ -84659,7 +84764,8 @@
           "7": "Recruiting Agent",
           "8": "Investment Agent",
           "9": "User Research Agent",
-          "10": "Partnership Agent"
+          "10": "Partnership Agent",
+          "11": "Voice Agent"
         }
       },
       "AiAgentStatus": {
@@ -84688,7 +84794,8 @@
           7,
           8,
           9,
-          10
+          10,
+          11
         ],
         "type": [
           "null",
@@ -84706,7 +84813,8 @@
           "7": "Recruiting Agent",
           "8": "Investment Agent",
           "9": "User Research Agent",
-          "10": "Partnership Agent"
+          "10": "Partnership Agent",
+          "11": "Voice Agent"
         }
       },
       "AiAgentSummaryStatus": {
@@ -84767,7 +84875,8 @@
           7,
           8,
           9,
-          10
+          10,
+          11
         ],
         "type": [
           "null",
@@ -84785,7 +84894,8 @@
           "7": "Recruiting Agent",
           "8": "Investment Agent",
           "9": "User Research Agent",
-          "10": "Partnership Agent"
+          "10": "Partnership Agent",
+          "11": "Voice Agent"
         }
       },
       "AiInboxManagerStatus": {
@@ -84814,7 +84924,8 @@
           7,
           8,
           9,
-          10
+          10,
+          11
         ],
         "type": [
           "null",
@@ -84832,7 +84943,8 @@
           "7": "Recruiting Agent",
           "8": "Investment Agent",
           "9": "User Research Agent",
-          "10": "Partnership Agent"
+          "10": "Partnership Agent",
+          "11": "Voice Agent"
         }
       },
       "AiDeliverabilityAgentStatus": {
@@ -86690,7 +86802,12 @@
           36,
           37,
           38,
-          40
+          40,
+          41,
+          42,
+          43,
+          44,
+          45
         ],
         "type": "number",
         "additionalProperties": false,
@@ -86731,7 +86848,12 @@
           "36": "Account update",
           "37": "API key created",
           "38": "API key deleted",
-          "40": "Domain forwarding updated"
+          "40": "Domain forwarding updated",
+          "41": "Voice agent phone number added",
+          "42": "Voice agent phone number updated",
+          "43": "Voice agent phone number deleted",
+          "44": "Voice agent number added to do-not-call list",
+          "45": "Voice agent number removed from do-not-call list"
         }
       },
       "AiAgentGuidanceStatus": {
@@ -87436,7 +87558,29 @@
           ]
         }
       },
-      "AiAgentPayloadAnyOf2Type": {
+      "ElevenlabsProvider": {
+        "examples": [
+          "elevenlabs"
+        ],
+        "enum": [
+          "elevenlabs"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Voice provider adapter key",
+        "example": "elevenlabs",
+        "x-ms-enum": {
+          "name": "ElevenlabsProvider",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "elevenlabs",
+              "name": "Elevenlabs"
+            }
+          ]
+        }
+      },
+      "AiAgentPayloadAnyOf3Type": {
         "examples": [
           "website"
         ],
@@ -87449,7 +87593,7 @@
         "description": "SDR source type",
         "example": "website",
         "x-ms-enum": {
-          "name": "AiAgentPayloadAnyOf2Type",
+          "name": "AiAgentPayloadAnyOf3Type",
           "modelAsString": false,
           "values": [
             {
@@ -87463,7 +87607,7 @@
           ]
         }
       },
-      "AiAgentPayloadAnyOf3ConfigurationType": {
+      "AiAgentPayloadAnyOf4ConfigurationType": {
         "examples": [
           1,
           2
@@ -87477,7 +87621,7 @@
         "description": "Type of the AI agent configuration",
         "example": 1
       },
-      "AiAgentPayloadAnyOf3TriggerOnLabelsMode": {
+      "AiAgentPayloadAnyOf4TriggerOnLabelsMode": {
         "examples": [
           "include"
         ],
@@ -87490,7 +87634,7 @@
         "description": "Whether to include or exclude the selected labels. Defaults to include.",
         "example": "include",
         "x-ms-enum": {
-          "name": "AiAgentPayloadAnyOf3TriggerOnLabelsMode",
+          "name": "AiAgentPayloadAnyOf4TriggerOnLabelsMode",
           "modelAsString": false,
           "values": [
             {

@@ -8,61 +8,47 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Reply agent (Inbox Manager) payload
+    /// Sales agent (SDR) payload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiAgentPayloadAnyOf3 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Type of the AI agent configuration</summary>
-        public double? ConfigurationType { get; set; }
-        /// <summary>Whether to send follow-up emails only on business days (Mon-Fri)</summary>
-        public bool? FollowupBusinessDaysOnly { get; set; }
-        /// <summary>Whether to handle follow-up emails</summary>
-        public bool? HandleFollowup { get; set; }
-        /// <summary>Whether to handle objections, declines, or negative replies</summary>
-        public bool? HandleObjections { get; set; }
-        /// <summary>Configurations for app integrations</summary>
+        /// <summary>AI Sales Agent agent config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3IntegrationsProperty? Integrations { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig? AiSdrConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3IntegrationsProperty Integrations { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig AiSdrConfig { get; set; }
 #endif
-        /// <summary>Monthly AI credit budget for this agent (null = unlimited)</summary>
-        public double? MonthlyCreditBudget { get; set; }
-        /// <summary>No-show recovery feature configuration</summary>
+        /// <summary>Whether initial scrape is ready</summary>
+        public bool? InitialScrapeReady { get; set; }
+        /// <summary>SDR input (e.g. website URL or pitch deck reference)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3NoShow? NoShow { get; set; }
+        public string? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3NoShow NoShow { get; set; }
+        public string Input { get; set; }
 #endif
-        /// <summary>Whether to respond to automatic emails</summary>
-        public bool? RespondToAutomaticEmails { get; set; }
-        /// <summary>List of tags to use for AI Agent</summary>
+        /// <summary>Master lead list ID for the SDR</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TagsItem>? Tags { get; set; }
+        public string? MasterLeadListId { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TagsItem> Tags { get; set; }
+        public string MasterLeadListId { get; set; }
 #endif
-        /// <summary>Array of interest_status values to trigger the agent on</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<double?>? TriggerOnLabels { get; set; }
-#nullable restore
-#else
-        public List<double?> TriggerOnLabels { get; set; }
-#endif
-        /// <summary>Whether to activate the agent only for specific interest labels</summary>
-        public bool? TriggerOnLabelsEnabled { get; set; }
-        /// <summary>Whether to include or exclude the selected labels. Defaults to include.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TriggerOnLabelsMode? TriggerOnLabelsMode { get; set; }
+        /// <summary>Scheduled time for next decision</summary>
+        public DateTimeOffset? NextDecisionTime { get; set; }
+        /// <summary>Timestamp of last SDR action</summary>
+        public DateTimeOffset? TimestampLastAction { get; set; }
+        /// <summary>Timestamp of last SDR decision</summary>
+        public DateTimeOffset? TimestampLastDecision { get; set; }
+        /// <summary>SDR source type</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3"/> and sets the default values.
         /// </summary>
@@ -88,18 +74,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuration_type", n => { ConfigurationType = n.GetDoubleValue(); } },
-                { "followup_business_days_only", n => { FollowupBusinessDaysOnly = n.GetBoolValue(); } },
-                { "handle_followup", n => { HandleFollowup = n.GetBoolValue(); } },
-                { "handle_objections", n => { HandleObjections = n.GetBoolValue(); } },
-                { "integrations", n => { Integrations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3IntegrationsProperty>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3IntegrationsProperty.CreateFromDiscriminatorValue); } },
-                { "monthly_credit_budget", n => { MonthlyCreditBudget = n.GetDoubleValue(); } },
-                { "no_show", n => { NoShow = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3NoShow>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3NoShow.CreateFromDiscriminatorValue); } },
-                { "respond_to_automatic_emails", n => { RespondToAutomaticEmails = n.GetBoolValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TagsItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TagsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "trigger_on_labels", n => { TriggerOnLabels = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "trigger_on_labels_enabled", n => { TriggerOnLabelsEnabled = n.GetBoolValue(); } },
-                { "trigger_on_labels_mode", n => { TriggerOnLabelsMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TriggerOnLabelsMode>(); } },
+                { "ai_sdr_config", n => { AiSdrConfig = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig.CreateFromDiscriminatorValue); } },
+                { "initial_scrape_ready", n => { InitialScrapeReady = n.GetBoolValue(); } },
+                { "input", n => { Input = n.GetStringValue(); } },
+                { "master_lead_list_id", n => { MasterLeadListId = n.GetStringValue(); } },
+                { "next_decision_time", n => { NextDecisionTime = n.GetDateTimeOffsetValue(); } },
+                { "timestamp_last_action", n => { TimestampLastAction = n.GetDateTimeOffsetValue(); } },
+                { "timestamp_last_decision", n => { TimestampLastDecision = n.GetDateTimeOffsetValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type>(); } },
             };
         }
         /// <summary>
@@ -109,18 +91,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("configuration_type", ConfigurationType);
-            writer.WriteBoolValue("followup_business_days_only", FollowupBusinessDaysOnly);
-            writer.WriteBoolValue("handle_followup", HandleFollowup);
-            writer.WriteBoolValue("handle_objections", HandleObjections);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3IntegrationsProperty>("integrations", Integrations);
-            writer.WriteDoubleValue("monthly_credit_budget", MonthlyCreditBudget);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3NoShow>("no_show", NoShow);
-            writer.WriteBoolValue("respond_to_automatic_emails", RespondToAutomaticEmails);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TagsItem>("tags", Tags);
-            writer.WriteCollectionOfPrimitiveValues<double?>("trigger_on_labels", TriggerOnLabels);
-            writer.WriteBoolValue("trigger_on_labels_enabled", TriggerOnLabelsEnabled);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3TriggerOnLabelsMode>("trigger_on_labels_mode", TriggerOnLabelsMode);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig>("ai_sdr_config", AiSdrConfig);
+            writer.WriteBoolValue("initial_scrape_ready", InitialScrapeReady);
+            writer.WriteStringValue("input", Input);
+            writer.WriteStringValue("master_lead_list_id", MasterLeadListId);
+            writer.WriteDateTimeOffsetValue("next_decision_time", NextDecisionTime);
+            writer.WriteDateTimeOffsetValue("timestamp_last_action", TimestampLastAction);
+            writer.WriteDateTimeOffsetValue("timestamp_last_decision", TimestampLastDecision);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
