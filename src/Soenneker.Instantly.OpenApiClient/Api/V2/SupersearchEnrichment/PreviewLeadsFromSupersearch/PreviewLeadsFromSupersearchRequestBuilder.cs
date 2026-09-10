@@ -42,6 +42,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch429Response">When receiving a 429 status code</exception>
@@ -60,6 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
             {
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch429Response.CreateFromDiscriminatorValue },

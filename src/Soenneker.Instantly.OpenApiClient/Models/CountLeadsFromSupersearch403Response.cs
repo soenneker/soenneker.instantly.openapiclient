@@ -8,26 +8,15 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>
-    /// The workspace has reached its plan lead limit, in which case `leadsRemaining` and `leadsRequested` are present and `error` is &quot;Lead limit reached&quot;; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and `message` explains why.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EnrichLeadsFromSupersearch403Response : ApiException, IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class CountLeadsFromSupersearch403Response : ApiException, IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The error property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Error { get; set; }
-#nullable restore
-#else
-        public string Error { get; set; }
-#endif
-        /// <summary>Leads the workspace can still upload under its plan.</summary>
-        public double? LeadsRemaining { get; set; }
-        /// <summary>Leads this request attempted to enrich.</summary>
-        public double? LeadsRequested { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ForbiddenError? Error { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>The message property</summary>
@@ -41,21 +30,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The statusCode property</summary>
         public double? StatusCode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch403Response"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch403Response"/> and sets the default values.
         /// </summary>
-        public EnrichLeadsFromSupersearch403Response()
+        public CountLeadsFromSupersearch403Response()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch403Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch403Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch403Response CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch403Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearch403Response();
+            return new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch403Response();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,9 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "error", n => { Error = n.GetStringValue(); } },
-                { "leadsRemaining", n => { LeadsRemaining = n.GetDoubleValue(); } },
-                { "leadsRequested", n => { LeadsRequested = n.GetDoubleValue(); } },
+                { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ForbiddenError>(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
@@ -79,9 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("error", Error);
-            writer.WriteDoubleValue("leadsRemaining", LeadsRemaining);
-            writer.WriteDoubleValue("leadsRequested", LeadsRequested);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ForbiddenError>("error", Error);
             writer.WriteStringValue("message", MessageEscaped);
             writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);

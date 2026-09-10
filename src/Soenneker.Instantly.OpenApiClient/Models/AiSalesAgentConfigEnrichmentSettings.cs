@@ -17,13 +17,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum number of leads to enrich per run</summary>
         public double? EnrichmentLimitPerRun { get; set; }
+        /// <summary>Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem?>? SignalTargetingCategories { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem?> SignalTargetingCategories { get; set; }
+#endif
+        /// <summary>Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent&apos;s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.</summary>
+        public bool? SignalTargetingEnabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings"/> and sets the default values.
         /// </summary>
         public AiSalesAgentConfigEnrichmentSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            EnrichmentLimitPerRun = 30;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,6 +53,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enrichment_limit_per_run", n => { EnrichmentLimitPerRun = n.GetDoubleValue(); } },
+                { "signal_targeting_categories", n => { SignalTargetingCategories = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem>()?.AsList(); } },
+                { "signal_targeting_enabled", n => { SignalTargetingEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -54,6 +65,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("enrichment_limit_per_run", EnrichmentLimitPerRun);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem>("signal_targeting_categories", SignalTargetingCategories);
+            writer.WriteBoolValue("signal_targeting_enabled", SignalTargetingEnabled);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -13,13 +13,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Signal category to enrich.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Key { get; set; }
-#nullable restore
-#else
-        public string Key { get; set; }
-#endif
+        public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key? Key { get; set; }
         /// <summary>The keywords property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,8 +22,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Keywords Keywords { get; set; }
 #endif
-        /// <summary>Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted.</summary>
-        public double? PeriodDays { get; set; }
+        /// <summary>Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted. A zero, negative or fractional value is rejected rather than silently falling back to the default.</summary>
+        public int? PeriodDays { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,9 +42,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "key", n => { Key = n.GetStringValue(); } },
+                { "key", n => { Key = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key>(); } },
                 { "keywords", n => { Keywords = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Keywords>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Keywords.CreateFromDiscriminatorValue); } },
-                { "period_days", n => { PeriodDays = n.GetDoubleValue(); } },
+                { "period_days", n => { PeriodDays = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -60,9 +54,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("key", Key);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key>("key", Key);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Keywords>("keywords", Keywords);
-            writer.WriteDoubleValue("period_days", PeriodDays);
+            writer.WriteIntValue("period_days", PeriodDays);
         }
     }
 }

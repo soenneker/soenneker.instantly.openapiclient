@@ -68,7 +68,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string SearchName { get; set; }
 #endif
-        /// <summary>Signal categories to enrich from Autobound data. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. The worker fetches matching signal records for the lead and writes the raw data into the lead payload under the signal_category key.</summary>
+        /// <summary>Signal categories to enrich. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. Matching signal records are fetched for the lead and written into the lead payload under the signal_category key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem>? SignalEnrichment { get; set; }

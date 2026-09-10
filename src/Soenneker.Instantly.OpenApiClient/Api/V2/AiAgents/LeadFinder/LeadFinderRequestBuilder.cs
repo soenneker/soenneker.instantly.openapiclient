@@ -97,6 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent429Response">When receiving a 429 status code</exception>
@@ -116,6 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder
                 { "400", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgent429Response.CreateFromDiscriminatorValue },

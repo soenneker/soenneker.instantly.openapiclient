@@ -18058,6 +18058,16 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLeadFinderAgent403Response"
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -18231,6 +18241,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateLeadFinderAgent402Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateLeadFinderAgent403Response"
                 }
               }
             }
@@ -21299,7 +21319,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two.",
             "content": {
               "application/json": {
                 "schema": {
@@ -21309,7 +21329,7 @@
             }
           },
           "403": {
-            "description": "The workspace has reached its plan lead limit; enriching more leads into the campaign is blocked until the plan is upgraded.",
+            "description": "The workspace has reached its plan lead limit, in which case \u0060leadsRemaining\u0060 and \u0060leadsRequested\u0060 are present and \u0060error\u0060 is \u0022Lead limit reached\u0022; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and \u0060message\u0060 explains why.",
             "content": {
               "application/json": {
                 "schema": {
@@ -21482,6 +21502,16 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountLeadsFromSupersearch403Response"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Default Response",
             "content": {
@@ -21560,6 +21590,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PreviewLeadsFromSupersearch402Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewLeadsFromSupersearch403Response"
                 }
               }
             }
@@ -21985,6 +22025,16 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSavedSearch403Response"
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -22148,6 +22198,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateSavedSearch402Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateSavedSearch403Response"
                 }
               }
             }
@@ -28784,8 +28844,21 @@
           "enrichment_limit_per_run": {
             "type": "number",
             "description": "Maximum number of leads to enrich per run",
-            "default": 30,
             "example": 30
+          },
+          "signal_targeting_enabled": {
+            "type": "boolean",
+            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+            "example": true
+          },
+          "signal_targeting_categories": {
+            "maxItems": 26,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem"
+            },
+            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories."
           }
         },
         "description": "Settings for lead enrichment"
@@ -28919,6 +28992,23 @@
             "type": "number",
             "description": "Maximum number of leads to enrich per run",
             "example": 30
+          },
+          "signal_targeting_enabled": {
+            "examples": [
+              true
+            ],
+            "type": "boolean",
+            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+            "example": true
+          },
+          "signal_targeting_categories": {
+            "maxItems": 26,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettingsSignalTargetingCategoriesItem"
+            },
+            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories."
           }
         },
         "description": "Settings for lead enrichment"
@@ -54902,6 +54992,29 @@
           }
         }
       },
+      "CreateLeadFinderAgent403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgent403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
+          }
+        }
+      },
       "CreateLeadFinderAgent404Response": {
         "required": [
           "statusCode",
@@ -55176,6 +55289,29 @@
             ],
             "type": "string",
             "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "UpdateLeadFinderAgent403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/UpdateLeadFinderAgent403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
           }
         }
       },
@@ -60019,7 +60155,7 @@
             "items": {
               "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItem"
             },
-            "description": "Signal categories to enrich from Autobound data. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. The worker fetches matching signal records for the lead and writes the raw data into the lead payload under the signal_category key."
+            "description": "Signal categories to enrich. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. Matching signal records are fetched for the lead and written into the lead payload under the signal_category key."
           },
           "resource_id": {
             "type": "string",
@@ -60153,16 +60289,32 @@
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearch402ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/PaymentRequiredError"
+            "type": "string",
+            "example": "Insufficient credits"
           },
           "message": {
-            "examples": [
-              "Workspace does not have an active paid plan"
-            ],
             "type": "string",
-            "example": "Workspace does not have an active paid plan"
+            "example": "Insufficient credits"
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CreditReservationConflictErrorCode"
+          },
+          "creditsRequired": {
+            "type": "number",
+            "example": 50
+          },
+          "creditsAvailable": {
+            "type": "number",
+            "description": "Balance net of credits held by in-flight jobs.",
+            "example": 10
+          },
+          "creditsReserved": {
+            "type": "number",
+            "description": "Credits currently held by the workspace\u0027s in-flight enrichment jobs.",
+            "example": 4000
           }
-        }
+        },
+        "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two."
       },
       "EnrichLeadsFromSupersearch403Response": {
         "required": [
@@ -60195,7 +60347,7 @@
             "example": 100
           }
         },
-        "description": "The workspace has reached its plan lead limit; enriching more leads into the campaign is blocked until the plan is upgraded."
+        "description": "The workspace has reached its plan lead limit, in which case \u0060leadsRemaining\u0060 and \u0060leadsRequested\u0060 are present and \u0060error\u0060 is \u0022Lead limit reached\u0022; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and \u0060message\u0060 explains why."
       },
       "EnrichLeadsFromSupersearch404Response": {
         "required": [
@@ -60517,6 +60669,29 @@
           }
         }
       },
+      "CountLeadsFromSupersearch403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
+          }
+        }
+      },
       "CountLeadsFromSupersearch404Response": {
         "required": [
           "statusCode",
@@ -60666,6 +60841,29 @@
           },
           "message": {
             "$ref": "#/components/schemas/RateLimitExceededMessage"
+          }
+        }
+      },
+      "PreviewLeadsFromSupersearch403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
           }
         }
       },
@@ -61295,6 +61493,29 @@
           }
         }
       },
+      "CreateSavedSearch403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateSavedSearch403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
+          }
+        }
+      },
       "CreateSavedSearch404Response": {
         "required": [
           "statusCode",
@@ -61586,6 +61807,29 @@
             ],
             "type": "string",
             "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "UpdateSavedSearch403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/UpdateSavedSearch403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
           }
         }
       },
@@ -62133,14 +62377,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "examples": [
-              "job_change",
-              "traffic_surge",
-              "linkedin_post_contact"
-            ],
-            "type": "string",
-            "description": "Signal category name. Uses the default 30-day freshness window and no keyword filter.",
-            "example": "job_change"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItemBranch1Value"
           }
         }
       },
@@ -64708,23 +64945,10 @@
         ],
         "properties": {
           "value": {
-            "examples": [
-              "job_change",
-              "traffic_surge",
-              "linkedin_post_contact"
-            ],
-            "type": "string",
-            "description": "Signal category name. Uses the default 30-day freshness window and no keyword filter.",
-            "example": "job_change"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItemBranch1Value"
           },
           "key": {
-            "examples": [
-              "linkedin_post_contact",
-              "job_change"
-            ],
-            "type": "string",
-            "description": "Signal category to enrich.",
-            "example": "linkedin_post_contact"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key"
           },
           "period_days": {
             "examples": [
@@ -64732,8 +64956,9 @@
               30,
               90
             ],
-            "type": "number",
-            "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted.",
+            "minimum": 1,
+            "type": "integer",
+            "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted. A zero, negative or fractional value is rejected rather than silently falling back to the default.",
             "example": 7
           },
           "keywords": {
@@ -65849,13 +66074,7 @@
         "type": "object",
         "properties": {
           "key": {
-            "examples": [
-              "linkedin_post_contact",
-              "job_change"
-            ],
-            "type": "string",
-            "description": "Signal category to enrich.",
-            "example": "linkedin_post_contact"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key"
           },
           "period_days": {
             "examples": [
@@ -65863,8 +66082,9 @@
               30,
               90
             ],
-            "type": "number",
-            "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted.",
+            "minimum": 1,
+            "type": "integer",
+            "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted. A zero, negative or fractional value is rejected rather than silently falling back to the default.",
             "example": 7
           },
           "keywords": {
@@ -79467,8 +79687,21 @@
           "enrichment_limit_per_run": {
             "type": "number",
             "description": "Maximum number of leads to enrich per run",
-            "default": 30,
             "example": 30
+          },
+          "signal_targeting_enabled": {
+            "type": "boolean",
+            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+            "example": true
+          },
+          "signal_targeting_categories": {
+            "maxItems": 26,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem"
+            },
+            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories."
           }
         },
         "description": "Settings for lead enrichment"
@@ -79614,8 +79847,21 @@
           "enrichment_limit_per_run": {
             "type": "number",
             "description": "Maximum number of leads to enrich per run",
-            "default": 30,
             "example": 30
+          },
+          "signal_targeting_enabled": {
+            "type": "boolean",
+            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+            "example": true
+          },
+          "signal_targeting_categories": {
+            "maxItems": 26,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem"
+            },
+            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories."
           }
         },
         "description": "Settings for lead enrichment"
@@ -89838,6 +90084,295 @@
             {
               "value": "days",
               "name": "Days"
+            }
+          ]
+        }
+      },
+      "AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem": {
+        "enum": [
+          "linkedin_post_company",
+          "linkedin_post_contact",
+          "linkedin_comment",
+          "twitter_post_company",
+          "twitter_post_contact",
+          "youtube_company",
+          "youtube_contact",
+          "reddit_buying_intent",
+          "reddit_pain_point",
+          "reddit_churn_risk",
+          "reddit_competitor_mention",
+          "glassdoor_negative",
+          "glassdoor_positive",
+          "website_product_launch",
+          "website_pricing_change",
+          "website_expansion",
+          "website_executive_change",
+          "website_funding",
+          "website_partnership",
+          "website_compliance",
+          "website_technology_adoption",
+          "job_change",
+          "promotion",
+          "work_anniversary",
+          "traffic_surge",
+          "traffic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "website_funding",
+        "x-ms-enum": {
+          "name": "AiSalesAgentConfigEnrichmentSettingsSignalTargetingCategoriesItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "linkedin_post_company",
+              "name": "LinkedinPostCompany"
+            },
+            {
+              "value": "linkedin_post_contact",
+              "name": "LinkedinPostContact"
+            },
+            {
+              "value": "linkedin_comment",
+              "name": "LinkedinComment"
+            },
+            {
+              "value": "twitter_post_company",
+              "name": "TwitterPostCompany"
+            },
+            {
+              "value": "twitter_post_contact",
+              "name": "TwitterPostContact"
+            },
+            {
+              "value": "youtube_company",
+              "name": "YoutubeCompany"
+            },
+            {
+              "value": "youtube_contact",
+              "name": "YoutubeContact"
+            },
+            {
+              "value": "reddit_buying_intent",
+              "name": "RedditBuyingIntent"
+            },
+            {
+              "value": "reddit_pain_point",
+              "name": "RedditPainPoint"
+            },
+            {
+              "value": "reddit_churn_risk",
+              "name": "RedditChurnRisk"
+            },
+            {
+              "value": "reddit_competitor_mention",
+              "name": "RedditCompetitorMention"
+            },
+            {
+              "value": "glassdoor_negative",
+              "name": "GlassdoorNegative"
+            },
+            {
+              "value": "glassdoor_positive",
+              "name": "GlassdoorPositive"
+            },
+            {
+              "value": "website_product_launch",
+              "name": "WebsiteProductLaunch"
+            },
+            {
+              "value": "website_pricing_change",
+              "name": "WebsitePricingChange"
+            },
+            {
+              "value": "website_expansion",
+              "name": "WebsiteExpansion"
+            },
+            {
+              "value": "website_executive_change",
+              "name": "WebsiteExecutiveChange"
+            },
+            {
+              "value": "website_funding",
+              "name": "WebsiteFunding"
+            },
+            {
+              "value": "website_partnership",
+              "name": "WebsitePartnership"
+            },
+            {
+              "value": "website_compliance",
+              "name": "WebsiteCompliance"
+            },
+            {
+              "value": "website_technology_adoption",
+              "name": "WebsiteTechnologyAdoption"
+            },
+            {
+              "value": "job_change",
+              "name": "JobChange"
+            },
+            {
+              "value": "promotion",
+              "name": "Promotion"
+            },
+            {
+              "value": "work_anniversary",
+              "name": "WorkAnniversary"
+            },
+            {
+              "value": "traffic_surge",
+              "name": "TrafficSurge"
+            },
+            {
+              "value": "traffic_decline",
+              "name": "TrafficDecline"
+            }
+          ]
+        }
+      },
+      "AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettingsSignalTargetingCategoriesItem": {
+        "examples": [
+          "website_funding"
+        ],
+        "enum": [
+          "linkedin_post_company",
+          "linkedin_post_contact",
+          "linkedin_comment",
+          "twitter_post_company",
+          "twitter_post_contact",
+          "youtube_company",
+          "youtube_contact",
+          "reddit_buying_intent",
+          "reddit_pain_point",
+          "reddit_churn_risk",
+          "reddit_competitor_mention",
+          "glassdoor_negative",
+          "glassdoor_positive",
+          "website_product_launch",
+          "website_pricing_change",
+          "website_expansion",
+          "website_executive_change",
+          "website_funding",
+          "website_partnership",
+          "website_compliance",
+          "website_technology_adoption",
+          "job_change",
+          "promotion",
+          "work_anniversary",
+          "traffic_surge",
+          "traffic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "website_funding",
+        "x-ms-enum": {
+          "name": "AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettingsSignalTargetingCategoriesItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "linkedin_post_company",
+              "name": "LinkedinPostCompany"
+            },
+            {
+              "value": "linkedin_post_contact",
+              "name": "LinkedinPostContact"
+            },
+            {
+              "value": "linkedin_comment",
+              "name": "LinkedinComment"
+            },
+            {
+              "value": "twitter_post_company",
+              "name": "TwitterPostCompany"
+            },
+            {
+              "value": "twitter_post_contact",
+              "name": "TwitterPostContact"
+            },
+            {
+              "value": "youtube_company",
+              "name": "YoutubeCompany"
+            },
+            {
+              "value": "youtube_contact",
+              "name": "YoutubeContact"
+            },
+            {
+              "value": "reddit_buying_intent",
+              "name": "RedditBuyingIntent"
+            },
+            {
+              "value": "reddit_pain_point",
+              "name": "RedditPainPoint"
+            },
+            {
+              "value": "reddit_churn_risk",
+              "name": "RedditChurnRisk"
+            },
+            {
+              "value": "reddit_competitor_mention",
+              "name": "RedditCompetitorMention"
+            },
+            {
+              "value": "glassdoor_negative",
+              "name": "GlassdoorNegative"
+            },
+            {
+              "value": "glassdoor_positive",
+              "name": "GlassdoorPositive"
+            },
+            {
+              "value": "website_product_launch",
+              "name": "WebsiteProductLaunch"
+            },
+            {
+              "value": "website_pricing_change",
+              "name": "WebsitePricingChange"
+            },
+            {
+              "value": "website_expansion",
+              "name": "WebsiteExpansion"
+            },
+            {
+              "value": "website_executive_change",
+              "name": "WebsiteExecutiveChange"
+            },
+            {
+              "value": "website_funding",
+              "name": "WebsiteFunding"
+            },
+            {
+              "value": "website_partnership",
+              "name": "WebsitePartnership"
+            },
+            {
+              "value": "website_compliance",
+              "name": "WebsiteCompliance"
+            },
+            {
+              "value": "website_technology_adoption",
+              "name": "WebsiteTechnologyAdoption"
+            },
+            {
+              "value": "job_change",
+              "name": "JobChange"
+            },
+            {
+              "value": "promotion",
+              "name": "Promotion"
+            },
+            {
+              "value": "work_anniversary",
+              "name": "WorkAnniversary"
+            },
+            {
+              "value": "traffic_surge",
+              "name": "TrafficSurge"
+            },
+            {
+              "value": "traffic_decline",
+              "name": "TrafficDecline"
             }
           ]
         }
@@ -102529,6 +103064,17 @@
         "additionalProperties": false,
         "example": 402
       },
+      "CreateLeadFinderAgent403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
+      },
       "CreateLeadFinderAgent404ResponseStatusCode": {
         "examples": [
           404
@@ -102672,6 +103218,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 402
+      },
+      "UpdateLeadFinderAgent403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
       },
       "UpdateLeadFinderAgent404ResponseStatusCode": {
         "examples": [
@@ -104930,15 +105487,31 @@
         "example": 401
       },
       "EnrichLeadsFromSupersearch402ResponseStatusCode": {
-        "examples": [
-          402
-        ],
         "enum": [
           402
         ],
         "type": "number",
         "additionalProperties": false,
         "example": 402
+      },
+      "CreditReservationConflictErrorCode": {
+        "enum": [
+          "CREDIT_RESERVATION_CONFLICT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Present only when the workspace\u0027s own in-flight enrichment jobs hold the credits. Absent for a genuine shortage.",
+        "example": "CREDIT_RESERVATION_CONFLICT",
+        "x-ms-enum": {
+          "name": "CreditReservationConflictErrorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CREDIT_RESERVATION_CONFLICT",
+              "name": "CreditReservationConflict"
+            }
+          ]
+        }
       },
       "EnrichLeadsFromSupersearch404ResponseStatusCode": {
         "enum": [
@@ -105102,6 +105675,17 @@
           ]
         }
       },
+      "CountLeadsFromSupersearch403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
+      },
       "CountLeadsFromSupersearch404ResponseStatusCode": {
         "enum": [
           404
@@ -105144,6 +105728,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 402
+      },
+      "PreviewLeadsFromSupersearch403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
       },
       "PreviewLeadsFromSupersearch404ResponseStatusCode": {
         "enum": [
@@ -105399,6 +105994,17 @@
         "additionalProperties": false,
         "example": 402
       },
+      "CreateSavedSearch403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
+      },
       "CreateSavedSearch404ResponseStatusCode": {
         "examples": [
           404
@@ -105497,6 +106103,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 402
+      },
+      "UpdateSavedSearch403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 403
       },
       "UpdateSavedSearch404ResponseStatusCode": {
         "examples": [
@@ -105993,6 +106610,155 @@
             {
               "value": "\u003E 100K",
               "name": "GreaterThan100K"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemBranch1Value": {
+        "examples": [
+          "job_change",
+          "traffic_surge",
+          "linkedin_post_contact"
+        ],
+        "enum": [
+          "linkedin_post_company",
+          "linkedin_post_contact",
+          "linkedin_comment",
+          "twitter_post_company",
+          "twitter_post_contact",
+          "youtube_company",
+          "youtube_contact",
+          "reddit_buying_intent",
+          "reddit_pain_point",
+          "reddit_churn_risk",
+          "reddit_competitor_mention",
+          "glassdoor_negative",
+          "glassdoor_positive",
+          "website_product_launch",
+          "website_pricing_change",
+          "website_expansion",
+          "website_executive_change",
+          "website_funding",
+          "website_partnership",
+          "website_compliance",
+          "website_technology_adoption",
+          "job_change",
+          "promotion",
+          "work_anniversary",
+          "traffic_surge",
+          "traffic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Signal category name. Uses the default 30-day freshness window and no keyword filter.",
+        "example": "job_change",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemBranch1Value",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "linkedin_post_company",
+              "name": "LinkedinPostCompany"
+            },
+            {
+              "value": "linkedin_post_contact",
+              "name": "LinkedinPostContact"
+            },
+            {
+              "value": "linkedin_comment",
+              "name": "LinkedinComment"
+            },
+            {
+              "value": "twitter_post_company",
+              "name": "TwitterPostCompany"
+            },
+            {
+              "value": "twitter_post_contact",
+              "name": "TwitterPostContact"
+            },
+            {
+              "value": "youtube_company",
+              "name": "YoutubeCompany"
+            },
+            {
+              "value": "youtube_contact",
+              "name": "YoutubeContact"
+            },
+            {
+              "value": "reddit_buying_intent",
+              "name": "RedditBuyingIntent"
+            },
+            {
+              "value": "reddit_pain_point",
+              "name": "RedditPainPoint"
+            },
+            {
+              "value": "reddit_churn_risk",
+              "name": "RedditChurnRisk"
+            },
+            {
+              "value": "reddit_competitor_mention",
+              "name": "RedditCompetitorMention"
+            },
+            {
+              "value": "glassdoor_negative",
+              "name": "GlassdoorNegative"
+            },
+            {
+              "value": "glassdoor_positive",
+              "name": "GlassdoorPositive"
+            },
+            {
+              "value": "website_product_launch",
+              "name": "WebsiteProductLaunch"
+            },
+            {
+              "value": "website_pricing_change",
+              "name": "WebsitePricingChange"
+            },
+            {
+              "value": "website_expansion",
+              "name": "WebsiteExpansion"
+            },
+            {
+              "value": "website_executive_change",
+              "name": "WebsiteExecutiveChange"
+            },
+            {
+              "value": "website_funding",
+              "name": "WebsiteFunding"
+            },
+            {
+              "value": "website_partnership",
+              "name": "WebsitePartnership"
+            },
+            {
+              "value": "website_compliance",
+              "name": "WebsiteCompliance"
+            },
+            {
+              "value": "website_technology_adoption",
+              "name": "WebsiteTechnologyAdoption"
+            },
+            {
+              "value": "job_change",
+              "name": "JobChange"
+            },
+            {
+              "value": "promotion",
+              "name": "Promotion"
+            },
+            {
+              "value": "work_anniversary",
+              "name": "WorkAnniversary"
+            },
+            {
+              "value": "traffic_surge",
+              "name": "TrafficSurge"
+            },
+            {
+              "value": "traffic_decline",
+              "name": "TrafficDecline"
             }
           ]
         }
@@ -109458,6 +110224,154 @@
             {
               "value": "preset_between",
               "name": "PresetBetween"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key": {
+        "examples": [
+          "linkedin_post_contact",
+          "job_change"
+        ],
+        "enum": [
+          "linkedin_post_company",
+          "linkedin_post_contact",
+          "linkedin_comment",
+          "twitter_post_company",
+          "twitter_post_contact",
+          "youtube_company",
+          "youtube_contact",
+          "reddit_buying_intent",
+          "reddit_pain_point",
+          "reddit_churn_risk",
+          "reddit_competitor_mention",
+          "glassdoor_negative",
+          "glassdoor_positive",
+          "website_product_launch",
+          "website_pricing_change",
+          "website_expansion",
+          "website_executive_change",
+          "website_funding",
+          "website_partnership",
+          "website_compliance",
+          "website_technology_adoption",
+          "job_change",
+          "promotion",
+          "work_anniversary",
+          "traffic_surge",
+          "traffic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Signal category to enrich.",
+        "example": "linkedin_post_contact",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Key",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "linkedin_post_company",
+              "name": "LinkedinPostCompany"
+            },
+            {
+              "value": "linkedin_post_contact",
+              "name": "LinkedinPostContact"
+            },
+            {
+              "value": "linkedin_comment",
+              "name": "LinkedinComment"
+            },
+            {
+              "value": "twitter_post_company",
+              "name": "TwitterPostCompany"
+            },
+            {
+              "value": "twitter_post_contact",
+              "name": "TwitterPostContact"
+            },
+            {
+              "value": "youtube_company",
+              "name": "YoutubeCompany"
+            },
+            {
+              "value": "youtube_contact",
+              "name": "YoutubeContact"
+            },
+            {
+              "value": "reddit_buying_intent",
+              "name": "RedditBuyingIntent"
+            },
+            {
+              "value": "reddit_pain_point",
+              "name": "RedditPainPoint"
+            },
+            {
+              "value": "reddit_churn_risk",
+              "name": "RedditChurnRisk"
+            },
+            {
+              "value": "reddit_competitor_mention",
+              "name": "RedditCompetitorMention"
+            },
+            {
+              "value": "glassdoor_negative",
+              "name": "GlassdoorNegative"
+            },
+            {
+              "value": "glassdoor_positive",
+              "name": "GlassdoorPositive"
+            },
+            {
+              "value": "website_product_launch",
+              "name": "WebsiteProductLaunch"
+            },
+            {
+              "value": "website_pricing_change",
+              "name": "WebsitePricingChange"
+            },
+            {
+              "value": "website_expansion",
+              "name": "WebsiteExpansion"
+            },
+            {
+              "value": "website_executive_change",
+              "name": "WebsiteExecutiveChange"
+            },
+            {
+              "value": "website_funding",
+              "name": "WebsiteFunding"
+            },
+            {
+              "value": "website_partnership",
+              "name": "WebsitePartnership"
+            },
+            {
+              "value": "website_compliance",
+              "name": "WebsiteCompliance"
+            },
+            {
+              "value": "website_technology_adoption",
+              "name": "WebsiteTechnologyAdoption"
+            },
+            {
+              "value": "job_change",
+              "name": "JobChange"
+            },
+            {
+              "value": "promotion",
+              "name": "Promotion"
+            },
+            {
+              "value": "work_anniversary",
+              "name": "WorkAnniversary"
+            },
+            {
+              "value": "traffic_surge",
+              "name": "TrafficSurge"
+            },
+            {
+              "value": "traffic_decline",
+              "name": "TrafficDecline"
             }
           ]
         }
@@ -126315,6 +127229,292 @@
             {
               "value": "year",
               "name": "Year"
+            }
+          ]
+        }
+      },
+      "CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem": {
+        "enum": [
+          "linkedin_post_company",
+          "linkedin_post_contact",
+          "linkedin_comment",
+          "twitter_post_company",
+          "twitter_post_contact",
+          "youtube_company",
+          "youtube_contact",
+          "reddit_buying_intent",
+          "reddit_pain_point",
+          "reddit_churn_risk",
+          "reddit_competitor_mention",
+          "glassdoor_negative",
+          "glassdoor_positive",
+          "website_product_launch",
+          "website_pricing_change",
+          "website_expansion",
+          "website_executive_change",
+          "website_funding",
+          "website_partnership",
+          "website_compliance",
+          "website_technology_adoption",
+          "job_change",
+          "promotion",
+          "work_anniversary",
+          "traffic_surge",
+          "traffic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "website_funding",
+        "x-ms-enum": {
+          "name": "CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "linkedin_post_company",
+              "name": "LinkedinPostCompany"
+            },
+            {
+              "value": "linkedin_post_contact",
+              "name": "LinkedinPostContact"
+            },
+            {
+              "value": "linkedin_comment",
+              "name": "LinkedinComment"
+            },
+            {
+              "value": "twitter_post_company",
+              "name": "TwitterPostCompany"
+            },
+            {
+              "value": "twitter_post_contact",
+              "name": "TwitterPostContact"
+            },
+            {
+              "value": "youtube_company",
+              "name": "YoutubeCompany"
+            },
+            {
+              "value": "youtube_contact",
+              "name": "YoutubeContact"
+            },
+            {
+              "value": "reddit_buying_intent",
+              "name": "RedditBuyingIntent"
+            },
+            {
+              "value": "reddit_pain_point",
+              "name": "RedditPainPoint"
+            },
+            {
+              "value": "reddit_churn_risk",
+              "name": "RedditChurnRisk"
+            },
+            {
+              "value": "reddit_competitor_mention",
+              "name": "RedditCompetitorMention"
+            },
+            {
+              "value": "glassdoor_negative",
+              "name": "GlassdoorNegative"
+            },
+            {
+              "value": "glassdoor_positive",
+              "name": "GlassdoorPositive"
+            },
+            {
+              "value": "website_product_launch",
+              "name": "WebsiteProductLaunch"
+            },
+            {
+              "value": "website_pricing_change",
+              "name": "WebsitePricingChange"
+            },
+            {
+              "value": "website_expansion",
+              "name": "WebsiteExpansion"
+            },
+            {
+              "value": "website_executive_change",
+              "name": "WebsiteExecutiveChange"
+            },
+            {
+              "value": "website_funding",
+              "name": "WebsiteFunding"
+            },
+            {
+              "value": "website_partnership",
+              "name": "WebsitePartnership"
+            },
+            {
+              "value": "website_compliance",
+              "name": "WebsiteCompliance"
+            },
+            {
+              "value": "website_technology_adoption",
+              "name": "WebsiteTechnologyAdoption"
+            },
+            {
+              "value": "job_change",
+              "name": "JobChange"
+            },
+            {
+              "value": "promotion",
+              "name": "Promotion"
+            },
+            {
+              "value": "work_anniversary",
+              "name": "WorkAnniversary"
+            },
+            {
+              "value": "traffic_surge",
+              "name": "TrafficSurge"
+            },
+            {
+              "value": "traffic_decline",
+              "name": "TrafficDecline"
+            }
+          ]
+        }
+      },
+      "PatchSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem": {
+        "enum": [
+          "linkedin_post_company",
+          "linkedin_post_contact",
+          "linkedin_comment",
+          "twitter_post_company",
+          "twitter_post_contact",
+          "youtube_company",
+          "youtube_contact",
+          "reddit_buying_intent",
+          "reddit_pain_point",
+          "reddit_churn_risk",
+          "reddit_competitor_mention",
+          "glassdoor_negative",
+          "glassdoor_positive",
+          "website_product_launch",
+          "website_pricing_change",
+          "website_expansion",
+          "website_executive_change",
+          "website_funding",
+          "website_partnership",
+          "website_compliance",
+          "website_technology_adoption",
+          "job_change",
+          "promotion",
+          "work_anniversary",
+          "traffic_surge",
+          "traffic_decline"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "website_funding",
+        "x-ms-enum": {
+          "name": "PatchSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "linkedin_post_company",
+              "name": "LinkedinPostCompany"
+            },
+            {
+              "value": "linkedin_post_contact",
+              "name": "LinkedinPostContact"
+            },
+            {
+              "value": "linkedin_comment",
+              "name": "LinkedinComment"
+            },
+            {
+              "value": "twitter_post_company",
+              "name": "TwitterPostCompany"
+            },
+            {
+              "value": "twitter_post_contact",
+              "name": "TwitterPostContact"
+            },
+            {
+              "value": "youtube_company",
+              "name": "YoutubeCompany"
+            },
+            {
+              "value": "youtube_contact",
+              "name": "YoutubeContact"
+            },
+            {
+              "value": "reddit_buying_intent",
+              "name": "RedditBuyingIntent"
+            },
+            {
+              "value": "reddit_pain_point",
+              "name": "RedditPainPoint"
+            },
+            {
+              "value": "reddit_churn_risk",
+              "name": "RedditChurnRisk"
+            },
+            {
+              "value": "reddit_competitor_mention",
+              "name": "RedditCompetitorMention"
+            },
+            {
+              "value": "glassdoor_negative",
+              "name": "GlassdoorNegative"
+            },
+            {
+              "value": "glassdoor_positive",
+              "name": "GlassdoorPositive"
+            },
+            {
+              "value": "website_product_launch",
+              "name": "WebsiteProductLaunch"
+            },
+            {
+              "value": "website_pricing_change",
+              "name": "WebsitePricingChange"
+            },
+            {
+              "value": "website_expansion",
+              "name": "WebsiteExpansion"
+            },
+            {
+              "value": "website_executive_change",
+              "name": "WebsiteExecutiveChange"
+            },
+            {
+              "value": "website_funding",
+              "name": "WebsiteFunding"
+            },
+            {
+              "value": "website_partnership",
+              "name": "WebsitePartnership"
+            },
+            {
+              "value": "website_compliance",
+              "name": "WebsiteCompliance"
+            },
+            {
+              "value": "website_technology_adoption",
+              "name": "WebsiteTechnologyAdoption"
+            },
+            {
+              "value": "job_change",
+              "name": "JobChange"
+            },
+            {
+              "value": "promotion",
+              "name": "Promotion"
+            },
+            {
+              "value": "work_anniversary",
+              "name": "WorkAnniversary"
+            },
+            {
+              "value": "traffic_surge",
+              "name": "TrafficSurge"
+            },
+            {
+              "value": "traffic_decline",
+              "name": "TrafficDecline"
             }
           ]
         }

@@ -8,15 +8,30 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
+    /// <summary>
+    /// The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. `errorCode` distinguishes the two.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class EnrichLeadsFromSupersearch402Response : ApiException, IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Balance net of credits held by in-flight jobs.</summary>
+        public double? CreditsAvailable { get; set; }
+        /// <summary>The creditsRequired property</summary>
+        public double? CreditsRequired { get; set; }
+        /// <summary>Credits currently held by the workspace&apos;s in-flight enrichment jobs.</summary>
+        public double? CreditsReserved { get; set; }
         /// <summary>The error property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PaymentRequiredError? Error { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Error { get; set; }
+#nullable restore
+#else
+        public string Error { get; set; }
+#endif
+        /// <summary>Present only when the workspace&apos;s own in-flight enrichment jobs hold the credits. Absent for a genuine shortage.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreditReservationConflictErrorCode? ErrorCode { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
         /// <summary>The message property</summary>
@@ -54,7 +69,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "error", n => { Error = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PaymentRequiredError>(); } },
+                { "creditsAvailable", n => { CreditsAvailable = n.GetDoubleValue(); } },
+                { "creditsRequired", n => { CreditsRequired = n.GetDoubleValue(); } },
+                { "creditsReserved", n => { CreditsReserved = n.GetDoubleValue(); } },
+                { "error", n => { Error = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreditReservationConflictErrorCode>(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "statusCode", n => { StatusCode = n.GetDoubleValue(); } },
             };
@@ -66,7 +85,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PaymentRequiredError>("error", Error);
+            writer.WriteDoubleValue("creditsAvailable", CreditsAvailable);
+            writer.WriteDoubleValue("creditsRequired", CreditsRequired);
+            writer.WriteDoubleValue("creditsReserved", CreditsReserved);
+            writer.WriteStringValue("error", Error);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreditReservationConflictErrorCode>("errorCode", ErrorCode);
             writer.WriteStringValue("message", MessageEscaped);
             writer.WriteDoubleValue("statusCode", StatusCode);
             writer.WriteAdditionalData(AdditionalData);

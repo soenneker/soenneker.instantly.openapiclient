@@ -2963,6 +2963,55 @@
                               30
                             ],
                             "example": 30
+                          },
+                          "signal_targeting_enabled": {
+                            "type": "boolean",
+                            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+                            "examples": [
+                              true
+                            ],
+                            "example": true
+                          },
+                          "signal_targeting_categories": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "maxItems": 26,
+                            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories.",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "linkedin_post_company",
+                                "linkedin_post_contact",
+                                "linkedin_comment",
+                                "twitter_post_company",
+                                "twitter_post_contact",
+                                "youtube_company",
+                                "youtube_contact",
+                                "reddit_buying_intent",
+                                "reddit_pain_point",
+                                "reddit_churn_risk",
+                                "reddit_competitor_mention",
+                                "glassdoor_negative",
+                                "glassdoor_positive",
+                                "website_product_launch",
+                                "website_pricing_change",
+                                "website_expansion",
+                                "website_executive_change",
+                                "website_funding",
+                                "website_partnership",
+                                "website_compliance",
+                                "website_technology_adoption",
+                                "job_change",
+                                "promotion",
+                                "work_anniversary",
+                                "traffic_surge",
+                                "traffic_decline"
+                              ],
+                              "examples": [
+                                "website_funding"
+                              ],
+                              "example": "website_funding"
+                            }
                           }
                         }
                       },
@@ -7225,8 +7274,50 @@
                   "enrichment_limit_per_run": {
                     "type": "number",
                     "description": "Maximum number of leads to enrich per run",
-                    "default": 30,
                     "example": 30
+                  },
+                  "signal_targeting_enabled": {
+                    "type": "boolean",
+                    "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+                    "example": true
+                  },
+                  "signal_targeting_categories": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "maxItems": 26,
+                    "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories.",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "linkedin_post_company",
+                        "linkedin_post_contact",
+                        "linkedin_comment",
+                        "twitter_post_company",
+                        "twitter_post_contact",
+                        "youtube_company",
+                        "youtube_contact",
+                        "reddit_buying_intent",
+                        "reddit_pain_point",
+                        "reddit_churn_risk",
+                        "reddit_competitor_mention",
+                        "glassdoor_negative",
+                        "glassdoor_positive",
+                        "website_product_launch",
+                        "website_pricing_change",
+                        "website_expansion",
+                        "website_executive_change",
+                        "website_funding",
+                        "website_partnership",
+                        "website_compliance",
+                        "website_technology_adoption",
+                        "job_change",
+                        "promotion",
+                        "work_anniversary",
+                        "traffic_surge",
+                        "traffic_decline"
+                      ],
+                      "example": "website_funding"
+                    }
                   }
                 }
               },
@@ -60029,8 +60120,50 @@
                           "enrichment_limit_per_run": {
                             "type": "number",
                             "description": "Maximum number of leads to enrich per run",
-                            "default": 30,
                             "example": 30
+                          },
+                          "signal_targeting_enabled": {
+                            "type": "boolean",
+                            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+                            "example": true
+                          },
+                          "signal_targeting_categories": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "maxItems": 26,
+                            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories.",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "linkedin_post_company",
+                                "linkedin_post_contact",
+                                "linkedin_comment",
+                                "twitter_post_company",
+                                "twitter_post_contact",
+                                "youtube_company",
+                                "youtube_contact",
+                                "reddit_buying_intent",
+                                "reddit_pain_point",
+                                "reddit_churn_risk",
+                                "reddit_competitor_mention",
+                                "glassdoor_negative",
+                                "glassdoor_positive",
+                                "website_product_launch",
+                                "website_pricing_change",
+                                "website_expansion",
+                                "website_executive_change",
+                                "website_funding",
+                                "website_partnership",
+                                "website_compliance",
+                                "website_technology_adoption",
+                                "job_change",
+                                "promotion",
+                                "work_anniversary",
+                                "traffic_surge",
+                                "traffic_decline"
+                              ],
+                              "example": "website_funding"
+                            }
                           }
                         }
                       },
@@ -61421,8 +61554,50 @@
                           "enrichment_limit_per_run": {
                             "type": "number",
                             "description": "Maximum number of leads to enrich per run",
-                            "default": 30,
                             "example": 30
+                          },
+                          "signal_targeting_enabled": {
+                            "type": "boolean",
+                            "description": "Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent\u0027s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.",
+                            "example": true
+                          },
+                          "signal_targeting_categories": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "maxItems": 26,
+                            "description": "Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories.",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "linkedin_post_company",
+                                "linkedin_post_contact",
+                                "linkedin_comment",
+                                "twitter_post_company",
+                                "twitter_post_contact",
+                                "youtube_company",
+                                "youtube_contact",
+                                "reddit_buying_intent",
+                                "reddit_pain_point",
+                                "reddit_churn_risk",
+                                "reddit_competitor_mention",
+                                "glassdoor_negative",
+                                "glassdoor_positive",
+                                "website_product_launch",
+                                "website_pricing_change",
+                                "website_expansion",
+                                "website_executive_change",
+                                "website_funding",
+                                "website_partnership",
+                                "website_compliance",
+                                "website_technology_adoption",
+                                "job_change",
+                                "promotion",
+                                "work_anniversary",
+                                "traffic_surge",
+                                "traffic_decline"
+                              ],
+                              "example": "website_funding"
+                            }
                           }
                         }
                       },
@@ -76338,6 +76513,50 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -80736,6 +80955,50 @@
                         "Workspace does not have an active paid plan"
                       ],
                       "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
                     }
                   },
                   "required": [
@@ -98160,11 +98423,39 @@
                   },
                   "signal_enrichment": {
                     "type": "array",
-                    "description": "Signal categories to enrich from Autobound data. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. The worker fetches matching signal records for the lead and writes the raw data into the lead payload under the signal_category key.",
+                    "description": "Signal categories to enrich. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. Matching signal records are fetched for the lead and written into the lead payload under the signal_category key.",
                     "items": {
                       "oneOf": [
                         {
                           "type": "string",
+                          "enum": [
+                            "linkedin_post_company",
+                            "linkedin_post_contact",
+                            "linkedin_comment",
+                            "twitter_post_company",
+                            "twitter_post_contact",
+                            "youtube_company",
+                            "youtube_contact",
+                            "reddit_buying_intent",
+                            "reddit_pain_point",
+                            "reddit_churn_risk",
+                            "reddit_competitor_mention",
+                            "glassdoor_negative",
+                            "glassdoor_positive",
+                            "website_product_launch",
+                            "website_pricing_change",
+                            "website_expansion",
+                            "website_executive_change",
+                            "website_funding",
+                            "website_partnership",
+                            "website_compliance",
+                            "website_technology_adoption",
+                            "job_change",
+                            "promotion",
+                            "work_anniversary",
+                            "traffic_surge",
+                            "traffic_decline"
+                          ],
                           "examples": [
                             "job_change",
                             "traffic_surge",
@@ -98181,6 +98472,34 @@
                           "properties": {
                             "key": {
                               "type": "string",
+                              "enum": [
+                                "linkedin_post_company",
+                                "linkedin_post_contact",
+                                "linkedin_comment",
+                                "twitter_post_company",
+                                "twitter_post_contact",
+                                "youtube_company",
+                                "youtube_contact",
+                                "reddit_buying_intent",
+                                "reddit_pain_point",
+                                "reddit_churn_risk",
+                                "reddit_competitor_mention",
+                                "glassdoor_negative",
+                                "glassdoor_positive",
+                                "website_product_launch",
+                                "website_pricing_change",
+                                "website_expansion",
+                                "website_executive_change",
+                                "website_funding",
+                                "website_partnership",
+                                "website_compliance",
+                                "website_technology_adoption",
+                                "job_change",
+                                "promotion",
+                                "work_anniversary",
+                                "traffic_surge",
+                                "traffic_decline"
+                              ],
                               "examples": [
                                 "linkedin_post_contact",
                                 "job_change"
@@ -98189,13 +98508,14 @@
                               "example": "linkedin_post_contact"
                             },
                             "period_days": {
-                              "type": "number",
+                              "type": "integer",
+                              "minimum": 1,
                               "examples": [
                                 7,
                                 30,
                                 90
                               ],
-                              "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted.",
+                              "description": "Freshness window in days. Only signals whose most recent record is within this window are attached to the lead payload. Defaults to 30 if omitted. A zero, negative or fractional value is rejected rather than silently falling back to the default.",
                               "example": 7
                             },
                             "keywords": {
@@ -98399,38 +98719,49 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
                       "enum": [
                         402
                       ],
-                      "examples": [
-                        402
-                      ],
                       "example": 402
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Payment Required"
-                      ],
-                      "examples": [
-                        "Payment Required"
-                      ],
-                      "example": "Payment Required"
+                      "example": "Insufficient credits"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Workspace does not have an active paid plan"
+                      "example": "Insufficient credits"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "description": "Present only when the workspace\u0027s own in-flight enrichment jobs hold the credits. Absent for a genuine shortage.",
+                      "enum": [
+                        "CREDIT_RESERVATION_CONFLICT"
                       ],
-                      "example": "Workspace does not have an active paid plan"
+                      "example": "CREDIT_RESERVATION_CONFLICT"
+                    },
+                    "creditsRequired": {
+                      "type": "number",
+                      "example": 50
+                    },
+                    "creditsAvailable": {
+                      "type": "number",
+                      "description": "Balance net of credits held by in-flight jobs.",
+                      "example": 10
+                    },
+                    "creditsReserved": {
+                      "type": "number",
+                      "description": "Credits currently held by the workspace\u0027s in-flight enrichment jobs.",
+                      "example": 4000
                     }
                   },
                   "required": [
@@ -98443,12 +98774,12 @@
             }
           },
           "403": {
-            "description": "The workspace has reached its plan lead limit; enriching more leads into the campaign is blocked until the plan is upgraded.",
+            "description": "The workspace has reached its plan lead limit, in which case \u0060leadsRemaining\u0060 and \u0060leadsRequested\u0060 are present and \u0060error\u0060 is \u0022Lead limit reached\u0022; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and \u0060message\u0060 explains why.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "The workspace has reached its plan lead limit; enriching more leads into the campaign is blocked until the plan is upgraded.",
+                  "description": "The workspace has reached its plan lead limit, in which case \u0060leadsRemaining\u0060 and \u0060leadsRequested\u0060 are present and \u0060error\u0060 is \u0022Lead limit reached\u0022; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and \u0060message\u0060 explains why.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -100783,6 +101114,50 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "404": {
             "description": "Default Response",
             "content": {
@@ -102801,6 +103176,50 @@
                         "Rate limit exceeded"
                       ],
                       "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
                     }
                   },
                   "required": [
@@ -105969,6 +106388,50 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -108253,6 +108716,50 @@
                         "Workspace does not have an active paid plan"
                       ],
                       "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
                     }
                   },
                   "required": [

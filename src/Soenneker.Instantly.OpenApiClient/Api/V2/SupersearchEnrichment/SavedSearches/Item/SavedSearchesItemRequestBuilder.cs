@@ -101,6 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SavedSe
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,6 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.SavedSe
                 { "400", global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearch429Response.CreateFromDiscriminatorValue },
             };
