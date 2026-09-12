@@ -63,6 +63,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty CoreVariables { get; set; }
 #endif
+        /// <summary>ID of the user who created the campaign</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedBy { get; private set; }
+#nullable restore
+#else
+        public string CreatedBy { get; private set; }
+#endif
         /// <summary>Campaign custom variables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -222,6 +230,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule.CreateFromDiscriminatorValue); } },
                 { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCoreVariablesProperty.CreateFromDiscriminatorValue); } },
+                { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCustomVariablesProperty.CreateFromDiscriminatorValue); } },
                 { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
                 { "daily_max_leads", n => { DailyMaxLeads = n.GetIntValue(); } },

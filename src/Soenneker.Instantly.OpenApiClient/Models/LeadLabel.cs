@@ -13,7 +13,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LeadLabel : IParsable
     {
-        /// <summary>User ID of the creator of this label</summary>
+        /// <summary>The access grants on this label, oldest first, each with the access type the member holds. Only present when resource ownership is enabled for the workspace.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabelAccessGrantsItem>? AccessGrants { get; private set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabelAccessGrantsItem> AccessGrants { get; private set; }
+#endif
+        /// <summary>User ID of the creator of this label. Null when the label was created by an API key or an internal service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CreatedBy { get; private set; }
@@ -79,6 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "access_grants", n => { AccessGrants = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabelAccessGrantsItem>(global::Soenneker.Instantly.OpenApiClient.Models.LeadLabelAccessGrantsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },

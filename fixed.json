@@ -22783,6 +22783,15 @@
             "description": "Owner ID",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
+          "created_by": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ID of the user who created the campaign",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
           "ai_sdr_id": {
             "type": [
               "null",
@@ -24706,8 +24715,11 @@
             "example": "1970-01-01T00:00:00.000Z"
           },
           "created_by": {
-            "type": "string",
-            "description": "User ID of the creator of this label",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "User ID of the creator of this label. Null when the label was created by an API key or an internal service",
             "readOnly": true,
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
@@ -24746,6 +24758,14 @@
             ],
             "description": "Whether this label should be used with AI features",
             "example": false
+          },
+          "access_grants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeadLabelAccessGrantsItem"
+            },
+            "description": "The access grants on this label, oldest first, each with the access type the member holds. Only present when resource ownership is enabled for the workspace.",
+            "readOnly": true
           }
         },
         "additionalProperties": false,
@@ -27901,6 +27921,22 @@
           }
         },
         "description": "Data about the job, used to store any additional information we need to process the job"
+      },
+      "LeadLabelAccessGrantsItem": {
+        "required": [
+          "user_id",
+          "access_type"
+        ],
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "access_type": {
+            "$ref": "#/components/schemas/LeadLabelAccessGrantsItemAccessType"
+          }
+        }
       },
       "WorkspacePlanIdVerification": {
         "type": "object",
@@ -88709,6 +88745,18 @@
             }
           ]
         }
+      },
+      "LeadLabelAccessGrantsItemAccessType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "additionalProperties": false,
+        "description": "The access the member holds: 1 read, 2 edit, 3 full (edit and share), 4 owner.",
+        "example": 2
       },
       "CampaignSubsequenceConditionsLeadActivityItem": {
         "enum": [
