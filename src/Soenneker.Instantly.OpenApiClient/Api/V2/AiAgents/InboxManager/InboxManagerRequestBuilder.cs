@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new AI Inbox Manager with its configuration. The agent is created active.Requires one of the following scopes: `ai_agents:create`, `ai_agents:all`, `all:create`, `all:all`
+        /// Create a new AI Inbox Manager with its configuration and optional initial guidance, saved together. The agent is created active. Including guidance also requires the guidance creation scope.Requires one of the following scopes: `ai_agents:create`, `ai_agents:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
             return requestInfo;
         }
         /// <summary>
-        /// Create a new AI Inbox Manager with its configuration. The agent is created active.Requires one of the following scopes: `ai_agents:create`, `ai_agents:all`, `all:create`, `all:all`
+        /// Create a new AI Inbox Manager with its configuration and optional initial guidance, saved together. The agent is created active. Including guidance also requires the guidance creation scope.Requires one of the following scopes: `ai_agents:create`, `ai_agents:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

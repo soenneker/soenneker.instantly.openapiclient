@@ -47,6 +47,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> BusinessOffers { get; set; }
 #endif
+        /// <summary>The claim_evidence property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem>? ClaimEvidence { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem> ClaimEvidence { get; set; }
+#endif
         /// <summary>The company property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,6 +71,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> CustomFields { get; set; }
 #endif
+        /// <summary>The custom_research_objectives property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives? CustomResearchObjectives { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives CustomResearchObjectives { get; set; }
+#endif
         /// <summary>The icps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +86,30 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #nullable restore
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem> Icps { get; set; }
+#endif
+        /// <summary>The messaging_angles property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem>? MessagingAngles { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem> MessagingAngles { get; set; }
+#endif
+        /// <summary>The research_objectives property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives? ResearchObjectives { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives ResearchObjectives { get; set; }
+#endif
+        /// <summary>The research_questions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions? ResearchQuestions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions ResearchQuestions { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory"/> and sets the default values.
@@ -100,9 +140,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "active_icps_indexes", n => { ActiveIcpsIndexes = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "business_description", n => { BusinessDescription = n.GetStringValue(); } },
                 { "business_offers", n => { BusinessOffers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "claim_evidence", n => { ClaimEvidence = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "custom_fields", n => { CustomFields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "custom_research_objectives", n => { CustomResearchObjectives = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives.CreateFromDiscriminatorValue); } },
                 { "icps", n => { Icps = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "messaging_angles", n => { MessagingAngles = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "research_objectives", n => { ResearchObjectives = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives.CreateFromDiscriminatorValue); } },
+                { "research_questions", n => { ResearchQuestions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -116,9 +161,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<double?>("active_icps_indexes", ActiveIcpsIndexes);
             writer.WriteStringValue("business_description", BusinessDescription);
             writer.WriteCollectionOfPrimitiveValues<string>("business_offers", BusinessOffers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem>("claim_evidence", ClaimEvidence);
             writer.WriteStringValue("company", Company);
             writer.WriteCollectionOfPrimitiveValues<string>("custom_fields", CustomFields);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives>("custom_research_objectives", CustomResearchObjectives);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem>("icps", Icps);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem>("messaging_angles", MessagingAngles);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives>("research_objectives", ResearchObjectives);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions>("research_questions", ResearchQuestions);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

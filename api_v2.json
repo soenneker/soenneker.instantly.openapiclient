@@ -2856,6 +2856,20 @@
                                   ],
                                   "example": "Case study"
                                 },
+                                "communication_style": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Formal and concise"
+                                  ],
+                                  "example": "Formal and concise"
+                                },
+                                "email_action": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Offer the published guide"
+                                  ],
+                                  "example": "Offer the published guide"
+                                },
                                 "keywords": {
                                   "type": "object",
                                   "properties": {
@@ -2929,6 +2943,45 @@
                               }
                             }
                           },
+                          "research_objectives": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          },
+                          "research_questions": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          },
+                          "custom_research_objectives": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          },
                           "custom_fields": {
                             "type": "array",
                             "items": {
@@ -2937,6 +2990,122 @@
                                 "custom_field_1"
                               ],
                               "example": "custom_field_1"
+                            }
+                          },
+                          "messaging_angles": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "audience": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Agency founders"
+                                  ],
+                                  "example": "Agency founders"
+                                },
+                                "angle": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Simplify campaign management"
+                                  ],
+                                  "example": "Simplify campaign management"
+                                },
+                                "applicability": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Only when the workflow is evidenced"
+                                  ],
+                                  "example": "Only when the workflow is evidenced"
+                                },
+                                "cta": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Offer the published guide"
+                                  ],
+                                  "example": "Offer the published guide"
+                                },
+                                "evidence_ids": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "examples": [
+                                      "workflow-guide"
+                                    ],
+                                    "example": "workflow-guide"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "claim_evidence": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "examples": [
+                                    "workflow-guide"
+                                  ],
+                                  "example": "workflow-guide"
+                                },
+                                "claim": {
+                                  "type": "string",
+                                  "examples": [
+                                    "A workflow guide is available"
+                                  ],
+                                  "example": "A workflow guide is available"
+                                },
+                                "source_url": {
+                                  "type": "string",
+                                  "examples": [
+                                    "https://example.com/guide"
+                                  ],
+                                  "example": "https://example.com/guide"
+                                },
+                                "source_title": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Workflow guide"
+                                  ],
+                                  "example": "Workflow guide"
+                                },
+                                "source_excerpt": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Download our workflow guide"
+                                  ],
+                                  "example": "Download our workflow guide"
+                                },
+                                "evidence_type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "sender_fact",
+                                    "independent_research",
+                                    "anecdote",
+                                    "hypothesis"
+                                  ],
+                                  "examples": [
+                                    "sender_fact"
+                                  ],
+                                  "example": "sender_fact"
+                                },
+                                "scope": {
+                                  "type": "string",
+                                  "examples": [
+                                    "Published sender resource"
+                                  ],
+                                  "example": "Published sender resource"
+                                },
+                                "published_at": {
+                                  "type": "string",
+                                  "examples": [
+                                    "1970-01-01T00:00:00.000Z"
+                                  ],
+                                  "example": "1970-01-01T00:00:00.000Z"
+                                }
+                              }
                             }
                           },
                           "business_offers": {
@@ -63307,6 +63476,313 @@
         }
       }
     },
+    "/api/v2/ai-agents/sales/{id}/leads/{lead_id}/research": {
+      "get": {
+        "operationId": "getSalesAgentLeadResearch",
+        "summary": "Get research sources for an AI Sales Agent lead",
+        "tags": [
+          "AISalesAgent"
+        ],
+        "description": "Requires one of the following scopes: \u0060ai_sdr:read\u0060, \u0060ai_sdr:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "id",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "lead_id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Research source metadata, when available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "research": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "grounding": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "field": {
+                                    "type": "string",
+                                    "examples": [
+                                      "facts[0].statement"
+                                    ],
+                                    "example": "facts[0].statement"
+                                  },
+                                  "citations": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "url": {
+                                          "type": "string",
+                                          "examples": [
+                                            "https://example.com/news/acme-opens-depot"
+                                          ],
+                                          "example": "https://example.com/news/acme-opens-depot"
+                                        },
+                                        "title": {
+                                          "type": "string",
+                                          "examples": [
+                                            "Acme opens a second depot"
+                                          ],
+                                          "example": "Acme opens a second depot"
+                                        }
+                                      },
+                                      "required": [
+                                        "url"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "field",
+                                  "citations"
+                                ]
+                              }
+                            },
+                            "sources": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "url": {
+                                    "type": "string",
+                                    "examples": [
+                                      "https://example.com/about"
+                                    ],
+                                    "example": "https://example.com/about"
+                                  }
+                                },
+                                "required": [
+                                  "url"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "grounding",
+                            "sources"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "research"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/ai-agents/sales/{id}/leads/activity/summary": {
       "get": {
         "operationId": "getSalesAgentLeadActivitySummary",
@@ -66675,7 +67151,7 @@
         "tags": [
           "AIInboxManager"
         ],
-        "description": "Create a new AI Inbox Manager with its configuration. The agent is created active.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Create a new AI Inbox Manager with its configuration and optional initial guidance, saved together. The agent is created active. Including guidance also requires the guidance creation scope.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -66687,6 +67163,113 @@
                   "payload"
                 ],
                 "properties": {
+                  "guidances": {
+                    "maxItems": 100,
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "minLength": 1,
+                              "description": "Short name of the saved guidance rule"
+                            },
+                            "category": {
+                              "type": "number",
+                              "enum": [
+                                0
+                              ]
+                            },
+                            "basic_guidance_options": {
+                              "type": "object",
+                              "properties": {
+                                "tone": {
+                                  "type": "string",
+                                  "enum": [
+                                    "friendly",
+                                    "neutral",
+                                    "matter_of_fact",
+                                    "professional",
+                                    "humorous"
+                                  ]
+                                },
+                                "length": {
+                                  "type": "string",
+                                  "enum": [
+                                    "concise",
+                                    "standard",
+                                    "thorough"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "tone",
+                                "length"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "category",
+                            "basic_guidance_options"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "minLength": 1,
+                              "description": "Short name of the saved guidance rule"
+                            },
+                            "category": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "enum": [
+                                    1
+                                  ]
+                                },
+                                {
+                                  "type": "number",
+                                  "enum": [
+                                    2
+                                  ]
+                                },
+                                {
+                                  "type": "number",
+                                  "enum": [
+                                    3
+                                  ]
+                                },
+                                {
+                                  "type": "number",
+                                  "enum": [
+                                    4
+                                  ]
+                                }
+                              ]
+                            },
+                            "instruction": {
+                              "type": "string",
+                              "minLength": 1,
+                              "description": "Concrete instructions based on verified context and user preferences"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "category",
+                            "instruction"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
                   "name": {
                     "type": "string",
                     "minLength": 1,

@@ -20,6 +20,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The guidances property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem>? Guidances { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem> Guidances { get; set; }
+#endif
         /// <summary>Name of the AI Inbox Manager</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "guidances", n => { Guidances = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestPayload>(global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestPayload.CreateFromDiscriminatorValue); } },
             };
@@ -67,6 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem>("guidances", Guidances);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestPayload>("payload", Payload);
         }

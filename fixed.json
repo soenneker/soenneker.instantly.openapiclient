@@ -15161,6 +15161,90 @@
         }
       }
     },
+    "/api/v2/ai-agents/sales/{id}/leads/{leadId}/research": {
+      "get": {
+        "tags": [
+          "AISalesAgent"
+        ],
+        "summary": "Get research sources for an AI Sales Agent lead",
+        "description": "Requires one of the following scopes: \u0060ai_sdr:read\u0060, \u0060ai_sdr:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetSalesAgentLeadResearch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          {
+            "name": "leadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Research source metadata, when available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSalesAgentLeadResearch200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSalesAgentLeadResearch401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSalesAgentLeadResearch402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSalesAgentLeadResearch404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSalesAgentLeadResearch429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/ai-agents/sales/{id}/leads/activity/summary": {
       "get": {
         "tags": [
@@ -16298,7 +16382,7 @@
           "AIInboxManager"
         ],
         "summary": "Create an AI Inbox Manager",
-        "description": "Create a new AI Inbox Manager with its configuration. The agent is created active.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Create a new AI Inbox Manager with its configuration and optional initial guidance, saved together. The agent is created active. Including guidance also requires the guidance creation scope.\n\n\nRequires one of the following scopes: \u0060ai_agents:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "operationId": "CreateInboxManagerAgent",
         "requestBody": {
           "content": {
@@ -27258,6 +27342,48 @@
         "additionalProperties": false,
         "description": "Deliverability Agent payload"
       },
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
       "AiAgentPayloadAnyOf4TagsItem": {
         "type": "object",
         "oneOf": [
@@ -28985,6 +29111,15 @@
               "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItem"
             }
           },
+          "research_objectives": {
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives"
+          },
+          "research_questions": {
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions"
+          },
+          "custom_research_objectives": {
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives"
+          },
           "custom_fields": {
             "type": "array",
             "items": {
@@ -28993,6 +29128,18 @@
               ],
               "type": "string",
               "example": "custom_field_1"
+            }
+          },
+          "messaging_angles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem"
+            }
+          },
+          "claim_evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem"
             }
           },
           "business_offers": {
@@ -29585,6 +29732,20 @@
             "type": "string",
             "example": "Case study"
           },
+          "communication_style": {
+            "examples": [
+              "Formal and concise"
+            ],
+            "type": "string",
+            "example": "Formal and concise"
+          },
+          "email_action": {
+            "examples": [
+              "Offer the published guide"
+            ],
+            "type": "string",
+            "example": "Offer the published guide"
+          },
           "keywords": {
             "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemKeywords"
           },
@@ -29610,6 +29771,106 @@
           },
           "job_title": {
             "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemJobTitle"
+          }
+        }
+      },
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryMessagingAnglesItem": {
+        "type": "object",
+        "properties": {
+          "audience": {
+            "examples": [
+              "Agency founders"
+            ],
+            "type": "string",
+            "example": "Agency founders"
+          },
+          "angle": {
+            "examples": [
+              "Simplify campaign management"
+            ],
+            "type": "string",
+            "example": "Simplify campaign management"
+          },
+          "applicability": {
+            "examples": [
+              "Only when the workflow is evidenced"
+            ],
+            "type": "string",
+            "example": "Only when the workflow is evidenced"
+          },
+          "cta": {
+            "examples": [
+              "Offer the published guide"
+            ],
+            "type": "string",
+            "example": "Offer the published guide"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "examples": [
+                "workflow-guide"
+              ],
+              "type": "string",
+              "example": "workflow-guide"
+            }
+          }
+        }
+      },
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "examples": [
+              "workflow-guide"
+            ],
+            "type": "string",
+            "example": "workflow-guide"
+          },
+          "claim": {
+            "examples": [
+              "A workflow guide is available"
+            ],
+            "type": "string",
+            "example": "A workflow guide is available"
+          },
+          "source_url": {
+            "examples": [
+              "https://example.com/guide"
+            ],
+            "type": "string",
+            "example": "https://example.com/guide"
+          },
+          "source_title": {
+            "examples": [
+              "Workflow guide"
+            ],
+            "type": "string",
+            "example": "Workflow guide"
+          },
+          "source_excerpt": {
+            "examples": [
+              "Download our workflow guide"
+            ],
+            "type": "string",
+            "example": "Download our workflow guide"
+          },
+          "evidence_type": {
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItemEvidenceType"
+          },
+          "scope": {
+            "examples": [
+              "Published sender resource"
+            ],
+            "type": "string",
+            "example": "Published sender resource"
+          },
+          "published_at": {
+            "examples": [
+              "1970-01-01T00:00:00.000Z"
+            ],
+            "type": "string",
+            "example": "1970-01-01T00:00:00.000Z"
           }
         }
       },
@@ -51277,6 +51538,109 @@
           }
         }
       },
+      "GetSalesAgentLeadResearch200Response": {
+        "required": [
+          "research"
+        ],
+        "type": "object",
+        "properties": {
+          "research": {
+            "$ref": "#/components/schemas/GetSalesAgentLeadResearch200ResponseResearch"
+          }
+        }
+      },
+      "GetSalesAgentLeadResearch401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSalesAgentLeadResearch401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetSalesAgentLeadResearch402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSalesAgentLeadResearch402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetSalesAgentLeadResearch404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSalesAgentLeadResearch404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetSalesAgentLeadResearch429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetSalesAgentLeadResearch429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
       "GetSalesAgentLeadActivitySummary200Response": {
         "type": "object",
         "properties": {
@@ -52770,6 +53134,13 @@
         ],
         "type": "object",
         "properties": {
+          "guidances": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateInboxManagerAgentRequestGuidancesItem"
+            }
+          },
           "name": {
             "minLength": 1,
             "type": "string",
@@ -71913,6 +72284,31 @@
           }
         }
       },
+      "GetSalesAgentLeadResearch200ResponseResearch": {
+        "required": [
+          "grounding",
+          "sources"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "grounding": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSalesAgentLeadResearch200ResponseResearchGroundingItem"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSalesAgentLeadResearch200ResponseResearchSourcesItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ListSalesAgentLeadActivity200ResponseItemsItem": {
         "type": "object",
         "properties": {
@@ -72028,6 +72424,31 @@
           }
         },
         "description": "A guidance rule the AI Sales Agent must follow when writing outreach. An agent can have at most 10 rules. Rule ids are positional (\u0060rule-0\u0060, \u0060rule-1\u0060, \u2026) and re-index after a deletion."
+      },
+      "CreateInboxManagerAgentRequestGuidancesItem": {
+        "required": [
+          "label",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Short name of the saved guidance rule"
+          },
+          "category": {
+            "$ref": "#/components/schemas/CreateInboxManagerAgentRequestGuidancesItemCategory"
+          },
+          "basic_guidance_options": {
+            "$ref": "#/components/schemas/CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions"
+          },
+          "instruction": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Concrete instructions based on verified context and user preferences"
+          }
+        }
       },
       "CreateInboxManagerAgentRequestPayload": {
         "required": [
@@ -80014,6 +80435,61 @@
           }
         }
       },
+      "GetSalesAgentLeadResearch200ResponseResearchGroundingItem": {
+        "required": [
+          "field",
+          "citations"
+        ],
+        "type": "object",
+        "properties": {
+          "field": {
+            "examples": [
+              "facts[0].statement"
+            ],
+            "type": "string",
+            "example": "facts[0].statement"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSalesAgentLeadResearch200ResponseResearchGroundingItemCitationsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetSalesAgentLeadResearch200ResponseResearchSourcesItem": {
+        "required": [
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "examples": [
+              "https://example.com/about"
+            ],
+            "type": "string",
+            "example": "https://example.com/about"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions": {
+        "required": [
+          "tone",
+          "length"
+        ],
+        "type": "object",
+        "properties": {
+          "tone": {
+            "$ref": "#/components/schemas/CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptionsTone"
+          },
+          "length": {
+            "$ref": "#/components/schemas/CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptionsLength"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateInboxManagerAgentRequestPayloadIntegrations": {
         "type": "object",
         "properties": {
@@ -83067,6 +83543,29 @@
           }
         },
         "description": "Opt-out settings appended to outgoing emails"
+      },
+      "GetSalesAgentLeadResearch200ResponseResearchGroundingItemCitationsItem": {
+        "required": [
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "examples": [
+              "https://example.com/news/acme-opens-depot"
+            ],
+            "type": "string",
+            "example": "https://example.com/news/acme-opens-depot"
+          },
+          "title": {
+            "examples": [
+              "Acme opens a second depot"
+            ],
+            "type": "string",
+            "example": "Acme opens a second depot"
+          }
+        },
+        "additionalProperties": false
       },
       "CreateInboxManagerAgentRequestPayloadIntegrationsSlack": {
         "type": [
@@ -90472,6 +90971,42 @@
             {
               "value": "is-not",
               "name": "IsNot"
+            }
+          ]
+        }
+      },
+      "AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItemEvidenceType": {
+        "examples": [
+          "sender_fact"
+        ],
+        "enum": [
+          "sender_fact",
+          "independent_research",
+          "anecdote",
+          "hypothesis"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "sender_fact",
+        "x-ms-enum": {
+          "name": "AiAgentPayloadAnyOf3AiSdrConfigMemoryClaimEvidenceItemEvidenceType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "sender_fact",
+              "name": "SenderFact"
+            },
+            {
+              "value": "independent_research",
+              "name": "IndependentResearch"
+            },
+            {
+              "value": "anecdote",
+              "name": "Anecdote"
+            },
+            {
+              "value": "hypothesis",
+              "name": "Hypothesis"
             }
           ]
         }
@@ -101462,6 +101997,50 @@
         "example": 404
       },
       "GetSalesAgentOpportunitySummary429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 429
+      },
+      "GetSalesAgentLeadResearch401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 401
+      },
+      "GetSalesAgentLeadResearch402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 402
+      },
+      "GetSalesAgentLeadResearch404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 404
+      },
+      "GetSalesAgentLeadResearch429ResponseStatusCode": {
         "examples": [
           429
         ],
@@ -113537,6 +114116,13 @@
             }
           ]
         }
+      },
+      "CreateInboxManagerAgentRequestGuidancesItemCategory": {
+        "enum": [
+          0
+        ],
+        "type": "number",
+        "additionalProperties": false
       },
       "CreateInboxManagerAgentRequestPayloadConfigurationType": {
         "enum": [
@@ -127563,6 +128149,70 @@
             {
               "value": "traffic_decline",
               "name": "TrafficDecline"
+            }
+          ]
+        }
+      },
+      "CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptionsTone": {
+        "enum": [
+          "friendly",
+          "neutral",
+          "matter_of_fact",
+          "professional",
+          "humorous"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptionsTone",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "friendly",
+              "name": "Friendly"
+            },
+            {
+              "value": "neutral",
+              "name": "Neutral"
+            },
+            {
+              "value": "matter_of_fact",
+              "name": "MatterOfFact"
+            },
+            {
+              "value": "professional",
+              "name": "Professional"
+            },
+            {
+              "value": "humorous",
+              "name": "Humorous"
+            }
+          ]
+        }
+      },
+      "CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptionsLength": {
+        "enum": [
+          "concise",
+          "standard",
+          "thorough"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptionsLength",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "concise",
+              "name": "Concise"
+            },
+            {
+              "value": "standard",
+              "name": "Standard"
+            },
+            {
+              "value": "thorough",
+              "name": "Thorough"
             }
           ]
         }

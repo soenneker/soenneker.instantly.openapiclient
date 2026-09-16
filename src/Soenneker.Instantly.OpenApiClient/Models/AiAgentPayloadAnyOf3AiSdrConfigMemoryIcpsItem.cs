@@ -22,6 +22,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> Benefits { get; set; }
 #endif
+        /// <summary>The communication_style property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CommunicationStyle { get; set; }
+#nullable restore
+#else
+        public string CommunicationStyle { get; set; }
+#endif
         /// <summary>The company_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +45,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> CustomerGoals { get; set; }
+#endif
+        /// <summary>The email_action property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmailAction { get; set; }
+#nullable restore
+#else
+        public string EmailAction { get; set; }
 #endif
         /// <summary>The industry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,8 +136,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "benefits", n => { Benefits = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "communication_style", n => { CommunicationStyle = n.GetStringValue(); } },
                 { "company_size", n => { CompanySize = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "customer_goals", n => { CustomerGoals = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "email_action", n => { EmailAction = n.GetStringValue(); } },
                 { "industry", n => { Industry = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "job_title", n => { JobTitle = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemJobTitle>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemJobTitle.CreateFromDiscriminatorValue); } },
                 { "keywords", n => { Keywords = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemKeywords>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemKeywords.CreateFromDiscriminatorValue); } },
@@ -139,8 +157,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("benefits", Benefits);
+            writer.WriteStringValue("communication_style", CommunicationStyle);
             writer.WriteCollectionOfPrimitiveValues<string>("company_size", CompanySize);
             writer.WriteCollectionOfPrimitiveValues<string>("customer_goals", CustomerGoals);
+            writer.WriteStringValue("email_action", EmailAction);
             writer.WriteCollectionOfPrimitiveValues<string>("industry", Industry);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemJobTitle>("job_title", JobTitle);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemoryIcpsItemKeywords>("keywords", Keywords);

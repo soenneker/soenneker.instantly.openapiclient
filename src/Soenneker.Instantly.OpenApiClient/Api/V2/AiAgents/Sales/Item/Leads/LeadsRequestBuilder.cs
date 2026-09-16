@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Activity;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,18 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Activity.ActivityRequestBuilder Activity
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Activity.ActivityRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Gets an item from the Soenneker.Instantly.OpenApiClient.api.v2.aiAgents.sales.item.leads.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Item.WithLeadItemRequestBuilder"/></returns>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Item.WithLeadItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("leadId", position);
+                return new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.Item.WithLeadItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Leads.LeadsRequestBuilder"/> and sets the default values.
