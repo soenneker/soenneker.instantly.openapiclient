@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.PhoneNumbers.Item
         {
         }
         /// <summary>
-        /// Delete a specific phone number from the organization.Requires one of the following scopes: `crm_actions:delete`, `crm_actions:all`, `all:delete`, `all:all`
+        /// Remove a phone number from the organization. Provider cleanup is retried automatically if delayed. Deleting an unknown or already removed number returns 404. A number that cannot be released because the workspace has no phone account returns 409 and is kept.Requires one of the following scopes: `crm_actions:delete`, `crm_actions:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -42,6 +42,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.PhoneNumbers.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,12 +59,13 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.PhoneNumbers.Item
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.DeletePhoneNumber200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a specific phone number from the organization.Requires one of the following scopes: `crm_actions:delete`, `crm_actions:all`, `all:delete`, `all:all`
+        /// Remove a phone number from the organization. Provider cleanup is retried automatically if delayed. Deleting an unknown or already removed number returns 404. A number that cannot be released because the workspace has no phone account returns 409 and is kept.Requires one of the following scopes: `crm_actions:delete`, `crm_actions:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -5094,7 +5094,7 @@
           "CRMActions"
         ],
         "summary": "Delete phone number",
-        "description": "Delete a specific phone number from the organization.\n\n\nRequires one of the following scopes: \u0060crm_actions:delete\u0060, \u0060crm_actions:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "description": "Remove a phone number from the organization. Provider cleanup is retried automatically if delayed. Deleting an unknown or already removed number returns 404. A number that cannot be released because the workspace has no phone account returns 409 and is kept.\n\n\nRequires one of the following scopes: \u0060crm_actions:delete\u0060, \u0060crm_actions:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
         "operationId": "DeletePhoneNumber",
         "parameters": [
           {
@@ -5146,6 +5146,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletePhoneNumber404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The phone number cannot be released because the workspace has no phone account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletePhoneNumber409Response"
                 }
               }
             }
@@ -36557,6 +36567,11 @@
       "DeletePhoneNumber200Response": {
         "type": "object",
         "properties": {
+          "cleanup_pending": {
+            "type": "boolean",
+            "description": "Whether deletion cleanup is still pending after removal from the workspace.",
+            "example": true
+          },
           "id": {
             "type": "string",
             "description": "Unique identifier of the deleted phone number record.",
@@ -36666,6 +36681,29 @@
             ],
             "type": "string",
             "example": "Resource not found"
+          }
+        }
+      },
+      "DeletePhoneNumber409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeletePhoneNumber409ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ConflictError"
+          },
+          "message": {
+            "examples": [
+              "This phone number cannot be released because the workspace has no phone account. Contact support to remove it."
+            ],
+            "type": "string",
+            "example": "This phone number cannot be released because the workspace has no phone account. Contact support to remove it."
           }
         }
       },
@@ -94570,6 +94608,28 @@
         "additionalProperties": false,
         "example": 404
       },
+      "DeletePhoneNumber409ResponseStatusCode": {
+        "examples": [
+          409
+        ],
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
+      },
+      "ConflictError": {
+        "examples": [
+          "Conflict"
+        ],
+        "enum": [
+          "Conflict"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Conflict"
+      },
       "DeletePhoneNumber429ResponseStatusCode": {
         "examples": [
           429
@@ -94679,17 +94739,6 @@
         "type": "number",
         "additionalProperties": false,
         "example": 409
-      },
-      "ConflictError": {
-        "examples": [
-          "Conflict"
-        ],
-        "enum": [
-          "Conflict"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "example": "Conflict"
       },
       "CreateCustomTag429ResponseStatusCode": {
         "examples": [

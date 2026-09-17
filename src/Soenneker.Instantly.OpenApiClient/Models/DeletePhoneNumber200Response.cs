@@ -14,6 +14,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether deletion cleanup is still pending after removal from the workspace.</summary>
+        public bool? CleanupPending { get; set; }
         /// <summary>Country code of the deleted phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,6 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cleanup_pending", n => { CleanupPending = n.GetBoolValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "locality", n => { Locality = n.GetStringValue(); } },
@@ -114,6 +117,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("cleanup_pending", CleanupPending);
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("locality", Locality);
