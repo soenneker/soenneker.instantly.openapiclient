@@ -40,7 +40,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems
         {
         }
         /// <summary>
-        /// Requires one of the following scopes: `engage_items:read`, `engage_items:all`, `all:read`, `all:all`
+        /// Requires one of the following scopes: `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListAgentItems200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListAgentItems200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListAgentItems200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Requires one of the following scopes: `engage_items:read`, `engage_items:all`, `all:read`, `all:all`
+        /// Requires one of the following scopes: `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems.AgentItemsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Requires one of the following scopes: `engage_items:read`, `engage_items:all`, `all:read`, `all:all`
+        /// Requires one of the following scopes: `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AgentItemsRequestBuilderGetQueryParameters 

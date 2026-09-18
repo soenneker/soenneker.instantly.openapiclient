@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
         {
         }
         /// <summary>
-        /// List the guidances configured for an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// List the guidances configured for an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerGuidances200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerGuidances200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerGuidances200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a guidance for an AI Inbox Manager. The BASICS category is an upsert: it carries tone/length options instead of an instruction, is always active, and an agent has at most one — creating a second one updates the existing guidance in place.Requires one of the following scopes: `ai_agent_guidances:create`, `ai_agents:all`, `all:create`, `all:all`
+        /// Create a guidance for an AI Inbox Manager. The BASICS category is an upsert: it carries tone/length options instead of an instruction, is always active, and an agent has at most one — creating a second one updates the existing guidance in place.Requires one of the following scopes: `ai_agents:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance"/></returns>
         /// <param name="body">The request body</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List the guidances configured for an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// List the guidances configured for an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return requestInfo;
         }
         /// <summary>
-        /// Create a guidance for an AI Inbox Manager. The BASICS category is an upsert: it carries tone/length options instead of an instruction, is always active, and an agent has at most one — creating a second one updates the existing guidance in place.Requires one of the following scopes: `ai_agent_guidances:create`, `ai_agents:all`, `all:create`, `all:all`
+        /// Create a guidance for an AI Inbox Manager. The BASICS category is an upsert: it carries tone/length options instead of an instruction, is always active, and an agent has at most one — creating a second one updates the existing guidance in place.Requires one of the following scopes: `ai_agents:all`, `all:create`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -159,7 +159,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Guidances.GuidancesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List the guidances configured for an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// List the guidances configured for an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GuidancesRequestBuilderGetQueryParameters 

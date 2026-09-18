@@ -1556,7 +1556,7 @@
           "EngageItem"
         ],
         "summary": "List AI agent items",
-        "description": "Requires one of the following scopes: \u0060engage_items:read\u0060, \u0060engage_items:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "Requires one of the following scopes: \u0060all:read\u0060, \u0060all:all\u0060",
         "operationId": "ListAgentItems",
         "parameters": [
           {
@@ -1681,7 +1681,7 @@
           "EngageItem"
         ],
         "summary": "Bulk delete AI agent items",
-        "description": "Requires one of the following scopes: \u0060engage_items:delete\u0060, \u0060engage_items:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "description": "Requires one of the following scopes: \u0060all:delete\u0060, \u0060all:all\u0060",
         "operationId": "BulkDeleteAgentItems",
         "requestBody": {
           "content": {
@@ -16867,7 +16867,7 @@
           "AIInboxManager"
         ],
         "summary": "List AI Inbox Manager guidances",
-        "description": "List the guidances configured for an AI Inbox Manager.\n\n\nRequires one of the following scopes: \u0060ai_agent_guidances:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "List the guidances configured for an AI Inbox Manager.\n\n\nRequires one of the following scopes: \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "operationId": "ListInboxManagerGuidances",
         "parameters": [
           {
@@ -16971,7 +16971,7 @@
           "AIInboxManager"
         ],
         "summary": "Create an AI Inbox Manager guidance",
-        "description": "Create a guidance for an AI Inbox Manager. The BASICS category is an upsert: it carries tone/length options instead of an instruction, is always active, and an agent has at most one \u2014 creating a second one updates the existing guidance in place.\n\n\nRequires one of the following scopes: \u0060ai_agent_guidances:create\u0060, \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Create a guidance for an AI Inbox Manager. The BASICS category is an upsert: it carries tone/length options instead of an instruction, is always active, and an agent has at most one \u2014 creating a second one updates the existing guidance in place.\n\n\nRequires one of the following scopes: \u0060ai_agents:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "operationId": "CreateInboxManagerGuidance",
         "parameters": [
           {
@@ -17066,7 +17066,7 @@
           "AIInboxManager"
         ],
         "summary": "Get an AI Inbox Manager guidance",
-        "description": "Retrieve a single guidance of an AI Inbox Manager.\n\n\nRequires one of the following scopes: \u0060ai_agent_guidances:read\u0060, \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "Retrieve a single guidance of an AI Inbox Manager.\n\n\nRequires one of the following scopes: \u0060ai_agents:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "operationId": "GetInboxManagerGuidance",
         "parameters": [
           {
@@ -17150,7 +17150,7 @@
           "AIInboxManager"
         ],
         "summary": "Update an AI Inbox Manager guidance",
-        "description": "Update a guidance of an AI Inbox Manager. BASICS guidances keep an empty instruction and stay active; a guidance cannot be changed to or from the BASICS category.\n\n\nRequires one of the following scopes: \u0060ai_agent_guidances:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Update a guidance of an AI Inbox Manager. BASICS guidances keep an empty instruction and stay active; a guidance cannot be changed to or from the BASICS category.\n\n\nRequires one of the following scopes: \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "PatchInboxManagerGuidance",
         "parameters": [
           {
@@ -17253,7 +17253,7 @@
           "AIInboxManager"
         ],
         "summary": "Delete an AI Inbox Manager guidance",
-        "description": "Delete a guidance of an AI Inbox Manager.\n\n\nRequires one of the following scopes: \u0060ai_agent_guidances:delete\u0060, \u0060ai_agents:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "description": "Delete a guidance of an AI Inbox Manager.\n\n\nRequires one of the following scopes: \u0060ai_agents:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
         "operationId": "DeleteInboxManagerGuidance",
         "parameters": [
           {
@@ -85948,6 +85948,11 @@
           "subsequences:read",
           "subsequences:update",
           "subsequences:delete",
+          "supersearch_enrichments:all",
+          "supersearch_enrichments:create",
+          "supersearch_enrichments:read",
+          "supersearch_enrichments:update",
+          "supersearch_enrichments:delete",
           "ai_sdr:all",
           "ai_sdr:create",
           "ai_sdr:read",
@@ -86532,6 +86537,26 @@
             {
               "value": "subsequences:delete",
               "name": "SubsequencesColonDelete"
+            },
+            {
+              "value": "supersearch_enrichments:all",
+              "name": "SupersearchEnrichmentsColonAll"
+            },
+            {
+              "value": "supersearch_enrichments:create",
+              "name": "SupersearchEnrichmentsColonCreate"
+            },
+            {
+              "value": "supersearch_enrichments:read",
+              "name": "SupersearchEnrichmentsColonRead"
+            },
+            {
+              "value": "supersearch_enrichments:update",
+              "name": "SupersearchEnrichmentsColonUpdate"
+            },
+            {
+              "value": "supersearch_enrichments:delete",
+              "name": "SupersearchEnrichmentsColonDelete"
             },
             {
               "value": "ai_sdr:all",
@@ -92201,6 +92226,11 @@
           "subsequences:read",
           "subsequences:update",
           "subsequences:delete",
+          "supersearch_enrichments:all",
+          "supersearch_enrichments:create",
+          "supersearch_enrichments:read",
+          "supersearch_enrichments:update",
+          "supersearch_enrichments:delete",
           "ai_sdr:all",
           "ai_sdr:create",
           "ai_sdr:read",
@@ -92785,6 +92815,26 @@
             {
               "value": "subsequences:delete",
               "name": "SubsequencesColonDelete"
+            },
+            {
+              "value": "supersearch_enrichments:all",
+              "name": "SupersearchEnrichmentsColonAll"
+            },
+            {
+              "value": "supersearch_enrichments:create",
+              "name": "SupersearchEnrichmentsColonCreate"
+            },
+            {
+              "value": "supersearch_enrichments:read",
+              "name": "SupersearchEnrichmentsColonRead"
+            },
+            {
+              "value": "supersearch_enrichments:update",
+              "name": "SupersearchEnrichmentsColonUpdate"
+            },
+            {
+              "value": "supersearch_enrichments:delete",
+              "name": "SupersearchEnrichmentsColonDelete"
             },
             {
               "value": "ai_sdr:all",

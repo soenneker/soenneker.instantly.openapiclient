@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
         {
         }
         /// <summary>
-        /// Delete a guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:delete`, `ai_agents:all`, `all:delete`, `all:all`
+        /// Delete a guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a single guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// Retrieve a single guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a guidance of an AI Inbox Manager. BASICS guidances keep an empty instruction and stay active; a guidance cannot be changed to or from the BASICS category.Requires one of the following scopes: `ai_agent_guidances:update`, `ai_agents:all`, `all:update`, `all:all`
+        /// Update a guidance of an AI Inbox Manager. BASICS guidances keep an empty instruction and stay active; a guidance cannot be changed to or from the BASICS category.Requires one of the following scopes: `ai_agents:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance"/></returns>
         /// <param name="body">The request body</param>
@@ -125,7 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:delete`, `ai_agents:all`, `all:delete`, `all:all`
+        /// Delete a guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +144,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agent_guidances:read`, `ai_agents:all`, `all:read`, `all:all`
+        /// Retrieve a single guidance of an AI Inbox Manager.Requires one of the following scopes: `ai_agents:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -163,7 +163,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Gu
             return requestInfo;
         }
         /// <summary>
-        /// Update a guidance of an AI Inbox Manager. BASICS guidances keep an empty instruction and stay active; a guidance cannot be changed to or from the BASICS category.Requires one of the following scopes: `ai_agent_guidances:update`, `ai_agents:all`, `all:update`, `all:all`
+        /// Update a guidance of an AI Inbox Manager. BASICS guidances keep an empty instruction and stay active; a guidance cannot be changed to or from the BASICS category.Requires one of the following scopes: `ai_agents:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

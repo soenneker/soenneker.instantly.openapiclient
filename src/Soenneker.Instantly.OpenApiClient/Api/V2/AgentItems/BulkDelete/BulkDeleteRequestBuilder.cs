@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems.BulkDelete
         {
         }
         /// <summary>
-        /// Requires one of the following scopes: `engage_items:delete`, `engage_items:all`, `all:delete`, `all:all`
+        /// Requires one of the following scopes: `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkDeleteAgentItems200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems.BulkDelete
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BulkDeleteAgentItems200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BulkDeleteAgentItems200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Requires one of the following scopes: `engage_items:delete`, `engage_items:all`, `all:delete`, `all:all`
+        /// Requires one of the following scopes: `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

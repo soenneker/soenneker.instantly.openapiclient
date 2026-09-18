@@ -540,6 +540,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         SubsequencesColonDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "supersearch_enrichments:all")]
+        #pragma warning disable CS1591
+        SupersearchEnrichmentsColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "supersearch_enrichments:create")]
+        #pragma warning disable CS1591
+        SupersearchEnrichmentsColonCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "supersearch_enrichments:read")]
+        #pragma warning disable CS1591
+        SupersearchEnrichmentsColonRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "supersearch_enrichments:update")]
+        #pragma warning disable CS1591
+        SupersearchEnrichmentsColonUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "supersearch_enrichments:delete")]
+        #pragma warning disable CS1591
+        SupersearchEnrichmentsColonDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "ai_sdr:all")]
         #pragma warning disable CS1591
         AiSdrColonAll,
