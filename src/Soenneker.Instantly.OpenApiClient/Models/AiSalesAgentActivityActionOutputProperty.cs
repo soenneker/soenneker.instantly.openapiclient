@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Output data for frontend display (e.g., lead_email, campaign_name, etc.)
+    /// Output data for frontend display (e.g., lead_email, campaign_name, etc.). For recommend_lead this carries the per-lead delivery_outcome: delivered, no_email_found, not_moved or skipped (the agent decided not to contact the prospect), plus refunded.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiSalesAgentActivityActionOutputProperty : IAdditionalDataHolder, IParsable

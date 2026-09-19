@@ -28286,7 +28286,7 @@
       },
       "AiSalesAgentActivityActionOutput": {
         "type": "object",
-        "description": "Output data for frontend display (e.g., lead_email, campaign_name, etc.)",
+        "description": "Output data for frontend display (e.g., lead_email, campaign_name, etc.). For recommend_lead this carries the per-lead delivery_outcome: delivered, no_email_found, not_moved or skipped (the agent decided not to contact the prospect), plus refunded.",
         "readOnly": true
       },
       "AiSalesAgentActivityResult": {
@@ -68937,7 +68937,7 @@
       },
       "AiSalesAgentActivityActionOutputProperty": {
         "type": "object",
-        "description": "Output data for frontend display (e.g., lead_email, campaign_name, etc.)"
+        "description": "Output data for frontend display (e.g., lead_email, campaign_name, etc.). For recommend_lead this carries the per-lead delivery_outcome: delivered, no_email_found, not_moved or skipped (the agent decided not to contact the prospect), plus refunded."
       },
       "AiSalesAgentActivityResultProperty": {
         "type": "object",
