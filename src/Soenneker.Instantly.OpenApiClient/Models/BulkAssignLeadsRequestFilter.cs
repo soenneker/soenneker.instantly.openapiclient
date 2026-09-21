@@ -91,6 +91,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         FilterValValid,
         #pragma warning restore CS1591
+        [EnumMember(Value = "FILTER_VAL_CATCH_ALL")]
+        #pragma warning disable CS1591
+        FilterValCatchAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "FILTER_VAL_NOT_VERIFIED")]
+        #pragma warning disable CS1591
+        FilterValNotVerified,
+        #pragma warning restore CS1591
         [EnumMember(Value = "FILTER_VAL_IN_SUBSEQUENCE")]
         #pragma warning disable CS1591
         FilterValInSubsequence,

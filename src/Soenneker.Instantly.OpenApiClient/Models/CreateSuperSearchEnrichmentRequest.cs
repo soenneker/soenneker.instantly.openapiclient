@@ -38,7 +38,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions IntegrationActions { get; set; }
 #endif
-        /// <summary>Maximum number of leads to enrich.</summary>
+        /// <summary>Maximum number of leads to enrich. Up to 50000 per job, or 1000000 for email_verification.</summary>
         public double? Limit { get; set; }
         /// <summary>Unique identifier for the resource (list or campaign)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

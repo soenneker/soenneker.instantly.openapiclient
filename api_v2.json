@@ -5274,6 +5274,7 @@
             "description": "Verification status of the lead",
             "readOnly": true,
             "enum": [
+              0,
               1,
               -1,
               -2,
@@ -5283,6 +5284,7 @@
               12
             ],
             "x-enumDescriptions": {
+              "0": "Not verified",
               "1": "Verified",
               "11": "Pending",
               "12": "Pending Verification Job",
@@ -43026,6 +43028,8 @@
                       "FILTER_VAL_RISKY": "Filter for risky leads",
                       "FILTER_VAL_INVALID": "Filter for invalid leads",
                       "FILTER_VAL_VALID": "Filter for valid leads",
+                      "FILTER_VAL_CATCH_ALL": "Filter for leads whose email verified as catch-all",
+                      "FILTER_VAL_NOT_VERIFIED": "Filter for leads whose email was never verified",
                       "FILTER_VAL_IN_SUBSEQUENCE": "Filter for leads in subsequence",
                       "FILTER_VAL_OPENED_NO_REPLY": "Filter for leads with opened emails but no reply",
                       "FILTER_VAL_COMPLETED_NO_REPLY": "Filter for leads with completed sequence but no reply",
@@ -45004,6 +45008,8 @@
                       "FILTER_VAL_RISKY",
                       "FILTER_VAL_INVALID",
                       "FILTER_VAL_VALID",
+                      "FILTER_VAL_CATCH_ALL",
+                      "FILTER_VAL_NOT_VERIFIED",
                       "FILTER_VAL_IN_SUBSEQUENCE",
                       "FILTER_VAL_OPENED_NO_REPLY",
                       "FILTER_VAL_COMPLETED_NO_REPLY",
@@ -45424,6 +45430,8 @@
                       "FILTER_VAL_RISKY": "Filter for risky leads",
                       "FILTER_VAL_INVALID": "Filter for invalid leads",
                       "FILTER_VAL_VALID": "Filter for valid leads",
+                      "FILTER_VAL_CATCH_ALL": "Filter for leads whose email verified as catch-all",
+                      "FILTER_VAL_NOT_VERIFIED": "Filter for leads whose email was never verified",
                       "FILTER_VAL_IN_SUBSEQUENCE": "Filter for leads in subsequence",
                       "FILTER_VAL_OPENED_NO_REPLY": "Filter for leads with opened emails but no reply",
                       "FILTER_VAL_COMPLETED_NO_REPLY": "Filter for leads with completed sequence but no reply",
@@ -45577,6 +45585,11 @@
                   "skip_leads_in_verification": {
                     "type": "boolean",
                     "description": "Whether to skip leads in verification.",
+                    "example": true
+                  },
+                  "skip_invalid_emails": {
+                    "type": "boolean",
+                    "description": "Whether to leave behind leads whose email verified as invalid or risky. Leads that were never verified still move.",
                     "example": true
                   },
                   "limit": {
@@ -96779,9 +96792,9 @@
                   },
                   "limit": {
                     "type": "number",
-                    "description": "Maximum number of leads to enrich.",
+                    "description": "Maximum number of leads to enrich. Up to 50000 per job, or 1000000 for email_verification.",
                     "minimum": 1,
-                    "maximum": 50000,
+                    "maximum": 1000000,
                     "example": 100
                   },
                   "filters": {
@@ -103776,6 +103789,11 @@
                           "isOwned": {
                             "type": "boolean",
                             "description": "True when the workspace already owns this lead (previously acquired, e.g. delivered by Website Visitors) \u2014 enriching it will not charge again",
+                            "example": true
+                          },
+                          "identityHidden": {
+                            "type": "boolean",
+                            "description": "True when the name and LinkedIn URL are withheld because the search matched on Instantly send and reply data. Convert the lead to obtain them; leads the workspace already owns are never withheld",
                             "example": true
                           }
                         },

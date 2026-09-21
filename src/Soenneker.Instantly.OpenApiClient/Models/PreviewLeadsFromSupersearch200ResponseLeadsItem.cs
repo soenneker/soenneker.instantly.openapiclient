@@ -52,6 +52,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string FullName { get; set; }
 #endif
+        /// <summary>True when the name and LinkedIn URL are withheld because the search matched on Instantly send and reply data. Convert the lead to obtain them; leads the workspace already owns are never withheld</summary>
+        public bool? IdentityHidden { get; set; }
         /// <summary>True when the workspace already owns this lead (previously acquired, e.g. delivered by Website Visitors) — enriching it will not charge again</summary>
         public bool? IsOwned { get; set; }
         /// <summary>The current job title of the lead</summary>
@@ -109,6 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "fullName", n => { FullName = n.GetStringValue(); } },
+                { "identityHidden", n => { IdentityHidden = n.GetBoolValue(); } },
                 { "isOwned", n => { IsOwned = n.GetBoolValue(); } },
                 { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
@@ -128,6 +131,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("fullName", FullName);
+            writer.WriteBoolValue("identityHidden", IdentityHidden);
             writer.WriteBoolValue("isOwned", IsOwned);
             writer.WriteStringValue("jobTitle", JobTitle);
             writer.WriteStringValue("lastName", LastName);

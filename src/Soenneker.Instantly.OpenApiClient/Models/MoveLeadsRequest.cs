@@ -106,6 +106,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Search { get; set; }
 #endif
+        /// <summary>Whether to leave behind leads whose email verified as invalid or risky. Leads that were never verified still move.</summary>
+        public bool? SkipInvalidEmails { get; set; }
         /// <summary>Whether to skip leads in verification.</summary>
         public bool? SkipLeadsInVerification { get; set; }
         /// <summary>The ID of the campaign to move the leads to.</summary>
@@ -168,6 +170,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>(global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reset_interest_status", n => { ResetInterestStatus = n.GetBoolValue(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
+                { "skip_invalid_emails", n => { SkipInvalidEmails = n.GetBoolValue(); } },
                 { "skip_leads_in_verification", n => { SkipLeadsInVerification = n.GetBoolValue(); } },
                 { "to_campaign_id", n => { ToCampaignId = n.GetStringValue(); } },
                 { "to_list_id", n => { ToListId = n.GetStringValue(); } },
@@ -199,6 +202,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>("queries", Queries);
             writer.WriteBoolValue("reset_interest_status", ResetInterestStatus);
             writer.WriteStringValue("search", Search);
+            writer.WriteBoolValue("skip_invalid_emails", SkipInvalidEmails);
             writer.WriteBoolValue("skip_leads_in_verification", SkipLeadsInVerification);
             writer.WriteStringValue("to_campaign_id", ToCampaignId);
             writer.WriteStringValue("to_list_id", ToListId);
