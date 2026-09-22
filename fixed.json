@@ -60302,7 +60302,7 @@
             "maximum": 1000000,
             "minimum": 1,
             "type": "number",
-            "description": "Maximum number of leads to enrich. Up to 50000 per job, or 1000000 for email_verification.",
+            "description": "Maximum number of leads to enrich.",
             "example": 100
           },
           "filters": {

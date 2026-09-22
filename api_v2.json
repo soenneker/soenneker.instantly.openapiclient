@@ -96792,7 +96792,7 @@
                   },
                   "limit": {
                     "type": "number",
-                    "description": "Maximum number of leads to enrich. Up to 50000 per job, or 1000000 for email_verification.",
+                    "description": "Maximum number of leads to enrich.",
                     "minimum": 1,
                     "maximum": 1000000,
                     "example": 100
