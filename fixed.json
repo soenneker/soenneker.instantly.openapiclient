@@ -21830,7 +21830,7 @@
           "SuperSearchEnrichment"
         ],
         "summary": "Returns the full integration provider registry",
-        "description": "Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected).\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected). credentialSource names whose key runs the provider for the requesting workspace (\u0022workspace_key\u0022, \u0022instantly_key\u0022, or \u0022unavailable\u0022 when neither side holds a usable key), and effectiveCostPerAction is what one action costs that workspace: 0 on the workspace key, creditCostPerAction otherwise, including when the source is \u0022unavailable\u0022. Both fields are null for an internal service-to-service call, which has no workspace to resolve against.\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "operationId": "GetIntegrationProviders",
         "responses": {
           "200": {
@@ -26793,6 +26793,17 @@
             "format": "date-time",
             "readOnly": true,
             "example": "1970-01-01T00:00:00.000Z"
+          },
+          "tags": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/EngageItemTagsItem"
+            },
+            "description": "Custom tags assigned to the item. Present for campaigns only; the other types carry no tags",
+            "readOnly": true
           }
         },
         "additionalProperties": false,
@@ -28400,6 +28411,29 @@
         },
         "description": "Additional metadata for the outreach item",
         "readOnly": true
+      },
+      "EngageItemTagsItem": {
+        "required": [
+          "id",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460"
+            ],
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "label": {
+            "examples": [
+              "Q3 outbound"
+            ],
+            "type": "string",
+            "example": "Q3 outbound"
+          }
+        }
       },
       "AiAgentPayloadAnyOf1SearchFilters": {
         "type": "object",
@@ -74996,6 +75030,17 @@
             "type": "boolean",
             "example": false
           },
+          "credentialSource": {
+            "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemCredentialSource"
+          },
+          "effectiveCostPerAction": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Credits one action costs this workspace: 0 when it runs on the workspace key. Null when credentialSource is null.",
+            "example": 0
+          },
           "actions": {
             "type": "array",
             "items": {
@@ -76898,6 +76943,17 @@
           "isConnected": {
             "type": "boolean",
             "example": false
+          },
+          "credentialSource": {
+            "$ref": "#/components/schemas/GetIntegrationProviders200ResponseItemCredentialSource"
+          },
+          "effectiveCostPerAction": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Credits one action costs this workspace: 0 when it runs on the workspace key. Null when credentialSource is null.",
+            "example": 0
           },
           "actions": {
             "type": "array",
@@ -116898,6 +116954,39 @@
           ]
         }
       },
+      "GetIntegrationProviders200ResponseItemCredentialSource": {
+        "enum": [
+          "workspace_key",
+          "instantly_key",
+          "unavailable",
+          null
+        ],
+        "type": [
+          "null",
+          "string"
+        ],
+        "additionalProperties": false,
+        "description": "Whose key runs this provider for the requesting workspace. Null for an internal caller with no workspace to resolve against.",
+        "example": "instantly_key",
+        "x-ms-enum": {
+          "name": "GetIntegrationProviders200ResponseItemCredentialSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "workspace_key",
+              "name": "WorkspaceKey"
+            },
+            {
+              "value": "instantly_key",
+              "name": "InstantlyKey"
+            },
+            {
+              "value": "unavailable",
+              "name": "Unavailable"
+            }
+          ]
+        }
+      },
       "CreateSavedSearchRequestSearchFiltersDepartmentItem": {
         "enum": [
           "Engineering",
@@ -139500,7 +139589,8 @@
           8,
           9,
           10,
-          6
+          6,
+          11
         ],
         "type": "integer",
         "additionalProperties": false,
@@ -139514,7 +139604,8 @@
           "7": "AI Recruiting Agent",
           "8": "AI Investment Agent",
           "9": "AI User Research Agent",
-          "10": "AI Partnership Agent"
+          "10": "AI Partnership Agent",
+          "11": "AI Voice Agent"
         }
       },
       "ListBackgroundJobTypeParameter": {

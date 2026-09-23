@@ -9132,6 +9132,43 @@
             "readOnly": true,
             "format": "date-time",
             "example": "1970-01-01T00:00:00.000Z"
+          },
+          "tags": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "description": "Custom tags assigned to the item. Present for campaigns only; the other types carry no tags",
+            "readOnly": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "examples": [
+                    "f9cc070d-8dba-4341-b847-f083c358e460"
+                  ],
+                  "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                },
+                "label": {
+                  "type": "string",
+                  "examples": [
+                    "Q3 outbound"
+                  ],
+                  "example": "Q3 outbound"
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ]
+            },
+            "example": [
+              {
+                "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                "label": "Q3 outbound"
+              }
+            ]
           }
         },
         "required": [
@@ -14266,7 +14303,8 @@
                 8,
                 9,
                 10,
-                6
+                6,
+                11
               ],
               "x-enumDescriptions": {
                 "1": "AI Inbox Manager",
@@ -14277,7 +14315,8 @@
                 "7": "AI Recruiting Agent",
                 "8": "AI Investment Agent",
                 "9": "AI User Research Agent",
-                "10": "AI Partnership Agent"
+                "10": "AI Partnership Agent",
+                "11": "AI Voice Agent"
               },
               "example": 2
             },
@@ -104293,7 +104332,7 @@
         "tags": [
           "SuperSearchEnrichment"
         ],
-        "description": "Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected).\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected). credentialSource names whose key runs the provider for the requesting workspace (\u0022workspace_key\u0022, \u0022instantly_key\u0022, or \u0022unavailable\u0022 when neither side holds a usable key), and effectiveCostPerAction is what one action costs that workspace: 0 on the workspace key, creditCostPerAction otherwise, including when the source is \u0022unavailable\u0022. Both fields are null for an internal service-to-service call, which has no workspace to resolve against.\n\n\nRequires one of the following scopes: \u0060supersearch_enrichments:read\u0060, \u0060supersearch_enrichments:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "responses": {
           "200": {
             "description": "Default Response",
@@ -104327,6 +104366,28 @@
                       "isConnected": {
                         "type": "boolean",
                         "example": false
+                      },
+                      "credentialSource": {
+                        "type": [
+                          "null",
+                          "string"
+                        ],
+                        "enum": [
+                          "workspace_key",
+                          "instantly_key",
+                          "unavailable",
+                          null
+                        ],
+                        "description": "Whose key runs this provider for the requesting workspace. Null for an internal caller with no workspace to resolve against.",
+                        "example": "instantly_key"
+                      },
+                      "effectiveCostPerAction": {
+                        "type": [
+                          "null",
+                          "number"
+                        ],
+                        "description": "Credits one action costs this workspace: 0 when it runs on the workspace key. Null when credentialSource is null.",
+                        "example": 0
                       },
                       "actions": {
                         "type": "array",

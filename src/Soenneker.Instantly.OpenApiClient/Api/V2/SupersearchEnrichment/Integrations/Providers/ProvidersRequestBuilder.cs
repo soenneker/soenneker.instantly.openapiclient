@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integra
         {
         }
         /// <summary>
-        /// Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected).Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
+        /// Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected). credentialSource names whose key runs the provider for the requesting workspace (&quot;workspace_key&quot;, &quot;instantly_key&quot;, or &quot;unavailable&quot; when neither side holds a usable key), and effectiveCostPerAction is what one action costs that workspace: 0 on the workspace key, creditCostPerAction otherwise, including when the source is &quot;unavailable&quot;. Both fields are null for an internal service-to-service call, which has no workspace to resolve against.Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integra
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected).Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
+        /// Returns every data-provider integration with its available lookup actions, per-action credit cost, and whether the requesting workspace has connected its own provider account (isConnected). credentialSource names whose key runs the provider for the requesting workspace (&quot;workspace_key&quot;, &quot;instantly_key&quot;, or &quot;unavailable&quot; when neither side holds a usable key), and effectiveCostPerAction is what one action costs that workspace: 0 on the workspace key, creditCostPerAction otherwise, including when the source is &quot;unavailable&quot;. Both fields are null for an internal service-to-service call, which has no workspace to resolve against.Requires one of the following scopes: `supersearch_enrichments:read`, `supersearch_enrichments:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

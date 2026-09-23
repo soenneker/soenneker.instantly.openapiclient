@@ -45,6 +45,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Status { get; private set; }
 #endif
+        /// <summary>Custom tags assigned to the item. Present for campaigns only; the other types carry no tags</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.EngageItemTagsItem>? Tags { get; private set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.EngageItemTagsItem> Tags { get; private set; }
+#endif
         /// <summary>Creation timestamp</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
         /// <summary>Last update timestamp</summary>
@@ -87,6 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.EngageItemTagsItem>(global::Soenneker.Instantly.OpenApiClient.Models.EngageItemTagsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },

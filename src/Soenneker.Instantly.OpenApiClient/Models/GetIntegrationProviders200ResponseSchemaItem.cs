@@ -22,8 +22,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whose key runs this provider for the requesting workspace. Null for an internal caller with no workspace to resolve against.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource? CredentialSource { get; set; }
         /// <summary>The creditCostPerAction property</summary>
         public double? CreditCostPerAction { get; set; }
+        /// <summary>Credits one action costs this workspace: 0 when it runs on the workspace key. Null when credentialSource is null.</summary>
+        public double? EffectiveCostPerAction { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,7 +76,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "credentialSource", n => { CredentialSource = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>(); } },
                 { "creditCostPerAction", n => { CreditCostPerAction = n.GetDoubleValue(); } },
+                { "effectiveCostPerAction", n => { EffectiveCostPerAction = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "isConnected", n => { IsConnected = n.GetBoolValue(); } },
                 { "isFeatured", n => { IsFeatured = n.GetBoolValue(); } },
@@ -88,7 +94,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>("actions", Actions);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>("credentialSource", CredentialSource);
             writer.WriteDoubleValue("creditCostPerAction", CreditCostPerAction);
+            writer.WriteDoubleValue("effectiveCostPerAction", EffectiveCostPerAction);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("isConnected", IsConnected);
             writer.WriteBoolValue("isFeatured", IsFeatured);
