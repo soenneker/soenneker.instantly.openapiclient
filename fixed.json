@@ -105546,7 +105546,6 @@
       },
       "CreateCompanyListRequestProviderId": {
         "enum": [
-          "a_leads",
           "builtwith",
           "diffbot",
           "discolike",
@@ -105564,10 +105563,6 @@
           "name": "CreateCompanyListRequestProviderId",
           "modelAsString": false,
           "values": [
-            {
-              "value": "a_leads",
-              "name": "ALeads"
-            },
             {
               "value": "builtwith",
               "name": "Builtwith"

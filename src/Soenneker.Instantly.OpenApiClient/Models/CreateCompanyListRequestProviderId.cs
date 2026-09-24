@@ -8,10 +8,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public enum CreateCompanyListRequestProviderId
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "a_leads")]
-        #pragma warning disable CS1591
-        ALeads,
-        #pragma warning restore CS1591
         [EnumMember(Value = "builtwith")]
         #pragma warning disable CS1591
         Builtwith,
