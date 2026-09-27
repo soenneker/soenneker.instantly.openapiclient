@@ -1242,7 +1242,7 @@
           "Account"
         ],
         "summary": "Mark an account as fixed",
-        "description": "Requires one of the following scopes: \u0060accounts:update\u0060, \u0060accounts:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Sets the account to active and clears leftover error metadata such as status_message. Idempotent when the account is already active.\n\n\nRequires one of the following scopes: \u0060accounts:update\u0060, \u0060accounts:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "MarkAccountFixed",
         "parameters": [
           {
