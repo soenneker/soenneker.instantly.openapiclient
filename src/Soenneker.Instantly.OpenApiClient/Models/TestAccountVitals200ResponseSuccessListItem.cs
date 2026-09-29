@@ -28,6 +28,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Domain { get; set; }
 #endif
+        /// <summary>Records that could not be verified because the DNS resolver kept failing. They are reported as not passing, but the records may exist; re-run the test.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?>? Indeterminate { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?> Indeterminate { get; set; }
+#endif
         /// <summary>The mx property</summary>
         public bool? Mx { get; set; }
         /// <summary>The spf property</summary>
@@ -61,6 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "dkim", n => { Dkim = n.GetBoolValue(); } },
                 { "dmarc", n => { Dmarc = n.GetBoolValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
+                { "indeterminate", n => { Indeterminate = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem>()?.AsList(); } },
                 { "mx", n => { Mx = n.GetBoolValue(); } },
                 { "spf", n => { Spf = n.GetBoolValue(); } },
             };
@@ -76,6 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("dkim", Dkim);
             writer.WriteBoolValue("dmarc", Dmarc);
             writer.WriteStringValue("domain", Domain);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem>("indeterminate", Indeterminate);
             writer.WriteBoolValue("mx", Mx);
             writer.WriteBoolValue("spf", Spf);
             writer.WriteAdditionalData(AdditionalData);

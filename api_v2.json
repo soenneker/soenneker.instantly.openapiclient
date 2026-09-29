@@ -13753,6 +13753,21 @@
                           "dmarc": {
                             "type": "boolean",
                             "example": true
+                          },
+                          "indeterminate": {
+                            "type": "array",
+                            "description": "Records that could not be verified because the DNS resolver kept failing. They are reported as not passing, but the records may exist; re-run the test.",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "mx",
+                                "spf",
+                                "dkim",
+                                "dmarc"
+                              ],
+                              "example": "dkim"
+                            },
+                            "example": []
                           }
                         }
                       }
@@ -13785,6 +13800,23 @@
                           "dmarc": {
                             "type": "boolean",
                             "example": false
+                          },
+                          "indeterminate": {
+                            "type": "array",
+                            "description": "Records that could not be verified because the DNS resolver kept failing. They are reported as not passing, but the records may exist; re-run the test.",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "mx",
+                                "spf",
+                                "dkim",
+                                "dmarc"
+                              ],
+                              "example": "dkim"
+                            },
+                            "example": [
+                              "dkim"
+                            ]
                           }
                         }
                       }
