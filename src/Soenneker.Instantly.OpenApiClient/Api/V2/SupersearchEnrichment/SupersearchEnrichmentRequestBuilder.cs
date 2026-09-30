@@ -107,7 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
         {
         }
         /// <summary>
-        /// Create an enrichment for a specific resource (list or campaign). This is the main endpoint for adding enrichments to resources. The enrichments are automatically run after creation.
+        /// Create an enrichment for a specific resource (list or campaign). This is the main endpoint for adding enrichments to resources. The enrichments are automatically run after creation. A `custom_flow` type requires `custom_flow`: a non-empty list of distinct email provider ids, spelled exactly as listed on that field. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry and the valid ids.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -138,7 +138,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create an enrichment for a specific resource (list or campaign). This is the main endpoint for adding enrichments to resources. The enrichments are automatically run after creation.
+        /// Create an enrichment for a specific resource (list or campaign). This is the main endpoint for adding enrichments to resources. The enrichments are automatically run after creation. A `custom_flow` type requires `custom_flow`: a non-empty list of distinct email provider ids, spelled exactly as listed on that field. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry and the valid ids.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

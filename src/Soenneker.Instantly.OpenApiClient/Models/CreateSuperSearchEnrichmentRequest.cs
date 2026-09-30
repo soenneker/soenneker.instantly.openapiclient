@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Custom flow to apply to the enrichment</summary>
+        /// <summary>Ordered email providers for a `custom_flow` enrichment. Required when `type` is `custom_flow`; ignored for every other type. A non-empty list of distinct ids, each spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? CustomFlow { get; set; }

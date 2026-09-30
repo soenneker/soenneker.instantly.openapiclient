@@ -21223,7 +21223,7 @@
           "SuperSearchEnrichment"
         ],
         "summary": "Create an enrichment",
-        "description": "Create an enrichment for a specific resource (list or campaign). This is the main endpoint for adding enrichments to resources. The enrichments are automatically run after creation.",
+        "description": "Create an enrichment for a specific resource (list or campaign). This is the main endpoint for adding enrichments to resources. The enrichments are automatically run after creation. A \u0060custom_flow\u0060 type requires \u0060custom_flow\u0060: a non-empty list of distinct email provider ids, spelled exactly as listed on that field. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry and the valid ids.",
         "operationId": "CreateSuperSearchEnrichment",
         "requestBody": {
           "content": {
@@ -60352,7 +60352,7 @@
               "type": "string",
               "example": "instantly"
             },
-            "description": "Custom flow to apply to the enrichment"
+            "description": "Ordered email providers for a \u0060custom_flow\u0060 enrichment. Required when \u0060type\u0060 is \u0060custom_flow\u0060; ignored for every other type. A non-empty list of distinct ids, each spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact."
           },
           "integration_actions": {
             "$ref": "#/components/schemas/CreateSuperSearchEnrichmentRequestIntegrationActions"
@@ -60636,7 +60636,7 @@
               "type": "string",
               "example": "instantly"
             },
-            "description": "Ordered list of providers for waterfall enrichment (enabled platforms only)"
+            "description": "Ordered list of providers for waterfall enrichment (enabled platforms only). When sent, it must be a non-empty list of distinct provider ids, spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry."
           },
           "signal_enrichment": {
             "type": "array",

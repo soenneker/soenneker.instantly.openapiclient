@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Whether to auto-update new leads</summary>
         public bool? AutoUpdate { get; set; }
-        /// <summary>Ordered list of providers for waterfall enrichment (enabled platforms only)</summary>
+        /// <summary>Ordered list of providers for waterfall enrichment (enabled platforms only). When sent, it must be a non-empty list of distinct provider ids, spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? CustomFlow { get; set; }
