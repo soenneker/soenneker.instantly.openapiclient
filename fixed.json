@@ -60882,6 +60882,16 @@
           },
           "errorCode": {
             "$ref": "#/components/schemas/CompanyListNotReadyErrorCode"
+          },
+          "activeJobId": {
+            "type": "string",
+            "description": "Present when the same request was sent on the list less than a minute ago: the id of the job it created.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "activeJobStatus": {
+            "type": "number",
+            "description": "Present with \u0060activeJobId\u0060: that job\u0027s current status, e.g. 1 = pending, 2 = in progress.",
+            "example": 1
           }
         }
       },

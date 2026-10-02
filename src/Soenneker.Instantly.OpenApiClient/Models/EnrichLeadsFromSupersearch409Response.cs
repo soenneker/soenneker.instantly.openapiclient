@@ -13,6 +13,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class EnrichLeadsFromSupersearch409Response : ApiException, IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Present when the same request was sent on the list less than a minute ago: the id of the job it created.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActiveJobId { get; set; }
+#nullable restore
+#else
+        public string ActiveJobId { get; set; }
+#endif
+        /// <summary>Present with `activeJobId`: that job&apos;s current status, e.g. 1 = pending, 2 = in progress.</summary>
+        public double? ActiveJobStatus { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The error property</summary>
@@ -62,6 +72,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "activeJobId", n => { ActiveJobId = n.GetStringValue(); } },
+                { "activeJobStatus", n => { ActiveJobStatus = n.GetDoubleValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "errorCode", n => { ErrorCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CompanyListNotReadyErrorCode>(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
@@ -75,6 +87,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("activeJobId", ActiveJobId);
+            writer.WriteDoubleValue("activeJobStatus", ActiveJobStatus);
             writer.WriteStringValue("error", Error);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CompanyListNotReadyErrorCode>("errorCode", ErrorCode);
             writer.WriteStringValue("message", MessageEscaped);
