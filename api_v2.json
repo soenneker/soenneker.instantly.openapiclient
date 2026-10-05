@@ -5559,7 +5559,8 @@
               "broadcast-ai-generate",
               "broadcast-website-scrape",
               "import-subscribers-from-crm",
-              "resync-subscriber-crm-tags"
+              "resync-subscriber-crm-tags",
+              "journey-ai-build"
             ],
             "x-enumDescriptions": {
               "move-leads": "Move Leads",
@@ -5570,7 +5571,8 @@
               "broadcast-ai-generate": "AI broadcast generation",
               "broadcast-website-scrape": "Broadcast website analysis",
               "import-subscribers-from-crm": "Import Subscribers From CRM",
-              "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags"
+              "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags",
+              "journey-ai-build": "AI journey build or edit"
             },
             "example": "move-leads"
           },
@@ -5591,7 +5593,8 @@
               "workspace",
               "broadcast",
               "subscriber-group-sync",
-              "subscriber-group"
+              "subscriber-group",
+              "journey"
             ],
             "x-enumDescriptions": {
               "list": "The entity is a lead list",
@@ -5599,7 +5602,8 @@
               "workspace": "The entity is a workspace",
               "broadcast": "The entity is an email-marketing broadcast",
               "subscriber-group-sync": "The entity is a subscriber-group sync",
-              "subscriber-group": "The entity is a subscriber group"
+              "subscriber-group": "The entity is a subscriber group",
+              "journey": "The entity is an email-marketing journey"
             },
             "example": "list"
           },
@@ -16144,7 +16148,8 @@
                 "broadcast-ai-generate",
                 "broadcast-website-scrape",
                 "import-subscribers-from-crm",
-                "resync-subscriber-crm-tags"
+                "resync-subscriber-crm-tags",
+                "journey-ai-build"
               ],
               "example": "move-leads"
             },
@@ -16163,7 +16168,8 @@
                 "workspace",
                 "broadcast",
                 "subscriber-group-sync",
-                "subscriber-group"
+                "subscriber-group",
+                "journey"
               ],
               "example": "list"
             },

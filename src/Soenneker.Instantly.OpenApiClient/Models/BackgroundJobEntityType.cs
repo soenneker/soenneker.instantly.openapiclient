@@ -31,5 +31,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         SubscriberGroup,
         #pragma warning restore CS1591
+        [EnumMember(Value = "journey")]
+        #pragma warning disable CS1591
+        Journey,
+        #pragma warning restore CS1591
     }
 }

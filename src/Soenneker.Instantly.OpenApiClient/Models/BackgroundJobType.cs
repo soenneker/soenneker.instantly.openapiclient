@@ -43,5 +43,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         ResyncSubscriberCrmTags,
         #pragma warning restore CS1591
+        [EnumMember(Value = "journey-ai-build")]
+        #pragma warning disable CS1591
+        JourneyAiBuild,
+        #pragma warning restore CS1591
     }
 }

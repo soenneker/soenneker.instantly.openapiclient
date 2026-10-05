@@ -87058,7 +87058,8 @@
           "broadcast-ai-generate",
           "broadcast-website-scrape",
           "import-subscribers-from-crm",
-          "resync-subscriber-crm-tags"
+          "resync-subscriber-crm-tags",
+          "journey-ai-build"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -87073,7 +87074,8 @@
           "broadcast-ai-generate": "AI broadcast generation",
           "broadcast-website-scrape": "Broadcast website analysis",
           "import-subscribers-from-crm": "Import Subscribers From CRM",
-          "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags"
+          "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags",
+          "journey-ai-build": "AI journey build or edit"
         },
         "x-ms-enum": {
           "name": "BackgroundJobType",
@@ -87114,6 +87116,10 @@
             {
               "value": "resync-subscriber-crm-tags",
               "name": "ResyncSubscriberCrmTags"
+            },
+            {
+              "value": "journey-ai-build",
+              "name": "JourneyAiBuild"
             }
           ]
         }
@@ -87125,7 +87131,8 @@
           "workspace",
           "broadcast",
           "subscriber-group-sync",
-          "subscriber-group"
+          "subscriber-group",
+          "journey"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -87137,7 +87144,8 @@
           "workspace": "The entity is a workspace",
           "broadcast": "The entity is an email-marketing broadcast",
           "subscriber-group-sync": "The entity is a subscriber-group sync",
-          "subscriber-group": "The entity is a subscriber group"
+          "subscriber-group": "The entity is a subscriber group",
+          "journey": "The entity is an email-marketing journey"
         },
         "x-ms-enum": {
           "name": "BackgroundJobEntityType",
@@ -87166,6 +87174,10 @@
             {
               "value": "subscriber-group",
               "name": "SubscriberGroup"
+            },
+            {
+              "value": "journey",
+              "name": "Journey"
             }
           ]
         }
@@ -139704,7 +139716,8 @@
           "broadcast-ai-generate",
           "broadcast-website-scrape",
           "import-subscribers-from-crm",
-          "resync-subscriber-crm-tags"
+          "resync-subscriber-crm-tags",
+          "journey-ai-build"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -139748,6 +139761,10 @@
             {
               "value": "resync-subscriber-crm-tags",
               "name": "ResyncSubscriberCrmTags"
+            },
+            {
+              "value": "journey-ai-build",
+              "name": "JourneyAiBuild"
             }
           ]
         }
@@ -139759,7 +139776,8 @@
           "workspace",
           "broadcast",
           "subscriber-group-sync",
-          "subscriber-group"
+          "subscriber-group",
+          "journey"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -139791,6 +139809,10 @@
             {
               "value": "subscriber-group",
               "name": "SubscriberGroup"
+            },
+            {
+              "value": "journey",
+              "name": "Journey"
             }
           ]
         }
