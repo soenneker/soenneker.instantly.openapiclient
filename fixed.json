@@ -87760,7 +87760,8 @@
           42,
           43,
           44,
-          45
+          45,
+          46
         ],
         "type": "number",
         "additionalProperties": false,
@@ -87806,7 +87807,8 @@
           "42": "Voice agent phone number updated",
           "43": "Voice agent phone number deleted",
           "44": "Voice agent number added to do-not-call list",
-          "45": "Voice agent number removed from do-not-call list"
+          "45": "Voice agent number removed from do-not-call list",
+          "46": "Non-Instantly email preference updated"
         }
       },
       "AiAgentGuidanceStatus": {
