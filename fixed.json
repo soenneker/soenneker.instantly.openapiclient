@@ -3424,7 +3424,7 @@
             }
           },
           "400": {
-            "description": "The requested resource was not found",
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
             "content": {
               "application/json": {
                 "schema": {
@@ -3671,6 +3671,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Campaign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchCampaign400Response"
                 }
               }
             }
@@ -4567,6 +4577,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Campaign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateFromExport400Response"
                 }
               }
             }
@@ -15578,6 +15598,17 @@
               "example": true
             },
             "example": true
+          },
+          {
+            "name": "lead_email",
+            "in": "query",
+            "description": "Filter activities to a lead email address.",
+            "schema": {
+              "minLength": 1,
+              "type": "string",
+              "example": "lead@example.com"
+            },
+            "example": "lead@example.com"
           },
           {
             "name": "id",
@@ -28627,7 +28658,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CampaignSequencesItemStepsItemVariantsItem"
-            }
+            },
+            "description": "Email variants for this step. Each step needs at least one variant."
           }
         }
       },
@@ -29036,7 +29068,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemVariantsItem"
-            }
+            },
+            "description": "Email variants for this step. Each step needs at least one variant."
           }
         }
       },
@@ -34421,14 +34454,14 @@
             "$ref": "#/components/schemas/ActivateCampaign400ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/NotFoundError"
+            "$ref": "#/components/schemas/BadRequestError"
           },
           "message": {
             "examples": [
-              "Resource not found"
+              "body must have required property \u0027name\u0027"
             ],
             "type": "string",
-            "example": "Resource not found"
+            "example": "body must have required property \u0027name\u0027"
           }
         }
       },
@@ -34954,6 +34987,29 @@
           }
         },
         "additionalProperties": false
+      },
+      "PatchCampaign400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchCampaign400ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "examples": [
+              "body must have required property \u0027name\u0027"
+            ],
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          }
+        }
       },
       "PatchCampaign401Response": {
         "required": [
@@ -35874,6 +35930,29 @@
             ],
             "type": "string",
             "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "CreateFromExport400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateFromExport400ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "examples": [
+              "body must have required property \u0027name\u0027"
+            ],
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
           }
         }
       },
@@ -78460,7 +78539,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCampaignRequestSequencesItemStepsItemVariantsItem"
-            }
+            },
+            "description": "Email variants for this step. Each step needs at least one variant."
           }
         }
       },
@@ -78519,7 +78599,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchCampaignRequestSequencesItemStepsItemVariantsItem"
-            }
+            },
+            "description": "Email variants for this step. Each step needs at least one variant."
           }
         }
       },
@@ -79396,7 +79477,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem"
-            }
+            },
+            "description": "Email variants for this step. Each step needs at least one variant."
           }
         }
       },
@@ -79472,7 +79554,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemVariantsItem"
-            }
+            },
+            "description": "Email variants for this step. Each step needs at least one variant."
           }
         }
       },
@@ -93924,14 +94007,14 @@
       },
       "ActivateCampaign400ResponseStatusCode": {
         "examples": [
-          404
+          400
         ],
         "enum": [
-          404
+          400
         ],
         "type": "number",
         "additionalProperties": false,
-        "example": 404
+        "example": 400
       },
       "ActivateCampaign401ResponseStatusCode": {
         "examples": [
@@ -94075,6 +94158,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 429
+      },
+      "PatchCampaign400ResponseStatusCode": {
+        "examples": [
+          400
+        ],
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 400
       },
       "PatchCampaign401ResponseStatusCode": {
         "examples": [
@@ -94427,6 +94521,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 429
+      },
+      "CreateFromExport400ResponseStatusCode": {
+        "examples": [
+          400
+        ],
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 400
       },
       "CreateFromExport401ResponseStatusCode": {
         "examples": [

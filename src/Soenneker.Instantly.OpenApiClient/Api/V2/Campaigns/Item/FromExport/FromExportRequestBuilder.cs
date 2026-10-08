@@ -39,6 +39,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.Campaign"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport403Response">When receiving a 403 status code</exception>
@@ -56,6 +57,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.FromExport
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Instantly.OpenApiClient.Models.CreateFromExport403Response.CreateFromDiscriminatorValue },

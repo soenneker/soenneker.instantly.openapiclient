@@ -730,7 +730,8 @@
                             "subject",
                             "body"
                           ]
-                        }
+                        },
+                        "description": "Email variants for this step. Each step needs at least one variant."
                       }
                     },
                     "required": [
@@ -6944,6 +6945,7 @@
                             "body"
                           ]
                         },
+                        "description": "Email variants for this step. Each step needs at least one variant.",
                         "minItems": 1,
                         "maxItems": 26,
                         "contains": {
@@ -19202,7 +19204,8 @@
                                     "subject",
                                     "body"
                                   ]
-                                }
+                                },
+                                "description": "Email variants for this step. Each step needs at least one variant."
                               }
                             },
                             "required": [
@@ -20144,7 +20147,7 @@
             }
           },
           "400": {
-            "description": "The requested resource was not found",
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
             "content": {
               "application/json": {
                 "schema": {
@@ -20153,29 +20156,29 @@
                     "statusCode": {
                       "type": "number",
                       "enum": [
-                        404
+                        400
                       ],
                       "examples": [
-                        404
+                        400
                       ],
-                      "example": 404
+                      "example": 400
                     },
                     "error": {
                       "type": "string",
                       "enum": [
-                        "Not Found"
+                        "Bad Request"
                       ],
                       "examples": [
-                        "Not Found"
+                        "Bad Request"
                       ],
-                      "example": "Not Found"
+                      "example": "Bad Request"
                     },
                     "message": {
                       "type": "string",
                       "examples": [
-                        "Resource not found"
+                        "body must have required property \u0027name\u0027"
                       ],
-                      "example": "Resource not found"
+                      "example": "body must have required property \u0027name\u0027"
                     }
                   },
                   "required": [
@@ -21150,7 +21153,8 @@
                                     "subject",
                                     "body"
                                   ]
-                                }
+                                },
+                                "description": "Email variants for this step. Each step needs at least one variant."
                               }
                             },
                             "required": [
@@ -21476,6 +21480,50 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Campaign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "examples": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "examples": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "body must have required property \u0027name\u0027"
+                      ],
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }
@@ -24012,6 +24060,50 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Campaign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "examples": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "examples": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "body must have required property \u0027name\u0027"
+                      ],
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }
@@ -47609,6 +47701,7 @@
                                     "body"
                                   ]
                                 },
+                                "description": "Email variants for this step. Each step needs at least one variant.",
                                 "minItems": 1,
                                 "maxItems": 26,
                                 "contains": {
@@ -49683,6 +49776,7 @@
                                     "body"
                                   ]
                                 },
+                                "description": "Email variants for this step. Each step needs at least one variant.",
                                 "minItems": 1,
                                 "maxItems": 26,
                                 "contains": {
@@ -64823,6 +64917,18 @@
             "name": "exclude_live_feed_hidden",
             "required": false,
             "description": "Exclude activities the AI Sales Agent live feed hides (warnings and delivered lead recommendations) so pagination stays accurate. Defaults to false."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "example": "lead@example.com"
+            },
+            "example": "lead@example.com",
+            "in": "query",
+            "name": "lead_email",
+            "required": false,
+            "description": "Filter activities to a lead email address."
           },
           {
             "schema": {

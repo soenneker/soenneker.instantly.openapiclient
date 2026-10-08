@@ -24,7 +24,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestSequencesItemStepsItemPreDelayUnit? PreDelayUnit { get; set; }
         /// <summary>Type of step. This has to be &apos;email&apos; always - it&apos;s the only supported type for now</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.EmailType? Type { get; set; }
-        /// <summary>The variants property</summary>
+        /// <summary>Email variants for this step. Each step needs at least one variant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestSequencesItemStepsItemVariantsItem>? Variants { get; set; }

@@ -47,7 +47,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActivitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales/{id}/activities{?action_status*,action_type*,exclude_live_feed_hidden*,limit*,starting_after*}", pathParameters)
+        public ActivitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales/{id}/activities{?action_status*,action_type*,exclude_live_feed_hidden*,lead_email*,limit*,starting_after*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActivitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales/{id}/activities{?action_status*,action_type*,exclude_live_feed_hidden*,limit*,starting_after*}", rawUrl)
+        public ActivitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/ai-agents/sales/{id}/activities{?action_status*,action_type*,exclude_live_feed_hidden*,lead_email*,limit*,starting_after*}", rawUrl)
         {
         }
         /// <summary>
@@ -144,6 +144,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
             /// <summary>Exclude activities the AI Sales Agent live feed hides (warnings and delivered lead recommendations) so pagination stays accurate. Defaults to false.</summary>
             [QueryParameter("exclude_live_feed_hidden")]
             public bool? ExcludeLiveFeedHidden { get; set; }
+            /// <summary>Filter activities to a lead email address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("lead_email")]
+            public string? LeadEmail { get; set; }
+#nullable restore
+#else
+            [QueryParameter("lead_email")]
+            public string LeadEmail { get; set; }
+#endif
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
