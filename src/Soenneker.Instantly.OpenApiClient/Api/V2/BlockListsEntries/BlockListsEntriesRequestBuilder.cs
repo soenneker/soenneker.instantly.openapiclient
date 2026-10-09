@@ -74,6 +74,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -90,6 +91,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry429Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry504Response.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -104,6 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.BlockListsEntriesRequestBuilder.BlockListsEntriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -120,6 +123,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry429Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry504Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -17227,6 +17227,50 @@
                 }
               }
             }
+          },
+          "504": {
+            "description": "The blocklist search timed out. Please try again later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        504
+                      ],
+                      "examples": [
+                        504
+                      ],
+                      "example": 504
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Gateway Timeout"
+                      ],
+                      "examples": [
+                        "Gateway Timeout"
+                      ],
+                      "example": "Gateway Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Blocklist search timed out. Please try again later."
+                      ],
+                      "example": "Blocklist search timed out. Please try again later."
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
           }
         }
       },
@@ -17454,6 +17498,50 @@
                         "Rate limit exceeded"
                       ],
                       "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "The blocklist search timed out. Please try again later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        504
+                      ],
+                      "examples": [
+                        504
+                      ],
+                      "example": 504
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Gateway Timeout"
+                      ],
+                      "examples": [
+                        "Gateway Timeout"
+                      ],
+                      "example": "Gateway Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Blocklist search timed out. Please try again later."
+                      ],
+                      "example": "Blocklist search timed out. Please try again later."
                     }
                   },
                   "required": [
@@ -18868,6 +18956,50 @@
                         "Rate limit exceeded"
                       ],
                       "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "The blocklist search timed out. Please try again later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        504
+                      ],
+                      "examples": [
+                        504
+                      ],
+                      "example": 504
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Gateway Timeout"
+                      ],
+                      "examples": [
+                        "Gateway Timeout"
+                      ],
+                      "example": "Gateway Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Blocklist search timed out. Please try again later."
+                      ],
+                      "example": "Blocklist search timed out. Please try again later."
                     }
                   },
                   "required": [

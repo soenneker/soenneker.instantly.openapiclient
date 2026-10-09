@@ -43,6 +43,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry404Response">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry504Response">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download.DownloadRequestBuilder.DownloadRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -59,6 +60,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry429Response.CreateFromDiscriminatorValue },
+                { "504", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry504Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

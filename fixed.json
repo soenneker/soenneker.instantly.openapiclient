@@ -2575,6 +2575,16 @@
                 }
               }
             }
+          },
+          "504": {
+            "description": "The blocklist search timed out. Please try again later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListBlockListEntry504Response"
+                }
+              }
+            }
           }
         }
       },
@@ -2668,6 +2678,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeleteallBlockListEntry429Response"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "The blocklist search timed out. Please try again later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteallBlockListEntry504Response"
                 }
               }
             }
@@ -3152,6 +3172,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DownloadBlockListEntry429Response"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "The blocklist search timed out. Please try again later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadBlockListEntry504Response"
                 }
               }
             }
@@ -33265,6 +33295,29 @@
           }
         }
       },
+      "ListBlockListEntry504Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListBlockListEntry504ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GatewayTimeoutError"
+          },
+          "message": {
+            "examples": [
+              "Blocklist search timed out. Please try again later."
+            ],
+            "type": "string",
+            "example": "Blocklist search timed out. Please try again later."
+          }
+        }
+      },
       "DeleteallBlockListEntry200Response": {
         "type": "array",
         "items": {
@@ -33360,6 +33413,29 @@
             ],
             "type": "string",
             "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "DeleteallBlockListEntry504Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DeleteallBlockListEntry504ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GatewayTimeoutError"
+          },
+          "message": {
+            "examples": [
+              "Blocklist search timed out. Please try again later."
+            ],
+            "type": "string",
+            "example": "Blocklist search timed out. Please try again later."
           }
         }
       },
@@ -33995,6 +34071,29 @@
             ],
             "type": "string",
             "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "DownloadBlockListEntry504Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/DownloadBlockListEntry504ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/GatewayTimeoutError"
+          },
+          "message": {
+            "examples": [
+              "Blocklist search timed out. Please try again later."
+            ],
+            "type": "string",
+            "example": "Blocklist search timed out. Please try again later."
           }
         }
       },
@@ -93587,6 +93686,38 @@
         "additionalProperties": false,
         "example": 429
       },
+      "ListBlockListEntry504ResponseStatusCode": {
+        "examples": [
+          504
+        ],
+        "enum": [
+          504
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 504
+      },
+      "GatewayTimeoutError": {
+        "examples": [
+          "Gateway Timeout"
+        ],
+        "enum": [
+          "Gateway Timeout"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "Gateway Timeout",
+        "x-ms-enum": {
+          "name": "GatewayTimeoutError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Gateway Timeout",
+              "name": "GatewayTimeout"
+            }
+          ]
+        }
+      },
       "DeleteallBlockListEntry401ResponseStatusCode": {
         "examples": [
           401
@@ -93630,6 +93761,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 429
+      },
+      "DeleteallBlockListEntry504ResponseStatusCode": {
+        "examples": [
+          504
+        ],
+        "enum": [
+          504
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 504
       },
       "GetBlockListEntry401ResponseStatusCode": {
         "examples": [
@@ -93905,6 +94047,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 429
+      },
+      "DownloadBlockListEntry504ResponseStatusCode": {
+        "examples": [
+          504
+        ],
+        "enum": [
+          504
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 504
       },
       "CreateCampaign400ResponseStatusCode": {
         "examples": [
