@@ -660,6 +660,7 @@
               "properties": {
                 "steps": {
                   "type": "array",
+                  "description": "The steps of the sequence. Each sequence needs at least one step.",
                   "items": {
                     "type": "object",
                     "properties": {
@@ -6874,6 +6875,7 @@
               "properties": {
                 "steps": {
                   "type": "array",
+                  "description": "The steps of the sequence. Each sequence needs at least one step.",
                   "items": {
                     "type": "object",
                     "properties": {
@@ -19266,6 +19268,7 @@
                       "properties": {
                         "steps": {
                           "type": "array",
+                          "description": "The steps of the sequence. Each sequence needs at least one step.",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -21215,6 +21218,7 @@
                       "properties": {
                         "steps": {
                           "type": "array",
+                          "description": "The steps of the sequence. Each sequence needs at least one step.",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -47762,6 +47766,7 @@
                       "properties": {
                         "steps": {
                           "type": "array",
+                          "description": "The steps of the sequence. Each sequence needs at least one step.",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -49837,6 +49842,7 @@
                       "properties": {
                         "steps": {
                           "type": "array",
+                          "description": "The steps of the sequence. Each sequence needs at least one step.",
                           "items": {
                             "type": "object",
                             "properties": {

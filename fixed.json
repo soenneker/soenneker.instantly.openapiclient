@@ -27575,7 +27575,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CampaignSequencesItemStepsItem"
-            }
+            },
+            "description": "The steps of the sequence. Each sequence needs at least one step."
           }
         }
       },
@@ -28268,7 +28269,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItem"
-            }
+            },
+            "description": "The steps of the sequence. Each sequence needs at least one step."
           }
         }
       },
@@ -69832,7 +69834,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCampaignRequestSequencesItemStepsItem"
-            }
+            },
+            "description": "The steps of the sequence. Each sequence needs at least one step."
           }
         }
       },
@@ -69941,7 +69944,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchCampaignRequestSequencesItemStepsItem"
-            }
+            },
+            "description": "The steps of the sequence. Each sequence needs at least one step."
           }
         }
       },
@@ -71734,7 +71738,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestSequencesItemStepsItem"
-            }
+            },
+            "description": "The steps of the sequence. Each sequence needs at least one step."
           }
         }
       },
@@ -71874,7 +71879,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItem"
-            }
+            },
+            "description": "The steps of the sequence. Each sequence needs at least one step."
           }
         }
       },
