@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
         {
         }
         /// <summary>
-        /// Approve multiple pending AI Sales Agent activity actions. Returns 404 when none of the activities exist or none are pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
+        /// Approve multiple pending AI Sales Agent activity actions. `recommend_autopilot` activities are skipped: approve them one at a time. Returns 404 when none of the activities exist or none are pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ApproveSalesAgentActivities200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ApproveSalesAgentActivities200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ApproveSalesAgentActivities200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Approve multiple pending AI Sales Agent activity actions. Returns 404 when none of the activities exist or none are pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
+        /// Approve multiple pending AI Sales Agent activity actions. `recommend_autopilot` activities are skipped: approve them one at a time. Returns 404 when none of the activities exist or none are pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

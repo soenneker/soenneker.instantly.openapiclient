@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
         {
         }
         /// <summary>
-        /// Approve a pending AI Sales Agent activity action. Returns 404 when the activity does not exist or is not pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
+        /// Approve a pending AI Sales Agent activity action. Approving a `recommend_autopilot` activity turns on autopilot for the agent. Returns 404 when the activity does not exist or is not pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivity"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item.Activitie
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivity>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivity.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Approve a pending AI Sales Agent activity action. Returns 404 when the activity does not exist or is not pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
+        /// Approve a pending AI Sales Agent activity action. Approving a `recommend_autopilot` activity turns on autopilot for the agent. Returns 404 when the activity does not exist or is not pending.Requires one of the following scopes: `ai_sdr:update`, `ai_sdr:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

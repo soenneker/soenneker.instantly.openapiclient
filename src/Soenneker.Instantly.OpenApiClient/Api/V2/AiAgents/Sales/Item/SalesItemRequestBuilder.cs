@@ -136,6 +136,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -154,6 +155,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent429Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

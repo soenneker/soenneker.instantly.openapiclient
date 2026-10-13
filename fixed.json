@@ -14901,6 +14901,16 @@
               }
             }
           },
+          "409": {
+            "description": "The request conflicts with the current state of the resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchSalesAgent409Response"
+                }
+              }
+            }
+          },
           "429": {
             "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
             "content": {
@@ -15712,7 +15722,7 @@
           "AISalesAgent"
         ],
         "summary": "Approve an AI Sales Agent activity",
-        "description": "Approve a pending AI Sales Agent activity action. Returns 404 when the activity does not exist or is not pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Approve a pending AI Sales Agent activity action. Approving a \u0060recommend_autopilot\u0060 activity turns on autopilot for the agent. Returns 404 when the activity does not exist or is not pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "ApproveSalesAgentActivity",
         "parameters": [
           {
@@ -15904,7 +15914,7 @@
           "AISalesAgent"
         ],
         "summary": "Approve multiple AI Sales Agent activities",
-        "description": "Approve multiple pending AI Sales Agent activity actions. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Approve multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 activities are skipped: approve them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "ApproveSalesAgentActivities",
         "parameters": [
           {
@@ -15999,7 +16009,7 @@
           "AISalesAgent"
         ],
         "summary": "Reject multiple AI Sales Agent activities",
-        "description": "Reject multiple pending AI Sales Agent activity actions. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Reject multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 activities are skipped: reject them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "RejectSalesAgentActivities",
         "parameters": [
           {
@@ -51353,6 +51363,29 @@
             ],
             "type": "string",
             "example": "Resource not found"
+          }
+        }
+      },
+      "PatchSalesAgent409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchSalesAgent409ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ConflictError"
+          },
+          "message": {
+            "examples": [
+              "The resource already exists"
+            ],
+            "type": "string",
+            "example": "The resource already exists"
           }
         }
       },
@@ -88186,6 +88219,7 @@
           "enrich_leads",
           "push_lead",
           "recommend_lead",
+          "recommend_autopilot",
           "warning",
           "initial_setup_scrape",
           "initial_setup_campaigns",
@@ -88212,6 +88246,7 @@
           "enrich_leads": "Enrich Leads",
           "push_lead": "Push Lead",
           "recommend_lead": "Recommend Lead",
+          "recommend_autopilot": "Recommend Autopilot",
           "warning": "Warning",
           "initial_setup_scrape": "Initial Setup Scrape",
           "initial_setup_campaigns": "Initial Setup Campaigns",
@@ -88256,6 +88291,10 @@
             {
               "value": "recommend_lead",
               "name": "RecommendLead"
+            },
+            {
+              "value": "recommend_autopilot",
+              "name": "RecommendAutopilot"
             },
             {
               "value": "warning",
@@ -102252,7 +102291,7 @@
         ],
         "type": "number",
         "additionalProperties": false,
-        "description": "Status of the AI Sales Agent. Setting 0 (inactive) pauses the agent and its campaigns; setting 1 (active) resumes them.",
+        "description": "Status of the AI Sales Agent. Setting 0 (inactive) pauses the agent and its campaigns; setting 1 (active) resumes them. Resuming returns 409 while the workspace\u0027s starter sending account is not ready yet; the agent stays paused.",
         "example": 1,
         "x-enumDescriptions": {
           "0": "Inactive",
@@ -102303,6 +102342,17 @@
         "type": "number",
         "additionalProperties": false,
         "example": 404
+      },
+      "PatchSalesAgent409ResponseStatusCode": {
+        "examples": [
+          409
+        ],
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "additionalProperties": false,
+        "example": 409
       },
       "PatchSalesAgent429ResponseStatusCode": {
         "examples": [
@@ -140603,6 +140653,7 @@
           "enrich_leads",
           "push_lead",
           "recommend_lead",
+          "recommend_autopilot",
           "warning",
           "initial_setup_scrape",
           "initial_setup_campaigns",
@@ -140622,6 +140673,7 @@
           "enrich_leads": "Enrich leads with additional information",
           "push_lead": "Add a new lead to a campaign",
           "recommend_lead": "Recommend a previewed lead for the user to approve before enrichment",
+          "recommend_autopilot": "Recommend turning on autopilot; approving it turns autopilot on",
           "initial_setup_scrape": "Initial setup: scrape website to understand business",
           "initial_setup_campaigns": "Initial setup: prepare initial campaigns",
           "initial_setup_enrich": "Initial setup: enrich initial leads",
@@ -140661,6 +140713,10 @@
             {
               "value": "recommend_lead",
               "name": "RecommendLead"
+            },
+            {
+              "value": "recommend_autopilot",
+              "name": "RecommendAutopilot"
             },
             {
               "value": "warning",

@@ -38,7 +38,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>When enabled, the agent learns from past campaign performance to iteratively improve its outreach strategy.</summary>
         public bool? SelfImprovement { get; set; }
-        /// <summary>Status of the AI Sales Agent. Setting 0 (inactive) pauses the agent and its campaigns; setting 1 (active) resumes them.</summary>
+        /// <summary>Status of the AI Sales Agent. Setting 0 (inactive) pauses the agent and its campaigns; setting 1 (active) resumes them. Resuming returns 409 while the workspace&apos;s starter sending account is not ready yet; the agent stays paused.</summary>
         public double? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

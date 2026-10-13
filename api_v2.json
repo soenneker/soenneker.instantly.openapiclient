@@ -7967,6 +7967,7 @@
               "enrich_leads",
               "push_lead",
               "recommend_lead",
+              "recommend_autopilot",
               "warning",
               "initial_setup_scrape",
               "initial_setup_campaigns",
@@ -7988,6 +7989,7 @@
               "enrich_leads": "Enrich Leads",
               "push_lead": "Push Lead",
               "recommend_lead": "Recommend Lead",
+              "recommend_autopilot": "Recommend Autopilot",
               "warning": "Warning",
               "initial_setup_scrape": "Initial Setup Scrape",
               "initial_setup_campaigns": "Initial Setup Campaigns",
@@ -62515,7 +62517,7 @@
                       "1": "Active",
                       "-1": "Trial Expired"
                     },
-                    "description": "Status of the AI Sales Agent. Setting 0 (inactive) pauses the agent and its campaigns; setting 1 (active) resumes them.",
+                    "description": "Status of the AI Sales Agent. Setting 0 (inactive) pauses the agent and its campaigns; setting 1 (active) resumes them. Resuming returns 409 while the workspace\u0027s starter sending account is not ready yet; the agent stays paused.",
                     "example": 1
                   }
                 },
@@ -62715,6 +62717,50 @@
                         "Resource not found"
                       ],
                       "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with the current state of the resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "examples": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "examples": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "The resource already exists"
+                      ],
+                      "example": "The resource already exists"
                     }
                   },
                   "required": [
@@ -65002,6 +65048,7 @@
                   "enrich_leads",
                   "push_lead",
                   "recommend_lead",
+                  "recommend_autopilot",
                   "warning",
                   "initial_setup_scrape",
                   "initial_setup_campaigns",
@@ -65018,6 +65065,7 @@
                   "enrich_leads": "Enrich leads with additional information",
                   "push_lead": "Add a new lead to a campaign",
                   "recommend_lead": "Recommend a previewed lead for the user to approve before enrichment",
+                  "recommend_autopilot": "Recommend turning on autopilot; approving it turns autopilot on",
                   "initial_setup_scrape": "Initial setup: scrape website to understand business",
                   "initial_setup_campaigns": "Initial setup: prepare initial campaigns",
                   "initial_setup_enrich": "Initial setup: enrich initial leads",
@@ -65297,7 +65345,7 @@
         "tags": [
           "AISalesAgent"
         ],
-        "description": "Approve a pending AI Sales Agent activity action. Returns 404 when the activity does not exist or is not pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Approve a pending AI Sales Agent activity action. Approving a \u0060recommend_autopilot\u0060 activity turns on autopilot for the agent. Returns 404 when the activity does not exist or is not pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "parameters": [
           {
             "schema": {
@@ -65805,7 +65853,7 @@
         "tags": [
           "AISalesAgent"
         ],
-        "description": "Approve multiple pending AI Sales Agent activity actions. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Approve multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 activities are skipped: approve them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -66102,7 +66150,7 @@
         "tags": [
           "AISalesAgent"
         ],
-        "description": "Reject multiple pending AI Sales Agent activity actions. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Reject multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 activities are skipped: reject them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
