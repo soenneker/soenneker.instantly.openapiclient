@@ -86304,6 +86304,9 @@
           "webhook_events:read",
           "webhook_events:update",
           "webhook_events:delete",
+          "email_marketing_events:all",
+          "email_marketing_events:create",
+          "email_marketing_events:read",
           "security_tokens:all",
           "security_tokens:create",
           "security_tokens:read",
@@ -86998,6 +87001,18 @@
             {
               "value": "webhook_events:delete",
               "name": "WebhookEventsColonDelete"
+            },
+            {
+              "value": "email_marketing_events:all",
+              "name": "EmailMarketingEventsColonAll"
+            },
+            {
+              "value": "email_marketing_events:create",
+              "name": "EmailMarketingEventsColonCreate"
+            },
+            {
+              "value": "email_marketing_events:read",
+              "name": "EmailMarketingEventsColonRead"
             },
             {
               "value": "security_tokens:all",
@@ -92636,6 +92651,9 @@
           "webhook_events:read",
           "webhook_events:update",
           "webhook_events:delete",
+          "email_marketing_events:all",
+          "email_marketing_events:create",
+          "email_marketing_events:read",
           "security_tokens:all",
           "security_tokens:create",
           "security_tokens:read",
@@ -93330,6 +93348,18 @@
             {
               "value": "webhook_events:delete",
               "name": "WebhookEventsColonDelete"
+            },
+            {
+              "value": "email_marketing_events:all",
+              "name": "EmailMarketingEventsColonAll"
+            },
+            {
+              "value": "email_marketing_events:create",
+              "name": "EmailMarketingEventsColonCreate"
+            },
+            {
+              "value": "email_marketing_events:read",
+              "name": "EmailMarketingEventsColonRead"
             },
             {
               "value": "security_tokens:all",

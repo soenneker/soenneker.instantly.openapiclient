@@ -680,6 +680,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         WebhookEventsColonDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "email_marketing_events:all")]
+        #pragma warning disable CS1591
+        EmailMarketingEventsColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_marketing_events:create")]
+        #pragma warning disable CS1591
+        EmailMarketingEventsColonCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_marketing_events:read")]
+        #pragma warning disable CS1591
+        EmailMarketingEventsColonRead,
+        #pragma warning restore CS1591
         [EnumMember(Value = "security_tokens:all")]
         #pragma warning disable CS1591
         SecurityTokensColonAll,
