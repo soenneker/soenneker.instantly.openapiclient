@@ -72,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem> InvalidAccounts { get; set; }
 #endif
-        /// <summary>The list of invalid domains (if any)</summary>
+        /// <summary>The list of invalid domains (if any), including subdomains, which are not supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? InvalidDomains { get; set; }

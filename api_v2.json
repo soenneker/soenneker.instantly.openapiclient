@@ -4196,10 +4196,24 @@
                     },
                     "is_valid": {
                       "type": "boolean",
+                      "description": "False when the connection must be reconnected before the agent can use it.",
                       "examples": [
                         true
                       ],
                       "example": true
+                    },
+                    "health": {
+                      "type": "string",
+                      "enum": [
+                        "ok",
+                        "needs_reauth",
+                        "unknown"
+                      ],
+                      "description": "Sign-in health of the connection. \u0060unknown\u0060 means it could not be checked right now; the connection is not treated as broken.",
+                      "examples": [
+                        "ok"
+                      ],
+                      "example": "ok"
                     },
                     "error": {
                       "type": [
@@ -4215,7 +4229,8 @@
                   "required": [
                     "id",
                     "label",
-                    "is_valid"
+                    "is_valid",
+                    "health"
                   ]
                 }
               }
@@ -4796,7 +4811,7 @@
           "key": {
             "type": "string",
             "readOnly": true,
-            "example": "a1b2c3d4e5f6g7h8i9j0"
+            "example": "ZmNhN2RjNGYtMThmNS00NDFlLTkwYWItM2IzOTQ4NWMyYjY5OkZpWHVkMjZla19TYzNTWDNCVTJEQkJfN3dfM3prNV9p"
           },
           "organization_id": {
             "type": "string",
@@ -28563,7 +28578,7 @@
                       "properties": {
                         "domain": {
                           "type": "string",
-                          "description": "The domain to use for the email accounts.For regular DFY accounts the only allowed domain extensions (tlds) are .com and .org.For regular DFY accounts - you can check the domain availability using the /dfy-email-account-orders/domains/check endpoint before placing an order.For pre-warmed up domains - use the /dfy-email-account-orders/domains endpoint to get a list of available domains.Domains containing trademarks of well-known companies are restricted and cannot be ordered.",
+                          "description": "The domain to use for the email accounts. Only registrable domains are supported: subdomains (for example \u0060mail.example.com\u0060) are rejected for every order type and returned in \u0060invalid_domains\u0060. For regular DFY accounts the only allowed domain extensions (tlds) are .com and .org.For regular DFY accounts - you can check the domain availability using the /dfy-email-account-orders/domains/check endpoint before placing an order.For pre-warmed up domains - use the /dfy-email-account-orders/domains endpoint to get a list of available domains.Domains containing trademarks of well-known companies are restricted and cannot be ordered.",
                           "example": "example.com"
                         },
                         "email_provider": {
@@ -28753,7 +28768,7 @@
                         "type": "string",
                         "example": "example.com"
                       },
-                      "description": "The list of invalid domains (if any)",
+                      "description": "The list of invalid domains (if any), including subdomains, which are not supported",
                       "example": [
                         "example.com",
                         "acme.com"
@@ -29841,7 +29856,7 @@
         "tags": [
           "DFYEmailAccountOrder"
         ],
-        "description": "This endpoint will check the availability of the provided domains.. It will return a list of domains with their availability status.\n\n. The only supported extensions (tlds) are: .com, .org.\n\n. Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n\n. Please do not abuse this endpoint and do not use it for anything other than checking availability before ordering a domain.. This request has a rate limit of 30 request per minute, or 900 requests per hour.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "This endpoint will check the availability of the provided domains.. It will return a list of domains with their availability status.\n\n. The only supported extensions (tlds) are: .com, .org.\n\n. Only registrable domains are supported: subdomains are rejected.\n\n. Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n\n. Please do not abuse this endpoint and do not use it for anything other than checking availability before ordering a domain.. This request has a rate limit of 30 request per minute, or 900 requests per hour.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
