@@ -14,11 +14,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).</summary>
+        /// <summary>The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.</summary>
         public double? Delay { get; set; }
         /// <summary>The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItemStepsItemDelayUnit? DelayUnit { get; set; }
-        /// <summary>The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).</summary>
+        /// <summary>The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.</summary>
         public double? PreDelay { get; set; }
         /// <summary>The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItemStepsItemPreDelayUnit? PreDelayUnit { get; set; }

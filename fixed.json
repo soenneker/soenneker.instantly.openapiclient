@@ -28681,16 +28681,20 @@
             "$ref": "#/components/schemas/EmailType"
           },
           "delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "delay_unit": {
             "$ref": "#/components/schemas/CampaignSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "pre_delay_unit": {
@@ -29074,16 +29078,20 @@
             "$ref": "#/components/schemas/EmailType"
           },
           "delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "delay_unit": {
             "$ref": "#/components/schemas/CampaignSubsequenceSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "pre_delay_unit": {
@@ -78663,16 +78671,20 @@
             "$ref": "#/components/schemas/EmailType"
           },
           "delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "delay_unit": {
             "$ref": "#/components/schemas/CreateCampaignRequestSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "pre_delay_unit": {
@@ -78723,16 +78735,20 @@
             "$ref": "#/components/schemas/EmailType"
           },
           "delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "delay_unit": {
             "$ref": "#/components/schemas/PatchCampaignRequestSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "pre_delay_unit": {
@@ -79584,16 +79600,20 @@
             "$ref": "#/components/schemas/EmailType"
           },
           "delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "delay_unit": {
             "$ref": "#/components/schemas/CreateCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "pre_delay_unit": {
@@ -79661,16 +79681,20 @@
             "$ref": "#/components/schemas/EmailType"
           },
           "delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days).",
+            "description": "The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "delay_unit": {
             "$ref": "#/components/schemas/PatchCampaignSubsequenceRequestSequencesItemStepsItemDelayUnit"
           },
           "pre_delay": {
+            "maximum": 527040,
+            "minimum": 0,
             "type": "number",
-            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days).",
+            "description": "The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.",
             "example": 2
           },
           "pre_delay_unit": {
