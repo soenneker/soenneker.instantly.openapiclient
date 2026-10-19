@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Smart view query to filter leads
+    /// Smart view query to filter leads. Every query must filter on at least one of its `values`, or listing, moving or exporting leads with it fails with a 400. `reply`, `email-open` and `link-click` filter on `occurrence-days` and `occurrence-count`. `last-contacted` and `lead-status-change` filter on `occurrence-days` only. `lead-status` filters on `occurrence-days` and `lead-status`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MoveLeadsRequestQueriesItem : IAdditionalDataHolder, IParsable

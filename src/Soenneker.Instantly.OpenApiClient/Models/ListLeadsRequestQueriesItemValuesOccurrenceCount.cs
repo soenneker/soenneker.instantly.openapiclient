@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
+    /// <summary>
+    /// Compares how many times the activity happened. Without `count`, it compares with 0, so `{ &quot;condition&quot;: &quot;more&quot; }` means at least once. Ignored by `last-contacted`, `lead-status-change` and `lead-status`.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ListLeadsRequestQueriesItemValuesOccurrenceCount : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

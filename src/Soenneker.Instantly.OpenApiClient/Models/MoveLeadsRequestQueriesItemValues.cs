@@ -14,7 +14,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The leadStatus property</summary>
+        /// <summary>Only for `lead-status`: compares the lead status. `status` is required with `condition`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus? LeadStatus { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus LeadStatus { get; set; }
 #endif
-        /// <summary>The occurrenceCount property</summary>
+        /// <summary>Compares how many times the activity happened. Without `count`, it compares with 0, so `{ &quot;condition&quot;: &quot;more&quot; }` means at least once. Ignored by `last-contacted`, `lead-status-change` and `lead-status`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount? OccurrenceCount { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount OccurrenceCount { get; set; }
 #endif
-        /// <summary>The occurrenceDays property</summary>
+        /// <summary>Only leads whose last matching activity was in the past this many days.</summary>
         public double? OccurrenceDays { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValues"/> and sets the default values.

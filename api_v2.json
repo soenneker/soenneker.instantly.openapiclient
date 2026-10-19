@@ -7137,7 +7137,9 @@
               43,
               44,
               45,
-              46
+              46,
+              47,
+              48
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -7179,7 +7181,9 @@
               "43": "Voice agent phone number deleted",
               "44": "Voice agent number added to do-not-call list",
               "45": "Voice agent number removed from do-not-call list",
-              "46": "Non-Instantly email preference updated"
+              "46": "Non-Instantly email preference updated",
+              "47": "Local businesses converted to leads",
+              "48": "Creators converted to leads"
             },
             "example": 1
           },
@@ -8894,7 +8898,7 @@
                 "actionType",
                 "values"
               ],
-              "description": "Smart view query to filter leads",
+              "description": "Smart view query to filter leads. Every query must filter on at least one of its \u0060values\u0060, or listing, moving or exporting leads with it fails with a 400. \u0060reply\u0060, \u0060email-open\u0060 and \u0060link-click\u0060 filter on \u0060occurrence-days\u0060 and \u0060occurrence-count\u0060. \u0060last-contacted\u0060 and \u0060lead-status-change\u0060 filter on \u0060occurrence-days\u0060 only. \u0060lead-status\u0060 filters on \u0060occurrence-days\u0060 and \u0060lead-status\u0060.",
               "properties": {
                 "actionType": {
                   "type": "string",
@@ -8913,10 +8917,12 @@
                   "properties": {
                     "occurrence-days": {
                       "type": "number",
+                      "description": "Only leads whose last matching activity was in the past this many days.",
                       "example": 1
                     },
                     "occurrence-count": {
                       "type": "object",
+                      "description": "Compares how many times the activity happened. Without \u0060count\u0060, it compares with 0, so \u0060{ \u0022condition\u0022: \u0022more\u0022 }\u0060 means at least once. Ignored by \u0060last-contacted\u0060, \u0060lead-status-change\u0060 and \u0060lead-status\u0060.",
                       "properties": {
                         "condition": {
                           "type": "string",
@@ -8935,6 +8941,7 @@
                     },
                     "lead-status": {
                       "type": "object",
+                      "description": "Only for \u0060lead-status\u0060: compares the lead status. \u0060status\u0060 is required with \u0060condition\u0060.",
                       "properties": {
                         "status": {
                           "type": "number",
@@ -43422,7 +43429,7 @@
                         "actionType",
                         "values"
                       ],
-                      "description": "Smart view query to filter leads",
+                      "description": "Smart view query to filter leads. Every query must filter on at least one of its \u0060values\u0060, or listing, moving or exporting leads with it fails with a 400. \u0060reply\u0060, \u0060email-open\u0060 and \u0060link-click\u0060 filter on \u0060occurrence-days\u0060 and \u0060occurrence-count\u0060. \u0060last-contacted\u0060 and \u0060lead-status-change\u0060 filter on \u0060occurrence-days\u0060 only. \u0060lead-status\u0060 filters on \u0060occurrence-days\u0060 and \u0060lead-status\u0060.",
                       "properties": {
                         "actionType": {
                           "type": "string",
@@ -43441,10 +43448,12 @@
                           "properties": {
                             "occurrence-days": {
                               "type": "number",
+                              "description": "Only leads whose last matching activity was in the past this many days.",
                               "example": 1
                             },
                             "occurrence-count": {
                               "type": "object",
+                              "description": "Compares how many times the activity happened. Without \u0060count\u0060, it compares with 0, so \u0060{ \u0022condition\u0022: \u0022more\u0022 }\u0060 means at least once. Ignored by \u0060last-contacted\u0060, \u0060lead-status-change\u0060 and \u0060lead-status\u0060.",
                               "properties": {
                                 "condition": {
                                   "type": "string",
@@ -43463,6 +43472,7 @@
                             },
                             "lead-status": {
                               "type": "object",
+                              "description": "Only for \u0060lead-status\u0060: compares the lead status. \u0060status\u0060 is required with \u0060condition\u0060.",
                               "properties": {
                                 "status": {
                                   "type": "number",
@@ -45814,7 +45824,7 @@
                       "type": "string",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
-                    "description": "Array of lead IDs to include. When using this parameter, you must provide either \u0060campaign\u0060 or \u0060list_id\u0060 to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads."
+                    "description": "Array of lead IDs to include. When using this parameter, you must provide either \u0060campaign\u0060 or \u0060list_id\u0060 to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads. When \u0060ids\u0060 is non-empty, \u0060queries\u0060, \u0060filter\u0060, \u0060search\u0060, \u0060excluded_ids\u0060, \u0060field_filters\u0060, \u0060assigned_to\u0060 and \u0060esp_code\u0060 are ignored."
                   },
                   "queries": {
                     "type": "array",
@@ -45824,7 +45834,7 @@
                         "actionType",
                         "values"
                       ],
-                      "description": "Smart view query to filter leads",
+                      "description": "Smart view query to filter leads. Every query must filter on at least one of its \u0060values\u0060, or listing, moving or exporting leads with it fails with a 400. \u0060reply\u0060, \u0060email-open\u0060 and \u0060link-click\u0060 filter on \u0060occurrence-days\u0060 and \u0060occurrence-count\u0060. \u0060last-contacted\u0060 and \u0060lead-status-change\u0060 filter on \u0060occurrence-days\u0060 only. \u0060lead-status\u0060 filters on \u0060occurrence-days\u0060 and \u0060lead-status\u0060.",
                       "properties": {
                         "actionType": {
                           "type": "string",
@@ -45843,10 +45853,12 @@
                           "properties": {
                             "occurrence-days": {
                               "type": "number",
+                              "description": "Only leads whose last matching activity was in the past this many days.",
                               "example": 1
                             },
                             "occurrence-count": {
                               "type": "object",
+                              "description": "Compares how many times the activity happened. Without \u0060count\u0060, it compares with 0, so \u0060{ \u0022condition\u0022: \u0022more\u0022 }\u0060 means at least once. Ignored by \u0060last-contacted\u0060, \u0060lead-status-change\u0060 and \u0060lead-status\u0060.",
                               "properties": {
                                 "condition": {
                                   "type": "string",
@@ -45865,6 +45877,7 @@
                             },
                             "lead-status": {
                               "type": "object",
+                              "description": "Only for \u0060lead-status\u0060: compares the lead status. \u0060status\u0060 is required with \u0060condition\u0060.",
                               "properties": {
                                 "status": {
                                   "type": "number",

@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string Filter { get; set; }
 #endif
-        /// <summary>Array of lead IDs to include. When using this parameter, you must provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads.</summary>
+        /// <summary>Array of lead IDs to include. When using this parameter, you must provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads. When `ids` is non-empty, `queries`, `filter`, `search`, `excluded_ids`, `field_filters`, `assigned_to` and `esp_code` are ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Ids { get; set; }
