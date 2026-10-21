@@ -3783,7 +3783,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Campaign"
+                  "$ref": "#/components/schemas/DeleteCampaign200Response"
                 }
               }
             }
@@ -9676,7 +9676,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadList"
+                  "$ref": "#/components/schemas/DeleteLeadList200Response"
                 }
               }
             }
@@ -21699,6 +21699,18 @@
           },
           "429": {
             "description": "Default Response",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying the request.",
+                "schema": {
+                  "examples": [
+                    120
+                  ],
+                  "type": "integer",
+                  "example": 120
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -21791,6 +21803,18 @@
           },
           "429": {
             "description": "Default Response",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying the request.",
+                "schema": {
+                  "examples": [
+                    120
+                  ],
+                  "type": "integer",
+                  "example": 120
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -35230,6 +35254,300 @@
           }
         }
       },
+      "DeleteCampaign200Response": {
+        "required": [
+          "id",
+          "name",
+          "status",
+          "campaign_schedule",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the campaign",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the campaign",
+            "example": "My First Campaign"
+          },
+          "pl_value": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Value of every positive lead",
+            "example": 100
+          },
+          "status": {
+            "$ref": "#/components/schemas/CampaignStatus"
+          },
+          "is_evergreen": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the campaign is evergreen",
+            "example": false
+          },
+          "campaign_schedule": {
+            "$ref": "#/components/schemas/CampaignCampaignSchedule"
+          },
+          "sequences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CampaignSequencesItem"
+            },
+            "description": "List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the campaign was created",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "description": "Timestamp when the campaign was last updated",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "email_gap": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The gap between emails in minutes",
+            "example": 10
+          },
+          "random_wait_max": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The maximum random wait time in minutes",
+            "example": 10
+          },
+          "text_only": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the campaign is text only",
+            "example": false
+          },
+          "first_email_text_only": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the campaign is send the first email as a text only",
+            "example": false
+          },
+          "email_list": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "john@doe.com"
+            },
+            "description": "List of accounts to use for sending emails"
+          },
+          "daily_limit": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The daily limit for sending emails",
+            "example": 100
+          },
+          "stop_on_reply": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to stop the campaign on reply",
+            "example": false
+          },
+          "email_tag_list": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "description": "List of tags to use for sending emails"
+          },
+          "link_tracking": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to track links in emails",
+            "example": true
+          },
+          "open_tracking": {
+            "type": "boolean",
+            "description": "Whether to track opens in emails",
+            "example": true
+          },
+          "stop_on_auto_reply": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to stop the campaign on auto reply",
+            "example": false
+          },
+          "daily_max_leads": {
+            "minimum": 0,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The daily maximum new leads to contact",
+            "example": 100
+          },
+          "prioritize_new_leads": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to prioritize new leads",
+            "example": false
+          },
+          "auto_variant_select": {
+            "$ref": "#/components/schemas/CampaignAutoVariantSelect"
+          },
+          "match_lead_esp": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to match leads by ESP",
+            "example": false
+          },
+          "not_sending_status": {
+            "$ref": "#/components/schemas/CampaignNotSendingStatus"
+          },
+          "stop_for_company": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to stop the campaign for the entire company(domain) when a lead replies",
+            "example": false
+          },
+          "core_variables": {
+            "$ref": "#/components/schemas/DeleteCampaign200ResponseCoreVariables"
+          },
+          "custom_variables": {
+            "$ref": "#/components/schemas/DeleteCampaign200ResponseCustomVariables"
+          },
+          "insert_unsubscribe_header": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to insert an unsubscribe header in emails",
+            "example": false
+          },
+          "allow_risky_contacts": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to allow risky contacts",
+            "example": false
+          },
+          "disable_bounce_protect": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether to disable bounce protection",
+            "example": false
+          },
+          "limit_emails_per_company_override": {
+            "$ref": "#/components/schemas/CampaignLimitEmailsPerCompanyOverride"
+          },
+          "cc_list": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "email",
+              "example": "john@doe.com"
+            },
+            "description": "List of accounts to CC on emails"
+          },
+          "bcc_list": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "email",
+              "example": "john@doe.com"
+            },
+            "description": "List of accounts to BCC on emails"
+          },
+          "organization": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Organization ID",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "owned_by": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Owner ID",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "created_by": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ID of the user who created the campaign",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "ai_sdr_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "AI Sales Agent ID that created this campaign",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "provider_routing_rules": {
+            "required": [
+              "action",
+              "recipient_esp",
+              "sender_esp"
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CampaignProviderRoutingRulesItem"
+            },
+            "description": "Auto variant select settings"
+          },
+          "background_job_id": {
+            "examples": [
+              "000000000000000000000000"
+            ],
+            "type": "string",
+            "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
+            "example": "000000000000000000000000"
+          }
+        }
+      },
       "DeleteCampaign401Response": {
         "required": [
           "statusCode",
@@ -43328,6 +43646,65 @@
             ],
             "type": "string",
             "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "DeleteLeadList200Response": {
+        "required": [
+          "id",
+          "organization_id",
+          "name",
+          "timestamp_created"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the lead list",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "Organization ID that owns this lead list",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "has_enrichment_task": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether this list runs the enrichment process on every added lead or not",
+            "example": false
+          },
+          "owned_by": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "User ID of the owner of this lead list. Defaults to the user that created the list",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the lead list",
+            "example": "My Lead List"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the lead list was created",
+            "format": "date-time",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "background_job_id": {
+            "examples": [
+              "000000000000000000000000"
+            ],
+            "type": "string",
+            "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
+            "example": "000000000000000000000000"
           }
         }
       },
@@ -70059,6 +70436,14 @@
           }
         }
       },
+      "DeleteCampaign200ResponseCoreVariables": {
+        "type": "object",
+        "description": "Campaign core variables"
+      },
+      "DeleteCampaign200ResponseCustomVariables": {
+        "type": "object",
+        "description": "Campaign custom variables"
+      },
       "GetCampaignAnalytics200ResponseItem": {
         "required": [
           "campaign_name",
@@ -87333,7 +87718,8 @@
           "broadcast-website-scrape",
           "import-subscribers-from-crm",
           "resync-subscriber-crm-tags",
-          "journey-ai-build"
+          "journey-ai-build",
+          "delete-leads"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -87349,7 +87735,8 @@
           "broadcast-website-scrape": "Broadcast website analysis",
           "import-subscribers-from-crm": "Import Subscribers From CRM",
           "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags",
-          "journey-ai-build": "AI journey build or edit"
+          "journey-ai-build": "AI journey build or edit",
+          "delete-leads": "Delete Leads"
         },
         "x-ms-enum": {
           "name": "BackgroundJobType",
@@ -87394,6 +87781,10 @@
             {
               "value": "journey-ai-build",
               "name": "JourneyAiBuild"
+            },
+            {
+              "value": "delete-leads",
+              "name": "DeleteLeads"
             }
           ]
         }
@@ -140137,7 +140528,8 @@
           "broadcast-website-scrape",
           "import-subscribers-from-crm",
           "resync-subscriber-crm-tags",
-          "journey-ai-build"
+          "journey-ai-build",
+          "delete-leads"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -140185,6 +140577,10 @@
             {
               "value": "journey-ai-build",
               "name": "JourneyAiBuild"
+            },
+            {
+              "value": "delete-leads",
+              "name": "DeleteLeads"
             }
           ]
         }

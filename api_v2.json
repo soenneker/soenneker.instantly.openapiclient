@@ -5584,7 +5584,8 @@
               "broadcast-website-scrape",
               "import-subscribers-from-crm",
               "resync-subscriber-crm-tags",
-              "journey-ai-build"
+              "journey-ai-build",
+              "delete-leads"
             ],
             "x-enumDescriptions": {
               "move-leads": "Move Leads",
@@ -5596,7 +5597,8 @@
               "broadcast-website-scrape": "Broadcast website analysis",
               "import-subscribers-from-crm": "Import Subscribers From CRM",
               "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags",
-              "journey-ai-build": "AI journey build or edit"
+              "journey-ai-build": "AI journey build or edit",
+              "delete-leads": "Delete Leads"
             },
             "example": "move-leads"
           },
@@ -16193,7 +16195,8 @@
                 "broadcast-website-scrape",
                 "import-subscribers-from-crm",
                 "resync-subscriber-crm-tags",
-                "journey-ai-build"
+                "journey-ai-build",
+                "delete-leads"
               ],
               "example": "move-leads"
             },
@@ -21914,7 +21917,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Campaign"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Campaign"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "background_job_id": {
+                          "type": "string",
+                          "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
+                          "examples": [
+                            "000000000000000000000000"
+                          ],
+                          "example": "000000000000000000000000"
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -42184,7 +42204,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadList"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/LeadList"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "background_job_id": {
+                          "type": "string",
+                          "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
+                          "examples": [
+                            "000000000000000000000000"
+                          ],
+                          "example": "000000000000000000000000"
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -102393,6 +102430,18 @@
           },
           "429": {
             "description": "Default Response",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "examples": [
+                    120
+                  ],
+                  "example": 120
+                },
+                "description": "Seconds to wait before retrying the request."
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -104471,6 +104520,18 @@
           },
           "429": {
             "description": "Default Response",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "examples": [
+                    120
+                  ],
+                  "example": 120
+                },
+                "description": "Seconds to wait before retrying the request."
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
