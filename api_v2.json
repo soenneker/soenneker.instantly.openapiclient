@@ -1373,6 +1373,19 @@
             "description": "A short preview of the email content (usually the first few lines of the email)",
             "example": "This is a preview of the email content."
           },
+          "body_fallback_reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set only when \u0060body\u0060 is not the full email body. \u0060too_large\u0060: the body was too large to include in a list response. \u0060unavailable\u0060: the body could not be read for this response. In both cases \u0060body\u0060 holds at most a plain-text excerpt (\u0060text\u0060, no \u0060html\u0060) and may be empty. Get the full body from \u0060GET /api/v2/emails/{id}\u0060.",
+            "readOnly": true,
+            "enum": [
+              "too_large",
+              "unavailable"
+            ],
+            "example": "too_large"
+          },
           "attachment_json": {
             "type": [
               "null",
@@ -3628,6 +3641,31 @@
                     ],
                     "description": "Whether to send follow-up emails only on business days (Mon-Fri)",
                     "example": true
+                  },
+                  "followup_delay": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 2160,
+                    "examples": [
+                      3
+                    ],
+                    "description": "How long to wait before each follow-up email, in \u0060followup_delay_unit\u0060. Measured from the agent\u0027s last email to the lead. Use 1 to 90 days or 1 to 2160 hours. If the lead asks for a specific time, the agent uses that time instead. \u0060null\u0060 (the default) lets the agent pick the timing (about 3 days).",
+                    "example": 3
+                  },
+                  "followup_delay_unit": {
+                    "type": "string",
+                    "enum": [
+                      "hours",
+                      "days"
+                    ],
+                    "examples": [
+                      "days"
+                    ],
+                    "description": "Unit of \u0060followup_delay\u0060. Defaults to \u0060days\u0060.",
+                    "example": "days"
                   }
                 }
               },
@@ -4059,6 +4097,25 @@
                 "type": "boolean",
                 "description": "Whether to send follow-up emails only on business days (Mon-Fri)",
                 "example": true
+              },
+              "followup_delay": {
+                "type": [
+                  "null",
+                  "integer"
+                ],
+                "minimum": 1,
+                "maximum": 2160,
+                "description": "How long to wait before each follow-up email, in \u0060followup_delay_unit\u0060. Measured from the agent\u0027s last email to the lead. Use 1 to 90 days or 1 to 2160 hours. If the lead asks for a specific time, the agent uses that time instead. \u0060null\u0060 (the default) lets the agent pick the timing (about 3 days).",
+                "example": 3
+              },
+              "followup_delay_unit": {
+                "type": "string",
+                "enum": [
+                  "hours",
+                  "days"
+                ],
+                "description": "Unit of \u0060followup_delay\u0060. Defaults to \u0060days\u0060.",
+                "example": "days"
               }
             }
           },
@@ -33244,7 +33301,7 @@
             "in": "query",
             "name": "preview_only",
             "required": false,
-            "description": "Whether to only return the preview of the emails."
+            "description": "Whether to only return the preview of the emails. When \u0060false\u0060, a body too large to include in the list is returned as an excerpt and marked by \u0060body_fallback_reason\u0060."
           },
           {
             "schema": {
@@ -68143,6 +68200,25 @@
                         "type": "boolean",
                         "description": "Whether to send follow-up emails only on business days (Mon-Fri)",
                         "example": true
+                      },
+                      "followup_delay": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "minimum": 1,
+                        "maximum": 2160,
+                        "description": "How long to wait before each follow-up email, in \u0060followup_delay_unit\u0060. Measured from the agent\u0027s last email to the lead. Use 1 to 90 days or 1 to 2160 hours. If the lead asks for a specific time, the agent uses that time instead. \u0060null\u0060 (the default) lets the agent pick the timing (about 3 days).",
+                        "example": 3
+                      },
+                      "followup_delay_unit": {
+                        "type": "string",
+                        "enum": [
+                          "hours",
+                          "days"
+                        ],
+                        "description": "Unit of \u0060followup_delay\u0060. Defaults to \u0060days\u0060.",
+                        "example": "days"
                       }
                     },
                     "additionalProperties": false,
@@ -69296,6 +69372,25 @@
                         "type": "boolean",
                         "description": "Whether to send follow-up emails only on business days (Mon-Fri)",
                         "example": true
+                      },
+                      "followup_delay": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "minimum": 1,
+                        "maximum": 2160,
+                        "description": "How long to wait before each follow-up email, in \u0060followup_delay_unit\u0060. Measured from the agent\u0027s last email to the lead. Use 1 to 90 days or 1 to 2160 hours. If the lead asks for a specific time, the agent uses that time instead. \u0060null\u0060 (the default) lets the agent pick the timing (about 3 days).",
+                        "example": 3
+                      },
+                      "followup_delay_unit": {
+                        "type": "string",
+                        "enum": [
+                          "hours",
+                          "days"
+                        ],
+                        "description": "Unit of \u0060followup_delay\u0060. Defaults to \u0060days\u0060.",
+                        "example": "days"
                       }
                     },
                     "additionalProperties": false

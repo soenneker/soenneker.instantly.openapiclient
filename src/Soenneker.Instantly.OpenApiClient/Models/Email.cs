@@ -49,6 +49,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.EmailBody Body { get; private set; }
 #endif
+        /// <summary>Set only when `body` is not the full email body. `too_large`: the body was too large to include in a list response. `unavailable`: the body could not be read for this response. In both cases `body` holds at most a plain-text excerpt (`text`, no `html`) and may be empty. Get the full body from `GET /api/v2/emails/{id}`.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.EmailBodyFallbackReason? BodyFallbackReason { get; private set; }
         /// <summary>The id of the campaign that the email is associated with (it can be null for manually sent emails)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -249,6 +251,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "attachment_json", n => { AttachmentJson = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailAttachmentJson>(global::Soenneker.Instantly.OpenApiClient.Models.EmailAttachmentJson.CreateFromDiscriminatorValue); } },
                 { "bcc_address_email_list", n => { BccAddressEmailList = n.GetStringValue(); } },
                 { "body", n => { Body = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailBody>(global::Soenneker.Instantly.OpenApiClient.Models.EmailBody.CreateFromDiscriminatorValue); } },
+                { "body_fallback_reason", n => { BodyFallbackReason = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailBodyFallbackReason>(); } },
                 { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
                 { "cc_address_email_list", n => { CcAddressEmailList = n.GetStringValue(); } },
                 { "cc_address_json", n => { CcAddressJson = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },

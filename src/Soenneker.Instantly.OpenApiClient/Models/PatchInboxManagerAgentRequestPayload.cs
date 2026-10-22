@@ -17,6 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? ConfigurationType { get; set; }
         /// <summary>Whether to send follow-up emails only on business days (Mon-Fri)</summary>
         public bool? FollowupBusinessDaysOnly { get; set; }
+        /// <summary>How long to wait before each follow-up email, in `followup_delay_unit`. Measured from the agent&apos;s last email to the lead. Use 1 to 90 days or 1 to 2160 hours. If the lead asks for a specific time, the agent uses that time instead. `null` (the default) lets the agent pick the timing (about 3 days).</summary>
+        public int? FollowupDelay { get; set; }
+        /// <summary>Unit of `followup_delay`. Defaults to `days`.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadFollowupDelayUnit? FollowupDelayUnit { get; set; }
         /// <summary>Whether to handle follow-up emails</summary>
         public bool? HandleFollowup { get; set; }
         /// <summary>Whether to handle objections, declines, or negative replies</summary>
@@ -81,6 +85,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "configuration_type", n => { ConfigurationType = n.GetDoubleValue(); } },
                 { "followup_business_days_only", n => { FollowupBusinessDaysOnly = n.GetBoolValue(); } },
+                { "followup_delay", n => { FollowupDelay = n.GetIntValue(); } },
+                { "followup_delay_unit", n => { FollowupDelayUnit = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadFollowupDelayUnit>(); } },
                 { "handle_followup", n => { HandleFollowup = n.GetBoolValue(); } },
                 { "handle_objections", n => { HandleObjections = n.GetBoolValue(); } },
                 { "integrations", n => { Integrations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrations>(global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrations.CreateFromDiscriminatorValue); } },
@@ -102,6 +108,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("configuration_type", ConfigurationType);
             writer.WriteBoolValue("followup_business_days_only", FollowupBusinessDaysOnly);
+            writer.WriteIntValue("followup_delay", FollowupDelay);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadFollowupDelayUnit>("followup_delay_unit", FollowupDelayUnit);
             writer.WriteBoolValue("handle_followup", HandleFollowup);
             writer.WriteBoolValue("handle_objections", HandleObjections);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrations>("integrations", Integrations);

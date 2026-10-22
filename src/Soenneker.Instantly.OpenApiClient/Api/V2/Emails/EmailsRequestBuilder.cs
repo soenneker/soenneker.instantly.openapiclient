@@ -244,7 +244,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Emails
             /// <summary>The mode to filter emails by.</summary>
             [QueryParameter("mode")]
             public global::Soenneker.Instantly.OpenApiClient.Models.ListEmailModeParameter? Mode { get; set; }
-            /// <summary>Whether to only return the preview of the emails.</summary>
+            /// <summary>Whether to only return the preview of the emails. When `false`, a body too large to include in the list is returned as an excerpt and marked by `body_fallback_reason`.</summary>
             [QueryParameter("preview_only")]
             public bool? PreviewOnly { get; set; }
             /// <summary>Whether to only return the scheduled emails.</summary>
