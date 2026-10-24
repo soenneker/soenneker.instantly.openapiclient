@@ -31,10 +31,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The prefilled property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseItemPrefilled? Prefilled { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseSchemaItemPrefilled? Prefilled { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseItemPrefilled Prefilled { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseSchemaItemPrefilled Prefilled { get; set; }
 #endif
         /// <summary>The recipe_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "company_source_id", n => { CompanySourceId = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "prefilled", n => { Prefilled = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseItemPrefilled>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseItemPrefilled.CreateFromDiscriminatorValue); } },
+                { "prefilled", n => { Prefilled = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseSchemaItemPrefilled>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseSchemaItemPrefilled.CreateFromDiscriminatorValue); } },
                 { "recipe_id", n => { RecipeId = n.GetStringValue(); } },
                 { "source_id", n => { SourceId = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -95,7 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("company_source_id", CompanySourceId);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseItemPrefilled>("prefilled", Prefilled);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListRecipes200ResponseSchemaItemPrefilled>("prefilled", Prefilled);
             writer.WriteStringValue("recipe_id", RecipeId);
             writer.WriteStringValue("source_id", SourceId);
             writer.WriteStringValue("title", Title);

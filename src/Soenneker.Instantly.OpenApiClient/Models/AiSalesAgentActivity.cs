@@ -16,18 +16,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Output data for frontend display (e.g., lead_email, campaign_name, etc.). For recommend_lead this carries the per-lead delivery_outcome: delivered, no_email_found, not_moved or skipped (the agent decided not to contact the prospect), plus refunded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionOutputProperty? ActionOutput { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionOutputProperty? ActionOutput { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionOutputProperty ActionOutput { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionOutputProperty ActionOutput { get; private set; }
 #endif
         /// <summary>Payload data for the activity action</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionPayloadProperty? ActionPayload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionPayloadProperty? ActionPayload { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionPayloadProperty ActionPayload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionPayloadProperty ActionPayload { get; private set; }
 #endif
         /// <summary>Status of the activity</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus? ActionStatus { get; set; }
@@ -108,10 +108,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Result data from executing the activity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityResultProperty? Result { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityResultProperty? Result { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityResultProperty Result { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityResultProperty Result { get; private set; }
 #endif
         /// <summary>Timestamp when the activity was completed</summary>
         public DateTimeOffset? TimestampCompleted { get; private set; }
@@ -178,10 +178,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionOutputProperty>("action_output", ActionOutput);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionPayloadProperty>("action_payload", ActionPayload);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus>("action_status", ActionStatus);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityResultProperty>("result", Result);
         }
     }
 }

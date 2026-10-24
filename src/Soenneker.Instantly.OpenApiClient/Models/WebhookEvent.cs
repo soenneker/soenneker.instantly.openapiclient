@@ -49,10 +49,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>JSON payload that was sent/attempted to be sent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty? Payload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty? Payload { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty Payload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty Payload { get; private set; }
 #endif
         /// <summary>Response time in milliseconds for the webhook call</summary>
         public double? ResponseTimeMs { get; private set; }
@@ -131,7 +131,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WebhookEventPayloadProperty>("payload", Payload);
         }
     }
 }

@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2"/>, List&lt;global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CountLeadsFromSupersearchRequestSearchFiltersLocations : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1? CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1 { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item>? CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1 CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1 { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item> CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,13 +39,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocations();
-            if("CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1 = new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1();
-            }
-            else if("CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2();
+            }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item> countLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemValue)
+            {
+                result.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item = countLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemValue;
             }
             return result;
         }
@@ -55,11 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1 != null)
-            {
-                return CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1.GetFieldDeserializers();
-            }
-            else if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 != null)
+            if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 != null)
             {
                 return CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2.GetFieldDeserializers();
             }
@@ -72,13 +68,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1>(null, CountLeadsFromSupersearchRequestSearchFiltersLocationsBranch1);
-            }
-            else if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 != null)
+            if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2>(null, CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2);
+            }
+            else if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item>(null, CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item);
             }
         }
     }

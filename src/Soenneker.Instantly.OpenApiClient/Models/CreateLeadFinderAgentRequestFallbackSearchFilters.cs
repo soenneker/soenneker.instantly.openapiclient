@@ -48,10 +48,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Employee count filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItem>? EmployeeCount { get; set; }
+        public List<string>? EmployeeCount { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItem> EmployeeCount { get; set; }
+        public List<string> EmployeeCount { get; set; }
 #endif
         /// <summary>The funding_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -169,10 +169,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItem>? Signals { get; set; }
+        public List<string>? Signals { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItem> Signals { get; set; }
+        public List<string> Signals { get; set; }
 #endif
         /// <summary>If set, the lead finder will skip leads that are owned by the user</summary>
         public bool? SkipOwnedLeads { get; set; }
@@ -224,7 +224,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersCompanyName>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersCompanyName.CreateFromDiscriminatorValue); } },
                 { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersDepartmentItem>()?.AsList(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "employeeCount", n => { EmployeeCount = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "employeeCount", n => { EmployeeCount = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "fundingType", n => { FundingType = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersFundingTypeItem>()?.AsList(); } },
                 { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersIndustry.CreateFromDiscriminatorValue); } },
                 { "jobListing", n => { JobListing = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -239,7 +239,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "news", n => { News = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersNewsItem>()?.AsList(); } },
                 { "revenue", n => { Revenue = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersRevenueItem>()?.AsList(); } },
                 { "show_one_lead_per_company", n => { ShowOneLeadPerCompany = n.GetBoolValue(); } },
-                { "signals", n => { Signals = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "signals", n => { Signals = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
                 { "subIndustry", n => { SubIndustry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSubIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSubIndustry.CreateFromDiscriminatorValue); } },
                 { "technologies", n => { Technologies = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -261,7 +261,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersCompanyName>("company_name", CompanyName);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersDepartmentItem>("department", Department);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItem>("employeeCount", EmployeeCount);
+            writer.WriteCollectionOfPrimitiveValues<string>("employeeCount", EmployeeCount);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersFundingTypeItemEnum>("funding_type", Funding_type);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersFundingTypeItem>("fundingType", FundingType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersIndustry>("industry", Industry);
@@ -279,7 +279,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersNewsItem>("news", News);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersRevenueItem>("revenue", Revenue);
             writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItem>("signals", Signals);
+            writer.WriteCollectionOfPrimitiveValues<string>("signals", Signals);
             writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersSubIndustry>("subIndustry", SubIndustry);
             writer.WriteCollectionOfPrimitiveValues<string>("technologies", Technologies);

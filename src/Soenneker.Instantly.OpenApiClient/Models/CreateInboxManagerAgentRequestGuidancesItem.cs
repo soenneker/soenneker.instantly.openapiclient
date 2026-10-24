@@ -7,46 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateInboxManagerAgentRequestGuidancesItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CreateInboxManagerAgentRequestGuidancesItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The basic_guidance_options property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions? BasicGuidanceOptions { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf1? CreateInboxManagerAgentRequestGuidancesItemAnyOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions BasicGuidanceOptions { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf1 CreateInboxManagerAgentRequestGuidancesItemAnyOf1 { get; set; }
 #endif
-        /// <summary>The category property</summary>
-        public double? Category { get; set; }
-        /// <summary>Concrete instructions based on verified context and user preferences</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instruction { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf2? CreateInboxManagerAgentRequestGuidancesItemAnyOf2 { get; set; }
 #nullable restore
 #else
-        public string Instruction { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf2 CreateInboxManagerAgentRequestGuidancesItemAnyOf2 { get; set; }
 #endif
-        /// <summary>Short name of the saved guidance rule</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Label { get; set; }
-#nullable restore
-#else
-        public string Label { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem"/> and sets the default values.
-        /// </summary>
-        public CreateInboxManagerAgentRequestGuidancesItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,7 +37,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem();
+            var result = new global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItem();
+            result.CreateInboxManagerAgentRequestGuidancesItemAnyOf1 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf1();
+            result.CreateInboxManagerAgentRequestGuidancesItemAnyOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf2();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,13 +48,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CreateInboxManagerAgentRequestGuidancesItemAnyOf1 != null || CreateInboxManagerAgentRequestGuidancesItemAnyOf2 != null)
             {
-                { "basic_guidance_options", n => { BasicGuidanceOptions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions>(global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions.CreateFromDiscriminatorValue); } },
-                { "category", n => { Category = n.GetDoubleValue(); } },
-                { "instruction", n => { Instruction = n.GetStringValue(); } },
-                { "label", n => { Label = n.GetStringValue(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateInboxManagerAgentRequestGuidancesItemAnyOf1, CreateInboxManagerAgentRequestGuidancesItemAnyOf2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -78,11 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemBasicGuidanceOptions>("basic_guidance_options", BasicGuidanceOptions);
-            writer.WriteDoubleValue("category", Category);
-            writer.WriteStringValue("instruction", Instruction);
-            writer.WriteStringValue("label", Label);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgentRequestGuidancesItemAnyOf1>(null, CreateInboxManagerAgentRequestGuidancesItemAnyOf1, CreateInboxManagerAgentRequestGuidancesItemAnyOf2);
         }
     }
 }

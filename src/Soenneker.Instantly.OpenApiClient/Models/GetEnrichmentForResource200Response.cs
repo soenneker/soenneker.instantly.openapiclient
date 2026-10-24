@@ -30,6 +30,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public bool? InProgress { get; set; }
         /// <summary>Whether the enrichment is evergreen</summary>
         public bool? IsEvergreen { get; set; }
+        /// <summary>When the most recent enrichment job on this resource was queued. `null` when it never ran.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastRunStartedAt { get; set; }
+#nullable restore
+#else
+        public string LastRunStartedAt { get; set; }
+#endif
         /// <summary>ID of the resource being enriched</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "has_no_leads", n => { HasNoLeads = n.GetBoolValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
+                { "last_run_started_at", n => { LastRunStartedAt = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters.CreateFromDiscriminatorValue); } },
             };
@@ -87,6 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("has_no_leads", HasNoLeads);
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
+            writer.WriteStringValue("last_run_started_at", LastRunStartedAt);
             writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>("search_filters", SearchFilters);
         }

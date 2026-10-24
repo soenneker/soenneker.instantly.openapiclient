@@ -134,10 +134,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>JSON object with OpenAI usage, costs, and prompt data (nullable)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyUsageMetadataProperty? UsageMetadata { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyUsageMetadataProperty? UsageMetadata { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyUsageMetadataProperty UsageMetadata { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyUsageMetadataProperty UsageMetadata { get; private set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -196,7 +196,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("feedback_text", FeedbackText);
             writer.WriteBoolValue("is_followup", IsFollowup);
             writer.WriteDoubleValue("sending_status", SendingStatus);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyUsageMetadataProperty>("usage_metadata", UsageMetadata);
         }
     }
 }

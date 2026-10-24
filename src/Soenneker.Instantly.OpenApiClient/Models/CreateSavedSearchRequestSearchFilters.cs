@@ -50,10 +50,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Employee count filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersEmployeeCountItem>? EmployeeCount { get; set; }
+        public List<string>? EmployeeCount { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersEmployeeCountItem> EmployeeCount { get; set; }
+        public List<string> EmployeeCount { get; set; }
 #endif
         /// <summary>The funding_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -183,10 +183,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSignalsItem>? Signals { get; set; }
+        public List<string>? Signals { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSignalsItem> Signals { get; set; }
+        public List<string> Signals { get; set; }
 #endif
         /// <summary>If set, the lead finder will skip leads that are owned by the user</summary>
         public bool? SkipOwnedLeads { get; set; }
@@ -245,7 +245,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersCompanyName>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersCompanyName.CreateFromDiscriminatorValue); } },
                 { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersDepartmentItem>()?.AsList(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "employeeCount", n => { EmployeeCount = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersEmployeeCountItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersEmployeeCountItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "employeeCount", n => { EmployeeCount = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "fundingType", n => { FundingType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersIndustry.CreateFromDiscriminatorValue); } },
                 { "jobListing", n => { JobListing = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -260,7 +260,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "news", n => { News = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersNewsItem>()?.AsList(); } },
                 { "revenue", n => { Revenue = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersRevenueItem>()?.AsList(); } },
                 { "show_one_lead_per_company", n => { ShowOneLeadPerCompany = n.GetBoolValue(); } },
-                { "signals", n => { Signals = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSignalsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSignalsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "signals", n => { Signals = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
                 { "subIndustry", n => { SubIndustry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSubIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSubIndustry.CreateFromDiscriminatorValue); } },
                 { "technologies", n => { Technologies = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -282,7 +282,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersCompanyName>("company_name", CompanyName);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersDepartmentItem>("department", Department);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersEmployeeCountItem>("employeeCount", EmployeeCount);
+            writer.WriteCollectionOfPrimitiveValues<string>("employeeCount", EmployeeCount);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersFundingTypeItem>("funding_type", Funding_type);
             writer.WriteCollectionOfPrimitiveValues<string>("fundingType", FundingType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersIndustry>("industry", Industry);
@@ -300,7 +300,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersNewsItem>("news", News);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersRevenueItem>("revenue", Revenue);
             writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSignalsItem>("signals", Signals);
+            writer.WriteCollectionOfPrimitiveValues<string>("signals", Signals);
             writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSavedSearchRequestSearchFiltersSubIndustry>("subIndustry", SubIndustry);
             writer.WriteCollectionOfPrimitiveValues<string>("technologies", Technologies);

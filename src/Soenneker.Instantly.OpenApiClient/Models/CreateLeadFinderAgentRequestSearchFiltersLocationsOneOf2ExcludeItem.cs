@@ -7,60 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>City of the lead</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? City { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1? CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public string City { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1 CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1 { get; set; }
 #endif
-        /// <summary>Country of the lead</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Country { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2? CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Country { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2 CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2 { get; set; }
 #endif
-        /// <summary>Label of the lead&apos;s location</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Label { get; set; }
-#nullable restore
-#else
-        public string Label { get; set; }
-#endif
-        /// <summary>Google Maps Place ID of the lead&apos;s location (https://developers.google.com/maps/documentation/places/web-service/place-id)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PlaceId { get; set; }
-#nullable restore
-#else
-        public string PlaceId { get; set; }
-#endif
-        /// <summary>State of the lead</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? State { get; set; }
-#nullable restore
-#else
-        public string State { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem"/> and sets the default values.
-        /// </summary>
-        public CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +37,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItem();
+            if("CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,14 +51,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1 != null)
             {
-                { "city", n => { City = n.GetStringValue(); } },
-                { "country", n => { Country = n.GetStringValue(); } },
-                { "label", n => { Label = n.GetStringValue(); } },
-                { "place_id", n => { PlaceId = n.GetStringValue(); } },
-                { "state", n => { State = n.GetStringValue(); } },
-            };
+                return CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1.GetFieldDeserializers();
+            }
+            else if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2 != null)
+            {
+                return CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -93,12 +68,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("city", City);
-            writer.WriteStringValue("country", Country);
-            writer.WriteStringValue("label", Label);
-            writer.WriteStringValue("place_id", PlaceId);
-            writer.WriteStringValue("state", State);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1>(null, CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1);
+            }
+            else if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2>(null, CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2);
+            }
         }
     }
 }

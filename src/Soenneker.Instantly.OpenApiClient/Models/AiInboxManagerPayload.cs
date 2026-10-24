@@ -50,10 +50,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of tags to use for AI Agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTagsItem>? Tags { get; set; }
+        public List<string>? Tags { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTagsItem> Tags { get; set; }
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>Array of interest_status values to trigger the agent on</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,7 +102,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "monthly_credit_budget", n => { MonthlyCreditBudget = n.GetDoubleValue(); } },
                 { "no_show", n => { NoShow = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadNoShow>(global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadNoShow.CreateFromDiscriminatorValue); } },
                 { "respond_to_automatic_emails", n => { RespondToAutomaticEmails = n.GetBoolValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTagsItem>(global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTagsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "trigger_on_labels", n => { TriggerOnLabels = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "trigger_on_labels_enabled", n => { TriggerOnLabelsEnabled = n.GetBoolValue(); } },
                 { "trigger_on_labels_mode", n => { TriggerOnLabelsMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTriggerOnLabelsMode>(); } },
@@ -125,7 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("monthly_credit_budget", MonthlyCreditBudget);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadNoShow>("no_show", NoShow);
             writer.WriteBoolValue("respond_to_automatic_emails", RespondToAutomaticEmails);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTagsItem>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteCollectionOfPrimitiveValues<double?>("trigger_on_labels", TriggerOnLabels);
             writer.WriteBoolValue("trigger_on_labels_enabled", TriggerOnLabelsEnabled);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManagerPayloadTriggerOnLabelsMode>("trigger_on_labels_mode", TriggerOnLabelsMode);

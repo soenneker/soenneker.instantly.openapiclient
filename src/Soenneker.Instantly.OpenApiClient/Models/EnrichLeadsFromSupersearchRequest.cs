@@ -71,10 +71,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Signal categories to enrich. Accepts the legacy plain-string form and the richer per-signal form with a freshness window and optional keyword filter. Matching signal records are fetched for the lead and written into the lead payload under the signal_category key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem>? SignalEnrichment { get; set; }
+        public List<string>? SignalEnrichment { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem> SignalEnrichment { get; set; }
+        public List<string> SignalEnrichment { get; set; }
 #endif
         /// <summary>Whether to skip leads without email</summary>
         public bool? SkipRowsWithoutEmail { get; set; }
@@ -114,7 +114,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters.CreateFromDiscriminatorValue); } },
                 { "search_name", n => { SearchName = n.GetStringValue(); } },
-                { "signal_enrichment", n => { SignalEnrichment = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem>(global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "signal_enrichment", n => { SignalEnrichment = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
                 { "work_email_enrichment", n => { WorkEmailEnrichment = n.GetBoolValue(); } },
             };
@@ -135,7 +135,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSearchFilters>("search_filters", SearchFilters);
             writer.WriteStringValue("search_name", SearchName);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.EnrichLeadsFromSupersearchRequestSignalEnrichmentItem>("signal_enrichment", SignalEnrichment);
+            writer.WriteCollectionOfPrimitiveValues<string>("signal_enrichment", SignalEnrichment);
             writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
             writer.WriteBoolValue("work_email_enrichment", WorkEmailEnrichment);
             writer.WriteAdditionalData(AdditionalData);

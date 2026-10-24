@@ -28,10 +28,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Sanitized metadata about the audit log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty? AuditMetadata { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty? AuditMetadata { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty AuditMetadata { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty AuditMetadata { get; private set; }
 #endif
         /// <summary>Associated campaign ID if applicable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -160,7 +160,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AuditLogAuditMetadataProperty>("audit_metadata", AuditMetadata);
         }
     }
 }

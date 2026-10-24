@@ -8,19 +8,13 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterBranch1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToggleTagResourceRequestFilter : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterBranch1? ToggleTagResourceRequestFilterBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterBranch1 ToggleTagResourceRequestFilterBranch1 { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf1"/></summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf1? ToggleTagResourceRequestFilterOneOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,9 +33,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilter();
-            if("ToggleTagResourceRequestFilterBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf1>() is global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf1 toggleTagResourceRequestFilterOneOf1Value)
             {
-                result.ToggleTagResourceRequestFilterBranch1 = new global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterBranch1();
+                result.ToggleTagResourceRequestFilterOneOf1 = toggleTagResourceRequestFilterOneOf1Value;
             }
             else if("ToggleTagResourceRequestFilterOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -55,11 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ToggleTagResourceRequestFilterBranch1 != null)
-            {
-                return ToggleTagResourceRequestFilterBranch1.GetFieldDeserializers();
-            }
-            else if(ToggleTagResourceRequestFilterOneOf2 != null)
+            if(ToggleTagResourceRequestFilterOneOf2 != null)
             {
                 return ToggleTagResourceRequestFilterOneOf2.GetFieldDeserializers();
             }
@@ -72,9 +62,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ToggleTagResourceRequestFilterBranch1 != null)
+            if(ToggleTagResourceRequestFilterOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterBranch1>(null, ToggleTagResourceRequestFilterBranch1);
+                writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf1>(null, ToggleTagResourceRequestFilterOneOf1);
             }
             else if(ToggleTagResourceRequestFilterOneOf2 != null)
             {

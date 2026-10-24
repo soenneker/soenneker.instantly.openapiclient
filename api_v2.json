@@ -97030,6 +97030,14 @@
                       "description": "Whether the enrichment exists",
                       "example": true
                     },
+                    "last_run_started_at": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "description": "When the most recent enrichment job on this resource was queued. \u0060null\u0060 when it never ran.",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
                     "enrichment_payload": {
                       "type": "object",
                       "description": "Enrichment types",

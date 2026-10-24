@@ -9,29 +9,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DeleteCampaign200Response : IAdditionalDataHolder, IParsable
+    public partial class DeleteCampaign200Response : global::Soenneker.Instantly.OpenApiClient.Models.Campaign, IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>AI Sales Agent ID that created this campaign</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AiSdrId { get; set; }
-#nullable restore
-#else
-        public string AiSdrId { get; set; }
-#endif
-        /// <summary>Whether to allow risky contacts</summary>
-        public bool? AllowRiskyContacts { get; set; }
-        /// <summary>Auto variant select settings</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect? AutoVariantSelect { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect AutoVariantSelect { get; set; }
-#endif
         /// <summary>Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with `GET /background-jobs/:id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,184 +22,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string BackgroundJobId { get; set; }
 #endif
-        /// <summary>List of accounts to BCC on emails</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? BccList { get; set; }
-#nullable restore
-#else
-        public List<string> BccList { get; set; }
-#endif
-        /// <summary>Campaign schedule</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule? CampaignSchedule { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule CampaignSchedule { get; set; }
-#endif
-        /// <summary>List of accounts to CC on emails</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? CcList { get; set; }
-#nullable restore
-#else
-        public List<string> CcList { get; set; }
-#endif
-        /// <summary>Campaign core variables</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCoreVariables? CoreVariables { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCoreVariables CoreVariables { get; set; }
-#endif
-        /// <summary>ID of the user who created the campaign</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedBy { get; private set; }
-#nullable restore
-#else
-        public string CreatedBy { get; private set; }
-#endif
-        /// <summary>Campaign custom variables</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCustomVariables? CustomVariables { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCustomVariables CustomVariables { get; set; }
-#endif
-        /// <summary>The daily limit for sending emails</summary>
-        public double? DailyLimit { get; set; }
-        /// <summary>The daily maximum new leads to contact</summary>
-        public int? DailyMaxLeads { get; set; }
-        /// <summary>Whether to disable bounce protection</summary>
-        public bool? DisableBounceProtect { get; set; }
-        /// <summary>The gap between emails in minutes</summary>
-        public double? EmailGap { get; set; }
-        /// <summary>List of accounts to use for sending emails</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? EmailList { get; set; }
-#nullable restore
-#else
-        public List<string> EmailList { get; set; }
-#endif
-        /// <summary>List of tags to use for sending emails</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? EmailTagList { get; set; }
-#nullable restore
-#else
-        public List<string> EmailTagList { get; set; }
-#endif
-        /// <summary>Whether the campaign is send the first email as a text only</summary>
-        public bool? FirstEmailTextOnly { get; set; }
-        /// <summary>Unique identifier for the campaign</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; private set; }
-#nullable restore
-#else
-        public string Id { get; private set; }
-#endif
-        /// <summary>Whether to insert an unsubscribe header in emails</summary>
-        public bool? InsertUnsubscribeHeader { get; set; }
-        /// <summary>Whether the campaign is evergreen</summary>
-        public bool? IsEvergreen { get; set; }
-        /// <summary>Overrides the workspace-wide limit emails per company setting for this campaign.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride? LimitEmailsPerCompanyOverride { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride LimitEmailsPerCompanyOverride { get; set; }
-#endif
-        /// <summary>Whether to track links in emails</summary>
-        public bool? LinkTracking { get; set; }
-        /// <summary>Whether to match leads by ESP</summary>
-        public bool? MatchLeadEsp { get; set; }
-        /// <summary>Name of the campaign</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
-        /// <summary>Campaign not sending status</summary>
-        public double? NotSendingStatus { get; private set; }
-        /// <summary>Whether to track opens in emails</summary>
-        public bool? OpenTracking { get; set; }
-        /// <summary>Organization ID</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Organization { get; private set; }
-#nullable restore
-#else
-        public string Organization { get; private set; }
-#endif
-        /// <summary>Owner ID</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OwnedBy { get; set; }
-#nullable restore
-#else
-        public string OwnedBy { get; set; }
-#endif
-        /// <summary>Value of every positive lead</summary>
-        public double? PlValue { get; set; }
-        /// <summary>Whether to prioritize new leads</summary>
-        public bool? PrioritizeNewLeads { get; set; }
-        /// <summary>Auto variant select settings</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem>? ProviderRoutingRules { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem> ProviderRoutingRules { get; set; }
-#endif
-        /// <summary>The maximum random wait time in minutes</summary>
-        public double? RandomWaitMax { get; set; }
-        /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItem>? Sequences { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItem> Sequences { get; set; }
-#endif
-        /// <summary>Campaign Status</summary>
-        public double? Status { get; private set; }
-        /// <summary>Whether to stop the campaign for the entire company(domain) when a lead replies</summary>
-        public bool? StopForCompany { get; set; }
-        /// <summary>Whether to stop the campaign on auto reply</summary>
-        public bool? StopOnAutoReply { get; set; }
-        /// <summary>Whether to stop the campaign on reply</summary>
-        public bool? StopOnReply { get; set; }
-        /// <summary>Whether the campaign is text only</summary>
-        public bool? TextOnly { get; set; }
-        /// <summary>Timestamp when the campaign was created</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TimestampCreated { get; private set; }
-#nullable restore
-#else
-        public string TimestampCreated { get; private set; }
-#endif
-        /// <summary>Timestamp when the campaign was last updated</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TimestampUpdated { get; private set; }
-#nullable restore
-#else
-        public string TimestampUpdated { get; private set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response"/> and sets the default values.
         /// </summary>
-        public DeleteCampaign200Response()
+        public DeleteCampaign200Response() : base()
         {
             AdditionalData = new Dictionary<string, object>();
         }
@@ -226,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response();
@@ -235,92 +43,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "ai_sdr_id", n => { AiSdrId = n.GetStringValue(); } },
-                { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
-                { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "background_job_id", n => { BackgroundJobId = n.GetStringValue(); } },
-                { "bcc_list", n => { BccList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "campaign_schedule", n => { CampaignSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule.CreateFromDiscriminatorValue); } },
-                { "cc_list", n => { CcList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "core_variables", n => { CoreVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCoreVariables>(global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCoreVariables.CreateFromDiscriminatorValue); } },
-                { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "custom_variables", n => { CustomVariables = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCustomVariables>(global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCustomVariables.CreateFromDiscriminatorValue); } },
-                { "daily_limit", n => { DailyLimit = n.GetDoubleValue(); } },
-                { "daily_max_leads", n => { DailyMaxLeads = n.GetIntValue(); } },
-                { "disable_bounce_protect", n => { DisableBounceProtect = n.GetBoolValue(); } },
-                { "email_gap", n => { EmailGap = n.GetDoubleValue(); } },
-                { "email_list", n => { EmailList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "email_tag_list", n => { EmailTagList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "first_email_text_only", n => { FirstEmailTextOnly = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "insert_unsubscribe_header", n => { InsertUnsubscribeHeader = n.GetBoolValue(); } },
-                { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
-                { "limit_emails_per_company_override", n => { LimitEmailsPerCompanyOverride = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride.CreateFromDiscriminatorValue); } },
-                { "link_tracking", n => { LinkTracking = n.GetBoolValue(); } },
-                { "match_lead_esp", n => { MatchLeadEsp = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "not_sending_status", n => { NotSendingStatus = n.GetDoubleValue(); } },
-                { "open_tracking", n => { OpenTracking = n.GetBoolValue(); } },
-                { "organization", n => { Organization = n.GetStringValue(); } },
-                { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
-                { "pl_value", n => { PlValue = n.GetDoubleValue(); } },
-                { "prioritize_new_leads", n => { PrioritizeNewLeads = n.GetBoolValue(); } },
-                { "provider_routing_rules", n => { ProviderRoutingRules = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "random_wait_max", n => { RandomWaitMax = n.GetDoubleValue(); } },
-                { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetDoubleValue(); } },
-                { "stop_for_company", n => { StopForCompany = n.GetBoolValue(); } },
-                { "stop_on_auto_reply", n => { StopOnAutoReply = n.GetBoolValue(); } },
-                { "stop_on_reply", n => { StopOnReply = n.GetBoolValue(); } },
-                { "text_only", n => { TextOnly = n.GetBoolValue(); } },
-                { "timestamp_created", n => { TimestampCreated = n.GetStringValue(); } },
-                { "timestamp_updated", n => { TimestampUpdated = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer)
+        public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("ai_sdr_id", AiSdrId);
-            writer.WriteBoolValue("allow_risky_contacts", AllowRiskyContacts);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignAutoVariantSelect>("auto_variant_select", AutoVariantSelect);
+            base.Serialize(writer);
             writer.WriteStringValue("background_job_id", BackgroundJobId);
-            writer.WriteCollectionOfPrimitiveValues<string>("bcc_list", BccList);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignCampaignSchedule>("campaign_schedule", CampaignSchedule);
-            writer.WriteCollectionOfPrimitiveValues<string>("cc_list", CcList);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCoreVariables>("core_variables", CoreVariables);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200ResponseCustomVariables>("custom_variables", CustomVariables);
-            writer.WriteDoubleValue("daily_limit", DailyLimit);
-            writer.WriteIntValue("daily_max_leads", DailyMaxLeads);
-            writer.WriteBoolValue("disable_bounce_protect", DisableBounceProtect);
-            writer.WriteDoubleValue("email_gap", EmailGap);
-            writer.WriteCollectionOfPrimitiveValues<string>("email_list", EmailList);
-            writer.WriteCollectionOfPrimitiveValues<string>("email_tag_list", EmailTagList);
-            writer.WriteBoolValue("first_email_text_only", FirstEmailTextOnly);
-            writer.WriteBoolValue("insert_unsubscribe_header", InsertUnsubscribeHeader);
-            writer.WriteBoolValue("is_evergreen", IsEvergreen);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignLimitEmailsPerCompanyOverride>("limit_emails_per_company_override", LimitEmailsPerCompanyOverride);
-            writer.WriteBoolValue("link_tracking", LinkTracking);
-            writer.WriteBoolValue("match_lead_esp", MatchLeadEsp);
-            writer.WriteStringValue("name", Name);
-            writer.WriteBoolValue("open_tracking", OpenTracking);
-            writer.WriteStringValue("owned_by", OwnedBy);
-            writer.WriteDoubleValue("pl_value", PlValue);
-            writer.WriteBoolValue("prioritize_new_leads", PrioritizeNewLeads);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItem>("provider_routing_rules", ProviderRoutingRules);
-            writer.WriteDoubleValue("random_wait_max", RandomWaitMax);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItem>("sequences", Sequences);
-            writer.WriteBoolValue("stop_for_company", StopForCompany);
-            writer.WriteBoolValue("stop_on_auto_reply", StopOnAutoReply);
-            writer.WriteBoolValue("stop_on_reply", StopOnReply);
-            writer.WriteBoolValue("text_only", TextOnly);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
