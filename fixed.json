@@ -63918,14 +63918,6 @@
           {
             "not": {
               "required": [
-                "funding_type",
-                "fundingType"
-              ]
-            }
-          },
-          {
-            "not": {
-              "required": [
                 "location_mode",
                 "locationMode"
               ]
@@ -64124,19 +64116,17 @@
               "country": "United States"
             }
           ]
+        },
+        "not": {
+          "required": [
+            "funding_type",
+            "fundingType"
+          ]
         }
       },
       "CreateLeadFinderAgentRequestFallbackSearchFilters": {
         "type": "object",
         "allOf": [
-          {
-            "not": {
-              "required": [
-                "funding_type",
-                "fundingType"
-              ]
-            }
-          },
           {
             "not": {
               "required": [
@@ -64338,19 +64328,17 @@
               "country": "United States"
             }
           ]
+        },
+        "not": {
+          "required": [
+            "funding_type",
+            "fundingType"
+          ]
         }
       },
       "UpdateLeadFinderAgentRequestSearchFilters": {
         "type": "object",
         "allOf": [
-          {
-            "not": {
-              "required": [
-                "funding_type",
-                "fundingType"
-              ]
-            }
-          },
           {
             "not": {
               "required": [
@@ -64551,6 +64539,12 @@
             {
               "country": "United States"
             }
+          ]
+        },
+        "not": {
+          "required": [
+            "funding_type",
+            "fundingType"
           ]
         }
       },
