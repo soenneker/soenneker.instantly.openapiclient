@@ -74643,6 +74643,100 @@
                         },
                         "additionalProperties": false
                       },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
                       "look_alike": {
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -76469,6 +76563,100 @@
                               "example": "Amazon"
                             },
                             "description": "Companies of the lead to exclude in the search"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
                           }
                         },
                         "additionalProperties": false
@@ -78947,6 +79135,100 @@
                         },
                         "additionalProperties": false
                       },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
                       "look_alike": {
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -80836,6 +81118,113 @@
                                   "example": "Amazon"
                                 },
                                 "description": "Companies of the lead to exclude in the search"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "businessType": {
+                            "type": "object",
+                            "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                            "properties": {
+                              "include": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "agency",
+                                    "software_saas",
+                                    "it_services",
+                                    "consulting",
+                                    "staffing_recruiting",
+                                    "manufacturer"
+                                  ],
+                                  "x-enumDescriptions": {
+                                    "agency": "Agency (marketing / creative)",
+                                    "software_saas": "SaaS / software",
+                                    "it_services": "IT services / MSP",
+                                    "consulting": "Consulting",
+                                    "staffing_recruiting": "Staffing \u0026 recruiting",
+                                    "manufacturer": "Manufacturer"
+                                  },
+                                  "examples": [
+                                    "agency",
+                                    "software_saas"
+                                  ],
+                                  "example": "agency"
+                                },
+                                "description": "Business types of the lead company to include in the search"
+                              },
+                              "exclude": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "agency",
+                                    "software_saas",
+                                    "it_services",
+                                    "consulting",
+                                    "staffing_recruiting",
+                                    "manufacturer"
+                                  ],
+                                  "x-enumDescriptions": {
+                                    "agency": "Agency (marketing / creative)",
+                                    "software_saas": "SaaS / software",
+                                    "it_services": "IT services / MSP",
+                                    "consulting": "Consulting",
+                                    "staffing_recruiting": "Staffing \u0026 recruiting",
+                                    "manufacturer": "Manufacturer"
+                                  },
+                                  "examples": [
+                                    "staffing_recruiting"
+                                  ],
+                                  "example": "staffing_recruiting"
+                                },
+                                "description": "Business types of the lead company to exclude from the search"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "customerType": {
+                            "type": "object",
+                            "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                            "properties": {
+                              "include": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "b2b",
+                                    "b2c"
+                                  ],
+                                  "x-enumDescriptions": {
+                                    "b2b": "B2B (sells to businesses)",
+                                    "b2c": "B2C (sells to consumers)"
+                                  },
+                                  "examples": [
+                                    "b2b"
+                                  ],
+                                  "example": "b2b"
+                                },
+                                "description": "Customer types of the lead company to include in the search"
+                              },
+                              "exclude": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "b2b",
+                                    "b2c"
+                                  ],
+                                  "x-enumDescriptions": {
+                                    "b2b": "B2B (sells to businesses)",
+                                    "b2c": "B2C (sells to consumers)"
+                                  },
+                                  "examples": [
+                                    "b2c"
+                                  ],
+                                  "example": "b2c"
+                                },
+                                "description": "Customer types of the lead company to exclude from the search"
                               }
                             },
                             "additionalProperties": false
@@ -95162,14 +95551,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "name",
-                  "provider_id",
-                  "company_source_id",
-                  "filters",
-                  "limit"
-                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -95207,7 +95588,15 @@
                     "maximum": 65536,
                     "example": 10000
                   }
-                }
+                },
+                "required": [
+                  "name",
+                  "provider_id",
+                  "company_source_id",
+                  "filters",
+                  "limit"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -95220,11 +95609,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "id",
-                    "status"
-                  ],
                   "properties": {
                     "id": {
                       "type": "string",
@@ -95237,7 +95621,12 @@
                       ],
                       "example": "PENDING"
                     }
-                  }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -98722,6 +99111,98 @@
                           }
                         }
                       },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
                       "look_alike": {
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -101341,6 +101822,98 @@
                           }
                         }
                       },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
                       "look_alike": {
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -103357,6 +103930,98 @@
                               "example": "Amazon"
                             },
                             "description": "Companies of the lead to exclude in the search"
+                          }
+                        }
+                      },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
                           }
                         }
                       },
@@ -106583,6 +107248,98 @@
                           }
                         }
                       },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
                       "look_alike": {
                         "type": "string",
                         "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -108907,6 +109664,98 @@
                               "example": "Amazon"
                             },
                             "description": "Companies of the lead to exclude in the search"
+                          }
+                        }
+                      },
+                      "businessType": {
+                        "type": "object",
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "agency"
+                            },
+                            "description": "Business types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "agency",
+                                "software_saas",
+                                "it_services",
+                                "consulting",
+                                "staffing_recruiting",
+                                "manufacturer"
+                              ],
+                              "x-enumDescriptions": {
+                                "agency": "Agency (marketing / creative)",
+                                "software_saas": "SaaS / software",
+                                "it_services": "IT services / MSP",
+                                "consulting": "Consulting",
+                                "staffing_recruiting": "Staffing \u0026 recruiting",
+                                "manufacturer": "Manufacturer"
+                              },
+                              "example": "staffing_recruiting"
+                            },
+                            "description": "Business types of the lead company to exclude from the search"
+                          }
+                        }
+                      },
+                      "customerType": {
+                        "type": "object",
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
+                        "properties": {
+                          "include": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2b"
+                            },
+                            "description": "Customer types of the lead company to include in the search"
+                          },
+                          "exclude": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "b2b",
+                                "b2c"
+                              ],
+                              "x-enumDescriptions": {
+                                "b2b": "B2B (sells to businesses)",
+                                "b2c": "B2C (sells to consumers)"
+                              },
+                              "example": "b2c"
+                            },
+                            "description": "Customer types of the lead company to exclude from the search"
                           }
                         }
                       },

@@ -64012,6 +64012,12 @@
           "company_name": {
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersCompanyName"
           },
+          "businessType": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersCustomerType"
+          },
           "look_alike": {
             "type": "string",
             "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -64224,6 +64230,12 @@
           "company_name": {
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersCompanyName"
           },
+          "businessType": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerType"
+          },
           "look_alike": {
             "type": "string",
             "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -64435,6 +64447,12 @@
           },
           "company_name": {
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersCustomerType"
           },
           "look_alike": {
             "type": "string",
@@ -64673,6 +64691,12 @@
           },
           "company_name": {
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerType"
           },
           "look_alike": {
             "examples": [
@@ -75553,6 +75577,12 @@
           "company_name": {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersCompanyName"
           },
+          "businessType": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersCustomerType"
+          },
           "look_alike": {
             "type": "string",
             "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -75758,6 +75788,12 @@
           "company_name": {
             "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersCompanyName"
           },
+          "businessType": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersCustomerType"
+          },
           "look_alike": {
             "type": "string",
             "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -75918,6 +75954,12 @@
           },
           "company_name": {
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType"
           },
           "look_alike": {
             "type": "string",
@@ -76234,6 +76276,12 @@
           "company_name": {
             "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersCompanyName"
           },
+          "businessType": {
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersCustomerType"
+          },
           "look_alike": {
             "type": "string",
             "description": "If set, the lead finder will find companies that are similar to the look-alike domain",
@@ -76434,6 +76482,12 @@
           },
           "company_name": {
             "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersCustomerType"
           },
           "look_alike": {
             "type": "string",
@@ -77712,6 +77766,48 @@
         },
         "additionalProperties": false
       },
+      "CreateLeadFinderAgentRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
+      },
       "CreateLeadFinderAgentRequestSearchFiltersKeywordFilter": {
         "type": "object",
         "properties": {
@@ -77818,6 +77914,48 @@
         },
         "additionalProperties": false
       },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
+      },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersKeywordFilter": {
         "type": "object",
         "properties": {
@@ -77923,6 +78061,48 @@
           }
         },
         "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
       },
       "UpdateLeadFinderAgentRequestSearchFiltersKeywordFilter": {
         "type": "object",
@@ -78049,6 +78229,48 @@
           }
         },
         "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
       },
       "UpdateLeadFinderAgentRequestFallbackSearchFiltersKeywordFilter": {
         "type": "object",
@@ -82308,6 +82530,46 @@
           }
         }
       },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersKeywordFilter": {
         "type": "object",
         "properties": {
@@ -82409,6 +82671,46 @@
           }
         }
       },
+      "CountLeadsFromSupersearchRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
+      },
       "CountLeadsFromSupersearchRequestSearchFiltersKeywordFilter": {
         "type": "object",
         "properties": {
@@ -82509,6 +82811,46 @@
             "description": "Companies of the lead to exclude in the search"
           }
         }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter": {
         "type": "object",
@@ -82664,6 +83006,46 @@
           }
         }
       },
+      "CreateSavedSearchRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "CreateSavedSearchRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
+      },
       "CreateSavedSearchRequestSearchFiltersKeywordFilter": {
         "type": "object",
         "properties": {
@@ -82764,6 +83146,46 @@
             "description": "Companies of the lead to exclude in the search"
           }
         }
+      },
+      "UpdateSavedSearchRequestSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersBusinessTypeIncludeItem"
+            },
+            "description": "Business types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersBusinessTypeExcludeItem"
+            },
+            "description": "Business types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
+      },
+      "UpdateSavedSearchRequestSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersCustomerTypeIncludeItem"
+            },
+            "description": "Customer types of the lead company to include in the search"
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersCustomerTypeExcludeItem"
+            },
+            "description": "Customer types of the lead company to exclude from the search"
+          }
+        },
+        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
       },
       "UpdateSavedSearchRequestSearchFiltersKeywordFilter": {
         "type": "object",
@@ -116985,6 +117407,158 @@
           ]
         }
       },
+      "CreateLeadFinderAgentRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
       "CreateLeadFinderAgentRequestSearchFiltersKeywordFilterIncludeMode": {
         "enum": [
           "ANY",
@@ -118690,6 +119264,158 @@
           ]
         }
       },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersKeywordFilterIncludeMode": {
         "enum": [
           "ANY",
@@ -120391,6 +121117,158 @@
             {
               "value": "CONTAINS",
               "name": "Contains"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
             }
           ]
         }
@@ -122102,6 +122980,171 @@
             {
               "value": "CONTAINS",
               "name": "Contains"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeIncludeItem": {
+        "examples": [
+          "agency",
+          "software_saas"
+        ],
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeExcludeItem": {
+        "examples": [
+          "staffing_recruiting"
+        ],
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestFallbackSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeIncludeItem": {
+        "examples": [
+          "b2b"
+        ],
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeExcludeItem": {
+        "examples": [
+          "b2c"
+        ],
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgentRequestFallbackSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
             }
           ]
         }
@@ -127847,6 +128890,158 @@
           ]
         }
       },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
       "EnrichLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode": {
         "enum": [
           "ANY",
@@ -129552,6 +130747,158 @@
           ]
         }
       },
+      "CountLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
       "CountLeadsFromSupersearchRequestSearchFiltersKeywordFilterIncludeMode": {
         "enum": [
           "ANY",
@@ -131253,6 +132600,158 @@
             {
               "value": "CONTAINS",
               "name": "Contains"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearchRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
             }
           ]
         }
@@ -133031,6 +134530,158 @@
           ]
         }
       },
+      "CreateSavedSearchRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CreateSavedSearchRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearchRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "CreateSavedSearchRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearchRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CreateSavedSearchRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearchRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "CreateSavedSearchRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
       "CreateSavedSearchRequestSearchFiltersKeywordFilterIncludeMode": {
         "enum": [
           "ANY",
@@ -134732,6 +136383,158 @@
             {
               "value": "CONTAINS",
               "name": "Contains"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearchRequestSearchFiltersBusinessTypeIncludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "agency",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "UpdateSavedSearchRequestSearchFiltersBusinessTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearchRequestSearchFiltersBusinessTypeExcludeItem": {
+        "enum": [
+          "agency",
+          "software_saas",
+          "it_services",
+          "consulting",
+          "staffing_recruiting",
+          "manufacturer"
+        ],
+        "type": "string",
+        "example": "staffing_recruiting",
+        "x-enumDescriptions": {
+          "agency": "Agency (marketing / creative)",
+          "software_saas": "SaaS / software",
+          "it_services": "IT services / MSP",
+          "consulting": "Consulting",
+          "staffing_recruiting": "Staffing \u0026 recruiting",
+          "manufacturer": "Manufacturer"
+        },
+        "x-ms-enum": {
+          "name": "UpdateSavedSearchRequestSearchFiltersBusinessTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "agency",
+              "name": "Agency"
+            },
+            {
+              "value": "software_saas",
+              "name": "SoftwareSaas"
+            },
+            {
+              "value": "it_services",
+              "name": "ItServices"
+            },
+            {
+              "value": "consulting",
+              "name": "Consulting"
+            },
+            {
+              "value": "staffing_recruiting",
+              "name": "StaffingRecruiting"
+            },
+            {
+              "value": "manufacturer",
+              "name": "Manufacturer"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearchRequestSearchFiltersCustomerTypeIncludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2b",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "UpdateSavedSearchRequestSearchFiltersCustomerTypeIncludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearchRequestSearchFiltersCustomerTypeExcludeItem": {
+        "enum": [
+          "b2b",
+          "b2c"
+        ],
+        "type": "string",
+        "example": "b2c",
+        "x-enumDescriptions": {
+          "b2b": "B2B (sells to businesses)",
+          "b2c": "B2C (sells to consumers)"
+        },
+        "x-ms-enum": {
+          "name": "UpdateSavedSearchRequestSearchFiltersCustomerTypeExcludeItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "b2b",
+              "name": "B2B"
+            },
+            {
+              "value": "b2c",
+              "name": "B2C"
             }
           ]
         }

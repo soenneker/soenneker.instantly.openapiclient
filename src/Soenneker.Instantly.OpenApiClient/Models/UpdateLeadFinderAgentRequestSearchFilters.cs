@@ -13,6 +13,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateLeadFinderAgentRequestSearchFilters : IParsable
     {
+        /// <summary>Business type of the lead company. Any-of on each side: `include` returns only companies labelled with one of the types, `exclude` drops them and keeps companies with no label.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersBusinessType? BusinessType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersBusinessType BusinessType { get; set; }
+#endif
         /// <summary>Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +36,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCompanyName CompanyName { get; set; }
+#endif
+        /// <summary>Who the lead company sells to. Any-of on each side: `include` returns only companies labelled with one of the values, `exclude` drops them and keeps companies with no label. A company selling to both holds both values, so &quot;B2B only&quot; is include b2b with exclude b2c.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCustomerType? CustomerType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCustomerType CustomerType { get; set; }
 #endif
         /// <summary>The department property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -220,8 +236,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "businessType", n => { BusinessType = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersBusinessType>(global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersBusinessType.CreateFromDiscriminatorValue); } },
                 { "company_list_id", n => { CompanyListId = n.GetStringValue(); } },
                 { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCompanyName>(global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCompanyName.CreateFromDiscriminatorValue); } },
+                { "customerType", n => { CustomerType = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCustomerType>(global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCustomerType.CreateFromDiscriminatorValue); } },
                 { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersDepartmentItem>()?.AsList(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "employeeCount", n => { EmployeeCount = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -257,8 +275,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersBusinessType>("businessType", BusinessType);
             writer.WriteStringValue("company_list_id", CompanyListId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCompanyName>("company_name", CompanyName);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersCustomerType>("customerType", CustomerType);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestSearchFiltersDepartmentItem>("department", Department);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
             writer.WriteCollectionOfPrimitiveValues<string>("employeeCount", EmployeeCount);
