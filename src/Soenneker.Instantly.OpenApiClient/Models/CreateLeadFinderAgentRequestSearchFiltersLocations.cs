@@ -37,15 +37,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocations();
-            if("CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item> createLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item> createLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemValue)
             {
                 result.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item = createLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemValue;
+            }
+            else {
+                result.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2 != null)
             {
-                return CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2>(null, CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2);
-            }
-            else if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item != null)
+            if(CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item>(null, CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1Item);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2>(null, CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2);
             }
         }
     }

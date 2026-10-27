@@ -37,15 +37,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocations();
-            if("CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item> createLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item> createLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemValue)
             {
                 result.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item = createLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemValue;
+            }
+            else {
+                result.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2 != null)
             {
-                return CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2>(null, CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2);
-            }
-            else if(CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item != null)
+            if(CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item>(null, CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1Item);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2>(null, CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2);
             }
         }
     }

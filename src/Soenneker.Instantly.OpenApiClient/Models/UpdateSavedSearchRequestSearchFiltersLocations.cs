@@ -37,15 +37,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocations();
-            if("UpdateSavedSearchRequestSearchFiltersLocationsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item> updateSavedSearchRequestSearchFiltersLocationsOneOf1ItemValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item> updateSavedSearchRequestSearchFiltersLocationsOneOf1ItemValue)
             {
                 result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item = updateSavedSearchRequestSearchFiltersLocationsOneOf1ItemValue;
+            }
+            else {
+                result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2 != null)
             {
-                return UpdateSavedSearchRequestSearchFiltersLocationsOneOf2.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2>(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf2);
-            }
-            else if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item != null)
+            if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item>(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf1Item);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2>(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf2);
             }
         }
     }

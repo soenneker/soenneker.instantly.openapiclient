@@ -63,6 +63,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberPermissionsItem?> Permissions { get; set; }
 #endif
+        /// <summary>URL of the profile picture the user uploaded, if any. Returned when listing workspace members.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PictureUrl { get; private set; }
+#nullable restore
+#else
+        public string PictureUrl { get; private set; }
+#endif
         /// <summary>THe role of the workspace member defining their access level. While the &quot;owner&quot; role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberRole? Role { get; set; }
         /// <summary>Timestamp when the workspace member was created</summary>
@@ -116,6 +124,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "name", n => { Name = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName>(global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberName.CreateFromDiscriminatorValue); } },
                 { "nickname", n => { Nickname = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberPermissionsItem>()?.AsList(); } },
+                { "picture_url", n => { PictureUrl = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceMemberRole>(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "user_email", n => { UserEmail = n.GetStringValue(); } },

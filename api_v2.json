@@ -6482,6 +6482,15 @@
               }
             }
           },
+          "picture_url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "URL of the profile picture the user uploaded, if any. Returned when listing workspace members.",
+            "readOnly": true,
+            "example": "https://example.com/profile-picture.png"
+          },
           "role": {
             "type": "string",
             "description": "THe role of the workspace member defining their access level. While the \u0022owner\u0022 role is listed in the enum, it cannot be created via the API, and is only assigned to the user who creates the workspace.",

@@ -37,15 +37,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations();
-            if("PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item> previewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item> previewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemValue)
             {
                 result.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item = previewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemValue;
+            }
+            else {
+                result.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 = new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 != null)
             {
-                return PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2>(null, PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2);
-            }
-            else if(PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item != null)
+            if(PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item>(null, PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1Item);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2>(null, PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2);
             }
         }
     }

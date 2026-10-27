@@ -25316,6 +25316,15 @@
           "name": {
             "$ref": "#/components/schemas/WorkspaceMemberName"
           },
+          "picture_url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "URL of the profile picture the user uploaded, if any. Returned when listing workspace members.",
+            "readOnly": true,
+            "example": "https://example.com/profile-picture.png"
+          },
           "role": {
             "$ref": "#/components/schemas/WorkspaceMemberRole"
           },
@@ -64921,7 +64930,7 @@
         ]
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -64981,7 +64990,7 @@
         ]
       },
       "CountLeadsFromSupersearchRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65031,7 +65040,7 @@
         ]
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65094,7 +65103,7 @@
         ]
       },
       "CreateSavedSearchRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65144,7 +65153,7 @@
         ]
       },
       "UpdateSavedSearchRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65300,7 +65309,7 @@
         "additionalProperties": false
       },
       "CreateLeadFinderAgentRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65350,7 +65359,7 @@
         ]
       },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65400,7 +65409,7 @@
         ]
       },
       "UpdateLeadFinderAgentRequestSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -65450,7 +65459,7 @@
         ]
       },
       "UpdateLeadFinderAgentRequestFallbackSearchFiltersLocations": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -67558,7 +67567,7 @@
         }
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -67572,12 +67581,12 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
       "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -67591,7 +67600,7 @@
             "description": "Legacy flat list (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -67732,7 +67741,7 @@
         }
       },
       "CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -67746,7 +67755,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -67887,7 +67896,7 @@
         }
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -67901,7 +67910,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -68042,7 +68051,7 @@
         }
       },
       "CreateSavedSearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -68056,7 +68065,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -68197,7 +68206,7 @@
         }
       },
       "UpdateSavedSearchRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -68211,7 +68220,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -68352,7 +68361,7 @@
         }
       },
       "CreateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -68366,7 +68375,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -68507,7 +68516,7 @@
         }
       },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -68521,7 +68530,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -68662,7 +68671,7 @@
         }
       },
       "UpdateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -68676,7 +68685,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -68817,7 +68826,7 @@
         }
       },
       "UpdateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2Keywords": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "array",
             "items": {
@@ -68831,7 +68840,7 @@
             "description": "Legacy flat list of keyword tokens (OR-matched across every keyword index field for the category)."
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsOneOf2"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsAnyOf2"
           }
         ]
       },
@@ -140954,7 +140963,7 @@
           ]
         }
       },
-      "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -140969,7 +140978,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2KeywordsOneOf2": {
+      "EnrichLeadsFromSupersearchRequestSignalEnrichmentItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -140984,7 +140993,7 @@
         },
         "description": "Per-field map: each property is a keyword index field; tokens within a field are OR-matched, and fields act as additional filters (records must hit at least one token per selected field). Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -140999,7 +141008,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -141014,7 +141023,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "CreateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "CreateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -141029,7 +141038,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "UpdateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "UpdateSavedSearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -141044,7 +141053,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "CreateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "CreateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -141059,7 +141068,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -141074,7 +141083,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "UpdateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "UpdateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
@@ -141089,7 +141098,7 @@
         },
         "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
       },
-      "UpdateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsOneOf2": {
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
         "additionalProperties": {
           "type": "array",
