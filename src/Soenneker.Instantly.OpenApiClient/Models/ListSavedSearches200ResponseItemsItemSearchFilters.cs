@@ -15,6 +15,192 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The businessType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType? BusinessType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType BusinessType { get; set; }
+#endif
+        /// <summary>The company_list_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompanyListId { get; set; }
+#nullable restore
+#else
+        public string CompanyListId { get; set; }
+#endif
+        /// <summary>The company_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName? CompanyName { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName CompanyName { get; set; }
+#endif
+        /// <summary>The customerType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType? CustomerType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType CustomerType { get; set; }
+#endif
+        /// <summary>The department property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem?>? Department { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem?> Department { get; set; }
+#endif
+        /// <summary>The domains property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Domains { get; set; }
+#nullable restore
+#else
+        public List<string> Domains { get; set; }
+#endif
+        /// <summary>The employeeCount property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem>? EmployeeCount { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem> EmployeeCount { get; set; }
+#endif
+        /// <summary>The exclude_never_responders property</summary>
+        public bool? ExcludeNeverResponders { get; set; }
+        /// <summary>The exclude_oversaturated property</summary>
+        public bool? ExcludeOversaturated { get; set; }
+        /// <summary>The fundingType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FundingType { get; set; }
+#nullable restore
+#else
+        public List<string> FundingType { get; set; }
+#endif
+        /// <summary>The has_replied_to_cold_email property</summary>
+        public bool? HasRepliedToColdEmail { get; set; }
+        /// <summary>The industry property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersIndustry? Industry { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersIndustry Industry { get; set; }
+#endif
+        /// <summary>The jobListingFilter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobListingFilter { get; set; }
+#nullable restore
+#else
+        public List<string> JobListingFilter { get; set; }
+#endif
+        /// <summary>The keyword_filter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter? KeywordFilter { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter KeywordFilter { get; set; }
+#endif
+        /// <summary>The level property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem?>? Level { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem?> Level { get; set; }
+#endif
+        /// <summary>The locationMode property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocationMode? LocationMode { get; set; }
+        /// <summary>The locations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocations? Locations { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocations Locations { get; set; }
+#endif
+        /// <summary>The lookAlike property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LookAlike { get; set; }
+#nullable restore
+#else
+        public string LookAlike { get; set; }
+#endif
+        /// <summary>The lookAlikeMode property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLookAlikeMode? LookAlikeMode { get; set; }
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Name { get; set; }
+#nullable restore
+#else
+        public List<string> Name { get; set; }
+#endif
+        /// <summary>The never_been_emailed property</summary>
+        public bool? NeverBeenEmailed { get; set; }
+        /// <summary>The news property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? News { get; set; }
+#nullable restore
+#else
+        public List<string> News { get; set; }
+#endif
+        /// <summary>The revenue property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Revenue { get; set; }
+#nullable restore
+#else
+        public List<string> Revenue { get; set; }
+#endif
+        /// <summary>The show_one_lead_per_company property</summary>
+        public bool? ShowOneLeadPerCompany { get; set; }
+        /// <summary>The signals property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem>? Signals { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem> Signals { get; set; }
+#endif
+        /// <summary>The skip_owned_leads property</summary>
+        public bool? SkipOwnedLeads { get; set; }
+        /// <summary>The subIndustry property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry? SubIndustry { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry SubIndustry { get; set; }
+#endif
+        /// <summary>The technologies property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Technologies { get; set; }
+#nullable restore
+#else
+        public List<string> Technologies { get; set; }
+#endif
+        /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersTitle? Title { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersTitle Title { get; set; }
+#endif
+        /// <summary>The website_visitors property</summary>
+        public bool? WebsiteVisitors { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFilters"/> and sets the default values.
         /// </summary>
@@ -40,6 +226,36 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "businessType", n => { BusinessType = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType.CreateFromDiscriminatorValue); } },
+                { "company_list_id", n => { CompanyListId = n.GetStringValue(); } },
+                { "company_name", n => { CompanyName = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName.CreateFromDiscriminatorValue); } },
+                { "customerType", n => { CustomerType = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType.CreateFromDiscriminatorValue); } },
+                { "department", n => { Department = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem>()?.AsList(); } },
+                { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "employeeCount", n => { EmployeeCount = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "exclude_never_responders", n => { ExcludeNeverResponders = n.GetBoolValue(); } },
+                { "exclude_oversaturated", n => { ExcludeOversaturated = n.GetBoolValue(); } },
+                { "fundingType", n => { FundingType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "has_replied_to_cold_email", n => { HasRepliedToColdEmail = n.GetBoolValue(); } },
+                { "industry", n => { Industry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersIndustry.CreateFromDiscriminatorValue); } },
+                { "jobListingFilter", n => { JobListingFilter = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "keyword_filter", n => { KeywordFilter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter.CreateFromDiscriminatorValue); } },
+                { "level", n => { Level = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem>()?.AsList(); } },
+                { "locationMode", n => { LocationMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocationMode>(); } },
+                { "locations", n => { Locations = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocations>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocations.CreateFromDiscriminatorValue); } },
+                { "lookAlike", n => { LookAlike = n.GetStringValue(); } },
+                { "lookAlikeMode", n => { LookAlikeMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLookAlikeMode>(); } },
+                { "name", n => { Name = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "never_been_emailed", n => { NeverBeenEmailed = n.GetBoolValue(); } },
+                { "news", n => { News = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "revenue", n => { Revenue = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "show_one_lead_per_company", n => { ShowOneLeadPerCompany = n.GetBoolValue(); } },
+                { "signals", n => { Signals = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
+                { "subIndustry", n => { SubIndustry = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry.CreateFromDiscriminatorValue); } },
+                { "technologies", n => { Technologies = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "title", n => { Title = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersTitle>(global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersTitle.CreateFromDiscriminatorValue); } },
+                { "website_visitors", n => { WebsiteVisitors = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +265,36 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType>("businessType", BusinessType);
+            writer.WriteStringValue("company_list_id", CompanyListId);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName>("company_name", CompanyName);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType>("customerType", CustomerType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem>("department", Department);
+            writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem>("employeeCount", EmployeeCount);
+            writer.WriteBoolValue("exclude_never_responders", ExcludeNeverResponders);
+            writer.WriteBoolValue("exclude_oversaturated", ExcludeOversaturated);
+            writer.WriteCollectionOfPrimitiveValues<string>("fundingType", FundingType);
+            writer.WriteBoolValue("has_replied_to_cold_email", HasRepliedToColdEmail);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersIndustry>("industry", Industry);
+            writer.WriteCollectionOfPrimitiveValues<string>("jobListingFilter", JobListingFilter);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter>("keyword_filter", KeywordFilter);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem>("level", Level);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocationMode>("locationMode", LocationMode);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLocations>("locations", Locations);
+            writer.WriteStringValue("lookAlike", LookAlike);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersLookAlikeMode>("lookAlikeMode", LookAlikeMode);
+            writer.WriteCollectionOfPrimitiveValues<string>("name", Name);
+            writer.WriteBoolValue("never_been_emailed", NeverBeenEmailed);
+            writer.WriteCollectionOfPrimitiveValues<string>("news", News);
+            writer.WriteCollectionOfPrimitiveValues<string>("revenue", Revenue);
+            writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem>("signals", Signals);
+            writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry>("subIndustry", SubIndustry);
+            writer.WriteCollectionOfPrimitiveValues<string>("technologies", Technologies);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListSavedSearches200ResponseItemsItemSearchFiltersTitle>("title", Title);
+            writer.WriteBoolValue("website_visitors", WebsiteVisitors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

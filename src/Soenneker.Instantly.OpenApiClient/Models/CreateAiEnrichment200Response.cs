@@ -59,7 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string ResourceId { get; set; }
 #endif
         /// <summary>Type of the resource (1 for Campaign, 2 for List)</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichment200ResponseResourceType? ResourceType { get; set; }
+        public double? ResourceType { get; set; }
         /// <summary>Status of the enrichment job</summary>
         public double? Status { get; set; }
         /// <summary>ID of the prompt template used</summary>
@@ -96,7 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "output_column", n => { OutputColumn = n.GetStringValue(); } },
                 { "overwrite", n => { Overwrite = n.GetBoolValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
-                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichment200ResponseResourceType>(); } },
+                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
                 { "template_id", n => { TemplateId = n.GetStringValue(); } },
             };
@@ -116,7 +116,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("output_column", OutputColumn);
             writer.WriteBoolValue("overwrite", Overwrite);
             writer.WriteStringValue("resource_id", ResourceId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichment200ResponseResourceType>("resource_type", ResourceType);
+            writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteDoubleValue("status", Status);
             writer.WriteStringValue("template_id", TemplateId);
         }

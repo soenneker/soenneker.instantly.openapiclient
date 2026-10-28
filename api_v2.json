@@ -20409,6 +20409,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -21751,6 +21759,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -24348,6 +24364,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -31221,6 +31245,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -31508,6 +31540,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -31895,6 +31935,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -50743,6 +50791,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -62730,6 +62786,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -63026,6 +63090,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -63497,6 +63569,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -63859,6 +63939,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -64489,6 +64577,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -64916,6 +65012,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -65801,6 +65905,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -66097,6 +66209,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -66400,6 +66520,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -66972,6 +67100,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -67296,6 +67432,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -68273,6 +68417,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -69450,6 +69602,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -69746,6 +69906,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -70446,6 +70614,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -71043,6 +71219,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -72067,6 +72251,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -72484,6 +72676,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -72847,6 +73047,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -73395,6 +73603,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -77851,6 +78067,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -82506,6 +82730,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -82859,6 +83091,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -83975,6 +84215,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -88259,6 +88507,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -88880,6 +89136,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -89464,6 +89728,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -90610,6 +90882,14 @@
                       ],
                       "example": 400
                     },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
                     "error": {
                       "type": "string",
                       "enum": [
@@ -90862,6 +91142,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -93809,12 +94097,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "resource_id",
-                  "output_column",
-                  "resource_type",
-                  "model_version"
-                ],
                 "properties": {
                   "resource_id": {
                     "type": "string",
@@ -93823,6 +94105,8 @@
                   },
                   "output_column": {
                     "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200,
                     "description": "Name of the column where the AI enrichment results will be stored",
                     "example": "ai_generated_content"
                   },
@@ -93840,9 +94124,11 @@
                     "example": 2
                   },
                   "input_columns": {
+                    "maxItems": 200,
                     "type": "array",
                     "items": {
                       "type": "string",
+                      "maxLength": 1000,
                       "example": "first_name"
                     },
                     "description": "List of column names to use as input data for the AI enrichment. These are the fields from your leads that will be used to generate content."
@@ -93885,6 +94171,7 @@
                     "example": true
                   },
                   "overwrite": {
+                    "default": false,
                     "type": "boolean",
                     "description": "When true, will overwrite existing values in the output column. When false, only empty fields will be enriched.",
                     "example": false
@@ -93894,20 +94181,16 @@
                     "description": "When true, new leads added to the campaign/list will be automatically enriched using these same settings.",
                     "example": true
                   },
-                  "skip_leads_without_email": {
-                    "type": "boolean",
-                    "description": "When true, leads without an email will be skipped.",
-                    "example": false
-                  },
                   "limit": {
                     "type": "number",
-                    "description": "Maximum number of leads to enrich.",
                     "minimum": 1,
                     "maximum": 1000000,
+                    "description": "Maximum number of leads to enrich.",
                     "example": 100
                   },
                   "prompt": {
                     "type": "string",
+                    "maxLength": 100000,
                     "description": "Custom prompt to guide the AI enrichment. Use {{variables}} to reference input data. Only used when templateId is not provided.",
                     "example": "Write a personalized email to {{first_name}} from {{company_name}} about our new product"
                   },
@@ -93916,28 +94199,92 @@
                     "description": "ID of a predefined AI prompt template to use instead of a custom prompt. Templates are reusable prompt configurations.",
                     "example": "123"
                   },
-                  "status": {
-                    "type": "number",
-                    "enum": [
-                      1,
-                      2,
-                      3,
-                      4
-                    ],
-                    "x-enumDescriptions": {
-                      "1": "Job is pending processing",
-                      "2": "Job is currently being processed",
-                      "3": "Job has been completed successfully",
-                      "4": "Job processing failed"
-                    },
-                    "description": "Status of the job",
-                    "example": 1
-                  },
                   "filters": {
                     "type": "array",
                     "items": {
                       "type": "object",
-                      "properties": {},
+                      "properties": {
+                        "column_name": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "number",
+                          "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            11,
+                            12,
+                            13,
+                            14,
+                            15,
+                            16,
+                            17,
+                            18,
+                            19,
+                            20,
+                            21,
+                            22,
+                            23,
+                            54,
+                            24,
+                            25,
+                            26,
+                            27,
+                            28,
+                            29,
+                            30,
+                            31,
+                            32,
+                            33,
+                            34,
+                            35,
+                            36,
+                            37,
+                            38,
+                            39,
+                            40,
+                            41,
+                            42,
+                            43,
+                            44,
+                            45,
+                            46,
+                            47,
+                            48,
+                            49,
+                            50,
+                            51,
+                            52,
+                            53,
+                            55,
+                            56,
+                            57,
+                            58,
+                            59,
+                            60,
+                            61,
+                            62,
+                            63
+                          ]
+                        },
+                        "value": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "column_name",
+                        "type"
+                      ],
+                      "additionalProperties": false,
                       "description": "Filters to apply to the enrichment",
                       "example": {
                         "column_name": "email",
@@ -93948,7 +94295,14 @@
                       }
                     }
                   }
-                }
+                },
+                "required": [
+                  "resource_id",
+                  "output_column",
+                  "resource_type",
+                  "model_version"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -93974,10 +94328,7 @@
                     },
                     "resource_type": {
                       "type": "number",
-                      "description": "Type of the resource (1 for Campaign, 2 for List)",
                       "enum": [
-                        "CAMPAIGN",
-                        "LIST",
                         1,
                         2
                       ],
@@ -93985,6 +94336,7 @@
                         "1": "Campaign",
                         "2": "List"
                       },
+                      "description": "Type of the resource (1 for Campaign, 2 for List)",
                       "example": 1
                     },
                     "output_column": {
@@ -94041,10 +94393,61 @@
                     "output_column",
                     "status",
                     "model_version",
-                    "overwrite",
-                    "auto_update"
+                    "overwrite"
                   ],
                   "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The body is invalid, or model_version names no selectable model",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "examples": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request",
+                        "Invalid model_version"
+                      ],
+                      "examples": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "body/output_column must NOT have more than 200 characters"
+                      ],
+                      "example": "body/output_column must NOT have more than 200 characters"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }
@@ -94137,8 +94540,52 @@
               }
             }
           },
+          "403": {
+            "description": "The list or campaign is not visible to the caller in this workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "The template does not exist, or is private to another workspace",
             "content": {
               "application/json": {
                 "schema": {
@@ -94157,19 +94604,63 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "Not Found"
+                        "Template not found"
                       ],
                       "examples": [
-                        "Not Found"
+                        "Template not found"
                       ],
-                      "example": "Not Found"
+                      "example": "Template not found"
                     },
                     "message": {
                       "type": "string",
                       "examples": [
-                        "Resource not found"
+                        "Template not found"
                       ],
-                      "example": "Resource not found"
+                      "example": "Template not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "An enrichment job for this output column is already running or scheduled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "examples": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "examples": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "An enrichment job for this column is already running or scheduled. Please wait for it to complete."
+                      ],
+                      "example": "An enrichment job for this column is already running or scheduled. Please wait for it to complete."
                     }
                   },
                   "required": [
@@ -94508,15 +94999,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "recipe_id",
-                      "source_id",
-                      "company_source_id",
-                      "title",
-                      "description",
-                      "prefilled"
-                    ],
                     "properties": {
                       "recipe_id": {
                         "type": "string",
@@ -94542,7 +95024,16 @@
                         "type": "object",
                         "additionalProperties": true
                       }
-                    }
+                    },
+                    "required": [
+                      "recipe_id",
+                      "source_id",
+                      "company_source_id",
+                      "title",
+                      "description",
+                      "prefilled"
+                    ],
+                    "additionalProperties": false
                   }
                 }
               }
@@ -94744,20 +95235,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "provider_id",
-                      "provider_name",
-                      "logo_id",
-                      "company_source_id",
-                      "source_name",
-                      "credential_sources",
-                      "credit_cost_per_saved_record",
-                      "max_records_per_build",
-                      "supports_preview",
-                      "filters",
-                      "recipes"
-                    ],
                     "properties": {
                       "provider_id": {
                         "type": "string",
@@ -94809,12 +95286,6 @@
                         "type": "array",
                         "items": {
                           "type": "object",
-                          "additionalProperties": false,
-                          "required": [
-                            "key",
-                            "label",
-                            "type"
-                          ],
                           "properties": {
                             "key": {
                               "type": "string",
@@ -94868,11 +95339,6 @@
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                  "label",
-                                  "value"
-                                ],
                                 "properties": {
                                   "label": {
                                     "type": "string"
@@ -94890,16 +95356,16 @@
                                       }
                                     ]
                                   }
-                                }
+                                },
+                                "required": [
+                                  "label",
+                                  "value"
+                                ],
+                                "additionalProperties": false
                               }
                             },
                             "options_source": {
                               "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "catalog_id",
-                                "supports_search"
-                              ],
                               "properties": {
                                 "catalog_id": {
                                   "type": "string",
@@ -94915,7 +95381,12 @@
                                     "tree"
                                   ]
                                 }
-                              }
+                              },
+                              "required": [
+                                "catalog_id",
+                                "supports_search"
+                              ],
+                              "additionalProperties": false
                             },
                             "allow_custom": {
                               "type": "boolean"
@@ -94924,10 +95395,6 @@
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                  "label"
-                                ],
                                 "properties": {
                                   "label": {
                                     "type": "string"
@@ -94952,18 +95419,17 @@
                                       }
                                     ]
                                   }
-                                }
+                                },
+                                "required": [
+                                  "label"
+                                ],
+                                "additionalProperties": false
                               }
                             },
                             "threshold_presets": {
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                  "label",
-                                  "value"
-                                ],
                                 "properties": {
                                   "label": {
                                     "type": "string"
@@ -94978,7 +95444,12 @@
                                       }
                                     ]
                                   }
-                                }
+                                },
+                                "required": [
+                                  "label",
+                                  "value"
+                                ],
+                                "additionalProperties": false
                               }
                             },
                             "operators": {
@@ -95004,7 +95475,13 @@
                                 "gte"
                               ]
                             }
-                          }
+                          },
+                          "required": [
+                            "key",
+                            "label",
+                            "type"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "require_any_of": {
@@ -95022,14 +95499,6 @@
                         "type": "array",
                         "items": {
                           "type": "object",
-                          "additionalProperties": false,
-                          "required": [
-                            "recipe_id",
-                            "title",
-                            "description",
-                            "visible_filter_keys",
-                            "prefilled"
-                          ],
                           "properties": {
                             "recipe_id": {
                               "type": "string",
@@ -95053,10 +95522,32 @@
                               "type": "object",
                               "additionalProperties": true
                             }
-                          }
+                          },
+                          "required": [
+                            "recipe_id",
+                            "title",
+                            "description",
+                            "visible_filter_keys",
+                            "prefilled"
+                          ],
+                          "additionalProperties": false
                         }
                       }
-                    }
+                    },
+                    "required": [
+                      "provider_id",
+                      "provider_name",
+                      "logo_id",
+                      "company_source_id",
+                      "source_name",
+                      "credential_sources",
+                      "credit_cost_per_saved_record",
+                      "max_records_per_build",
+                      "supports_preview",
+                      "filters",
+                      "recipes"
+                    ],
+                    "additionalProperties": false
                   }
                 }
               }
@@ -95273,10 +95764,10 @@
           },
           {
             "schema": {
+              "default": 100,
               "type": "integer",
               "minimum": 1,
               "maximum": 500,
-              "default": 100,
               "example": 100
             },
             "example": 100,
@@ -95292,20 +95783,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "options",
-                    "stale"
-                  ],
                   "properties": {
                     "options": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "label"
-                        ],
                         "properties": {
                           "label": {
                             "type": "string",
@@ -95328,10 +95810,6 @@
                             "type": "array",
                             "items": {
                               "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "label"
-                              ],
                               "properties": {
                                 "label": {
                                   "type": "string"
@@ -95349,10 +95827,18 @@
                                     }
                                   ]
                                 }
-                              }
+                              },
+                              "required": [
+                                "label"
+                              ],
+                              "additionalProperties": false
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "label"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "stale": {
@@ -95363,7 +95849,12 @@
                       "type": "string",
                       "example": "Failed to load filter options"
                     }
-                  }
+                  },
+                  "required": [
+                    "options",
+                    "stale"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -95878,27 +96369,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "data"
-                  ],
                   "properties": {
                     "data": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "company_list_id",
-                          "name",
-                          "provider_id",
-                          "company_source_id",
-                          "status",
-                          "requested_count",
-                          "company_count",
-                          "timestamp_created",
-                          "timestamp_updated"
-                        ],
                         "properties": {
                           "company_list_id": {
                             "type": "string",
@@ -95970,7 +96445,19 @@
                             "format": "date-time",
                             "example": "1970-01-01T00:00:00.000Z"
                           }
-                        }
+                        },
+                        "required": [
+                          "company_list_id",
+                          "name",
+                          "provider_id",
+                          "company_source_id",
+                          "status",
+                          "requested_count",
+                          "company_count",
+                          "timestamp_created",
+                          "timestamp_updated"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "next_starting_after": {
@@ -95988,7 +96475,11 @@
                       "description": "Number of lists matching the request, counted exactly up to 10000. A workspace with more matches than that reports 10000.",
                       "example": 137
                     }
-                  }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -96199,19 +96690,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "company_list_id",
-                    "name",
-                    "provider_id",
-                    "company_source_id",
-                    "status",
-                    "requested_count",
-                    "company_count",
-                    "credit_cost_per_saved_record",
-                    "timestamp_created",
-                    "timestamp_updated"
-                  ],
                   "properties": {
                     "company_list_id": {
                       "type": "string",
@@ -96287,7 +96765,20 @@
                       "type": "integer",
                       "example": 1
                     }
-                  }
+                  },
+                  "required": [
+                    "company_list_id",
+                    "name",
+                    "provider_id",
+                    "company_source_id",
+                    "status",
+                    "requested_count",
+                    "company_count",
+                    "timestamp_created",
+                    "timestamp_updated",
+                    "credit_cost_per_saved_record"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -96482,10 +96973,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "name"
-                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -96493,7 +96980,11 @@
                     "maxLength": 256,
                     "example": "US SaaS companies"
                   }
-                }
+                },
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -96518,19 +97009,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "company_list_id",
-                    "name",
-                    "provider_id",
-                    "company_source_id",
-                    "status",
-                    "requested_count",
-                    "company_count",
-                    "credit_cost_per_saved_record",
-                    "timestamp_created",
-                    "timestamp_updated"
-                  ],
                   "properties": {
                     "company_list_id": {
                       "type": "string",
@@ -96606,7 +97084,20 @@
                       "type": "integer",
                       "example": 1
                     }
-                  }
+                  },
+                  "required": [
+                    "company_list_id",
+                    "name",
+                    "provider_id",
+                    "company_source_id",
+                    "status",
+                    "requested_count",
+                    "company_count",
+                    "timestamp_created",
+                    "timestamp_updated",
+                    "credit_cost_per_saved_record"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -96809,6 +97300,9 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": "The company list was deleted"
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -97053,20 +97547,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "data"
-                  ],
                   "properties": {
                     "data": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "member_identity",
-                          "normalized_domain"
-                        ],
                         "properties": {
                           "member_identity": {
                             "type": "string",
@@ -97182,7 +97667,12 @@
                             "type": "number",
                             "example": 2000000
                           }
-                        }
+                        },
+                        "required": [
+                          "member_identity",
+                          "normalized_domain"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "next_starting_after": {
@@ -97195,7 +97685,11 @@
                       "description": "Deprecated alias of \u0060next_starting_after\u0060, always identical to it.",
                       "example": "WyIyMDI2LTA3LTMwVDAwOjAwOjAwLjAwMFoiLCJsaXN0OjAxOGYyMyJd"
                     }
-                  }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -101068,9 +101562,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "search_filters"
-                ],
                 "properties": {
                   "search_filters": {
                     "type": "object",
@@ -102885,7 +103376,11 @@
                     "description": "Return only one lead per company.",
                     "example": true
                   }
-                }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "search_filters"
+                ]
               }
             }
           },
@@ -103179,9 +103674,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "search_filters"
-                ],
                 "properties": {
                   "search_filters": {
                     "type": "object",
@@ -104996,7 +105488,11 @@
                     "description": "Return only one lead per company",
                     "example": true
                   }
-                }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "search_filters"
+                ]
               }
             }
           },
@@ -105022,7 +105518,6 @@
                     },
                     "leads": {
                       "type": "array",
-                      "description": "The leads matching the search criteria",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -105083,10 +105578,10 @@
                           }
                         },
                         "additionalProperties": false
-                      }
+                      },
+                      "description": "The leads matching the search criteria"
                     }
-                  },
-                  "additionalProperties": true
+                  }
                 }
               }
             }
@@ -105923,13 +106418,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "provider_id",
-                  "action_id",
-                  "inputs",
-                  "credential_source"
-                ],
                 "properties": {
                   "provider_id": {
                     "type": "string",
@@ -105973,7 +106461,14 @@
                     "type": "string",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   }
-                }
+                },
+                "required": [
+                  "provider_id",
+                  "action_id",
+                  "inputs",
+                  "credential_source"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -105986,7 +106481,45 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true,
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "not_found": {
+                      "type": "boolean"
+                    },
+                    "credits_cost": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "credits_cost"
+                  ],
+                  "additionalProperties": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "array",
+                        "items": {}
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
                   "description": "The provider payload under the action\u0027s output column."
                 },
                 "example": {
@@ -105995,6 +106528,58 @@
                   "adyntelLinkedinAds": {
                     "ads": []
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "examples": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "examples": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "body must have required property \u0027name\u0027"
+                      ],
+                      "example": "body must have required property \u0027name\u0027"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }
@@ -106070,11 +106655,11 @@
                     },
                     "creditsRequired": {
                       "type": "number",
-                      "example": 1
+                      "example": 15000
                     },
                     "creditsAvailable": {
                       "type": "number",
-                      "example": 0
+                      "example": 250
                     }
                   }
                 }
@@ -106183,10 +106768,10 @@
         "parameters": [
           {
             "schema": {
+              "default": 20,
               "type": "integer",
               "minimum": 1,
               "maximum": 100,
-              "default": 20,
               "example": 20
             },
             "example": 20,
@@ -106225,9 +106810,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "items"
-                  ],
                   "properties": {
                     "items": {
                       "type": "array",
@@ -106246,7 +106828,422 @@
                           },
                           "search_filters": {
                             "type": "object",
-                            "additionalProperties": true,
+                            "properties": {
+                              "title": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "VP Sales"
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "Intern"
+                                    }
+                                  },
+                                  "includeMode": {
+                                    "type": "string",
+                                    "enum": [
+                                      "EXACT",
+                                      "CONTAINS"
+                                    ],
+                                    "example": "CONTAINS"
+                                  },
+                                  "excludeMode": {
+                                    "type": "string",
+                                    "enum": [
+                                      "EXACT",
+                                      "CONTAINS"
+                                    ],
+                                    "example": "EXACT"
+                                  }
+                                }
+                              },
+                              "locations": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "place_id": {
+                                          "type": "string",
+                                          "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "example": "San Francisco, CA, USA"
+                                        },
+                                        "city": {
+                                          "type": "string",
+                                          "example": "San Francisco"
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "example": "California"
+                                        },
+                                        "country": {
+                                          "type": "string",
+                                          "example": "United States"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "place_id": {
+                                          "type": "string",
+                                          "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "example": "San Francisco, CA, USA"
+                                        },
+                                        "city": {
+                                          "type": "string",
+                                          "example": "San Francisco"
+                                        },
+                                        "state": {
+                                          "type": "string",
+                                          "example": "California"
+                                        },
+                                        "country": {
+                                          "type": "string",
+                                          "example": "United States"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "locationMode": {
+                                "type": "string",
+                                "enum": [
+                                  "contact",
+                                  "company"
+                                ],
+                                "example": "contact"
+                              },
+                              "department": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "Engineering",
+                                    "Finance \u0026 Administration",
+                                    "Human Resources",
+                                    "IT \u0026 IS",
+                                    "Marketing",
+                                    "Operations",
+                                    "Sales",
+                                    "Support",
+                                    "Other"
+                                  ],
+                                  "example": "Engineering"
+                                }
+                              },
+                              "level": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "C-Level",
+                                    "VP-Level",
+                                    "Director-Level",
+                                    "Manager-Level",
+                                    "Staff",
+                                    "Entry level",
+                                    "Mid-Senior level",
+                                    "Director",
+                                    "Associate",
+                                    "Owner",
+                                    "Executive",
+                                    "Manager",
+                                    "Senior",
+                                    "Chief X Officer (CxO)",
+                                    "Internship",
+                                    "Vice President (VP)",
+                                    "Unpaid / Internship",
+                                    "Partner"
+                                  ],
+                                  "example": "VP-Level"
+                                }
+                              },
+                              "revenue": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "$1M - $10M"
+                                }
+                              },
+                              "news": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "launches"
+                                }
+                              },
+                              "fundingType": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "series_a"
+                                }
+                              },
+                              "technologies": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "react"
+                                }
+                              },
+                              "signals": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string",
+                                      "example": "job_change"
+                                    },
+                                    "period_days": {
+                                      "type": "number",
+                                      "example": 90
+                                    },
+                                    "keywords": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "example": {
+                                        "title": [
+                                          "engineer"
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "key"
+                                  ]
+                                }
+                              },
+                              "industry": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "Software"
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "Software"
+                                    }
+                                  }
+                                }
+                              },
+                              "subIndustry": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "E-commerce"
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "E-commerce"
+                                    }
+                                  }
+                                }
+                              },
+                              "employeeCount": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "op": {
+                                      "type": "string",
+                                      "example": "between"
+                                    },
+                                    "min": {
+                                      "type": "number",
+                                      "example": 50
+                                    },
+                                    "max": {
+                                      "type": "number",
+                                      "example": 200
+                                    }
+                                  },
+                                  "required": [
+                                    "op"
+                                  ]
+                                }
+                              },
+                              "name": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "Jane"
+                                }
+                              },
+                              "keyword_filter": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "string",
+                                    "example": "saas, crm"
+                                  },
+                                  "exclude": {
+                                    "type": "string",
+                                    "example": "agency"
+                                  },
+                                  "include_mode": {
+                                    "type": "string",
+                                    "enum": [
+                                      "ANY",
+                                      "ALL"
+                                    ],
+                                    "example": "ANY"
+                                  }
+                                }
+                              },
+                              "domains": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "acme.com"
+                                }
+                              },
+                              "website_visitors": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "exclude_never_responders": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "exclude_oversaturated": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "never_been_emailed": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "has_replied_to_cold_email": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "lookAlike": {
+                                "type": "string",
+                                "example": "acme.com"
+                              },
+                              "lookAlikeMode": {
+                                "type": "string",
+                                "enum": [
+                                  "targeted",
+                                  "broad"
+                                ],
+                                "example": "targeted"
+                              },
+                              "jobListingFilter": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "Software Engineer"
+                                }
+                              },
+                              "company_name": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "Acme"
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "Acme"
+                                    }
+                                  }
+                                }
+                              },
+                              "businessType": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "software_saas"
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "software_saas"
+                                    }
+                                  }
+                                }
+                              },
+                              "customerType": {
+                                "type": "object",
+                                "properties": {
+                                  "include": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "b2b"
+                                    }
+                                  },
+                                  "exclude": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "example": "b2b"
+                                    }
+                                  }
+                                }
+                              },
+                              "company_list_id": {
+                                "type": "string",
+                                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                              },
+                              "skip_owned_leads": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "show_one_lead_per_company": {
+                                "type": "boolean",
+                                "example": true
+                              }
+                            },
                             "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
                             "example": {
                               "title": {
@@ -106290,7 +107287,10 @@
                       "description": "Pass as \u0060starting_after\u0060 to fetch the next page; absent on the last page",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     }
-                  }
+                  },
+                  "required": [
+                    "items"
+                  ]
                 }
               }
             }
@@ -106485,11 +107485,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "name",
-                  "search_filters"
-                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -108301,7 +109296,12 @@
                       }
                     }
                   }
-                }
+                },
+                "required": [
+                  "name",
+                  "search_filters"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -108327,7 +109327,422 @@
                     },
                     "search_filters": {
                       "type": "object",
-                      "additionalProperties": true,
+                      "properties": {
+                        "title": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "VP Sales"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Intern"
+                              }
+                            },
+                            "includeMode": {
+                              "type": "string",
+                              "enum": [
+                                "EXACT",
+                                "CONTAINS"
+                              ],
+                              "example": "CONTAINS"
+                            },
+                            "excludeMode": {
+                              "type": "string",
+                              "enum": [
+                                "EXACT",
+                                "CONTAINS"
+                              ],
+                              "example": "EXACT"
+                            }
+                          }
+                        },
+                        "locations": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "place_id": {
+                                    "type": "string",
+                                    "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "San Francisco, CA, USA"
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "example": "San Francisco"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "example": "California"
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "example": "United States"
+                                  }
+                                }
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "place_id": {
+                                    "type": "string",
+                                    "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "San Francisco, CA, USA"
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "example": "San Francisco"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "example": "California"
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "example": "United States"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "locationMode": {
+                          "type": "string",
+                          "enum": [
+                            "contact",
+                            "company"
+                          ],
+                          "example": "contact"
+                        },
+                        "department": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "Engineering",
+                              "Finance \u0026 Administration",
+                              "Human Resources",
+                              "IT \u0026 IS",
+                              "Marketing",
+                              "Operations",
+                              "Sales",
+                              "Support",
+                              "Other"
+                            ],
+                            "example": "Engineering"
+                          }
+                        },
+                        "level": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "C-Level",
+                              "VP-Level",
+                              "Director-Level",
+                              "Manager-Level",
+                              "Staff",
+                              "Entry level",
+                              "Mid-Senior level",
+                              "Director",
+                              "Associate",
+                              "Owner",
+                              "Executive",
+                              "Manager",
+                              "Senior",
+                              "Chief X Officer (CxO)",
+                              "Internship",
+                              "Vice President (VP)",
+                              "Unpaid / Internship",
+                              "Partner"
+                            ],
+                            "example": "VP-Level"
+                          }
+                        },
+                        "revenue": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "$1M - $10M"
+                          }
+                        },
+                        "news": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "launches"
+                          }
+                        },
+                        "fundingType": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "series_a"
+                          }
+                        },
+                        "technologies": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "react"
+                          }
+                        },
+                        "signals": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "example": "job_change"
+                              },
+                              "period_days": {
+                                "type": "number",
+                                "example": 90
+                              },
+                              "keywords": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "example": {
+                                  "title": [
+                                    "engineer"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ]
+                          }
+                        },
+                        "industry": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Software"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Software"
+                              }
+                            }
+                          }
+                        },
+                        "subIndustry": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "E-commerce"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "E-commerce"
+                              }
+                            }
+                          }
+                        },
+                        "employeeCount": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "op": {
+                                "type": "string",
+                                "example": "between"
+                              },
+                              "min": {
+                                "type": "number",
+                                "example": 50
+                              },
+                              "max": {
+                                "type": "number",
+                                "example": 200
+                              }
+                            },
+                            "required": [
+                              "op"
+                            ]
+                          }
+                        },
+                        "name": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Jane"
+                          }
+                        },
+                        "keyword_filter": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "string",
+                              "example": "saas, crm"
+                            },
+                            "exclude": {
+                              "type": "string",
+                              "example": "agency"
+                            },
+                            "include_mode": {
+                              "type": "string",
+                              "enum": [
+                                "ANY",
+                                "ALL"
+                              ],
+                              "example": "ANY"
+                            }
+                          }
+                        },
+                        "domains": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "acme.com"
+                          }
+                        },
+                        "website_visitors": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "exclude_never_responders": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "exclude_oversaturated": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "never_been_emailed": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "has_replied_to_cold_email": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "lookAlike": {
+                          "type": "string",
+                          "example": "acme.com"
+                        },
+                        "lookAlikeMode": {
+                          "type": "string",
+                          "enum": [
+                            "targeted",
+                            "broad"
+                          ],
+                          "example": "targeted"
+                        },
+                        "jobListingFilter": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Software Engineer"
+                          }
+                        },
+                        "company_name": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Acme"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Acme"
+                              }
+                            }
+                          }
+                        },
+                        "businessType": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "software_saas"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "software_saas"
+                              }
+                            }
+                          }
+                        },
+                        "customerType": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "b2b"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "b2b"
+                              }
+                            }
+                          }
+                        },
+                        "company_list_id": {
+                          "type": "string",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "skip_owned_leads": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "show_one_lead_per_company": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      },
                       "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
                       "example": {
                         "title": {
@@ -108384,6 +109799,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -108676,7 +110099,422 @@
                     },
                     "search_filters": {
                       "type": "object",
-                      "additionalProperties": true,
+                      "properties": {
+                        "title": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "VP Sales"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Intern"
+                              }
+                            },
+                            "includeMode": {
+                              "type": "string",
+                              "enum": [
+                                "EXACT",
+                                "CONTAINS"
+                              ],
+                              "example": "CONTAINS"
+                            },
+                            "excludeMode": {
+                              "type": "string",
+                              "enum": [
+                                "EXACT",
+                                "CONTAINS"
+                              ],
+                              "example": "EXACT"
+                            }
+                          }
+                        },
+                        "locations": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "place_id": {
+                                    "type": "string",
+                                    "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "San Francisco, CA, USA"
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "example": "San Francisco"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "example": "California"
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "example": "United States"
+                                  }
+                                }
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "place_id": {
+                                    "type": "string",
+                                    "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "San Francisco, CA, USA"
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "example": "San Francisco"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "example": "California"
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "example": "United States"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "locationMode": {
+                          "type": "string",
+                          "enum": [
+                            "contact",
+                            "company"
+                          ],
+                          "example": "contact"
+                        },
+                        "department": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "Engineering",
+                              "Finance \u0026 Administration",
+                              "Human Resources",
+                              "IT \u0026 IS",
+                              "Marketing",
+                              "Operations",
+                              "Sales",
+                              "Support",
+                              "Other"
+                            ],
+                            "example": "Engineering"
+                          }
+                        },
+                        "level": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "C-Level",
+                              "VP-Level",
+                              "Director-Level",
+                              "Manager-Level",
+                              "Staff",
+                              "Entry level",
+                              "Mid-Senior level",
+                              "Director",
+                              "Associate",
+                              "Owner",
+                              "Executive",
+                              "Manager",
+                              "Senior",
+                              "Chief X Officer (CxO)",
+                              "Internship",
+                              "Vice President (VP)",
+                              "Unpaid / Internship",
+                              "Partner"
+                            ],
+                            "example": "VP-Level"
+                          }
+                        },
+                        "revenue": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "$1M - $10M"
+                          }
+                        },
+                        "news": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "launches"
+                          }
+                        },
+                        "fundingType": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "series_a"
+                          }
+                        },
+                        "technologies": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "react"
+                          }
+                        },
+                        "signals": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "example": "job_change"
+                              },
+                              "period_days": {
+                                "type": "number",
+                                "example": 90
+                              },
+                              "keywords": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "example": {
+                                  "title": [
+                                    "engineer"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ]
+                          }
+                        },
+                        "industry": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Software"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Software"
+                              }
+                            }
+                          }
+                        },
+                        "subIndustry": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "E-commerce"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "E-commerce"
+                              }
+                            }
+                          }
+                        },
+                        "employeeCount": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "op": {
+                                "type": "string",
+                                "example": "between"
+                              },
+                              "min": {
+                                "type": "number",
+                                "example": 50
+                              },
+                              "max": {
+                                "type": "number",
+                                "example": 200
+                              }
+                            },
+                            "required": [
+                              "op"
+                            ]
+                          }
+                        },
+                        "name": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Jane"
+                          }
+                        },
+                        "keyword_filter": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "string",
+                              "example": "saas, crm"
+                            },
+                            "exclude": {
+                              "type": "string",
+                              "example": "agency"
+                            },
+                            "include_mode": {
+                              "type": "string",
+                              "enum": [
+                                "ANY",
+                                "ALL"
+                              ],
+                              "example": "ANY"
+                            }
+                          }
+                        },
+                        "domains": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "acme.com"
+                          }
+                        },
+                        "website_visitors": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "exclude_never_responders": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "exclude_oversaturated": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "never_been_emailed": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "has_replied_to_cold_email": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "lookAlike": {
+                          "type": "string",
+                          "example": "acme.com"
+                        },
+                        "lookAlikeMode": {
+                          "type": "string",
+                          "enum": [
+                            "targeted",
+                            "broad"
+                          ],
+                          "example": "targeted"
+                        },
+                        "jobListingFilter": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Software Engineer"
+                          }
+                        },
+                        "company_name": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Acme"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Acme"
+                              }
+                            }
+                          }
+                        },
+                        "businessType": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "software_saas"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "software_saas"
+                              }
+                            }
+                          }
+                        },
+                        "customerType": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "b2b"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "b2b"
+                              }
+                            }
+                          }
+                        },
+                        "company_list_id": {
+                          "type": "string",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "skip_owned_leads": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "show_one_lead_per_company": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      },
                       "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
                       "example": {
                         "title": {
@@ -108907,8 +110745,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "additionalProperties": false,
-                "minProperties": 1,
                 "properties": {
                   "name": {
                     "type": "string",
@@ -110720,7 +112556,9 @@
                       }
                     }
                   }
-                }
+                },
+                "additionalProperties": false,
+                "minProperties": 1
               }
             }
           }
@@ -110758,7 +112596,422 @@
                     },
                     "search_filters": {
                       "type": "object",
-                      "additionalProperties": true,
+                      "properties": {
+                        "title": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "VP Sales"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Intern"
+                              }
+                            },
+                            "includeMode": {
+                              "type": "string",
+                              "enum": [
+                                "EXACT",
+                                "CONTAINS"
+                              ],
+                              "example": "CONTAINS"
+                            },
+                            "excludeMode": {
+                              "type": "string",
+                              "enum": [
+                                "EXACT",
+                                "CONTAINS"
+                              ],
+                              "example": "EXACT"
+                            }
+                          }
+                        },
+                        "locations": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "place_id": {
+                                    "type": "string",
+                                    "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "San Francisco, CA, USA"
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "example": "San Francisco"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "example": "California"
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "example": "United States"
+                                  }
+                                }
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "place_id": {
+                                    "type": "string",
+                                    "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "example": "San Francisco, CA, USA"
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "example": "San Francisco"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "example": "California"
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "example": "United States"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "locationMode": {
+                          "type": "string",
+                          "enum": [
+                            "contact",
+                            "company"
+                          ],
+                          "example": "contact"
+                        },
+                        "department": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "Engineering",
+                              "Finance \u0026 Administration",
+                              "Human Resources",
+                              "IT \u0026 IS",
+                              "Marketing",
+                              "Operations",
+                              "Sales",
+                              "Support",
+                              "Other"
+                            ],
+                            "example": "Engineering"
+                          }
+                        },
+                        "level": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "C-Level",
+                              "VP-Level",
+                              "Director-Level",
+                              "Manager-Level",
+                              "Staff",
+                              "Entry level",
+                              "Mid-Senior level",
+                              "Director",
+                              "Associate",
+                              "Owner",
+                              "Executive",
+                              "Manager",
+                              "Senior",
+                              "Chief X Officer (CxO)",
+                              "Internship",
+                              "Vice President (VP)",
+                              "Unpaid / Internship",
+                              "Partner"
+                            ],
+                            "example": "VP-Level"
+                          }
+                        },
+                        "revenue": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "$1M - $10M"
+                          }
+                        },
+                        "news": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "launches"
+                          }
+                        },
+                        "fundingType": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "series_a"
+                          }
+                        },
+                        "technologies": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "react"
+                          }
+                        },
+                        "signals": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "example": "job_change"
+                              },
+                              "period_days": {
+                                "type": "number",
+                                "example": 90
+                              },
+                              "keywords": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "example": {
+                                  "title": [
+                                    "engineer"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "key"
+                            ]
+                          }
+                        },
+                        "industry": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Software"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Software"
+                              }
+                            }
+                          }
+                        },
+                        "subIndustry": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "E-commerce"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "E-commerce"
+                              }
+                            }
+                          }
+                        },
+                        "employeeCount": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "op": {
+                                "type": "string",
+                                "example": "between"
+                              },
+                              "min": {
+                                "type": "number",
+                                "example": 50
+                              },
+                              "max": {
+                                "type": "number",
+                                "example": 200
+                              }
+                            },
+                            "required": [
+                              "op"
+                            ]
+                          }
+                        },
+                        "name": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Jane"
+                          }
+                        },
+                        "keyword_filter": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "string",
+                              "example": "saas, crm"
+                            },
+                            "exclude": {
+                              "type": "string",
+                              "example": "agency"
+                            },
+                            "include_mode": {
+                              "type": "string",
+                              "enum": [
+                                "ANY",
+                                "ALL"
+                              ],
+                              "example": "ANY"
+                            }
+                          }
+                        },
+                        "domains": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "acme.com"
+                          }
+                        },
+                        "website_visitors": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "exclude_never_responders": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "exclude_oversaturated": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "never_been_emailed": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "has_replied_to_cold_email": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "lookAlike": {
+                          "type": "string",
+                          "example": "acme.com"
+                        },
+                        "lookAlikeMode": {
+                          "type": "string",
+                          "enum": [
+                            "targeted",
+                            "broad"
+                          ],
+                          "example": "targeted"
+                        },
+                        "jobListingFilter": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Software Engineer"
+                          }
+                        },
+                        "company_name": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Acme"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "Acme"
+                              }
+                            }
+                          }
+                        },
+                        "businessType": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "software_saas"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "software_saas"
+                              }
+                            }
+                          }
+                        },
+                        "customerType": {
+                          "type": "object",
+                          "properties": {
+                            "include": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "b2b"
+                              }
+                            },
+                            "exclude": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "example": "b2b"
+                              }
+                            }
+                          }
+                        },
+                        "company_list_id": {
+                          "type": "string",
+                          "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                        },
+                        "skip_owned_leads": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "show_one_lead_per_company": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      },
                       "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
                       "example": {
                         "title": {
@@ -110815,6 +113068,14 @@
                         400
                       ],
                       "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "examples": [
+                        "FST_ERR_VALIDATION"
+                      ],
+                      "example": "FST_ERR_VALIDATION"
                     },
                     "error": {
                       "type": "string",
@@ -111092,15 +113353,15 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "success"
-                  ],
                   "properties": {
                     "success": {
                       "type": "boolean",
                       "example": true
                     }
-                  }
+                  },
+                  "required": [
+                    "success"
+                  ]
                 }
               }
             }

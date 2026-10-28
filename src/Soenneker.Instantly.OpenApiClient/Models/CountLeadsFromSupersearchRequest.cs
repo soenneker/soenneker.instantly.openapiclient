@@ -9,11 +9,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CountLeadsFromSupersearchRequest : IAdditionalDataHolder, IParsable
+    public partial class CountLeadsFromSupersearchRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Search filters to find leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,13 +24,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public bool? ShowOneLeadPerCompany { get; set; }
         /// <summary>Skip leads that belong to the current workspace.</summary>
         public bool? SkipOwnedLeads { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequest"/> and sets the default values.
-        /// </summary>
-        public CountLeadsFromSupersearchRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -66,7 +57,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters>("search_filters", SearchFilters);
             writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
             writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

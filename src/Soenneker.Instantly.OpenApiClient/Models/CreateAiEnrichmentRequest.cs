@@ -9,11 +9,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CreateAiEnrichmentRequest : IAdditionalDataHolder, IParsable
+    public partial class CreateAiEnrichmentRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, new leads added to the campaign/list will be automatically enriched using these same settings.</summary>
         public bool? AutoUpdate { get; set; }
         /// <summary>The filters property</summary>
@@ -70,10 +68,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #endif
         /// <summary>Type of the entity to enrich</summary>
         public double? ResourceType { get; set; }
-        /// <summary>When true, leads without an email will be skipped.</summary>
-        public bool? SkipLeadsWithoutEmail { get; set; }
-        /// <summary>Status of the job</summary>
-        public double? Status { get; set; }
         /// <summary>ID of a predefined AI prompt template to use instead of a custom prompt. Templates are reusable prompt configurations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,7 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// </summary>
         public CreateAiEnrichmentRequest()
         {
-            AdditionalData = new Dictionary<string, object>();
+            Overwrite = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -119,8 +113,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
-                { "skip_leads_without_email", n => { SkipLeadsWithoutEmail = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetDoubleValue(); } },
                 { "template_id", n => { TemplateId = n.GetStringValue(); } },
                 { "use_instantly_account", n => { UseInstantlyAccount = n.GetBoolValue(); } },
             };
@@ -142,11 +134,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteStringValue("resource_id", ResourceId);
             writer.WriteDoubleValue("resource_type", ResourceType);
-            writer.WriteBoolValue("skip_leads_without_email", SkipLeadsWithoutEmail);
-            writer.WriteDoubleValue("status", Status);
             writer.WriteStringValue("template_id", TemplateId);
             writer.WriteBoolValue("use_instantly_account", UseInstantlyAccount);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

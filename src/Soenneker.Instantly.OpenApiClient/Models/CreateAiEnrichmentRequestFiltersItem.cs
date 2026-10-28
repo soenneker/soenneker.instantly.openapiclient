@@ -11,17 +11,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// Filters to apply to the enrichment
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateAiEnrichmentRequestFiltersItem : IAdditionalDataHolder, IParsable
+    public partial class CreateAiEnrichmentRequestFiltersItem : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateAiEnrichmentRequestFiltersItem"/> and sets the default values.
-        /// </summary>
-        public CreateAiEnrichmentRequestFiltersItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The column_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ColumnName { get; set; }
+#nullable restore
+#else
+        public string ColumnName { get; set; }
+#endif
+        /// <summary>The type property</summary>
+        public double? Type { get; set; }
+        /// <summary>The value property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Value { get; set; }
+#nullable restore
+#else
+        public List<string> Value { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,6 +49,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "column_name", n => { ColumnName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetDoubleValue(); } },
+                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,7 +61,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteStringValue("column_name", ColumnName);
+            writer.WriteDoubleValue("type", Type);
+            writer.WriteCollectionOfPrimitiveValues<string>("value", Value);
         }
     }
 }

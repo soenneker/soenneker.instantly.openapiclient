@@ -20368,6 +20368,16 @@
               }
             }
           },
+          "400": {
+            "description": "The body is invalid, or model_version names no selectable model",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAiEnrichment400Response"
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -20388,12 +20398,32 @@
               }
             }
           },
+          "403": {
+            "description": "The list or campaign is not visible to the caller in this workspace",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAiEnrichment403Response"
+                }
+              }
+            }
+          },
           "404": {
-            "description": "The requested resource was not found",
+            "description": "The template does not exist, or is private to another workspace",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateAiEnrichment404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "An enrichment job for this output column is already running or scheduled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAiEnrichment409Response"
                 }
               }
             }
@@ -21061,6 +21091,9 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": "The company list was deleted"
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -22005,7 +22038,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RunIntegrationAction200ResponseSchema"
+                  "$ref": "#/components/schemas/RunIntegrationAction200Response"
                 },
                 "example": {
                   "success": true,
@@ -22013,6 +22046,16 @@
                   "adyntelLinkedinAds": {
                     "ads": []
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g. missing required fields, invalid field values, or an invalid state for the operation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunIntegrationAction400Response"
                 }
               }
             }
@@ -34436,6 +34479,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/ActivateCampaign400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -34981,6 +35032,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/PatchCampaign400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -35942,6 +36001,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/CreateFromExport400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -38818,6 +38885,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/GetDomainForwarding400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -38951,6 +39026,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/UpdateDomainForwarding400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -39135,6 +39218,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/DeleteDomainForwarding400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -46949,6 +47040,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/GetSubsequenceStepsAnalytics400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -51321,6 +51420,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/PatchSalesAgent400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -51458,6 +51565,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/DeleteSalesAgent400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -51634,6 +51749,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/GetSalesAgentAnalytics400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -51763,6 +51886,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/GetSalesAgentOpportunitySummary400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -52028,6 +52159,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/GetSalesAgentLeadActivitySummary400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -52174,6 +52313,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ListSalesAgentLeadActivity400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -52487,6 +52634,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/RejectSalesAgentActivity400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -52639,6 +52794,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ApproveSalesAgentActivities400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -52798,6 +52961,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/RejectSalesAgentActivities400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -53079,6 +53250,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/CreateSalesAgentGuidanceRule400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -53248,6 +53427,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/PatchSalesAgentGuidanceRule400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -53506,6 +53693,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/CreateInboxManagerAgent400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -53848,6 +54043,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/PatchInboxManagerAgent400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -53985,6 +54188,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/DeleteInboxManagerAgent400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -54280,6 +54491,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/CreateInboxManagerGuidance400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -54536,6 +54755,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/PatchInboxManagerGuidance400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -54950,6 +55177,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/PatchInboxManagerReply400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -55206,6 +55441,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/GetInboxManagerAnalyticsSummary400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -55327,6 +55570,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/GetInboxManagerAnalyticsSummaryByDate400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -55471,6 +55722,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ListInboxManagerActivity400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -55766,6 +56025,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/CreateLeadFinderAgent400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -56067,6 +56334,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/UpdateLeadFinderAgent400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -56243,6 +56518,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/DeleteLeadFinderAgentV2400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -56715,6 +56998,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ListLeadFinderAgentActivitiesById400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -57738,6 +58029,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/PauseDeliverabilityAffectedAccounts400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -57923,6 +58222,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/PauseDeliverabilityCampaignSending400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -58071,6 +58378,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/CompleteDeliverabilityFeedItem400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -58567,6 +58882,14 @@
           "statusCode": {
             "$ref": "#/components/schemas/PatchDeliverabilityAgent400ResponseStatusCode"
           },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
           },
@@ -58681,6 +59004,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/DeleteDeliverabilityAgent400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -59032,6 +59363,8 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "output_column": {
+            "maxLength": 200,
+            "minLength": 1,
             "type": "string",
             "description": "Name of the column where the AI enrichment results will be stored",
             "example": "ai_generated_content"
@@ -59040,8 +59373,10 @@
             "$ref": "#/components/schemas/CreateAiEnrichmentRequestResourceType"
           },
           "input_columns": {
+            "maxItems": 200,
             "type": "array",
             "items": {
+              "maxLength": 1000,
               "type": "string",
               "example": "first_name"
             },
@@ -59087,17 +59422,13 @@
           "overwrite": {
             "type": "boolean",
             "description": "When true, will overwrite existing values in the output column. When false, only empty fields will be enriched.",
+            "default": false,
             "example": false
           },
           "auto_update": {
             "type": "boolean",
             "description": "When true, new leads added to the campaign/list will be automatically enriched using these same settings.",
             "example": true
-          },
-          "skip_leads_without_email": {
-            "type": "boolean",
-            "description": "When true, leads without an email will be skipped.",
-            "example": false
           },
           "limit": {
             "maximum": 1000000,
@@ -59107,6 +59438,7 @@
             "example": 100
           },
           "prompt": {
+            "maxLength": 100000,
             "type": "string",
             "description": "Custom prompt to guide the AI enrichment. Use {{variables}} to reference input data. Only used when templateId is not provided.",
             "example": "Write a personalized email to {{first_name}} from {{company_name}} about our new product"
@@ -59116,16 +59448,14 @@
             "description": "ID of a predefined AI prompt template to use instead of a custom prompt. Templates are reusable prompt configurations.",
             "example": "123"
           },
-          "status": {
-            "$ref": "#/components/schemas/CreateAiEnrichmentRequestStatus"
-          },
           "filters": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateAiEnrichmentRequestFiltersItem"
             }
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CreateAiEnrichment200Response": {
         "required": [
@@ -59135,8 +59465,7 @@
           "output_column",
           "status",
           "model_version",
-          "overwrite",
-          "auto_update"
+          "overwrite"
         ],
         "type": "object",
         "properties": {
@@ -59202,6 +59531,36 @@
         },
         "additionalProperties": false
       },
+      "CreateAiEnrichment400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAiEnrichment400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "example": "FST_ERR_VALIDATION"
+          },
+          "error": {
+            "$ref": "#/components/schemas/CreateAiEnrichment400ResponseError"
+          },
+          "message": {
+            "examples": [
+              "body/output_column must NOT have more than 200 characters"
+            ],
+            "type": "string",
+            "example": "body/output_column must NOT have more than 200 characters"
+          }
+        }
+      },
       "CreateAiEnrichment401Response": {
         "required": [
           "statusCode",
@@ -59248,6 +59607,29 @@
           }
         }
       },
+      "CreateAiEnrichment403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAiEnrichment403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
+          }
+        }
+      },
       "CreateAiEnrichment404Response": {
         "required": [
           "statusCode",
@@ -59260,14 +59642,37 @@
             "$ref": "#/components/schemas/CreateAiEnrichment404ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/NotFoundError"
+            "$ref": "#/components/schemas/TemplateNotFoundError"
           },
           "message": {
             "examples": [
-              "Resource not found"
+              "Template not found"
             ],
             "type": "string",
-            "example": "Resource not found"
+            "example": "Template not found"
+          }
+        }
+      },
+      "CreateAiEnrichment409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAiEnrichment409ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ConflictError"
+          },
+          "message": {
+            "examples": [
+              "An enrichment job for this column is already running or scheduled. Please wait for it to complete."
+            ],
+            "type": "string",
+            "example": "An enrichment job for this column is already running or scheduled. Please wait for it to complete."
           }
         }
       },
@@ -59980,9 +60385,9 @@
           "status",
           "requested_count",
           "company_count",
-          "credit_cost_per_saved_record",
           "timestamp_created",
-          "timestamp_updated"
+          "timestamp_updated",
+          "credit_cost_per_saved_record"
         ],
         "type": "object",
         "properties": {
@@ -60160,9 +60565,9 @@
           "status",
           "requested_count",
           "company_count",
-          "credit_cost_per_saved_record",
           "timestamp_created",
-          "timestamp_updated"
+          "timestamp_updated",
+          "credit_cost_per_saved_record"
         ],
         "type": "object",
         "properties": {
@@ -61515,7 +61920,8 @@
             "description": "Return only one lead per company.",
             "example": true
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CountLeadsFromSupersearch200Response": {
         "type": "object",
@@ -61678,7 +62084,8 @@
             "description": "Return only one lead per company",
             "example": true
           }
-        }
+        },
+        "additionalProperties": false
       },
       "PreviewLeadsFromSupersearch200Response": {
         "type": "object",
@@ -62063,8 +62470,57 @@
         "additionalProperties": false
       },
       "RunIntegrationAction200Response": {
+        "required": [
+          "success",
+          "credits_cost"
+        ],
         "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "not_found": {
+            "type": "boolean"
+          },
+          "credits_cost": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/RunIntegrationAction200ResponseAdditionalProperties"
+        },
         "description": "The provider payload under the action\u0027s output column."
+      },
+      "RunIntegrationAction400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RunIntegrationAction400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "examples": [
+              "body must have required property \u0027name\u0027"
+            ],
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          }
+        }
       },
       "RunIntegrationAction401Response": {
         "required": [
@@ -62104,11 +62560,11 @@
           },
           "creditsRequired": {
             "type": "number",
-            "example": 1
+            "example": 15000
           },
           "creditsAvailable": {
             "type": "number",
-            "example": 0
+            "example": 250
           }
         }
       },
@@ -62334,6 +62790,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/CreateSavedSearch400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -62651,6 +63115,14 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/UpdateSavedSearch400ResponseStatusCode"
+          },
+          "code": {
+            "examples": [
+              "FST_ERR_VALIDATION"
+            ],
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
           },
           "error": {
             "$ref": "#/components/schemas/BadRequestError"
@@ -63803,10 +64275,6 @@
         "items": {
           "$ref": "#/components/schemas/GetIntegrationProviders200ResponseSchemaItem"
         }
-      },
-      "RunIntegrationAction200ResponseSchema": {
-        "type": "object",
-        "description": "The provider payload under the action\u0027s output column."
       },
       "ListAccount200ResponseItemsItem": {
         "type": "object",
@@ -65099,6 +65567,29 @@
           },
           {
             "type": "boolean"
+          }
+        ]
+      },
+      "RunIntegrationAction200ResponseAdditionalProperties": {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "array",
+            "items": {}
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
           }
         ]
       },
@@ -74993,7 +75484,26 @@
         }
       },
       "CreateAiEnrichmentRequestFiltersItem": {
+        "required": [
+          "column_name",
+          "type"
+        ],
         "type": "object",
+        "properties": {
+          "column_name": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CreateAiEnrichmentRequestFiltersItemType"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
         "description": "Filters to apply to the enrichment",
         "example": {
           "column_name": "email",
@@ -76380,6 +76890,147 @@
       },
       "CreateSavedSearch200ResponseSearchFilters": {
         "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersTitle"
+          },
+          "locations": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersLocations"
+          },
+          "locationMode": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersLocationMode"
+          },
+          "department": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersDepartmentItem"
+            }
+          },
+          "level": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersLevelItem"
+            }
+          },
+          "revenue": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "$1M - $10M"
+            }
+          },
+          "news": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "launches"
+            }
+          },
+          "fundingType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "series_a"
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "react"
+            }
+          },
+          "signals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersSignalsItem"
+            }
+          },
+          "industry": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersIndustry"
+          },
+          "subIndustry": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersSubIndustry"
+          },
+          "employeeCount": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersEmployeeCountItem"
+            }
+          },
+          "name": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Jane"
+            }
+          },
+          "keyword_filter": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersKeywordFilter"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "acme.com"
+            }
+          },
+          "website_visitors": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_never_responders": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_oversaturated": {
+            "type": "boolean",
+            "example": true
+          },
+          "never_been_emailed": {
+            "type": "boolean",
+            "example": true
+          },
+          "has_replied_to_cold_email": {
+            "type": "boolean",
+            "example": true
+          },
+          "lookAlike": {
+            "type": "string",
+            "example": "acme.com"
+          },
+          "lookAlikeMode": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersLookAlikeMode"
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            }
+          },
+          "company_name": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersCustomerType"
+          },
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "skip_owned_leads": {
+            "type": "boolean",
+            "example": true
+          },
+          "show_one_lead_per_company": {
+            "type": "boolean",
+            "example": true
+          }
+        },
         "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
         "example": {
           "title": {
@@ -76400,6 +77051,147 @@
       },
       "GetSavedSearch200ResponseSearchFilters": {
         "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersTitle"
+          },
+          "locations": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersLocations"
+          },
+          "locationMode": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersLocationMode"
+          },
+          "department": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersDepartmentItem"
+            }
+          },
+          "level": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersLevelItem"
+            }
+          },
+          "revenue": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "$1M - $10M"
+            }
+          },
+          "news": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "launches"
+            }
+          },
+          "fundingType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "series_a"
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "react"
+            }
+          },
+          "signals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersSignalsItem"
+            }
+          },
+          "industry": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersIndustry"
+          },
+          "subIndustry": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersSubIndustry"
+          },
+          "employeeCount": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersEmployeeCountItem"
+            }
+          },
+          "name": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Jane"
+            }
+          },
+          "keyword_filter": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersKeywordFilter"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "acme.com"
+            }
+          },
+          "website_visitors": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_never_responders": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_oversaturated": {
+            "type": "boolean",
+            "example": true
+          },
+          "never_been_emailed": {
+            "type": "boolean",
+            "example": true
+          },
+          "has_replied_to_cold_email": {
+            "type": "boolean",
+            "example": true
+          },
+          "lookAlike": {
+            "type": "string",
+            "example": "acme.com"
+          },
+          "lookAlikeMode": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersLookAlikeMode"
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            }
+          },
+          "company_name": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersCustomerType"
+          },
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "skip_owned_leads": {
+            "type": "boolean",
+            "example": true
+          },
+          "show_one_lead_per_company": {
+            "type": "boolean",
+            "example": true
+          }
+        },
         "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
         "example": {
           "title": {
@@ -76587,6 +77379,147 @@
       },
       "UpdateSavedSearch200ResponseSearchFilters": {
         "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersTitle"
+          },
+          "locations": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersLocations"
+          },
+          "locationMode": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersLocationMode"
+          },
+          "department": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersDepartmentItem"
+            }
+          },
+          "level": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersLevelItem"
+            }
+          },
+          "revenue": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "$1M - $10M"
+            }
+          },
+          "news": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "launches"
+            }
+          },
+          "fundingType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "series_a"
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "react"
+            }
+          },
+          "signals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersSignalsItem"
+            }
+          },
+          "industry": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersIndustry"
+          },
+          "subIndustry": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersSubIndustry"
+          },
+          "employeeCount": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersEmployeeCountItem"
+            }
+          },
+          "name": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Jane"
+            }
+          },
+          "keyword_filter": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersKeywordFilter"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "acme.com"
+            }
+          },
+          "website_visitors": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_never_responders": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_oversaturated": {
+            "type": "boolean",
+            "example": true
+          },
+          "never_been_emailed": {
+            "type": "boolean",
+            "example": true
+          },
+          "has_replied_to_cold_email": {
+            "type": "boolean",
+            "example": true
+          },
+          "lookAlike": {
+            "type": "string",
+            "example": "acme.com"
+          },
+          "lookAlikeMode": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersLookAlikeMode"
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            }
+          },
+          "company_name": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersCustomerType"
+          },
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "skip_owned_leads": {
+            "type": "boolean",
+            "example": true
+          },
+          "show_one_lead_per_company": {
+            "type": "boolean",
+            "example": true
+          }
+        },
         "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
         "example": {
           "title": {
@@ -82949,6 +83882,147 @@
       },
       "ListSavedSearches200ResponseItemsItemSearchFilters": {
         "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersTitle"
+          },
+          "locations": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersLocations"
+          },
+          "locationMode": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersLocationMode"
+          },
+          "department": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem"
+            }
+          },
+          "level": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem"
+            }
+          },
+          "revenue": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "$1M - $10M"
+            }
+          },
+          "news": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "launches"
+            }
+          },
+          "fundingType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "series_a"
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "react"
+            }
+          },
+          "signals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem"
+            }
+          },
+          "industry": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersIndustry"
+          },
+          "subIndustry": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry"
+          },
+          "employeeCount": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem"
+            }
+          },
+          "name": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Jane"
+            }
+          },
+          "keyword_filter": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "acme.com"
+            }
+          },
+          "website_visitors": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_never_responders": {
+            "type": "boolean",
+            "example": true
+          },
+          "exclude_oversaturated": {
+            "type": "boolean",
+            "example": true
+          },
+          "never_been_emailed": {
+            "type": "boolean",
+            "example": true
+          },
+          "has_replied_to_cold_email": {
+            "type": "boolean",
+            "example": true
+          },
+          "lookAlike": {
+            "type": "string",
+            "example": "acme.com"
+          },
+          "lookAlikeMode": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersLookAlikeMode"
+          },
+          "jobListingFilter": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software Engineer"
+            }
+          },
+          "company_name": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName"
+          },
+          "businessType": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType"
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType"
+          },
+          "company_list_id": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "skip_owned_leads": {
+            "type": "boolean",
+            "example": true
+          },
+          "show_one_lead_per_company": {
+            "type": "boolean",
+            "example": true
+          }
+        },
         "description": "SuperSearch filters in the same shape the count, preview and enrich endpoints accept. Domain and job-listing exclusions saved in the app are not representable in this shape and are omitted.",
         "example": {
           "title": {
@@ -83108,6 +84182,390 @@
           }
         }
       },
+      "CreateSavedSearch200ResponseSearchFiltersTitle": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "VP Sales"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Intern"
+            }
+          },
+          "includeMode": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersTitleIncludeMode"
+          },
+          "excludeMode": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersTitleExcludeMode"
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersLocations": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersLocationsIncludeItem"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersLocationsExcludeItem"
+            }
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersSignalsItem": {
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "job_change"
+          },
+          "period_days": {
+            "type": "number",
+            "example": 90
+          },
+          "keywords": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersSignalsItemKeywords"
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersSubIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersEmployeeCountItem": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string",
+            "example": "between"
+          },
+          "min": {
+            "type": "number",
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "example": 200
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersKeywordFilter": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "string",
+            "example": "saas, crm"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "agency"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/CreateSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode"
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersCompanyName": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersTitle": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "VP Sales"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Intern"
+            }
+          },
+          "includeMode": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersTitleIncludeMode"
+          },
+          "excludeMode": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersTitleExcludeMode"
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersLocations": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersLocationsIncludeItem"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersLocationsExcludeItem"
+            }
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersSignalsItem": {
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "job_change"
+          },
+          "period_days": {
+            "type": "number",
+            "example": 90
+          },
+          "keywords": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersSignalsItemKeywords"
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersSubIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersEmployeeCountItem": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string",
+            "example": "between"
+          },
+          "min": {
+            "type": "number",
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "example": 200
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersKeywordFilter": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "string",
+            "example": "saas, crm"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "agency"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/GetSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode"
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersCompanyName": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          }
+        }
+      },
       "UpdateSavedSearchRequestSearchFiltersTitle": {
         "type": "object",
         "properties": {
@@ -83246,6 +84704,198 @@
               "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersSubIndustryIncludeItem"
             },
             "description": "Subindustries of the lead company to include in the search"
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersTitle": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "VP Sales"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Intern"
+            }
+          },
+          "includeMode": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersTitleIncludeMode"
+          },
+          "excludeMode": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersTitleExcludeMode"
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersLocations": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersLocationsIncludeItem"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersLocationsExcludeItem"
+            }
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersSignalsItem": {
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "job_change"
+          },
+          "period_days": {
+            "type": "number",
+            "example": 90
+          },
+          "keywords": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersSignalsItemKeywords"
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersSubIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersEmployeeCountItem": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string",
+            "example": "between"
+          },
+          "min": {
+            "type": "number",
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "example": 200
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersKeywordFilter": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "string",
+            "example": "saas, crm"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "agency"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/UpdateSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode"
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersCompanyName": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
           }
         }
       },
@@ -85113,6 +86763,390 @@
           }
         }
       },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersTitle": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "VP Sales"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Intern"
+            }
+          },
+          "includeMode": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersTitleIncludeMode"
+          },
+          "excludeMode": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersTitleExcludeMode"
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersLocations": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersLocationsIncludeItem"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersLocationsExcludeItem"
+            }
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItem": {
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "job_change"
+          },
+          "period_days": {
+            "type": "number",
+            "example": 90
+          },
+          "keywords": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItemKeywords"
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Software"
+            }
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersSubIndustry": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "E-commerce"
+            }
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersEmployeeCountItem": {
+        "required": [
+          "op"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string",
+            "example": "between"
+          },
+          "min": {
+            "type": "number",
+            "example": 50
+          },
+          "max": {
+            "type": "number",
+            "example": 200
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilter": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "string",
+            "example": "saas, crm"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "agency"
+          },
+          "include_mode": {
+            "$ref": "#/components/schemas/ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilterIncludeMode"
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersCompanyName": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Acme"
+            }
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersBusinessType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "software_saas"
+            }
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersCustomerType": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "b2b"
+            }
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersLocationsIncludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersLocationsExcludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersSignalsItemKeywords": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": [
+            "engineer"
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersLocationsIncludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersLocationsExcludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersSignalsItemKeywords": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": [
+            "engineer"
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersLocationsIncludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersLocationsExcludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersSignalsItemKeywords": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": [
+            "engineer"
+          ]
+        }
+      },
       "CreateSalesAgentRequestConfigMemoryIcpsItemKeywords": {
         "type": "object",
         "properties": {
@@ -85411,6 +87445,70 @@
           "example": "firstName"
         },
         "description": "Maps action input field keys to a lead column name (column inputs) or a literal value (text/list inputs; a list input takes a comma-separated string)."
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersLocationsIncludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersLocationsExcludeItem": {
+        "type": "object",
+        "properties": {
+          "place_id": {
+            "type": "string",
+            "example": "ChIJIQBpAG2ahYAR_6128GcTUEo"
+          },
+          "label": {
+            "type": "string",
+            "example": "San Francisco, CA, USA"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "example": "California"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          }
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersSignalsItemKeywords": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": [
+            "engineer"
+          ]
+        }
       },
       "CreateSalesAgentRequestConfigOutreachSettingsCampaignScheduleSchedulesItemTiming": {
         "required": [
@@ -104691,27 +106789,8 @@
           "2": "List"
         }
       },
-      "CreateAiEnrichmentRequestStatus": {
-        "enum": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "type": "number",
-        "description": "Status of the job",
-        "example": 1,
-        "x-enumDescriptions": {
-          "1": "Job is pending processing",
-          "2": "Job is currently being processed",
-          "3": "Job has been completed successfully",
-          "4": "Job processing failed"
-        }
-      },
       "CreateAiEnrichment200ResponseResourceType": {
         "enum": [
-          "CAMPAIGN",
-          "LIST",
           1,
           2
         ],
@@ -104721,18 +106800,39 @@
         "x-enumDescriptions": {
           "1": "Campaign",
           "2": "List"
-        },
+        }
+      },
+      "CreateAiEnrichment400ResponseStatusCode": {
+        "examples": [
+          400
+        ],
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "example": 400
+      },
+      "CreateAiEnrichment400ResponseError": {
+        "examples": [
+          "Bad Request"
+        ],
+        "enum": [
+          "Bad Request",
+          "Invalid model_version"
+        ],
+        "type": "string",
+        "example": "Bad Request",
         "x-ms-enum": {
-          "name": "CreateAiEnrichment200ResponseResourceType",
+          "name": "CreateAiEnrichment400ResponseError",
           "modelAsString": false,
           "values": [
             {
-              "value": "CAMPAIGN",
-              "name": "Campaign"
+              "value": "Bad Request",
+              "name": "BadRequest"
             },
             {
-              "value": "LIST",
-              "name": "List"
+              "value": "Invalid model_version",
+              "name": "InvalidModelVersion"
             }
           ]
         }
@@ -104757,6 +106857,16 @@
         "type": "number",
         "example": 402
       },
+      "CreateAiEnrichment403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "example": 403
+      },
       "CreateAiEnrichment404ResponseStatusCode": {
         "examples": [
           404
@@ -104766,6 +106876,36 @@
         ],
         "type": "number",
         "example": 404
+      },
+      "TemplateNotFoundError": {
+        "examples": [
+          "Template not found"
+        ],
+        "enum": [
+          "Template not found"
+        ],
+        "type": "string",
+        "example": "Template not found",
+        "x-ms-enum": {
+          "name": "TemplateNotFoundError",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Template not found",
+              "name": "TemplateNotFound"
+            }
+          ]
+        }
+      },
+      "CreateAiEnrichment409ResponseStatusCode": {
+        "examples": [
+          409
+        ],
+        "enum": [
+          409
+        ],
+        "type": "number",
+        "example": 409
       },
       "CreateAiEnrichment429ResponseStatusCode": {
         "examples": [
@@ -105991,6 +108131,16 @@
             }
           ]
         }
+      },
+      "RunIntegrationAction400ResponseStatusCode": {
+        "examples": [
+          400
+        ],
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "example": 400
       },
       "RunIntegrationAction401ResponseStatusCode": {
         "examples": [
@@ -114439,6 +116589,72 @@
           ]
         }
       },
+      "CreateAiEnrichmentRequestFiltersItemType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          54,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "type": "number"
+      },
       "GetAiEnrichmentForResource200ResponseItemResourceType": {
         "enum": [
           "CAMPAIGN",
@@ -116816,6 +119032,292 @@
           ]
         }
       },
+      "CreateSavedSearch200ResponseSearchFiltersLocationMode": {
+        "enum": [
+          "contact",
+          "company"
+        ],
+        "type": "string",
+        "example": "contact",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersLocationMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "contact",
+              "name": "Contact"
+            },
+            {
+              "value": "company",
+              "name": "Company"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersDepartmentItem": {
+        "enum": [
+          "Engineering",
+          "Finance \u0026 Administration",
+          "Human Resources",
+          "IT \u0026 IS",
+          "Marketing",
+          "Operations",
+          "Sales",
+          "Support",
+          "Other"
+        ],
+        "type": "string",
+        "example": "Engineering",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersDepartmentItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Finance \u0026 Administration",
+              "name": "FinanceAmpersandAdministration"
+            },
+            {
+              "value": "Human Resources",
+              "name": "HumanResources"
+            },
+            {
+              "value": "IT \u0026 IS",
+              "name": "ITAmpersandIS"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersLevelItem": {
+        "enum": [
+          "C-Level",
+          "VP-Level",
+          "Director-Level",
+          "Manager-Level",
+          "Staff",
+          "Entry level",
+          "Mid-Senior level",
+          "Director",
+          "Associate",
+          "Owner",
+          "Executive",
+          "Manager",
+          "Senior",
+          "Chief X Officer (CxO)",
+          "Internship",
+          "Vice President (VP)",
+          "Unpaid / Internship",
+          "Partner"
+        ],
+        "type": "string",
+        "example": "VP-Level",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersLevelItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "C-Level",
+              "name": "CLevel"
+            },
+            {
+              "value": "VP-Level",
+              "name": "VpLevel"
+            },
+            {
+              "value": "Director-Level",
+              "name": "DirectorLevel"
+            },
+            {
+              "value": "Manager-Level",
+              "name": "ManagerLevel"
+            },
+            {
+              "value": "Entry level",
+              "name": "EntryLevel"
+            },
+            {
+              "value": "Mid-Senior level",
+              "name": "MidSeniorLevel"
+            },
+            {
+              "value": "Chief X Officer (CxO)",
+              "name": "ChiefXOfficerLeftParenthesisCxORightParenthesis"
+            },
+            {
+              "value": "Vice President (VP)",
+              "name": "VicePresidentLeftParenthesisVPRightParenthesis"
+            },
+            {
+              "value": "Unpaid / Internship",
+              "name": "UnpaidInternship"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersLookAlikeMode": {
+        "enum": [
+          "targeted",
+          "broad"
+        ],
+        "type": "string",
+        "example": "targeted",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersLookAlikeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "targeted",
+              "name": "Targeted"
+            },
+            {
+              "value": "broad",
+              "name": "Broad"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersLocationMode": {
+        "enum": [
+          "contact",
+          "company"
+        ],
+        "type": "string",
+        "example": "contact",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersLocationMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "contact",
+              "name": "Contact"
+            },
+            {
+              "value": "company",
+              "name": "Company"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersDepartmentItem": {
+        "enum": [
+          "Engineering",
+          "Finance \u0026 Administration",
+          "Human Resources",
+          "IT \u0026 IS",
+          "Marketing",
+          "Operations",
+          "Sales",
+          "Support",
+          "Other"
+        ],
+        "type": "string",
+        "example": "Engineering",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersDepartmentItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Finance \u0026 Administration",
+              "name": "FinanceAmpersandAdministration"
+            },
+            {
+              "value": "Human Resources",
+              "name": "HumanResources"
+            },
+            {
+              "value": "IT \u0026 IS",
+              "name": "ITAmpersandIS"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersLevelItem": {
+        "enum": [
+          "C-Level",
+          "VP-Level",
+          "Director-Level",
+          "Manager-Level",
+          "Staff",
+          "Entry level",
+          "Mid-Senior level",
+          "Director",
+          "Associate",
+          "Owner",
+          "Executive",
+          "Manager",
+          "Senior",
+          "Chief X Officer (CxO)",
+          "Internship",
+          "Vice President (VP)",
+          "Unpaid / Internship",
+          "Partner"
+        ],
+        "type": "string",
+        "example": "VP-Level",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersLevelItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "C-Level",
+              "name": "CLevel"
+            },
+            {
+              "value": "VP-Level",
+              "name": "VpLevel"
+            },
+            {
+              "value": "Director-Level",
+              "name": "DirectorLevel"
+            },
+            {
+              "value": "Manager-Level",
+              "name": "ManagerLevel"
+            },
+            {
+              "value": "Entry level",
+              "name": "EntryLevel"
+            },
+            {
+              "value": "Mid-Senior level",
+              "name": "MidSeniorLevel"
+            },
+            {
+              "value": "Chief X Officer (CxO)",
+              "name": "ChiefXOfficerLeftParenthesisCxORightParenthesis"
+            },
+            {
+              "value": "Vice President (VP)",
+              "name": "VicePresidentLeftParenthesisVPRightParenthesis"
+            },
+            {
+              "value": "Unpaid / Internship",
+              "name": "UnpaidInternship"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersLookAlikeMode": {
+        "enum": [
+          "targeted",
+          "broad"
+        ],
+        "type": "string",
+        "example": "targeted",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersLookAlikeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "targeted",
+              "name": "Targeted"
+            },
+            {
+              "value": "broad",
+              "name": "Broad"
+            }
+          ]
+        }
+      },
       "UpdateSavedSearchRequestSearchFiltersDepartmentItem": {
         "enum": [
           "Engineering",
@@ -117366,6 +119868,149 @@
             {
               "value": "company",
               "name": "Company"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersLocationMode": {
+        "enum": [
+          "contact",
+          "company"
+        ],
+        "type": "string",
+        "example": "contact",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersLocationMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "contact",
+              "name": "Contact"
+            },
+            {
+              "value": "company",
+              "name": "Company"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersDepartmentItem": {
+        "enum": [
+          "Engineering",
+          "Finance \u0026 Administration",
+          "Human Resources",
+          "IT \u0026 IS",
+          "Marketing",
+          "Operations",
+          "Sales",
+          "Support",
+          "Other"
+        ],
+        "type": "string",
+        "example": "Engineering",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersDepartmentItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Finance \u0026 Administration",
+              "name": "FinanceAmpersandAdministration"
+            },
+            {
+              "value": "Human Resources",
+              "name": "HumanResources"
+            },
+            {
+              "value": "IT \u0026 IS",
+              "name": "ITAmpersandIS"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersLevelItem": {
+        "enum": [
+          "C-Level",
+          "VP-Level",
+          "Director-Level",
+          "Manager-Level",
+          "Staff",
+          "Entry level",
+          "Mid-Senior level",
+          "Director",
+          "Associate",
+          "Owner",
+          "Executive",
+          "Manager",
+          "Senior",
+          "Chief X Officer (CxO)",
+          "Internship",
+          "Vice President (VP)",
+          "Unpaid / Internship",
+          "Partner"
+        ],
+        "type": "string",
+        "example": "VP-Level",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersLevelItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "C-Level",
+              "name": "CLevel"
+            },
+            {
+              "value": "VP-Level",
+              "name": "VpLevel"
+            },
+            {
+              "value": "Director-Level",
+              "name": "DirectorLevel"
+            },
+            {
+              "value": "Manager-Level",
+              "name": "ManagerLevel"
+            },
+            {
+              "value": "Entry level",
+              "name": "EntryLevel"
+            },
+            {
+              "value": "Mid-Senior level",
+              "name": "MidSeniorLevel"
+            },
+            {
+              "value": "Chief X Officer (CxO)",
+              "name": "ChiefXOfficerLeftParenthesisCxORightParenthesis"
+            },
+            {
+              "value": "Vice President (VP)",
+              "name": "VicePresidentLeftParenthesisVPRightParenthesis"
+            },
+            {
+              "value": "Unpaid / Internship",
+              "name": "UnpaidInternship"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersLookAlikeMode": {
+        "enum": [
+          "targeted",
+          "broad"
+        ],
+        "type": "string",
+        "example": "targeted",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersLookAlikeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "targeted",
+              "name": "Targeted"
+            },
+            {
+              "value": "broad",
+              "name": "Broad"
             }
           ]
         }
@@ -134493,6 +137138,149 @@
           ]
         }
       },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersLocationMode": {
+        "enum": [
+          "contact",
+          "company"
+        ],
+        "type": "string",
+        "example": "contact",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersLocationMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "contact",
+              "name": "Contact"
+            },
+            {
+              "value": "company",
+              "name": "Company"
+            }
+          ]
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem": {
+        "enum": [
+          "Engineering",
+          "Finance \u0026 Administration",
+          "Human Resources",
+          "IT \u0026 IS",
+          "Marketing",
+          "Operations",
+          "Sales",
+          "Support",
+          "Other"
+        ],
+        "type": "string",
+        "example": "Engineering",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersDepartmentItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Finance \u0026 Administration",
+              "name": "FinanceAmpersandAdministration"
+            },
+            {
+              "value": "Human Resources",
+              "name": "HumanResources"
+            },
+            {
+              "value": "IT \u0026 IS",
+              "name": "ITAmpersandIS"
+            }
+          ]
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem": {
+        "enum": [
+          "C-Level",
+          "VP-Level",
+          "Director-Level",
+          "Manager-Level",
+          "Staff",
+          "Entry level",
+          "Mid-Senior level",
+          "Director",
+          "Associate",
+          "Owner",
+          "Executive",
+          "Manager",
+          "Senior",
+          "Chief X Officer (CxO)",
+          "Internship",
+          "Vice President (VP)",
+          "Unpaid / Internship",
+          "Partner"
+        ],
+        "type": "string",
+        "example": "VP-Level",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersLevelItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "C-Level",
+              "name": "CLevel"
+            },
+            {
+              "value": "VP-Level",
+              "name": "VpLevel"
+            },
+            {
+              "value": "Director-Level",
+              "name": "DirectorLevel"
+            },
+            {
+              "value": "Manager-Level",
+              "name": "ManagerLevel"
+            },
+            {
+              "value": "Entry level",
+              "name": "EntryLevel"
+            },
+            {
+              "value": "Mid-Senior level",
+              "name": "MidSeniorLevel"
+            },
+            {
+              "value": "Chief X Officer (CxO)",
+              "name": "ChiefXOfficerLeftParenthesisCxORightParenthesis"
+            },
+            {
+              "value": "Vice President (VP)",
+              "name": "VicePresidentLeftParenthesisVPRightParenthesis"
+            },
+            {
+              "value": "Unpaid / Internship",
+              "name": "UnpaidInternship"
+            }
+          ]
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersLookAlikeMode": {
+        "enum": [
+          "targeted",
+          "broad"
+        ],
+        "type": "string",
+        "example": "targeted",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersLookAlikeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "targeted",
+              "name": "Targeted"
+            },
+            {
+              "value": "broad",
+              "name": "Broad"
+            }
+          ]
+        }
+      },
       "CreateSavedSearchRequestSearchFiltersTitleIncludeMode": {
         "enum": [
           "EXACT",
@@ -136346,6 +139134,138 @@
             {
               "value": "Wine and Spirits",
               "name": "WineAndSpirits"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersTitleIncludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "CONTAINS",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersTitleIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersTitleExcludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "EXACT",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersTitleExcludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "CreateSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "CreateSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersTitleIncludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "CONTAINS",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersTitleIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersTitleExcludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "EXACT",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersTitleExcludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "GetSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "GetSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
             }
           ]
         }
@@ -138207,6 +141127,72 @@
           ]
         }
       },
+      "UpdateSavedSearch200ResponseSearchFiltersTitleIncludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "CONTAINS",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersTitleIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersTitleExcludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "EXACT",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersTitleExcludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "UpdateSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "UpdateSavedSearch200ResponseSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
+            }
+          ]
+        }
+      },
       "ListLeadsRequestQueriesItemValuesOccurrenceCountCondition": {
         "enum": [
           "more",
@@ -138872,6 +141858,72 @@
             {
               "value": "list",
               "name": "List"
+            }
+          ]
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersTitleIncludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "CONTAINS",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersTitleIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersTitleExcludeMode": {
+        "enum": [
+          "EXACT",
+          "CONTAINS"
+        ],
+        "type": "string",
+        "example": "EXACT",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersTitleExcludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT",
+              "name": "Exact"
+            },
+            {
+              "value": "CONTAINS",
+              "name": "Contains"
+            }
+          ]
+        }
+      },
+      "ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilterIncludeMode": {
+        "enum": [
+          "ANY",
+          "ALL"
+        ],
+        "type": "string",
+        "example": "ANY",
+        "x-ms-enum": {
+          "name": "ListSavedSearches200ResponseItemsItemSearchFiltersKeywordFilterIncludeMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ANY",
+              "name": "Any"
+            },
+            {
+              "value": "ALL",
+              "name": "All"
             }
           ]
         }
