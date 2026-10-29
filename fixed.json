@@ -90159,7 +90159,16 @@
           45,
           46,
           47,
-          48
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57
         ],
         "type": "number",
         "description": "Type of activity performed",
@@ -90207,7 +90216,16 @@
           "45": "Voice agent number removed from do-not-call list",
           "46": "Non-Instantly email preference updated",
           "47": "Local businesses converted to leads",
-          "48": "Creators converted to leads"
+          "48": "Creators converted to leads",
+          "49": "Website publish requested",
+          "50": "Website unpublished",
+          "51": "Website deleted",
+          "52": "Website custom domain added",
+          "53": "Website custom domain verified",
+          "54": "Website custom domain removed",
+          "55": "Personalized website link created",
+          "56": "Website personal link visit tracking changed",
+          "57": "Personalized website links revoked"
         }
       },
       "AiAgentGuidanceStatus": {
