@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("then") is { } nullNodeThen && nullNodeThen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Then = null;
-            if (parseNode.GetChildNode("when") is { } nullNodeWhen && nullNodeWhen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) When = null;
+            if (parseNode.GetChildNode("then") is null) { _explicitNullValueThen = default!; _explicitNullProperties?.Remove("then"); }
+            else if (parseNode.GetChildNode("then") is { } nullNodeThen && nullNodeThen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Then = null;
+            if (parseNode.GetChildNode("when") is null) { _explicitNullValueWhen = default!; _explicitNullProperties?.Remove("when"); }
+            else if (parseNode.GetChildNode("when") is { } nullNodeWhen && nullNodeWhen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) When = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Actions to take when condition is met</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen? Then { get => _explicitNullValueThen; set { _explicitNullValueThen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("then"); else _explicitNullProperties?.Remove("then"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen? Then { get => _explicitNullValueThen; set { _explicitNullValueThen = value; AdditionalData?.Remove("then"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("then"); else _explicitNullProperties?.Remove("then"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen? _explicitNullValueThen = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen Then { get => _explicitNullValueThen; set { _explicitNullValueThen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("then"); else _explicitNullProperties?.Remove("then"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen Then { get => _explicitNullValueThen; set { _explicitNullValueThen = value; AdditionalData?.Remove("then"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("then"); else _explicitNullProperties?.Remove("then"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen _explicitNullValueThen = default!;
 #endif
         /// <summary>The when property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen? When { get => _explicitNullValueWhen; set { _explicitNullValueWhen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("when"); else _explicitNullProperties?.Remove("when"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen? When { get => _explicitNullValueWhen; set { _explicitNullValueWhen = value; AdditionalData?.Remove("when"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("when"); else _explicitNullProperties?.Remove("when"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen? _explicitNullValueWhen = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen When { get => _explicitNullValueWhen; set { _explicitNullValueWhen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("when"); else _explicitNullProperties?.Remove("when"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen When { get => _explicitNullValueWhen; set { _explicitNullValueWhen = value; AdditionalData?.Remove("when"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("when"); else _explicitNullProperties?.Remove("when"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen _explicitNullValueWhen = default!;
 #endif
         /// <summary>

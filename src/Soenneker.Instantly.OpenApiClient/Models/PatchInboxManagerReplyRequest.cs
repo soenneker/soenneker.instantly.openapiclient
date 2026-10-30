@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action_pending") is { } nullNodeActionPending && nullNodeActionPending.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionPending = null;
-            if (parseNode.GetChildNode("feedback_positive") is { } nullNodeFeedbackPositive && nullNodeFeedbackPositive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedbackPositive = null;
-            if (parseNode.GetChildNode("feedback_text") is { } nullNodeFeedbackText && nullNodeFeedbackText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedbackText = null;
+            if (parseNode.GetChildNode("action_pending") is null) { _explicitNullValueActionPending = default!; _explicitNullProperties?.Remove("action_pending"); }
+            else if (parseNode.GetChildNode("action_pending") is { } nullNodeActionPending && nullNodeActionPending.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionPending = null;
+            if (parseNode.GetChildNode("feedback_positive") is null) { _explicitNullValueFeedbackPositive = default!; _explicitNullProperties?.Remove("feedback_positive"); }
+            else if (parseNode.GetChildNode("feedback_positive") is { } nullNodeFeedbackPositive && nullNodeFeedbackPositive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedbackPositive = null;
+            if (parseNode.GetChildNode("feedback_text") is null) { _explicitNullValueFeedbackText = default!; _explicitNullProperties?.Remove("feedback_text"); }
+            else if (parseNode.GetChildNode("feedback_text") is { } nullNodeFeedbackText && nullNodeFeedbackText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedbackText = null;
         }
 
         /// <summary>Whether this reply still requires action from the user</summary>

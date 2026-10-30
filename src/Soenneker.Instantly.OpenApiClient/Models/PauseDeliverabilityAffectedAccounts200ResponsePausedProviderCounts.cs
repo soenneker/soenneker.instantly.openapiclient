@@ -17,29 +17,34 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("airmail") is { } nullNodeAirmail && nullNodeAirmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Airmail = null;
-            if (parseNode.GetChildNode("custom_imap_smtp") is { } nullNodeCustomImapSmtp && nullNodeCustomImapSmtp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomImapSmtp = null;
-            if (parseNode.GetChildNode("google") is { } nullNodeGoogle && nullNodeGoogle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Google = null;
-            if (parseNode.GetChildNode("microsoft") is { } nullNodeMicrosoft && nullNodeMicrosoft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Microsoft = null;
-            if (parseNode.GetChildNode("other") is { } nullNodeOther && nullNodeOther.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Other = null;
+            if (parseNode.GetChildNode("airmail") is null) { _explicitNullValueAirmail = default!; _explicitNullProperties?.Remove("airmail"); }
+            else if (parseNode.GetChildNode("airmail") is { } nullNodeAirmail && nullNodeAirmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Airmail = null;
+            if (parseNode.GetChildNode("custom_imap_smtp") is null) { _explicitNullValueCustomImapSmtp = default!; _explicitNullProperties?.Remove("custom_imap_smtp"); }
+            else if (parseNode.GetChildNode("custom_imap_smtp") is { } nullNodeCustomImapSmtp && nullNodeCustomImapSmtp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomImapSmtp = null;
+            if (parseNode.GetChildNode("google") is null) { _explicitNullValueGoogle = default!; _explicitNullProperties?.Remove("google"); }
+            else if (parseNode.GetChildNode("google") is { } nullNodeGoogle && nullNodeGoogle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Google = null;
+            if (parseNode.GetChildNode("microsoft") is null) { _explicitNullValueMicrosoft = default!; _explicitNullProperties?.Remove("microsoft"); }
+            else if (parseNode.GetChildNode("microsoft") is { } nullNodeMicrosoft && nullNodeMicrosoft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Microsoft = null;
+            if (parseNode.GetChildNode("other") is null) { _explicitNullValueOther = default!; _explicitNullProperties?.Remove("other"); }
+            else if (parseNode.GetChildNode("other") is { } nullNodeOther && nullNodeOther.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Other = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The airmail property</summary>
-        public double? Airmail { get => _explicitNullValueAirmail; set { _explicitNullValueAirmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("airmail"); else _explicitNullProperties?.Remove("airmail"); } }
+        public double? Airmail { get => _explicitNullValueAirmail; set { _explicitNullValueAirmail = value; AdditionalData?.Remove("airmail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("airmail"); else _explicitNullProperties?.Remove("airmail"); } }
         private double? _explicitNullValueAirmail = default!;
         /// <summary>The custom_imap_smtp property</summary>
-        public double? CustomImapSmtp { get => _explicitNullValueCustomImapSmtp; set { _explicitNullValueCustomImapSmtp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_imap_smtp"); else _explicitNullProperties?.Remove("custom_imap_smtp"); } }
+        public double? CustomImapSmtp { get => _explicitNullValueCustomImapSmtp; set { _explicitNullValueCustomImapSmtp = value; AdditionalData?.Remove("custom_imap_smtp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_imap_smtp"); else _explicitNullProperties?.Remove("custom_imap_smtp"); } }
         private double? _explicitNullValueCustomImapSmtp = default!;
         /// <summary>The google property</summary>
-        public double? Google { get => _explicitNullValueGoogle; set { _explicitNullValueGoogle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google"); else _explicitNullProperties?.Remove("google"); } }
+        public double? Google { get => _explicitNullValueGoogle; set { _explicitNullValueGoogle = value; AdditionalData?.Remove("google"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google"); else _explicitNullProperties?.Remove("google"); } }
         private double? _explicitNullValueGoogle = default!;
         /// <summary>The microsoft property</summary>
-        public double? Microsoft { get => _explicitNullValueMicrosoft; set { _explicitNullValueMicrosoft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft"); else _explicitNullProperties?.Remove("microsoft"); } }
+        public double? Microsoft { get => _explicitNullValueMicrosoft; set { _explicitNullValueMicrosoft = value; AdditionalData?.Remove("microsoft"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft"); else _explicitNullProperties?.Remove("microsoft"); } }
         private double? _explicitNullValueMicrosoft = default!;
         /// <summary>The other property</summary>
-        public double? Other { get => _explicitNullValueOther; set { _explicitNullValueOther = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("other"); else _explicitNullProperties?.Remove("other"); } }
+        public double? Other { get => _explicitNullValueOther; set { _explicitNullValueOther = value; AdditionalData?.Remove("other"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("other"); else _explicitNullProperties?.Remove("other"); } }
         private double? _explicitNullValueOther = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts"/> and sets the default values.

@@ -18,10 +18,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("autonomy_settings") is { } nullNodeAutonomySettings && nullNodeAutonomySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutonomySettings = null;
-            if (parseNode.GetChildNode("enrichment_settings") is { } nullNodeEnrichmentSettings && nullNodeEnrichmentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrichmentSettings = null;
-            if (parseNode.GetChildNode("memory") is { } nullNodeMemory && nullNodeMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Memory = null;
-            if (parseNode.GetChildNode("outreach_settings") is { } nullNodeOutreachSettings && nullNodeOutreachSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutreachSettings = null;
+            if (parseNode.GetChildNode("autonomy_settings") is null) { _explicitNullValueAutonomySettings = default!; _explicitNullProperties?.Remove("autonomy_settings"); }
+            else if (parseNode.GetChildNode("autonomy_settings") is { } nullNodeAutonomySettings && nullNodeAutonomySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutonomySettings = null;
+            if (parseNode.GetChildNode("enrichment_settings") is null) { _explicitNullValueEnrichmentSettings = default!; _explicitNullProperties?.Remove("enrichment_settings"); }
+            else if (parseNode.GetChildNode("enrichment_settings") is { } nullNodeEnrichmentSettings && nullNodeEnrichmentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrichmentSettings = null;
+            if (parseNode.GetChildNode("memory") is null) { _explicitNullValueMemory = default!; _explicitNullProperties?.Remove("memory"); }
+            else if (parseNode.GetChildNode("memory") is { } nullNodeMemory && nullNodeMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Memory = null;
+            if (parseNode.GetChildNode("outreach_settings") is null) { _explicitNullValueOutreachSettings = default!; _explicitNullProperties?.Remove("outreach_settings"); }
+            else if (parseNode.GetChildNode("outreach_settings") is { } nullNodeOutreachSettings && nullNodeOutreachSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutreachSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Settings for AI Sales Agent autonomy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings? AutonomySettings { get => _explicitNullValueAutonomySettings; set { _explicitNullValueAutonomySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autonomy_settings"); else _explicitNullProperties?.Remove("autonomy_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings? AutonomySettings { get => _explicitNullValueAutonomySettings; set { _explicitNullValueAutonomySettings = value; AdditionalData?.Remove("autonomy_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autonomy_settings"); else _explicitNullProperties?.Remove("autonomy_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings? _explicitNullValueAutonomySettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings AutonomySettings { get => _explicitNullValueAutonomySettings; set { _explicitNullValueAutonomySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autonomy_settings"); else _explicitNullProperties?.Remove("autonomy_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings AutonomySettings { get => _explicitNullValueAutonomySettings; set { _explicitNullValueAutonomySettings = value; AdditionalData?.Remove("autonomy_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autonomy_settings"); else _explicitNullProperties?.Remove("autonomy_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings _explicitNullValueAutonomySettings = default!;
 #endif
         /// <summary>Settings for lead enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings? EnrichmentSettings { get => _explicitNullValueEnrichmentSettings; set { _explicitNullValueEnrichmentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_settings"); else _explicitNullProperties?.Remove("enrichment_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings? EnrichmentSettings { get => _explicitNullValueEnrichmentSettings; set { _explicitNullValueEnrichmentSettings = value; AdditionalData?.Remove("enrichment_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_settings"); else _explicitNullProperties?.Remove("enrichment_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings? _explicitNullValueEnrichmentSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings EnrichmentSettings { get => _explicitNullValueEnrichmentSettings; set { _explicitNullValueEnrichmentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_settings"); else _explicitNullProperties?.Remove("enrichment_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings EnrichmentSettings { get => _explicitNullValueEnrichmentSettings; set { _explicitNullValueEnrichmentSettings = value; AdditionalData?.Remove("enrichment_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_settings"); else _explicitNullProperties?.Remove("enrichment_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigEnrichmentSettings _explicitNullValueEnrichmentSettings = default!;
 #endif
         /// <summary>Business context and memory for the AI Sales Agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory? Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory? Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; AdditionalData?.Remove("memory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory? _explicitNullValueMemory = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; AdditionalData?.Remove("memory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigMemory _explicitNullValueMemory = default!;
 #endif
         /// <summary>Settings for email outreach</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings? OutreachSettings { get => _explicitNullValueOutreachSettings; set { _explicitNullValueOutreachSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach_settings"); else _explicitNullProperties?.Remove("outreach_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings? OutreachSettings { get => _explicitNullValueOutreachSettings; set { _explicitNullValueOutreachSettings = value; AdditionalData?.Remove("outreach_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach_settings"); else _explicitNullProperties?.Remove("outreach_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings? _explicitNullValueOutreachSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings OutreachSettings { get => _explicitNullValueOutreachSettings; set { _explicitNullValueOutreachSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach_settings"); else _explicitNullProperties?.Remove("outreach_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings OutreachSettings { get => _explicitNullValueOutreachSettings; set { _explicitNullValueOutreachSettings = value; AdditionalData?.Remove("outreach_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach_settings"); else _explicitNullProperties?.Remove("outreach_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigOutreachSettings _explicitNullValueOutreachSettings = default!;
 #endif
         /// <summary>

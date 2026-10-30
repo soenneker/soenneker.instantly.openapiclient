@@ -17,17 +17,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
-            if (parseNode.GetChildNode("condition_value") is { } nullNodeConditionValue && nullNodeConditionValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConditionValue = null;
+            if (parseNode.GetChildNode("condition") is null) { _explicitNullValueCondition = default!; _explicitNullProperties?.Remove("condition"); }
+            else if (parseNode.GetChildNode("condition") is { } nullNodeCondition && nullNodeCondition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Condition = null;
+            if (parseNode.GetChildNode("condition_value") is null) { _explicitNullValueConditionValue = default!; _explicitNullProperties?.Remove("condition_value"); }
+            else if (parseNode.GetChildNode("condition_value") is { } nullNodeConditionValue && nullNodeConditionValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConditionValue = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Condition for automation trigger</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhenCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhenCondition? Condition { get => _explicitNullValueCondition; set { _explicitNullValueCondition = value; AdditionalData?.Remove("condition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition"); else _explicitNullProperties?.Remove("condition"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhenCondition? _explicitNullValueCondition = default!;
         /// <summary>Value for condition, if applicable</summary>
-        public double? ConditionValue { get => _explicitNullValueConditionValue; set { _explicitNullValueConditionValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition_value"); else _explicitNullProperties?.Remove("condition_value"); } }
+        public double? ConditionValue { get => _explicitNullValueConditionValue; set { _explicitNullValueConditionValue = value; AdditionalData?.Remove("condition_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("condition_value"); else _explicitNullProperties?.Remove("condition_value"); } }
         private double? _explicitNullValueConditionValue = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhen"/> and sets the default values.
@@ -54,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "condition", n => { Condition = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhenCondition>(); } },
+                { "condition", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemWhenCondition>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCondition = default; _explicitNullProperties?.Remove("condition"); AdditionalData["condition"] = unknown; } else { Condition = parsed; AdditionalData.Remove("condition"); } } },
                 { "condition_value", n => { ConditionValue = n.GetDoubleValue(); } },
             };
         }

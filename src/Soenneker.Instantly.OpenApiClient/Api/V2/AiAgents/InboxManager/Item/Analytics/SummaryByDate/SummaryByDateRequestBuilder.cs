@@ -81,7 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.An
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item.Analytics.SummaryByDate.SummaryByDateRequestBuilder.SummaryByDateRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.instantly.ai", "/api/v2/ai-agents/inbox-manager/{id}/analytics/summary-by-date", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

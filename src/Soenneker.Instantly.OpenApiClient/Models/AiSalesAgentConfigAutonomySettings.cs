@@ -18,21 +18,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("autopilot_mode") is { } nullNodeAutopilotMode && nullNodeAutopilotMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutopilotMode = null;
-            if (parseNode.GetChildNode("auto_reply_to_responses") is { } nullNodeAutoReplyToResponses && nullNodeAutoReplyToResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoReplyToResponses = null;
-            if (parseNode.GetChildNode("manual_leads_mode") is { } nullNodeManualLeadsMode && nullNodeManualLeadsMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManualLeadsMode = null;
+            if (parseNode.GetChildNode("autopilot_mode") is null) { _explicitNullValueAutopilotMode = default!; _explicitNullProperties?.Remove("autopilot_mode"); }
+            else if (parseNode.GetChildNode("autopilot_mode") is { } nullNodeAutopilotMode && nullNodeAutopilotMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutopilotMode = null;
+            if (parseNode.GetChildNode("auto_reply_to_responses") is null) { _explicitNullValueAutoReplyToResponses = default!; _explicitNullProperties?.Remove("auto_reply_to_responses"); }
+            else if (parseNode.GetChildNode("auto_reply_to_responses") is { } nullNodeAutoReplyToResponses && nullNodeAutoReplyToResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoReplyToResponses = null;
+            if (parseNode.GetChildNode("manual_leads_mode") is null) { _explicitNullValueManualLeadsMode = default!; _explicitNullProperties?.Remove("manual_leads_mode"); }
+            else if (parseNode.GetChildNode("manual_leads_mode") is { } nullNodeManualLeadsMode && nullNodeManualLeadsMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManualLeadsMode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable autopilot mode for autonomous decision-making</summary>
-        public bool? AutopilotMode { get => _explicitNullValueAutopilotMode; set { _explicitNullValueAutopilotMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autopilot_mode"); else _explicitNullProperties?.Remove("autopilot_mode"); } }
+        public bool? AutopilotMode { get => _explicitNullValueAutopilotMode; set { _explicitNullValueAutopilotMode = value; AdditionalData?.Remove("autopilot_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autopilot_mode"); else _explicitNullProperties?.Remove("autopilot_mode"); } }
         private bool? _explicitNullValueAutopilotMode = default!;
         /// <summary>Automatically respond to prospect replies with contextual messages</summary>
-        public bool? AutoReplyToResponses { get => _explicitNullValueAutoReplyToResponses; set { _explicitNullValueAutoReplyToResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_reply_to_responses"); else _explicitNullProperties?.Remove("auto_reply_to_responses"); } }
+        public bool? AutoReplyToResponses { get => _explicitNullValueAutoReplyToResponses; set { _explicitNullValueAutoReplyToResponses = value; AdditionalData?.Remove("auto_reply_to_responses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_reply_to_responses"); else _explicitNullProperties?.Remove("auto_reply_to_responses"); } }
         private bool? _explicitNullValueAutoReplyToResponses = default!;
         /// <summary>When true, automatic lead discovery is disabled and the user uploads leads manually</summary>
-        public bool? ManualLeadsMode { get => _explicitNullValueManualLeadsMode; set { _explicitNullValueManualLeadsMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual_leads_mode"); else _explicitNullProperties?.Remove("manual_leads_mode"); } }
+        public bool? ManualLeadsMode { get => _explicitNullValueManualLeadsMode; set { _explicitNullValueManualLeadsMode = value; AdditionalData?.Remove("manual_leads_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual_leads_mode"); else _explicitNullProperties?.Remove("manual_leads_mode"); } }
         private bool? _explicitNullValueManualLeadsMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings"/> and sets the default values.

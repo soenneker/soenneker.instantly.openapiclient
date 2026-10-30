@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
-            if (parseNode.GetChildNode("outreach") is { } nullNodeOutreach && nullNodeOutreach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outreach = null;
+            if (parseNode.GetChildNode("credits") is null) { _explicitNullValueCredits = default!; _explicitNullProperties?.Remove("credits"); }
+            else if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
+            if (parseNode.GetChildNode("outreach") is null) { _explicitNullValueOutreach = default!; _explicitNullProperties?.Remove("outreach"); }
+            else if (parseNode.GetChildNode("outreach") is { } nullNodeOutreach && nullNodeOutreach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outreach = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The credits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; AdditionalData?.Remove("credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits? _explicitNullValueCredits = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; AdditionalData?.Remove("credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits _explicitNullValueCredits = default!;
 #endif
         /// <summary>The outreach property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreach? Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreach? Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; AdditionalData?.Remove("outreach"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreach? _explicitNullValueOutreach = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreach Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreach Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; AdditionalData?.Remove("outreach"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreach _explicitNullValueOutreach = default!;
 #endif
         /// <summary>

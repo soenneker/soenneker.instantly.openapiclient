@@ -17,54 +17,62 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_credits") is { } nullNodeAvailableCredits && nullNodeAvailableCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableCredits = null;
-            if (parseNode.GetChildNode("cancel_at_time") is { } nullNodeCancelAtTime && nullNodeCancelAtTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelAtTime = null;
-            if (parseNode.GetChildNode("current_period_end") is { } nullNodeCurrentPeriodEnd && nullNodeCurrentPeriodEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPeriodEnd = null;
-            if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
-            if (parseNode.GetChildNode("plan_limit") is { } nullNodePlanLimit && nullNodePlanLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanLimit = null;
-            if (parseNode.GetChildNode("plan_name") is { } nullNodePlanName && nullNodePlanName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanName = null;
-            if (parseNode.GetChildNode("price_in_dollars") is { } nullNodePriceInDollars && nullNodePriceInDollars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PriceInDollars = null;
-            if (parseNode.GetChildNode("product_id") is { } nullNodeProductId && nullNodeProductId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductId = null;
+            if (parseNode.GetChildNode("available_credits") is null) { _explicitNullValueAvailableCredits = default!; _explicitNullProperties?.Remove("available_credits"); }
+            else if (parseNode.GetChildNode("available_credits") is { } nullNodeAvailableCredits && nullNodeAvailableCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableCredits = null;
+            if (parseNode.GetChildNode("cancel_at_time") is null) { _explicitNullValueCancelAtTime = default!; _explicitNullProperties?.Remove("cancel_at_time"); }
+            else if (parseNode.GetChildNode("cancel_at_time") is { } nullNodeCancelAtTime && nullNodeCancelAtTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelAtTime = null;
+            if (parseNode.GetChildNode("current_period_end") is null) { _explicitNullValueCurrentPeriodEnd = default!; _explicitNullProperties?.Remove("current_period_end"); }
+            else if (parseNode.GetChildNode("current_period_end") is { } nullNodeCurrentPeriodEnd && nullNodeCurrentPeriodEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPeriodEnd = null;
+            if (parseNode.GetChildNode("interval") is null) { _explicitNullValueInterval = default!; _explicitNullProperties?.Remove("interval"); }
+            else if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
+            if (parseNode.GetChildNode("plan_limit") is null) { _explicitNullValuePlanLimit = default!; _explicitNullProperties?.Remove("plan_limit"); }
+            else if (parseNode.GetChildNode("plan_limit") is { } nullNodePlanLimit && nullNodePlanLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanLimit = null;
+            if (parseNode.GetChildNode("plan_name") is null) { _explicitNullValuePlanName = default!; _explicitNullProperties?.Remove("plan_name"); }
+            else if (parseNode.GetChildNode("plan_name") is { } nullNodePlanName && nullNodePlanName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanName = null;
+            if (parseNode.GetChildNode("price_in_dollars") is null) { _explicitNullValuePriceInDollars = default!; _explicitNullProperties?.Remove("price_in_dollars"); }
+            else if (parseNode.GetChildNode("price_in_dollars") is { } nullNodePriceInDollars && nullNodePriceInDollars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PriceInDollars = null;
+            if (parseNode.GetChildNode("product_id") is null) { _explicitNullValueProductId = default!; _explicitNullProperties?.Remove("product_id"); }
+            else if (parseNode.GetChildNode("product_id") is { } nullNodeProductId && nullNodeProductId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The available_credits property</summary>
-        public double? AvailableCredits { get => _explicitNullValueAvailableCredits; set { _explicitNullValueAvailableCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_credits"); else _explicitNullProperties?.Remove("available_credits"); } }
+        public double? AvailableCredits { get => _explicitNullValueAvailableCredits; set { _explicitNullValueAvailableCredits = value; AdditionalData?.Remove("available_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_credits"); else _explicitNullProperties?.Remove("available_credits"); } }
         private double? _explicitNullValueAvailableCredits = default!;
         /// <summary>The cancel_at_time property</summary>
-        public double? CancelAtTime { get => _explicitNullValueCancelAtTime; set { _explicitNullValueCancelAtTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel_at_time"); else _explicitNullProperties?.Remove("cancel_at_time"); } }
+        public double? CancelAtTime { get => _explicitNullValueCancelAtTime; set { _explicitNullValueCancelAtTime = value; AdditionalData?.Remove("cancel_at_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel_at_time"); else _explicitNullProperties?.Remove("cancel_at_time"); } }
         private double? _explicitNullValueCancelAtTime = default!;
         /// <summary>The current_period_end property</summary>
-        public double? CurrentPeriodEnd { get => _explicitNullValueCurrentPeriodEnd; set { _explicitNullValueCurrentPeriodEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_period_end"); else _explicitNullProperties?.Remove("current_period_end"); } }
+        public double? CurrentPeriodEnd { get => _explicitNullValueCurrentPeriodEnd; set { _explicitNullValueCurrentPeriodEnd = value; AdditionalData?.Remove("current_period_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_period_end"); else _explicitNullProperties?.Remove("current_period_end"); } }
         private double? _explicitNullValueCurrentPeriodEnd = default!;
         /// <summary>The interval property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval? _explicitNullValueInterval = default!;
         /// <summary>The plan_limit property</summary>
-        public double? PlanLimit { get => _explicitNullValuePlanLimit; set { _explicitNullValuePlanLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_limit"); else _explicitNullProperties?.Remove("plan_limit"); } }
+        public double? PlanLimit { get => _explicitNullValuePlanLimit; set { _explicitNullValuePlanLimit = value; AdditionalData?.Remove("plan_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_limit"); else _explicitNullProperties?.Remove("plan_limit"); } }
         private double? _explicitNullValuePlanLimit = default!;
         /// <summary>The plan_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlanName { get => _explicitNullValuePlanName; set { _explicitNullValuePlanName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_name"); else _explicitNullProperties?.Remove("plan_name"); } }
+        public string? PlanName { get => _explicitNullValuePlanName; set { _explicitNullValuePlanName = value; AdditionalData?.Remove("plan_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_name"); else _explicitNullProperties?.Remove("plan_name"); } }
         private string? _explicitNullValuePlanName = default!;
 #nullable restore
 #else
-        public string PlanName { get => _explicitNullValuePlanName; set { _explicitNullValuePlanName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_name"); else _explicitNullProperties?.Remove("plan_name"); } }
+        public string PlanName { get => _explicitNullValuePlanName; set { _explicitNullValuePlanName = value; AdditionalData?.Remove("plan_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_name"); else _explicitNullProperties?.Remove("plan_name"); } }
         private string _explicitNullValuePlanName = default!;
 #endif
         /// <summary>The price_in_dollars property</summary>
-        public double? PriceInDollars { get => _explicitNullValuePriceInDollars; set { _explicitNullValuePriceInDollars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_in_dollars"); else _explicitNullProperties?.Remove("price_in_dollars"); } }
+        public double? PriceInDollars { get => _explicitNullValuePriceInDollars; set { _explicitNullValuePriceInDollars = value; AdditionalData?.Remove("price_in_dollars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_in_dollars"); else _explicitNullProperties?.Remove("price_in_dollars"); } }
         private double? _explicitNullValuePriceInDollars = default!;
         /// <summary>The product_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
+        public string? ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; AdditionalData?.Remove("product_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
         private string? _explicitNullValueProductId = default!;
 #nullable restore
 #else
-        public string ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
+        public string ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; AdditionalData?.Remove("product_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
         private string _explicitNullValueProductId = default!;
 #endif
         /// <summary>
@@ -95,7 +103,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "available_credits", n => { AvailableCredits = n.GetDoubleValue(); } },
                 { "cancel_at_time", n => { CancelAtTime = n.GetDoubleValue(); } },
                 { "current_period_end", n => { CurrentPeriodEnd = n.GetDoubleValue(); } },
-                { "interval", n => { Interval = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval>(); } },
+                { "interval", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterval = default; _explicitNullProperties?.Remove("interval"); AdditionalData["interval"] = unknown; } else { Interval = parsed; AdditionalData.Remove("interval"); } } },
                 { "plan_limit", n => { PlanLimit = n.GetDoubleValue(); } },
                 { "plan_name", n => { PlanName = n.GetStringValue(); } },
                 { "price_in_dollars", n => { PriceInDollars = n.GetDoubleValue(); } },

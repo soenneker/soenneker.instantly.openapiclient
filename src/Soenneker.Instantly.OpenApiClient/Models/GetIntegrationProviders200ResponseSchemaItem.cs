@@ -17,66 +17,75 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("actions") is { } nullNodeActions && nullNodeActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actions = null;
-            if (parseNode.GetChildNode("credentialSource") is { } nullNodeCredentialSource && nullNodeCredentialSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialSource = null;
-            if (parseNode.GetChildNode("creditCostPerAction") is { } nullNodeCreditCostPerAction && nullNodeCreditCostPerAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditCostPerAction = null;
-            if (parseNode.GetChildNode("effectiveCostPerAction") is { } nullNodeEffectiveCostPerAction && nullNodeEffectiveCostPerAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveCostPerAction = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("isConnected") is { } nullNodeIsConnected && nullNodeIsConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsConnected = null;
-            if (parseNode.GetChildNode("isFeatured") is { } nullNodeIsFeatured && nullNodeIsFeatured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFeatured = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("requiresUserConnection") is { } nullNodeRequiresUserConnection && nullNodeRequiresUserConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresUserConnection = null;
+            if (parseNode.GetChildNode("actions") is null) { _explicitNullValueActions = default!; _explicitNullProperties?.Remove("actions"); }
+            else if (parseNode.GetChildNode("actions") is { } nullNodeActions && nullNodeActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actions = null;
+            if (parseNode.GetChildNode("credentialSource") is null) { _explicitNullValueCredentialSource = default!; _explicitNullProperties?.Remove("credentialSource"); }
+            else if (parseNode.GetChildNode("credentialSource") is { } nullNodeCredentialSource && nullNodeCredentialSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialSource = null;
+            if (parseNode.GetChildNode("creditCostPerAction") is null) { _explicitNullValueCreditCostPerAction = default!; _explicitNullProperties?.Remove("creditCostPerAction"); }
+            else if (parseNode.GetChildNode("creditCostPerAction") is { } nullNodeCreditCostPerAction && nullNodeCreditCostPerAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditCostPerAction = null;
+            if (parseNode.GetChildNode("effectiveCostPerAction") is null) { _explicitNullValueEffectiveCostPerAction = default!; _explicitNullProperties?.Remove("effectiveCostPerAction"); }
+            else if (parseNode.GetChildNode("effectiveCostPerAction") is { } nullNodeEffectiveCostPerAction && nullNodeEffectiveCostPerAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveCostPerAction = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("isConnected") is null) { _explicitNullValueIsConnected = default!; _explicitNullProperties?.Remove("isConnected"); }
+            else if (parseNode.GetChildNode("isConnected") is { } nullNodeIsConnected && nullNodeIsConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsConnected = null;
+            if (parseNode.GetChildNode("isFeatured") is null) { _explicitNullValueIsFeatured = default!; _explicitNullProperties?.Remove("isFeatured"); }
+            else if (parseNode.GetChildNode("isFeatured") is { } nullNodeIsFeatured && nullNodeIsFeatured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFeatured = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("requiresUserConnection") is null) { _explicitNullValueRequiresUserConnection = default!; _explicitNullProperties?.Remove("requiresUserConnection"); }
+            else if (parseNode.GetChildNode("requiresUserConnection") is { } nullNodeRequiresUserConnection && nullNodeRequiresUserConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresUserConnection = null;
         }
 
         /// <summary>The actions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>? Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>? Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; AdditionalData?.Remove("actions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>? _explicitNullValueActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem> Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem> Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; AdditionalData?.Remove("actions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem> _explicitNullValueActions = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whose key runs this provider for the requesting workspace. Null for an internal caller with no workspace to resolve against.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource? CredentialSource { get => _explicitNullValueCredentialSource; set { _explicitNullValueCredentialSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialSource"); else _explicitNullProperties?.Remove("credentialSource"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource? CredentialSource { get => _explicitNullValueCredentialSource; set { _explicitNullValueCredentialSource = value; AdditionalData?.Remove("credentialSource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialSource"); else _explicitNullProperties?.Remove("credentialSource"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource? _explicitNullValueCredentialSource = default!;
         /// <summary>The creditCostPerAction property</summary>
-        public double? CreditCostPerAction { get => _explicitNullValueCreditCostPerAction; set { _explicitNullValueCreditCostPerAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creditCostPerAction"); else _explicitNullProperties?.Remove("creditCostPerAction"); } }
+        public double? CreditCostPerAction { get => _explicitNullValueCreditCostPerAction; set { _explicitNullValueCreditCostPerAction = value; AdditionalData?.Remove("creditCostPerAction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creditCostPerAction"); else _explicitNullProperties?.Remove("creditCostPerAction"); } }
         private double? _explicitNullValueCreditCostPerAction = default!;
         /// <summary>Credits one action costs this workspace: 0 when it runs on the workspace key. Null when credentialSource is null.</summary>
-        public double? EffectiveCostPerAction { get => _explicitNullValueEffectiveCostPerAction; set { _explicitNullValueEffectiveCostPerAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveCostPerAction"); else _explicitNullProperties?.Remove("effectiveCostPerAction"); } }
+        public double? EffectiveCostPerAction { get => _explicitNullValueEffectiveCostPerAction; set { _explicitNullValueEffectiveCostPerAction = value; AdditionalData?.Remove("effectiveCostPerAction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effectiveCostPerAction"); else _explicitNullProperties?.Remove("effectiveCostPerAction"); } }
         private double? _explicitNullValueEffectiveCostPerAction = default!;
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The isConnected property</summary>
-        public bool? IsConnected { get => _explicitNullValueIsConnected; set { _explicitNullValueIsConnected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isConnected"); else _explicitNullProperties?.Remove("isConnected"); } }
+        public bool? IsConnected { get => _explicitNullValueIsConnected; set { _explicitNullValueIsConnected = value; AdditionalData?.Remove("isConnected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isConnected"); else _explicitNullProperties?.Remove("isConnected"); } }
         private bool? _explicitNullValueIsConnected = default!;
         /// <summary>The isFeatured property</summary>
-        public bool? IsFeatured { get => _explicitNullValueIsFeatured; set { _explicitNullValueIsFeatured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isFeatured"); else _explicitNullProperties?.Remove("isFeatured"); } }
+        public bool? IsFeatured { get => _explicitNullValueIsFeatured; set { _explicitNullValueIsFeatured = value; AdditionalData?.Remove("isFeatured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isFeatured"); else _explicitNullProperties?.Remove("isFeatured"); } }
         private bool? _explicitNullValueIsFeatured = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The requiresUserConnection property</summary>
-        public bool? RequiresUserConnection { get => _explicitNullValueRequiresUserConnection; set { _explicitNullValueRequiresUserConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requiresUserConnection"); else _explicitNullProperties?.Remove("requiresUserConnection"); } }
+        public bool? RequiresUserConnection { get => _explicitNullValueRequiresUserConnection; set { _explicitNullValueRequiresUserConnection = value; AdditionalData?.Remove("requiresUserConnection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requiresUserConnection"); else _explicitNullProperties?.Remove("requiresUserConnection"); } }
         private bool? _explicitNullValueRequiresUserConnection = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseSchemaItem"/> and sets the default values.
@@ -104,7 +113,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "credentialSource", n => { CredentialSource = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>(); } },
+                { "credentialSource", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCredentialSource = default; _explicitNullProperties?.Remove("credentialSource"); AdditionalData["credentialSource"] = unknown; } else { CredentialSource = parsed; AdditionalData.Remove("credentialSource"); } } },
                 { "creditCostPerAction", n => { CreditCostPerAction = n.GetDoubleValue(); } },
                 { "effectiveCostPerAction", n => { EffectiveCostPerAction = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },

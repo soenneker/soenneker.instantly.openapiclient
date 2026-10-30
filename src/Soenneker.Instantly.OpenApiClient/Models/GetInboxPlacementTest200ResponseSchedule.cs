@@ -18,9 +18,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
-            if (parseNode.GetChildNode("timezone") is { } nullNodeTimezone && nullNodeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timezone = null;
-            if (parseNode.GetChildNode("timing") is { } nullNodeTiming && nullNodeTiming.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timing = null;
+            if (parseNode.GetChildNode("days") is null) { _explicitNullValueDays = default!; _explicitNullProperties?.Remove("days"); }
+            else if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
+            if (parseNode.GetChildNode("timezone") is null) { _explicitNullValueTimezone = default!; _explicitNullProperties?.Remove("timezone"); }
+            else if (parseNode.GetChildNode("timezone") is { } nullNodeTimezone && nullNodeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timezone = null;
+            if (parseNode.GetChildNode("timing") is null) { _explicitNullValueTiming = default!; _explicitNullProperties?.Remove("timing"); }
+            else if (parseNode.GetChildNode("timing") is { } nullNodeTiming && nullNodeTiming.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timing = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,26 +31,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Days of the week when the test will run, where keys are integers (0-6, 0 = Sunday) and values are booleans indicating active days.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleDays? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleDays? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; AdditionalData?.Remove("days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleDays? _explicitNullValueDays = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleDays Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleDays Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; AdditionalData?.Remove("days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleDays _explicitNullValueDays = default!;
 #endif
         /// <summary>Timezone in which the schedule is set, in IANA timezone format.</summary>
 #nullable enable
-        public string? Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
+        public string? Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; AdditionalData?.Remove("timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
         private string? _explicitNullValueTimezone = default!;
 #nullable restore
         /// <summary>Timing configuration for the scheduled test.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleTiming? Timing { get => _explicitNullValueTiming; set { _explicitNullValueTiming = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timing"); else _explicitNullProperties?.Remove("timing"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleTiming? Timing { get => _explicitNullValueTiming; set { _explicitNullValueTiming = value; AdditionalData?.Remove("timing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timing"); else _explicitNullProperties?.Remove("timing"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleTiming? _explicitNullValueTiming = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleTiming Timing { get => _explicitNullValueTiming; set { _explicitNullValueTiming = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timing"); else _explicitNullProperties?.Remove("timing"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleTiming Timing { get => _explicitNullValueTiming; set { _explicitNullValueTiming = value; AdditionalData?.Remove("timing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timing"); else _explicitNullProperties?.Remove("timing"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseScheduleTiming _explicitNullValueTiming = default!;
 #endif
         /// <summary>

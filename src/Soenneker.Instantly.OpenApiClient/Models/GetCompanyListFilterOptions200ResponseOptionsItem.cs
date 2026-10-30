@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("children") is { } nullNodeChildren && nullNodeChildren.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Children = null;
-            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("children") is null) { _explicitNullValueChildren = default!; _explicitNullProperties?.Remove("children"); }
+            else if (parseNode.GetChildNode("children") is { } nullNodeChildren && nullNodeChildren.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Children = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>The children property</summary>
@@ -45,12 +48,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue? _explicitNullValueValue = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue _explicitNullValueValue = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue _explicitNullValueValue = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "children", n => { Children = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue>(global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue>(global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -84,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItem>("children", Children);
             writer.WriteStringValue("label", Label);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemValue>("value", Value);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue>("value", Value);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

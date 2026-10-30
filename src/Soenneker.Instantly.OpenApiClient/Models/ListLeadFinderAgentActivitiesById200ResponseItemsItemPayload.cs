@@ -18,27 +18,30 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("campaign_active_leads_after") is { } nullNodeCampaignActiveLeadsAfter && nullNodeCampaignActiveLeadsAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignActiveLeadsAfter = null;
-            if (parseNode.GetChildNode("leads_added") is { } nullNodeLeadsAdded && nullNodeLeadsAdded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsAdded = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("campaign_active_leads_after") is null) { _explicitNullValueCampaignActiveLeadsAfter = default!; _explicitNullProperties?.Remove("campaign_active_leads_after"); }
+            else if (parseNode.GetChildNode("campaign_active_leads_after") is { } nullNodeCampaignActiveLeadsAfter && nullNodeCampaignActiveLeadsAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignActiveLeadsAfter = null;
+            if (parseNode.GetChildNode("leads_added") is null) { _explicitNullValueLeadsAdded = default!; _explicitNullProperties?.Remove("leads_added"); }
+            else if (parseNode.GetChildNode("leads_added") is { } nullNodeLeadsAdded && nullNodeLeadsAdded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsAdded = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Active leads in the campaign after this top-up (`top_up_completed`)</summary>
-        public double? CampaignActiveLeadsAfter { get => _explicitNullValueCampaignActiveLeadsAfter; set { _explicitNullValueCampaignActiveLeadsAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_active_leads_after"); else _explicitNullProperties?.Remove("campaign_active_leads_after"); } }
+        public double? CampaignActiveLeadsAfter { get => _explicitNullValueCampaignActiveLeadsAfter; set { _explicitNullValueCampaignActiveLeadsAfter = value; AdditionalData?.Remove("campaign_active_leads_after"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_active_leads_after"); else _explicitNullProperties?.Remove("campaign_active_leads_after"); } }
         private double? _explicitNullValueCampaignActiveLeadsAfter = default!;
         /// <summary>Leads added by this top-up (`top_up_completed`)</summary>
-        public double? LeadsAdded { get => _explicitNullValueLeadsAdded; set { _explicitNullValueLeadsAdded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_added"); else _explicitNullProperties?.Remove("leads_added"); } }
+        public double? LeadsAdded { get => _explicitNullValueLeadsAdded; set { _explicitNullValueLeadsAdded = value; AdditionalData?.Remove("leads_added"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_added"); else _explicitNullProperties?.Remove("leads_added"); } }
         private double? _explicitNullValueLeadsAdded = default!;
         /// <summary>Human-readable failure reason (`top_up_failed`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private string _explicitNullValueReason = default!;
 #endif
         /// <summary>

@@ -17,25 +17,44 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("automations") is { } nullNodeAutomations && nullNodeAutomations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Automations = null;
-            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
-            if (parseNode.GetChildNode("delivery_mode") is { } nullNodeDeliveryMode && nullNodeDeliveryMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryMode = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("email_body") is { } nullNodeEmailBody && nullNodeEmailBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailBody = null;
-            if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
-            if (parseNode.GetChildNode("email_subject") is { } nullNodeEmailSubject && nullNodeEmailSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailSubject = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("not_sending_status") is { } nullNodeNotSendingStatus && nullNodeNotSendingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotSendingStatus = null;
-            if (parseNode.GetChildNode("recipients_labels") is { } nullNodeRecipientsLabels && nullNodeRecipientsLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientsLabels = null;
-            if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
-            if (parseNode.GetChildNode("sending_method") is { } nullNodeSendingMethod && nullNodeSendingMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendingMethod = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
-            if (parseNode.GetChildNode("test_code") is { } nullNodeTestCode && nullNodeTestCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestCode = null;
-            if (parseNode.GetChildNode("text_only") is { } nullNodeTextOnly && nullNodeTextOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextOnly = null;
-            if (parseNode.GetChildNode("timestamp_next_run") is { } nullNodeTimestampNextRun && nullNodeTimestampNextRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampNextRun = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("automations") is null) { _explicitNullValueAutomations = default!; _explicitNullProperties?.Remove("automations"); }
+            else if (parseNode.GetChildNode("automations") is { } nullNodeAutomations && nullNodeAutomations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Automations = null;
+            if (parseNode.GetChildNode("campaign_id") is null) { _explicitNullValueCampaignId = default!; _explicitNullProperties?.Remove("campaign_id"); }
+            else if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("delivery_mode") is null) { _explicitNullValueDeliveryMode = default!; _explicitNullProperties?.Remove("delivery_mode"); }
+            else if (parseNode.GetChildNode("delivery_mode") is { } nullNodeDeliveryMode && nullNodeDeliveryMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryMode = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("email_body") is null) { _explicitNullValueEmailBody = default!; _explicitNullProperties?.Remove("email_body"); }
+            else if (parseNode.GetChildNode("email_body") is { } nullNodeEmailBody && nullNodeEmailBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailBody = null;
+            if (parseNode.GetChildNode("emails") is null) { _explicitNullValueEmails = default!; _explicitNullProperties?.Remove("emails"); }
+            else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("email_subject") is null) { _explicitNullValueEmailSubject = default!; _explicitNullProperties?.Remove("email_subject"); }
+            else if (parseNode.GetChildNode("email_subject") is { } nullNodeEmailSubject && nullNodeEmailSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailSubject = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("not_sending_status") is null) { _explicitNullValueNotSendingStatus = default!; _explicitNullProperties?.Remove("not_sending_status"); }
+            else if (parseNode.GetChildNode("not_sending_status") is { } nullNodeNotSendingStatus && nullNodeNotSendingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotSendingStatus = null;
+            if (parseNode.GetChildNode("recipients_labels") is null) { _explicitNullValueRecipientsLabels = default!; _explicitNullProperties?.Remove("recipients_labels"); }
+            else if (parseNode.GetChildNode("recipients_labels") is { } nullNodeRecipientsLabels && nullNodeRecipientsLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientsLabels = null;
+            if (parseNode.GetChildNode("schedule") is null) { _explicitNullValueSchedule = default!; _explicitNullProperties?.Remove("schedule"); }
+            else if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
+            if (parseNode.GetChildNode("sending_method") is null) { _explicitNullValueSendingMethod = default!; _explicitNullProperties?.Remove("sending_method"); }
+            else if (parseNode.GetChildNode("sending_method") is { } nullNodeSendingMethod && nullNodeSendingMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendingMethod = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("test_code") is null) { _explicitNullValueTestCode = default!; _explicitNullProperties?.Remove("test_code"); }
+            else if (parseNode.GetChildNode("test_code") is { } nullNodeTestCode && nullNodeTestCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestCode = null;
+            if (parseNode.GetChildNode("text_only") is null) { _explicitNullValueTextOnly = default!; _explicitNullProperties?.Remove("text_only"); }
+            else if (parseNode.GetChildNode("text_only") is { } nullNodeTextOnly && nullNodeTextOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextOnly = null;
+            if (parseNode.GetChildNode("timestamp_next_run") is null) { _explicitNullValueTimestampNextRun = default!; _explicitNullProperties?.Remove("timestamp_next_run"); }
+            else if (parseNode.GetChildNode("timestamp_next_run") is { } nullNodeTimestampNextRun && nullNodeTimestampNextRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampNextRun = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -43,64 +62,64 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Optional automations to trigger based on conditions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem>? Automations { get => _explicitNullValueAutomations; set { _explicitNullValueAutomations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automations"); else _explicitNullProperties?.Remove("automations"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem>? Automations { get => _explicitNullValueAutomations; set { _explicitNullValueAutomations = value; AdditionalData?.Remove("automations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automations"); else _explicitNullProperties?.Remove("automations"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem>? _explicitNullValueAutomations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem> Automations { get => _explicitNullValueAutomations; set { _explicitNullValueAutomations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automations"); else _explicitNullProperties?.Remove("automations"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem> Automations { get => _explicitNullValueAutomations; set { _explicitNullValueAutomations = value; AdditionalData?.Remove("automations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automations"); else _explicitNullProperties?.Remove("automations"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem> _explicitNullValueAutomations = default!;
 #endif
         /// <summary>Campaign ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>Whether to send emails one by one or all together</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseDeliveryMode? DeliveryMode { get => _explicitNullValueDeliveryMode; set { _explicitNullValueDeliveryMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_mode"); else _explicitNullProperties?.Remove("delivery_mode"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseDeliveryMode? DeliveryMode { get => _explicitNullValueDeliveryMode; set { _explicitNullValueDeliveryMode = value; AdditionalData?.Remove("delivery_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_mode"); else _explicitNullProperties?.Remove("delivery_mode"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseDeliveryMode? _explicitNullValueDeliveryMode = default!;
         /// <summary>Description of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Email body of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmailBody { get => _explicitNullValueEmailBody; set { _explicitNullValueEmailBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_body"); else _explicitNullProperties?.Remove("email_body"); } }
+        public string? EmailBody { get => _explicitNullValueEmailBody; set { _explicitNullValueEmailBody = value; AdditionalData?.Remove("email_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_body"); else _explicitNullProperties?.Remove("email_body"); } }
         private string? _explicitNullValueEmailBody = default!;
 #nullable restore
 #else
-        public string EmailBody { get => _explicitNullValueEmailBody; set { _explicitNullValueEmailBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_body"); else _explicitNullProperties?.Remove("email_body"); } }
+        public string EmailBody { get => _explicitNullValueEmailBody; set { _explicitNullValueEmailBody = value; AdditionalData?.Remove("email_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_body"); else _explicitNullProperties?.Remove("email_body"); } }
         private string _explicitNullValueEmailBody = default!;
 #endif
         /// <summary>Emails to send the inbox placement test to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string>? _explicitNullValueEmails = default!;
 #nullable restore
 #else
-        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string> _explicitNullValueEmails = default!;
 #endif
         /// <summary>Email subject of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmailSubject { get => _explicitNullValueEmailSubject; set { _explicitNullValueEmailSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_subject"); else _explicitNullProperties?.Remove("email_subject"); } }
+        public string? EmailSubject { get => _explicitNullValueEmailSubject; set { _explicitNullValueEmailSubject = value; AdditionalData?.Remove("email_subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_subject"); else _explicitNullProperties?.Remove("email_subject"); } }
         private string? _explicitNullValueEmailSubject = default!;
 #nullable restore
 #else
-        public string EmailSubject { get => _explicitNullValueEmailSubject; set { _explicitNullValueEmailSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_subject"); else _explicitNullProperties?.Remove("email_subject"); } }
+        public string EmailSubject { get => _explicitNullValueEmailSubject; set { _explicitNullValueEmailSubject = value; AdditionalData?.Remove("email_subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_subject"); else _explicitNullProperties?.Remove("email_subject"); } }
         private string _explicitNullValueEmailSubject = default!;
 #endif
         /// <summary>Unique identifier for the inbox placement test</summary>
@@ -114,25 +133,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Included only when the `with_metadata` parameter is `true`. Contains additional information about the inbox placement test as associated campaign details and tags.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>Name of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Why the inbox placement test is currently not sending. It will be an empty string if there are no issues.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseNotSendingStatus? NotSendingStatus { get => _explicitNullValueNotSendingStatus; set { _explicitNullValueNotSendingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_sending_status"); else _explicitNullProperties?.Remove("not_sending_status"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseNotSendingStatus? NotSendingStatus { get => _explicitNullValueNotSendingStatus; set { _explicitNullValueNotSendingStatus = value; AdditionalData?.Remove("not_sending_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_sending_status"); else _explicitNullProperties?.Remove("not_sending_status"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseNotSendingStatus? _explicitNullValueNotSendingStatus = default!;
         /// <summary>Organization ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,51 +172,51 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>A list of email providers and their corresponding types to which emails will be sent. To retrieve the available options, use the `GET: /inbox-placement-tests/email-service-provider-options` endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem>? RecipientsLabels { get => _explicitNullValueRecipientsLabels; set { _explicitNullValueRecipientsLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients_labels"); else _explicitNullProperties?.Remove("recipients_labels"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem>? RecipientsLabels { get => _explicitNullValueRecipientsLabels; set { _explicitNullValueRecipientsLabels = value; AdditionalData?.Remove("recipients_labels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients_labels"); else _explicitNullProperties?.Remove("recipients_labels"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem>? _explicitNullValueRecipientsLabels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem> RecipientsLabels { get => _explicitNullValueRecipientsLabels; set { _explicitNullValueRecipientsLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients_labels"); else _explicitNullProperties?.Remove("recipients_labels"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem> RecipientsLabels { get => _explicitNullValueRecipientsLabels; set { _explicitNullValueRecipientsLabels = value; AdditionalData?.Remove("recipients_labels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipients_labels"); else _explicitNullProperties?.Remove("recipients_labels"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem> _explicitNullValueRecipientsLabels = default!;
 #endif
         /// <summary>Specifies the date and time when the automated inbox placement tests will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseSchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseSchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseSchedule? _explicitNullValueSchedule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseSchedule Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseSchedule Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseSchedule _explicitNullValueSchedule = default!;
 #endif
         /// <summary>Whether the inbox placement test will be sent from Instantly or from outside Instantly</summary>
-        public double? SendingMethod { get => _explicitNullValueSendingMethod; set { _explicitNullValueSendingMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sending_method"); else _explicitNullProperties?.Remove("sending_method"); } }
+        public double? SendingMethod { get => _explicitNullValueSendingMethod; set { _explicitNullValueSendingMethod = value; AdditionalData?.Remove("sending_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sending_method"); else _explicitNullProperties?.Remove("sending_method"); } }
         private double? _explicitNullValueSendingMethod = default!;
         /// <summary>Status of the inbox placement test</summary>
-        public double? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public double? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private double? _explicitNullValueStatus = default!;
         /// <summary>List of tag IDs to use for sending emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Code for identifying inbox placement tests sent from outside Instantly. Use ptid_ followed by letters, numbers, hyphens, or underscores. When creating a test, the ptid_ prefix is added automatically if omitted. The full code must be at most 50 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestCode { get => _explicitNullValueTestCode; set { _explicitNullValueTestCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_code"); else _explicitNullProperties?.Remove("test_code"); } }
+        public string? TestCode { get => _explicitNullValueTestCode; set { _explicitNullValueTestCode = value; AdditionalData?.Remove("test_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_code"); else _explicitNullProperties?.Remove("test_code"); } }
         private string? _explicitNullValueTestCode = default!;
 #nullable restore
 #else
-        public string TestCode { get => _explicitNullValueTestCode; set { _explicitNullValueTestCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_code"); else _explicitNullProperties?.Remove("test_code"); } }
+        public string TestCode { get => _explicitNullValueTestCode; set { _explicitNullValueTestCode = value; AdditionalData?.Remove("test_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_code"); else _explicitNullProperties?.Remove("test_code"); } }
         private string _explicitNullValueTestCode = default!;
 #endif
         /// <summary>Disables open tracking</summary>
-        public bool? TextOnly { get => _explicitNullValueTextOnly; set { _explicitNullValueTextOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_only"); else _explicitNullProperties?.Remove("text_only"); } }
+        public bool? TextOnly { get => _explicitNullValueTextOnly; set { _explicitNullValueTextOnly = value; AdditionalData?.Remove("text_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text_only"); else _explicitNullProperties?.Remove("text_only"); } }
         private bool? _explicitNullValueTextOnly = default!;
         /// <summary>Timestamp when the inbox placement test was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -210,15 +229,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Timestamp when the inbox placement test will run next</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimestampNextRun { get => _explicitNullValueTimestampNextRun; set { _explicitNullValueTimestampNextRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_next_run"); else _explicitNullProperties?.Remove("timestamp_next_run"); } }
+        public string? TimestampNextRun { get => _explicitNullValueTimestampNextRun; set { _explicitNullValueTimestampNextRun = value; AdditionalData?.Remove("timestamp_next_run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_next_run"); else _explicitNullProperties?.Remove("timestamp_next_run"); } }
         private string? _explicitNullValueTimestampNextRun = default!;
 #nullable restore
 #else
-        public string TimestampNextRun { get => _explicitNullValueTimestampNextRun; set { _explicitNullValueTimestampNextRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_next_run"); else _explicitNullProperties?.Remove("timestamp_next_run"); } }
+        public string TimestampNextRun { get => _explicitNullValueTimestampNextRun; set { _explicitNullValueTimestampNextRun = value; AdditionalData?.Remove("timestamp_next_run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_next_run"); else _explicitNullProperties?.Remove("timestamp_next_run"); } }
         private string _explicitNullValueTimestampNextRun = default!;
 #endif
         /// <summary>Whether the inbox placement test is a one-time test or an automated test</summary>
-        public double? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public double? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private double? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200Response"/> and sets the default values.
@@ -247,7 +266,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
-                { "delivery_mode", n => { DeliveryMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseDeliveryMode>(); } },
+                { "delivery_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseDeliveryMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDeliveryMode = default; _explicitNullProperties?.Remove("delivery_mode"); AdditionalData["delivery_mode"] = unknown; } else { DeliveryMode = parsed; AdditionalData.Remove("delivery_mode"); } } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "email_body", n => { EmailBody = n.GetStringValue(); } },
                 { "email_subject", n => { EmailSubject = n.GetStringValue(); } },
@@ -255,7 +274,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata>(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "not_sending_status", n => { NotSendingStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseNotSendingStatus>(); } },
+                { "not_sending_status", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseNotSendingStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNotSendingStatus = default; _explicitNullProperties?.Remove("not_sending_status"); AdditionalData["not_sending_status"] = unknown; } else { NotSendingStatus = parsed; AdditionalData.Remove("not_sending_status"); } } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "recipients", n => { Recipients = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "recipients_labels", n => { RecipientsLabels = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseRecipientsLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },

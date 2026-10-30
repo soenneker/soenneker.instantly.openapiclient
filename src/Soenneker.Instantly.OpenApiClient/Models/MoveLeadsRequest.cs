@@ -17,29 +17,52 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("assigned_to") is { } nullNodeAssignedTo && nullNodeAssignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedTo = null;
-            if (parseNode.GetChildNode("campaign") is { } nullNodeCampaign && nullNodeCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Campaign = null;
-            if (parseNode.GetChildNode("check_duplicates") is { } nullNodeCheckDuplicates && nullNodeCheckDuplicates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckDuplicates = null;
-            if (parseNode.GetChildNode("check_duplicates_in_campaigns") is { } nullNodeCheckDuplicatesInCampaigns && nullNodeCheckDuplicatesInCampaigns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckDuplicatesInCampaigns = null;
-            if (parseNode.GetChildNode("contacts") is { } nullNodeContacts && nullNodeContacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contacts = null;
-            if (parseNode.GetChildNode("copy_leads") is { } nullNodeCopyLeads && nullNodeCopyLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopyLeads = null;
-            if (parseNode.GetChildNode("esg_code") is { } nullNodeEsgCode && nullNodeEsgCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EsgCode = null;
-            if (parseNode.GetChildNode("esp_code") is { } nullNodeEspCode && nullNodeEspCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EspCode = null;
-            if (parseNode.GetChildNode("excluded_ids") is { } nullNodeExcludedIds && nullNodeExcludedIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludedIds = null;
-            if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
-            if (parseNode.GetChildNode("ids") is { } nullNodeIds && nullNodeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ids = null;
-            if (parseNode.GetChildNode("ignore_resource_filter_clauses") is { } nullNodeIgnoreResourceFilterClauses && nullNodeIgnoreResourceFilterClauses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreResourceFilterClauses = null;
-            if (parseNode.GetChildNode("in_campaign") is { } nullNodeInCampaign && nullNodeInCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InCampaign = null;
-            if (parseNode.GetChildNode("in_list") is { } nullNodeInList && nullNodeInList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InList = null;
-            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
-            if (parseNode.GetChildNode("list_id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
-            if (parseNode.GetChildNode("queries") is { } nullNodeQueries && nullNodeQueries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queries = null;
-            if (parseNode.GetChildNode("reset_interest_status") is { } nullNodeResetInterestStatus && nullNodeResetInterestStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetInterestStatus = null;
-            if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
-            if (parseNode.GetChildNode("skip_invalid_emails") is { } nullNodeSkipInvalidEmails && nullNodeSkipInvalidEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipInvalidEmails = null;
-            if (parseNode.GetChildNode("skip_leads_in_verification") is { } nullNodeSkipLeadsInVerification && nullNodeSkipLeadsInVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipLeadsInVerification = null;
-            if (parseNode.GetChildNode("to_campaign_id") is { } nullNodeToCampaignId && nullNodeToCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToCampaignId = null;
-            if (parseNode.GetChildNode("to_list_id") is { } nullNodeToListId && nullNodeToListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToListId = null;
+            if (parseNode.GetChildNode("assigned_to") is null) { _explicitNullValueAssignedTo = default!; _explicitNullProperties?.Remove("assigned_to"); }
+            else if (parseNode.GetChildNode("assigned_to") is { } nullNodeAssignedTo && nullNodeAssignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedTo = null;
+            if (parseNode.GetChildNode("campaign") is null) { _explicitNullValueCampaign = default!; _explicitNullProperties?.Remove("campaign"); }
+            else if (parseNode.GetChildNode("campaign") is { } nullNodeCampaign && nullNodeCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Campaign = null;
+            if (parseNode.GetChildNode("check_duplicates") is null) { _explicitNullValueCheckDuplicates = default!; _explicitNullProperties?.Remove("check_duplicates"); }
+            else if (parseNode.GetChildNode("check_duplicates") is { } nullNodeCheckDuplicates && nullNodeCheckDuplicates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckDuplicates = null;
+            if (parseNode.GetChildNode("check_duplicates_in_campaigns") is null) { _explicitNullValueCheckDuplicatesInCampaigns = default!; _explicitNullProperties?.Remove("check_duplicates_in_campaigns"); }
+            else if (parseNode.GetChildNode("check_duplicates_in_campaigns") is { } nullNodeCheckDuplicatesInCampaigns && nullNodeCheckDuplicatesInCampaigns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckDuplicatesInCampaigns = null;
+            if (parseNode.GetChildNode("contacts") is null) { _explicitNullValueContacts = default!; _explicitNullProperties?.Remove("contacts"); }
+            else if (parseNode.GetChildNode("contacts") is { } nullNodeContacts && nullNodeContacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contacts = null;
+            if (parseNode.GetChildNode("copy_leads") is null) { _explicitNullValueCopyLeads = default!; _explicitNullProperties?.Remove("copy_leads"); }
+            else if (parseNode.GetChildNode("copy_leads") is { } nullNodeCopyLeads && nullNodeCopyLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopyLeads = null;
+            if (parseNode.GetChildNode("esg_code") is null) { _explicitNullValueEsgCode = default!; _explicitNullProperties?.Remove("esg_code"); }
+            else if (parseNode.GetChildNode("esg_code") is { } nullNodeEsgCode && nullNodeEsgCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EsgCode = null;
+            if (parseNode.GetChildNode("esp_code") is null) { _explicitNullValueEspCode = default!; _explicitNullProperties?.Remove("esp_code"); }
+            else if (parseNode.GetChildNode("esp_code") is { } nullNodeEspCode && nullNodeEspCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EspCode = null;
+            if (parseNode.GetChildNode("excluded_ids") is null) { _explicitNullValueExcludedIds = default!; _explicitNullProperties?.Remove("excluded_ids"); }
+            else if (parseNode.GetChildNode("excluded_ids") is { } nullNodeExcludedIds && nullNodeExcludedIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludedIds = null;
+            if (parseNode.GetChildNode("filter") is null) { _explicitNullValueFilter = default!; _explicitNullProperties?.Remove("filter"); }
+            else if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
+            if (parseNode.GetChildNode("ids") is null) { _explicitNullValueIds = default!; _explicitNullProperties?.Remove("ids"); }
+            else if (parseNode.GetChildNode("ids") is { } nullNodeIds && nullNodeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ids = null;
+            if (parseNode.GetChildNode("ignore_resource_filter_clauses") is null) { _explicitNullValueIgnoreResourceFilterClauses = default!; _explicitNullProperties?.Remove("ignore_resource_filter_clauses"); }
+            else if (parseNode.GetChildNode("ignore_resource_filter_clauses") is { } nullNodeIgnoreResourceFilterClauses && nullNodeIgnoreResourceFilterClauses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreResourceFilterClauses = null;
+            if (parseNode.GetChildNode("in_campaign") is null) { _explicitNullValueInCampaign = default!; _explicitNullProperties?.Remove("in_campaign"); }
+            else if (parseNode.GetChildNode("in_campaign") is { } nullNodeInCampaign && nullNodeInCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InCampaign = null;
+            if (parseNode.GetChildNode("in_list") is null) { _explicitNullValueInList = default!; _explicitNullProperties?.Remove("in_list"); }
+            else if (parseNode.GetChildNode("in_list") is { } nullNodeInList && nullNodeInList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InList = null;
+            if (parseNode.GetChildNode("limit") is null) { _explicitNullValueLimit = default!; _explicitNullProperties?.Remove("limit"); }
+            else if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("list_id") is null) { _explicitNullValueListId = default!; _explicitNullProperties?.Remove("list_id"); }
+            else if (parseNode.GetChildNode("list_id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
+            if (parseNode.GetChildNode("queries") is null) { _explicitNullValueQueries = default!; _explicitNullProperties?.Remove("queries"); }
+            else if (parseNode.GetChildNode("queries") is { } nullNodeQueries && nullNodeQueries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queries = null;
+            if (parseNode.GetChildNode("reset_interest_status") is null) { _explicitNullValueResetInterestStatus = default!; _explicitNullProperties?.Remove("reset_interest_status"); }
+            else if (parseNode.GetChildNode("reset_interest_status") is { } nullNodeResetInterestStatus && nullNodeResetInterestStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResetInterestStatus = null;
+            if (parseNode.GetChildNode("search") is null) { _explicitNullValueSearch = default!; _explicitNullProperties?.Remove("search"); }
+            else if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
+            if (parseNode.GetChildNode("skip_invalid_emails") is null) { _explicitNullValueSkipInvalidEmails = default!; _explicitNullProperties?.Remove("skip_invalid_emails"); }
+            else if (parseNode.GetChildNode("skip_invalid_emails") is { } nullNodeSkipInvalidEmails && nullNodeSkipInvalidEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipInvalidEmails = null;
+            if (parseNode.GetChildNode("skip_leads_in_verification") is null) { _explicitNullValueSkipLeadsInVerification = default!; _explicitNullProperties?.Remove("skip_leads_in_verification"); }
+            else if (parseNode.GetChildNode("skip_leads_in_verification") is { } nullNodeSkipLeadsInVerification && nullNodeSkipLeadsInVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipLeadsInVerification = null;
+            if (parseNode.GetChildNode("to_campaign_id") is null) { _explicitNullValueToCampaignId = default!; _explicitNullProperties?.Remove("to_campaign_id"); }
+            else if (parseNode.GetChildNode("to_campaign_id") is { } nullNodeToCampaignId && nullNodeToCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToCampaignId = null;
+            if (parseNode.GetChildNode("to_list_id") is null) { _explicitNullValueToListId = default!; _explicitNullProperties?.Remove("to_list_id"); }
+            else if (parseNode.GetChildNode("to_list_id") is { } nullNodeToListId && nullNodeToListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToListId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,147 +70,147 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The ID of the user to assign the leads to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        public string? AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; AdditionalData?.Remove("assigned_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
         private string? _explicitNullValueAssignedTo = default!;
 #nullable restore
 #else
-        public string AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        public string AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; AdditionalData?.Remove("assigned_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
         private string _explicitNullValueAssignedTo = default!;
 #endif
         /// <summary>Campaign ID to filter leads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
+        public string? Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; AdditionalData?.Remove("campaign"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
         private string? _explicitNullValueCampaign = default!;
 #nullable restore
 #else
-        public string Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
+        public string Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; AdditionalData?.Remove("campaign"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
         private string _explicitNullValueCampaign = default!;
 #endif
         /// <summary>Whether to check duplicates.</summary>
-        public bool? CheckDuplicates { get => _explicitNullValueCheckDuplicates; set { _explicitNullValueCheckDuplicates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_duplicates"); else _explicitNullProperties?.Remove("check_duplicates"); } }
+        public bool? CheckDuplicates { get => _explicitNullValueCheckDuplicates; set { _explicitNullValueCheckDuplicates = value; AdditionalData?.Remove("check_duplicates"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_duplicates"); else _explicitNullProperties?.Remove("check_duplicates"); } }
         private bool? _explicitNullValueCheckDuplicates = default!;
         /// <summary>Whether to check duplicates in campaigns.</summary>
-        public bool? CheckDuplicatesInCampaigns { get => _explicitNullValueCheckDuplicatesInCampaigns; set { _explicitNullValueCheckDuplicatesInCampaigns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_duplicates_in_campaigns"); else _explicitNullProperties?.Remove("check_duplicates_in_campaigns"); } }
+        public bool? CheckDuplicatesInCampaigns { get => _explicitNullValueCheckDuplicatesInCampaigns; set { _explicitNullValueCheckDuplicatesInCampaigns = value; AdditionalData?.Remove("check_duplicates_in_campaigns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check_duplicates_in_campaigns"); else _explicitNullProperties?.Remove("check_duplicates_in_campaigns"); } }
         private bool? _explicitNullValueCheckDuplicatesInCampaigns = default!;
         /// <summary>Array of emails the leads needs to have</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Contacts { get => _explicitNullValueContacts; set { _explicitNullValueContacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts"); else _explicitNullProperties?.Remove("contacts"); } }
+        public List<string>? Contacts { get => _explicitNullValueContacts; set { _explicitNullValueContacts = value; AdditionalData?.Remove("contacts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts"); else _explicitNullProperties?.Remove("contacts"); } }
         private List<string>? _explicitNullValueContacts = default!;
 #nullable restore
 #else
-        public List<string> Contacts { get => _explicitNullValueContacts; set { _explicitNullValueContacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts"); else _explicitNullProperties?.Remove("contacts"); } }
+        public List<string> Contacts { get => _explicitNullValueContacts; set { _explicitNullValueContacts = value; AdditionalData?.Remove("contacts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts"); else _explicitNullProperties?.Remove("contacts"); } }
         private List<string> _explicitNullValueContacts = default!;
 #endif
         /// <summary>Whether to copy the leads.</summary>
-        public bool? CopyLeads { get => _explicitNullValueCopyLeads; set { _explicitNullValueCopyLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copy_leads"); else _explicitNullProperties?.Remove("copy_leads"); } }
+        public bool? CopyLeads { get => _explicitNullValueCopyLeads; set { _explicitNullValueCopyLeads = value; AdditionalData?.Remove("copy_leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copy_leads"); else _explicitNullProperties?.Remove("copy_leads"); } }
         private bool? _explicitNullValueCopyLeads = default!;
         /// <summary>The ESG code to move the leads for.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode? EsgCode { get => _explicitNullValueEsgCode; set { _explicitNullValueEsgCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("esg_code"); else _explicitNullProperties?.Remove("esg_code"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode? EsgCode { get => _explicitNullValueEsgCode; set { _explicitNullValueEsgCode = value; AdditionalData?.Remove("esg_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("esg_code"); else _explicitNullProperties?.Remove("esg_code"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode? _explicitNullValueEsgCode = default!;
         /// <summary>The ESP code to move the leads for.</summary>
-        public double? EspCode { get => _explicitNullValueEspCode; set { _explicitNullValueEspCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("esp_code"); else _explicitNullProperties?.Remove("esp_code"); } }
+        public double? EspCode { get => _explicitNullValueEspCode; set { _explicitNullValueEspCode = value; AdditionalData?.Remove("esp_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("esp_code"); else _explicitNullProperties?.Remove("esp_code"); } }
         private double? _explicitNullValueEspCode = default!;
         /// <summary>Array of lead IDs to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludedIds { get => _explicitNullValueExcludedIds; set { _explicitNullValueExcludedIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("excluded_ids"); else _explicitNullProperties?.Remove("excluded_ids"); } }
+        public List<string>? ExcludedIds { get => _explicitNullValueExcludedIds; set { _explicitNullValueExcludedIds = value; AdditionalData?.Remove("excluded_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("excluded_ids"); else _explicitNullProperties?.Remove("excluded_ids"); } }
         private List<string>? _explicitNullValueExcludedIds = default!;
 #nullable restore
 #else
-        public List<string> ExcludedIds { get => _explicitNullValueExcludedIds; set { _explicitNullValueExcludedIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("excluded_ids"); else _explicitNullProperties?.Remove("excluded_ids"); } }
+        public List<string> ExcludedIds { get => _explicitNullValueExcludedIds; set { _explicitNullValueExcludedIds = value; AdditionalData?.Remove("excluded_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("excluded_ids"); else _explicitNullProperties?.Remove("excluded_ids"); } }
         private List<string> _explicitNullValueExcludedIds = default!;
 #endif
         /// <summary>Filter criteria for leads. For custom lead labels, use the `interest_status` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        public string? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private string? _explicitNullValueFilter = default!;
 #nullable restore
 #else
-        public string Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        public string Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private string _explicitNullValueFilter = default!;
 #endif
         /// <summary>Array of lead IDs to include. When using this parameter, you must provide either `campaign` or `list_id` to specify which campaign or list to filter the leads from. This parameter acts as a filter within the specified campaign or list, not as a standalone way to select leads. When `ids` is non-empty, `queries`, `filter`, `search`, `excluded_ids`, `field_filters`, `assigned_to` and `esp_code` are ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Ids { get => _explicitNullValueIds; set { _explicitNullValueIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ids"); else _explicitNullProperties?.Remove("ids"); } }
+        public List<string>? Ids { get => _explicitNullValueIds; set { _explicitNullValueIds = value; AdditionalData?.Remove("ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ids"); else _explicitNullProperties?.Remove("ids"); } }
         private List<string>? _explicitNullValueIds = default!;
 #nullable restore
 #else
-        public List<string> Ids { get => _explicitNullValueIds; set { _explicitNullValueIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ids"); else _explicitNullProperties?.Remove("ids"); } }
+        public List<string> Ids { get => _explicitNullValueIds; set { _explicitNullValueIds = value; AdditionalData?.Remove("ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ids"); else _explicitNullProperties?.Remove("ids"); } }
         private List<string> _explicitNullValueIds = default!;
 #endif
         /// <summary>Whether to ignore saved lead-finder clauses for the source campaign/list when selecting leads to move.</summary>
-        public bool? IgnoreResourceFilterClauses { get => _explicitNullValueIgnoreResourceFilterClauses; set { _explicitNullValueIgnoreResourceFilterClauses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_resource_filter_clauses"); else _explicitNullProperties?.Remove("ignore_resource_filter_clauses"); } }
+        public bool? IgnoreResourceFilterClauses { get => _explicitNullValueIgnoreResourceFilterClauses; set { _explicitNullValueIgnoreResourceFilterClauses = value; AdditionalData?.Remove("ignore_resource_filter_clauses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_resource_filter_clauses"); else _explicitNullProperties?.Remove("ignore_resource_filter_clauses"); } }
         private bool? _explicitNullValueIgnoreResourceFilterClauses = default!;
         /// <summary>Whether the lead is in a campaign</summary>
-        public bool? InCampaign { get => _explicitNullValueInCampaign; set { _explicitNullValueInCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_campaign"); else _explicitNullProperties?.Remove("in_campaign"); } }
+        public bool? InCampaign { get => _explicitNullValueInCampaign; set { _explicitNullValueInCampaign = value; AdditionalData?.Remove("in_campaign"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_campaign"); else _explicitNullProperties?.Remove("in_campaign"); } }
         private bool? _explicitNullValueInCampaign = default!;
         /// <summary>Whether the lead is in a list</summary>
-        public bool? InList { get => _explicitNullValueInList; set { _explicitNullValueInList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_list"); else _explicitNullProperties?.Remove("in_list"); } }
+        public bool? InList { get => _explicitNullValueInList; set { _explicitNullValueInList = value; AdditionalData?.Remove("in_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_list"); else _explicitNullProperties?.Remove("in_list"); } }
         private bool? _explicitNullValueInList = default!;
         /// <summary>The limit of the number of leads to move.</summary>
-        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
         private double? _explicitNullValueLimit = default!;
         /// <summary>List ID to filter leads</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ListId { get => _explicitNullValueListId; set { _explicitNullValueListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_id"); else _explicitNullProperties?.Remove("list_id"); } }
+        public string? ListId { get => _explicitNullValueListId; set { _explicitNullValueListId = value; AdditionalData?.Remove("list_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_id"); else _explicitNullProperties?.Remove("list_id"); } }
         private string? _explicitNullValueListId = default!;
 #nullable restore
 #else
-        public string ListId { get => _explicitNullValueListId; set { _explicitNullValueListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_id"); else _explicitNullProperties?.Remove("list_id"); } }
+        public string ListId { get => _explicitNullValueListId; set { _explicitNullValueListId = value; AdditionalData?.Remove("list_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_id"); else _explicitNullProperties?.Remove("list_id"); } }
         private string _explicitNullValueListId = default!;
 #endif
         /// <summary>The queries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>? Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>? Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; AdditionalData?.Remove("queries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem>? _explicitNullValueQueries = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem> Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem> Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; AdditionalData?.Remove("queries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItem> _explicitNullValueQueries = default!;
 #endif
         /// <summary>Whether to reset the interest status of leads when moving or copying them. When true, the interest status will be reset. When false, the existing interest status will be preserved; for non-copy campaign-to-campaign moves, opportunities will also be migrated to the target campaign.</summary>
-        public bool? ResetInterestStatus { get => _explicitNullValueResetInterestStatus; set { _explicitNullValueResetInterestStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_interest_status"); else _explicitNullProperties?.Remove("reset_interest_status"); } }
+        public bool? ResetInterestStatus { get => _explicitNullValueResetInterestStatus; set { _explicitNullValueResetInterestStatus = value; AdditionalData?.Remove("reset_interest_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reset_interest_status"); else _explicitNullProperties?.Remove("reset_interest_status"); } }
         private bool? _explicitNullValueResetInterestStatus = default!;
         /// <summary>A search string to search the leads against - can be First Name, Last Name, or Email</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        public string? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; AdditionalData?.Remove("search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
         private string? _explicitNullValueSearch = default!;
 #nullable restore
 #else
-        public string Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        public string Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; AdditionalData?.Remove("search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
         private string _explicitNullValueSearch = default!;
 #endif
         /// <summary>Whether to leave behind leads whose email verified as invalid or risky. Leads that were never verified still move.</summary>
-        public bool? SkipInvalidEmails { get => _explicitNullValueSkipInvalidEmails; set { _explicitNullValueSkipInvalidEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_invalid_emails"); else _explicitNullProperties?.Remove("skip_invalid_emails"); } }
+        public bool? SkipInvalidEmails { get => _explicitNullValueSkipInvalidEmails; set { _explicitNullValueSkipInvalidEmails = value; AdditionalData?.Remove("skip_invalid_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_invalid_emails"); else _explicitNullProperties?.Remove("skip_invalid_emails"); } }
         private bool? _explicitNullValueSkipInvalidEmails = default!;
         /// <summary>Whether to skip leads in verification.</summary>
-        public bool? SkipLeadsInVerification { get => _explicitNullValueSkipLeadsInVerification; set { _explicitNullValueSkipLeadsInVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_leads_in_verification"); else _explicitNullProperties?.Remove("skip_leads_in_verification"); } }
+        public bool? SkipLeadsInVerification { get => _explicitNullValueSkipLeadsInVerification; set { _explicitNullValueSkipLeadsInVerification = value; AdditionalData?.Remove("skip_leads_in_verification"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_leads_in_verification"); else _explicitNullProperties?.Remove("skip_leads_in_verification"); } }
         private bool? _explicitNullValueSkipLeadsInVerification = default!;
         /// <summary>The ID of the campaign to move the leads to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToCampaignId { get => _explicitNullValueToCampaignId; set { _explicitNullValueToCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_campaign_id"); else _explicitNullProperties?.Remove("to_campaign_id"); } }
+        public string? ToCampaignId { get => _explicitNullValueToCampaignId; set { _explicitNullValueToCampaignId = value; AdditionalData?.Remove("to_campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_campaign_id"); else _explicitNullProperties?.Remove("to_campaign_id"); } }
         private string? _explicitNullValueToCampaignId = default!;
 #nullable restore
 #else
-        public string ToCampaignId { get => _explicitNullValueToCampaignId; set { _explicitNullValueToCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_campaign_id"); else _explicitNullProperties?.Remove("to_campaign_id"); } }
+        public string ToCampaignId { get => _explicitNullValueToCampaignId; set { _explicitNullValueToCampaignId = value; AdditionalData?.Remove("to_campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_campaign_id"); else _explicitNullProperties?.Remove("to_campaign_id"); } }
         private string _explicitNullValueToCampaignId = default!;
 #endif
         /// <summary>The ID of the list to move the leads to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToListId { get => _explicitNullValueToListId; set { _explicitNullValueToListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_list_id"); else _explicitNullProperties?.Remove("to_list_id"); } }
+        public string? ToListId { get => _explicitNullValueToListId; set { _explicitNullValueToListId = value; AdditionalData?.Remove("to_list_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_list_id"); else _explicitNullProperties?.Remove("to_list_id"); } }
         private string? _explicitNullValueToListId = default!;
 #nullable restore
 #else
-        public string ToListId { get => _explicitNullValueToListId; set { _explicitNullValueToListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_list_id"); else _explicitNullProperties?.Remove("to_list_id"); } }
+        public string ToListId { get => _explicitNullValueToListId; set { _explicitNullValueToListId = value; AdditionalData?.Remove("to_list_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_list_id"); else _explicitNullProperties?.Remove("to_list_id"); } }
         private string _explicitNullValueToListId = default!;
 #endif
         /// <summary>
@@ -221,7 +244,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "check_duplicates_in_campaigns", n => { CheckDuplicatesInCampaigns = n.GetBoolValue(); } },
                 { "contacts", n => { Contacts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "copy_leads", n => { CopyLeads = n.GetBoolValue(); } },
-                { "esg_code", n => { EsgCode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode>(); } },
+                { "esg_code", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestEsgCode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEsgCode = default; _explicitNullProperties?.Remove("esg_code"); AdditionalData["esg_code"] = unknown; } else { EsgCode = parsed; AdditionalData.Remove("esg_code"); } } },
                 { "esp_code", n => { EspCode = n.GetDoubleValue(); } },
                 { "excluded_ids", n => { ExcludedIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },

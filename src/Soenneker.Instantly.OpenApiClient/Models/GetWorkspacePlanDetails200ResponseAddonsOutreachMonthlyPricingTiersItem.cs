@@ -17,21 +17,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("from_quantity") is { } nullNodeFromQuantity && nullNodeFromQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromQuantity = null;
-            if (parseNode.GetChildNode("price_in_dollars") is { } nullNodePriceInDollars && nullNodePriceInDollars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PriceInDollars = null;
-            if (parseNode.GetChildNode("to_quantity") is { } nullNodeToQuantity && nullNodeToQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToQuantity = null;
+            if (parseNode.GetChildNode("from_quantity") is null) { _explicitNullValueFromQuantity = default!; _explicitNullProperties?.Remove("from_quantity"); }
+            else if (parseNode.GetChildNode("from_quantity") is { } nullNodeFromQuantity && nullNodeFromQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromQuantity = null;
+            if (parseNode.GetChildNode("price_in_dollars") is null) { _explicitNullValuePriceInDollars = default!; _explicitNullProperties?.Remove("price_in_dollars"); }
+            else if (parseNode.GetChildNode("price_in_dollars") is { } nullNodePriceInDollars && nullNodePriceInDollars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PriceInDollars = null;
+            if (parseNode.GetChildNode("to_quantity") is null) { _explicitNullValueToQuantity = default!; _explicitNullProperties?.Remove("to_quantity"); }
+            else if (parseNode.GetChildNode("to_quantity") is { } nullNodeToQuantity && nullNodeToQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToQuantity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The from_quantity property</summary>
-        public double? FromQuantity { get => _explicitNullValueFromQuantity; set { _explicitNullValueFromQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_quantity"); else _explicitNullProperties?.Remove("from_quantity"); } }
+        public double? FromQuantity { get => _explicitNullValueFromQuantity; set { _explicitNullValueFromQuantity = value; AdditionalData?.Remove("from_quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_quantity"); else _explicitNullProperties?.Remove("from_quantity"); } }
         private double? _explicitNullValueFromQuantity = default!;
         /// <summary>The price_in_dollars property</summary>
-        public double? PriceInDollars { get => _explicitNullValuePriceInDollars; set { _explicitNullValuePriceInDollars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_in_dollars"); else _explicitNullProperties?.Remove("price_in_dollars"); } }
+        public double? PriceInDollars { get => _explicitNullValuePriceInDollars; set { _explicitNullValuePriceInDollars = value; AdditionalData?.Remove("price_in_dollars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_in_dollars"); else _explicitNullProperties?.Remove("price_in_dollars"); } }
         private double? _explicitNullValuePriceInDollars = default!;
         /// <summary>The to_quantity property</summary>
-        public double? ToQuantity { get => _explicitNullValueToQuantity; set { _explicitNullValueToQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_quantity"); else _explicitNullProperties?.Remove("to_quantity"); } }
+        public double? ToQuantity { get => _explicitNullValueToQuantity; set { _explicitNullValueToQuantity = value; AdditionalData?.Remove("to_quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_quantity"); else _explicitNullProperties?.Remove("to_quantity"); } }
         private double? _explicitNullValueToQuantity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem"/> and sets the default values.

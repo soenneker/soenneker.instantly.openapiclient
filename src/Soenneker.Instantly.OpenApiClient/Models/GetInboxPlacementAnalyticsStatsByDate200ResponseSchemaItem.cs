@@ -17,39 +17,45 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("category_count") is { } nullNodeCategoryCount && nullNodeCategoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryCount = null;
-            if (parseNode.GetChildNode("inbox_count") is { } nullNodeInboxCount && nullNodeInboxCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxCount = null;
-            if (parseNode.GetChildNode("received_count") is { } nullNodeReceivedCount && nullNodeReceivedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceivedCount = null;
-            if (parseNode.GetChildNode("sent_count") is { } nullNodeSentCount && nullNodeSentCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentCount = null;
-            if (parseNode.GetChildNode("spam_count") is { } nullNodeSpamCount && nullNodeSpamCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCount = null;
-            if (parseNode.GetChildNode("timestamp_created_date") is { } nullNodeTimestampCreatedDate && nullNodeTimestampCreatedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampCreatedDate = null;
+            if (parseNode.GetChildNode("category_count") is null) { _explicitNullValueCategoryCount = default!; _explicitNullProperties?.Remove("category_count"); }
+            else if (parseNode.GetChildNode("category_count") is { } nullNodeCategoryCount && nullNodeCategoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryCount = null;
+            if (parseNode.GetChildNode("inbox_count") is null) { _explicitNullValueInboxCount = default!; _explicitNullProperties?.Remove("inbox_count"); }
+            else if (parseNode.GetChildNode("inbox_count") is { } nullNodeInboxCount && nullNodeInboxCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxCount = null;
+            if (parseNode.GetChildNode("received_count") is null) { _explicitNullValueReceivedCount = default!; _explicitNullProperties?.Remove("received_count"); }
+            else if (parseNode.GetChildNode("received_count") is { } nullNodeReceivedCount && nullNodeReceivedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceivedCount = null;
+            if (parseNode.GetChildNode("sent_count") is null) { _explicitNullValueSentCount = default!; _explicitNullProperties?.Remove("sent_count"); }
+            else if (parseNode.GetChildNode("sent_count") is { } nullNodeSentCount && nullNodeSentCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentCount = null;
+            if (parseNode.GetChildNode("spam_count") is null) { _explicitNullValueSpamCount = default!; _explicitNullProperties?.Remove("spam_count"); }
+            else if (parseNode.GetChildNode("spam_count") is { } nullNodeSpamCount && nullNodeSpamCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCount = null;
+            if (parseNode.GetChildNode("timestamp_created_date") is null) { _explicitNullValueTimestampCreatedDate = default!; _explicitNullProperties?.Remove("timestamp_created_date"); }
+            else if (parseNode.GetChildNode("timestamp_created_date") is { } nullNodeTimestampCreatedDate && nullNodeTimestampCreatedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampCreatedDate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category_count property</summary>
-        public double? CategoryCount { get => _explicitNullValueCategoryCount; set { _explicitNullValueCategoryCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_count"); else _explicitNullProperties?.Remove("category_count"); } }
+        public double? CategoryCount { get => _explicitNullValueCategoryCount; set { _explicitNullValueCategoryCount = value; AdditionalData?.Remove("category_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_count"); else _explicitNullProperties?.Remove("category_count"); } }
         private double? _explicitNullValueCategoryCount = default!;
         /// <summary>The inbox_count property</summary>
-        public double? InboxCount { get => _explicitNullValueInboxCount; set { _explicitNullValueInboxCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_count"); else _explicitNullProperties?.Remove("inbox_count"); } }
+        public double? InboxCount { get => _explicitNullValueInboxCount; set { _explicitNullValueInboxCount = value; AdditionalData?.Remove("inbox_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_count"); else _explicitNullProperties?.Remove("inbox_count"); } }
         private double? _explicitNullValueInboxCount = default!;
         /// <summary>The received_count property</summary>
-        public double? ReceivedCount { get => _explicitNullValueReceivedCount; set { _explicitNullValueReceivedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_count"); else _explicitNullProperties?.Remove("received_count"); } }
+        public double? ReceivedCount { get => _explicitNullValueReceivedCount; set { _explicitNullValueReceivedCount = value; AdditionalData?.Remove("received_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_count"); else _explicitNullProperties?.Remove("received_count"); } }
         private double? _explicitNullValueReceivedCount = default!;
         /// <summary>The sent_count property</summary>
-        public double? SentCount { get => _explicitNullValueSentCount; set { _explicitNullValueSentCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sent_count"); else _explicitNullProperties?.Remove("sent_count"); } }
+        public double? SentCount { get => _explicitNullValueSentCount; set { _explicitNullValueSentCount = value; AdditionalData?.Remove("sent_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sent_count"); else _explicitNullProperties?.Remove("sent_count"); } }
         private double? _explicitNullValueSentCount = default!;
         /// <summary>The spam_count property</summary>
-        public double? SpamCount { get => _explicitNullValueSpamCount; set { _explicitNullValueSpamCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_count"); else _explicitNullProperties?.Remove("spam_count"); } }
+        public double? SpamCount { get => _explicitNullValueSpamCount; set { _explicitNullValueSpamCount = value; AdditionalData?.Remove("spam_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_count"); else _explicitNullProperties?.Remove("spam_count"); } }
         private double? _explicitNullValueSpamCount = default!;
         /// <summary>The timestamp_created_date property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimestampCreatedDate { get => _explicitNullValueTimestampCreatedDate; set { _explicitNullValueTimestampCreatedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created_date"); else _explicitNullProperties?.Remove("timestamp_created_date"); } }
+        public string? TimestampCreatedDate { get => _explicitNullValueTimestampCreatedDate; set { _explicitNullValueTimestampCreatedDate = value; AdditionalData?.Remove("timestamp_created_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created_date"); else _explicitNullProperties?.Remove("timestamp_created_date"); } }
         private string? _explicitNullValueTimestampCreatedDate = default!;
 #nullable restore
 #else
-        public string TimestampCreatedDate { get => _explicitNullValueTimestampCreatedDate; set { _explicitNullValueTimestampCreatedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created_date"); else _explicitNullProperties?.Remove("timestamp_created_date"); } }
+        public string TimestampCreatedDate { get => _explicitNullValueTimestampCreatedDate; set { _explicitNullValueTimestampCreatedDate = value; AdditionalData?.Remove("timestamp_created_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created_date"); else _explicitNullProperties?.Remove("timestamp_created_date"); } }
         private string _explicitNullValueTimestampCreatedDate = default!;
 #endif
         /// <summary>

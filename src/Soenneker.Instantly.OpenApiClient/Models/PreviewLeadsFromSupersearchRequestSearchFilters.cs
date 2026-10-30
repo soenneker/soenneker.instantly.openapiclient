@@ -18,36 +18,66 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("businessType") is { } nullNodeBusinessType && nullNodeBusinessType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessType = null;
-            if (parseNode.GetChildNode("company_list_id") is { } nullNodeCompanyListId && nullNodeCompanyListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyListId = null;
-            if (parseNode.GetChildNode("company_name") is { } nullNodeCompanyName && nullNodeCompanyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyName = null;
-            if (parseNode.GetChildNode("customerType") is { } nullNodeCustomerType && nullNodeCustomerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerType = null;
-            if (parseNode.GetChildNode("department") is { } nullNodeDepartment && nullNodeDepartment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Department = null;
-            if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
-            if (parseNode.GetChildNode("employeeCount") is { } nullNodeEmployeeCount && nullNodeEmployeeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmployeeCount = null;
-            if (parseNode.GetChildNode("funding_type") is { } nullNodeFunding_type && nullNodeFunding_type.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Funding_type = null;
-            if (parseNode.GetChildNode("fundingType") is { } nullNodeFundingType && nullNodeFundingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FundingType = null;
-            if (parseNode.GetChildNode("industry") is { } nullNodeIndustry && nullNodeIndustry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Industry = null;
-            if (parseNode.GetChildNode("jobListing") is { } nullNodeJobListing && nullNodeJobListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobListing = null;
-            if (parseNode.GetChildNode("jobListingFilter") is { } nullNodeJobListingFilter && nullNodeJobListingFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobListingFilter = null;
-            if (parseNode.GetChildNode("keyword_filter") is { } nullNodeKeywordFilter && nullNodeKeywordFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeywordFilter = null;
-            if (parseNode.GetChildNode("level") is { } nullNodeLevel && nullNodeLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Level = null;
-            if (parseNode.GetChildNode("location_mode") is { } nullNodeLocation_mode && nullNodeLocation_mode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location_mode = null;
-            if (parseNode.GetChildNode("locationMode") is { } nullNodeLocationMode && nullNodeLocationMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationMode = null;
-            if (parseNode.GetChildNode("locations") is { } nullNodeLocations && nullNodeLocations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locations = null;
-            if (parseNode.GetChildNode("look_alike") is { } nullNodeLook_alike && nullNodeLook_alike.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Look_alike = null;
-            if (parseNode.GetChildNode("lookAlike") is { } nullNodeLookAlike && nullNodeLookAlike.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LookAlike = null;
-            if (parseNode.GetChildNode("lookAlikeMode") is { } nullNodeLookAlikeMode && nullNodeLookAlikeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LookAlikeMode = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("news") is { } nullNodeNews && nullNodeNews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) News = null;
-            if (parseNode.GetChildNode("revenue") is { } nullNodeRevenue && nullNodeRevenue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revenue = null;
-            if (parseNode.GetChildNode("show_one_lead_per_company") is { } nullNodeShowOneLeadPerCompany && nullNodeShowOneLeadPerCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOneLeadPerCompany = null;
-            if (parseNode.GetChildNode("signals") is { } nullNodeSignals && nullNodeSignals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signals = null;
-            if (parseNode.GetChildNode("skip_owned_leads") is { } nullNodeSkipOwnedLeads && nullNodeSkipOwnedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipOwnedLeads = null;
-            if (parseNode.GetChildNode("subIndustry") is { } nullNodeSubIndustry && nullNodeSubIndustry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubIndustry = null;
-            if (parseNode.GetChildNode("technologies") is { } nullNodeTechnologies && nullNodeTechnologies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Technologies = null;
-            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
-            if (parseNode.GetChildNode("website_visitors") is { } nullNodeWebsiteVisitors && nullNodeWebsiteVisitors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsiteVisitors = null;
+            if (parseNode.GetChildNode("businessType") is null) { _explicitNullValueBusinessType = default!; _explicitNullProperties?.Remove("businessType"); }
+            else if (parseNode.GetChildNode("businessType") is { } nullNodeBusinessType && nullNodeBusinessType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessType = null;
+            if (parseNode.GetChildNode("company_list_id") is null) { _explicitNullValueCompanyListId = default!; _explicitNullProperties?.Remove("company_list_id"); }
+            else if (parseNode.GetChildNode("company_list_id") is { } nullNodeCompanyListId && nullNodeCompanyListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyListId = null;
+            if (parseNode.GetChildNode("company_name") is null) { _explicitNullValueCompanyName = default!; _explicitNullProperties?.Remove("company_name"); }
+            else if (parseNode.GetChildNode("company_name") is { } nullNodeCompanyName && nullNodeCompanyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyName = null;
+            if (parseNode.GetChildNode("customerType") is null) { _explicitNullValueCustomerType = default!; _explicitNullProperties?.Remove("customerType"); }
+            else if (parseNode.GetChildNode("customerType") is { } nullNodeCustomerType && nullNodeCustomerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerType = null;
+            if (parseNode.GetChildNode("department") is null) { _explicitNullValueDepartment = default!; _explicitNullProperties?.Remove("department"); }
+            else if (parseNode.GetChildNode("department") is { } nullNodeDepartment && nullNodeDepartment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Department = null;
+            if (parseNode.GetChildNode("domains") is null) { _explicitNullValueDomains = default!; _explicitNullProperties?.Remove("domains"); }
+            else if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
+            if (parseNode.GetChildNode("employeeCount") is null) { _explicitNullValueEmployeeCount = default!; _explicitNullProperties?.Remove("employeeCount"); }
+            else if (parseNode.GetChildNode("employeeCount") is { } nullNodeEmployeeCount && nullNodeEmployeeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmployeeCount = null;
+            if (parseNode.GetChildNode("funding_type") is null) { _explicitNullValueFunding_type = default!; _explicitNullProperties?.Remove("funding_type"); }
+            else if (parseNode.GetChildNode("funding_type") is { } nullNodeFunding_type && nullNodeFunding_type.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Funding_type = null;
+            if (parseNode.GetChildNode("fundingType") is null) { _explicitNullValueFundingType = default!; _explicitNullProperties?.Remove("fundingType"); }
+            else if (parseNode.GetChildNode("fundingType") is { } nullNodeFundingType && nullNodeFundingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FundingType = null;
+            if (parseNode.GetChildNode("industry") is null) { _explicitNullValueIndustry = default!; _explicitNullProperties?.Remove("industry"); }
+            else if (parseNode.GetChildNode("industry") is { } nullNodeIndustry && nullNodeIndustry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Industry = null;
+            if (parseNode.GetChildNode("jobListing") is null) { _explicitNullValueJobListing = default!; _explicitNullProperties?.Remove("jobListing"); }
+            else if (parseNode.GetChildNode("jobListing") is { } nullNodeJobListing && nullNodeJobListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobListing = null;
+            if (parseNode.GetChildNode("jobListingFilter") is null) { _explicitNullValueJobListingFilter = default!; _explicitNullProperties?.Remove("jobListingFilter"); }
+            else if (parseNode.GetChildNode("jobListingFilter") is { } nullNodeJobListingFilter && nullNodeJobListingFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobListingFilter = null;
+            if (parseNode.GetChildNode("keyword_filter") is null) { _explicitNullValueKeywordFilter = default!; _explicitNullProperties?.Remove("keyword_filter"); }
+            else if (parseNode.GetChildNode("keyword_filter") is { } nullNodeKeywordFilter && nullNodeKeywordFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeywordFilter = null;
+            if (parseNode.GetChildNode("level") is null) { _explicitNullValueLevel = default!; _explicitNullProperties?.Remove("level"); }
+            else if (parseNode.GetChildNode("level") is { } nullNodeLevel && nullNodeLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Level = null;
+            if (parseNode.GetChildNode("location_mode") is null) { _explicitNullValueLocation_mode = default!; _explicitNullProperties?.Remove("location_mode"); }
+            else if (parseNode.GetChildNode("location_mode") is { } nullNodeLocation_mode && nullNodeLocation_mode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location_mode = null;
+            if (parseNode.GetChildNode("locationMode") is null) { _explicitNullValueLocationMode = default!; _explicitNullProperties?.Remove("locationMode"); }
+            else if (parseNode.GetChildNode("locationMode") is { } nullNodeLocationMode && nullNodeLocationMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationMode = null;
+            if (parseNode.GetChildNode("locations") is null) { _explicitNullValueLocations = default!; _explicitNullProperties?.Remove("locations"); }
+            else if (parseNode.GetChildNode("locations") is { } nullNodeLocations && nullNodeLocations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locations = null;
+            if (parseNode.GetChildNode("look_alike") is null) { _explicitNullValueLook_alike = default!; _explicitNullProperties?.Remove("look_alike"); }
+            else if (parseNode.GetChildNode("look_alike") is { } nullNodeLook_alike && nullNodeLook_alike.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Look_alike = null;
+            if (parseNode.GetChildNode("lookAlike") is null) { _explicitNullValueLookAlike = default!; _explicitNullProperties?.Remove("lookAlike"); }
+            else if (parseNode.GetChildNode("lookAlike") is { } nullNodeLookAlike && nullNodeLookAlike.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LookAlike = null;
+            if (parseNode.GetChildNode("lookAlikeMode") is null) { _explicitNullValueLookAlikeMode = default!; _explicitNullProperties?.Remove("lookAlikeMode"); }
+            else if (parseNode.GetChildNode("lookAlikeMode") is { } nullNodeLookAlikeMode && nullNodeLookAlikeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LookAlikeMode = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("news") is null) { _explicitNullValueNews = default!; _explicitNullProperties?.Remove("news"); }
+            else if (parseNode.GetChildNode("news") is { } nullNodeNews && nullNodeNews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) News = null;
+            if (parseNode.GetChildNode("revenue") is null) { _explicitNullValueRevenue = default!; _explicitNullProperties?.Remove("revenue"); }
+            else if (parseNode.GetChildNode("revenue") is { } nullNodeRevenue && nullNodeRevenue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revenue = null;
+            if (parseNode.GetChildNode("show_one_lead_per_company") is null) { _explicitNullValueShowOneLeadPerCompany = default!; _explicitNullProperties?.Remove("show_one_lead_per_company"); }
+            else if (parseNode.GetChildNode("show_one_lead_per_company") is { } nullNodeShowOneLeadPerCompany && nullNodeShowOneLeadPerCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOneLeadPerCompany = null;
+            if (parseNode.GetChildNode("signals") is null) { _explicitNullValueSignals = default!; _explicitNullProperties?.Remove("signals"); }
+            else if (parseNode.GetChildNode("signals") is { } nullNodeSignals && nullNodeSignals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signals = null;
+            if (parseNode.GetChildNode("skip_owned_leads") is null) { _explicitNullValueSkipOwnedLeads = default!; _explicitNullProperties?.Remove("skip_owned_leads"); }
+            else if (parseNode.GetChildNode("skip_owned_leads") is { } nullNodeSkipOwnedLeads && nullNodeSkipOwnedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipOwnedLeads = null;
+            if (parseNode.GetChildNode("subIndustry") is null) { _explicitNullValueSubIndustry = default!; _explicitNullProperties?.Remove("subIndustry"); }
+            else if (parseNode.GetChildNode("subIndustry") is { } nullNodeSubIndustry && nullNodeSubIndustry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubIndustry = null;
+            if (parseNode.GetChildNode("technologies") is null) { _explicitNullValueTechnologies = default!; _explicitNullProperties?.Remove("technologies"); }
+            else if (parseNode.GetChildNode("technologies") is { } nullNodeTechnologies && nullNodeTechnologies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Technologies = null;
+            if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
+            else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("website_visitors") is null) { _explicitNullValueWebsiteVisitors = default!; _explicitNullProperties?.Remove("website_visitors"); }
+            else if (parseNode.GetChildNode("website_visitors") is { } nullNodeWebsiteVisitors && nullNodeWebsiteVisitors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsiteVisitors = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -55,275 +85,275 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Business type of the lead company. Any-of on each side: `include` returns only companies labelled with one of the types, `exclude` drops them and keeps companies with no label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType? BusinessType { get => _explicitNullValueBusinessType; set { _explicitNullValueBusinessType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("businessType"); else _explicitNullProperties?.Remove("businessType"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType? BusinessType { get => _explicitNullValueBusinessType; set { _explicitNullValueBusinessType = value; AdditionalData?.Remove("businessType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("businessType"); else _explicitNullProperties?.Remove("businessType"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType? _explicitNullValueBusinessType = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType BusinessType { get => _explicitNullValueBusinessType; set { _explicitNullValueBusinessType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("businessType"); else _explicitNullProperties?.Remove("businessType"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType BusinessType { get => _explicitNullValueBusinessType; set { _explicitNullValueBusinessType = value; AdditionalData?.Remove("businessType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("businessType"); else _explicitNullProperties?.Remove("businessType"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersBusinessType _explicitNullValueBusinessType = default!;
 #endif
         /// <summary>Company-list audience boundary. Only completed lists owned by the caller workspace are accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CompanyListId { get => _explicitNullValueCompanyListId; set { _explicitNullValueCompanyListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_list_id"); else _explicitNullProperties?.Remove("company_list_id"); } }
+        public string? CompanyListId { get => _explicitNullValueCompanyListId; set { _explicitNullValueCompanyListId = value; AdditionalData?.Remove("company_list_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_list_id"); else _explicitNullProperties?.Remove("company_list_id"); } }
         private string? _explicitNullValueCompanyListId = default!;
 #nullable restore
 #else
-        public string CompanyListId { get => _explicitNullValueCompanyListId; set { _explicitNullValueCompanyListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_list_id"); else _explicitNullProperties?.Remove("company_list_id"); } }
+        public string CompanyListId { get => _explicitNullValueCompanyListId; set { _explicitNullValueCompanyListId = value; AdditionalData?.Remove("company_list_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_list_id"); else _explicitNullProperties?.Remove("company_list_id"); } }
         private string _explicitNullValueCompanyListId = default!;
 #endif
         /// <summary>The company_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName? CompanyName { get => _explicitNullValueCompanyName; set { _explicitNullValueCompanyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_name"); else _explicitNullProperties?.Remove("company_name"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName? CompanyName { get => _explicitNullValueCompanyName; set { _explicitNullValueCompanyName = value; AdditionalData?.Remove("company_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_name"); else _explicitNullProperties?.Remove("company_name"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName? _explicitNullValueCompanyName = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName CompanyName { get => _explicitNullValueCompanyName; set { _explicitNullValueCompanyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_name"); else _explicitNullProperties?.Remove("company_name"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName CompanyName { get => _explicitNullValueCompanyName; set { _explicitNullValueCompanyName = value; AdditionalData?.Remove("company_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_name"); else _explicitNullProperties?.Remove("company_name"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCompanyName _explicitNullValueCompanyName = default!;
 #endif
         /// <summary>Who the lead company sells to. Any-of on each side: `include` returns only companies labelled with one of the values, `exclude` drops them and keeps companies with no label. A company selling to both holds both values, so &quot;B2B only&quot; is include b2b with exclude b2c.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType? CustomerType { get => _explicitNullValueCustomerType; set { _explicitNullValueCustomerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerType"); else _explicitNullProperties?.Remove("customerType"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType? CustomerType { get => _explicitNullValueCustomerType; set { _explicitNullValueCustomerType = value; AdditionalData?.Remove("customerType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerType"); else _explicitNullProperties?.Remove("customerType"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType? _explicitNullValueCustomerType = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType CustomerType { get => _explicitNullValueCustomerType; set { _explicitNullValueCustomerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerType"); else _explicitNullProperties?.Remove("customerType"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType CustomerType { get => _explicitNullValueCustomerType; set { _explicitNullValueCustomerType = value; AdditionalData?.Remove("customerType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerType"); else _explicitNullProperties?.Remove("customerType"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersCustomerType _explicitNullValueCustomerType = default!;
 #endif
         /// <summary>The department property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem?>? Department { get => _explicitNullValueDepartment; set { _explicitNullValueDepartment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("department"); else _explicitNullProperties?.Remove("department"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem?>? Department { get => _explicitNullValueDepartment; set { _explicitNullValueDepartment = value; AdditionalData?.Remove("department"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("department"); else _explicitNullProperties?.Remove("department"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem?>? _explicitNullValueDepartment = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem?> Department { get => _explicitNullValueDepartment; set { _explicitNullValueDepartment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("department"); else _explicitNullProperties?.Remove("department"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem?> Department { get => _explicitNullValueDepartment; set { _explicitNullValueDepartment = value; AdditionalData?.Remove("department"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("department"); else _explicitNullProperties?.Remove("department"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersDepartmentItem?> _explicitNullValueDepartment = default!;
 #endif
         /// <summary>The domains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        public List<string>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; AdditionalData?.Remove("domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
         private List<string>? _explicitNullValueDomains = default!;
 #nullable restore
 #else
-        public List<string> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        public List<string> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; AdditionalData?.Remove("domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
         private List<string> _explicitNullValueDomains = default!;
 #endif
         /// <summary>Employee count filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? EmployeeCount { get => _explicitNullValueEmployeeCount; set { _explicitNullValueEmployeeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employeeCount"); else _explicitNullProperties?.Remove("employeeCount"); } }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? EmployeeCount { get => _explicitNullValueEmployeeCount; set { _explicitNullValueEmployeeCount = value; AdditionalData?.Remove("employeeCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employeeCount"); else _explicitNullProperties?.Remove("employeeCount"); } }
         private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueEmployeeCount = default!;
 #nullable restore
 #else
-        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> EmployeeCount { get => _explicitNullValueEmployeeCount; set { _explicitNullValueEmployeeCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employeeCount"); else _explicitNullProperties?.Remove("employeeCount"); } }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> EmployeeCount { get => _explicitNullValueEmployeeCount; set { _explicitNullValueEmployeeCount = value; AdditionalData?.Remove("employeeCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employeeCount"); else _explicitNullProperties?.Remove("employeeCount"); } }
         private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueEmployeeCount = default!;
 #endif
         /// <summary>The funding_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?>? Funding_type { get => _explicitNullValueFunding_type; set { _explicitNullValueFunding_type = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("funding_type"); else _explicitNullProperties?.Remove("funding_type"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?>? Funding_type { get => _explicitNullValueFunding_type; set { _explicitNullValueFunding_type = value; AdditionalData?.Remove("funding_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("funding_type"); else _explicitNullProperties?.Remove("funding_type"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?>? _explicitNullValueFunding_type = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?> Funding_type { get => _explicitNullValueFunding_type; set { _explicitNullValueFunding_type = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("funding_type"); else _explicitNullProperties?.Remove("funding_type"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?> Funding_type { get => _explicitNullValueFunding_type; set { _explicitNullValueFunding_type = value; AdditionalData?.Remove("funding_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("funding_type"); else _explicitNullProperties?.Remove("funding_type"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem?> _explicitNullValueFunding_type = default!;
 #endif
         /// <summary>Product-UI alias of `funding_type`; both keys are accepted. See `funding_type` for the canonical values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FundingType { get => _explicitNullValueFundingType; set { _explicitNullValueFundingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fundingType"); else _explicitNullProperties?.Remove("fundingType"); } }
+        public List<string>? FundingType { get => _explicitNullValueFundingType; set { _explicitNullValueFundingType = value; AdditionalData?.Remove("fundingType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fundingType"); else _explicitNullProperties?.Remove("fundingType"); } }
         private List<string>? _explicitNullValueFundingType = default!;
 #nullable restore
 #else
-        public List<string> FundingType { get => _explicitNullValueFundingType; set { _explicitNullValueFundingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fundingType"); else _explicitNullProperties?.Remove("fundingType"); } }
+        public List<string> FundingType { get => _explicitNullValueFundingType; set { _explicitNullValueFundingType = value; AdditionalData?.Remove("fundingType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fundingType"); else _explicitNullProperties?.Remove("fundingType"); } }
         private List<string> _explicitNullValueFundingType = default!;
 #endif
         /// <summary>The industry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry? Industry { get => _explicitNullValueIndustry; set { _explicitNullValueIndustry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry"); else _explicitNullProperties?.Remove("industry"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry? Industry { get => _explicitNullValueIndustry; set { _explicitNullValueIndustry = value; AdditionalData?.Remove("industry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry"); else _explicitNullProperties?.Remove("industry"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry? _explicitNullValueIndustry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry Industry { get => _explicitNullValueIndustry; set { _explicitNullValueIndustry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry"); else _explicitNullProperties?.Remove("industry"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry Industry { get => _explicitNullValueIndustry; set { _explicitNullValueIndustry = value; AdditionalData?.Remove("industry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry"); else _explicitNullProperties?.Remove("industry"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersIndustry _explicitNullValueIndustry = default!;
 #endif
         /// <summary>Canonical filter for companies that are hiring for the specified job titles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? JobListing { get => _explicitNullValueJobListing; set { _explicitNullValueJobListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListing"); else _explicitNullProperties?.Remove("jobListing"); } }
+        public List<string>? JobListing { get => _explicitNullValueJobListing; set { _explicitNullValueJobListing = value; AdditionalData?.Remove("jobListing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListing"); else _explicitNullProperties?.Remove("jobListing"); } }
         private List<string>? _explicitNullValueJobListing = default!;
 #nullable restore
 #else
-        public List<string> JobListing { get => _explicitNullValueJobListing; set { _explicitNullValueJobListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListing"); else _explicitNullProperties?.Remove("jobListing"); } }
+        public List<string> JobListing { get => _explicitNullValueJobListing; set { _explicitNullValueJobListing = value; AdditionalData?.Remove("jobListing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListing"); else _explicitNullProperties?.Remove("jobListing"); } }
         private List<string> _explicitNullValueJobListing = default!;
 #endif
         /// <summary>Deprecated compatibility key for Job Listing filters. Use `jobListing` instead. If both keys are present, `jobListing` takes precedence.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? JobListingFilter { get => _explicitNullValueJobListingFilter; set { _explicitNullValueJobListingFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListingFilter"); else _explicitNullProperties?.Remove("jobListingFilter"); } }
+        public List<string>? JobListingFilter { get => _explicitNullValueJobListingFilter; set { _explicitNullValueJobListingFilter = value; AdditionalData?.Remove("jobListingFilter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListingFilter"); else _explicitNullProperties?.Remove("jobListingFilter"); } }
         private List<string>? _explicitNullValueJobListingFilter = default!;
 #nullable restore
 #else
-        public List<string> JobListingFilter { get => _explicitNullValueJobListingFilter; set { _explicitNullValueJobListingFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListingFilter"); else _explicitNullProperties?.Remove("jobListingFilter"); } }
+        public List<string> JobListingFilter { get => _explicitNullValueJobListingFilter; set { _explicitNullValueJobListingFilter = value; AdditionalData?.Remove("jobListingFilter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobListingFilter"); else _explicitNullProperties?.Remove("jobListingFilter"); } }
         private List<string> _explicitNullValueJobListingFilter = default!;
 #endif
         /// <summary>The keyword_filter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter? KeywordFilter { get => _explicitNullValueKeywordFilter; set { _explicitNullValueKeywordFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyword_filter"); else _explicitNullProperties?.Remove("keyword_filter"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter? KeywordFilter { get => _explicitNullValueKeywordFilter; set { _explicitNullValueKeywordFilter = value; AdditionalData?.Remove("keyword_filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyword_filter"); else _explicitNullProperties?.Remove("keyword_filter"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter? _explicitNullValueKeywordFilter = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter KeywordFilter { get => _explicitNullValueKeywordFilter; set { _explicitNullValueKeywordFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyword_filter"); else _explicitNullProperties?.Remove("keyword_filter"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter KeywordFilter { get => _explicitNullValueKeywordFilter; set { _explicitNullValueKeywordFilter = value; AdditionalData?.Remove("keyword_filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyword_filter"); else _explicitNullProperties?.Remove("keyword_filter"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersKeywordFilter _explicitNullValueKeywordFilter = default!;
 #endif
         /// <summary>The level property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?>? Level { get => _explicitNullValueLevel; set { _explicitNullValueLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("level"); else _explicitNullProperties?.Remove("level"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?>? Level { get => _explicitNullValueLevel; set { _explicitNullValueLevel = value; AdditionalData?.Remove("level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("level"); else _explicitNullProperties?.Remove("level"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?>? _explicitNullValueLevel = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?> Level { get => _explicitNullValueLevel; set { _explicitNullValueLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("level"); else _explicitNullProperties?.Remove("level"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?> Level { get => _explicitNullValueLevel; set { _explicitNullValueLevel = value; AdditionalData?.Remove("level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("level"); else _explicitNullProperties?.Remove("level"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLevelItem?> _explicitNullValueLevel = default!;
 #endif
         /// <summary>Whether to filter/display by contact location or company HQ location. Defaults to contact.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode? Location_mode { get => _explicitNullValueLocation_mode; set { _explicitNullValueLocation_mode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_mode"); else _explicitNullProperties?.Remove("location_mode"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode? Location_mode { get => _explicitNullValueLocation_mode; set { _explicitNullValueLocation_mode = value; AdditionalData?.Remove("location_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_mode"); else _explicitNullProperties?.Remove("location_mode"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode? _explicitNullValueLocation_mode = default!;
         /// <summary>Product-UI alias of `location_mode` (`contact` or `company`); both keys are accepted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocationMode { get => _explicitNullValueLocationMode; set { _explicitNullValueLocationMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationMode"); else _explicitNullProperties?.Remove("locationMode"); } }
+        public string? LocationMode { get => _explicitNullValueLocationMode; set { _explicitNullValueLocationMode = value; AdditionalData?.Remove("locationMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationMode"); else _explicitNullProperties?.Remove("locationMode"); } }
         private string? _explicitNullValueLocationMode = default!;
 #nullable restore
 #else
-        public string LocationMode { get => _explicitNullValueLocationMode; set { _explicitNullValueLocationMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationMode"); else _explicitNullProperties?.Remove("locationMode"); } }
+        public string LocationMode { get => _explicitNullValueLocationMode; set { _explicitNullValueLocationMode = value; AdditionalData?.Remove("locationMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locationMode"); else _explicitNullProperties?.Remove("locationMode"); } }
         private string _explicitNullValueLocationMode = default!;
 #endif
         /// <summary>The locations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations? Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations? Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; AdditionalData?.Remove("locations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations? _explicitNullValueLocations = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; AdditionalData?.Remove("locations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocations _explicitNullValueLocations = default!;
 #endif
         /// <summary>If set, the lead finder will find companies that are similar to the look-alike domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Look_alike { get => _explicitNullValueLook_alike; set { _explicitNullValueLook_alike = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("look_alike"); else _explicitNullProperties?.Remove("look_alike"); } }
+        public string? Look_alike { get => _explicitNullValueLook_alike; set { _explicitNullValueLook_alike = value; AdditionalData?.Remove("look_alike"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("look_alike"); else _explicitNullProperties?.Remove("look_alike"); } }
         private string? _explicitNullValueLook_alike = default!;
 #nullable restore
 #else
-        public string Look_alike { get => _explicitNullValueLook_alike; set { _explicitNullValueLook_alike = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("look_alike"); else _explicitNullProperties?.Remove("look_alike"); } }
+        public string Look_alike { get => _explicitNullValueLook_alike; set { _explicitNullValueLook_alike = value; AdditionalData?.Remove("look_alike"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("look_alike"); else _explicitNullProperties?.Remove("look_alike"); } }
         private string _explicitNullValueLook_alike = default!;
 #endif
         /// <summary>Product-UI alias of `look_alike`; both keys are accepted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LookAlike { get => _explicitNullValueLookAlike; set { _explicitNullValueLookAlike = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlike"); else _explicitNullProperties?.Remove("lookAlike"); } }
+        public string? LookAlike { get => _explicitNullValueLookAlike; set { _explicitNullValueLookAlike = value; AdditionalData?.Remove("lookAlike"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlike"); else _explicitNullProperties?.Remove("lookAlike"); } }
         private string? _explicitNullValueLookAlike = default!;
 #nullable restore
 #else
-        public string LookAlike { get => _explicitNullValueLookAlike; set { _explicitNullValueLookAlike = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlike"); else _explicitNullProperties?.Remove("lookAlike"); } }
+        public string LookAlike { get => _explicitNullValueLookAlike; set { _explicitNullValueLookAlike = value; AdditionalData?.Remove("lookAlike"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlike"); else _explicitNullProperties?.Remove("lookAlike"); } }
         private string _explicitNullValueLookAlike = default!;
 #endif
         /// <summary>Deprecated. No longer written by the product UI; still accepted and forwarded so existing integrations keep working.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LookAlikeMode { get => _explicitNullValueLookAlikeMode; set { _explicitNullValueLookAlikeMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlikeMode"); else _explicitNullProperties?.Remove("lookAlikeMode"); } }
+        public string? LookAlikeMode { get => _explicitNullValueLookAlikeMode; set { _explicitNullValueLookAlikeMode = value; AdditionalData?.Remove("lookAlikeMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlikeMode"); else _explicitNullProperties?.Remove("lookAlikeMode"); } }
         private string? _explicitNullValueLookAlikeMode = default!;
 #nullable restore
 #else
-        public string LookAlikeMode { get => _explicitNullValueLookAlikeMode; set { _explicitNullValueLookAlikeMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlikeMode"); else _explicitNullProperties?.Remove("lookAlikeMode"); } }
+        public string LookAlikeMode { get => _explicitNullValueLookAlikeMode; set { _explicitNullValueLookAlikeMode = value; AdditionalData?.Remove("lookAlikeMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookAlikeMode"); else _explicitNullProperties?.Remove("lookAlikeMode"); } }
         private string _explicitNullValueLookAlikeMode = default!;
 #endif
         /// <summary>Names of the lead to include in the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public List<string>? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private List<string>? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public List<string> Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public List<string> Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private List<string> _explicitNullValueName = default!;
 #endif
         /// <summary>The news property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem?>? News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem?>? News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; AdditionalData?.Remove("news"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem?>? _explicitNullValueNews = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem?> News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem?> News { get => _explicitNullValueNews; set { _explicitNullValueNews = value; AdditionalData?.Remove("news"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("news"); else _explicitNullProperties?.Remove("news"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersNewsItem?> _explicitNullValueNews = default!;
 #endif
         /// <summary>The revenue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem?>? Revenue { get => _explicitNullValueRevenue; set { _explicitNullValueRevenue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revenue"); else _explicitNullProperties?.Remove("revenue"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem?>? Revenue { get => _explicitNullValueRevenue; set { _explicitNullValueRevenue = value; AdditionalData?.Remove("revenue"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revenue"); else _explicitNullProperties?.Remove("revenue"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem?>? _explicitNullValueRevenue = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem?> Revenue { get => _explicitNullValueRevenue; set { _explicitNullValueRevenue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revenue"); else _explicitNullProperties?.Remove("revenue"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem?> Revenue { get => _explicitNullValueRevenue; set { _explicitNullValueRevenue = value; AdditionalData?.Remove("revenue"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revenue"); else _explicitNullProperties?.Remove("revenue"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersRevenueItem?> _explicitNullValueRevenue = default!;
 #endif
         /// <summary>If set, the lead finder will show only one lead per company</summary>
-        public bool? ShowOneLeadPerCompany { get => _explicitNullValueShowOneLeadPerCompany; set { _explicitNullValueShowOneLeadPerCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_one_lead_per_company"); else _explicitNullProperties?.Remove("show_one_lead_per_company"); } }
+        public bool? ShowOneLeadPerCompany { get => _explicitNullValueShowOneLeadPerCompany; set { _explicitNullValueShowOneLeadPerCompany = value; AdditionalData?.Remove("show_one_lead_per_company"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_one_lead_per_company"); else _explicitNullProperties?.Remove("show_one_lead_per_company"); } }
         private bool? _explicitNullValueShowOneLeadPerCompany = default!;
         /// <summary>Filter leads by Autobound signal categories (e.g. job changes, traffic surges, LinkedIn activity). Leads matching ANY of the specified signals within the per-signal freshness window will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Signals { get => _explicitNullValueSignals; set { _explicitNullValueSignals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signals"); else _explicitNullProperties?.Remove("signals"); } }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? Signals { get => _explicitNullValueSignals; set { _explicitNullValueSignals = value; AdditionalData?.Remove("signals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signals"); else _explicitNullProperties?.Remove("signals"); } }
         private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>? _explicitNullValueSignals = default!;
 #nullable restore
 #else
-        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Signals { get => _explicitNullValueSignals; set { _explicitNullValueSignals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signals"); else _explicitNullProperties?.Remove("signals"); } }
+        public List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> Signals { get => _explicitNullValueSignals; set { _explicitNullValueSignals = value; AdditionalData?.Remove("signals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signals"); else _explicitNullProperties?.Remove("signals"); } }
         private List<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode> _explicitNullValueSignals = default!;
 #endif
         /// <summary>If set, the lead finder will skip leads that are owned by the user</summary>
-        public bool? SkipOwnedLeads { get => _explicitNullValueSkipOwnedLeads; set { _explicitNullValueSkipOwnedLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_owned_leads"); else _explicitNullProperties?.Remove("skip_owned_leads"); } }
+        public bool? SkipOwnedLeads { get => _explicitNullValueSkipOwnedLeads; set { _explicitNullValueSkipOwnedLeads = value; AdditionalData?.Remove("skip_owned_leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_owned_leads"); else _explicitNullProperties?.Remove("skip_owned_leads"); } }
         private bool? _explicitNullValueSkipOwnedLeads = default!;
         /// <summary>The subIndustry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry? SubIndustry { get => _explicitNullValueSubIndustry; set { _explicitNullValueSubIndustry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subIndustry"); else _explicitNullProperties?.Remove("subIndustry"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry? SubIndustry { get => _explicitNullValueSubIndustry; set { _explicitNullValueSubIndustry = value; AdditionalData?.Remove("subIndustry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subIndustry"); else _explicitNullProperties?.Remove("subIndustry"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry? _explicitNullValueSubIndustry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry SubIndustry { get => _explicitNullValueSubIndustry; set { _explicitNullValueSubIndustry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subIndustry"); else _explicitNullProperties?.Remove("subIndustry"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry SubIndustry { get => _explicitNullValueSubIndustry; set { _explicitNullValueSubIndustry = value; AdditionalData?.Remove("subIndustry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subIndustry"); else _explicitNullProperties?.Remove("subIndustry"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersSubIndustry _explicitNullValueSubIndustry = default!;
 #endif
         /// <summary>Technologies the lead company uses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Technologies { get => _explicitNullValueTechnologies; set { _explicitNullValueTechnologies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technologies"); else _explicitNullProperties?.Remove("technologies"); } }
+        public List<string>? Technologies { get => _explicitNullValueTechnologies; set { _explicitNullValueTechnologies = value; AdditionalData?.Remove("technologies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technologies"); else _explicitNullProperties?.Remove("technologies"); } }
         private List<string>? _explicitNullValueTechnologies = default!;
 #nullable restore
 #else
-        public List<string> Technologies { get => _explicitNullValueTechnologies; set { _explicitNullValueTechnologies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technologies"); else _explicitNullProperties?.Remove("technologies"); } }
+        public List<string> Technologies { get => _explicitNullValueTechnologies; set { _explicitNullValueTechnologies = value; AdditionalData?.Remove("technologies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("technologies"); else _explicitNullProperties?.Remove("technologies"); } }
         private List<string> _explicitNullValueTechnologies = default!;
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle? _explicitNullValueTitle = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle _explicitNullValueTitle = default!;
 #endif
         /// <summary>Restrict the search to companies that visited your website (requires a connected Website Visitors pixel). Combines with `domains` as an intersection.</summary>
-        public bool? WebsiteVisitors { get => _explicitNullValueWebsiteVisitors; set { _explicitNullValueWebsiteVisitors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website_visitors"); else _explicitNullProperties?.Remove("website_visitors"); } }
+        public bool? WebsiteVisitors { get => _explicitNullValueWebsiteVisitors; set { _explicitNullValueWebsiteVisitors = value; AdditionalData?.Remove("website_visitors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website_visitors"); else _explicitNullProperties?.Remove("website_visitors"); } }
         private bool? _explicitNullValueWebsiteVisitors = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFilters"/> and sets the default values.
@@ -378,7 +408,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle>(global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersTitle.CreateFromDiscriminatorValue); } },
                 { "website_visitors", n => { WebsiteVisitors = n.GetBoolValue(); } },
                 { "funding_type", n => { Funding_type = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersFundingTypeItem>()?.AsList(); } },
-                { "location_mode", n => { Location_mode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>(); } },
+                { "location_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearchRequestSearchFiltersLocationMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLocation_mode = default; _explicitNullProperties?.Remove("location_mode"); AdditionalData["location_mode"] = unknown; } else { Location_mode = parsed; AdditionalData.Remove("location_mode"); } } },
                 { "look_alike", n => { Look_alike = n.GetStringValue(); } },
             };
         }

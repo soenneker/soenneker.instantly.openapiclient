@@ -18,28 +18,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_spam") is { } nullNodeIsSpam && nullNodeIsSpam.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSpam = null;
-            if (parseNode.GetChildNode("report") is { } nullNodeReport && nullNodeReport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Report = null;
-            if (parseNode.GetChildNode("spam_score") is { } nullNodeSpamScore && nullNodeSpamScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamScore = null;
+            if (parseNode.GetChildNode("is_spam") is null) { _explicitNullValueIsSpam = default!; _explicitNullProperties?.Remove("is_spam"); }
+            else if (parseNode.GetChildNode("is_spam") is { } nullNodeIsSpam && nullNodeIsSpam.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSpam = null;
+            if (parseNode.GetChildNode("report") is null) { _explicitNullValueReport = default!; _explicitNullProperties?.Remove("report"); }
+            else if (parseNode.GetChildNode("report") is { } nullNodeReport && nullNodeReport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Report = null;
+            if (parseNode.GetChildNode("spam_score") is null) { _explicitNullValueSpamScore = default!; _explicitNullProperties?.Remove("spam_score"); }
+            else if (parseNode.GetChildNode("spam_score") is { } nullNodeSpamScore && nullNodeSpamScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamScore = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if the message is classified as spam by SpamAssassin</summary>
-        public bool? IsSpam { get => _explicitNullValueIsSpam; set { _explicitNullValueIsSpam = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_spam"); else _explicitNullProperties?.Remove("is_spam"); } }
+        public bool? IsSpam { get => _explicitNullValueIsSpam; set { _explicitNullValueIsSpam = value; AdditionalData?.Remove("is_spam"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_spam"); else _explicitNullProperties?.Remove("is_spam"); } }
         private bool? _explicitNullValueIsSpam = default!;
         /// <summary>List of individual SpamAssassin rule evaluations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem>? Report { get => _explicitNullValueReport; set { _explicitNullValueReport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report"); else _explicitNullProperties?.Remove("report"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem>? Report { get => _explicitNullValueReport; set { _explicitNullValueReport = value; AdditionalData?.Remove("report"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report"); else _explicitNullProperties?.Remove("report"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem>? _explicitNullValueReport = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem> Report { get => _explicitNullValueReport; set { _explicitNullValueReport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report"); else _explicitNullProperties?.Remove("report"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem> Report { get => _explicitNullValueReport; set { _explicitNullValueReport = value; AdditionalData?.Remove("report"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report"); else _explicitNullProperties?.Remove("report"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReportReportItem> _explicitNullValueReport = default!;
 #endif
         /// <summary>Overall spam score assigned to the message by SpamAssassin</summary>
-        public int? SpamScore { get => _explicitNullValueSpamScore; set { _explicitNullValueSpamScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_score"); else _explicitNullProperties?.Remove("spam_score"); } }
+        public int? SpamScore { get => _explicitNullValueSpamScore; set { _explicitNullValueSpamScore = value; AdditionalData?.Remove("spam_score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_score"); else _explicitNullProperties?.Remove("spam_score"); } }
         private int? _explicitNullValueSpamScore = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportSpamAssassinReport"/> and sets the default values.

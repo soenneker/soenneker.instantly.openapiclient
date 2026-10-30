@@ -29228,10 +29228,10 @@
             }
           },
           "research_objectives": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchObjectives"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives"
           },
           "research_questions": {
-            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryResearchQuestions"
+            "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives"
           },
           "custom_research_objectives": {
             "$ref": "#/components/schemas/AiAgentPayloadAnyOf3AiSdrConfigMemoryCustomResearchObjectives"
@@ -66301,7 +66301,7 @@
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -66737,7 +66737,7 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -66942,7 +66942,7 @@
             "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -67147,7 +67147,7 @@
             "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -67399,7 +67399,7 @@
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -67605,7 +67605,7 @@
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -67811,7 +67811,7 @@
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68017,7 +68017,7 @@
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf1ItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68295,7 +68295,7 @@
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68305,7 +68305,7 @@
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68469,7 +68469,7 @@
             "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68479,7 +68479,7 @@
             "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68624,7 +68624,7 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68634,7 +68634,7 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68779,7 +68779,7 @@
             "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68789,7 +68789,7 @@
             "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68934,7 +68934,7 @@
             "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -68944,7 +68944,7 @@
             "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69089,7 +69089,7 @@
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69099,7 +69099,7 @@
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69244,7 +69244,7 @@
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69254,7 +69254,7 @@
             "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69399,7 +69399,7 @@
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69409,7 +69409,7 @@
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69554,7 +69554,7 @@
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -69564,7 +69564,7 @@
             "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItemOneOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"
           }
         ]
       },
@@ -75981,7 +75981,7 @@
             "example": "Software Development"
           },
           "value": {
-            "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemValue"
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue"
           },
           "children": {
             "type": "array",
@@ -77009,7 +77009,7 @@
       "RunIntegrationActionRequestInputs": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/RunIntegrationActionRequestInputsAdditionalProperties"
+          "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue"
         },
         "example": {
           "domain": "example.com"
@@ -87028,7 +87028,7 @@
             "type": "string"
           },
           "value": {
-            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemOptionsItemValue"
+            "$ref": "#/components/schemas/GetCompanyListFilterOptions200ResponseOptionsItemChildrenItemValue"
           }
         },
         "additionalProperties": false
@@ -87063,7 +87063,7 @@
             "type": "string"
           },
           "min": {
-            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin"
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax"
           },
           "max": {
             "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax"
@@ -87082,7 +87082,7 @@
             "type": "string"
           },
           "value": {
-            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue"
+            "$ref": "#/components/schemas/ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax"
           }
         },
         "additionalProperties": false

@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_labels_considered") is { } nullNodeCustomLabelsConsidered && nullNodeCustomLabelsConsidered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomLabelsConsidered = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("custom_labels_considered") is null) { _explicitNullValueCustomLabelsConsidered = default!; _explicitNullProperties?.Remove("custom_labels_considered"); }
+            else if (parseNode.GetChildNode("custom_labels_considered") is { } nullNodeCustomLabelsConsidered && nullNodeCustomLabelsConsidered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomLabelsConsidered = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>AI-enabled custom labels considered during classification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomLabelsConsidered { get => _explicitNullValueCustomLabelsConsidered; set { _explicitNullValueCustomLabelsConsidered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_labels_considered"); else _explicitNullProperties?.Remove("custom_labels_considered"); } }
+        public List<string>? CustomLabelsConsidered { get => _explicitNullValueCustomLabelsConsidered; set { _explicitNullValueCustomLabelsConsidered = value; AdditionalData?.Remove("custom_labels_considered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_labels_considered"); else _explicitNullProperties?.Remove("custom_labels_considered"); } }
         private List<string>? _explicitNullValueCustomLabelsConsidered = default!;
 #nullable restore
 #else
-        public List<string> CustomLabelsConsidered { get => _explicitNullValueCustomLabelsConsidered; set { _explicitNullValueCustomLabelsConsidered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_labels_considered"); else _explicitNullProperties?.Remove("custom_labels_considered"); } }
+        public List<string> CustomLabelsConsidered { get => _explicitNullValueCustomLabelsConsidered; set { _explicitNullValueCustomLabelsConsidered = value; AdditionalData?.Remove("custom_labels_considered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_labels_considered"); else _explicitNullProperties?.Remove("custom_labels_considered"); } }
         private List<string> _explicitNullValueCustomLabelsConsidered = default!;
 #endif
         /// <summary>The predicted lead label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public string? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private string? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public string Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public string Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private string _explicitNullValueResult = default!;
 #endif
         /// <summary>

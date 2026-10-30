@@ -17,34 +17,37 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
-            if (parseNode.GetChildNode("recipient_esp") is { } nullNodeRecipientEsp && nullNodeRecipientEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEsp = null;
-            if (parseNode.GetChildNode("sender_esp") is { } nullNodeSenderEsp && nullNodeSenderEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderEsp = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("recipient_esp") is null) { _explicitNullValueRecipientEsp = default!; _explicitNullProperties?.Remove("recipient_esp"); }
+            else if (parseNode.GetChildNode("recipient_esp") is { } nullNodeRecipientEsp && nullNodeRecipientEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEsp = null;
+            if (parseNode.GetChildNode("sender_esp") is null) { _explicitNullValueSenderEsp = default!; _explicitNullProperties?.Remove("sender_esp"); }
+            else if (parseNode.GetChildNode("sender_esp") is { } nullNodeSenderEsp && nullNodeSenderEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderEsp = null;
         }
 
         /// <summary>The action property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The recipient_esp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem?>? RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem?>? RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; AdditionalData?.Remove("recipient_esp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem?>? _explicitNullValueRecipientEsp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem?> RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem?> RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; AdditionalData?.Remove("recipient_esp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem?> _explicitNullValueRecipientEsp = default!;
 #endif
         /// <summary>The sender_esp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem?>? SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem?>? SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; AdditionalData?.Remove("sender_esp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem?>? _explicitNullValueSenderEsp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem?> SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem?> SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; AdditionalData?.Remove("sender_esp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem?> _explicitNullValueSenderEsp = default!;
 #endif
         /// <summary>
@@ -72,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemAction>(); } },
+                { "action", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAction = default; _explicitNullProperties?.Remove("action"); AdditionalData["action"] = unknown; } else { Action = parsed; AdditionalData.Remove("action"); } } },
                 { "recipient_esp", n => { RecipientEsp = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemRecipientEspItem>()?.AsList(); } },
                 { "sender_esp", n => { SenderEsp = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignProviderRoutingRulesItemSenderEspItem>()?.AsList(); } },
             };

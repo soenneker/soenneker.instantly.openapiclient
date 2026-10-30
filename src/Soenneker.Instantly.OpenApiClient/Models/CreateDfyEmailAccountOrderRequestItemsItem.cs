@@ -17,20 +17,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accounts") is { } nullNodeAccounts && nullNodeAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accounts = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
-            if (parseNode.GetChildNode("email_provider") is { } nullNodeEmailProvider && nullNodeEmailProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailProvider = null;
-            if (parseNode.GetChildNode("forwarding_domain") is { } nullNodeForwardingDomain && nullNodeForwardingDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingDomain = null;
+            if (parseNode.GetChildNode("accounts") is null) { _explicitNullValueAccounts = default!; _explicitNullProperties?.Remove("accounts"); }
+            else if (parseNode.GetChildNode("accounts") is { } nullNodeAccounts && nullNodeAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accounts = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("email_provider") is null) { _explicitNullValueEmailProvider = default!; _explicitNullProperties?.Remove("email_provider"); }
+            else if (parseNode.GetChildNode("email_provider") is { } nullNodeEmailProvider && nullNodeEmailProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailProvider = null;
+            if (parseNode.GetChildNode("forwarding_domain") is null) { _explicitNullValueForwardingDomain = default!; _explicitNullProperties?.Remove("forwarding_domain"); }
+            else if (parseNode.GetChildNode("forwarding_domain") is { } nullNodeForwardingDomain && nullNodeForwardingDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingDomain = null;
         }
 
         /// <summary>List of email accounts to create (only if `pre_warmed_up` field is false). For pre-warmed up domains this field will be ignored because the accounts are already created and can&apos;t be changed. Please provide minimum 1 and maximum 5 accounts per domain for Google or AirMail, or 50-100 for Microsoft/Outlook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem>? Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem>? Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; AdditionalData?.Remove("accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem>? _explicitNullValueAccounts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem> Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem> Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; AdditionalData?.Remove("accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItemAccountsItem> _explicitNullValueAccounts = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,24 +42,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The domain to use for the email accounts. Only registrable domains are supported: subdomains (for example `mail.example.com`) are rejected for every order type and returned in `invalid_domains`. For regular DFY accounts the only allowed domain extensions (tlds) are .com and .org.For regular DFY accounts - you can check the domain availability using the /dfy-email-account-orders/domains/check endpoint before placing an order.For pre-warmed up domains - use the /dfy-email-account-orders/domains endpoint to get a list of available domains.Domains containing trademarks of well-known companies are restricted and cannot be ordered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The mailbox product to order. Defaults to Google when omitted.Options:- 1: Google. Up to 5 mailboxes per domain; priced per mailbox monthly.- 2: AirMail. Up to 5 mailboxes per domain; priced per mailbox monthly.- 3: Microsoft/Outlook. 50-100 mailboxes per new DFY domain; priced per domain monthly.</summary>
-        public double? EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
+        public double? EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; AdditionalData?.Remove("email_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
         private double? _explicitNullValueEmailProvider = default!;
         /// <summary>An optional domain to forward emails to. This domain must be different from the main domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForwardingDomain { get => _explicitNullValueForwardingDomain; set { _explicitNullValueForwardingDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_domain"); else _explicitNullProperties?.Remove("forwarding_domain"); } }
+        public string? ForwardingDomain { get => _explicitNullValueForwardingDomain; set { _explicitNullValueForwardingDomain = value; AdditionalData?.Remove("forwarding_domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_domain"); else _explicitNullProperties?.Remove("forwarding_domain"); } }
         private string? _explicitNullValueForwardingDomain = default!;
 #nullable restore
 #else
-        public string ForwardingDomain { get => _explicitNullValueForwardingDomain; set { _explicitNullValueForwardingDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_domain"); else _explicitNullProperties?.Remove("forwarding_domain"); } }
+        public string ForwardingDomain { get => _explicitNullValueForwardingDomain; set { _explicitNullValueForwardingDomain = value; AdditionalData?.Remove("forwarding_domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_domain"); else _explicitNullProperties?.Remove("forwarding_domain"); } }
         private string _explicitNullValueForwardingDomain = default!;
 #endif
         /// <summary>

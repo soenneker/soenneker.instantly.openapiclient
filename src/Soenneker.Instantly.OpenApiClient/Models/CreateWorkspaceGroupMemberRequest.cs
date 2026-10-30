@@ -18,7 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sub_workspace_id") is { } nullNodeSubWorkspaceId && nullNodeSubWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubWorkspaceId = null;
+            if (parseNode.GetChildNode("sub_workspace_id") is null) { _explicitNullValueSubWorkspaceId = default!; _explicitNullProperties?.Remove("sub_workspace_id"); }
+            else if (parseNode.GetChildNode("sub_workspace_id") is { } nullNodeSubWorkspaceId && nullNodeSubWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubWorkspaceId = null;
         }
 
         /// <summary>The id of the sub workspace</summary>

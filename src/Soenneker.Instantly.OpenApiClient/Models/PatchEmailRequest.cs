@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_unread") is { } nullNodeIsUnread && nullNodeIsUnread.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsUnread = null;
-            if (parseNode.GetChildNode("reminder_ts") is { } nullNodeReminderTs && nullNodeReminderTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReminderTs = null;
+            if (parseNode.GetChildNode("is_unread") is null) { _explicitNullValueIsUnread = default!; _explicitNullProperties?.Remove("is_unread"); }
+            else if (parseNode.GetChildNode("is_unread") is { } nullNodeIsUnread && nullNodeIsUnread.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsUnread = null;
+            if (parseNode.GetChildNode("reminder_ts") is null) { _explicitNullValueReminderTs = default!; _explicitNullProperties?.Remove("reminder_ts"); }
+            else if (parseNode.GetChildNode("reminder_ts") is { } nullNodeReminderTs && nullNodeReminderTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReminderTs = null;
         }
 
         /// <summary>Indicates if the email is unread</summary>

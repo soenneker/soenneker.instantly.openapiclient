@@ -17,12 +17,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
-            if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
-            if (parseNode.GetChildNode("crm") is { } nullNodeCrm && nullNodeCrm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Crm = null;
-            if (parseNode.GetChildNode("inbox_placement") is { } nullNodeInboxPlacement && nullNodeInboxPlacement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxPlacement = null;
-            if (parseNode.GetChildNode("outreach") is { } nullNodeOutreach && nullNodeOutreach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outreach = null;
-            if (parseNode.GetChildNode("website_visitors") is { } nullNodeWebsiteVisitors && nullNodeWebsiteVisitors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsiteVisitors = null;
+            if (parseNode.GetChildNode("bundle") is null) { _explicitNullValueBundle = default!; _explicitNullProperties?.Remove("bundle"); }
+            else if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
+            if (parseNode.GetChildNode("credits") is null) { _explicitNullValueCredits = default!; _explicitNullProperties?.Remove("credits"); }
+            else if (parseNode.GetChildNode("credits") is { } nullNodeCredits && nullNodeCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credits = null;
+            if (parseNode.GetChildNode("crm") is null) { _explicitNullValueCrm = default!; _explicitNullProperties?.Remove("crm"); }
+            else if (parseNode.GetChildNode("crm") is { } nullNodeCrm && nullNodeCrm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Crm = null;
+            if (parseNode.GetChildNode("inbox_placement") is null) { _explicitNullValueInboxPlacement = default!; _explicitNullProperties?.Remove("inbox_placement"); }
+            else if (parseNode.GetChildNode("inbox_placement") is { } nullNodeInboxPlacement && nullNodeInboxPlacement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxPlacement = null;
+            if (parseNode.GetChildNode("outreach") is null) { _explicitNullValueOutreach = default!; _explicitNullProperties?.Remove("outreach"); }
+            else if (parseNode.GetChildNode("outreach") is { } nullNodeOutreach && nullNodeOutreach.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outreach = null;
+            if (parseNode.GetChildNode("website_visitors") is null) { _explicitNullValueWebsiteVisitors = default!; _explicitNullProperties?.Remove("website_visitors"); }
+            else if (parseNode.GetChildNode("website_visitors") is { } nullNodeWebsiteVisitors && nullNodeWebsiteVisitors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsiteVisitors = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,61 +36,61 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The bundle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; AdditionalData?.Remove("bundle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle? _explicitNullValueBundle = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; AdditionalData?.Remove("bundle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle _explicitNullValueBundle = default!;
 #endif
         /// <summary>The credits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits? Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; AdditionalData?.Remove("credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits? _explicitNullValueCredits = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits Credits { get => _explicitNullValueCredits; set { _explicitNullValueCredits = value; AdditionalData?.Remove("credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits"); else _explicitNullProperties?.Remove("credits"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits _explicitNullValueCredits = default!;
 #endif
         /// <summary>The crm property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm? Crm { get => _explicitNullValueCrm; set { _explicitNullValueCrm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm"); else _explicitNullProperties?.Remove("crm"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm? Crm { get => _explicitNullValueCrm; set { _explicitNullValueCrm = value; AdditionalData?.Remove("crm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm"); else _explicitNullProperties?.Remove("crm"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm? _explicitNullValueCrm = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm Crm { get => _explicitNullValueCrm; set { _explicitNullValueCrm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm"); else _explicitNullProperties?.Remove("crm"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm Crm { get => _explicitNullValueCrm; set { _explicitNullValueCrm = value; AdditionalData?.Remove("crm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm"); else _explicitNullProperties?.Remove("crm"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCrm _explicitNullValueCrm = default!;
 #endif
         /// <summary>The inbox_placement property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement? InboxPlacement { get => _explicitNullValueInboxPlacement; set { _explicitNullValueInboxPlacement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_placement"); else _explicitNullProperties?.Remove("inbox_placement"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement? InboxPlacement { get => _explicitNullValueInboxPlacement; set { _explicitNullValueInboxPlacement = value; AdditionalData?.Remove("inbox_placement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_placement"); else _explicitNullProperties?.Remove("inbox_placement"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement? _explicitNullValueInboxPlacement = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement InboxPlacement { get => _explicitNullValueInboxPlacement; set { _explicitNullValueInboxPlacement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_placement"); else _explicitNullProperties?.Remove("inbox_placement"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement InboxPlacement { get => _explicitNullValueInboxPlacement; set { _explicitNullValueInboxPlacement = value; AdditionalData?.Remove("inbox_placement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_placement"); else _explicitNullProperties?.Remove("inbox_placement"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacement _explicitNullValueInboxPlacement = default!;
 #endif
         /// <summary>The outreach property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsOutreach? Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsOutreach? Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; AdditionalData?.Remove("outreach"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsOutreach? _explicitNullValueOutreach = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsOutreach Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsOutreach Outreach { get => _explicitNullValueOutreach; set { _explicitNullValueOutreach = value; AdditionalData?.Remove("outreach"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach"); else _explicitNullProperties?.Remove("outreach"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsOutreach _explicitNullValueOutreach = default!;
 #endif
         /// <summary>The website_visitors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors? WebsiteVisitors { get => _explicitNullValueWebsiteVisitors; set { _explicitNullValueWebsiteVisitors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website_visitors"); else _explicitNullProperties?.Remove("website_visitors"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors? WebsiteVisitors { get => _explicitNullValueWebsiteVisitors; set { _explicitNullValueWebsiteVisitors = value; AdditionalData?.Remove("website_visitors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website_visitors"); else _explicitNullProperties?.Remove("website_visitors"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors? _explicitNullValueWebsiteVisitors = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors WebsiteVisitors { get => _explicitNullValueWebsiteVisitors; set { _explicitNullValueWebsiteVisitors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website_visitors"); else _explicitNullProperties?.Remove("website_visitors"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors WebsiteVisitors { get => _explicitNullValueWebsiteVisitors; set { _explicitNullValueWebsiteVisitors = value; AdditionalData?.Remove("website_visitors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website_visitors"); else _explicitNullProperties?.Remove("website_visitors"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitors _explicitNullValueWebsiteVisitors = default!;
 #endif
         /// <summary>

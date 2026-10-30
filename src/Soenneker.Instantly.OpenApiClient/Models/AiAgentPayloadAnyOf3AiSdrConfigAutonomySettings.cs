@@ -18,17 +18,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("autopilot_mode") is { } nullNodeAutopilotMode && nullNodeAutopilotMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutopilotMode = null;
-            if (parseNode.GetChildNode("auto_reply_to_responses") is { } nullNodeAutoReplyToResponses && nullNodeAutoReplyToResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoReplyToResponses = null;
+            if (parseNode.GetChildNode("autopilot_mode") is null) { _explicitNullValueAutopilotMode = default!; _explicitNullProperties?.Remove("autopilot_mode"); }
+            else if (parseNode.GetChildNode("autopilot_mode") is { } nullNodeAutopilotMode && nullNodeAutopilotMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutopilotMode = null;
+            if (parseNode.GetChildNode("auto_reply_to_responses") is null) { _explicitNullValueAutoReplyToResponses = default!; _explicitNullProperties?.Remove("auto_reply_to_responses"); }
+            else if (parseNode.GetChildNode("auto_reply_to_responses") is { } nullNodeAutoReplyToResponses && nullNodeAutoReplyToResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoReplyToResponses = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether autopilot mode is enabled</summary>
-        public bool? AutopilotMode { get => _explicitNullValueAutopilotMode; set { _explicitNullValueAutopilotMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autopilot_mode"); else _explicitNullProperties?.Remove("autopilot_mode"); } }
+        public bool? AutopilotMode { get => _explicitNullValueAutopilotMode; set { _explicitNullValueAutopilotMode = value; AdditionalData?.Remove("autopilot_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autopilot_mode"); else _explicitNullProperties?.Remove("autopilot_mode"); } }
         private bool? _explicitNullValueAutopilotMode = default!;
         /// <summary>Whether to auto-reply to responses</summary>
-        public bool? AutoReplyToResponses { get => _explicitNullValueAutoReplyToResponses; set { _explicitNullValueAutoReplyToResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_reply_to_responses"); else _explicitNullProperties?.Remove("auto_reply_to_responses"); } }
+        public bool? AutoReplyToResponses { get => _explicitNullValueAutoReplyToResponses; set { _explicitNullValueAutoReplyToResponses = value; AdditionalData?.Remove("auto_reply_to_responses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_reply_to_responses"); else _explicitNullProperties?.Remove("auto_reply_to_responses"); } }
         private bool? _explicitNullValueAutoReplyToResponses = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfigAutonomySettings"/> and sets the default values.

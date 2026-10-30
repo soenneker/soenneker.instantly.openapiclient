@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destination_workspace_id") is { } nullNodeDestinationWorkspaceId && nullNodeDestinationWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationWorkspaceId = null;
-            if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
-            if (parseNode.GetChildNode("source_workspace_id") is { } nullNodeSourceWorkspaceId && nullNodeSourceWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceWorkspaceId = null;
+            if (parseNode.GetChildNode("destination_workspace_id") is null) { _explicitNullValueDestinationWorkspaceId = default!; _explicitNullProperties?.Remove("destination_workspace_id"); }
+            else if (parseNode.GetChildNode("destination_workspace_id") is { } nullNodeDestinationWorkspaceId && nullNodeDestinationWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationWorkspaceId = null;
+            if (parseNode.GetChildNode("emails") is null) { _explicitNullValueEmails = default!; _explicitNullProperties?.Remove("emails"); }
+            else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("source_workspace_id") is null) { _explicitNullValueSourceWorkspaceId = default!; _explicitNullProperties?.Remove("source_workspace_id"); }
+            else if (parseNode.GetChildNode("source_workspace_id") is { } nullNodeSourceWorkspaceId && nullNodeSourceWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceWorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>ID of the destination workspace (the workspace that the accounts will be moved to)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationWorkspaceId { get => _explicitNullValueDestinationWorkspaceId; set { _explicitNullValueDestinationWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_workspace_id"); else _explicitNullProperties?.Remove("destination_workspace_id"); } }
+        public string? DestinationWorkspaceId { get => _explicitNullValueDestinationWorkspaceId; set { _explicitNullValueDestinationWorkspaceId = value; AdditionalData?.Remove("destination_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_workspace_id"); else _explicitNullProperties?.Remove("destination_workspace_id"); } }
         private string? _explicitNullValueDestinationWorkspaceId = default!;
 #nullable restore
 #else
-        public string DestinationWorkspaceId { get => _explicitNullValueDestinationWorkspaceId; set { _explicitNullValueDestinationWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_workspace_id"); else _explicitNullProperties?.Remove("destination_workspace_id"); } }
+        public string DestinationWorkspaceId { get => _explicitNullValueDestinationWorkspaceId; set { _explicitNullValueDestinationWorkspaceId = value; AdditionalData?.Remove("destination_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination_workspace_id"); else _explicitNullProperties?.Remove("destination_workspace_id"); } }
         private string _explicitNullValueDestinationWorkspaceId = default!;
 #endif
         /// <summary>Array of email addresses of the accounts to move</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string>? _explicitNullValueEmails = default!;
 #nullable restore
 #else
-        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string> _explicitNullValueEmails = default!;
 #endif
         /// <summary>ID of the source workspace (the workspace that the accounts are currently in)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
+        public string? SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; AdditionalData?.Remove("source_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
         private string? _explicitNullValueSourceWorkspaceId = default!;
 #nullable restore
 #else
-        public string SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
+        public string SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; AdditionalData?.Remove("source_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
         private string _explicitNullValueSourceWorkspaceId = default!;
 #endif
         /// <summary>

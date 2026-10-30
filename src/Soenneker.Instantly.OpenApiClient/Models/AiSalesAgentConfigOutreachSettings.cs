@@ -18,7 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("opt_out_settings") is { } nullNodeOptOutSettings && nullNodeOptOutSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutSettings = null;
+            if (parseNode.GetChildNode("opt_out_settings") is null) { _explicitNullValueOptOutSettings = default!; _explicitNullProperties?.Remove("opt_out_settings"); }
+            else if (parseNode.GetChildNode("opt_out_settings") is { } nullNodeOptOutSettings && nullNodeOptOutSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Opt-out settings appended to outgoing emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettingsOptOutSettings? OptOutSettings { get => _explicitNullValueOptOutSettings; set { _explicitNullValueOptOutSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_settings"); else _explicitNullProperties?.Remove("opt_out_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettingsOptOutSettings? OptOutSettings { get => _explicitNullValueOptOutSettings; set { _explicitNullValueOptOutSettings = value; AdditionalData?.Remove("opt_out_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_settings"); else _explicitNullProperties?.Remove("opt_out_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettingsOptOutSettings? _explicitNullValueOptOutSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettingsOptOutSettings OptOutSettings { get => _explicitNullValueOptOutSettings; set { _explicitNullValueOptOutSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_settings"); else _explicitNullProperties?.Remove("opt_out_settings"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettingsOptOutSettings OptOutSettings { get => _explicitNullValueOptOutSettings; set { _explicitNullValueOptOutSettings = value; AdditionalData?.Remove("opt_out_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_settings"); else _explicitNullProperties?.Remove("opt_out_settings"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettingsOptOutSettings _explicitNullValueOptOutSettings = default!;
 #endif
         /// <summary>

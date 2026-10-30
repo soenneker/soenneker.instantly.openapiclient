@@ -18,7 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bl_values") is { } nullNodeBlValues && nullNodeBlValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlValues = null;
+            if (parseNode.GetChildNode("bl_values") is null) { _explicitNullValueBlValues = default!; _explicitNullProperties?.Remove("bl_values"); }
+            else if (parseNode.GetChildNode("bl_values") is { } nullNodeBlValues && nullNodeBlValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlValues = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of domains or emails to block</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BlValues { get => _explicitNullValueBlValues; set { _explicitNullValueBlValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bl_values"); else _explicitNullProperties?.Remove("bl_values"); } }
+        public List<string>? BlValues { get => _explicitNullValueBlValues; set { _explicitNullValueBlValues = value; AdditionalData?.Remove("bl_values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bl_values"); else _explicitNullProperties?.Remove("bl_values"); } }
         private List<string>? _explicitNullValueBlValues = default!;
 #nullable restore
 #else
-        public List<string> BlValues { get => _explicitNullValueBlValues; set { _explicitNullValueBlValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bl_values"); else _explicitNullProperties?.Remove("bl_values"); } }
+        public List<string> BlValues { get => _explicitNullValueBlValues; set { _explicitNullValueBlValues = value; AdditionalData?.Remove("bl_values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bl_values"); else _explicitNullProperties?.Remove("bl_values"); } }
         private List<string> _explicitNullValueBlValues = default!;
 #endif
         /// <summary>

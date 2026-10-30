@@ -17,13 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("number_of_leads") is { } nullNodeNumberOfLeads && nullNodeNumberOfLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfLeads = null;
+            if (parseNode.GetChildNode("number_of_leads") is null) { _explicitNullValueNumberOfLeads = default!; _explicitNullProperties?.Remove("number_of_leads"); }
+            else if (parseNode.GetChildNode("number_of_leads") is { } nullNodeNumberOfLeads && nullNodeNumberOfLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfLeads = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of leads found for this specific search. A value of 0 indicates that no leads match the criteria. Values greater than 1,000,000 are returned as 1,000,000.</summary>
-        public double? NumberOfLeads { get => _explicitNullValueNumberOfLeads; set { _explicitNullValueNumberOfLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_leads"); else _explicitNullProperties?.Remove("number_of_leads"); } }
+        public double? NumberOfLeads { get => _explicitNullValueNumberOfLeads; set { _explicitNullValueNumberOfLeads = value; AdditionalData?.Remove("number_of_leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_leads"); else _explicitNullProperties?.Remove("number_of_leads"); } }
         private double? _explicitNullValueNumberOfLeads = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearch200Response"/> and sets the default values.

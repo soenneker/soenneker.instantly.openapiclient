@@ -18,33 +18,40 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active_business_offers_indexes") is { } nullNodeActiveBusinessOffersIndexes && nullNodeActiveBusinessOffersIndexes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveBusinessOffersIndexes = null;
-            if (parseNode.GetChildNode("active_icps_indexes") is { } nullNodeActiveIcpsIndexes && nullNodeActiveIcpsIndexes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveIcpsIndexes = null;
-            if (parseNode.GetChildNode("business_description") is { } nullNodeBusinessDescription && nullNodeBusinessDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessDescription = null;
-            if (parseNode.GetChildNode("business_offers") is { } nullNodeBusinessOffers && nullNodeBusinessOffers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessOffers = null;
-            if (parseNode.GetChildNode("company") is { } nullNodeCompany && nullNodeCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Company = null;
-            if (parseNode.GetChildNode("custom_fields") is { } nullNodeCustomFields && nullNodeCustomFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomFields = null;
-            if (parseNode.GetChildNode("icps") is { } nullNodeIcps && nullNodeIcps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Icps = null;
+            if (parseNode.GetChildNode("active_business_offers_indexes") is null) { _explicitNullValueActiveBusinessOffersIndexes = default!; _explicitNullProperties?.Remove("active_business_offers_indexes"); }
+            else if (parseNode.GetChildNode("active_business_offers_indexes") is { } nullNodeActiveBusinessOffersIndexes && nullNodeActiveBusinessOffersIndexes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveBusinessOffersIndexes = null;
+            if (parseNode.GetChildNode("active_icps_indexes") is null) { _explicitNullValueActiveIcpsIndexes = default!; _explicitNullProperties?.Remove("active_icps_indexes"); }
+            else if (parseNode.GetChildNode("active_icps_indexes") is { } nullNodeActiveIcpsIndexes && nullNodeActiveIcpsIndexes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveIcpsIndexes = null;
+            if (parseNode.GetChildNode("business_description") is null) { _explicitNullValueBusinessDescription = default!; _explicitNullProperties?.Remove("business_description"); }
+            else if (parseNode.GetChildNode("business_description") is { } nullNodeBusinessDescription && nullNodeBusinessDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessDescription = null;
+            if (parseNode.GetChildNode("business_offers") is null) { _explicitNullValueBusinessOffers = default!; _explicitNullProperties?.Remove("business_offers"); }
+            else if (parseNode.GetChildNode("business_offers") is { } nullNodeBusinessOffers && nullNodeBusinessOffers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessOffers = null;
+            if (parseNode.GetChildNode("company") is null) { _explicitNullValueCompany = default!; _explicitNullProperties?.Remove("company"); }
+            else if (parseNode.GetChildNode("company") is { } nullNodeCompany && nullNodeCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Company = null;
+            if (parseNode.GetChildNode("custom_fields") is null) { _explicitNullValueCustomFields = default!; _explicitNullProperties?.Remove("custom_fields"); }
+            else if (parseNode.GetChildNode("custom_fields") is { } nullNodeCustomFields && nullNodeCustomFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomFields = null;
+            if (parseNode.GetChildNode("icps") is null) { _explicitNullValueIcps = default!; _explicitNullProperties?.Remove("icps"); }
+            else if (parseNode.GetChildNode("icps") is { } nullNodeIcps && nullNodeIcps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Icps = null;
         }
 
         /// <summary>Indexes of the entries in `business_offers` that are currently active</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? ActiveBusinessOffersIndexes { get => _explicitNullValueActiveBusinessOffersIndexes; set { _explicitNullValueActiveBusinessOffersIndexes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_business_offers_indexes"); else _explicitNullProperties?.Remove("active_business_offers_indexes"); } }
+        public List<int?>? ActiveBusinessOffersIndexes { get => _explicitNullValueActiveBusinessOffersIndexes; set { _explicitNullValueActiveBusinessOffersIndexes = value; AdditionalData?.Remove("active_business_offers_indexes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_business_offers_indexes"); else _explicitNullProperties?.Remove("active_business_offers_indexes"); } }
         private List<int?>? _explicitNullValueActiveBusinessOffersIndexes = default!;
 #nullable restore
 #else
-        public List<int?> ActiveBusinessOffersIndexes { get => _explicitNullValueActiveBusinessOffersIndexes; set { _explicitNullValueActiveBusinessOffersIndexes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_business_offers_indexes"); else _explicitNullProperties?.Remove("active_business_offers_indexes"); } }
+        public List<int?> ActiveBusinessOffersIndexes { get => _explicitNullValueActiveBusinessOffersIndexes; set { _explicitNullValueActiveBusinessOffersIndexes = value; AdditionalData?.Remove("active_business_offers_indexes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_business_offers_indexes"); else _explicitNullProperties?.Remove("active_business_offers_indexes"); } }
         private List<int?> _explicitNullValueActiveBusinessOffersIndexes = default!;
 #endif
         /// <summary>Indexes of the entries in `icps` that are currently active</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? ActiveIcpsIndexes { get => _explicitNullValueActiveIcpsIndexes; set { _explicitNullValueActiveIcpsIndexes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_icps_indexes"); else _explicitNullProperties?.Remove("active_icps_indexes"); } }
+        public List<int?>? ActiveIcpsIndexes { get => _explicitNullValueActiveIcpsIndexes; set { _explicitNullValueActiveIcpsIndexes = value; AdditionalData?.Remove("active_icps_indexes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_icps_indexes"); else _explicitNullProperties?.Remove("active_icps_indexes"); } }
         private List<int?>? _explicitNullValueActiveIcpsIndexes = default!;
 #nullable restore
 #else
-        public List<int?> ActiveIcpsIndexes { get => _explicitNullValueActiveIcpsIndexes; set { _explicitNullValueActiveIcpsIndexes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_icps_indexes"); else _explicitNullProperties?.Remove("active_icps_indexes"); } }
+        public List<int?> ActiveIcpsIndexes { get => _explicitNullValueActiveIcpsIndexes; set { _explicitNullValueActiveIcpsIndexes = value; AdditionalData?.Remove("active_icps_indexes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_icps_indexes"); else _explicitNullProperties?.Remove("active_icps_indexes"); } }
         private List<int?> _explicitNullValueActiveIcpsIndexes = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,51 +59,51 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Description of the business and what it sells</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BusinessDescription { get => _explicitNullValueBusinessDescription; set { _explicitNullValueBusinessDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_description"); else _explicitNullProperties?.Remove("business_description"); } }
+        public string? BusinessDescription { get => _explicitNullValueBusinessDescription; set { _explicitNullValueBusinessDescription = value; AdditionalData?.Remove("business_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_description"); else _explicitNullProperties?.Remove("business_description"); } }
         private string? _explicitNullValueBusinessDescription = default!;
 #nullable restore
 #else
-        public string BusinessDescription { get => _explicitNullValueBusinessDescription; set { _explicitNullValueBusinessDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_description"); else _explicitNullProperties?.Remove("business_description"); } }
+        public string BusinessDescription { get => _explicitNullValueBusinessDescription; set { _explicitNullValueBusinessDescription = value; AdditionalData?.Remove("business_description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_description"); else _explicitNullProperties?.Remove("business_description"); } }
         private string _explicitNullValueBusinessDescription = default!;
 #endif
         /// <summary>Offers the agent can pitch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BusinessOffers { get => _explicitNullValueBusinessOffers; set { _explicitNullValueBusinessOffers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_offers"); else _explicitNullProperties?.Remove("business_offers"); } }
+        public List<string>? BusinessOffers { get => _explicitNullValueBusinessOffers; set { _explicitNullValueBusinessOffers = value; AdditionalData?.Remove("business_offers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_offers"); else _explicitNullProperties?.Remove("business_offers"); } }
         private List<string>? _explicitNullValueBusinessOffers = default!;
 #nullable restore
 #else
-        public List<string> BusinessOffers { get => _explicitNullValueBusinessOffers; set { _explicitNullValueBusinessOffers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_offers"); else _explicitNullProperties?.Remove("business_offers"); } }
+        public List<string> BusinessOffers { get => _explicitNullValueBusinessOffers; set { _explicitNullValueBusinessOffers = value; AdditionalData?.Remove("business_offers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business_offers"); else _explicitNullProperties?.Remove("business_offers"); } }
         private List<string> _explicitNullValueBusinessOffers = default!;
 #endif
         /// <summary>Company name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
+        public string? Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; AdditionalData?.Remove("company"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
         private string? _explicitNullValueCompany = default!;
 #nullable restore
 #else
-        public string Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
+        public string Company { get => _explicitNullValueCompany; set { _explicitNullValueCompany = value; AdditionalData?.Remove("company"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company"); else _explicitNullProperties?.Remove("company"); } }
         private string _explicitNullValueCompany = default!;
 #endif
         /// <summary>Raw storage for the agent guidance rules, at most 10 entries. Prefer the `/ai-agents/sales/{id}/guidance-rules` endpoints over editing this array directly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomFields { get => _explicitNullValueCustomFields; set { _explicitNullValueCustomFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_fields"); else _explicitNullProperties?.Remove("custom_fields"); } }
+        public List<string>? CustomFields { get => _explicitNullValueCustomFields; set { _explicitNullValueCustomFields = value; AdditionalData?.Remove("custom_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_fields"); else _explicitNullProperties?.Remove("custom_fields"); } }
         private List<string>? _explicitNullValueCustomFields = default!;
 #nullable restore
 #else
-        public List<string> CustomFields { get => _explicitNullValueCustomFields; set { _explicitNullValueCustomFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_fields"); else _explicitNullProperties?.Remove("custom_fields"); } }
+        public List<string> CustomFields { get => _explicitNullValueCustomFields; set { _explicitNullValueCustomFields = value; AdditionalData?.Remove("custom_fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_fields"); else _explicitNullProperties?.Remove("custom_fields"); } }
         private List<string> _explicitNullValueCustomFields = default!;
 #endif
         /// <summary>Ideal customer profiles the agent targets</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigMemoryIcpsItem>? Icps { get => _explicitNullValueIcps; set { _explicitNullValueIcps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icps"); else _explicitNullProperties?.Remove("icps"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigMemoryIcpsItem>? Icps { get => _explicitNullValueIcps; set { _explicitNullValueIcps = value; AdditionalData?.Remove("icps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icps"); else _explicitNullProperties?.Remove("icps"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigMemoryIcpsItem>? _explicitNullValueIcps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigMemoryIcpsItem> Icps { get => _explicitNullValueIcps; set { _explicitNullValueIcps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icps"); else _explicitNullProperties?.Remove("icps"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigMemoryIcpsItem> Icps { get => _explicitNullValueIcps; set { _explicitNullValueIcps = value; AdditionalData?.Remove("icps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icps"); else _explicitNullProperties?.Remove("icps"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigMemoryIcpsItem> _explicitNullValueIcps = default!;
 #endif
         /// <summary>

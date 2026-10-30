@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>The label property</summary>
@@ -34,12 +36,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue? _explicitNullValueValue = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue _explicitNullValueValue = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax _explicitNullValueValue = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,7 +73,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("label", Label);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItemValue>("value", Value);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax>("value", Value);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

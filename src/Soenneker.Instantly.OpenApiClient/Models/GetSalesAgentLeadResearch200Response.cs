@@ -17,7 +17,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("research") is { } nullNodeResearch && nullNodeResearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Research = null;
+            if (parseNode.GetChildNode("research") is null) { _explicitNullValueResearch = default!; _explicitNullProperties?.Remove("research"); }
+            else if (parseNode.GetChildNode("research") is { } nullNodeResearch && nullNodeResearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Research = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The research property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch? Research { get => _explicitNullValueResearch; set { _explicitNullValueResearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research"); else _explicitNullProperties?.Remove("research"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch? Research { get => _explicitNullValueResearch; set { _explicitNullValueResearch = value; AdditionalData?.Remove("research"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research"); else _explicitNullProperties?.Remove("research"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch? _explicitNullValueResearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch Research { get => _explicitNullValueResearch; set { _explicitNullValueResearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research"); else _explicitNullProperties?.Remove("research"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch Research { get => _explicitNullValueResearch; set { _explicitNullValueResearch = value; AdditionalData?.Remove("research"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research"); else _explicitNullProperties?.Remove("research"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch _explicitNullValueResearch = default!;
 #endif
         /// <summary>

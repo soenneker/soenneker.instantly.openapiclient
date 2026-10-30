@@ -18,23 +18,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
-            if (parseNode.GetChildNode("tag_id") is { } nullNodeTagId && nullNodeTagId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagId = null;
+            if (parseNode.GetChildNode("filter") is null) { _explicitNullValueFilter = default!; _explicitNullProperties?.Remove("filter"); }
+            else if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
+            if (parseNode.GetChildNode("tag_id") is null) { _explicitNullValueTagId = default!; _explicitNullProperties?.Remove("tag_id"); }
+            else if (parseNode.GetChildNode("tag_id") is { } nullNodeTagId && nullNodeTagId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The filter to apply to the accounts.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.EnableWarmupForAccountsRequestFilterFilter? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.EnableWarmupForAccountsRequestFilterFilter? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.EnableWarmupForAccountsRequestFilterFilter? _explicitNullValueFilter = default!;
         /// <summary>The ID of the tag to filter accounts by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TagId { get => _explicitNullValueTagId; set { _explicitNullValueTagId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_id"); else _explicitNullProperties?.Remove("tag_id"); } }
+        public string? TagId { get => _explicitNullValueTagId; set { _explicitNullValueTagId = value; AdditionalData?.Remove("tag_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_id"); else _explicitNullProperties?.Remove("tag_id"); } }
         private string? _explicitNullValueTagId = default!;
 #nullable restore
 #else
-        public string TagId { get => _explicitNullValueTagId; set { _explicitNullValueTagId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_id"); else _explicitNullProperties?.Remove("tag_id"); } }
+        public string TagId { get => _explicitNullValueTagId; set { _explicitNullValueTagId = value; AdditionalData?.Remove("tag_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_id"); else _explicitNullProperties?.Remove("tag_id"); } }
         private string _explicitNullValueTagId = default!;
 #endif
         /// <summary>
@@ -64,7 +66,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnableWarmupForAccountsRequestFilterFilter>(); } },
+                { "filter", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EnableWarmupForAccountsRequestFilterFilter>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFilter = default; _explicitNullProperties?.Remove("filter"); AdditionalData["filter"] = unknown; } else { Filter = parsed; AdditionalData.Remove("filter"); } } },
                 { "tag_id", n => { TagId = n.GetStringValue(); } },
             };
         }

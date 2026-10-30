@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("forwarding_domain") is { } nullNodeForwardingDomain && nullNodeForwardingDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingDomain = null;
-            if (parseNode.GetChildNode("forwarding_mode") is { } nullNodeForwardingMode && nullNodeForwardingMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingMode = null;
+            if (parseNode.GetChildNode("forwarding_domain") is null) { _explicitNullValueForwardingDomain = default!; _explicitNullProperties?.Remove("forwarding_domain"); }
+            else if (parseNode.GetChildNode("forwarding_domain") is { } nullNodeForwardingDomain && nullNodeForwardingDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingDomain = null;
+            if (parseNode.GetChildNode("forwarding_mode") is null) { _explicitNullValueForwardingMode = default!; _explicitNullProperties?.Remove("forwarding_mode"); }
+            else if (parseNode.GetChildNode("forwarding_mode") is { } nullNodeForwardingMode && nullNodeForwardingMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingMode = null;
         }
 
         /// <summary>Destination domain visitors are forwarded to</summary>

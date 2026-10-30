@@ -18,23 +18,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("domain_complete") is { } nullNodeDomainComplete && nullNodeDomainComplete.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainComplete = null;
-            if (parseNode.GetChildNode("lastStep") is { } nullNodeLastStep && nullNodeLastStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastStep = null;
+            if (parseNode.GetChildNode("domain_complete") is null) { _explicitNullValueDomainComplete = default!; _explicitNullProperties?.Remove("domain_complete"); }
+            else if (parseNode.GetChildNode("domain_complete") is { } nullNodeDomainComplete && nullNodeDomainComplete.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainComplete = null;
+            if (parseNode.GetChildNode("lastStep") is null) { _explicitNullValueLastStep = default!; _explicitNullProperties?.Remove("lastStep"); }
+            else if (parseNode.GetChildNode("lastStep") is { } nullNodeLastStep && nullNodeLastStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastStep = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The domain_complete property</summary>
-        public bool? DomainComplete { get => _explicitNullValueDomainComplete; set { _explicitNullValueDomainComplete = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_complete"); else _explicitNullProperties?.Remove("domain_complete"); } }
+        public bool? DomainComplete { get => _explicitNullValueDomainComplete; set { _explicitNullValueDomainComplete = value; AdditionalData?.Remove("domain_complete"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_complete"); else _explicitNullProperties?.Remove("domain_complete"); } }
         private bool? _explicitNullValueDomainComplete = default!;
         /// <summary>The lastStep property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep? LastStep { get => _explicitNullValueLastStep; set { _explicitNullValueLastStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastStep"); else _explicitNullProperties?.Remove("lastStep"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep? LastStep { get => _explicitNullValueLastStep; set { _explicitNullValueLastStep = value; AdditionalData?.Remove("lastStep"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastStep"); else _explicitNullProperties?.Remove("lastStep"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep? _explicitNullValueLastStep = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep LastStep { get => _explicitNullValueLastStep; set { _explicitNullValueLastStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastStep"); else _explicitNullProperties?.Remove("lastStep"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep LastStep { get => _explicitNullValueLastStep; set { _explicitNullValueLastStep = value; AdditionalData?.Remove("lastStep"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastStep"); else _explicitNullProperties?.Remove("lastStep"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep _explicitNullValueLastStep = default!;
 #endif
         /// <summary>

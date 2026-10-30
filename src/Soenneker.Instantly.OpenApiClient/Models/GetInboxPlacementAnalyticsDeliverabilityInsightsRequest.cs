@@ -17,15 +17,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("date_from") is { } nullNodeDateFrom && nullNodeDateFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateFrom = null;
-            if (parseNode.GetChildNode("date_to") is { } nullNodeDateTo && nullNodeDateTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateTo = null;
-            if (parseNode.GetChildNode("previous_date_from") is { } nullNodePreviousDateFrom && nullNodePreviousDateFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousDateFrom = null;
-            if (parseNode.GetChildNode("previous_date_to") is { } nullNodePreviousDateTo && nullNodePreviousDateTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousDateTo = null;
-            if (parseNode.GetChildNode("recipient_esp") is { } nullNodeRecipientEsp && nullNodeRecipientEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEsp = null;
-            if (parseNode.GetChildNode("recipient_geo") is { } nullNodeRecipientGeo && nullNodeRecipientGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientGeo = null;
-            if (parseNode.GetChildNode("recipient_type") is { } nullNodeRecipientType && nullNodeRecipientType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientType = null;
-            if (parseNode.GetChildNode("show_previous") is { } nullNodeShowPrevious && nullNodeShowPrevious.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowPrevious = null;
-            if (parseNode.GetChildNode("test_id") is { } nullNodeTestId && nullNodeTestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestId = null;
+            if (parseNode.GetChildNode("date_from") is null) { _explicitNullValueDateFrom = default!; _explicitNullProperties?.Remove("date_from"); }
+            else if (parseNode.GetChildNode("date_from") is { } nullNodeDateFrom && nullNodeDateFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateFrom = null;
+            if (parseNode.GetChildNode("date_to") is null) { _explicitNullValueDateTo = default!; _explicitNullProperties?.Remove("date_to"); }
+            else if (parseNode.GetChildNode("date_to") is { } nullNodeDateTo && nullNodeDateTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateTo = null;
+            if (parseNode.GetChildNode("previous_date_from") is null) { _explicitNullValuePreviousDateFrom = default!; _explicitNullProperties?.Remove("previous_date_from"); }
+            else if (parseNode.GetChildNode("previous_date_from") is { } nullNodePreviousDateFrom && nullNodePreviousDateFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousDateFrom = null;
+            if (parseNode.GetChildNode("previous_date_to") is null) { _explicitNullValuePreviousDateTo = default!; _explicitNullProperties?.Remove("previous_date_to"); }
+            else if (parseNode.GetChildNode("previous_date_to") is { } nullNodePreviousDateTo && nullNodePreviousDateTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousDateTo = null;
+            if (parseNode.GetChildNode("recipient_esp") is null) { _explicitNullValueRecipientEsp = default!; _explicitNullProperties?.Remove("recipient_esp"); }
+            else if (parseNode.GetChildNode("recipient_esp") is { } nullNodeRecipientEsp && nullNodeRecipientEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEsp = null;
+            if (parseNode.GetChildNode("recipient_geo") is null) { _explicitNullValueRecipientGeo = default!; _explicitNullProperties?.Remove("recipient_geo"); }
+            else if (parseNode.GetChildNode("recipient_geo") is { } nullNodeRecipientGeo && nullNodeRecipientGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientGeo = null;
+            if (parseNode.GetChildNode("recipient_type") is null) { _explicitNullValueRecipientType = default!; _explicitNullProperties?.Remove("recipient_type"); }
+            else if (parseNode.GetChildNode("recipient_type") is { } nullNodeRecipientType && nullNodeRecipientType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientType = null;
+            if (parseNode.GetChildNode("show_previous") is null) { _explicitNullValueShowPrevious = default!; _explicitNullProperties?.Remove("show_previous"); }
+            else if (parseNode.GetChildNode("show_previous") is { } nullNodeShowPrevious && nullNodeShowPrevious.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowPrevious = null;
+            if (parseNode.GetChildNode("test_id") is null) { _explicitNullValueTestId = default!; _explicitNullProperties?.Remove("test_id"); }
+            else if (parseNode.GetChildNode("test_id") is { } nullNodeTestId && nullNodeTestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,84 +42,84 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The date_from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DateFrom { get => _explicitNullValueDateFrom; set { _explicitNullValueDateFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_from"); else _explicitNullProperties?.Remove("date_from"); } }
+        public string? DateFrom { get => _explicitNullValueDateFrom; set { _explicitNullValueDateFrom = value; AdditionalData?.Remove("date_from"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_from"); else _explicitNullProperties?.Remove("date_from"); } }
         private string? _explicitNullValueDateFrom = default!;
 #nullable restore
 #else
-        public string DateFrom { get => _explicitNullValueDateFrom; set { _explicitNullValueDateFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_from"); else _explicitNullProperties?.Remove("date_from"); } }
+        public string DateFrom { get => _explicitNullValueDateFrom; set { _explicitNullValueDateFrom = value; AdditionalData?.Remove("date_from"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_from"); else _explicitNullProperties?.Remove("date_from"); } }
         private string _explicitNullValueDateFrom = default!;
 #endif
         /// <summary>The date_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DateTo { get => _explicitNullValueDateTo; set { _explicitNullValueDateTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_to"); else _explicitNullProperties?.Remove("date_to"); } }
+        public string? DateTo { get => _explicitNullValueDateTo; set { _explicitNullValueDateTo = value; AdditionalData?.Remove("date_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_to"); else _explicitNullProperties?.Remove("date_to"); } }
         private string? _explicitNullValueDateTo = default!;
 #nullable restore
 #else
-        public string DateTo { get => _explicitNullValueDateTo; set { _explicitNullValueDateTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_to"); else _explicitNullProperties?.Remove("date_to"); } }
+        public string DateTo { get => _explicitNullValueDateTo; set { _explicitNullValueDateTo = value; AdditionalData?.Remove("date_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_to"); else _explicitNullProperties?.Remove("date_to"); } }
         private string _explicitNullValueDateTo = default!;
 #endif
         /// <summary>The previous_date_from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreviousDateFrom { get => _explicitNullValuePreviousDateFrom; set { _explicitNullValuePreviousDateFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_from"); else _explicitNullProperties?.Remove("previous_date_from"); } }
+        public string? PreviousDateFrom { get => _explicitNullValuePreviousDateFrom; set { _explicitNullValuePreviousDateFrom = value; AdditionalData?.Remove("previous_date_from"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_from"); else _explicitNullProperties?.Remove("previous_date_from"); } }
         private string? _explicitNullValuePreviousDateFrom = default!;
 #nullable restore
 #else
-        public string PreviousDateFrom { get => _explicitNullValuePreviousDateFrom; set { _explicitNullValuePreviousDateFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_from"); else _explicitNullProperties?.Remove("previous_date_from"); } }
+        public string PreviousDateFrom { get => _explicitNullValuePreviousDateFrom; set { _explicitNullValuePreviousDateFrom = value; AdditionalData?.Remove("previous_date_from"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_from"); else _explicitNullProperties?.Remove("previous_date_from"); } }
         private string _explicitNullValuePreviousDateFrom = default!;
 #endif
         /// <summary>The previous_date_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreviousDateTo { get => _explicitNullValuePreviousDateTo; set { _explicitNullValuePreviousDateTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_to"); else _explicitNullProperties?.Remove("previous_date_to"); } }
+        public string? PreviousDateTo { get => _explicitNullValuePreviousDateTo; set { _explicitNullValuePreviousDateTo = value; AdditionalData?.Remove("previous_date_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_to"); else _explicitNullProperties?.Remove("previous_date_to"); } }
         private string? _explicitNullValuePreviousDateTo = default!;
 #nullable restore
 #else
-        public string PreviousDateTo { get => _explicitNullValuePreviousDateTo; set { _explicitNullValuePreviousDateTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_to"); else _explicitNullProperties?.Remove("previous_date_to"); } }
+        public string PreviousDateTo { get => _explicitNullValuePreviousDateTo; set { _explicitNullValuePreviousDateTo = value; AdditionalData?.Remove("previous_date_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_date_to"); else _explicitNullProperties?.Remove("previous_date_to"); } }
         private string _explicitNullValuePreviousDateTo = default!;
 #endif
         /// <summary>The recipient_esp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        public List<double?>? RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; AdditionalData?.Remove("recipient_esp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
         private List<double?>? _explicitNullValueRecipientEsp = default!;
 #nullable restore
 #else
-        public List<double?> RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        public List<double?> RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; AdditionalData?.Remove("recipient_esp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
         private List<double?> _explicitNullValueRecipientEsp = default!;
 #endif
         /// <summary>The recipient_geo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? RecipientGeo { get => _explicitNullValueRecipientGeo; set { _explicitNullValueRecipientGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_geo"); else _explicitNullProperties?.Remove("recipient_geo"); } }
+        public List<double?>? RecipientGeo { get => _explicitNullValueRecipientGeo; set { _explicitNullValueRecipientGeo = value; AdditionalData?.Remove("recipient_geo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_geo"); else _explicitNullProperties?.Remove("recipient_geo"); } }
         private List<double?>? _explicitNullValueRecipientGeo = default!;
 #nullable restore
 #else
-        public List<double?> RecipientGeo { get => _explicitNullValueRecipientGeo; set { _explicitNullValueRecipientGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_geo"); else _explicitNullProperties?.Remove("recipient_geo"); } }
+        public List<double?> RecipientGeo { get => _explicitNullValueRecipientGeo; set { _explicitNullValueRecipientGeo = value; AdditionalData?.Remove("recipient_geo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_geo"); else _explicitNullProperties?.Remove("recipient_geo"); } }
         private List<double?> _explicitNullValueRecipientGeo = default!;
 #endif
         /// <summary>The recipient_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? RecipientType { get => _explicitNullValueRecipientType; set { _explicitNullValueRecipientType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_type"); else _explicitNullProperties?.Remove("recipient_type"); } }
+        public List<double?>? RecipientType { get => _explicitNullValueRecipientType; set { _explicitNullValueRecipientType = value; AdditionalData?.Remove("recipient_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_type"); else _explicitNullProperties?.Remove("recipient_type"); } }
         private List<double?>? _explicitNullValueRecipientType = default!;
 #nullable restore
 #else
-        public List<double?> RecipientType { get => _explicitNullValueRecipientType; set { _explicitNullValueRecipientType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_type"); else _explicitNullProperties?.Remove("recipient_type"); } }
+        public List<double?> RecipientType { get => _explicitNullValueRecipientType; set { _explicitNullValueRecipientType = value; AdditionalData?.Remove("recipient_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_type"); else _explicitNullProperties?.Remove("recipient_type"); } }
         private List<double?> _explicitNullValueRecipientType = default!;
 #endif
         /// <summary>The show_previous property</summary>
-        public bool? ShowPrevious { get => _explicitNullValueShowPrevious; set { _explicitNullValueShowPrevious = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_previous"); else _explicitNullProperties?.Remove("show_previous"); } }
+        public bool? ShowPrevious { get => _explicitNullValueShowPrevious; set { _explicitNullValueShowPrevious = value; AdditionalData?.Remove("show_previous"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_previous"); else _explicitNullProperties?.Remove("show_previous"); } }
         private bool? _explicitNullValueShowPrevious = default!;
         /// <summary>The test_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
+        public string? TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; AdditionalData?.Remove("test_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
         private string? _explicitNullValueTestId = default!;
 #nullable restore
 #else
-        public string TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
+        public string TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; AdditionalData?.Remove("test_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
         private string _explicitNullValueTestId = default!;
 #endif
         /// <summary>

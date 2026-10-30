@@ -18,7 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
             base.CaptureExplicitNulls(parseNode);
-            if (parseNode.GetChildNode("background_job_id") is { } nullNodeBackgroundJobId && nullNodeBackgroundJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundJobId = null;
+            if (parseNode.GetChildNode("background_job_id") is null) { _explicitNullValueBackgroundJobId = default!; _explicitNullProperties?.Remove("background_job_id"); }
+            else if (parseNode.GetChildNode("background_job_id") is { } nullNodeBackgroundJobId && nullNodeBackgroundJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundJobId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with `GET /background-jobs/:id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BackgroundJobId { get => _explicitNullValueBackgroundJobId; set { _explicitNullValueBackgroundJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_job_id"); else _explicitNullProperties?.Remove("background_job_id"); } }
+        public string? BackgroundJobId { get => _explicitNullValueBackgroundJobId; set { _explicitNullValueBackgroundJobId = value; AdditionalData?.Remove("background_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_job_id"); else _explicitNullProperties?.Remove("background_job_id"); } }
         private string? _explicitNullValueBackgroundJobId = default!;
 #nullable restore
 #else
-        public string BackgroundJobId { get => _explicitNullValueBackgroundJobId; set { _explicitNullValueBackgroundJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_job_id"); else _explicitNullProperties?.Remove("background_job_id"); } }
+        public string BackgroundJobId { get => _explicitNullValueBackgroundJobId; set { _explicitNullValueBackgroundJobId = value; AdditionalData?.Remove("background_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_job_id"); else _explicitNullProperties?.Remove("background_job_id"); } }
         private string _explicitNullValueBackgroundJobId = default!;
 #endif
         /// <summary>

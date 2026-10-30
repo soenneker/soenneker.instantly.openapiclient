@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"/>, <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItem : IComposedTypeWrapper, IParsable
@@ -18,6 +18,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2? CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,14 +33,6 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2? UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,9 +50,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("place_id") != null))();
-            if (result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 == null && result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 == null && matchesUnionBranch0) result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1(), parseNode);
-            if (result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 == null && result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 == null) result.UnrecognizedValue = unionPayload;
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("place_id") && (!shapeMembers1.ContainsKey("place_id") || (((shapeMembers1["place_id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("label") || (((shapeMembers1["label"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "place_id" || key == "label"))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("city") || (((shapeMembers1["city"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("state") || (((shapeMembers1["state"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("country") || (((shapeMembers1["country"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "city" || key == "state" || key == "country")))) && (((unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject8 || (shapeObject8.GetValue() is var shapeMembers9 && (shapeMembers9.ContainsKey("city"))))) || ((unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject10 || (shapeObject10.GetValue() is var shapeMembers11 && (shapeMembers11.ContainsKey("state"))))) || ((unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject12 || (shapeObject12.GetValue() is var shapeMembers13 && (shapeMembers13.ContainsKey("country"))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 == null && result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2(), parseNode);
+            if (result.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 == null && result.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
         /// <summary>
@@ -61,13 +67,15 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null)
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
+            if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 != null)
+            {
+                return CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2.GetFieldDeserializers();
+            }
+            else if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null)
             {
                 return UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1.GetFieldDeserializers();
-            }
-            else if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 != null)
-            {
-                return UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -78,19 +86,22 @@ return result;
         public virtual void Serialize(ISerializationWriter writer)
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 == null && UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null && UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 == null) { if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1); return; }
+            if (CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 == null && UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            int selectedUnionBranches = 0;
+            if (CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 != null) selectedUnionBranches++;
+            if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null) selectedUnionBranches++;
+            if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null && selectedUnionBranches == 1) { if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null)
+            if(CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 != null)
+            {
+                if (CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2>(null, CountLeadsFromSupersearchRequestSearchFiltersLocationsOneOf1ItemOneOf2);
+            }
+            else if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 != null)
             {
                 if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1>(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf1);
-            }
-            else if(UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 != null)
-            {
-                if (UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2>(null, UpdateSavedSearchRequestSearchFiltersLocationsOneOf2IncludeItemOneOf2);
             }
         }
     }

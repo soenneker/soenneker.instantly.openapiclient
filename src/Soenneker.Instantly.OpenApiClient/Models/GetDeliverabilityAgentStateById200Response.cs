@@ -17,20 +17,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("activity_feed") is { } nullNodeActivityFeed && nullNodeActivityFeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivityFeed = null;
-            if (parseNode.GetChildNode("current_activity") is { } nullNodeCurrentActivity && nullNodeCurrentActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentActivity = null;
-            if (parseNode.GetChildNode("run_summary") is { } nullNodeRunSummary && nullNodeRunSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunSummary = null;
-            if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
+            if (parseNode.GetChildNode("activity_feed") is null) { _explicitNullValueActivityFeed = default!; _explicitNullProperties?.Remove("activity_feed"); }
+            else if (parseNode.GetChildNode("activity_feed") is { } nullNodeActivityFeed && nullNodeActivityFeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivityFeed = null;
+            if (parseNode.GetChildNode("current_activity") is null) { _explicitNullValueCurrentActivity = default!; _explicitNullProperties?.Remove("current_activity"); }
+            else if (parseNode.GetChildNode("current_activity") is { } nullNodeCurrentActivity && nullNodeCurrentActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentActivity = null;
+            if (parseNode.GetChildNode("run_summary") is null) { _explicitNullValueRunSummary = default!; _explicitNullProperties?.Remove("run_summary"); }
+            else if (parseNode.GetChildNode("run_summary") is { } nullNodeRunSummary && nullNodeRunSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunSummary = null;
+            if (parseNode.GetChildNode("schedule") is null) { _explicitNullValueSchedule = default!; _explicitNullProperties?.Remove("schedule"); }
+            else if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
         }
 
         /// <summary>The activity_feed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseActivityFeed? ActivityFeed { get => _explicitNullValueActivityFeed; set { _explicitNullValueActivityFeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_feed"); else _explicitNullProperties?.Remove("activity_feed"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseActivityFeed? ActivityFeed { get => _explicitNullValueActivityFeed; set { _explicitNullValueActivityFeed = value; AdditionalData?.Remove("activity_feed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_feed"); else _explicitNullProperties?.Remove("activity_feed"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseActivityFeed? _explicitNullValueActivityFeed = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseActivityFeed ActivityFeed { get => _explicitNullValueActivityFeed; set { _explicitNullValueActivityFeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_feed"); else _explicitNullProperties?.Remove("activity_feed"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseActivityFeed ActivityFeed { get => _explicitNullValueActivityFeed; set { _explicitNullValueActivityFeed = value; AdditionalData?.Remove("activity_feed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_feed"); else _explicitNullProperties?.Remove("activity_feed"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseActivityFeed _explicitNullValueActivityFeed = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,31 +42,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The current_activity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity? CurrentActivity { get => _explicitNullValueCurrentActivity; set { _explicitNullValueCurrentActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_activity"); else _explicitNullProperties?.Remove("current_activity"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity? CurrentActivity { get => _explicitNullValueCurrentActivity; set { _explicitNullValueCurrentActivity = value; AdditionalData?.Remove("current_activity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_activity"); else _explicitNullProperties?.Remove("current_activity"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity? _explicitNullValueCurrentActivity = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity CurrentActivity { get => _explicitNullValueCurrentActivity; set { _explicitNullValueCurrentActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_activity"); else _explicitNullProperties?.Remove("current_activity"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity CurrentActivity { get => _explicitNullValueCurrentActivity; set { _explicitNullValueCurrentActivity = value; AdditionalData?.Remove("current_activity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_activity"); else _explicitNullProperties?.Remove("current_activity"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity _explicitNullValueCurrentActivity = default!;
 #endif
         /// <summary>The run_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummary? RunSummary { get => _explicitNullValueRunSummary; set { _explicitNullValueRunSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_summary"); else _explicitNullProperties?.Remove("run_summary"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummary? RunSummary { get => _explicitNullValueRunSummary; set { _explicitNullValueRunSummary = value; AdditionalData?.Remove("run_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_summary"); else _explicitNullProperties?.Remove("run_summary"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummary? _explicitNullValueRunSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummary RunSummary { get => _explicitNullValueRunSummary; set { _explicitNullValueRunSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_summary"); else _explicitNullProperties?.Remove("run_summary"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummary RunSummary { get => _explicitNullValueRunSummary; set { _explicitNullValueRunSummary = value; AdditionalData?.Remove("run_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_summary"); else _explicitNullProperties?.Remove("run_summary"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummary _explicitNullValueRunSummary = default!;
 #endif
         /// <summary>The schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseSchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseSchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseSchedule? _explicitNullValueSchedule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseSchedule Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseSchedule Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseSchedule _explicitNullValueSchedule = default!;
 #endif
         /// <summary>

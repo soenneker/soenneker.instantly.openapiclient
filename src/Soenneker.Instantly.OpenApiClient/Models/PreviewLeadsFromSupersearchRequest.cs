@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
-            if (parseNode.GetChildNode("show_one_lead_per_company") is { } nullNodeShowOneLeadPerCompany && nullNodeShowOneLeadPerCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOneLeadPerCompany = null;
-            if (parseNode.GetChildNode("skip_owned_leads") is { } nullNodeSkipOwnedLeads && nullNodeSkipOwnedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipOwnedLeads = null;
+            if (parseNode.GetChildNode("search_filters") is null) { _explicitNullValueSearchFilters = default!; _explicitNullProperties?.Remove("search_filters"); }
+            else if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
+            if (parseNode.GetChildNode("show_one_lead_per_company") is null) { _explicitNullValueShowOneLeadPerCompany = default!; _explicitNullProperties?.Remove("show_one_lead_per_company"); }
+            else if (parseNode.GetChildNode("show_one_lead_per_company") is { } nullNodeShowOneLeadPerCompany && nullNodeShowOneLeadPerCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOneLeadPerCompany = null;
+            if (parseNode.GetChildNode("skip_owned_leads") is null) { _explicitNullValueSkipOwnedLeads = default!; _explicitNullProperties?.Remove("skip_owned_leads"); }
+            else if (parseNode.GetChildNode("skip_owned_leads") is { } nullNodeSkipOwnedLeads && nullNodeSkipOwnedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipOwnedLeads = null;
         }
 
         /// <summary>Search filters to find leads.</summary>

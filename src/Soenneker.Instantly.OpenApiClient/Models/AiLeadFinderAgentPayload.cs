@@ -18,14 +18,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ai_enrichment") is { } nullNodeAiEnrichment && nullNodeAiEnrichment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiEnrichment = null;
-            if (parseNode.GetChildNode("ai_enrichment_workflow") is { } nullNodeAiEnrichmentWorkflow && nullNodeAiEnrichmentWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiEnrichmentWorkflow = null;
-            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
-            if (parseNode.GetChildNode("campaign_name") is { } nullNodeCampaignName && nullNodeCampaignName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignName = null;
-            if (parseNode.GetChildNode("fallback_search_filters") is { } nullNodeFallbackSearchFilters && nullNodeFallbackSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackSearchFilters = null;
-            if (parseNode.GetChildNode("min_active_leads") is { } nullNodeMinActiveLeads && nullNodeMinActiveLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinActiveLeads = null;
-            if (parseNode.GetChildNode("on_exhaustion") is { } nullNodeOnExhaustion && nullNodeOnExhaustion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnExhaustion = null;
-            if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
+            if (parseNode.GetChildNode("ai_enrichment") is null) { _explicitNullValueAiEnrichment = default!; _explicitNullProperties?.Remove("ai_enrichment"); }
+            else if (parseNode.GetChildNode("ai_enrichment") is { } nullNodeAiEnrichment && nullNodeAiEnrichment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiEnrichment = null;
+            if (parseNode.GetChildNode("ai_enrichment_workflow") is null) { _explicitNullValueAiEnrichmentWorkflow = default!; _explicitNullProperties?.Remove("ai_enrichment_workflow"); }
+            else if (parseNode.GetChildNode("ai_enrichment_workflow") is { } nullNodeAiEnrichmentWorkflow && nullNodeAiEnrichmentWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiEnrichmentWorkflow = null;
+            if (parseNode.GetChildNode("campaign_id") is null) { _explicitNullValueCampaignId = default!; _explicitNullProperties?.Remove("campaign_id"); }
+            else if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("campaign_name") is null) { _explicitNullValueCampaignName = default!; _explicitNullProperties?.Remove("campaign_name"); }
+            else if (parseNode.GetChildNode("campaign_name") is { } nullNodeCampaignName && nullNodeCampaignName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignName = null;
+            if (parseNode.GetChildNode("fallback_search_filters") is null) { _explicitNullValueFallbackSearchFilters = default!; _explicitNullProperties?.Remove("fallback_search_filters"); }
+            else if (parseNode.GetChildNode("fallback_search_filters") is { } nullNodeFallbackSearchFilters && nullNodeFallbackSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackSearchFilters = null;
+            if (parseNode.GetChildNode("min_active_leads") is null) { _explicitNullValueMinActiveLeads = default!; _explicitNullProperties?.Remove("min_active_leads"); }
+            else if (parseNode.GetChildNode("min_active_leads") is { } nullNodeMinActiveLeads && nullNodeMinActiveLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinActiveLeads = null;
+            if (parseNode.GetChildNode("on_exhaustion") is null) { _explicitNullValueOnExhaustion = default!; _explicitNullProperties?.Remove("on_exhaustion"); }
+            else if (parseNode.GetChildNode("on_exhaustion") is { } nullNodeOnExhaustion && nullNodeOnExhaustion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnExhaustion = null;
+            if (parseNode.GetChildNode("search_filters") is null) { _explicitNullValueSearchFilters = default!; _explicitNullProperties?.Remove("search_filters"); }
+            else if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,67 +41,67 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>AI enrichment columns the agent fills on every top-up, keyed by output column name. Returned in the stored executor shape; the write shape is documented on the create and update endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadAiEnrichmentProperty? AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadAiEnrichmentProperty? AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; AdditionalData?.Remove("ai_enrichment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadAiEnrichmentProperty? _explicitNullValueAiEnrichment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadAiEnrichmentProperty AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadAiEnrichmentProperty AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; AdditionalData?.Remove("ai_enrichment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadAiEnrichmentProperty _explicitNullValueAiEnrichment = default!;
 #endif
         /// <summary>Workflow template the enrichment chain was loaded from — a built-in key or `custom:&lt;id&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AiEnrichmentWorkflow { get => _explicitNullValueAiEnrichmentWorkflow; set { _explicitNullValueAiEnrichmentWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment_workflow"); else _explicitNullProperties?.Remove("ai_enrichment_workflow"); } }
+        public string? AiEnrichmentWorkflow { get => _explicitNullValueAiEnrichmentWorkflow; set { _explicitNullValueAiEnrichmentWorkflow = value; AdditionalData?.Remove("ai_enrichment_workflow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment_workflow"); else _explicitNullProperties?.Remove("ai_enrichment_workflow"); } }
         private string? _explicitNullValueAiEnrichmentWorkflow = default!;
 #nullable restore
 #else
-        public string AiEnrichmentWorkflow { get => _explicitNullValueAiEnrichmentWorkflow; set { _explicitNullValueAiEnrichmentWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment_workflow"); else _explicitNullProperties?.Remove("ai_enrichment_workflow"); } }
+        public string AiEnrichmentWorkflow { get => _explicitNullValueAiEnrichmentWorkflow; set { _explicitNullValueAiEnrichmentWorkflow = value; AdditionalData?.Remove("ai_enrichment_workflow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment_workflow"); else _explicitNullProperties?.Remove("ai_enrichment_workflow"); } }
         private string _explicitNullValueAiEnrichmentWorkflow = default!;
 #endif
         /// <summary>Campaign this agent keeps topped up</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>Denormalized campaign name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignName { get => _explicitNullValueCampaignName; set { _explicitNullValueCampaignName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_name"); else _explicitNullProperties?.Remove("campaign_name"); } }
+        public string? CampaignName { get => _explicitNullValueCampaignName; set { _explicitNullValueCampaignName = value; AdditionalData?.Remove("campaign_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_name"); else _explicitNullProperties?.Remove("campaign_name"); } }
         private string? _explicitNullValueCampaignName = default!;
 #nullable restore
 #else
-        public string CampaignName { get => _explicitNullValueCampaignName; set { _explicitNullValueCampaignName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_name"); else _explicitNullProperties?.Remove("campaign_name"); } }
+        public string CampaignName { get => _explicitNullValueCampaignName; set { _explicitNullValueCampaignName = value; AdditionalData?.Remove("campaign_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_name"); else _explicitNullProperties?.Remove("campaign_name"); } }
         private string _explicitNullValueCampaignName = default!;
 #endif
         /// <summary>Optional fallback audience used when the primary search is exhausted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty? FallbackSearchFilters { get => _explicitNullValueFallbackSearchFilters; set { _explicitNullValueFallbackSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_search_filters"); else _explicitNullProperties?.Remove("fallback_search_filters"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty? FallbackSearchFilters { get => _explicitNullValueFallbackSearchFilters; set { _explicitNullValueFallbackSearchFilters = value; AdditionalData?.Remove("fallback_search_filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_search_filters"); else _explicitNullProperties?.Remove("fallback_search_filters"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty? _explicitNullValueFallbackSearchFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty FallbackSearchFilters { get => _explicitNullValueFallbackSearchFilters; set { _explicitNullValueFallbackSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_search_filters"); else _explicitNullProperties?.Remove("fallback_search_filters"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty FallbackSearchFilters { get => _explicitNullValueFallbackSearchFilters; set { _explicitNullValueFallbackSearchFilters = value; AdditionalData?.Remove("fallback_search_filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_search_filters"); else _explicitNullProperties?.Remove("fallback_search_filters"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty _explicitNullValueFallbackSearchFilters = default!;
 #endif
         /// <summary>Threshold below which the agent tops up the campaign</summary>
-        public double? MinActiveLeads { get => _explicitNullValueMinActiveLeads; set { _explicitNullValueMinActiveLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_active_leads"); else _explicitNullProperties?.Remove("min_active_leads"); } }
+        public double? MinActiveLeads { get => _explicitNullValueMinActiveLeads; set { _explicitNullValueMinActiveLeads = value; AdditionalData?.Remove("min_active_leads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_active_leads"); else _explicitNullProperties?.Remove("min_active_leads"); } }
         private double? _explicitNullValueMinActiveLeads = default!;
         /// <summary>What the agent does when the search runs out of new leads</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadOnExhaustion? OnExhaustion { get => _explicitNullValueOnExhaustion; set { _explicitNullValueOnExhaustion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_exhaustion"); else _explicitNullProperties?.Remove("on_exhaustion"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadOnExhaustion? OnExhaustion { get => _explicitNullValueOnExhaustion; set { _explicitNullValueOnExhaustion = value; AdditionalData?.Remove("on_exhaustion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_exhaustion"); else _explicitNullProperties?.Remove("on_exhaustion"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadOnExhaustion? _explicitNullValueOnExhaustion = default!;
         /// <summary>Primary audience search filters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty? SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty? SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; AdditionalData?.Remove("search_filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty? _explicitNullValueSearchFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; AdditionalData?.Remove("search_filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty _explicitNullValueSearchFilters = default!;
 #endif
         /// <summary>
@@ -127,7 +135,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "campaign_name", n => { CampaignName = n.GetStringValue(); } },
                 { "fallback_search_filters", n => { FallbackSearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty>(global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadFallbackSearchFiltersProperty.CreateFromDiscriminatorValue); } },
                 { "min_active_leads", n => { MinActiveLeads = n.GetDoubleValue(); } },
-                { "on_exhaustion", n => { OnExhaustion = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadOnExhaustion>(); } },
+                { "on_exhaustion", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadOnExhaustion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOnExhaustion = default; _explicitNullProperties?.Remove("on_exhaustion"); AdditionalData["on_exhaustion"] = unknown; } else { OnExhaustion = parsed; AdditionalData.Remove("on_exhaustion"); } } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty>(global::Soenneker.Instantly.OpenApiClient.Models.AiLeadFinderAgentPayloadSearchFiltersProperty.CreateFromDiscriminatorValue); } },
             };
         }

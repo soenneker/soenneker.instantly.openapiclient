@@ -17,7 +17,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reply_text") is { } nullNodeReplyText && nullNodeReplyText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyText = null;
+            if (parseNode.GetChildNode("reply_text") is null) { _explicitNullValueReplyText = default!; _explicitNullProperties?.Remove("reply_text"); }
+            else if (parseNode.GetChildNode("reply_text") is { } nullNodeReplyText && nullNodeReplyText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyText = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The reply text to classify.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReplyText { get => _explicitNullValueReplyText; set { _explicitNullValueReplyText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_text"); else _explicitNullProperties?.Remove("reply_text"); } }
+        public string? ReplyText { get => _explicitNullValueReplyText; set { _explicitNullValueReplyText = value; AdditionalData?.Remove("reply_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_text"); else _explicitNullProperties?.Remove("reply_text"); } }
         private string? _explicitNullValueReplyText = default!;
 #nullable restore
 #else
-        public string ReplyText { get => _explicitNullValueReplyText; set { _explicitNullValueReplyText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_text"); else _explicitNullProperties?.Remove("reply_text"); } }
+        public string ReplyText { get => _explicitNullValueReplyText; set { _explicitNullValueReplyText = value; AdditionalData?.Remove("reply_text"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_text"); else _explicitNullProperties?.Remove("reply_text"); } }
         private string _explicitNullValueReplyText = default!;
 #endif
         /// <summary>

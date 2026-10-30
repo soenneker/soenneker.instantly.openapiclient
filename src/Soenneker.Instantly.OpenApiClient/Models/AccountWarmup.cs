@@ -18,11 +18,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("advanced") is { } nullNodeAdvanced && nullNodeAdvanced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Advanced = null;
-            if (parseNode.GetChildNode("increment") is { } nullNodeIncrement && nullNodeIncrement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Increment = null;
-            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
-            if (parseNode.GetChildNode("reply_rate") is { } nullNodeReplyRate && nullNodeReplyRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyRate = null;
-            if (parseNode.GetChildNode("warmup_custom_ftag") is { } nullNodeWarmupCustomFtag && nullNodeWarmupCustomFtag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmupCustomFtag = null;
+            if (parseNode.GetChildNode("advanced") is null) { _explicitNullValueAdvanced = default!; _explicitNullProperties?.Remove("advanced"); }
+            else if (parseNode.GetChildNode("advanced") is { } nullNodeAdvanced && nullNodeAdvanced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Advanced = null;
+            if (parseNode.GetChildNode("increment") is null) { _explicitNullValueIncrement = default!; _explicitNullProperties?.Remove("increment"); }
+            else if (parseNode.GetChildNode("increment") is { } nullNodeIncrement && nullNodeIncrement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Increment = null;
+            if (parseNode.GetChildNode("limit") is null) { _explicitNullValueLimit = default!; _explicitNullProperties?.Remove("limit"); }
+            else if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("reply_rate") is null) { _explicitNullValueReplyRate = default!; _explicitNullProperties?.Remove("reply_rate"); }
+            else if (parseNode.GetChildNode("reply_rate") is { } nullNodeReplyRate && nullNodeReplyRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyRate = null;
+            if (parseNode.GetChildNode("warmup_custom_ftag") is null) { _explicitNullValueWarmupCustomFtag = default!; _explicitNullProperties?.Remove("warmup_custom_ftag"); }
+            else if (parseNode.GetChildNode("warmup_custom_ftag") is { } nullNodeWarmupCustomFtag && nullNodeWarmupCustomFtag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmupCustomFtag = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,30 +35,30 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Advanced settings for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced? Advanced { get => _explicitNullValueAdvanced; set { _explicitNullValueAdvanced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced"); else _explicitNullProperties?.Remove("advanced"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced? Advanced { get => _explicitNullValueAdvanced; set { _explicitNullValueAdvanced = value; AdditionalData?.Remove("advanced"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced"); else _explicitNullProperties?.Remove("advanced"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced? _explicitNullValueAdvanced = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced Advanced { get => _explicitNullValueAdvanced; set { _explicitNullValueAdvanced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced"); else _explicitNullProperties?.Remove("advanced"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced Advanced { get => _explicitNullValueAdvanced; set { _explicitNullValueAdvanced = value; AdditionalData?.Remove("advanced"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced"); else _explicitNullProperties?.Remove("advanced"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced _explicitNullValueAdvanced = default!;
 #endif
         /// <summary>Daily increment added to the sending limit, starting from 0, until the full daily limit is reached (slow ramp). Gradually increases sending volume to improve deliverability. Set to `disabled` to send at the full daily limit from day one.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupIncrement? Increment { get => _explicitNullValueIncrement; set { _explicitNullValueIncrement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("increment"); else _explicitNullProperties?.Remove("increment"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupIncrement? Increment { get => _explicitNullValueIncrement; set { _explicitNullValueIncrement = value; AdditionalData?.Remove("increment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("increment"); else _explicitNullProperties?.Remove("increment"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupIncrement? _explicitNullValueIncrement = default!;
         /// <summary>Email sending limit for the account</summary>
-        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
         private double? _explicitNullValueLimit = default!;
         /// <summary>Reply rate for the account</summary>
-        public double? ReplyRate { get => _explicitNullValueReplyRate; set { _explicitNullValueReplyRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_rate"); else _explicitNullProperties?.Remove("reply_rate"); } }
+        public double? ReplyRate { get => _explicitNullValueReplyRate; set { _explicitNullValueReplyRate = value; AdditionalData?.Remove("reply_rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_rate"); else _explicitNullProperties?.Remove("reply_rate"); } }
         private double? _explicitNullValueReplyRate = default!;
         /// <summary>Custom tag for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WarmupCustomFtag { get => _explicitNullValueWarmupCustomFtag; set { _explicitNullValueWarmupCustomFtag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup_custom_ftag"); else _explicitNullProperties?.Remove("warmup_custom_ftag"); } }
+        public string? WarmupCustomFtag { get => _explicitNullValueWarmupCustomFtag; set { _explicitNullValueWarmupCustomFtag = value; AdditionalData?.Remove("warmup_custom_ftag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup_custom_ftag"); else _explicitNullProperties?.Remove("warmup_custom_ftag"); } }
         private string? _explicitNullValueWarmupCustomFtag = default!;
 #nullable restore
 #else
-        public string WarmupCustomFtag { get => _explicitNullValueWarmupCustomFtag; set { _explicitNullValueWarmupCustomFtag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup_custom_ftag"); else _explicitNullProperties?.Remove("warmup_custom_ftag"); } }
+        public string WarmupCustomFtag { get => _explicitNullValueWarmupCustomFtag; set { _explicitNullValueWarmupCustomFtag = value; AdditionalData?.Remove("warmup_custom_ftag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup_custom_ftag"); else _explicitNullProperties?.Remove("warmup_custom_ftag"); } }
         private string _explicitNullValueWarmupCustomFtag = default!;
 #endif
         /// <summary>
@@ -82,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "advanced", n => { Advanced = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced>(global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced.CreateFromDiscriminatorValue); } },
-                { "increment", n => { Increment = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupIncrement>(); } },
+                { "increment", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupIncrement>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIncrement = default; _explicitNullProperties?.Remove("increment"); AdditionalData["increment"] = unknown; } else { Increment = parsed; AdditionalData.Remove("increment"); } } },
                 { "limit", n => { Limit = n.GetDoubleValue(); } },
                 { "reply_rate", n => { ReplyRate = n.GetDoubleValue(); } },
                 { "warmup_custom_ftag", n => { WarmupCustomFtag = n.GetStringValue(); } },

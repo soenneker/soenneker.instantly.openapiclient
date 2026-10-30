@@ -18,8 +18,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("failed_emails") is { } nullNodeFailedEmails && nullNodeFailedEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedEmails = null;
-            if (parseNode.GetChildNode("paused_emails") is { } nullNodePausedEmails && nullNodePausedEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedEmails = null;
+            if (parseNode.GetChildNode("failed_emails") is null) { _explicitNullValueFailedEmails = default!; _explicitNullProperties?.Remove("failed_emails"); }
+            else if (parseNode.GetChildNode("failed_emails") is { } nullNodeFailedEmails && nullNodeFailedEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedEmails = null;
+            if (parseNode.GetChildNode("paused_emails") is null) { _explicitNullValuePausedEmails = default!; _explicitNullProperties?.Remove("paused_emails"); }
+            else if (parseNode.GetChildNode("paused_emails") is { } nullNodePausedEmails && nullNodePausedEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedEmails = null;
         }
 
         /// <summary>Email addresses that were invalid or whose account status was not changed.</summary>

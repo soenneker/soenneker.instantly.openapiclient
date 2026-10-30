@@ -17,13 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("include_original_body") is { } nullNodeIncludeOriginalBody && nullNodeIncludeOriginalBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeOriginalBody = null;
+            if (parseNode.GetChildNode("include_original_body") is null) { _explicitNullValueIncludeOriginalBody = default!; _explicitNullProperties?.Remove("include_original_body"); }
+            else if (parseNode.GetChildNode("include_original_body") is { } nullNodeIncludeOriginalBody && nullNodeIncludeOriginalBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeOriginalBody = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The include_original_body property</summary>
-        public bool? IncludeOriginalBody { get => _explicitNullValueIncludeOriginalBody; set { _explicitNullValueIncludeOriginalBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_original_body"); else _explicitNullProperties?.Remove("include_original_body"); } }
+        public bool? IncludeOriginalBody { get => _explicitNullValueIncludeOriginalBody; set { _explicitNullValueIncludeOriginalBody = value; AdditionalData?.Remove("include_original_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_original_body"); else _explicitNullProperties?.Remove("include_original_body"); } }
         private bool? _explicitNullValueIncludeOriginalBody = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ForwardEmailRequestAnyOf2"/> and sets the default values.

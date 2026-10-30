@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
-            if (parseNode.GetChildNode("cycle_id") is { } nullNodeCycleId && nullNodeCycleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleId = null;
-            if (parseNode.GetChildNode("run_cycle_enqueued") is { } nullNodeRunCycleEnqueued && nullNodeRunCycleEnqueued.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunCycleEnqueued = null;
+            if (parseNode.GetChildNode("agent") is null) { _explicitNullValueAgent = default!; _explicitNullProperties?.Remove("agent"); }
+            else if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("cycle_id") is null) { _explicitNullValueCycleId = default!; _explicitNullProperties?.Remove("cycle_id"); }
+            else if (parseNode.GetChildNode("cycle_id") is { } nullNodeCycleId && nullNodeCycleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleId = null;
+            if (parseNode.GetChildNode("run_cycle_enqueued") is null) { _explicitNullValueRunCycleEnqueued = default!; _explicitNullProperties?.Remove("run_cycle_enqueued"); }
+            else if (parseNode.GetChildNode("run_cycle_enqueued") is { } nullNodeRunCycleEnqueued && nullNodeRunCycleEnqueued.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunCycleEnqueued = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>An AI agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>The cycle_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
+        public string? CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; AdditionalData?.Remove("cycle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
         private string? _explicitNullValueCycleId = default!;
 #nullable restore
 #else
-        public string CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
+        public string CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; AdditionalData?.Remove("cycle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
         private string _explicitNullValueCycleId = default!;
 #endif
         /// <summary>Whether an immediate Deliverability Agent cycle was successfully scheduled.</summary>
-        public bool? RunCycleEnqueued { get => _explicitNullValueRunCycleEnqueued; set { _explicitNullValueRunCycleEnqueued = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_cycle_enqueued"); else _explicitNullProperties?.Remove("run_cycle_enqueued"); } }
+        public bool? RunCycleEnqueued { get => _explicitNullValueRunCycleEnqueued; set { _explicitNullValueRunCycleEnqueued = value; AdditionalData?.Remove("run_cycle_enqueued"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_cycle_enqueued"); else _explicitNullProperties?.Remove("run_cycle_enqueued"); } }
         private bool? _explicitNullValueRunCycleEnqueued = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.RunDeliverabilityAgentNow200Response"/> and sets the default values.

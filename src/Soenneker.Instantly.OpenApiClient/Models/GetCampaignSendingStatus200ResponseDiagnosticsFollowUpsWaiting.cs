@@ -18,17 +18,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("earliest_wait_time_seconds") is { } nullNodeEarliestWaitTimeSeconds && nullNodeEarliestWaitTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EarliestWaitTimeSeconds = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("earliest_wait_time_seconds") is null) { _explicitNullValueEarliestWaitTimeSeconds = default!; _explicitNullProperties?.Remove("earliest_wait_time_seconds"); }
+            else if (parseNode.GetChildNode("earliest_wait_time_seconds") is { } nullNodeEarliestWaitTimeSeconds && nullNodeEarliestWaitTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EarliestWaitTimeSeconds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of follow-ups waiting to be sent</summary>
-        public double? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public double? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private double? _explicitNullValueCount = default!;
         /// <summary>Seconds until the earliest follow-up can be sent</summary>
-        public double? EarliestWaitTimeSeconds { get => _explicitNullValueEarliestWaitTimeSeconds; set { _explicitNullValueEarliestWaitTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("earliest_wait_time_seconds"); else _explicitNullProperties?.Remove("earliest_wait_time_seconds"); } }
+        public double? EarliestWaitTimeSeconds { get => _explicitNullValueEarliestWaitTimeSeconds; set { _explicitNullValueEarliestWaitTimeSeconds = value; AdditionalData?.Remove("earliest_wait_time_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("earliest_wait_time_seconds"); else _explicitNullProperties?.Remove("earliest_wait_time_seconds"); } }
         private double? _explicitNullValueEarliestWaitTimeSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting"/> and sets the default values.

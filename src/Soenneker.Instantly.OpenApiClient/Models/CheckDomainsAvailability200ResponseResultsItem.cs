@@ -17,39 +17,43 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available") is { } nullNodeAvailable && nullNodeAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Available = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
-            if (parseNode.GetChildNode("restricted_keyword") is { } nullNodeRestrictedKeyword && nullNodeRestrictedKeyword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedKeyword = null;
-            if (parseNode.GetChildNode("unavailable_reason") is { } nullNodeUnavailableReason && nullNodeUnavailableReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnavailableReason = null;
+            if (parseNode.GetChildNode("available") is null) { _explicitNullValueAvailable = default!; _explicitNullProperties?.Remove("available"); }
+            else if (parseNode.GetChildNode("available") is { } nullNodeAvailable && nullNodeAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Available = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("restricted_keyword") is null) { _explicitNullValueRestrictedKeyword = default!; _explicitNullProperties?.Remove("restricted_keyword"); }
+            else if (parseNode.GetChildNode("restricted_keyword") is { } nullNodeRestrictedKeyword && nullNodeRestrictedKeyword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedKeyword = null;
+            if (parseNode.GetChildNode("unavailable_reason") is null) { _explicitNullValueUnavailableReason = default!; _explicitNullProperties?.Remove("unavailable_reason"); }
+            else if (parseNode.GetChildNode("unavailable_reason") is { } nullNodeUnavailableReason && nullNodeUnavailableReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnavailableReason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the domain is available or not</summary>
-        public bool? Available { get => _explicitNullValueAvailable; set { _explicitNullValueAvailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available"); else _explicitNullProperties?.Remove("available"); } }
+        public bool? Available { get => _explicitNullValueAvailable; set { _explicitNullValueAvailable = value; AdditionalData?.Remove("available"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available"); else _explicitNullProperties?.Remove("available"); } }
         private bool? _explicitNullValueAvailable = default!;
         /// <summary>The domain name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The restricted keyword matched when `unavailable_reason` is `restricted`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RestrictedKeyword { get => _explicitNullValueRestrictedKeyword; set { _explicitNullValueRestrictedKeyword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_keyword"); else _explicitNullProperties?.Remove("restricted_keyword"); } }
+        public string? RestrictedKeyword { get => _explicitNullValueRestrictedKeyword; set { _explicitNullValueRestrictedKeyword = value; AdditionalData?.Remove("restricted_keyword"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_keyword"); else _explicitNullProperties?.Remove("restricted_keyword"); } }
         private string? _explicitNullValueRestrictedKeyword = default!;
 #nullable restore
 #else
-        public string RestrictedKeyword { get => _explicitNullValueRestrictedKeyword; set { _explicitNullValueRestrictedKeyword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_keyword"); else _explicitNullProperties?.Remove("restricted_keyword"); } }
+        public string RestrictedKeyword { get => _explicitNullValueRestrictedKeyword; set { _explicitNullValueRestrictedKeyword = value; AdditionalData?.Remove("restricted_keyword"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_keyword"); else _explicitNullProperties?.Remove("restricted_keyword"); } }
         private string _explicitNullValueRestrictedKeyword = default!;
 #endif
         /// <summary>Present when a domain is unavailable because it is restricted</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason? UnavailableReason { get => _explicitNullValueUnavailableReason; set { _explicitNullValueUnavailableReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_reason"); else _explicitNullProperties?.Remove("unavailable_reason"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason? UnavailableReason { get => _explicitNullValueUnavailableReason; set { _explicitNullValueUnavailableReason = value; AdditionalData?.Remove("unavailable_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_reason"); else _explicitNullProperties?.Remove("unavailable_reason"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason? _explicitNullValueUnavailableReason = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CheckDomainsAvailability200ResponseResultsItem"/> and sets the default values.
@@ -79,7 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "available", n => { Available = n.GetBoolValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "restricted_keyword", n => { RestrictedKeyword = n.GetStringValue(); } },
-                { "unavailable_reason", n => { UnavailableReason = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason>(); } },
+                { "unavailable_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RestrictedUnavailableReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueUnavailableReason = default; _explicitNullProperties?.Remove("unavailable_reason"); AdditionalData["unavailable_reason"] = unknown; } else { UnavailableReason = parsed; AdditionalData.Remove("unavailable_reason"); } } },
             };
         }
         /// <summary>

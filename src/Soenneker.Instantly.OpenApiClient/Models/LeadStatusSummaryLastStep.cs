@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
-            if (parseNode.GetChildNode("stepID") is { } nullNodeStepID && nullNodeStepID.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepID = null;
-            if (parseNode.GetChildNode("timestamp_executed") is { } nullNodeTimestampExecuted && nullNodeTimestampExecuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampExecuted = null;
+            if (parseNode.GetChildNode("from") is null) { _explicitNullValueFrom = default!; _explicitNullProperties?.Remove("from"); }
+            else if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("stepID") is null) { _explicitNullValueStepID = default!; _explicitNullProperties?.Remove("stepID"); }
+            else if (parseNode.GetChildNode("stepID") is { } nullNodeStepID && nullNodeStepID.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepID = null;
+            if (parseNode.GetChildNode("timestamp_executed") is null) { _explicitNullValueTimestampExecuted = default!; _explicitNullProperties?.Remove("timestamp_executed"); }
+            else if (parseNode.GetChildNode("timestamp_executed") is { } nullNodeTimestampExecuted && nullNodeTimestampExecuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampExecuted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; AdditionalData?.Remove("from"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
         private string? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; AdditionalData?.Remove("from"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
         private string _explicitNullValueFrom = default!;
 #endif
         /// <summary>The stepID property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StepID { get => _explicitNullValueStepID; set { _explicitNullValueStepID = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepID"); else _explicitNullProperties?.Remove("stepID"); } }
+        public string? StepID { get => _explicitNullValueStepID; set { _explicitNullValueStepID = value; AdditionalData?.Remove("stepID"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepID"); else _explicitNullProperties?.Remove("stepID"); } }
         private string? _explicitNullValueStepID = default!;
 #nullable restore
 #else
-        public string StepID { get => _explicitNullValueStepID; set { _explicitNullValueStepID = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepID"); else _explicitNullProperties?.Remove("stepID"); } }
+        public string StepID { get => _explicitNullValueStepID; set { _explicitNullValueStepID = value; AdditionalData?.Remove("stepID"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stepID"); else _explicitNullProperties?.Remove("stepID"); } }
         private string _explicitNullValueStepID = default!;
 #endif
         /// <summary>The timestamp_executed property</summary>
-        public DateTimeOffset? TimestampExecuted { get => _explicitNullValueTimestampExecuted; set { _explicitNullValueTimestampExecuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_executed"); else _explicitNullProperties?.Remove("timestamp_executed"); } }
+        public DateTimeOffset? TimestampExecuted { get => _explicitNullValueTimestampExecuted; set { _explicitNullValueTimestampExecuted = value; AdditionalData?.Remove("timestamp_executed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_executed"); else _explicitNullProperties?.Remove("timestamp_executed"); } }
         private DateTimeOffset? _explicitNullValueTimestampExecuted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.LeadStatusSummaryLastStep"/> and sets the default values.

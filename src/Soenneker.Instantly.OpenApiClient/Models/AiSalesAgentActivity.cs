@@ -18,7 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action_status") is { } nullNodeActionStatus && nullNodeActionStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionStatus = null;
+            if (parseNode.GetChildNode("action_status") is null) { _explicitNullValueActionStatus = default!; _explicitNullProperties?.Remove("action_status"); }
+            else if (parseNode.GetChildNode("action_status") is { } nullNodeActionStatus && nullNodeActionStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionStatus = null;
         }
 
         /// <summary>Output data for frontend display (e.g., lead_email, campaign_name, etc.). For recommend_lead this carries the per-lead delivery_outcome: delivered, no_email_found, not_moved or skipped (the agent decided not to contact the prospect), plus refunded.</summary>

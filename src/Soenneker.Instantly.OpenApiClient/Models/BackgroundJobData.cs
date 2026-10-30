@@ -18,7 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("moved_lead_emails") is { } nullNodeMovedLeadEmails && nullNodeMovedLeadEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MovedLeadEmails = null;
+            if (parseNode.GetChildNode("moved_lead_emails") is null) { _explicitNullValueMovedLeadEmails = default!; _explicitNullProperties?.Remove("moved_lead_emails"); }
+            else if (parseNode.GetChildNode("moved_lead_emails") is { } nullNodeMovedLeadEmails && nullNodeMovedLeadEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MovedLeadEmails = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>For `move-leads` jobs, up to the first 10,000 email addresses of leads that actually moved or copied to the destination after all filters were applied. Use `moved_leads` for the full count.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MovedLeadEmails { get => _explicitNullValueMovedLeadEmails; set { _explicitNullValueMovedLeadEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved_lead_emails"); else _explicitNullProperties?.Remove("moved_lead_emails"); } }
+        public List<string>? MovedLeadEmails { get => _explicitNullValueMovedLeadEmails; set { _explicitNullValueMovedLeadEmails = value; AdditionalData?.Remove("moved_lead_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved_lead_emails"); else _explicitNullProperties?.Remove("moved_lead_emails"); } }
         private List<string>? _explicitNullValueMovedLeadEmails = default!;
 #nullable restore
 #else
-        public List<string> MovedLeadEmails { get => _explicitNullValueMovedLeadEmails; set { _explicitNullValueMovedLeadEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved_lead_emails"); else _explicitNullProperties?.Remove("moved_lead_emails"); } }
+        public List<string> MovedLeadEmails { get => _explicitNullValueMovedLeadEmails; set { _explicitNullValueMovedLeadEmails = value; AdditionalData?.Remove("moved_lead_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved_lead_emails"); else _explicitNullProperties?.Remove("moved_lead_emails"); } }
         private List<string> _explicitNullValueMovedLeadEmails = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bl_value") is { } nullNodeBlValue && nullNodeBlValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlValue = null;
+            if (parseNode.GetChildNode("bl_value") is null) { _explicitNullValueBlValue = default!; _explicitNullProperties?.Remove("bl_value"); }
+            else if (parseNode.GetChildNode("bl_value") is { } nullNodeBlValue && nullNodeBlValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlValue = null;
         }
 
         /// <summary>The email or domain to block</summary>

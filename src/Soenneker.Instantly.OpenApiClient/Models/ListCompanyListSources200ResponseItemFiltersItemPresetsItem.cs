@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
-            if (parseNode.GetChildNode("max") is { } nullNodeMax && nullNodeMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Max = null;
-            if (parseNode.GetChildNode("min") is { } nullNodeMin && nullNodeMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Min = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("max") is null) { _explicitNullValueMax = default!; _explicitNullProperties?.Remove("max"); }
+            else if (parseNode.GetChildNode("max") is { } nullNodeMax && nullNodeMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Max = null;
+            if (parseNode.GetChildNode("min") is null) { _explicitNullValueMin = default!; _explicitNullProperties?.Remove("min"); }
+            else if (parseNode.GetChildNode("min") is { } nullNodeMin && nullNodeMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Min = null;
         }
 
         /// <summary>The label property</summary>
@@ -45,12 +48,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The min property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin? Min { get => _explicitNullValueMin; set { _explicitNullValueMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min"); else _explicitNullProperties?.Remove("min"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin? _explicitNullValueMin = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax? Min { get => _explicitNullValueMin; set { _explicitNullValueMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min"); else _explicitNullProperties?.Remove("min"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax? _explicitNullValueMin = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin Min { get => _explicitNullValueMin; set { _explicitNullValueMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min"); else _explicitNullProperties?.Remove("min"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin _explicitNullValueMin = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax Min { get => _explicitNullValueMin; set { _explicitNullValueMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min"); else _explicitNullProperties?.Remove("min"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax _explicitNullValueMin = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "max", n => { Max = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax.CreateFromDiscriminatorValue); } },
-                { "min", n => { Min = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin.CreateFromDiscriminatorValue); } },
+                { "min", n => { Min = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax>(global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -84,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("label", Label);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax>("max", Max);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMin>("min", Min);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItemMax>("min", Min);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

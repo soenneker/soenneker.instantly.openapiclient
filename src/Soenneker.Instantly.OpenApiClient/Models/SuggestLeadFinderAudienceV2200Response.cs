@@ -17,54 +17,60 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("analyzed_lead_count") is { } nullNodeAnalyzedLeadCount && nullNodeAnalyzedLeadCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalyzedLeadCount = null;
-            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
-            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
-            if (parseNode.GetChildNode("profile_summary") is { } nullNodeProfileSummary && nullNodeProfileSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfileSummary = null;
-            if (parseNode.GetChildNode("suggestions") is { } nullNodeSuggestions && nullNodeSuggestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggestions = null;
-            if (parseNode.GetChildNode("total_lead_count") is { } nullNodeTotalLeadCount && nullNodeTotalLeadCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalLeadCount = null;
+            if (parseNode.GetChildNode("analyzed_lead_count") is null) { _explicitNullValueAnalyzedLeadCount = default!; _explicitNullProperties?.Remove("analyzed_lead_count"); }
+            else if (parseNode.GetChildNode("analyzed_lead_count") is { } nullNodeAnalyzedLeadCount && nullNodeAnalyzedLeadCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnalyzedLeadCount = null;
+            if (parseNode.GetChildNode("campaign_id") is null) { _explicitNullValueCampaignId = default!; _explicitNullProperties?.Remove("campaign_id"); }
+            else if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("confidence") is null) { _explicitNullValueConfidence = default!; _explicitNullProperties?.Remove("confidence"); }
+            else if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("profile_summary") is null) { _explicitNullValueProfileSummary = default!; _explicitNullProperties?.Remove("profile_summary"); }
+            else if (parseNode.GetChildNode("profile_summary") is { } nullNodeProfileSummary && nullNodeProfileSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfileSummary = null;
+            if (parseNode.GetChildNode("suggestions") is null) { _explicitNullValueSuggestions = default!; _explicitNullProperties?.Remove("suggestions"); }
+            else if (parseNode.GetChildNode("suggestions") is { } nullNodeSuggestions && nullNodeSuggestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggestions = null;
+            if (parseNode.GetChildNode("total_lead_count") is null) { _explicitNullValueTotalLeadCount = default!; _explicitNullProperties?.Remove("total_lead_count"); }
+            else if (parseNode.GetChildNode("total_lead_count") is { } nullNodeTotalLeadCount && nullNodeTotalLeadCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalLeadCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The analyzed_lead_count property</summary>
-        public int? AnalyzedLeadCount { get => _explicitNullValueAnalyzedLeadCount; set { _explicitNullValueAnalyzedLeadCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analyzed_lead_count"); else _explicitNullProperties?.Remove("analyzed_lead_count"); } }
+        public int? AnalyzedLeadCount { get => _explicitNullValueAnalyzedLeadCount; set { _explicitNullValueAnalyzedLeadCount = value; AdditionalData?.Remove("analyzed_lead_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("analyzed_lead_count"); else _explicitNullProperties?.Remove("analyzed_lead_count"); } }
         private int? _explicitNullValueAnalyzedLeadCount = default!;
         /// <summary>The campaign_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>The confidence property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; AdditionalData?.Remove("confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseConfidence? _explicitNullValueConfidence = default!;
         /// <summary>The profile_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProfileSummary { get => _explicitNullValueProfileSummary; set { _explicitNullValueProfileSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_summary"); else _explicitNullProperties?.Remove("profile_summary"); } }
+        public string? ProfileSummary { get => _explicitNullValueProfileSummary; set { _explicitNullValueProfileSummary = value; AdditionalData?.Remove("profile_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_summary"); else _explicitNullProperties?.Remove("profile_summary"); } }
         private string? _explicitNullValueProfileSummary = default!;
 #nullable restore
 #else
-        public string ProfileSummary { get => _explicitNullValueProfileSummary; set { _explicitNullValueProfileSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_summary"); else _explicitNullProperties?.Remove("profile_summary"); } }
+        public string ProfileSummary { get => _explicitNullValueProfileSummary; set { _explicitNullValueProfileSummary = value; AdditionalData?.Remove("profile_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile_summary"); else _explicitNullProperties?.Remove("profile_summary"); } }
         private string _explicitNullValueProfileSummary = default!;
 #endif
         /// <summary>The suggestions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem>? Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem>? Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; AdditionalData?.Remove("suggestions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem>? _explicitNullValueSuggestions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem> Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem> Suggestions { get => _explicitNullValueSuggestions; set { _explicitNullValueSuggestions = value; AdditionalData?.Remove("suggestions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggestions"); else _explicitNullProperties?.Remove("suggestions"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem> _explicitNullValueSuggestions = default!;
 #endif
         /// <summary>The total_lead_count property</summary>
-        public int? TotalLeadCount { get => _explicitNullValueTotalLeadCount; set { _explicitNullValueTotalLeadCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_lead_count"); else _explicitNullProperties?.Remove("total_lead_count"); } }
+        public int? TotalLeadCount { get => _explicitNullValueTotalLeadCount; set { _explicitNullValueTotalLeadCount = value; AdditionalData?.Remove("total_lead_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_lead_count"); else _explicitNullProperties?.Remove("total_lead_count"); } }
         private int? _explicitNullValueTotalLeadCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200Response"/> and sets the default values.
@@ -93,7 +99,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "analyzed_lead_count", n => { AnalyzedLeadCount = n.GetIntValue(); } },
                 { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
-                { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseConfidence>(); } },
+                { "confidence", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseConfidence>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConfidence = default; _explicitNullProperties?.Remove("confidence"); AdditionalData["confidence"] = unknown; } else { Confidence = parsed; AdditionalData.Remove("confidence"); } } },
                 { "profile_summary", n => { ProfileSummary = n.GetStringValue(); } },
                 { "suggestions", n => { Suggestions = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem>(global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200ResponseSuggestionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_lead_count", n => { TotalLeadCount = n.GetIntValue(); } },

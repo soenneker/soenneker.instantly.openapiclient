@@ -17,51 +17,58 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allPass") is { } nullNodeAllPass && nullNodeAllPass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllPass = null;
-            if (parseNode.GetChildNode("dkim") is { } nullNodeDkim && nullNodeDkim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dkim = null;
-            if (parseNode.GetChildNode("dmarc") is { } nullNodeDmarc && nullNodeDmarc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dmarc = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
-            if (parseNode.GetChildNode("indeterminate") is { } nullNodeIndeterminate && nullNodeIndeterminate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Indeterminate = null;
-            if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
-            if (parseNode.GetChildNode("spf") is { } nullNodeSpf && nullNodeSpf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spf = null;
+            if (parseNode.GetChildNode("allPass") is null) { _explicitNullValueAllPass = default!; _explicitNullProperties?.Remove("allPass"); }
+            else if (parseNode.GetChildNode("allPass") is { } nullNodeAllPass && nullNodeAllPass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllPass = null;
+            if (parseNode.GetChildNode("dkim") is null) { _explicitNullValueDkim = default!; _explicitNullProperties?.Remove("dkim"); }
+            else if (parseNode.GetChildNode("dkim") is { } nullNodeDkim && nullNodeDkim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dkim = null;
+            if (parseNode.GetChildNode("dmarc") is null) { _explicitNullValueDmarc = default!; _explicitNullProperties?.Remove("dmarc"); }
+            else if (parseNode.GetChildNode("dmarc") is { } nullNodeDmarc && nullNodeDmarc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dmarc = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("indeterminate") is null) { _explicitNullValueIndeterminate = default!; _explicitNullProperties?.Remove("indeterminate"); }
+            else if (parseNode.GetChildNode("indeterminate") is { } nullNodeIndeterminate && nullNodeIndeterminate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Indeterminate = null;
+            if (parseNode.GetChildNode("mx") is null) { _explicitNullValueMx = default!; _explicitNullProperties?.Remove("mx"); }
+            else if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
+            if (parseNode.GetChildNode("spf") is null) { _explicitNullValueSpf = default!; _explicitNullProperties?.Remove("spf"); }
+            else if (parseNode.GetChildNode("spf") is { } nullNodeSpf && nullNodeSpf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spf = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allPass property</summary>
-        public bool? AllPass { get => _explicitNullValueAllPass; set { _explicitNullValueAllPass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allPass"); else _explicitNullProperties?.Remove("allPass"); } }
+        public bool? AllPass { get => _explicitNullValueAllPass; set { _explicitNullValueAllPass = value; AdditionalData?.Remove("allPass"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allPass"); else _explicitNullProperties?.Remove("allPass"); } }
         private bool? _explicitNullValueAllPass = default!;
         /// <summary>The dkim property</summary>
-        public bool? Dkim { get => _explicitNullValueDkim; set { _explicitNullValueDkim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim"); else _explicitNullProperties?.Remove("dkim"); } }
+        public bool? Dkim { get => _explicitNullValueDkim; set { _explicitNullValueDkim = value; AdditionalData?.Remove("dkim"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim"); else _explicitNullProperties?.Remove("dkim"); } }
         private bool? _explicitNullValueDkim = default!;
         /// <summary>The dmarc property</summary>
-        public bool? Dmarc { get => _explicitNullValueDmarc; set { _explicitNullValueDmarc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc"); else _explicitNullProperties?.Remove("dmarc"); } }
+        public bool? Dmarc { get => _explicitNullValueDmarc; set { _explicitNullValueDmarc = value; AdditionalData?.Remove("dmarc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc"); else _explicitNullProperties?.Remove("dmarc"); } }
         private bool? _explicitNullValueDmarc = default!;
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>Records that could not be verified because the DNS resolver kept failing. They are reported as not passing, but the records may exist; re-run the test.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?>? Indeterminate { get => _explicitNullValueIndeterminate; set { _explicitNullValueIndeterminate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indeterminate"); else _explicitNullProperties?.Remove("indeterminate"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?>? Indeterminate { get => _explicitNullValueIndeterminate; set { _explicitNullValueIndeterminate = value; AdditionalData?.Remove("indeterminate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indeterminate"); else _explicitNullProperties?.Remove("indeterminate"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?>? _explicitNullValueIndeterminate = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?> Indeterminate { get => _explicitNullValueIndeterminate; set { _explicitNullValueIndeterminate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indeterminate"); else _explicitNullProperties?.Remove("indeterminate"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?> Indeterminate { get => _explicitNullValueIndeterminate; set { _explicitNullValueIndeterminate = value; AdditionalData?.Remove("indeterminate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indeterminate"); else _explicitNullProperties?.Remove("indeterminate"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItemIndeterminateItem?> _explicitNullValueIndeterminate = default!;
 #endif
         /// <summary>The mx property</summary>
-        public bool? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        public bool? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; AdditionalData?.Remove("mx"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
         private bool? _explicitNullValueMx = default!;
         /// <summary>The spf property</summary>
-        public bool? Spf { get => _explicitNullValueSpf; set { _explicitNullValueSpf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spf"); else _explicitNullProperties?.Remove("spf"); } }
+        public bool? Spf { get => _explicitNullValueSpf; set { _explicitNullValueSpf = value; AdditionalData?.Remove("spf"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spf"); else _explicitNullProperties?.Remove("spf"); } }
         private bool? _explicitNullValueSpf = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem"/> and sets the default values.

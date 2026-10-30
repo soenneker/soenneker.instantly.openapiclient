@@ -17,15 +17,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("additional_recipients") is { } nullNodeAdditionalRecipients && nullNodeAdditionalRecipients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalRecipients = null;
-            if (parseNode.GetChildNode("assigned_to") is { } nullNodeAssignedTo && nullNodeAssignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedTo = null;
-            if (parseNode.GetChildNode("bcc_address_email_list") is { } nullNodeBccAddressEmailList && nullNodeBccAddressEmailList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BccAddressEmailList = null;
-            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
-            if (parseNode.GetChildNode("cc_address_email_list") is { } nullNodeCcAddressEmailList && nullNodeCcAddressEmailList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcAddressEmailList = null;
-            if (parseNode.GetChildNode("eaccount") is { } nullNodeEaccount && nullNodeEaccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eaccount = null;
-            if (parseNode.GetChildNode("reminder_ts") is { } nullNodeReminderTs && nullNodeReminderTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReminderTs = null;
-            if (parseNode.GetChildNode("reply_to_uuid") is { } nullNodeReplyToUuid && nullNodeReplyToUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyToUuid = null;
-            if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
+            if (parseNode.GetChildNode("additional_recipients") is null) { _explicitNullValueAdditionalRecipients = default!; _explicitNullProperties?.Remove("additional_recipients"); }
+            else if (parseNode.GetChildNode("additional_recipients") is { } nullNodeAdditionalRecipients && nullNodeAdditionalRecipients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdditionalRecipients = null;
+            if (parseNode.GetChildNode("assigned_to") is null) { _explicitNullValueAssignedTo = default!; _explicitNullProperties?.Remove("assigned_to"); }
+            else if (parseNode.GetChildNode("assigned_to") is { } nullNodeAssignedTo && nullNodeAssignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedTo = null;
+            if (parseNode.GetChildNode("bcc_address_email_list") is null) { _explicitNullValueBccAddressEmailList = default!; _explicitNullProperties?.Remove("bcc_address_email_list"); }
+            else if (parseNode.GetChildNode("bcc_address_email_list") is { } nullNodeBccAddressEmailList && nullNodeBccAddressEmailList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BccAddressEmailList = null;
+            if (parseNode.GetChildNode("body") is null) { _explicitNullValueBody = default!; _explicitNullProperties?.Remove("body"); }
+            else if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("cc_address_email_list") is null) { _explicitNullValueCcAddressEmailList = default!; _explicitNullProperties?.Remove("cc_address_email_list"); }
+            else if (parseNode.GetChildNode("cc_address_email_list") is { } nullNodeCcAddressEmailList && nullNodeCcAddressEmailList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcAddressEmailList = null;
+            if (parseNode.GetChildNode("eaccount") is null) { _explicitNullValueEaccount = default!; _explicitNullProperties?.Remove("eaccount"); }
+            else if (parseNode.GetChildNode("eaccount") is { } nullNodeEaccount && nullNodeEaccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Eaccount = null;
+            if (parseNode.GetChildNode("reminder_ts") is null) { _explicitNullValueReminderTs = default!; _explicitNullProperties?.Remove("reminder_ts"); }
+            else if (parseNode.GetChildNode("reminder_ts") is { } nullNodeReminderTs && nullNodeReminderTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReminderTs = null;
+            if (parseNode.GetChildNode("reply_to_uuid") is null) { _explicitNullValueReplyToUuid = default!; _explicitNullProperties?.Remove("reply_to_uuid"); }
+            else if (parseNode.GetChildNode("reply_to_uuid") is { } nullNodeReplyToUuid && nullNodeReplyToUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyToUuid = null;
+            if (parseNode.GetChildNode("subject") is null) { _explicitNullValueSubject = default!; _explicitNullProperties?.Remove("subject"); }
+            else if (parseNode.GetChildNode("subject") is { } nullNodeSubject && nullNodeSubject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subject = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,84 +42,84 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Optional list of extra recipient email addresses to include in the reply, in addition to the default recipient (the sender of the email being replied to).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AdditionalRecipients { get => _explicitNullValueAdditionalRecipients; set { _explicitNullValueAdditionalRecipients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_recipients"); else _explicitNullProperties?.Remove("additional_recipients"); } }
+        public List<string>? AdditionalRecipients { get => _explicitNullValueAdditionalRecipients; set { _explicitNullValueAdditionalRecipients = value; AdditionalData?.Remove("additional_recipients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_recipients"); else _explicitNullProperties?.Remove("additional_recipients"); } }
         private List<string>? _explicitNullValueAdditionalRecipients = default!;
 #nullable restore
 #else
-        public List<string> AdditionalRecipients { get => _explicitNullValueAdditionalRecipients; set { _explicitNullValueAdditionalRecipients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_recipients"); else _explicitNullProperties?.Remove("additional_recipients"); } }
+        public List<string> AdditionalRecipients { get => _explicitNullValueAdditionalRecipients; set { _explicitNullValueAdditionalRecipients = value; AdditionalData?.Remove("additional_recipients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_recipients"); else _explicitNullProperties?.Remove("additional_recipients"); } }
         private List<string> _explicitNullValueAdditionalRecipients = default!;
 #endif
         /// <summary>The user id assigned to the lead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        public string? AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; AdditionalData?.Remove("assigned_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
         private string? _explicitNullValueAssignedTo = default!;
 #nullable restore
 #else
-        public string AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        public string AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; AdditionalData?.Remove("assigned_to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
         private string _explicitNullValueAssignedTo = default!;
 #endif
         /// <summary>Comma-separated list of BCC email addresses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BccAddressEmailList { get => _explicitNullValueBccAddressEmailList; set { _explicitNullValueBccAddressEmailList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bcc_address_email_list"); else _explicitNullProperties?.Remove("bcc_address_email_list"); } }
+        public string? BccAddressEmailList { get => _explicitNullValueBccAddressEmailList; set { _explicitNullValueBccAddressEmailList = value; AdditionalData?.Remove("bcc_address_email_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bcc_address_email_list"); else _explicitNullProperties?.Remove("bcc_address_email_list"); } }
         private string? _explicitNullValueBccAddressEmailList = default!;
 #nullable restore
 #else
-        public string BccAddressEmailList { get => _explicitNullValueBccAddressEmailList; set { _explicitNullValueBccAddressEmailList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bcc_address_email_list"); else _explicitNullProperties?.Remove("bcc_address_email_list"); } }
+        public string BccAddressEmailList { get => _explicitNullValueBccAddressEmailList; set { _explicitNullValueBccAddressEmailList = value; AdditionalData?.Remove("bcc_address_email_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bcc_address_email_list"); else _explicitNullProperties?.Remove("bcc_address_email_list"); } }
         private string _explicitNullValueBccAddressEmailList = default!;
 #endif
         /// <summary>The email body. You can specify either the `html` or the `text` field, or both. Use `&lt;br/&gt;` tags for delivered email line breaks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ReplyToEmailRequestBody _explicitNullValueBody = default!;
 #endif
         /// <summary>Comma-separated list of CC email addresses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcAddressEmailList { get => _explicitNullValueCcAddressEmailList; set { _explicitNullValueCcAddressEmailList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_address_email_list"); else _explicitNullProperties?.Remove("cc_address_email_list"); } }
+        public string? CcAddressEmailList { get => _explicitNullValueCcAddressEmailList; set { _explicitNullValueCcAddressEmailList = value; AdditionalData?.Remove("cc_address_email_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_address_email_list"); else _explicitNullProperties?.Remove("cc_address_email_list"); } }
         private string? _explicitNullValueCcAddressEmailList = default!;
 #nullable restore
 #else
-        public string CcAddressEmailList { get => _explicitNullValueCcAddressEmailList; set { _explicitNullValueCcAddressEmailList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_address_email_list"); else _explicitNullProperties?.Remove("cc_address_email_list"); } }
+        public string CcAddressEmailList { get => _explicitNullValueCcAddressEmailList; set { _explicitNullValueCcAddressEmailList = value; AdditionalData?.Remove("cc_address_email_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_address_email_list"); else _explicitNullProperties?.Remove("cc_address_email_list"); } }
         private string _explicitNullValueCcAddressEmailList = default!;
 #endif
         /// <summary>The email account that will be used to send this email. It has to be an email account connected to your workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Eaccount { get => _explicitNullValueEaccount; set { _explicitNullValueEaccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eaccount"); else _explicitNullProperties?.Remove("eaccount"); } }
+        public string? Eaccount { get => _explicitNullValueEaccount; set { _explicitNullValueEaccount = value; AdditionalData?.Remove("eaccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eaccount"); else _explicitNullProperties?.Remove("eaccount"); } }
         private string? _explicitNullValueEaccount = default!;
 #nullable restore
 #else
-        public string Eaccount { get => _explicitNullValueEaccount; set { _explicitNullValueEaccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eaccount"); else _explicitNullProperties?.Remove("eaccount"); } }
+        public string Eaccount { get => _explicitNullValueEaccount; set { _explicitNullValueEaccount = value; AdditionalData?.Remove("eaccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eaccount"); else _explicitNullProperties?.Remove("eaccount"); } }
         private string _explicitNullValueEaccount = default!;
 #endif
         /// <summary>If provided then a reminder will be attached to this email, you will see this reminder in the Unibox in the web app</summary>
-        public DateTimeOffset? ReminderTs { get => _explicitNullValueReminderTs; set { _explicitNullValueReminderTs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reminder_ts"); else _explicitNullProperties?.Remove("reminder_ts"); } }
+        public DateTimeOffset? ReminderTs { get => _explicitNullValueReminderTs; set { _explicitNullValueReminderTs = value; AdditionalData?.Remove("reminder_ts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reminder_ts"); else _explicitNullProperties?.Remove("reminder_ts"); } }
         private DateTimeOffset? _explicitNullValueReminderTs = default!;
         /// <summary>The id of the email to reply to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReplyToUuid { get => _explicitNullValueReplyToUuid; set { _explicitNullValueReplyToUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to_uuid"); else _explicitNullProperties?.Remove("reply_to_uuid"); } }
+        public string? ReplyToUuid { get => _explicitNullValueReplyToUuid; set { _explicitNullValueReplyToUuid = value; AdditionalData?.Remove("reply_to_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to_uuid"); else _explicitNullProperties?.Remove("reply_to_uuid"); } }
         private string? _explicitNullValueReplyToUuid = default!;
 #nullable restore
 #else
-        public string ReplyToUuid { get => _explicitNullValueReplyToUuid; set { _explicitNullValueReplyToUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to_uuid"); else _explicitNullProperties?.Remove("reply_to_uuid"); } }
+        public string ReplyToUuid { get => _explicitNullValueReplyToUuid; set { _explicitNullValueReplyToUuid = value; AdditionalData?.Remove("reply_to_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to_uuid"); else _explicitNullProperties?.Remove("reply_to_uuid"); } }
         private string _explicitNullValueReplyToUuid = default!;
 #endif
         /// <summary>Subject line of the email message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        public string? Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; AdditionalData?.Remove("subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string? _explicitNullValueSubject = default!;
 #nullable restore
 #else
-        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
+        public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; AdditionalData?.Remove("subject"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string _explicitNullValueSubject = default!;
 #endif
         /// <summary>

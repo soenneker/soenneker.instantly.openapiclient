@@ -17,47 +17,55 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("category_count") is { } nullNodeCategoryCount && nullNodeCategoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryCount = null;
-            if (parseNode.GetChildNode("category_percent") is { } nullNodeCategoryPercent && nullNodeCategoryPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryPercent = null;
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("inbox_count") is { } nullNodeInboxCount && nullNodeInboxCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxCount = null;
-            if (parseNode.GetChildNode("inbox_percent") is { } nullNodeInboxPercent && nullNodeInboxPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxPercent = null;
-            if (parseNode.GetChildNode("spam_count") is { } nullNodeSpamCount && nullNodeSpamCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCount = null;
-            if (parseNode.GetChildNode("spam_percent") is { } nullNodeSpamPercent && nullNodeSpamPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamPercent = null;
-            if (parseNode.GetChildNode("test_id") is { } nullNodeTestId && nullNodeTestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestId = null;
+            if (parseNode.GetChildNode("category_count") is null) { _explicitNullValueCategoryCount = default!; _explicitNullProperties?.Remove("category_count"); }
+            else if (parseNode.GetChildNode("category_count") is { } nullNodeCategoryCount && nullNodeCategoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryCount = null;
+            if (parseNode.GetChildNode("category_percent") is null) { _explicitNullValueCategoryPercent = default!; _explicitNullProperties?.Remove("category_percent"); }
+            else if (parseNode.GetChildNode("category_percent") is { } nullNodeCategoryPercent && nullNodeCategoryPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CategoryPercent = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("inbox_count") is null) { _explicitNullValueInboxCount = default!; _explicitNullProperties?.Remove("inbox_count"); }
+            else if (parseNode.GetChildNode("inbox_count") is { } nullNodeInboxCount && nullNodeInboxCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxCount = null;
+            if (parseNode.GetChildNode("inbox_percent") is null) { _explicitNullValueInboxPercent = default!; _explicitNullProperties?.Remove("inbox_percent"); }
+            else if (parseNode.GetChildNode("inbox_percent") is { } nullNodeInboxPercent && nullNodeInboxPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxPercent = null;
+            if (parseNode.GetChildNode("spam_count") is null) { _explicitNullValueSpamCount = default!; _explicitNullProperties?.Remove("spam_count"); }
+            else if (parseNode.GetChildNode("spam_count") is { } nullNodeSpamCount && nullNodeSpamCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamCount = null;
+            if (parseNode.GetChildNode("spam_percent") is null) { _explicitNullValueSpamPercent = default!; _explicitNullProperties?.Remove("spam_percent"); }
+            else if (parseNode.GetChildNode("spam_percent") is { } nullNodeSpamPercent && nullNodeSpamPercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamPercent = null;
+            if (parseNode.GetChildNode("test_id") is null) { _explicitNullValueTestId = default!; _explicitNullProperties?.Remove("test_id"); }
+            else if (parseNode.GetChildNode("test_id") is { } nullNodeTestId && nullNodeTestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category_count property</summary>
-        public double? CategoryCount { get => _explicitNullValueCategoryCount; set { _explicitNullValueCategoryCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_count"); else _explicitNullProperties?.Remove("category_count"); } }
+        public double? CategoryCount { get => _explicitNullValueCategoryCount; set { _explicitNullValueCategoryCount = value; AdditionalData?.Remove("category_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_count"); else _explicitNullProperties?.Remove("category_count"); } }
         private double? _explicitNullValueCategoryCount = default!;
         /// <summary>The category_percent property</summary>
-        public double? CategoryPercent { get => _explicitNullValueCategoryPercent; set { _explicitNullValueCategoryPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_percent"); else _explicitNullProperties?.Remove("category_percent"); } }
+        public double? CategoryPercent { get => _explicitNullValueCategoryPercent; set { _explicitNullValueCategoryPercent = value; AdditionalData?.Remove("category_percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("category_percent"); else _explicitNullProperties?.Remove("category_percent"); } }
         private double? _explicitNullValueCategoryPercent = default!;
         /// <summary>The count property</summary>
-        public double? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public double? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private double? _explicitNullValueCount = default!;
         /// <summary>The inbox_count property</summary>
-        public double? InboxCount { get => _explicitNullValueInboxCount; set { _explicitNullValueInboxCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_count"); else _explicitNullProperties?.Remove("inbox_count"); } }
+        public double? InboxCount { get => _explicitNullValueInboxCount; set { _explicitNullValueInboxCount = value; AdditionalData?.Remove("inbox_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_count"); else _explicitNullProperties?.Remove("inbox_count"); } }
         private double? _explicitNullValueInboxCount = default!;
         /// <summary>The inbox_percent property</summary>
-        public double? InboxPercent { get => _explicitNullValueInboxPercent; set { _explicitNullValueInboxPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_percent"); else _explicitNullProperties?.Remove("inbox_percent"); } }
+        public double? InboxPercent { get => _explicitNullValueInboxPercent; set { _explicitNullValueInboxPercent = value; AdditionalData?.Remove("inbox_percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_percent"); else _explicitNullProperties?.Remove("inbox_percent"); } }
         private double? _explicitNullValueInboxPercent = default!;
         /// <summary>The spam_count property</summary>
-        public double? SpamCount { get => _explicitNullValueSpamCount; set { _explicitNullValueSpamCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_count"); else _explicitNullProperties?.Remove("spam_count"); } }
+        public double? SpamCount { get => _explicitNullValueSpamCount; set { _explicitNullValueSpamCount = value; AdditionalData?.Remove("spam_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_count"); else _explicitNullProperties?.Remove("spam_count"); } }
         private double? _explicitNullValueSpamCount = default!;
         /// <summary>The spam_percent property</summary>
-        public double? SpamPercent { get => _explicitNullValueSpamPercent; set { _explicitNullValueSpamPercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_percent"); else _explicitNullProperties?.Remove("spam_percent"); } }
+        public double? SpamPercent { get => _explicitNullValueSpamPercent; set { _explicitNullValueSpamPercent = value; AdditionalData?.Remove("spam_percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_percent"); else _explicitNullProperties?.Remove("spam_percent"); } }
         private double? _explicitNullValueSpamPercent = default!;
         /// <summary>The test_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
+        public string? TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; AdditionalData?.Remove("test_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
         private string? _explicitNullValueTestId = default!;
 #nullable restore
 #else
-        public string TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
+        public string TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; AdditionalData?.Remove("test_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
         private string _explicitNullValueTestId = default!;
 #endif
         /// <summary>

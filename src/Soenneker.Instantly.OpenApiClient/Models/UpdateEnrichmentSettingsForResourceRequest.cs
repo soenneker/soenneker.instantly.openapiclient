@@ -17,21 +17,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auto_update") is { } nullNodeAutoUpdate && nullNodeAutoUpdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpdate = null;
-            if (parseNode.GetChildNode("is_evergreen") is { } nullNodeIsEvergreen && nullNodeIsEvergreen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEvergreen = null;
-            if (parseNode.GetChildNode("skip_rows_without_email") is { } nullNodeSkipRowsWithoutEmail && nullNodeSkipRowsWithoutEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipRowsWithoutEmail = null;
+            if (parseNode.GetChildNode("auto_update") is null) { _explicitNullValueAutoUpdate = default!; _explicitNullProperties?.Remove("auto_update"); }
+            else if (parseNode.GetChildNode("auto_update") is { } nullNodeAutoUpdate && nullNodeAutoUpdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpdate = null;
+            if (parseNode.GetChildNode("is_evergreen") is null) { _explicitNullValueIsEvergreen = default!; _explicitNullProperties?.Remove("is_evergreen"); }
+            else if (parseNode.GetChildNode("is_evergreen") is { } nullNodeIsEvergreen && nullNodeIsEvergreen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEvergreen = null;
+            if (parseNode.GetChildNode("skip_rows_without_email") is null) { _explicitNullValueSkipRowsWithoutEmail = default!; _explicitNullProperties?.Remove("skip_rows_without_email"); }
+            else if (parseNode.GetChildNode("skip_rows_without_email") is { } nullNodeSkipRowsWithoutEmail && nullNodeSkipRowsWithoutEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipRowsWithoutEmail = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether new leads added to the resource will be automatically enriched</summary>
-        public bool? AutoUpdate { get => _explicitNullValueAutoUpdate; set { _explicitNullValueAutoUpdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_update"); else _explicitNullProperties?.Remove("auto_update"); } }
+        public bool? AutoUpdate { get => _explicitNullValueAutoUpdate; set { _explicitNullValueAutoUpdate = value; AdditionalData?.Remove("auto_update"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_update"); else _explicitNullProperties?.Remove("auto_update"); } }
         private bool? _explicitNullValueAutoUpdate = default!;
         /// <summary>Whether the enrichment is evergreen</summary>
-        public bool? IsEvergreen { get => _explicitNullValueIsEvergreen; set { _explicitNullValueIsEvergreen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_evergreen"); else _explicitNullProperties?.Remove("is_evergreen"); } }
+        public bool? IsEvergreen { get => _explicitNullValueIsEvergreen; set { _explicitNullValueIsEvergreen = value; AdditionalData?.Remove("is_evergreen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_evergreen"); else _explicitNullProperties?.Remove("is_evergreen"); } }
         private bool? _explicitNullValueIsEvergreen = default!;
         /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
-        public bool? SkipRowsWithoutEmail { get => _explicitNullValueSkipRowsWithoutEmail; set { _explicitNullValueSkipRowsWithoutEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_rows_without_email"); else _explicitNullProperties?.Remove("skip_rows_without_email"); } }
+        public bool? SkipRowsWithoutEmail { get => _explicitNullValueSkipRowsWithoutEmail; set { _explicitNullValueSkipRowsWithoutEmail = value; AdditionalData?.Remove("skip_rows_without_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_rows_without_email"); else _explicitNullProperties?.Remove("skip_rows_without_email"); } }
         private bool? _explicitNullValueSkipRowsWithoutEmail = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateEnrichmentSettingsForResourceRequest"/> and sets the default values.

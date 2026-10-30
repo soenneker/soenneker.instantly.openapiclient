@@ -18,13 +18,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("in_schedule") is { } nullNodeInSchedule && nullNodeInSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InSchedule = null;
+            if (parseNode.GetChildNode("in_schedule") is null) { _explicitNullValueInSchedule = default!; _explicitNullProperties?.Remove("in_schedule"); }
+            else if (parseNode.GetChildNode("in_schedule") is { } nullNodeInSchedule && nullNodeInSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InSchedule = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the campaign is currently within scheduled sending hours</summary>
-        public bool? InSchedule { get => _explicitNullValueInSchedule; set { _explicitNullValueInSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_schedule"); else _explicitNullProperties?.Remove("in_schedule"); } }
+        public bool? InSchedule { get => _explicitNullValueInSchedule; set { _explicitNullValueInSchedule = value; AdditionalData?.Remove("in_schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_schedule"); else _explicitNullProperties?.Remove("in_schedule"); } }
         private bool? _explicitNullValueInSchedule = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsScheduleStatus"/> and sets the default values.

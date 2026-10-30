@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("failure_list") is { } nullNodeFailureList && nullNodeFailureList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureList = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("success_list") is { } nullNodeSuccessList && nullNodeSuccessList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessList = null;
+            if (parseNode.GetChildNode("failure_list") is null) { _explicitNullValueFailureList = default!; _explicitNullProperties?.Remove("failure_list"); }
+            else if (parseNode.GetChildNode("failure_list") is { } nullNodeFailureList && nullNodeFailureList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureList = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("success_list") is null) { _explicitNullValueSuccessList = default!; _explicitNullProperties?.Remove("success_list"); }
+            else if (parseNode.GetChildNode("success_list") is { } nullNodeSuccessList && nullNodeSuccessList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessList = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The failure_list property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>? FailureList { get => _explicitNullValueFailureList; set { _explicitNullValueFailureList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_list"); else _explicitNullProperties?.Remove("failure_list"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>? FailureList { get => _explicitNullValueFailureList; set { _explicitNullValueFailureList = value; AdditionalData?.Remove("failure_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_list"); else _explicitNullProperties?.Remove("failure_list"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>? _explicitNullValueFailureList = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem> FailureList { get => _explicitNullValueFailureList; set { _explicitNullValueFailureList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_list"); else _explicitNullProperties?.Remove("failure_list"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem> FailureList { get => _explicitNullValueFailureList; set { _explicitNullValueFailureList = value; AdditionalData?.Remove("failure_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_list"); else _explicitNullProperties?.Remove("failure_list"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem> _explicitNullValueFailureList = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The success_list property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>? SuccessList { get => _explicitNullValueSuccessList; set { _explicitNullValueSuccessList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_list"); else _explicitNullProperties?.Remove("success_list"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>? SuccessList { get => _explicitNullValueSuccessList; set { _explicitNullValueSuccessList = value; AdditionalData?.Remove("success_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_list"); else _explicitNullProperties?.Remove("success_list"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>? _explicitNullValueSuccessList = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem> SuccessList { get => _explicitNullValueSuccessList; set { _explicitNullValueSuccessList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_list"); else _explicitNullProperties?.Remove("success_list"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem> SuccessList { get => _explicitNullValueSuccessList; set { _explicitNullValueSuccessList = value; AdditionalData?.Remove("success_list"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_list"); else _explicitNullProperties?.Remove("success_list"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem> _explicitNullValueSuccessList = default!;
 #endif
         /// <summary>

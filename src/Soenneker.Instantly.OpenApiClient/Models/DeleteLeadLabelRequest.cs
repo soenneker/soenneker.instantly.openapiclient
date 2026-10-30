@@ -17,13 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reassigned_status") is { } nullNodeReassignedStatus && nullNodeReassignedStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReassignedStatus = null;
+            if (parseNode.GetChildNode("reassigned_status") is null) { _explicitNullValueReassignedStatus = default!; _explicitNullProperties?.Remove("reassigned_status"); }
+            else if (parseNode.GetChildNode("reassigned_status") is { } nullNodeReassignedStatus && nullNodeReassignedStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReassignedStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The interest status to reassign leads and emails to.</summary>
-        public double? ReassignedStatus { get => _explicitNullValueReassignedStatus; set { _explicitNullValueReassignedStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassigned_status"); else _explicitNullProperties?.Remove("reassigned_status"); } }
+        public double? ReassignedStatus { get => _explicitNullValueReassignedStatus; set { _explicitNullValueReassignedStatus = value; AdditionalData?.Remove("reassigned_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassigned_status"); else _explicitNullProperties?.Remove("reassigned_status"); } }
         private double? _explicitNullValueReassignedStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabelRequest"/> and sets the default values.

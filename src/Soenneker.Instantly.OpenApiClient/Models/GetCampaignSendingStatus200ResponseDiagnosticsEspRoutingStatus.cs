@@ -18,9 +18,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connected_esps") is { } nullNodeConnectedEsps && nullNodeConnectedEsps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedEsps = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("waiting_for_match") is { } nullNodeWaitingForMatch && nullNodeWaitingForMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitingForMatch = null;
+            if (parseNode.GetChildNode("connected_esps") is null) { _explicitNullValueConnectedEsps = default!; _explicitNullProperties?.Remove("connected_esps"); }
+            else if (parseNode.GetChildNode("connected_esps") is { } nullNodeConnectedEsps && nullNodeConnectedEsps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedEsps = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("waiting_for_match") is null) { _explicitNullValueWaitingForMatch = default!; _explicitNullProperties?.Remove("waiting_for_match"); }
+            else if (parseNode.GetChildNode("waiting_for_match") is { } nullNodeWaitingForMatch && nullNodeWaitingForMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitingForMatch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,18 +31,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of connected ESP IDs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? ConnectedEsps { get => _explicitNullValueConnectedEsps; set { _explicitNullValueConnectedEsps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_esps"); else _explicitNullProperties?.Remove("connected_esps"); } }
+        public List<double?>? ConnectedEsps { get => _explicitNullValueConnectedEsps; set { _explicitNullValueConnectedEsps = value; AdditionalData?.Remove("connected_esps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_esps"); else _explicitNullProperties?.Remove("connected_esps"); } }
         private List<double?>? _explicitNullValueConnectedEsps = default!;
 #nullable restore
 #else
-        public List<double?> ConnectedEsps { get => _explicitNullValueConnectedEsps; set { _explicitNullValueConnectedEsps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_esps"); else _explicitNullProperties?.Remove("connected_esps"); } }
+        public List<double?> ConnectedEsps { get => _explicitNullValueConnectedEsps; set { _explicitNullValueConnectedEsps = value; AdditionalData?.Remove("connected_esps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_esps"); else _explicitNullProperties?.Remove("connected_esps"); } }
         private List<double?> _explicitNullValueConnectedEsps = default!;
 #endif
         /// <summary>Whether ESP routing is enabled</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Whether waiting for an ESP-matched account</summary>
-        public bool? WaitingForMatch { get => _explicitNullValueWaitingForMatch; set { _explicitNullValueWaitingForMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waiting_for_match"); else _explicitNullProperties?.Remove("waiting_for_match"); } }
+        public bool? WaitingForMatch { get => _explicitNullValueWaitingForMatch; set { _explicitNullValueWaitingForMatch = value; AdditionalData?.Remove("waiting_for_match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("waiting_for_match"); else _explicitNullProperties?.Remove("waiting_for_match"); } }
         private bool? _explicitNullValueWaitingForMatch = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus"/> and sets the default values.

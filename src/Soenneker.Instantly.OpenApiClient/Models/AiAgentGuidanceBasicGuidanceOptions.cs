@@ -18,17 +18,19 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("length") is { } nullNodeLength && nullNodeLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Length = null;
-            if (parseNode.GetChildNode("tone") is { } nullNodeTone && nullNodeTone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tone = null;
+            if (parseNode.GetChildNode("length") is null) { _explicitNullValueLength = default!; _explicitNullProperties?.Remove("length"); }
+            else if (parseNode.GetChildNode("length") is { } nullNodeLength && nullNodeLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Length = null;
+            if (parseNode.GetChildNode("tone") is null) { _explicitNullValueTone = default!; _explicitNullProperties?.Remove("tone"); }
+            else if (parseNode.GetChildNode("tone") is { } nullNodeTone && nullNodeTone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tone = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Response length preference</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsLength? Length { get => _explicitNullValueLength; set { _explicitNullValueLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("length"); else _explicitNullProperties?.Remove("length"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsLength? Length { get => _explicitNullValueLength; set { _explicitNullValueLength = value; AdditionalData?.Remove("length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("length"); else _explicitNullProperties?.Remove("length"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsLength? _explicitNullValueLength = default!;
         /// <summary>Tone of voice for the AI agent</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsTone? Tone { get => _explicitNullValueTone; set { _explicitNullValueTone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tone"); else _explicitNullProperties?.Remove("tone"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsTone? Tone { get => _explicitNullValueTone; set { _explicitNullValueTone = value; AdditionalData?.Remove("tone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tone"); else _explicitNullProperties?.Remove("tone"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsTone? _explicitNullValueTone = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptions"/> and sets the default values.
@@ -55,8 +57,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "length", n => { Length = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsLength>(); } },
-                { "tone", n => { Tone = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsTone>(); } },
+                { "length", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsLength>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLength = default; _explicitNullProperties?.Remove("length"); AdditionalData["length"] = unknown; } else { Length = parsed; AdditionalData.Remove("length"); } } },
+                { "tone", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptionsTone>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTone = default; _explicitNullProperties?.Remove("tone"); AdditionalData["tone"] = unknown; } else { Tone = parsed; AdditionalData.Remove("tone"); } } },
             };
         }
         /// <summary>

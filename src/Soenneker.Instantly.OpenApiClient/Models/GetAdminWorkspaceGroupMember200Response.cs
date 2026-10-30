@@ -17,34 +17,37 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("has_admin_workspace") is { } nullNodeHasAdminWorkspace && nullNodeHasAdminWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasAdminWorkspace = null;
-            if (parseNode.GetChildNode("workspace_group_member_id") is { } nullNodeWorkspaceGroupMemberId && nullNodeWorkspaceGroupMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceGroupMemberId = null;
-            if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
+            if (parseNode.GetChildNode("has_admin_workspace") is null) { _explicitNullValueHasAdminWorkspace = default!; _explicitNullProperties?.Remove("has_admin_workspace"); }
+            else if (parseNode.GetChildNode("has_admin_workspace") is { } nullNodeHasAdminWorkspace && nullNodeHasAdminWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasAdminWorkspace = null;
+            if (parseNode.GetChildNode("workspace_group_member_id") is null) { _explicitNullValueWorkspaceGroupMemberId = default!; _explicitNullProperties?.Remove("workspace_group_member_id"); }
+            else if (parseNode.GetChildNode("workspace_group_member_id") is { } nullNodeWorkspaceGroupMemberId && nullNodeWorkspaceGroupMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceGroupMemberId = null;
+            if (parseNode.GetChildNode("workspace_name") is null) { _explicitNullValueWorkspaceName = default!; _explicitNullProperties?.Remove("workspace_name"); }
+            else if (parseNode.GetChildNode("workspace_name") is { } nullNodeWorkspaceName && nullNodeWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the current workspace has an admin workspace</summary>
-        public bool? HasAdminWorkspace { get => _explicitNullValueHasAdminWorkspace; set { _explicitNullValueHasAdminWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_admin_workspace"); else _explicitNullProperties?.Remove("has_admin_workspace"); } }
+        public bool? HasAdminWorkspace { get => _explicitNullValueHasAdminWorkspace; set { _explicitNullValueHasAdminWorkspace = value; AdditionalData?.Remove("has_admin_workspace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_admin_workspace"); else _explicitNullProperties?.Remove("has_admin_workspace"); } }
         private bool? _explicitNullValueHasAdminWorkspace = default!;
         /// <summary>The id of the workspace group member. You can use it to leave the admin workspace by calling the DELETE /workspace-group-members/:id endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceGroupMemberId { get => _explicitNullValueWorkspaceGroupMemberId; set { _explicitNullValueWorkspaceGroupMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_group_member_id"); else _explicitNullProperties?.Remove("workspace_group_member_id"); } }
+        public string? WorkspaceGroupMemberId { get => _explicitNullValueWorkspaceGroupMemberId; set { _explicitNullValueWorkspaceGroupMemberId = value; AdditionalData?.Remove("workspace_group_member_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_group_member_id"); else _explicitNullProperties?.Remove("workspace_group_member_id"); } }
         private string? _explicitNullValueWorkspaceGroupMemberId = default!;
 #nullable restore
 #else
-        public string WorkspaceGroupMemberId { get => _explicitNullValueWorkspaceGroupMemberId; set { _explicitNullValueWorkspaceGroupMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_group_member_id"); else _explicitNullProperties?.Remove("workspace_group_member_id"); } }
+        public string WorkspaceGroupMemberId { get => _explicitNullValueWorkspaceGroupMemberId; set { _explicitNullValueWorkspaceGroupMemberId = value; AdditionalData?.Remove("workspace_group_member_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_group_member_id"); else _explicitNullProperties?.Remove("workspace_group_member_id"); } }
         private string _explicitNullValueWorkspaceGroupMemberId = default!;
 #endif
         /// <summary>The workspace name of the admin workspace. When the current workspace has no admin workspace, the workspace name will be &quot;Undefined&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string? WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string? _explicitNullValueWorkspaceName = default!;
 #nullable restore
 #else
-        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
+        public string WorkspaceName { get => _explicitNullValueWorkspaceName; set { _explicitNullValueWorkspaceName = value; AdditionalData?.Remove("workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_name"); else _explicitNullProperties?.Remove("workspace_name"); } }
         private string _explicitNullValueWorkspaceName = default!;
 #endif
         /// <summary>

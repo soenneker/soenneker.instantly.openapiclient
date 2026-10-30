@@ -18,28 +18,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("fallback_sending_accounts") is { } nullNodeFallbackSendingAccounts && nullNodeFallbackSendingAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackSendingAccounts = null;
-            if (parseNode.GetChildNode("max_followups") is { } nullNodeMaxFollowups && nullNodeMaxFollowups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFollowups = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("fallback_sending_accounts") is null) { _explicitNullValueFallbackSendingAccounts = default!; _explicitNullProperties?.Remove("fallback_sending_accounts"); }
+            else if (parseNode.GetChildNode("fallback_sending_accounts") is { } nullNodeFallbackSendingAccounts && nullNodeFallbackSendingAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackSendingAccounts = null;
+            if (parseNode.GetChildNode("max_followups") is null) { _explicitNullValueMaxFollowups = default!; _explicitNullProperties?.Remove("max_followups"); }
+            else if (parseNode.GetChildNode("max_followups") is { } nullNodeMaxFollowups && nullNodeMaxFollowups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFollowups = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable no-show recovery mode</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>The fallback_sending_accounts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShowFallbackSendingAccounts? FallbackSendingAccounts { get => _explicitNullValueFallbackSendingAccounts; set { _explicitNullValueFallbackSendingAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_sending_accounts"); else _explicitNullProperties?.Remove("fallback_sending_accounts"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShowFallbackSendingAccounts? FallbackSendingAccounts { get => _explicitNullValueFallbackSendingAccounts; set { _explicitNullValueFallbackSendingAccounts = value; AdditionalData?.Remove("fallback_sending_accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_sending_accounts"); else _explicitNullProperties?.Remove("fallback_sending_accounts"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShowFallbackSendingAccounts? _explicitNullValueFallbackSendingAccounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShowFallbackSendingAccounts FallbackSendingAccounts { get => _explicitNullValueFallbackSendingAccounts; set { _explicitNullValueFallbackSendingAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_sending_accounts"); else _explicitNullProperties?.Remove("fallback_sending_accounts"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShowFallbackSendingAccounts FallbackSendingAccounts { get => _explicitNullValueFallbackSendingAccounts; set { _explicitNullValueFallbackSendingAccounts = value; AdditionalData?.Remove("fallback_sending_accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_sending_accounts"); else _explicitNullProperties?.Remove("fallback_sending_accounts"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShowFallbackSendingAccounts _explicitNullValueFallbackSendingAccounts = default!;
 #endif
         /// <summary>Maximum number of no-show follow-up emails (1-10)</summary>
-        public double? MaxFollowups { get => _explicitNullValueMaxFollowups; set { _explicitNullValueMaxFollowups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_followups"); else _explicitNullProperties?.Remove("max_followups"); } }
+        public double? MaxFollowups { get => _explicitNullValueMaxFollowups; set { _explicitNullValueMaxFollowups = value; AdditionalData?.Remove("max_followups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_followups"); else _explicitNullProperties?.Remove("max_followups"); } }
         private double? _explicitNullValueMaxFollowups = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadNoShow"/> and sets the default values.

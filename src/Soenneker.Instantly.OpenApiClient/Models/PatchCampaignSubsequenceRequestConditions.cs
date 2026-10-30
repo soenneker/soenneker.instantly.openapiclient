@@ -18,9 +18,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("crm_status") is { } nullNodeCrmStatus && nullNodeCrmStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmStatus = null;
-            if (parseNode.GetChildNode("lead_activity") is { } nullNodeLeadActivity && nullNodeLeadActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadActivity = null;
-            if (parseNode.GetChildNode("reply_contains") is { } nullNodeReplyContains && nullNodeReplyContains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyContains = null;
+            if (parseNode.GetChildNode("crm_status") is null) { _explicitNullValueCrmStatus = default!; _explicitNullProperties?.Remove("crm_status"); }
+            else if (parseNode.GetChildNode("crm_status") is { } nullNodeCrmStatus && nullNodeCrmStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmStatus = null;
+            if (parseNode.GetChildNode("lead_activity") is null) { _explicitNullValueLeadActivity = default!; _explicitNullProperties?.Remove("lead_activity"); }
+            else if (parseNode.GetChildNode("lead_activity") is { } nullNodeLeadActivity && nullNodeLeadActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadActivity = null;
+            if (parseNode.GetChildNode("reply_contains") is null) { _explicitNullValueReplyContains = default!; _explicitNullProperties?.Remove("reply_contains"); }
+            else if (parseNode.GetChildNode("reply_contains") is { } nullNodeReplyContains && nullNodeReplyContains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyContains = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? CrmStatus { get => _explicitNullValueCrmStatus; set { _explicitNullValueCrmStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm_status"); else _explicitNullProperties?.Remove("crm_status"); } }
+        public List<double?>? CrmStatus { get => _explicitNullValueCrmStatus; set { _explicitNullValueCrmStatus = value; AdditionalData?.Remove("crm_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm_status"); else _explicitNullProperties?.Remove("crm_status"); } }
         private List<double?>? _explicitNullValueCrmStatus = default!;
 #nullable restore
 #else
-        public List<double?> CrmStatus { get => _explicitNullValueCrmStatus; set { _explicitNullValueCrmStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm_status"); else _explicitNullProperties?.Remove("crm_status"); } }
+        public List<double?> CrmStatus { get => _explicitNullValueCrmStatus; set { _explicitNullValueCrmStatus = value; AdditionalData?.Remove("crm_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm_status"); else _explicitNullProperties?.Remove("crm_status"); } }
         private List<double?> _explicitNullValueCrmStatus = default!;
 #endif
         /// <summary>Lead activities that trigger the subsequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? LeadActivity { get => _explicitNullValueLeadActivity; set { _explicitNullValueLeadActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_activity"); else _explicitNullProperties?.Remove("lead_activity"); } }
+        public List<double?>? LeadActivity { get => _explicitNullValueLeadActivity; set { _explicitNullValueLeadActivity = value; AdditionalData?.Remove("lead_activity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_activity"); else _explicitNullProperties?.Remove("lead_activity"); } }
         private List<double?>? _explicitNullValueLeadActivity = default!;
 #nullable restore
 #else
-        public List<double?> LeadActivity { get => _explicitNullValueLeadActivity; set { _explicitNullValueLeadActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_activity"); else _explicitNullProperties?.Remove("lead_activity"); } }
+        public List<double?> LeadActivity { get => _explicitNullValueLeadActivity; set { _explicitNullValueLeadActivity = value; AdditionalData?.Remove("lead_activity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_activity"); else _explicitNullProperties?.Remove("lead_activity"); } }
         private List<double?> _explicitNullValueLeadActivity = default!;
 #endif
         /// <summary>The reply_contains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReplyContains { get => _explicitNullValueReplyContains; set { _explicitNullValueReplyContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_contains"); else _explicitNullProperties?.Remove("reply_contains"); } }
+        public string? ReplyContains { get => _explicitNullValueReplyContains; set { _explicitNullValueReplyContains = value; AdditionalData?.Remove("reply_contains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_contains"); else _explicitNullProperties?.Remove("reply_contains"); } }
         private string? _explicitNullValueReplyContains = default!;
 #nullable restore
 #else
-        public string ReplyContains { get => _explicitNullValueReplyContains; set { _explicitNullValueReplyContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_contains"); else _explicitNullProperties?.Remove("reply_contains"); } }
+        public string ReplyContains { get => _explicitNullValueReplyContains; set { _explicitNullValueReplyContains = value; AdditionalData?.Remove("reply_contains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_contains"); else _explicitNullProperties?.Remove("reply_contains"); } }
         private string _explicitNullValueReplyContains = default!;
 #endif
         /// <summary>

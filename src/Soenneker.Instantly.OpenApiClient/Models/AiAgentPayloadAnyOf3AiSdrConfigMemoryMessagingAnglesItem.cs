@@ -17,11 +17,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("angle") is { } nullNodeAngle && nullNodeAngle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Angle = null;
-            if (parseNode.GetChildNode("applicability") is { } nullNodeApplicability && nullNodeApplicability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applicability = null;
-            if (parseNode.GetChildNode("audience") is { } nullNodeAudience && nullNodeAudience.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audience = null;
-            if (parseNode.GetChildNode("cta") is { } nullNodeCta && nullNodeCta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cta = null;
-            if (parseNode.GetChildNode("evidence_ids") is { } nullNodeEvidenceIds && nullNodeEvidenceIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvidenceIds = null;
+            if (parseNode.GetChildNode("angle") is null) { _explicitNullValueAngle = default!; _explicitNullProperties?.Remove("angle"); }
+            else if (parseNode.GetChildNode("angle") is { } nullNodeAngle && nullNodeAngle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Angle = null;
+            if (parseNode.GetChildNode("applicability") is null) { _explicitNullValueApplicability = default!; _explicitNullProperties?.Remove("applicability"); }
+            else if (parseNode.GetChildNode("applicability") is { } nullNodeApplicability && nullNodeApplicability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applicability = null;
+            if (parseNode.GetChildNode("audience") is null) { _explicitNullValueAudience = default!; _explicitNullProperties?.Remove("audience"); }
+            else if (parseNode.GetChildNode("audience") is { } nullNodeAudience && nullNodeAudience.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audience = null;
+            if (parseNode.GetChildNode("cta") is null) { _explicitNullValueCta = default!; _explicitNullProperties?.Remove("cta"); }
+            else if (parseNode.GetChildNode("cta") is { } nullNodeCta && nullNodeCta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cta = null;
+            if (parseNode.GetChildNode("evidence_ids") is null) { _explicitNullValueEvidenceIds = default!; _explicitNullProperties?.Remove("evidence_ids"); }
+            else if (parseNode.GetChildNode("evidence_ids") is { } nullNodeEvidenceIds && nullNodeEvidenceIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvidenceIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The angle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Angle { get => _explicitNullValueAngle; set { _explicitNullValueAngle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("angle"); else _explicitNullProperties?.Remove("angle"); } }
+        public string? Angle { get => _explicitNullValueAngle; set { _explicitNullValueAngle = value; AdditionalData?.Remove("angle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("angle"); else _explicitNullProperties?.Remove("angle"); } }
         private string? _explicitNullValueAngle = default!;
 #nullable restore
 #else
-        public string Angle { get => _explicitNullValueAngle; set { _explicitNullValueAngle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("angle"); else _explicitNullProperties?.Remove("angle"); } }
+        public string Angle { get => _explicitNullValueAngle; set { _explicitNullValueAngle = value; AdditionalData?.Remove("angle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("angle"); else _explicitNullProperties?.Remove("angle"); } }
         private string _explicitNullValueAngle = default!;
 #endif
         /// <summary>The applicability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Applicability { get => _explicitNullValueApplicability; set { _explicitNullValueApplicability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicability"); else _explicitNullProperties?.Remove("applicability"); } }
+        public string? Applicability { get => _explicitNullValueApplicability; set { _explicitNullValueApplicability = value; AdditionalData?.Remove("applicability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicability"); else _explicitNullProperties?.Remove("applicability"); } }
         private string? _explicitNullValueApplicability = default!;
 #nullable restore
 #else
-        public string Applicability { get => _explicitNullValueApplicability; set { _explicitNullValueApplicability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicability"); else _explicitNullProperties?.Remove("applicability"); } }
+        public string Applicability { get => _explicitNullValueApplicability; set { _explicitNullValueApplicability = value; AdditionalData?.Remove("applicability"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicability"); else _explicitNullProperties?.Remove("applicability"); } }
         private string _explicitNullValueApplicability = default!;
 #endif
         /// <summary>The audience property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
+        public string? Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; AdditionalData?.Remove("audience"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
         private string? _explicitNullValueAudience = default!;
 #nullable restore
 #else
-        public string Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
+        public string Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; AdditionalData?.Remove("audience"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
         private string _explicitNullValueAudience = default!;
 #endif
         /// <summary>The cta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cta { get => _explicitNullValueCta; set { _explicitNullValueCta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cta"); else _explicitNullProperties?.Remove("cta"); } }
+        public string? Cta { get => _explicitNullValueCta; set { _explicitNullValueCta = value; AdditionalData?.Remove("cta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cta"); else _explicitNullProperties?.Remove("cta"); } }
         private string? _explicitNullValueCta = default!;
 #nullable restore
 #else
-        public string Cta { get => _explicitNullValueCta; set { _explicitNullValueCta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cta"); else _explicitNullProperties?.Remove("cta"); } }
+        public string Cta { get => _explicitNullValueCta; set { _explicitNullValueCta = value; AdditionalData?.Remove("cta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cta"); else _explicitNullProperties?.Remove("cta"); } }
         private string _explicitNullValueCta = default!;
 #endif
         /// <summary>The evidence_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EvidenceIds { get => _explicitNullValueEvidenceIds; set { _explicitNullValueEvidenceIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_ids"); else _explicitNullProperties?.Remove("evidence_ids"); } }
+        public List<string>? EvidenceIds { get => _explicitNullValueEvidenceIds; set { _explicitNullValueEvidenceIds = value; AdditionalData?.Remove("evidence_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_ids"); else _explicitNullProperties?.Remove("evidence_ids"); } }
         private List<string>? _explicitNullValueEvidenceIds = default!;
 #nullable restore
 #else
-        public List<string> EvidenceIds { get => _explicitNullValueEvidenceIds; set { _explicitNullValueEvidenceIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_ids"); else _explicitNullProperties?.Remove("evidence_ids"); } }
+        public List<string> EvidenceIds { get => _explicitNullValueEvidenceIds; set { _explicitNullValueEvidenceIds = value; AdditionalData?.Remove("evidence_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evidence_ids"); else _explicitNullProperties?.Remove("evidence_ids"); } }
         private List<string> _explicitNullValueEvidenceIds = default!;
 #endif
         /// <summary>

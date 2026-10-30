@@ -17,9 +17,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("lead-status") is { } nullNodeLeadStatus && nullNodeLeadStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadStatus = null;
-            if (parseNode.GetChildNode("occurrence-count") is { } nullNodeOccurrenceCount && nullNodeOccurrenceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OccurrenceCount = null;
-            if (parseNode.GetChildNode("occurrence-days") is { } nullNodeOccurrenceDays && nullNodeOccurrenceDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OccurrenceDays = null;
+            if (parseNode.GetChildNode("lead-status") is null) { _explicitNullValueLeadStatus = default!; _explicitNullProperties?.Remove("lead-status"); }
+            else if (parseNode.GetChildNode("lead-status") is { } nullNodeLeadStatus && nullNodeLeadStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadStatus = null;
+            if (parseNode.GetChildNode("occurrence-count") is null) { _explicitNullValueOccurrenceCount = default!; _explicitNullProperties?.Remove("occurrence-count"); }
+            else if (parseNode.GetChildNode("occurrence-count") is { } nullNodeOccurrenceCount && nullNodeOccurrenceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OccurrenceCount = null;
+            if (parseNode.GetChildNode("occurrence-days") is null) { _explicitNullValueOccurrenceDays = default!; _explicitNullProperties?.Remove("occurrence-days"); }
+            else if (parseNode.GetChildNode("occurrence-days") is { } nullNodeOccurrenceDays && nullNodeOccurrenceDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OccurrenceDays = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The leadStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesLeadStatus? LeadStatus { get => _explicitNullValueLeadStatus; set { _explicitNullValueLeadStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead-status"); else _explicitNullProperties?.Remove("lead-status"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesLeadStatus? LeadStatus { get => _explicitNullValueLeadStatus; set { _explicitNullValueLeadStatus = value; AdditionalData?.Remove("lead-status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead-status"); else _explicitNullProperties?.Remove("lead-status"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesLeadStatus? _explicitNullValueLeadStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesLeadStatus LeadStatus { get => _explicitNullValueLeadStatus; set { _explicitNullValueLeadStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead-status"); else _explicitNullProperties?.Remove("lead-status"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesLeadStatus LeadStatus { get => _explicitNullValueLeadStatus; set { _explicitNullValueLeadStatus = value; AdditionalData?.Remove("lead-status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead-status"); else _explicitNullProperties?.Remove("lead-status"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesLeadStatus _explicitNullValueLeadStatus = default!;
 #endif
         /// <summary>The occurrenceCount property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesOccurrenceCount? OccurrenceCount { get => _explicitNullValueOccurrenceCount; set { _explicitNullValueOccurrenceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-count"); else _explicitNullProperties?.Remove("occurrence-count"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesOccurrenceCount? OccurrenceCount { get => _explicitNullValueOccurrenceCount; set { _explicitNullValueOccurrenceCount = value; AdditionalData?.Remove("occurrence-count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-count"); else _explicitNullProperties?.Remove("occurrence-count"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesOccurrenceCount? _explicitNullValueOccurrenceCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesOccurrenceCount OccurrenceCount { get => _explicitNullValueOccurrenceCount; set { _explicitNullValueOccurrenceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-count"); else _explicitNullProperties?.Remove("occurrence-count"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesOccurrenceCount OccurrenceCount { get => _explicitNullValueOccurrenceCount; set { _explicitNullValueOccurrenceCount = value; AdditionalData?.Remove("occurrence-count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-count"); else _explicitNullProperties?.Remove("occurrence-count"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValuesOccurrenceCount _explicitNullValueOccurrenceCount = default!;
 #endif
         /// <summary>The occurrenceDays property</summary>
-        public double? OccurrenceDays { get => _explicitNullValueOccurrenceDays; set { _explicitNullValueOccurrenceDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-days"); else _explicitNullProperties?.Remove("occurrence-days"); } }
+        public double? OccurrenceDays { get => _explicitNullValueOccurrenceDays; set { _explicitNullValueOccurrenceDays = value; AdditionalData?.Remove("occurrence-days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-days"); else _explicitNullProperties?.Remove("occurrence-days"); } }
         private double? _explicitNullValueOccurrenceDays = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeadsRequestQueriesItemValues"/> and sets the default values.

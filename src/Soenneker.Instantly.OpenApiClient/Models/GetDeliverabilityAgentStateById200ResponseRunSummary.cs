@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("latest") is { } nullNodeLatest && nullNodeLatest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Latest = null;
-            if (parseNode.GetChildNode("trend") is { } nullNodeTrend && nullNodeTrend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trend = null;
+            if (parseNode.GetChildNode("latest") is null) { _explicitNullValueLatest = default!; _explicitNullProperties?.Remove("latest"); }
+            else if (parseNode.GetChildNode("latest") is { } nullNodeLatest && nullNodeLatest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Latest = null;
+            if (parseNode.GetChildNode("trend") is null) { _explicitNullValueTrend = default!; _explicitNullProperties?.Remove("trend"); }
+            else if (parseNode.GetChildNode("trend") is { } nullNodeTrend && nullNodeTrend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trend = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The latest property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryLatest? Latest { get => _explicitNullValueLatest; set { _explicitNullValueLatest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest"); else _explicitNullProperties?.Remove("latest"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryLatest? Latest { get => _explicitNullValueLatest; set { _explicitNullValueLatest = value; AdditionalData?.Remove("latest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest"); else _explicitNullProperties?.Remove("latest"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryLatest? _explicitNullValueLatest = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryLatest Latest { get => _explicitNullValueLatest; set { _explicitNullValueLatest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest"); else _explicitNullProperties?.Remove("latest"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryLatest Latest { get => _explicitNullValueLatest; set { _explicitNullValueLatest = value; AdditionalData?.Remove("latest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latest"); else _explicitNullProperties?.Remove("latest"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryLatest _explicitNullValueLatest = default!;
 #endif
         /// <summary>The trend property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryTrendItem>? Trend { get => _explicitNullValueTrend; set { _explicitNullValueTrend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trend"); else _explicitNullProperties?.Remove("trend"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryTrendItem>? Trend { get => _explicitNullValueTrend; set { _explicitNullValueTrend = value; AdditionalData?.Remove("trend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trend"); else _explicitNullProperties?.Remove("trend"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryTrendItem>? _explicitNullValueTrend = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryTrendItem> Trend { get => _explicitNullValueTrend; set { _explicitNullValueTrend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trend"); else _explicitNullProperties?.Remove("trend"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryTrendItem> Trend { get => _explicitNullValueTrend; set { _explicitNullValueTrend = value; AdditionalData?.Remove("trend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trend"); else _explicitNullProperties?.Remove("trend"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseRunSummaryTrendItem> _explicitNullValueTrend = default!;
 #endif
         /// <summary>

@@ -18,27 +18,30 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available") is { } nullNodeAvailable && nullNodeAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Available = null;
-            if (parseNode.GetChildNode("total_connected") is { } nullNodeTotalConnected && nullNodeTotalConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalConnected = null;
-            if (parseNode.GetChildNode("unavailable") is { } nullNodeUnavailable && nullNodeUnavailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Unavailable = null;
+            if (parseNode.GetChildNode("available") is null) { _explicitNullValueAvailable = default!; _explicitNullProperties?.Remove("available"); }
+            else if (parseNode.GetChildNode("available") is { } nullNodeAvailable && nullNodeAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Available = null;
+            if (parseNode.GetChildNode("total_connected") is null) { _explicitNullValueTotalConnected = default!; _explicitNullProperties?.Remove("total_connected"); }
+            else if (parseNode.GetChildNode("total_connected") is { } nullNodeTotalConnected && nullNodeTotalConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalConnected = null;
+            if (parseNode.GetChildNode("unavailable") is null) { _explicitNullValueUnavailable = default!; _explicitNullProperties?.Remove("unavailable"); }
+            else if (parseNode.GetChildNode("unavailable") is { } nullNodeUnavailable && nullNodeUnavailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Unavailable = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of accounts available to send</summary>
-        public double? Available { get => _explicitNullValueAvailable; set { _explicitNullValueAvailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available"); else _explicitNullProperties?.Remove("available"); } }
+        public double? Available { get => _explicitNullValueAvailable; set { _explicitNullValueAvailable = value; AdditionalData?.Remove("available"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available"); else _explicitNullProperties?.Remove("available"); } }
         private double? _explicitNullValueAvailable = default!;
         /// <summary>Total number of connected sending accounts</summary>
-        public double? TotalConnected { get => _explicitNullValueTotalConnected; set { _explicitNullValueTotalConnected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_connected"); else _explicitNullProperties?.Remove("total_connected"); } }
+        public double? TotalConnected { get => _explicitNullValueTotalConnected; set { _explicitNullValueTotalConnected = value; AdditionalData?.Remove("total_connected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_connected"); else _explicitNullProperties?.Remove("total_connected"); } }
         private double? _explicitNullValueTotalConnected = default!;
         /// <summary>Breakdown of unavailable accounts by reason</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable? Unavailable { get => _explicitNullValueUnavailable; set { _explicitNullValueUnavailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable"); else _explicitNullProperties?.Remove("unavailable"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable? Unavailable { get => _explicitNullValueUnavailable; set { _explicitNullValueUnavailable = value; AdditionalData?.Remove("unavailable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable"); else _explicitNullProperties?.Remove("unavailable"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable? _explicitNullValueUnavailable = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable Unavailable { get => _explicitNullValueUnavailable; set { _explicitNullValueUnavailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable"); else _explicitNullProperties?.Remove("unavailable"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable Unavailable { get => _explicitNullValueUnavailable; set { _explicitNullValueUnavailable = value; AdditionalData?.Remove("unavailable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable"); else _explicitNullProperties?.Remove("unavailable"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable _explicitNullValueUnavailable = default!;
 #endif
         /// <summary>

@@ -17,8 +17,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
-            if (parseNode.GetChildNode("domains_with_type") is { } nullNodeDomainsWithType && nullNodeDomainsWithType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainsWithType = null;
+            if (parseNode.GetChildNode("domains") is null) { _explicitNullValueDomains = default!; _explicitNullProperties?.Remove("domains"); }
+            else if (parseNode.GetChildNode("domains") is { } nullNodeDomains && nullNodeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domains = null;
+            if (parseNode.GetChildNode("domains_with_type") is null) { _explicitNullValueDomainsWithType = default!; _explicitNullProperties?.Remove("domains_with_type"); }
+            else if (parseNode.GetChildNode("domains_with_type") is { } nullNodeDomainsWithType && nullNodeDomainsWithType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainsWithType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>List of pre-warmed up domains available for order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        public List<string>? Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; AdditionalData?.Remove("domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
         private List<string>? _explicitNullValueDomains = default!;
 #nullable restore
 #else
-        public List<string> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
+        public List<string> Domains { get => _explicitNullValueDomains; set { _explicitNullValueDomains = value; AdditionalData?.Remove("domains"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains"); else _explicitNullProperties?.Remove("domains"); } }
         private List<string> _explicitNullValueDomains = default!;
 #endif
         /// <summary>Pre-warmed up domains annotated with their underlying email provider</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200ResponseDomainsWithTypeItem>? DomainsWithType { get => _explicitNullValueDomainsWithType; set { _explicitNullValueDomainsWithType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains_with_type"); else _explicitNullProperties?.Remove("domains_with_type"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200ResponseDomainsWithTypeItem>? DomainsWithType { get => _explicitNullValueDomainsWithType; set { _explicitNullValueDomainsWithType = value; AdditionalData?.Remove("domains_with_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains_with_type"); else _explicitNullProperties?.Remove("domains_with_type"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200ResponseDomainsWithTypeItem>? _explicitNullValueDomainsWithType = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200ResponseDomainsWithTypeItem> DomainsWithType { get => _explicitNullValueDomainsWithType; set { _explicitNullValueDomainsWithType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains_with_type"); else _explicitNullProperties?.Remove("domains_with_type"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200ResponseDomainsWithTypeItem> DomainsWithType { get => _explicitNullValueDomainsWithType; set { _explicitNullValueDomainsWithType = value; AdditionalData?.Remove("domains_with_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains_with_type"); else _explicitNullProperties?.Remove("domains_with_type"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PreWarmedUpDomainsList200ResponseDomainsWithTypeItem> _explicitNullValueDomainsWithType = default!;
 #endif
         /// <summary>

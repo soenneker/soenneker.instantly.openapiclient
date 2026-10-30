@@ -17,10 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
-            if (parseNode.GetChildNode("already_deployed") is { } nullNodeAlreadyDeployed && nullNodeAlreadyDeployed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlreadyDeployed = null;
-            if (parseNode.GetChildNode("initial_cycle_enqueued") is { } nullNodeInitialCycleEnqueued && nullNodeInitialCycleEnqueued.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialCycleEnqueued = null;
-            if (parseNode.GetChildNode("promo_credits_granted") is { } nullNodePromoCreditsGranted && nullNodePromoCreditsGranted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromoCreditsGranted = null;
+            if (parseNode.GetChildNode("agent") is null) { _explicitNullValueAgent = default!; _explicitNullProperties?.Remove("agent"); }
+            else if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("already_deployed") is null) { _explicitNullValueAlreadyDeployed = default!; _explicitNullProperties?.Remove("already_deployed"); }
+            else if (parseNode.GetChildNode("already_deployed") is { } nullNodeAlreadyDeployed && nullNodeAlreadyDeployed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlreadyDeployed = null;
+            if (parseNode.GetChildNode("initial_cycle_enqueued") is null) { _explicitNullValueInitialCycleEnqueued = default!; _explicitNullProperties?.Remove("initial_cycle_enqueued"); }
+            else if (parseNode.GetChildNode("initial_cycle_enqueued") is { } nullNodeInitialCycleEnqueued && nullNodeInitialCycleEnqueued.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialCycleEnqueued = null;
+            if (parseNode.GetChildNode("promo_credits_granted") is null) { _explicitNullValuePromoCreditsGranted = default!; _explicitNullProperties?.Remove("promo_credits_granted"); }
+            else if (parseNode.GetChildNode("promo_credits_granted") is { } nullNodePromoCreditsGranted && nullNodePromoCreditsGranted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromoCreditsGranted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,21 +32,21 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>An AI agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>Whether the workspace already had an active Deliverability Agent.</summary>
-        public bool? AlreadyDeployed { get => _explicitNullValueAlreadyDeployed; set { _explicitNullValueAlreadyDeployed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_deployed"); else _explicitNullProperties?.Remove("already_deployed"); } }
+        public bool? AlreadyDeployed { get => _explicitNullValueAlreadyDeployed; set { _explicitNullValueAlreadyDeployed = value; AdditionalData?.Remove("already_deployed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_deployed"); else _explicitNullProperties?.Remove("already_deployed"); } }
         private bool? _explicitNullValueAlreadyDeployed = default!;
         /// <summary>Whether an immediate initial Deliverability Agent cycle was successfully scheduled.</summary>
-        public bool? InitialCycleEnqueued { get => _explicitNullValueInitialCycleEnqueued; set { _explicitNullValueInitialCycleEnqueued = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_cycle_enqueued"); else _explicitNullProperties?.Remove("initial_cycle_enqueued"); } }
+        public bool? InitialCycleEnqueued { get => _explicitNullValueInitialCycleEnqueued; set { _explicitNullValueInitialCycleEnqueued = value; AdditionalData?.Remove("initial_cycle_enqueued"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_cycle_enqueued"); else _explicitNullProperties?.Remove("initial_cycle_enqueued"); } }
         private bool? _explicitNullValueInitialCycleEnqueued = default!;
         /// <summary>Instantly credits granted by an active limited-time promotion, if any.</summary>
-        public double? PromoCreditsGranted { get => _explicitNullValuePromoCreditsGranted; set { _explicitNullValuePromoCreditsGranted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("promo_credits_granted"); else _explicitNullProperties?.Remove("promo_credits_granted"); } }
+        public double? PromoCreditsGranted { get => _explicitNullValuePromoCreditsGranted; set { _explicitNullValuePromoCreditsGranted = value; AdditionalData?.Remove("promo_credits_granted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("promo_credits_granted"); else _explicitNullProperties?.Remove("promo_credits_granted"); } }
         private double? _explicitNullValuePromoCreditsGranted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeployDeliverabilityAgent200Response"/> and sets the default values.
