@@ -12,51 +12,85 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BulkAddLeads200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blocklist_used") is { } nullNodeBlocklistUsed && nullNodeBlocklistUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlocklistUsed = null;
+            if (parseNode.GetChildNode("created_leads") is { } nullNodeCreatedLeads && nullNodeCreatedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedLeads = null;
+            if (parseNode.GetChildNode("duplicated_leads") is { } nullNodeDuplicatedLeads && nullNodeDuplicatedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DuplicatedLeads = null;
+            if (parseNode.GetChildNode("duplicate_email_count") is { } nullNodeDuplicateEmailCount && nullNodeDuplicateEmailCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DuplicateEmailCount = null;
+            if (parseNode.GetChildNode("in_blocklist") is { } nullNodeInBlocklist && nullNodeInBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InBlocklist = null;
+            if (parseNode.GetChildNode("incomplete_count") is { } nullNodeIncompleteCount && nullNodeIncompleteCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncompleteCount = null;
+            if (parseNode.GetChildNode("invalid_email_count") is { } nullNodeInvalidEmailCount && nullNodeInvalidEmailCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidEmailCount = null;
+            if (parseNode.GetChildNode("leads_uploaded") is { } nullNodeLeadsUploaded && nullNodeLeadsUploaded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsUploaded = null;
+            if (parseNode.GetChildNode("remaining_in_plan") is { } nullNodeRemainingInPlan && nullNodeRemainingInPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemainingInPlan = null;
+            if (parseNode.GetChildNode("skipped_count") is { } nullNodeSkippedCount && nullNodeSkippedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedCount = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("total_sent") is { } nullNodeTotalSent && nullNodeTotalSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSent = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the blocklist that was used for the check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlocklistUsed { get; set; }
+        public string? BlocklistUsed { get => _explicitNullValueBlocklistUsed; set { _explicitNullValueBlocklistUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist_used"); else _explicitNullProperties?.Remove("blocklist_used"); } }
+        private string? _explicitNullValueBlocklistUsed = default!;
 #nullable restore
 #else
-        public string BlocklistUsed { get; set; }
+        public string BlocklistUsed { get => _explicitNullValueBlocklistUsed; set { _explicitNullValueBlocklistUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist_used"); else _explicitNullProperties?.Remove("blocklist_used"); } }
+        private string _explicitNullValueBlocklistUsed = default!;
 #endif
         /// <summary>A list of created leads with their summary information. You can use this to map your input to the created leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem>? CreatedLeads { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem>? CreatedLeads { get => _explicitNullValueCreatedLeads; set { _explicitNullValueCreatedLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_leads"); else _explicitNullProperties?.Remove("created_leads"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem>? _explicitNullValueCreatedLeads = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem> CreatedLeads { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem> CreatedLeads { get => _explicitNullValueCreatedLeads; set { _explicitNullValueCreatedLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_leads"); else _explicitNullProperties?.Remove("created_leads"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem> _explicitNullValueCreatedLeads = default!;
 #endif
         /// <summary>The number of leads that were already in this specific campaign or list and were not re-added.</summary>
-        public int? DuplicatedLeads { get; set; }
+        public int? DuplicatedLeads { get => _explicitNullValueDuplicatedLeads; set { _explicitNullValueDuplicatedLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duplicated_leads"); else _explicitNullProperties?.Remove("duplicated_leads"); } }
+        private int? _explicitNullValueDuplicatedLeads = default!;
         /// <summary>The number of leads skipped because their email was duplicated within the request payload itself.</summary>
-        public int? DuplicateEmailCount { get; set; }
+        public int? DuplicateEmailCount { get => _explicitNullValueDuplicateEmailCount; set { _explicitNullValueDuplicateEmailCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duplicate_email_count"); else _explicitNullProperties?.Remove("duplicate_email_count"); } }
+        private int? _explicitNullValueDuplicateEmailCount = default!;
         /// <summary>The number of leads that were skipped because their email was found on the blocklist.</summary>
-        public int? InBlocklist { get; set; }
+        public int? InBlocklist { get => _explicitNullValueInBlocklist; set { _explicitNullValueInBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_blocklist"); else _explicitNullProperties?.Remove("in_blocklist"); } }
+        private int? _explicitNullValueInBlocklist = default!;
         /// <summary>The number of leads skipped due to missing email and names. Only calculated for lists.</summary>
-        public int? IncompleteCount { get; set; }
+        public int? IncompleteCount { get => _explicitNullValueIncompleteCount; set { _explicitNullValueIncompleteCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incomplete_count"); else _explicitNullProperties?.Remove("incomplete_count"); } }
+        private int? _explicitNullValueIncompleteCount = default!;
         /// <summary>The number of leads skipped due to an invalid email format or a missing email address.</summary>
-        public int? InvalidEmailCount { get; set; }
+        public int? InvalidEmailCount { get => _explicitNullValueInvalidEmailCount; set { _explicitNullValueInvalidEmailCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_email_count"); else _explicitNullProperties?.Remove("invalid_email_count"); } }
+        private int? _explicitNullValueInvalidEmailCount = default!;
         /// <summary>The number of leads that were successfully created.</summary>
-        public int? LeadsUploaded { get; set; }
+        public int? LeadsUploaded { get => _explicitNullValueLeadsUploaded; set { _explicitNullValueLeadsUploaded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_uploaded"); else _explicitNullProperties?.Remove("leads_uploaded"); } }
+        private int? _explicitNullValueLeadsUploaded = default!;
         /// <summary>The remaining lead uploads in the current billing plan. This value is only present in the response when a `campaign_id` is provided.</summary>
-        public int? RemainingInPlan { get; set; }
+        public int? RemainingInPlan { get => _explicitNullValueRemainingInPlan; set { _explicitNullValueRemainingInPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining_in_plan"); else _explicitNullProperties?.Remove("remaining_in_plan"); } }
+        private int? _explicitNullValueRemainingInPlan = default!;
         /// <summary>The number of leads skipped due to the `skip_if_in_...` flags being enabled.</summary>
-        public int? SkippedCount { get; set; }
+        public int? SkippedCount { get => _explicitNullValueSkippedCount; set { _explicitNullValueSkippedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_count"); else _explicitNullProperties?.Remove("skipped_count"); } }
+        private int? _explicitNullValueSkippedCount = default!;
         /// <summary>Indicates the request was processed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The total number of leads included in the request payload.</summary>
-        public int? TotalSent { get; set; }
+        public int? TotalSent { get => _explicitNullValueTotalSent; set { _explicitNullValueTotalSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_sent"); else _explicitNullProperties?.Remove("total_sent"); } }
+        private int? _explicitNullValueTotalSent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response"/> and sets the default values.
         /// </summary>
@@ -72,7 +106,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,6 +149,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteIntValue("skipped_count", SkippedCount);
             writer.WriteStringValue("status", Status);
             writer.WriteIntValue("total_sent", TotalSent);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

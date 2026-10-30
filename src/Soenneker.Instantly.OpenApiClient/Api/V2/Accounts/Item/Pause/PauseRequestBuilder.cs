@@ -59,6 +59,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Item.Pause
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.PauseAccount402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.PauseAccount404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PauseAccount429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.Account>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.Account.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

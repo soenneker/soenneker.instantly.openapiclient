@@ -11,26 +11,41 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blacklist") is { } nullNodeBlacklist && nullNodeBlacklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blacklist = null;
+            if (parseNode.GetChildNode("is_listed") is { } nullNodeIsListed && nullNodeIsListed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsListed = null;
+            if (parseNode.GetChildNode("test_type") is { } nullNodeTestType && nullNodeTestType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the blacklist</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Blacklist { get; set; }
+        public string? Blacklist { get => _explicitNullValueBlacklist; set { _explicitNullValueBlacklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blacklist"); else _explicitNullProperties?.Remove("blacklist"); } }
+        private string? _explicitNullValueBlacklist = default!;
 #nullable restore
 #else
-        public string Blacklist { get; set; }
+        public string Blacklist { get => _explicitNullValueBlacklist; set { _explicitNullValueBlacklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blacklist"); else _explicitNullProperties?.Remove("blacklist"); } }
+        private string _explicitNullValueBlacklist = default!;
 #endif
         /// <summary>Whether the address is listed on this blacklist</summary>
-        public bool? IsListed { get; set; }
+        public bool? IsListed { get => _explicitNullValueIsListed; set { _explicitNullValueIsListed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_listed"); else _explicitNullProperties?.Remove("is_listed"); } }
+        private bool? _explicitNullValueIsListed = default!;
         /// <summary>The type of test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestType { get; set; }
+        public string? TestType { get => _explicitNullValueTestType; set { _explicitNullValueTestType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_type"); else _explicitNullProperties?.Remove("test_type"); } }
+        private string? _explicitNullValueTestType = default!;
 #nullable restore
 #else
-        public string TestType { get; set; }
+        public string TestType { get => _explicitNullValueTestType; set { _explicitNullValueTestType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_type"); else _explicitNullProperties?.Remove("test_type"); } }
+        private string _explicitNullValueTestType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem"/> and sets the default values.
@@ -47,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementBlacklistAndSpamAssassinReportBlacklistReportDetailsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("blacklist", Blacklist);
             writer.WriteBoolValue("is_listed", IsListed);
             writer.WriteStringValue("test_type", TestType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

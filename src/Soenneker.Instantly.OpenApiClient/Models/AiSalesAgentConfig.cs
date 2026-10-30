@@ -12,72 +12,103 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiSalesAgentConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autonomy_settings") is { } nullNodeAutonomySettings && nullNodeAutonomySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutonomySettings = null;
+            if (parseNode.GetChildNode("enrichment_settings") is { } nullNodeEnrichmentSettings && nullNodeEnrichmentSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrichmentSettings = null;
+            if (parseNode.GetChildNode("investment_details") is { } nullNodeInvestmentDetails && nullNodeInvestmentDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvestmentDetails = null;
+            if (parseNode.GetChildNode("memory") is { } nullNodeMemory && nullNodeMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Memory = null;
+            if (parseNode.GetChildNode("outreach_settings") is { } nullNodeOutreachSettings && nullNodeOutreachSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutreachSettings = null;
+            if (parseNode.GetChildNode("partnership_details") is { } nullNodePartnershipDetails && nullNodePartnershipDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartnershipDetails = null;
+            if (parseNode.GetChildNode("position_details") is { } nullNodePositionDetails && nullNodePositionDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PositionDetails = null;
+            if (parseNode.GetChildNode("research_details") is { } nullNodeResearchDetails && nullNodeResearchDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResearchDetails = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Settings for AI Sales Agent autonomy including autopilot_mode, auto_reply_to_responses, and manual_leads_mode</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings? AutonomySettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings? AutonomySettings { get => _explicitNullValueAutonomySettings; set { _explicitNullValueAutonomySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autonomy_settings"); else _explicitNullProperties?.Remove("autonomy_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings? _explicitNullValueAutonomySettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings AutonomySettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings AutonomySettings { get => _explicitNullValueAutonomySettings; set { _explicitNullValueAutonomySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autonomy_settings"); else _explicitNullProperties?.Remove("autonomy_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigAutonomySettings _explicitNullValueAutonomySettings = default!;
 #endif
         /// <summary>Settings for lead enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings? EnrichmentSettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings? EnrichmentSettings { get => _explicitNullValueEnrichmentSettings; set { _explicitNullValueEnrichmentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_settings"); else _explicitNullProperties?.Remove("enrichment_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings? _explicitNullValueEnrichmentSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings EnrichmentSettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings EnrichmentSettings { get => _explicitNullValueEnrichmentSettings; set { _explicitNullValueEnrichmentSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_settings"); else _explicitNullProperties?.Remove("enrichment_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigEnrichmentSettings _explicitNullValueEnrichmentSettings = default!;
 #endif
         /// <summary>Investment details for investment agents, describing the investment thesis and target companies</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvestmentDetails { get; set; }
+        public string? InvestmentDetails { get => _explicitNullValueInvestmentDetails; set { _explicitNullValueInvestmentDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investment_details"); else _explicitNullProperties?.Remove("investment_details"); } }
+        private string? _explicitNullValueInvestmentDetails = default!;
 #nullable restore
 #else
-        public string InvestmentDetails { get; set; }
+        public string InvestmentDetails { get => _explicitNullValueInvestmentDetails; set { _explicitNullValueInvestmentDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("investment_details"); else _explicitNullProperties?.Remove("investment_details"); } }
+        private string _explicitNullValueInvestmentDetails = default!;
 #endif
         /// <summary>Business context and memory for the AI Sales Agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigMemoryProperty? Memory { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigMemoryProperty? Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigMemoryProperty? _explicitNullValueMemory = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigMemoryProperty Memory { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigMemoryProperty Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigMemoryProperty _explicitNullValueMemory = default!;
 #endif
         /// <summary>Settings for email outreach including campaign_schedule, email_list, email_tag_list, daily_limit, stop_on_reply, open_tracking, first_email_text_only, prioritize_new_leads, match_lead_esp</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettings? OutreachSettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettings? OutreachSettings { get => _explicitNullValueOutreachSettings; set { _explicitNullValueOutreachSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach_settings"); else _explicitNullProperties?.Remove("outreach_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettings? _explicitNullValueOutreachSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettings OutreachSettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettings OutreachSettings { get => _explicitNullValueOutreachSettings; set { _explicitNullValueOutreachSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outreach_settings"); else _explicitNullProperties?.Remove("outreach_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfigOutreachSettings _explicitNullValueOutreachSettings = default!;
 #endif
         /// <summary>Partnership details for partnership agents, describing the partnership goals and target partners</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PartnershipDetails { get; set; }
+        public string? PartnershipDetails { get => _explicitNullValuePartnershipDetails; set { _explicitNullValuePartnershipDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnership_details"); else _explicitNullProperties?.Remove("partnership_details"); } }
+        private string? _explicitNullValuePartnershipDetails = default!;
 #nullable restore
 #else
-        public string PartnershipDetails { get; set; }
+        public string PartnershipDetails { get => _explicitNullValuePartnershipDetails; set { _explicitNullValuePartnershipDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnership_details"); else _explicitNullProperties?.Remove("partnership_details"); } }
+        private string _explicitNullValuePartnershipDetails = default!;
 #endif
         /// <summary>Position details for recruiting agents, describing the role, responsibilities, and requirements</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PositionDetails { get; set; }
+        public string? PositionDetails { get => _explicitNullValuePositionDetails; set { _explicitNullValuePositionDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position_details"); else _explicitNullProperties?.Remove("position_details"); } }
+        private string? _explicitNullValuePositionDetails = default!;
 #nullable restore
 #else
-        public string PositionDetails { get; set; }
+        public string PositionDetails { get => _explicitNullValuePositionDetails; set { _explicitNullValuePositionDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position_details"); else _explicitNullProperties?.Remove("position_details"); } }
+        private string _explicitNullValuePositionDetails = default!;
 #endif
         /// <summary>Research details for user research agents, describing the research goals and target participants</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResearchDetails { get; set; }
+        public string? ResearchDetails { get => _explicitNullValueResearchDetails; set { _explicitNullValueResearchDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_details"); else _explicitNullProperties?.Remove("research_details"); } }
+        private string? _explicitNullValueResearchDetails = default!;
 #nullable restore
 #else
-        public string ResearchDetails { get; set; }
+        public string ResearchDetails { get => _explicitNullValueResearchDetails; set { _explicitNullValueResearchDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("research_details"); else _explicitNullProperties?.Remove("research_details"); } }
+        private string _explicitNullValueResearchDetails = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfig"/> and sets the default values.
@@ -94,7 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,6 +160,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("partnership_details", PartnershipDetails);
             writer.WriteStringValue("position_details", PositionDetails);
             writer.WriteStringValue("research_details", ResearchDetails);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

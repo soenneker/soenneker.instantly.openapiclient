@@ -81,6 +81,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteInboxManagerAgent404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.DeleteInboxManagerAgent409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteInboxManagerAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -110,6 +112,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAgent402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAgent404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -145,6 +149,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager.Item
                 { "403", global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgent403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgent404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -12,15 +12,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     public partial class DeleteCampaign200Response : global::Soenneker.Instantly.OpenApiClient.Models.Campaign, IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("background_job_id") is { } nullNodeBackgroundJobId && nullNodeBackgroundJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackgroundJobId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with `GET /background-jobs/:id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BackgroundJobId { get; set; }
+        public string? BackgroundJobId { get => _explicitNullValueBackgroundJobId; set { _explicitNullValueBackgroundJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_job_id"); else _explicitNullProperties?.Remove("background_job_id"); } }
+        private string? _explicitNullValueBackgroundJobId = default!;
 #nullable restore
 #else
-        public string BackgroundJobId { get; set; }
+        public string BackgroundJobId { get => _explicitNullValueBackgroundJobId; set { _explicitNullValueBackgroundJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("background_job_id"); else _explicitNullProperties?.Remove("background_job_id"); } }
+        private string _explicitNullValueBackgroundJobId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response"/> and sets the default values.
@@ -37,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static new global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.DeleteCampaign200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,6 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("background_job_id", BackgroundJobId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

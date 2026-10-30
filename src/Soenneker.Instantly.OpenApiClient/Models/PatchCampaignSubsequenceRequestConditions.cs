@@ -12,32 +12,48 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchCampaignSubsequenceRequestConditions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("crm_status") is { } nullNodeCrmStatus && nullNodeCrmStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CrmStatus = null;
+            if (parseNode.GetChildNode("lead_activity") is { } nullNodeLeadActivity && nullNodeLeadActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadActivity = null;
+            if (parseNode.GetChildNode("reply_contains") is { } nullNodeReplyContains && nullNodeReplyContains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyContains = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Lead CRM statuses that trigger the subsequence. Accepts the built-in statuses listed below, or the interest status of a custom lead label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? CrmStatus { get; set; }
+        public List<double?>? CrmStatus { get => _explicitNullValueCrmStatus; set { _explicitNullValueCrmStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm_status"); else _explicitNullProperties?.Remove("crm_status"); } }
+        private List<double?>? _explicitNullValueCrmStatus = default!;
 #nullable restore
 #else
-        public List<double?> CrmStatus { get; set; }
+        public List<double?> CrmStatus { get => _explicitNullValueCrmStatus; set { _explicitNullValueCrmStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crm_status"); else _explicitNullProperties?.Remove("crm_status"); } }
+        private List<double?> _explicitNullValueCrmStatus = default!;
 #endif
         /// <summary>Lead activities that trigger the subsequence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? LeadActivity { get; set; }
+        public List<double?>? LeadActivity { get => _explicitNullValueLeadActivity; set { _explicitNullValueLeadActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_activity"); else _explicitNullProperties?.Remove("lead_activity"); } }
+        private List<double?>? _explicitNullValueLeadActivity = default!;
 #nullable restore
 #else
-        public List<double?> LeadActivity { get; set; }
+        public List<double?> LeadActivity { get => _explicitNullValueLeadActivity; set { _explicitNullValueLeadActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_activity"); else _explicitNullProperties?.Remove("lead_activity"); } }
+        private List<double?> _explicitNullValueLeadActivity = default!;
 #endif
         /// <summary>The reply_contains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReplyContains { get; set; }
+        public string? ReplyContains { get => _explicitNullValueReplyContains; set { _explicitNullValueReplyContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_contains"); else _explicitNullProperties?.Remove("reply_contains"); } }
+        private string? _explicitNullValueReplyContains = default!;
 #nullable restore
 #else
-        public string ReplyContains { get; set; }
+        public string ReplyContains { get => _explicitNullValueReplyContains; set { _explicitNullValueReplyContains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_contains"); else _explicitNullProperties?.Remove("reply_contains"); } }
+        private string _explicitNullValueReplyContains = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<double?>("crm_status", CrmStatus);
             writer.WriteCollectionOfPrimitiveValues<double?>("lead_activity", LeadActivity);
             writer.WriteStringValue("reply_contains", ReplyContains);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

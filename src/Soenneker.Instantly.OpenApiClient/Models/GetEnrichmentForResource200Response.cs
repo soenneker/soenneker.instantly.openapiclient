@@ -11,49 +11,112 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetEnrichmentForResource200Response : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto_update") is { } nullNodeAutoUpdate && nullNodeAutoUpdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpdate = null;
+            if (parseNode.GetChildNode("enrichment_payload") is { } nullNodeEnrichmentPayload && nullNodeEnrichmentPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrichmentPayload = null;
+            if (parseNode.GetChildNode("exists") is { } nullNodeExists && nullNodeExists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exists = null;
+            if (parseNode.GetChildNode("has_no_leads") is { } nullNodeHasNoLeads && nullNodeHasNoLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasNoLeads = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("in_progress") is { } nullNodeInProgress && nullNodeInProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgress = null;
+            if (parseNode.GetChildNode("is_evergreen") is { } nullNodeIsEvergreen && nullNodeIsEvergreen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEvergreen = null;
+            if (parseNode.GetChildNode("last_run_started_at") is { } nullNodeLastRunStartedAt && nullNodeLastRunStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRunStartedAt = null;
+            if (parseNode.GetChildNode("organization_id") is { } nullNodeOrganizationId && nullNodeOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationId = null;
+            if (parseNode.GetChildNode("resource_id") is { } nullNodeResourceId && nullNodeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceId = null;
+            if (parseNode.GetChildNode("resource_type") is { } nullNodeResourceType && nullNodeResourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceType = null;
+            if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
+            if (parseNode.GetChildNode("skip_rows_without_email") is { } nullNodeSkipRowsWithoutEmail && nullNodeSkipRowsWithoutEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipRowsWithoutEmail = null;
+            if (parseNode.GetChildNode("timestamp_created") is { } nullNodeTimestampCreated && nullNodeTimestampCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampCreated = null;
+        }
+
         /// <summary>Whether leads added to the list will be automatically enriched</summary>
-        public bool? AutoUpdate { get; set; }
+        public bool? AutoUpdate { get => _explicitNullValueAutoUpdate; set { _explicitNullValueAutoUpdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_update"); else _explicitNullProperties?.Remove("auto_update"); } }
+        private bool? _explicitNullValueAutoUpdate = default!;
         /// <summary>Enrichment types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload? EnrichmentPayload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload? EnrichmentPayload { get => _explicitNullValueEnrichmentPayload; set { _explicitNullValueEnrichmentPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_payload"); else _explicitNullProperties?.Remove("enrichment_payload"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload? _explicitNullValueEnrichmentPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload EnrichmentPayload { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload EnrichmentPayload { get => _explicitNullValueEnrichmentPayload; set { _explicitNullValueEnrichmentPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_payload"); else _explicitNullProperties?.Remove("enrichment_payload"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload _explicitNullValueEnrichmentPayload = default!;
 #endif
         /// <summary>Whether the enrichment exists</summary>
-        public bool? Exists { get; set; }
+        public bool? Exists { get => _explicitNullValueExists; set { _explicitNullValueExists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exists"); else _explicitNullProperties?.Remove("exists"); } }
+        private bool? _explicitNullValueExists = default!;
         /// <summary>Whether the enrichment for this resource returned no leads for these search filters. This is only applicable for enrichments created from SuperSearch.</summary>
-        public bool? HasNoLeads { get; set; }
+        public bool? HasNoLeads { get => _explicitNullValueHasNoLeads; set { _explicitNullValueHasNoLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_no_leads"); else _explicitNullProperties?.Remove("has_no_leads"); } }
+        private bool? _explicitNullValueHasNoLeads = default!;
+        /// <summary>Unique identifier for the enrichment</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
+#nullable restore
+#else
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
+#endif
         /// <summary>Whether the enrichment is in progress</summary>
-        public bool? InProgress { get; set; }
+        public bool? InProgress { get => _explicitNullValueInProgress; set { _explicitNullValueInProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_progress"); else _explicitNullProperties?.Remove("in_progress"); } }
+        private bool? _explicitNullValueInProgress = default!;
         /// <summary>Whether the enrichment is evergreen</summary>
-        public bool? IsEvergreen { get; set; }
+        public bool? IsEvergreen { get => _explicitNullValueIsEvergreen; set { _explicitNullValueIsEvergreen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_evergreen"); else _explicitNullProperties?.Remove("is_evergreen"); } }
+        private bool? _explicitNullValueIsEvergreen = default!;
         /// <summary>When the most recent enrichment job on this resource was queued. `null` when it never ran.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRunStartedAt { get; set; }
+        public string? LastRunStartedAt { get => _explicitNullValueLastRunStartedAt; set { _explicitNullValueLastRunStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_run_started_at"); else _explicitNullProperties?.Remove("last_run_started_at"); } }
+        private string? _explicitNullValueLastRunStartedAt = default!;
 #nullable restore
 #else
-        public string LastRunStartedAt { get; set; }
+        public string LastRunStartedAt { get => _explicitNullValueLastRunStartedAt; set { _explicitNullValueLastRunStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_run_started_at"); else _explicitNullProperties?.Remove("last_run_started_at"); } }
+        private string _explicitNullValueLastRunStartedAt = default!;
+#endif
+        /// <summary>Organization ID that created this enrichment</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_id"); else _explicitNullProperties?.Remove("organization_id"); } }
+        private string? _explicitNullValueOrganizationId = default!;
+#nullable restore
+#else
+        public string OrganizationId { get => _explicitNullValueOrganizationId; set { _explicitNullValueOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_id"); else _explicitNullProperties?.Remove("organization_id"); } }
+        private string _explicitNullValueOrganizationId = default!;
 #endif
         /// <summary>ID of the resource being enriched</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceId { get; set; }
+        public string? ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
+        private string? _explicitNullValueResourceId = default!;
 #nullable restore
 #else
-        public string ResourceId { get; set; }
+        public string ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
+        private string _explicitNullValueResourceId = default!;
 #endif
+        /// <summary>Type of the entity to enrich leads into</summary>
+        public double? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
+        private double? _explicitNullValueResourceType = default!;
         /// <summary>Search filters used to create this enrichment (only present for enrichments created from SuperSearch)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters? SearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters? SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters? _explicitNullValueSearchFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters SearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters _explicitNullValueSearchFilters = default!;
 #endif
+        /// <summary>Whether the fully enriched profile enrichment will run even if we don&apos;t find an email</summary>
+        public bool? SkipRowsWithoutEmail { get => _explicitNullValueSkipRowsWithoutEmail; set { _explicitNullValueSkipRowsWithoutEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_rows_without_email"); else _explicitNullProperties?.Remove("skip_rows_without_email"); } }
+        private bool? _explicitNullValueSkipRowsWithoutEmail = default!;
+        /// <summary>Timestamp when the enrichment was created</summary>
+        public DateTimeOffset? TimestampCreated { get => _explicitNullValueTimestampCreated; set { _explicitNullValueTimestampCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created"); else _explicitNullProperties?.Remove("timestamp_created"); } }
+        private DateTimeOffset? _explicitNullValueTimestampCreated = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -62,7 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,11 +139,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload>(global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload.CreateFromDiscriminatorValue); } },
                 { "exists", n => { Exists = n.GetBoolValue(); } },
                 { "has_no_leads", n => { HasNoLeads = n.GetBoolValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
                 { "in_progress", n => { InProgress = n.GetBoolValue(); } },
                 { "is_evergreen", n => { IsEvergreen = n.GetBoolValue(); } },
                 { "last_run_started_at", n => { LastRunStartedAt = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
+                { "resource_type", n => { ResourceType = n.GetDoubleValue(); } },
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters.CreateFromDiscriminatorValue); } },
+                { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
+                { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -94,11 +162,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload>("enrichment_payload", EnrichmentPayload);
             writer.WriteBoolValue("exists", Exists);
             writer.WriteBoolValue("has_no_leads", HasNoLeads);
+            writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("in_progress", InProgress);
             writer.WriteBoolValue("is_evergreen", IsEvergreen);
             writer.WriteStringValue("last_run_started_at", LastRunStartedAt);
+            writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteStringValue("resource_id", ResourceId);
+            writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>("search_filters", SearchFilters);
+            writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
+            writer.WriteDateTimeOffsetValue("timestamp_created", TimestampCreated);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

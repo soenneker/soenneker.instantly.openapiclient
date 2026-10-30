@@ -12,15 +12,28 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account_unavailable_skips") is { } nullNodeAccountUnavailableSkips && nullNodeAccountUnavailableSkips.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountUnavailableSkips = null;
+            if (parseNode.GetChildNode("delay_not_met_skips") is { } nullNodeDelayNotMetSkips && nullNodeDelayNotMetSkips.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelayNotMetSkips = null;
+            if (parseNode.GetChildNode("no_leads_ready") is { } nullNodeNoLeadsReady && nullNodeNoLeadsReady.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoLeadsReady = null;
+        }
+
         /// <summary>Number of leads skipped due to account unavailability</summary>
-        public double? AccountUnavailableSkips { get; set; }
+        public double? AccountUnavailableSkips { get => _explicitNullValueAccountUnavailableSkips; set { _explicitNullValueAccountUnavailableSkips = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_unavailable_skips"); else _explicitNullProperties?.Remove("account_unavailable_skips"); } }
+        private double? _explicitNullValueAccountUnavailableSkips = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of leads skipped due to delay requirements not met</summary>
-        public double? DelayNotMetSkips { get; set; }
+        public double? DelayNotMetSkips { get => _explicitNullValueDelayNotMetSkips; set { _explicitNullValueDelayNotMetSkips = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay_not_met_skips"); else _explicitNullProperties?.Remove("delay_not_met_skips"); } }
+        private double? _explicitNullValueDelayNotMetSkips = default!;
         /// <summary>Whether there are no leads ready to receive emails</summary>
-        public bool? NoLeadsReady { get; set; }
+        public bool? NoLeadsReady { get => _explicitNullValueNoLeadsReady; set { _explicitNullValueNoLeadsReady = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_leads_ready"); else _explicitNullProperties?.Remove("no_leads_ready"); } }
+        private bool? _explicitNullValueNoLeadsReady = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("account_unavailable_skips", AccountUnavailableSkips);
             writer.WriteDoubleValue("delay_not_met_skips", DelayNotMetSkips);
             writer.WriteBoolValue("no_leads_ready", NoLeadsReady);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

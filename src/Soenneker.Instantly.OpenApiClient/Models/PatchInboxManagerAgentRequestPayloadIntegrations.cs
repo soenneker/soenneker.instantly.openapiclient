@@ -12,22 +12,35 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchInboxManagerAgentRequestPayloadIntegrations : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("calendly") is { } nullNodeCalendly && nullNodeCalendly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Calendly = null;
+            if (parseNode.GetChildNode("slack") is { } nullNodeSlack && nullNodeSlack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slack = null;
+        }
+
         /// <summary>Calendly scheduling settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly? Calendly { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly? Calendly { get => _explicitNullValueCalendly; set { _explicitNullValueCalendly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendly"); else _explicitNullProperties?.Remove("calendly"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly? _explicitNullValueCalendly = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly Calendly { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly Calendly { get => _explicitNullValueCalendly; set { _explicitNullValueCalendly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendly"); else _explicitNullProperties?.Remove("calendly"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly _explicitNullValueCalendly = default!;
 #endif
         /// <summary>Slack notification settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack? Slack { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack? Slack { get => _explicitNullValueSlack; set { _explicitNullValueSlack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack"); else _explicitNullProperties?.Remove("slack"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack? _explicitNullValueSlack = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack Slack { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack Slack { get => _explicitNullValueSlack; set { _explicitNullValueSlack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack"); else _explicitNullProperties?.Remove("slack"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack _explicitNullValueSlack = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrations();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrations(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly>("calendly", Calendly);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack>("slack", Slack);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsSlack>("slack", Slack);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -12,22 +12,35 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2 : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("exclude") is { } nullNodeExclude && nullNodeExclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exclude = null;
+            if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
+        }
+
         /// <summary>Locations to exclude from the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem>? Exclude { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem>? Exclude { get => _explicitNullValueExclude; set { _explicitNullValueExclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude"); else _explicitNullProperties?.Remove("exclude"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem>? _explicitNullValueExclude = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem> Exclude { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem> Exclude { get => _explicitNullValueExclude; set { _explicitNullValueExclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude"); else _explicitNullProperties?.Remove("exclude"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem> _explicitNullValueExclude = default!;
 #endif
         /// <summary>Locations to include in the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem>? Include { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem>? Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem>? _explicitNullValueInclude = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem> Include { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem> Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem> _explicitNullValueInclude = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2ExcludeItem>("exclude", Exclude);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem>("include", Include);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.UpdateLeadFinderAgentRequestFallbackSearchFiltersLocationsOneOf2IncludeItem>("include", Include);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

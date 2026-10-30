@@ -11,31 +11,55 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDeliverabilityAgentState200ResponseRunSummaryTrendItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("cycle_id") is { } nullNodeCycleId && nullNodeCycleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleId = null;
+            if (parseNode.GetChildNode("failed_count") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
+            if (parseNode.GetChildNode("healthy_count") is { } nullNodeHealthyCount && nullNodeHealthyCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthyCount = null;
+            if (parseNode.GetChildNode("info_count") is { } nullNodeInfoCount && nullNodeInfoCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InfoCount = null;
+            if (parseNode.GetChildNode("needs_attention_count") is { } nullNodeNeedsAttentionCount && nullNodeNeedsAttentionCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeedsAttentionCount = null;
+            if (parseNode.GetChildNode("score") is { } nullNodeScore && nullNodeScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Score = null;
+            if (parseNode.GetChildNode("total_checks") is { } nullNodeTotalChecks && nullNodeTotalChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalChecks = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The completed_at property</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The cycle_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CycleId { get; set; }
+        public string? CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
+        private string? _explicitNullValueCycleId = default!;
 #nullable restore
 #else
-        public string CycleId { get; set; }
+        public string CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
+        private string _explicitNullValueCycleId = default!;
 #endif
         /// <summary>The failed_count property</summary>
-        public double? FailedCount { get; set; }
+        public double? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_count"); else _explicitNullProperties?.Remove("failed_count"); } }
+        private double? _explicitNullValueFailedCount = default!;
         /// <summary>The healthy_count property</summary>
-        public double? HealthyCount { get; set; }
+        public double? HealthyCount { get => _explicitNullValueHealthyCount; set { _explicitNullValueHealthyCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthy_count"); else _explicitNullProperties?.Remove("healthy_count"); } }
+        private double? _explicitNullValueHealthyCount = default!;
         /// <summary>The info_count property</summary>
-        public double? InfoCount { get; set; }
+        public double? InfoCount { get => _explicitNullValueInfoCount; set { _explicitNullValueInfoCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("info_count"); else _explicitNullProperties?.Remove("info_count"); } }
+        private double? _explicitNullValueInfoCount = default!;
         /// <summary>The needs_attention_count property</summary>
-        public double? NeedsAttentionCount { get; set; }
+        public double? NeedsAttentionCount { get => _explicitNullValueNeedsAttentionCount; set { _explicitNullValueNeedsAttentionCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("needs_attention_count"); else _explicitNullProperties?.Remove("needs_attention_count"); } }
+        private double? _explicitNullValueNeedsAttentionCount = default!;
         /// <summary>The score property</summary>
-        public double? Score { get; set; }
+        public double? Score { get => _explicitNullValueScore; set { _explicitNullValueScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("score"); else _explicitNullProperties?.Remove("score"); } }
+        private double? _explicitNullValueScore = default!;
         /// <summary>The total_checks property</summary>
-        public double? TotalChecks { get; set; }
+        public double? TotalChecks { get => _explicitNullValueTotalChecks; set { _explicitNullValueTotalChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_checks"); else _explicitNullProperties?.Remove("total_checks"); } }
+        private double? _explicitNullValueTotalChecks = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryTrendItem"/> and sets the default values.
         /// </summary>
@@ -51,7 +75,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryTrendItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryTrendItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryTrendItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +110,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("needs_attention_count", NeedsAttentionCount);
             writer.WriteDoubleValue("score", Score);
             writer.WriteDoubleValue("total_checks", TotalChecks);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

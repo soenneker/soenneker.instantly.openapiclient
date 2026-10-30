@@ -12,7 +12,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkspaceGroupMember : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("sub_workspace_id") is { } nullNodeSubWorkspaceId && nullNodeSubWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubWorkspaceId = null;
+        }
+
         /// <summary>The id of the admin workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,14 +47,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus? Status { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus? _explicitNullValueStatus = default!;
         /// <summary>The id of the sub workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubWorkspaceId { get; set; }
+        public string? SubWorkspaceId { get => _explicitNullValueSubWorkspaceId; set { _explicitNullValueSubWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_workspace_id"); else _explicitNullProperties?.Remove("sub_workspace_id"); } }
+        private string? _explicitNullValueSubWorkspaceId = default!;
 #nullable restore
 #else
-        public string SubWorkspaceId { get; set; }
+        public string SubWorkspaceId { get => _explicitNullValueSubWorkspaceId; set { _explicitNullValueSubWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_workspace_id"); else _explicitNullProperties?.Remove("sub_workspace_id"); } }
+        private string _explicitNullValueSubWorkspaceId = default!;
 #endif
         /// <summary>The name of the sub workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMember(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,7 +107,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus>("status", Status);
-            writer.WriteStringValue("sub_workspace_id", SubWorkspaceId);
+            writer.WriteStringValue("sub_workspace_id", SubWorkspaceId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

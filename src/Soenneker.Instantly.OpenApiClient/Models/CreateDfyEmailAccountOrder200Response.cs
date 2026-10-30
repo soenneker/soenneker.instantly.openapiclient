@@ -11,194 +11,292 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateDfyEmailAccountOrder200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blacklist_domains") is { } nullNodeBlacklistDomains && nullNodeBlacklistDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlacklistDomains = null;
+            if (parseNode.GetChildNode("blacklist_keywords") is { } nullNodeBlacklistKeywords && nullNodeBlacklistKeywords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlacklistKeywords = null;
+            if (parseNode.GetChildNode("cart_order_id") is { } nullNodeCartOrderId && nullNodeCartOrderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CartOrderId = null;
+            if (parseNode.GetChildNode("checkout_required") is { } nullNodeCheckoutRequired && nullNodeCheckoutRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckoutRequired = null;
+            if (parseNode.GetChildNode("checkout_url") is { } nullNodeCheckoutUrl && nullNodeCheckoutUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CheckoutUrl = null;
+            if (parseNode.GetChildNode("domains_without_accounts") is { } nullNodeDomainsWithoutAccounts && nullNodeDomainsWithoutAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainsWithoutAccounts = null;
+            if (parseNode.GetChildNode("free_domains") is { } nullNodeFreeDomains && nullNodeFreeDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FreeDomains = null;
+            if (parseNode.GetChildNode("invalid_accounts") is { } nullNodeInvalidAccounts && nullNodeInvalidAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidAccounts = null;
+            if (parseNode.GetChildNode("invalid_domains") is { } nullNodeInvalidDomains && nullNodeInvalidDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidDomains = null;
+            if (parseNode.GetChildNode("invalid_forwarding_domains") is { } nullNodeInvalidForwardingDomains && nullNodeInvalidForwardingDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidForwardingDomains = null;
+            if (parseNode.GetChildNode("missing_domain_orders") is { } nullNodeMissingDomainOrders && nullNodeMissingDomainOrders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MissingDomainOrders = null;
+            if (parseNode.GetChildNode("number_of_accounts_ordered") is { } nullNodeNumberOfAccountsOrdered && nullNodeNumberOfAccountsOrdered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfAccountsOrdered = null;
+            if (parseNode.GetChildNode("number_of_domains_ordered") is { } nullNodeNumberOfDomainsOrdered && nullNodeNumberOfDomainsOrdered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfDomainsOrdered = null;
+            if (parseNode.GetChildNode("order_error") is { } nullNodeOrderError && nullNodeOrderError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderError = null;
+            if (parseNode.GetChildNode("order_is_valid") is { } nullNodeOrderIsValid && nullNodeOrderIsValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderIsValid = null;
+            if (parseNode.GetChildNode("order_items") is { } nullNodeOrderItems && nullNodeOrderItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderItems = null;
+            if (parseNode.GetChildNode("order_placed") is { } nullNodeOrderPlaced && nullNodeOrderPlaced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderPlaced = null;
+            if (parseNode.GetChildNode("payment_failure_reason") is { } nullNodePaymentFailureReason && nullNodePaymentFailureReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentFailureReason = null;
+            if (parseNode.GetChildNode("payment_method_brand") is { } nullNodePaymentMethodBrand && nullNodePaymentMethodBrand.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodBrand = null;
+            if (parseNode.GetChildNode("payment_method_last_4_digits") is { } nullNodePaymentMethodLast4Digits && nullNodePaymentMethodLast4Digits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodLast4Digits = null;
+            if (parseNode.GetChildNode("payment_method_name_on_card") is { } nullNodePaymentMethodNameOnCard && nullNodePaymentMethodNameOnCard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodNameOnCard = null;
+            if (parseNode.GetChildNode("price_per_account_per_month") is { } nullNodePricePerAccountPerMonth && nullNodePricePerAccountPerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerAccountPerMonth = null;
+            if (parseNode.GetChildNode("price_per_account_per_month_by_account_type") is { } nullNodePricePerAccountPerMonthByAccountType && nullNodePricePerAccountPerMonthByAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerAccountPerMonthByAccountType = null;
+            if (parseNode.GetChildNode("price_per_domain_per_month") is { } nullNodePricePerDomainPerMonth && nullNodePricePerDomainPerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerDomainPerMonth = null;
+            if (parseNode.GetChildNode("price_per_domain_per_year") is { } nullNodePricePerDomainPerYear && nullNodePricePerDomainPerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PricePerDomainPerYear = null;
+            if (parseNode.GetChildNode("provider_mismatch_domains") is { } nullNodeProviderMismatchDomains && nullNodeProviderMismatchDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderMismatchDomains = null;
+            if (parseNode.GetChildNode("simulation") is { } nullNodeSimulation && nullNodeSimulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Simulation = null;
+            if (parseNode.GetChildNode("total_accounts_price_per_month") is { } nullNodeTotalAccountsPricePerMonth && nullNodeTotalAccountsPricePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalAccountsPricePerMonth = null;
+            if (parseNode.GetChildNode("total_discount") is { } nullNodeTotalDiscount && nullNodeTotalDiscount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDiscount = null;
+            if (parseNode.GetChildNode("total_domains_price_per_year") is { } nullNodeTotalDomainsPricePerYear && nullNodeTotalDomainsPricePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDomainsPricePerYear = null;
+            if (parseNode.GetChildNode("total_price") is { } nullNodeTotalPrice && nullNodeTotalPrice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPrice = null;
+            if (parseNode.GetChildNode("total_price_per_month") is { } nullNodeTotalPricePerMonth && nullNodeTotalPricePerMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPricePerMonth = null;
+            if (parseNode.GetChildNode("total_price_per_year") is { } nullNodeTotalPricePerYear && nullNodeTotalPricePerYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPricePerYear = null;
+            if (parseNode.GetChildNode("unavailable_domains") is { } nullNodeUnavailableDomains && nullNodeUnavailableDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnavailableDomains = null;
+            if (parseNode.GetChildNode("unavailable_email_providers") is { } nullNodeUnavailableEmailProviders && nullNodeUnavailableEmailProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnavailableEmailProviders = null;
+            if (parseNode.GetChildNode("unsupported_provider_domains") is { } nullNodeUnsupportedProviderDomains && nullNodeUnsupportedProviderDomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnsupportedProviderDomains = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of blacklisted domains (if any)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BlacklistDomains { get; set; }
+        public List<string>? BlacklistDomains { get => _explicitNullValueBlacklistDomains; set { _explicitNullValueBlacklistDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blacklist_domains"); else _explicitNullProperties?.Remove("blacklist_domains"); } }
+        private List<string>? _explicitNullValueBlacklistDomains = default!;
 #nullable restore
 #else
-        public List<string> BlacklistDomains { get; set; }
+        public List<string> BlacklistDomains { get => _explicitNullValueBlacklistDomains; set { _explicitNullValueBlacklistDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blacklist_domains"); else _explicitNullProperties?.Remove("blacklist_domains"); } }
+        private List<string> _explicitNullValueBlacklistDomains = default!;
 #endif
         /// <summary>The restricted keywords matched in `blacklist_domains` (if any)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BlacklistKeywords { get; set; }
+        public List<string>? BlacklistKeywords { get => _explicitNullValueBlacklistKeywords; set { _explicitNullValueBlacklistKeywords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blacklist_keywords"); else _explicitNullProperties?.Remove("blacklist_keywords"); } }
+        private List<string>? _explicitNullValueBlacklistKeywords = default!;
 #nullable restore
 #else
-        public List<string> BlacklistKeywords { get; set; }
+        public List<string> BlacklistKeywords { get => _explicitNullValueBlacklistKeywords; set { _explicitNullValueBlacklistKeywords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blacklist_keywords"); else _explicitNullProperties?.Remove("blacklist_keywords"); } }
+        private List<string> _explicitNullValueBlacklistKeywords = default!;
 #endif
         /// <summary>The identifier used to fulfill the order after hosted checkout payment succeeds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CartOrderId { get; set; }
+        public string? CartOrderId { get => _explicitNullValueCartOrderId; set { _explicitNullValueCartOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cart_order_id"); else _explicitNullProperties?.Remove("cart_order_id"); } }
+        private string? _explicitNullValueCartOrderId = default!;
 #nullable restore
 #else
-        public string CartOrderId { get; set; }
+        public string CartOrderId { get => _explicitNullValueCartOrderId; set { _explicitNullValueCartOrderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cart_order_id"); else _explicitNullProperties?.Remove("cart_order_id"); } }
+        private string _explicitNullValueCartOrderId = default!;
 #endif
         /// <summary>Whether the order requires payment through a hosted checkout before it can be placed.</summary>
-        public bool? CheckoutRequired { get; set; }
+        public bool? CheckoutRequired { get => _explicitNullValueCheckoutRequired; set { _explicitNullValueCheckoutRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkout_required"); else _explicitNullProperties?.Remove("checkout_required"); } }
+        private bool? _explicitNullValueCheckoutRequired = default!;
         /// <summary>The hosted checkout URL. Returned only for browser-authenticated orders that require a payment method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CheckoutUrl { get; set; }
+        public string? CheckoutUrl { get => _explicitNullValueCheckoutUrl; set { _explicitNullValueCheckoutUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkout_url"); else _explicitNullProperties?.Remove("checkout_url"); } }
+        private string? _explicitNullValueCheckoutUrl = default!;
 #nullable restore
 #else
-        public string CheckoutUrl { get; set; }
+        public string CheckoutUrl { get => _explicitNullValueCheckoutUrl; set { _explicitNullValueCheckoutUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checkout_url"); else _explicitNullProperties?.Remove("checkout_url"); } }
+        private string _explicitNullValueCheckoutUrl = default!;
 #endif
         /// <summary>The list of domains without accounts (if any). The `accounts` field for items in the `items` array for these domains was empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DomainsWithoutAccounts { get; set; }
+        public List<string>? DomainsWithoutAccounts { get => _explicitNullValueDomainsWithoutAccounts; set { _explicitNullValueDomainsWithoutAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains_without_accounts"); else _explicitNullProperties?.Remove("domains_without_accounts"); } }
+        private List<string>? _explicitNullValueDomainsWithoutAccounts = default!;
 #nullable restore
 #else
-        public List<string> DomainsWithoutAccounts { get; set; }
+        public List<string> DomainsWithoutAccounts { get => _explicitNullValueDomainsWithoutAccounts; set { _explicitNullValueDomainsWithoutAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domains_without_accounts"); else _explicitNullProperties?.Remove("domains_without_accounts"); } }
+        private List<string> _explicitNullValueDomainsWithoutAccounts = default!;
 #endif
         /// <summary>The list of domains that are free (domains can be free during promotions)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FreeDomains { get; set; }
+        public List<string>? FreeDomains { get => _explicitNullValueFreeDomains; set { _explicitNullValueFreeDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("free_domains"); else _explicitNullProperties?.Remove("free_domains"); } }
+        private List<string>? _explicitNullValueFreeDomains = default!;
 #nullable restore
 #else
-        public List<string> FreeDomains { get; set; }
+        public List<string> FreeDomains { get => _explicitNullValueFreeDomains; set { _explicitNullValueFreeDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("free_domains"); else _explicitNullProperties?.Remove("free_domains"); } }
+        private List<string> _explicitNullValueFreeDomains = default!;
 #endif
         /// <summary>The list of invalid accounts (if any)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>? InvalidAccounts { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>? InvalidAccounts { get => _explicitNullValueInvalidAccounts; set { _explicitNullValueInvalidAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_accounts"); else _explicitNullProperties?.Remove("invalid_accounts"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem>? _explicitNullValueInvalidAccounts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem> InvalidAccounts { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem> InvalidAccounts { get => _explicitNullValueInvalidAccounts; set { _explicitNullValueInvalidAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_accounts"); else _explicitNullProperties?.Remove("invalid_accounts"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseInvalidAccountsItem> _explicitNullValueInvalidAccounts = default!;
 #endif
         /// <summary>The list of invalid domains (if any), including subdomains, which are not supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? InvalidDomains { get; set; }
+        public List<string>? InvalidDomains { get => _explicitNullValueInvalidDomains; set { _explicitNullValueInvalidDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_domains"); else _explicitNullProperties?.Remove("invalid_domains"); } }
+        private List<string>? _explicitNullValueInvalidDomains = default!;
 #nullable restore
 #else
-        public List<string> InvalidDomains { get; set; }
+        public List<string> InvalidDomains { get => _explicitNullValueInvalidDomains; set { _explicitNullValueInvalidDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_domains"); else _explicitNullProperties?.Remove("invalid_domains"); } }
+        private List<string> _explicitNullValueInvalidDomains = default!;
 #endif
         /// <summary>The list of invalid forwarding domains (if any)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? InvalidForwardingDomains { get; set; }
+        public List<string>? InvalidForwardingDomains { get => _explicitNullValueInvalidForwardingDomains; set { _explicitNullValueInvalidForwardingDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_forwarding_domains"); else _explicitNullProperties?.Remove("invalid_forwarding_domains"); } }
+        private List<string>? _explicitNullValueInvalidForwardingDomains = default!;
 #nullable restore
 #else
-        public List<string> InvalidForwardingDomains { get; set; }
+        public List<string> InvalidForwardingDomains { get => _explicitNullValueInvalidForwardingDomains; set { _explicitNullValueInvalidForwardingDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_forwarding_domains"); else _explicitNullProperties?.Remove("invalid_forwarding_domains"); } }
+        private List<string> _explicitNullValueInvalidForwardingDomains = default!;
 #endif
         /// <summary>The list of domains that are missing order (if any). Can happen when you order extra accounts for domains that you didn&apos;t order before.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MissingDomainOrders { get; set; }
+        public List<string>? MissingDomainOrders { get => _explicitNullValueMissingDomainOrders; set { _explicitNullValueMissingDomainOrders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_domain_orders"); else _explicitNullProperties?.Remove("missing_domain_orders"); } }
+        private List<string>? _explicitNullValueMissingDomainOrders = default!;
 #nullable restore
 #else
-        public List<string> MissingDomainOrders { get; set; }
+        public List<string> MissingDomainOrders { get => _explicitNullValueMissingDomainOrders; set { _explicitNullValueMissingDomainOrders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_domain_orders"); else _explicitNullProperties?.Remove("missing_domain_orders"); } }
+        private List<string> _explicitNullValueMissingDomainOrders = default!;
 #endif
         /// <summary>The number of accounts ordered</summary>
-        public double? NumberOfAccountsOrdered { get; set; }
+        public double? NumberOfAccountsOrdered { get => _explicitNullValueNumberOfAccountsOrdered; set { _explicitNullValueNumberOfAccountsOrdered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_accounts_ordered"); else _explicitNullProperties?.Remove("number_of_accounts_ordered"); } }
+        private double? _explicitNullValueNumberOfAccountsOrdered = default!;
         /// <summary>The number of domains ordered</summary>
-        public double? NumberOfDomainsOrdered { get; set; }
+        public double? NumberOfDomainsOrdered { get => _explicitNullValueNumberOfDomainsOrdered; set { _explicitNullValueNumberOfDomainsOrdered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_domains_ordered"); else _explicitNullProperties?.Remove("number_of_domains_ordered"); } }
+        private double? _explicitNullValueNumberOfDomainsOrdered = default!;
         /// <summary>The error that occurred if the order was not placed. If the order was placed successfully, then this field will be omitted.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderError? OrderError { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderError? OrderError { get => _explicitNullValueOrderError; set { _explicitNullValueOrderError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_error"); else _explicitNullProperties?.Remove("order_error"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderError? _explicitNullValueOrderError = default!;
         /// <summary>Whether the order is valid or not. If true, then the order is valid and can be placed. If false, then the order is not valid and cannot be placed. Use this field when you run a simulation to understand whether a real order would be valid.</summary>
-        public bool? OrderIsValid { get; set; }
+        public bool? OrderIsValid { get => _explicitNullValueOrderIsValid; set { _explicitNullValueOrderIsValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_is_valid"); else _explicitNullProperties?.Remove("order_is_valid"); } }
+        private bool? _explicitNullValueOrderIsValid = default!;
         /// <summary>The list of items that were ordered, with the pricing information for each item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>? OrderItems { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>? OrderItems { get => _explicitNullValueOrderItems; set { _explicitNullValueOrderItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_items"); else _explicitNullProperties?.Remove("order_items"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>? _explicitNullValueOrderItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem> OrderItems { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem> OrderItems { get => _explicitNullValueOrderItems; set { _explicitNullValueOrderItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_items"); else _explicitNullProperties?.Remove("order_items"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem> _explicitNullValueOrderItems = default!;
 #endif
         /// <summary>Whether the order was placed or not. If true, then the order was placed successfully. If false, then the order was not placed due to an error or simulation mode was enabled.</summary>
-        public bool? OrderPlaced { get; set; }
+        public bool? OrderPlaced { get => _explicitNullValueOrderPlaced; set { _explicitNullValueOrderPlaced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_placed"); else _explicitNullProperties?.Remove("order_placed"); } }
+        private bool? _explicitNullValueOrderPlaced = default!;
         /// <summary>A safe, provider-independent payment failure reason. Present only when a payment attempt failed.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason? PaymentFailureReason { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason? PaymentFailureReason { get => _explicitNullValuePaymentFailureReason; set { _explicitNullValuePaymentFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_failure_reason"); else _explicitNullProperties?.Remove("payment_failure_reason"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason? _explicitNullValuePaymentFailureReason = default!;
         /// <summary>The brand of the payment method used for the order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentMethodBrand { get; set; }
+        public string? PaymentMethodBrand { get => _explicitNullValuePaymentMethodBrand; set { _explicitNullValuePaymentMethodBrand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method_brand"); else _explicitNullProperties?.Remove("payment_method_brand"); } }
+        private string? _explicitNullValuePaymentMethodBrand = default!;
 #nullable restore
 #else
-        public string PaymentMethodBrand { get; set; }
+        public string PaymentMethodBrand { get => _explicitNullValuePaymentMethodBrand; set { _explicitNullValuePaymentMethodBrand = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method_brand"); else _explicitNullProperties?.Remove("payment_method_brand"); } }
+        private string _explicitNullValuePaymentMethodBrand = default!;
 #endif
         /// <summary>The last 4 digits of the payment method used for the order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentMethodLast4Digits { get; set; }
+        public string? PaymentMethodLast4Digits { get => _explicitNullValuePaymentMethodLast4Digits; set { _explicitNullValuePaymentMethodLast4Digits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method_last_4_digits"); else _explicitNullProperties?.Remove("payment_method_last_4_digits"); } }
+        private string? _explicitNullValuePaymentMethodLast4Digits = default!;
 #nullable restore
 #else
-        public string PaymentMethodLast4Digits { get; set; }
+        public string PaymentMethodLast4Digits { get => _explicitNullValuePaymentMethodLast4Digits; set { _explicitNullValuePaymentMethodLast4Digits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method_last_4_digits"); else _explicitNullProperties?.Remove("payment_method_last_4_digits"); } }
+        private string _explicitNullValuePaymentMethodLast4Digits = default!;
 #endif
         /// <summary>The name on the card used for the order</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentMethodNameOnCard { get; set; }
+        public string? PaymentMethodNameOnCard { get => _explicitNullValuePaymentMethodNameOnCard; set { _explicitNullValuePaymentMethodNameOnCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method_name_on_card"); else _explicitNullProperties?.Remove("payment_method_name_on_card"); } }
+        private string? _explicitNullValuePaymentMethodNameOnCard = default!;
 #nullable restore
 #else
-        public string PaymentMethodNameOnCard { get; set; }
+        public string PaymentMethodNameOnCard { get => _explicitNullValuePaymentMethodNameOnCard; set { _explicitNullValuePaymentMethodNameOnCard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_method_name_on_card"); else _explicitNullProperties?.Remove("payment_method_name_on_card"); } }
+        private string _explicitNullValuePaymentMethodNameOnCard = default!;
 #endif
         /// <summary>Legacy monthly price charged per mailbox. Null for mixed mailbox-provider orders; use `price_per_account_per_month_by_account_type` and `order_items[].accounts[].price` for provider-specific prices. For Microsoft/Outlook orders mailboxes are NOT charged individually — see `price_per_domain_per_month` instead.</summary>
-        public double? PricePerAccountPerMonth { get; set; }
+        public double? PricePerAccountPerMonth { get => _explicitNullValuePricePerAccountPerMonth; set { _explicitNullValuePricePerAccountPerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_account_per_month"); else _explicitNullProperties?.Remove("price_per_account_per_month"); } }
+        private double? _explicitNullValuePricePerAccountPerMonth = default!;
         /// <summary>Provider-specific monthly mailbox prices keyed by account type. Present when the order contains per-account providers with different mailbox prices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType? PricePerAccountPerMonthByAccountType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType? PricePerAccountPerMonthByAccountType { get => _explicitNullValuePricePerAccountPerMonthByAccountType; set { _explicitNullValuePricePerAccountPerMonthByAccountType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_account_per_month_by_account_type"); else _explicitNullProperties?.Remove("price_per_account_per_month_by_account_type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType? _explicitNullValuePricePerAccountPerMonthByAccountType = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType PricePerAccountPerMonthByAccountType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType PricePerAccountPerMonthByAccountType { get => _explicitNullValuePricePerAccountPerMonthByAccountType; set { _explicitNullValuePricePerAccountPerMonthByAccountType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_account_per_month_by_account_type"); else _explicitNullProperties?.Remove("price_per_account_per_month_by_account_type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePricePerAccountPerMonthByAccountType _explicitNullValuePricePerAccountPerMonthByAccountType = default!;
 #endif
         /// <summary>The monthly price charged per domain. Populated only when the order contains Microsoft/Outlook items (domain-level billing: $20/month/domain for 50-100 mailboxes). Null for Google / AirMail-only orders.</summary>
-        public double? PricePerDomainPerMonth { get; set; }
+        public double? PricePerDomainPerMonth { get => _explicitNullValuePricePerDomainPerMonth; set { _explicitNullValuePricePerDomainPerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_domain_per_month"); else _explicitNullProperties?.Remove("price_per_domain_per_month"); } }
+        private double? _explicitNullValuePricePerDomainPerMonth = default!;
         /// <summary>The price per domain per year</summary>
-        public double? PricePerDomainPerYear { get; set; }
+        public double? PricePerDomainPerYear { get => _explicitNullValuePricePerDomainPerYear; set { _explicitNullValuePricePerDomainPerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_per_domain_per_year"); else _explicitNullProperties?.Remove("price_per_domain_per_year"); } }
+        private double? _explicitNullValuePricePerDomainPerYear = default!;
         /// <summary>The list of domains whose requested `email_provider` does not match the existing active provider for that domain, or that are already in a mixed provider state in our records. All accounts for a domain must use the same provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ProviderMismatchDomains { get; set; }
+        public List<string>? ProviderMismatchDomains { get => _explicitNullValueProviderMismatchDomains; set { _explicitNullValueProviderMismatchDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_mismatch_domains"); else _explicitNullProperties?.Remove("provider_mismatch_domains"); } }
+        private List<string>? _explicitNullValueProviderMismatchDomains = default!;
 #nullable restore
 #else
-        public List<string> ProviderMismatchDomains { get; set; }
+        public List<string> ProviderMismatchDomains { get => _explicitNullValueProviderMismatchDomains; set { _explicitNullValueProviderMismatchDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_mismatch_domains"); else _explicitNullProperties?.Remove("provider_mismatch_domains"); } }
+        private List<string> _explicitNullValueProviderMismatchDomains = default!;
 #endif
         /// <summary>Whether to run the request in simulation mode or not. If set to true, the order will NOT be placed, your card will NOT be charged, and only a price quote will be returned. We will still check the validity of the order and the accounts, and return the results of the validation (if the order_is_valid field is true, then the order would be valid and could be placed).</summary>
-        public bool? Simulation { get; set; }
+        public bool? Simulation { get => _explicitNullValueSimulation; set { _explicitNullValueSimulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation"); else _explicitNullProperties?.Remove("simulation"); } }
+        private bool? _explicitNullValueSimulation = default!;
         /// <summary>The total monthly price charged for accounts in the order. For Google / AirMail this is `per-account price × mailbox count`. For Microsoft/Outlook it is `$20 × domain count` (domain-level billing for 50-100 mailboxes per domain).</summary>
-        public double? TotalAccountsPricePerMonth { get; set; }
+        public double? TotalAccountsPricePerMonth { get => _explicitNullValueTotalAccountsPricePerMonth; set { _explicitNullValueTotalAccountsPricePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_accounts_price_per_month"); else _explicitNullProperties?.Remove("total_accounts_price_per_month"); } }
+        private double? _explicitNullValueTotalAccountsPricePerMonth = default!;
         /// <summary>The total discount you will get for the order at the moment. Discounts are applied automatically when we&apos;re running promotions.</summary>
-        public double? TotalDiscount { get; set; }
+        public double? TotalDiscount { get => _explicitNullValueTotalDiscount; set { _explicitNullValueTotalDiscount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_discount"); else _explicitNullProperties?.Remove("total_discount"); } }
+        private double? _explicitNullValueTotalDiscount = default!;
         /// <summary>The total price per domain per year</summary>
-        public double? TotalDomainsPricePerYear { get; set; }
+        public double? TotalDomainsPricePerYear { get => _explicitNullValueTotalDomainsPricePerYear; set { _explicitNullValueTotalDomainsPricePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_domains_price_per_year"); else _explicitNullProperties?.Remove("total_domains_price_per_year"); } }
+        private double? _explicitNullValueTotalDomainsPricePerYear = default!;
         /// <summary>The total price you will have to pay for the order at the moment. This is the sum of the `total_accounts_price_per_month` and the `total_domains_price_per_year` fields.</summary>
-        public double? TotalPrice { get; set; }
+        public double? TotalPrice { get => _explicitNullValueTotalPrice; set { _explicitNullValueTotalPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_price"); else _explicitNullProperties?.Remove("total_price"); } }
+        private double? _explicitNullValueTotalPrice = default!;
         /// <summary>The total price per month you will have to pay for the order</summary>
-        public double? TotalPricePerMonth { get; set; }
+        public double? TotalPricePerMonth { get => _explicitNullValueTotalPricePerMonth; set { _explicitNullValueTotalPricePerMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_price_per_month"); else _explicitNullProperties?.Remove("total_price_per_month"); } }
+        private double? _explicitNullValueTotalPricePerMonth = default!;
         /// <summary>The total price per year you will have to pay for the order</summary>
-        public double? TotalPricePerYear { get; set; }
+        public double? TotalPricePerYear { get => _explicitNullValueTotalPricePerYear; set { _explicitNullValueTotalPricePerYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_price_per_year"); else _explicitNullProperties?.Remove("total_price_per_year"); } }
+        private double? _explicitNullValueTotalPricePerYear = default!;
         /// <summary>The list of unavailable domains (if any)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UnavailableDomains { get; set; }
+        public List<string>? UnavailableDomains { get => _explicitNullValueUnavailableDomains; set { _explicitNullValueUnavailableDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_domains"); else _explicitNullProperties?.Remove("unavailable_domains"); } }
+        private List<string>? _explicitNullValueUnavailableDomains = default!;
 #nullable restore
 #else
-        public List<string> UnavailableDomains { get; set; }
+        public List<string> UnavailableDomains { get => _explicitNullValueUnavailableDomains; set { _explicitNullValueUnavailableDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_domains"); else _explicitNullProperties?.Remove("unavailable_domains"); } }
+        private List<string> _explicitNullValueUnavailableDomains = default!;
 #endif
         /// <summary>The requested email providers that are not available for ordering right now.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? UnavailableEmailProviders { get; set; }
+        public List<double?>? UnavailableEmailProviders { get => _explicitNullValueUnavailableEmailProviders; set { _explicitNullValueUnavailableEmailProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_email_providers"); else _explicitNullProperties?.Remove("unavailable_email_providers"); } }
+        private List<double?>? _explicitNullValueUnavailableEmailProviders = default!;
 #nullable restore
 #else
-        public List<double?> UnavailableEmailProviders { get; set; }
+        public List<double?> UnavailableEmailProviders { get => _explicitNullValueUnavailableEmailProviders; set { _explicitNullValueUnavailableEmailProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_email_providers"); else _explicitNullProperties?.Remove("unavailable_email_providers"); } }
+        private List<double?> _explicitNullValueUnavailableEmailProviders = default!;
 #endif
         /// <summary>The list of domains that cannot receive extra accounts through this endpoint because their existing provider is not supported for public API extra-account orders.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UnsupportedProviderDomains { get; set; }
+        public List<string>? UnsupportedProviderDomains { get => _explicitNullValueUnsupportedProviderDomains; set { _explicitNullValueUnsupportedProviderDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unsupported_provider_domains"); else _explicitNullProperties?.Remove("unsupported_provider_domains"); } }
+        private List<string>? _explicitNullValueUnsupportedProviderDomains = default!;
 #nullable restore
 #else
-        public List<string> UnsupportedProviderDomains { get; set; }
+        public List<string> UnsupportedProviderDomains { get => _explicitNullValueUnsupportedProviderDomains; set { _explicitNullValueUnsupportedProviderDomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unsupported_provider_domains"); else _explicitNullProperties?.Remove("unsupported_provider_domains"); } }
+        private List<string> _explicitNullValueUnsupportedProviderDomains = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response"/> and sets the default values.
@@ -215,7 +313,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -306,6 +404,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("unavailable_domains", UnavailableDomains);
             writer.WriteCollectionOfPrimitiveValues<double?>("unavailable_email_providers", UnavailableEmailProviders);
             writer.WriteCollectionOfPrimitiveValues<string>("unsupported_provider_domains", UnsupportedProviderDomains);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

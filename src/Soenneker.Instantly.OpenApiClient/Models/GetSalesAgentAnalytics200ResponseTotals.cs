@@ -12,21 +12,40 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetSalesAgentAnalytics200ResponseTotals : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("leads_found") is { } nullNodeLeadsFound && nullNodeLeadsFound.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsFound = null;
+            if (parseNode.GetChildNode("opportunities") is { } nullNodeOpportunities && nullNodeOpportunities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Opportunities = null;
+            if (parseNode.GetChildNode("opportunities_amount") is { } nullNodeOpportunitiesAmount && nullNodeOpportunitiesAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpportunitiesAmount = null;
+            if (parseNode.GetChildNode("replies") is { } nullNodeReplies && nullNodeReplies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Replies = null;
+            if (parseNode.GetChildNode("total_email_activity") is { } nullNodeTotalEmailActivity && nullNodeTotalEmailActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalEmailActivity = null;
+            if (parseNode.GetChildNode("total_sent") is { } nullNodeTotalSent && nullNodeTotalSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSent = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The leads_found property</summary>
-        public double? LeadsFound { get; set; }
+        public double? LeadsFound { get => _explicitNullValueLeadsFound; set { _explicitNullValueLeadsFound = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_found"); else _explicitNullProperties?.Remove("leads_found"); } }
+        private double? _explicitNullValueLeadsFound = default!;
         /// <summary>The opportunities property</summary>
-        public double? Opportunities { get; set; }
+        public double? Opportunities { get => _explicitNullValueOpportunities; set { _explicitNullValueOpportunities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opportunities"); else _explicitNullProperties?.Remove("opportunities"); } }
+        private double? _explicitNullValueOpportunities = default!;
         /// <summary>The opportunities_amount property</summary>
-        public double? OpportunitiesAmount { get; set; }
+        public double? OpportunitiesAmount { get => _explicitNullValueOpportunitiesAmount; set { _explicitNullValueOpportunitiesAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opportunities_amount"); else _explicitNullProperties?.Remove("opportunities_amount"); } }
+        private double? _explicitNullValueOpportunitiesAmount = default!;
         /// <summary>The replies property</summary>
-        public double? Replies { get; set; }
+        public double? Replies { get => _explicitNullValueReplies; set { _explicitNullValueReplies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replies"); else _explicitNullProperties?.Remove("replies"); } }
+        private double? _explicitNullValueReplies = default!;
         /// <summary>The total_email_activity property</summary>
-        public double? TotalEmailActivity { get; set; }
+        public double? TotalEmailActivity { get => _explicitNullValueTotalEmailActivity; set { _explicitNullValueTotalEmailActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_email_activity"); else _explicitNullProperties?.Remove("total_email_activity"); } }
+        private double? _explicitNullValueTotalEmailActivity = default!;
         /// <summary>The total_sent property</summary>
-        public double? TotalSent { get; set; }
+        public double? TotalSent { get => _explicitNullValueTotalSent; set { _explicitNullValueTotalSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_sent"); else _explicitNullProperties?.Remove("total_sent"); } }
+        private double? _explicitNullValueTotalSent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals"/> and sets the default values.
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("replies", Replies);
             writer.WriteDoubleValue("total_email_activity", TotalEmailActivity);
             writer.WriteDoubleValue("total_sent", TotalSent);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

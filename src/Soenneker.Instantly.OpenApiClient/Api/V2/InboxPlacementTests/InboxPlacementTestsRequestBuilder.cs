@@ -78,6 +78,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxPlacementTest402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxPlacementTest404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxPlacementTest429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxPlacementTest200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListInboxPlacementTest200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -111,6 +113,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTest402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTest404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTest429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementTest.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

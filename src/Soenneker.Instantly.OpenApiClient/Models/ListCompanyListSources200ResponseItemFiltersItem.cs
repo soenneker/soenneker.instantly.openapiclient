@@ -11,87 +11,134 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListCompanyListSources200ResponseItemFiltersItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_custom") is { } nullNodeAllowCustom && nullNodeAllowCustom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowCustom = null;
+            if (parseNode.GetChildNode("default_operator") is { } nullNodeDefaultOperator && nullNodeDefaultOperator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultOperator = null;
+            if (parseNode.GetChildNode("description_key") is { } nullNodeDescriptionKey && nullNodeDescriptionKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DescriptionKey = null;
+            if (parseNode.GetChildNode("key") is { } nullNodeKey && nullNodeKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Key = null;
+            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("max") is { } nullNodeMax && nullNodeMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Max = null;
+            if (parseNode.GetChildNode("max_values") is { } nullNodeMaxValues && nullNodeMaxValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxValues = null;
+            if (parseNode.GetChildNode("min") is { } nullNodeMin && nullNodeMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Min = null;
+            if (parseNode.GetChildNode("operators") is { } nullNodeOperators && nullNodeOperators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operators = null;
+            if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
+            if (parseNode.GetChildNode("options_source") is { } nullNodeOptionsSource && nullNodeOptionsSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionsSource = null;
+            if (parseNode.GetChildNode("presets") is { } nullNodePresets && nullNodePresets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Presets = null;
+            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("threshold_presets") is { } nullNodeThresholdPresets && nullNodeThresholdPresets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdPresets = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("value_type") is { } nullNodeValueType && nullNodeValueType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValueType = null;
+        }
+
         /// <summary>The allow_custom property</summary>
-        public bool? AllowCustom { get; set; }
+        public bool? AllowCustom { get => _explicitNullValueAllowCustom; set { _explicitNullValueAllowCustom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_custom"); else _explicitNullProperties?.Remove("allow_custom"); } }
+        private bool? _explicitNullValueAllowCustom = default!;
         /// <summary>The default_operator property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemDefaultOperator? DefaultOperator { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemDefaultOperator? DefaultOperator { get => _explicitNullValueDefaultOperator; set { _explicitNullValueDefaultOperator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_operator"); else _explicitNullProperties?.Remove("default_operator"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemDefaultOperator? _explicitNullValueDefaultOperator = default!;
         /// <summary>The description_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DescriptionKey { get; set; }
+        public string? DescriptionKey { get => _explicitNullValueDescriptionKey; set { _explicitNullValueDescriptionKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description_key"); else _explicitNullProperties?.Remove("description_key"); } }
+        private string? _explicitNullValueDescriptionKey = default!;
 #nullable restore
 #else
-        public string DescriptionKey { get; set; }
+        public string DescriptionKey { get => _explicitNullValueDescriptionKey; set { _explicitNullValueDescriptionKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description_key"); else _explicitNullProperties?.Remove("description_key"); } }
+        private string _explicitNullValueDescriptionKey = default!;
 #endif
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Key { get; set; }
+        public string? Key { get => _explicitNullValueKey; set { _explicitNullValueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key"); else _explicitNullProperties?.Remove("key"); } }
+        private string? _explicitNullValueKey = default!;
 #nullable restore
 #else
-        public string Key { get; set; }
+        public string Key { get => _explicitNullValueKey; set { _explicitNullValueKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key"); else _explicitNullProperties?.Remove("key"); } }
+        private string _explicitNullValueKey = default!;
 #endif
         /// <summary>The label property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get; set; }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public string Label { get; set; }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        private string _explicitNullValueLabel = default!;
 #endif
         /// <summary>The max property</summary>
-        public double? Max { get; set; }
+        public double? Max { get => _explicitNullValueMax; set { _explicitNullValueMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max"); else _explicitNullProperties?.Remove("max"); } }
+        private double? _explicitNullValueMax = default!;
         /// <summary>The max_values property</summary>
-        public int? MaxValues { get; set; }
+        public int? MaxValues { get => _explicitNullValueMaxValues; set { _explicitNullValueMaxValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_values"); else _explicitNullProperties?.Remove("max_values"); } }
+        private int? _explicitNullValueMaxValues = default!;
         /// <summary>The min property</summary>
-        public double? Min { get; set; }
+        public double? Min { get => _explicitNullValueMin; set { _explicitNullValueMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min"); else _explicitNullProperties?.Remove("min"); } }
+        private double? _explicitNullValueMin = default!;
         /// <summary>The operators property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOperatorsItem?>? Operators { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOperatorsItem?>? Operators { get => _explicitNullValueOperators; set { _explicitNullValueOperators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operators"); else _explicitNullProperties?.Remove("operators"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOperatorsItem?>? _explicitNullValueOperators = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOperatorsItem?> Operators { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOperatorsItem?> Operators { get => _explicitNullValueOperators; set { _explicitNullValueOperators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operators"); else _explicitNullProperties?.Remove("operators"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOperatorsItem?> _explicitNullValueOperators = default!;
 #endif
         /// <summary>The options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsItem>? Options { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsItem>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsItem>? _explicitNullValueOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsItem> Options { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsItem> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsItem> _explicitNullValueOptions = default!;
 #endif
         /// <summary>The options_source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSource? OptionsSource { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSource? OptionsSource { get => _explicitNullValueOptionsSource; set { _explicitNullValueOptionsSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options_source"); else _explicitNullProperties?.Remove("options_source"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSource? _explicitNullValueOptionsSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSource OptionsSource { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSource OptionsSource { get => _explicitNullValueOptionsSource; set { _explicitNullValueOptionsSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options_source"); else _explicitNullProperties?.Remove("options_source"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemOptionsSource _explicitNullValueOptionsSource = default!;
 #endif
         /// <summary>The presets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItem>? Presets { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItem>? Presets { get => _explicitNullValuePresets; set { _explicitNullValuePresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("presets"); else _explicitNullProperties?.Remove("presets"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItem>? _explicitNullValuePresets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItem> Presets { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItem> Presets { get => _explicitNullValuePresets; set { _explicitNullValuePresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("presets"); else _explicitNullProperties?.Remove("presets"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemPresetsItem> _explicitNullValuePresets = default!;
 #endif
         /// <summary>The required property</summary>
-        public bool? Required { get; set; }
+        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        private bool? _explicitNullValueRequired = default!;
         /// <summary>The threshold_presets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem>? ThresholdPresets { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem>? ThresholdPresets { get => _explicitNullValueThresholdPresets; set { _explicitNullValueThresholdPresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_presets"); else _explicitNullProperties?.Remove("threshold_presets"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem>? _explicitNullValueThresholdPresets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem> ThresholdPresets { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem> ThresholdPresets { get => _explicitNullValueThresholdPresets; set { _explicitNullValueThresholdPresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_presets"); else _explicitNullProperties?.Remove("threshold_presets"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem> _explicitNullValueThresholdPresets = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemType? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemType? _explicitNullValueType = default!;
         /// <summary>The value_type property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemValueType? ValueType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemValueType? ValueType { get => _explicitNullValueValueType; set { _explicitNullValueValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value_type"); else _explicitNullProperties?.Remove("value_type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemValueType? _explicitNullValueValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -100,7 +147,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -150,7 +197,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("required", Required);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemThresholdPresetsItem>("threshold_presets", ThresholdPresets);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemType>("type", Type);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemValueType>("value_type", ValueType);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListCompanyListSources200ResponseItemFiltersItemValueType>("value_type", ValueType);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

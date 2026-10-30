@@ -12,34 +12,52 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("consecutive_loops_with_issue") is { } nullNodeConsecutiveLoopsWithIssue && nullNodeConsecutiveLoopsWithIssue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsecutiveLoopsWithIssue = null;
+            if (parseNode.GetChildNode("current_status_code") is { } nullNodeCurrentStatusCode && nullNodeCurrentStatusCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentStatusCode = null;
+            if (parseNode.GetChildNode("issue_first_seen_at") is { } nullNodeIssueFirstSeenAt && nullNodeIssueFirstSeenAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFirstSeenAt = null;
+            if (parseNode.GetChildNode("last_healthy_send_at") is { } nullNodeLastHealthySendAt && nullNodeLastHealthySendAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastHealthySendAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of consecutive processing loops with this issue</summary>
-        public double? ConsecutiveLoopsWithIssue { get; set; }
+        public double? ConsecutiveLoopsWithIssue { get => _explicitNullValueConsecutiveLoopsWithIssue; set { _explicitNullValueConsecutiveLoopsWithIssue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consecutive_loops_with_issue"); else _explicitNullProperties?.Remove("consecutive_loops_with_issue"); } }
+        private double? _explicitNullValueConsecutiveLoopsWithIssue = default!;
         /// <summary>Current status code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentStatusCode { get; set; }
+        public string? CurrentStatusCode { get => _explicitNullValueCurrentStatusCode; set { _explicitNullValueCurrentStatusCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_status_code"); else _explicitNullProperties?.Remove("current_status_code"); } }
+        private string? _explicitNullValueCurrentStatusCode = default!;
 #nullable restore
 #else
-        public string CurrentStatusCode { get; set; }
+        public string CurrentStatusCode { get => _explicitNullValueCurrentStatusCode; set { _explicitNullValueCurrentStatusCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_status_code"); else _explicitNullProperties?.Remove("current_status_code"); } }
+        private string _explicitNullValueCurrentStatusCode = default!;
 #endif
         /// <summary>ISO timestamp when the issue was first detected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueFirstSeenAt { get; set; }
+        public string? IssueFirstSeenAt { get => _explicitNullValueIssueFirstSeenAt; set { _explicitNullValueIssueFirstSeenAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_first_seen_at"); else _explicitNullProperties?.Remove("issue_first_seen_at"); } }
+        private string? _explicitNullValueIssueFirstSeenAt = default!;
 #nullable restore
 #else
-        public string IssueFirstSeenAt { get; set; }
+        public string IssueFirstSeenAt { get => _explicitNullValueIssueFirstSeenAt; set { _explicitNullValueIssueFirstSeenAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_first_seen_at"); else _explicitNullProperties?.Remove("issue_first_seen_at"); } }
+        private string _explicitNullValueIssueFirstSeenAt = default!;
 #endif
         /// <summary>ISO timestamp of last successful send</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastHealthySendAt { get; set; }
+        public string? LastHealthySendAt { get => _explicitNullValueLastHealthySendAt; set { _explicitNullValueLastHealthySendAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_healthy_send_at"); else _explicitNullProperties?.Remove("last_healthy_send_at"); } }
+        private string? _explicitNullValueLastHealthySendAt = default!;
 #nullable restore
 #else
-        public string LastHealthySendAt { get; set; }
+        public string LastHealthySendAt { get => _explicitNullValueLastHealthySendAt; set { _explicitNullValueLastHealthySendAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_healthy_send_at"); else _explicitNullProperties?.Remove("last_healthy_send_at"); } }
+        private string _explicitNullValueLastHealthySendAt = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking"/> and sets the default values.
@@ -56,7 +74,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("current_status_code", CurrentStatusCode);
             writer.WriteStringValue("issue_first_seen_at", IssueFirstSeenAt);
             writer.WriteStringValue("last_healthy_send_at", LastHealthySendAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

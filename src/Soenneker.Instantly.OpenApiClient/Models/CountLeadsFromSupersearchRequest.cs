@@ -11,19 +11,33 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CountLeadsFromSupersearchRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
+            if (parseNode.GetChildNode("show_one_lead_per_company") is { } nullNodeShowOneLeadPerCompany && nullNodeShowOneLeadPerCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOneLeadPerCompany = null;
+            if (parseNode.GetChildNode("skip_owned_leads") is { } nullNodeSkipOwnedLeads && nullNodeSkipOwnedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipOwnedLeads = null;
+        }
+
         /// <summary>Search filters to find leads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters? SearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters? SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters? _explicitNullValueSearchFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters SearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters _explicitNullValueSearchFilters = default!;
 #endif
         /// <summary>Return only one lead per company.</summary>
-        public bool? ShowOneLeadPerCompany { get; set; }
+        public bool? ShowOneLeadPerCompany { get => _explicitNullValueShowOneLeadPerCompany; set { _explicitNullValueShowOneLeadPerCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_one_lead_per_company"); else _explicitNullProperties?.Remove("show_one_lead_per_company"); } }
+        private bool? _explicitNullValueShowOneLeadPerCompany = default!;
         /// <summary>Skip leads that belong to the current workspace.</summary>
-        public bool? SkipOwnedLeads { get; set; }
+        public bool? SkipOwnedLeads { get => _explicitNullValueSkipOwnedLeads; set { _explicitNullValueSkipOwnedLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_owned_leads"); else _explicitNullProperties?.Remove("skip_owned_leads"); } }
+        private bool? _explicitNullValueSkipOwnedLeads = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +70,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CountLeadsFromSupersearchRequestSearchFilters>("search_filters", SearchFilters);
             writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
-            writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);
+            writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

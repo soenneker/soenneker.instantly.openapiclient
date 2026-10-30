@@ -11,26 +11,46 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CampaignSequencesItemStepsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("delay") is { } nullNodeDelay && nullNodeDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Delay = null;
+            if (parseNode.GetChildNode("delay_unit") is { } nullNodeDelayUnit && nullNodeDelayUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelayUnit = null;
+            if (parseNode.GetChildNode("pre_delay") is { } nullNodePreDelay && nullNodePreDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreDelay = null;
+            if (parseNode.GetChildNode("pre_delay_unit") is { } nullNodePreDelayUnit && nullNodePreDelayUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreDelayUnit = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("variants") is { } nullNodeVariants && nullNodeVariants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Variants = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The delay value before sending the NEXT email. The unit is determined by the delay_unit field (defaults to days). The total delay cannot exceed 366 days.</summary>
-        public double? Delay { get; set; }
+        public double? Delay { get => _explicitNullValueDelay; set { _explicitNullValueDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay"); else _explicitNullProperties?.Remove("delay"); } }
+        private double? _explicitNullValueDelay = default!;
         /// <summary>The unit of time for the delay value (minutes, hours, or days). Defaults to days for backward compatibility.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemDelayUnit? DelayUnit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemDelayUnit? DelayUnit { get => _explicitNullValueDelayUnit; set { _explicitNullValueDelayUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delay_unit"); else _explicitNullProperties?.Remove("delay_unit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemDelayUnit? _explicitNullValueDelayUnit = default!;
         /// <summary>The delay value before sending the FIRST email in a subsequence. **Only applicable to subsequences** - this field is ignored for regular campaigns. The unit is determined by the pre_delay_unit field (defaults to days). The total delay cannot exceed 366 days.</summary>
-        public double? PreDelay { get; set; }
+        public double? PreDelay { get => _explicitNullValuePreDelay; set { _explicitNullValuePreDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pre_delay"); else _explicitNullProperties?.Remove("pre_delay"); } }
+        private double? _explicitNullValuePreDelay = default!;
         /// <summary>The unit of time for the pre_delay value (minutes, hours, or days). **Only applicable to subsequences** - this field is ignored for regular campaigns. Defaults to days for backward compatibility.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemPreDelayUnit? PreDelayUnit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemPreDelayUnit? PreDelayUnit { get => _explicitNullValuePreDelayUnit; set { _explicitNullValuePreDelayUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pre_delay_unit"); else _explicitNullProperties?.Remove("pre_delay_unit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemPreDelayUnit? _explicitNullValuePreDelayUnit = default!;
         /// <summary>Type of step. This has to be &apos;email&apos; always - it&apos;s the only supported type for now</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.EmailType? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.EmailType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.EmailType? _explicitNullValueType = default!;
         /// <summary>Email variants for this step. Each step needs at least one variant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem>? Variants { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem>? Variants { get => _explicitNullValueVariants; set { _explicitNullValueVariants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variants"); else _explicitNullProperties?.Remove("variants"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem>? _explicitNullValueVariants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem> Variants { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem> Variants { get => _explicitNullValueVariants; set { _explicitNullValueVariants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variants"); else _explicitNullProperties?.Remove("variants"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem> _explicitNullValueVariants = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItem"/> and sets the default values.
@@ -47,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +98,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemPreDelayUnit>("pre_delay_unit", PreDelayUnit);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.EmailType>("type", Type);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSequencesItemStepsItemVariantsItem>("variants", Variants);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

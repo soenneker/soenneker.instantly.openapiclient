@@ -11,17 +11,32 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetSalesAgentOpportunitySummary200ResponseSummaryBreakdown : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("closed") is { } nullNodeClosed && nullNodeClosed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Closed = null;
+            if (parseNode.GetChildNode("interested") is { } nullNodeInterested && nullNodeInterested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interested = null;
+            if (parseNode.GetChildNode("meeting_booked") is { } nullNodeMeetingBooked && nullNodeMeetingBooked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MeetingBooked = null;
+            if (parseNode.GetChildNode("meeting_completed") is { } nullNodeMeetingCompleted && nullNodeMeetingCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MeetingCompleted = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The closed property</summary>
-        public double? Closed { get; set; }
+        public double? Closed { get => _explicitNullValueClosed; set { _explicitNullValueClosed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("closed"); else _explicitNullProperties?.Remove("closed"); } }
+        private double? _explicitNullValueClosed = default!;
         /// <summary>The interested property</summary>
-        public double? Interested { get; set; }
+        public double? Interested { get => _explicitNullValueInterested; set { _explicitNullValueInterested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interested"); else _explicitNullProperties?.Remove("interested"); } }
+        private double? _explicitNullValueInterested = default!;
         /// <summary>The meeting_booked property</summary>
-        public double? MeetingBooked { get; set; }
+        public double? MeetingBooked { get => _explicitNullValueMeetingBooked; set { _explicitNullValueMeetingBooked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meeting_booked"); else _explicitNullProperties?.Remove("meeting_booked"); } }
+        private double? _explicitNullValueMeetingBooked = default!;
         /// <summary>The meeting_completed property</summary>
-        public double? MeetingCompleted { get; set; }
+        public double? MeetingCompleted { get => _explicitNullValueMeetingCompleted; set { _explicitNullValueMeetingCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meeting_completed"); else _explicitNullProperties?.Remove("meeting_completed"); } }
+        private double? _explicitNullValueMeetingCompleted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentOpportunitySummary200ResponseSummaryBreakdown"/> and sets the default values.
         /// </summary>
@@ -37,7 +52,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentOpportunitySummary200ResponseSummaryBreakdown CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentOpportunitySummary200ResponseSummaryBreakdown();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentOpportunitySummary200ResponseSummaryBreakdown(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,6 +79,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("interested", Interested);
             writer.WriteDoubleValue("meeting_booked", MeetingBooked);
             writer.WriteDoubleValue("meeting_completed", MeetingCompleted);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

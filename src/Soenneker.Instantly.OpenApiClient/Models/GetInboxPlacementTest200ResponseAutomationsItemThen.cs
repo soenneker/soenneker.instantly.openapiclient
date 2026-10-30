@@ -12,40 +12,64 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetInboxPlacementTest200ResponseAutomationsItemThen : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("add_tags") is { } nullNodeAddTags && nullNodeAddTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddTags = null;
+            if (parseNode.GetChildNode("disable_slow_ramp") is { } nullNodeDisableSlowRamp && nullNodeDisableSlowRamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableSlowRamp = null;
+            if (parseNode.GetChildNode("enable_slow_ramp") is { } nullNodeEnableSlowRamp && nullNodeEnableSlowRamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSlowRamp = null;
+            if (parseNode.GetChildNode("pause") is { } nullNodePause && nullNodePause.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pause = null;
+            if (parseNode.GetChildNode("pause_sending_campaigns_for") is { } nullNodePauseSendingCampaignsFor && nullNodePauseSendingCampaignsFor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PauseSendingCampaignsFor = null;
+            if (parseNode.GetChildNode("remove_tags") is { } nullNodeRemoveTags && nullNodeRemoveTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoveTags = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The add_tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AddTags { get; set; }
+        public List<string>? AddTags { get => _explicitNullValueAddTags; set { _explicitNullValueAddTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_tags"); else _explicitNullProperties?.Remove("add_tags"); } }
+        private List<string>? _explicitNullValueAddTags = default!;
 #nullable restore
 #else
-        public List<string> AddTags { get; set; }
+        public List<string> AddTags { get => _explicitNullValueAddTags; set { _explicitNullValueAddTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_tags"); else _explicitNullProperties?.Remove("add_tags"); } }
+        private List<string> _explicitNullValueAddTags = default!;
 #endif
         /// <summary>The disable_slow_ramp property</summary>
-        public bool? DisableSlowRamp { get; set; }
+        public bool? DisableSlowRamp { get => _explicitNullValueDisableSlowRamp; set { _explicitNullValueDisableSlowRamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_slow_ramp"); else _explicitNullProperties?.Remove("disable_slow_ramp"); } }
+        private bool? _explicitNullValueDisableSlowRamp = default!;
         /// <summary>The enable_slow_ramp property</summary>
-        public bool? EnableSlowRamp { get; set; }
+        public bool? EnableSlowRamp { get => _explicitNullValueEnableSlowRamp; set { _explicitNullValueEnableSlowRamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_slow_ramp"); else _explicitNullProperties?.Remove("enable_slow_ramp"); } }
+        private bool? _explicitNullValueEnableSlowRamp = default!;
         /// <summary>The pause property</summary>
-        public bool? Pause { get; set; }
+        public bool? Pause { get => _explicitNullValuePause; set { _explicitNullValuePause = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pause"); else _explicitNullProperties?.Remove("pause"); } }
+        private bool? _explicitNullValuePause = default!;
         /// <summary>Number of days to pause sending campaigns for</summary>
-        public double? PauseSendingCampaignsFor { get; set; }
+        public double? PauseSendingCampaignsFor { get => _explicitNullValuePauseSendingCampaignsFor; set { _explicitNullValuePauseSendingCampaignsFor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pause_sending_campaigns_for"); else _explicitNullProperties?.Remove("pause_sending_campaigns_for"); } }
+        private double? _explicitNullValuePauseSendingCampaignsFor = default!;
         /// <summary>The remove_tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RemoveTags { get; set; }
+        public List<string>? RemoveTags { get => _explicitNullValueRemoveTags; set { _explicitNullValueRemoveTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_tags"); else _explicitNullProperties?.Remove("remove_tags"); } }
+        private List<string>? _explicitNullValueRemoveTags = default!;
 #nullable restore
 #else
-        public List<string> RemoveTags { get; set; }
+        public List<string> RemoveTags { get => _explicitNullValueRemoveTags; set { _explicitNullValueRemoveTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_tags"); else _explicitNullProperties?.Remove("remove_tags"); } }
+        private List<string> _explicitNullValueRemoveTags = default!;
 #endif
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen"/> and sets the default values.
@@ -62,7 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxPlacementTest200ResponseAutomationsItemThen(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,6 +119,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("pause_sending_campaigns_for", PauseSendingCampaignsFor);
             writer.WriteCollectionOfPrimitiveValues<string>("remove_tags", RemoveTags);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

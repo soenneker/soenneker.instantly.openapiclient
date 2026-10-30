@@ -93,6 +93,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteSalesAgent404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.DeleteSalesAgent409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteSalesAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -122,6 +124,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgent402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgent404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -157,6 +161,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Sales.Item
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

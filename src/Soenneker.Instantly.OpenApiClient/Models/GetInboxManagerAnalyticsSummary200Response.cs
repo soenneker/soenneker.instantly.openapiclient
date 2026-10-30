@@ -12,39 +12,76 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetInboxManagerAnalyticsSummary200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("average_confidence_score") is { } nullNodeAverageConfidenceScore && nullNodeAverageConfidenceScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AverageConfidenceScore = null;
+            if (parseNode.GetChildNode("follow_ups_count") is { } nullNodeFollowUpsCount && nullNodeFollowUpsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowUpsCount = null;
+            if (parseNode.GetChildNode("human_intervention") is { } nullNodeHumanIntervention && nullNodeHumanIntervention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HumanIntervention = null;
+            if (parseNode.GetChildNode("info_requested") is { } nullNodeInfoRequested && nullNodeInfoRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InfoRequested = null;
+            if (parseNode.GetChildNode("involvement_rate") is { } nullNodeInvolvementRate && nullNodeInvolvementRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvolvementRate = null;
+            if (parseNode.GetChildNode("no_show_follow_ups_generated") is { } nullNodeNoShowFollowUpsGenerated && nullNodeNoShowFollowUpsGenerated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowFollowUpsGenerated = null;
+            if (parseNode.GetChildNode("no_show_recovery_rate") is { } nullNodeNoShowRecoveryRate && nullNodeNoShowRecoveryRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowRecoveryRate = null;
+            if (parseNode.GetChildNode("no_show_time_saved") is { } nullNodeNoShowTimeSaved && nullNodeNoShowTimeSaved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowTimeSaved = null;
+            if (parseNode.GetChildNode("no_show_total_leads_recovered") is { } nullNodeNoShowTotalLeadsRecovered && nullNodeNoShowTotalLeadsRecovered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowTotalLeadsRecovered = null;
+            if (parseNode.GetChildNode("no_show_total_revenue_recovered") is { } nullNodeNoShowTotalRevenueRecovered && nullNodeNoShowTotalRevenueRecovered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowTotalRevenueRecovered = null;
+            if (parseNode.GetChildNode("replies_count") is { } nullNodeRepliesCount && nullNodeRepliesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepliesCount = null;
+            if (parseNode.GetChildNode("resolution_rate") is { } nullNodeResolutionRate && nullNodeResolutionRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolutionRate = null;
+            if (parseNode.GetChildNode("time_saved") is { } nullNodeTimeSaved && nullNodeTimeSaved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeSaved = null;
+            if (parseNode.GetChildNode("total_actions") is { } nullNodeTotalActions && nullNodeTotalActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalActions = null;
+            if (parseNode.GetChildNode("unique_conversations") is { } nullNodeUniqueConversations && nullNodeUniqueConversations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueConversations = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Average confidence score (0-100) of generated replies</summary>
-        public double? AverageConfidenceScore { get; set; }
+        public double? AverageConfidenceScore { get => _explicitNullValueAverageConfidenceScore; set { _explicitNullValueAverageConfidenceScore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("average_confidence_score"); else _explicitNullProperties?.Remove("average_confidence_score"); } }
+        private double? _explicitNullValueAverageConfidenceScore = default!;
         /// <summary>Follow-ups generated</summary>
-        public double? FollowUpsCount { get; set; }
+        public double? FollowUpsCount { get => _explicitNullValueFollowUpsCount; set { _explicitNullValueFollowUpsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("follow_ups_count"); else _explicitNullProperties?.Remove("follow_ups_count"); } }
+        private double? _explicitNullValueFollowUpsCount = default!;
         /// <summary>Actions that required human review</summary>
-        public double? HumanIntervention { get; set; }
+        public double? HumanIntervention { get => _explicitNullValueHumanIntervention; set { _explicitNullValueHumanIntervention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_intervention"); else _explicitNullProperties?.Remove("human_intervention"); } }
+        private double? _explicitNullValueHumanIntervention = default!;
         /// <summary>Actions where the agent requested more information</summary>
-        public double? InfoRequested { get; set; }
+        public double? InfoRequested { get => _explicitNullValueInfoRequested; set { _explicitNullValueInfoRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("info_requested"); else _explicitNullProperties?.Remove("info_requested"); } }
+        private double? _explicitNullValueInfoRequested = default!;
         /// <summary>Percentage (0-100) of threads where the agent was involved</summary>
-        public double? InvolvementRate { get; set; }
+        public double? InvolvementRate { get => _explicitNullValueInvolvementRate; set { _explicitNullValueInvolvementRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("involvement_rate"); else _explicitNullProperties?.Remove("involvement_rate"); } }
+        private double? _explicitNullValueInvolvementRate = default!;
         /// <summary>No-show recovery follow-ups generated</summary>
-        public double? NoShowFollowUpsGenerated { get; set; }
+        public double? NoShowFollowUpsGenerated { get => _explicitNullValueNoShowFollowUpsGenerated; set { _explicitNullValueNoShowFollowUpsGenerated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_follow_ups_generated"); else _explicitNullProperties?.Remove("no_show_follow_ups_generated"); } }
+        private double? _explicitNullValueNoShowFollowUpsGenerated = default!;
         /// <summary>Percentage (0-100) of no-show leads recovered</summary>
-        public double? NoShowRecoveryRate { get; set; }
+        public double? NoShowRecoveryRate { get => _explicitNullValueNoShowRecoveryRate; set { _explicitNullValueNoShowRecoveryRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_recovery_rate"); else _explicitNullProperties?.Remove("no_show_recovery_rate"); } }
+        private double? _explicitNullValueNoShowRecoveryRate = default!;
         /// <summary>Estimated time saved by no-show recovery, in seconds</summary>
-        public double? NoShowTimeSaved { get; set; }
+        public double? NoShowTimeSaved { get => _explicitNullValueNoShowTimeSaved; set { _explicitNullValueNoShowTimeSaved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_time_saved"); else _explicitNullProperties?.Remove("no_show_time_saved"); } }
+        private double? _explicitNullValueNoShowTimeSaved = default!;
         /// <summary>Leads recovered by no-show follow-ups</summary>
-        public double? NoShowTotalLeadsRecovered { get; set; }
+        public double? NoShowTotalLeadsRecovered { get => _explicitNullValueNoShowTotalLeadsRecovered; set { _explicitNullValueNoShowTotalLeadsRecovered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_total_leads_recovered"); else _explicitNullProperties?.Remove("no_show_total_leads_recovered"); } }
+        private double? _explicitNullValueNoShowTotalLeadsRecovered = default!;
         /// <summary>Revenue recovered by no-show follow-ups</summary>
-        public double? NoShowTotalRevenueRecovered { get; set; }
+        public double? NoShowTotalRevenueRecovered { get => _explicitNullValueNoShowTotalRevenueRecovered; set { _explicitNullValueNoShowTotalRevenueRecovered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_total_revenue_recovered"); else _explicitNullProperties?.Remove("no_show_total_revenue_recovered"); } }
+        private double? _explicitNullValueNoShowTotalRevenueRecovered = default!;
         /// <summary>Replies generated</summary>
-        public double? RepliesCount { get; set; }
+        public double? RepliesCount { get => _explicitNullValueRepliesCount; set { _explicitNullValueRepliesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replies_count"); else _explicitNullProperties?.Remove("replies_count"); } }
+        private double? _explicitNullValueRepliesCount = default!;
         /// <summary>Percentage (0-100) of hands-free resolutions among actions taken</summary>
-        public double? ResolutionRate { get; set; }
+        public double? ResolutionRate { get => _explicitNullValueResolutionRate; set { _explicitNullValueResolutionRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_rate"); else _explicitNullProperties?.Remove("resolution_rate"); } }
+        private double? _explicitNullValueResolutionRate = default!;
         /// <summary>Estimated time saved, in seconds</summary>
-        public double? TimeSaved { get; set; }
+        public double? TimeSaved { get => _explicitNullValueTimeSaved; set { _explicitNullValueTimeSaved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_saved"); else _explicitNullProperties?.Remove("time_saved"); } }
+        private double? _explicitNullValueTimeSaved = default!;
         /// <summary>Total actions taken by the agent</summary>
-        public double? TotalActions { get; set; }
+        public double? TotalActions { get => _explicitNullValueTotalActions; set { _explicitNullValueTotalActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_actions"); else _explicitNullProperties?.Remove("total_actions"); } }
+        private double? _explicitNullValueTotalActions = default!;
         /// <summary>Distinct conversation threads the agent acted on</summary>
-        public double? UniqueConversations { get; set; }
+        public double? UniqueConversations { get => _explicitNullValueUniqueConversations; set { _explicitNullValueUniqueConversations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_conversations"); else _explicitNullProperties?.Remove("unique_conversations"); } }
+        private double? _explicitNullValueUniqueConversations = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummary200Response"/> and sets the default values.
         /// </summary>
@@ -60,7 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummary200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummary200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummary200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,6 +146,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("time_saved", TimeSaved);
             writer.WriteDoubleValue("total_actions", TotalActions);
             writer.WriteDoubleValue("unique_conversations", UniqueConversations);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,21 +12,48 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InboxPlacementAnalytics : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authentication_failure_results") is { } nullNodeAuthenticationFailureResults && nullNodeAuthenticationFailureResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationFailureResults = null;
+            if (parseNode.GetChildNode("dkim_pass") is { } nullNodeDkimPass && nullNodeDkimPass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DkimPass = null;
+            if (parseNode.GetChildNode("dmarc_pass") is { } nullNodeDmarcPass && nullNodeDmarcPass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DmarcPass = null;
+            if (parseNode.GetChildNode("has_category") is { } nullNodeHasCategory && nullNodeHasCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasCategory = null;
+            if (parseNode.GetChildNode("is_spam") is { } nullNodeIsSpam && nullNodeIsSpam.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSpam = null;
+            if (parseNode.GetChildNode("recipient_email") is { } nullNodeRecipientEmail && nullNodeRecipientEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEmail = null;
+            if (parseNode.GetChildNode("recipient_esp") is { } nullNodeRecipientEsp && nullNodeRecipientEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEsp = null;
+            if (parseNode.GetChildNode("recipient_geo") is { } nullNodeRecipientGeo && nullNodeRecipientGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientGeo = null;
+            if (parseNode.GetChildNode("recipient_type") is { } nullNodeRecipientType && nullNodeRecipientType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientType = null;
+            if (parseNode.GetChildNode("record_type") is { } nullNodeRecordType && nullNodeRecordType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordType = null;
+            if (parseNode.GetChildNode("sender_email") is { } nullNodeSenderEmail && nullNodeSenderEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderEmail = null;
+            if (parseNode.GetChildNode("sender_esp") is { } nullNodeSenderEsp && nullNodeSenderEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderEsp = null;
+            if (parseNode.GetChildNode("smtp_ip_blacklist_report") is { } nullNodeSmtpIpBlacklistReport && nullNodeSmtpIpBlacklistReport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SmtpIpBlacklistReport = null;
+            if (parseNode.GetChildNode("spf_pass") is { } nullNodeSpfPass && nullNodeSpfPass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpfPass = null;
+            if (parseNode.GetChildNode("test_id") is { } nullNodeTestId && nullNodeTestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestId = null;
+        }
+
         /// <summary>Details of authentication failures for SPF, DKIM, and DMARC. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults? AuthenticationFailureResults { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults? AuthenticationFailureResults { get => _explicitNullValueAuthenticationFailureResults; set { _explicitNullValueAuthenticationFailureResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authentication_failure_results"); else _explicitNullProperties?.Remove("authentication_failure_results"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults? _explicitNullValueAuthenticationFailureResults = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults AuthenticationFailureResults { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults AuthenticationFailureResults { get => _explicitNullValueAuthenticationFailureResults; set { _explicitNullValueAuthenticationFailureResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authentication_failure_results"); else _explicitNullProperties?.Remove("authentication_failure_results"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults _explicitNullValueAuthenticationFailureResults = default!;
 #endif
         /// <summary>Indicates if the email passed DKIM validation. Only present when record_type is 2 (received).</summary>
-        public bool? DkimPass { get; set; }
+        public bool? DkimPass { get => _explicitNullValueDkimPass; set { _explicitNullValueDkimPass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim_pass"); else _explicitNullProperties?.Remove("dkim_pass"); } }
+        private bool? _explicitNullValueDkimPass = default!;
         /// <summary>Indicates if the email passed DMARC validation. Only present when record_type is 2 (received).</summary>
-        public bool? DmarcPass { get; set; }
+        public bool? DmarcPass { get => _explicitNullValueDmarcPass; set { _explicitNullValueDmarcPass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc_pass"); else _explicitNullProperties?.Remove("dmarc_pass"); } }
+        private bool? _explicitNullValueDmarcPass = default!;
         /// <summary>Indicates if the email was categorized like promotions, social, etc. (null if not determined). Only present when record_type is 2 (received).</summary>
-        public bool? HasCategory { get; set; }
+        public bool? HasCategory { get => _explicitNullValueHasCategory; set { _explicitNullValueHasCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_category"); else _explicitNullProperties?.Remove("has_category"); } }
+        private bool? _explicitNullValueHasCategory = default!;
         /// <summary>Unique identifier for the inbox placement analytics entry</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,7 +63,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>Indicates if the email landed in spam (null if not determined). Only present when record_type is 2 (received).</summary>
-        public bool? IsSpam { get; set; }
+        public bool? IsSpam { get => _explicitNullValueIsSpam; set { _explicitNullValueIsSpam = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_spam"); else _explicitNullProperties?.Remove("is_spam"); } }
+        private bool? _explicitNullValueIsSpam = default!;
         /// <summary>Organization ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,46 +76,60 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Email address of the recipient</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecipientEmail { get; set; }
+        public string? RecipientEmail { get => _explicitNullValueRecipientEmail; set { _explicitNullValueRecipientEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_email"); else _explicitNullProperties?.Remove("recipient_email"); } }
+        private string? _explicitNullValueRecipientEmail = default!;
 #nullable restore
 #else
-        public string RecipientEmail { get; set; }
+        public string RecipientEmail { get => _explicitNullValueRecipientEmail; set { _explicitNullValueRecipientEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_email"); else _explicitNullProperties?.Remove("recipient_email"); } }
+        private string _explicitNullValueRecipientEmail = default!;
 #endif
         /// <summary>The recipient ESP (Email Service Provider)</summary>
-        public double? RecipientEsp { get; set; }
+        public double? RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        private double? _explicitNullValueRecipientEsp = default!;
         /// <summary>The geographic location of the recipient</summary>
-        public double? RecipientGeo { get; set; }
+        public double? RecipientGeo { get => _explicitNullValueRecipientGeo; set { _explicitNullValueRecipientGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_geo"); else _explicitNullProperties?.Remove("recipient_geo"); } }
+        private double? _explicitNullValueRecipientGeo = default!;
         /// <summary>The type of recipient</summary>
-        public double? RecipientType { get; set; }
+        public double? RecipientType { get => _explicitNullValueRecipientType; set { _explicitNullValueRecipientType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_type"); else _explicitNullProperties?.Remove("recipient_type"); } }
+        private double? _explicitNullValueRecipientType = default!;
         /// <summary>The type of record (sent or received)</summary>
-        public double? RecordType { get; set; }
+        public double? RecordType { get => _explicitNullValueRecordType; set { _explicitNullValueRecordType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record_type"); else _explicitNullProperties?.Remove("record_type"); } }
+        private double? _explicitNullValueRecordType = default!;
         /// <summary>Email address of the sender</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SenderEmail { get; set; }
+        public string? SenderEmail { get => _explicitNullValueSenderEmail; set { _explicitNullValueSenderEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_email"); else _explicitNullProperties?.Remove("sender_email"); } }
+        private string? _explicitNullValueSenderEmail = default!;
 #nullable restore
 #else
-        public string SenderEmail { get; set; }
+        public string SenderEmail { get => _explicitNullValueSenderEmail; set { _explicitNullValueSenderEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_email"); else _explicitNullProperties?.Remove("sender_email"); } }
+        private string _explicitNullValueSenderEmail = default!;
 #endif
         /// <summary>The sender ESP (Email Service Provider). Only present when record_type is 2 (received).</summary>
-        public double? SenderEsp { get; set; }
+        public double? SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
+        private double? _explicitNullValueSenderEsp = default!;
         /// <summary>Blacklist report for the SMTP IP address. Only present when record_type is 2 (received).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty? SmtpIpBlacklistReport { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty? SmtpIpBlacklistReport { get => _explicitNullValueSmtpIpBlacklistReport; set { _explicitNullValueSmtpIpBlacklistReport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smtp_ip_blacklist_report"); else _explicitNullProperties?.Remove("smtp_ip_blacklist_report"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty? _explicitNullValueSmtpIpBlacklistReport = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty SmtpIpBlacklistReport { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty SmtpIpBlacklistReport { get => _explicitNullValueSmtpIpBlacklistReport; set { _explicitNullValueSmtpIpBlacklistReport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("smtp_ip_blacklist_report"); else _explicitNullProperties?.Remove("smtp_ip_blacklist_report"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty _explicitNullValueSmtpIpBlacklistReport = default!;
 #endif
         /// <summary>Indicates if the email passed SPF validation. Only present when record_type is 2 (received).</summary>
-        public bool? SpfPass { get; set; }
+        public bool? SpfPass { get => _explicitNullValueSpfPass; set { _explicitNullValueSpfPass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spf_pass"); else _explicitNullProperties?.Remove("spf_pass"); } }
+        private bool? _explicitNullValueSpfPass = default!;
         /// <summary>Inbox Placement Test ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TestId { get; set; }
+        public string? TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
+        private string? _explicitNullValueTestId = default!;
 #nullable restore
 #else
-        public string TestId { get; set; }
+        public string TestId { get => _explicitNullValueTestId; set { _explicitNullValueTestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_id"); else _explicitNullProperties?.Remove("test_id"); } }
+        private string _explicitNullValueTestId = default!;
 #endif
         /// <summary>Timestamp when the inbox placement analytics was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,7 +155,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalytics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalytics();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalytics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -165,7 +207,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("sender_esp", SenderEsp);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsSmtpIpBlacklistReportProperty>("smtp_ip_blacklist_report", SmtpIpBlacklistReport);
             writer.WriteBoolValue("spf_pass", SpfPass);
-            writer.WriteStringValue("test_id", TestId);
+            writer.WriteStringValue("test_id", TestId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

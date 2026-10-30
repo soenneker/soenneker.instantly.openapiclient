@@ -12,27 +12,49 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CampaignSubsequence : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto_variant_select") is { } nullNodeAutoVariantSelect && nullNodeAutoVariantSelect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoVariantSelect = null;
+            if (parseNode.GetChildNode("conditions") is { } nullNodeConditions && nullNodeConditions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conditions = null;
+            if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
+            if (parseNode.GetChildNode("daily_limit_mode") is { } nullNodeDailyLimitMode && nullNodeDailyLimitMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimitMode = null;
+            if (parseNode.GetChildNode("ignore_account_daily_limit") is { } nullNodeIgnoreAccountDailyLimit && nullNodeIgnoreAccountDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreAccountDailyLimit = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("parent_campaign") is { } nullNodeParentCampaign && nullNodeParentCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentCampaign = null;
+            if (parseNode.GetChildNode("sequences") is { } nullNodeSequences && nullNodeSequences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sequences = null;
+            if (parseNode.GetChildNode("subsequence_schedule") is { } nullNodeSubsequenceSchedule && nullNodeSubsequenceSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubsequenceSchedule = null;
+        }
+
         /// <summary>Automatically select the winning variant for each step using open, click, or reply rate. Set to `null` to disable automatic selection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect? AutoVariantSelect { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect? AutoVariantSelect { get => _explicitNullValueAutoVariantSelect; set { _explicitNullValueAutoVariantSelect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_variant_select"); else _explicitNullProperties?.Remove("auto_variant_select"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect? _explicitNullValueAutoVariantSelect = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect AutoVariantSelect { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect AutoVariantSelect { get => _explicitNullValueAutoVariantSelect; set { _explicitNullValueAutoVariantSelect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_variant_select"); else _explicitNullProperties?.Remove("auto_variant_select"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceAutoVariantSelect _explicitNullValueAutoVariantSelect = default!;
 #endif
         /// <summary>Conditions that trigger the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions? Conditions { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions? Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions? _explicitNullValueConditions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions Conditions { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions Conditions { get => _explicitNullValueConditions; set { _explicitNullValueConditions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conditions"); else _explicitNullProperties?.Remove("conditions"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceConditions _explicitNullValueConditions = default!;
 #endif
         /// <summary>Custom daily limit for the subsequence. Only used when `daily_limit_mode` is &quot;custom&quot;.</summary>
-        public double? DailyLimit { get; set; }
+        public double? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
+        private double? _explicitNullValueDailyLimit = default!;
         /// <summary>Daily limit mode for the subsequence. &quot;inherit&quot; uses the parent campaign limit, &quot;custom&quot; uses a subsequence-specific limit, &quot;unlimited&quot; bypasses the campaign-level daily limit.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode? DailyLimitMode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode? DailyLimitMode { get => _explicitNullValueDailyLimitMode; set { _explicitNullValueDailyLimitMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit_mode"); else _explicitNullProperties?.Remove("daily_limit_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceDailyLimitMode? _explicitNullValueDailyLimitMode = default!;
         /// <summary>Unique identifier for the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,40 +64,49 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Id { get; private set; }
 #endif
         /// <summary>When enabled, the subsequence will send even when sending accounts have reached their daily limit.</summary>
-        public bool? IgnoreAccountDailyLimit { get; set; }
+        public bool? IgnoreAccountDailyLimit { get => _explicitNullValueIgnoreAccountDailyLimit; set { _explicitNullValueIgnoreAccountDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore_account_daily_limit"); else _explicitNullProperties?.Remove("ignore_account_daily_limit"); } }
+        private bool? _explicitNullValueIgnoreAccountDailyLimit = default!;
         /// <summary>Name of the subsequence</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>ID of the parent campaign</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentCampaign { get; set; }
+        public string? ParentCampaign { get => _explicitNullValueParentCampaign; set { _explicitNullValueParentCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_campaign"); else _explicitNullProperties?.Remove("parent_campaign"); } }
+        private string? _explicitNullValueParentCampaign = default!;
 #nullable restore
 #else
-        public string ParentCampaign { get; set; }
+        public string ParentCampaign { get => _explicitNullValueParentCampaign; set { _explicitNullValueParentCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_campaign"); else _explicitNullProperties?.Remove("parent_campaign"); } }
+        private string _explicitNullValueParentCampaign = default!;
 #endif
         /// <summary>List of sequences (the actual email copy). Even though this field is an array, only the first element is used, so please provide only one array item, and add the steps to that array</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem>? Sequences { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem>? Sequences { get => _explicitNullValueSequences; set { _explicitNullValueSequences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequences"); else _explicitNullProperties?.Remove("sequences"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem>? _explicitNullValueSequences = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem> Sequences { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem> Sequences { get => _explicitNullValueSequences; set { _explicitNullValueSequences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequences"); else _explicitNullProperties?.Remove("sequences"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem> _explicitNullValueSequences = default!;
 #endif
         /// <summary>Status of the subsequence</summary>
         public double? Status { get; private set; }
         /// <summary>Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign&apos;s schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule? SubsequenceSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule? SubsequenceSchedule { get => _explicitNullValueSubsequenceSchedule; set { _explicitNullValueSubsequenceSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsequence_schedule"); else _explicitNullProperties?.Remove("subsequence_schedule"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule? _explicitNullValueSubsequenceSchedule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule SubsequenceSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule SubsequenceSchedule { get => _explicitNullValueSubsequenceSchedule; set { _explicitNullValueSubsequenceSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsequence_schedule"); else _explicitNullProperties?.Remove("subsequence_schedule"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule _explicitNullValueSubsequenceSchedule = default!;
 #endif
         /// <summary>Timestamp when the subsequence was created</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
@@ -97,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequence(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,7 +169,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("parent_campaign", ParentCampaign);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSequencesItem>("sequences", Sequences);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CampaignSubsequenceSubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

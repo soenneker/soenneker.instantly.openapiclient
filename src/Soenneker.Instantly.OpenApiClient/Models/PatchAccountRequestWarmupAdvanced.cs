@@ -12,21 +12,40 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchAccountRequestWarmupAdvanced : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("important_rate") is { } nullNodeImportantRate && nullNodeImportantRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportantRate = null;
+            if (parseNode.GetChildNode("open_rate") is { } nullNodeOpenRate && nullNodeOpenRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenRate = null;
+            if (parseNode.GetChildNode("read_emulation") is { } nullNodeReadEmulation && nullNodeReadEmulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadEmulation = null;
+            if (parseNode.GetChildNode("spam_save_rate") is { } nullNodeSpamSaveRate && nullNodeSpamSaveRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpamSaveRate = null;
+            if (parseNode.GetChildNode("warm_ctd") is { } nullNodeWarmCtd && nullNodeWarmCtd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarmCtd = null;
+            if (parseNode.GetChildNode("weekday_only") is { } nullNodeWeekdayOnly && nullNodeWeekdayOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeekdayOnly = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Important email rate for the account</summary>
-        public double? ImportantRate { get; set; }
+        public double? ImportantRate { get => _explicitNullValueImportantRate; set { _explicitNullValueImportantRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("important_rate"); else _explicitNullProperties?.Remove("important_rate"); } }
+        private double? _explicitNullValueImportantRate = default!;
         /// <summary>Email open rate for the account</summary>
-        public double? OpenRate { get; set; }
+        public double? OpenRate { get => _explicitNullValueOpenRate; set { _explicitNullValueOpenRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_rate"); else _explicitNullProperties?.Remove("open_rate"); } }
+        private double? _explicitNullValueOpenRate = default!;
         /// <summary>Whether read emulation is enabled</summary>
-        public bool? ReadEmulation { get; set; }
+        public bool? ReadEmulation { get => _explicitNullValueReadEmulation; set { _explicitNullValueReadEmulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_emulation"); else _explicitNullProperties?.Remove("read_emulation"); } }
+        private bool? _explicitNullValueReadEmulation = default!;
         /// <summary>Spam save rate for the account</summary>
-        public double? SpamSaveRate { get; set; }
+        public double? SpamSaveRate { get => _explicitNullValueSpamSaveRate; set { _explicitNullValueSpamSaveRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spam_save_rate"); else _explicitNullProperties?.Remove("spam_save_rate"); } }
+        private double? _explicitNullValueSpamSaveRate = default!;
         /// <summary>Whether the account is in warm CTD mode</summary>
-        public bool? WarmCtd { get; set; }
+        public bool? WarmCtd { get => _explicitNullValueWarmCtd; set { _explicitNullValueWarmCtd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warm_ctd"); else _explicitNullProperties?.Remove("warm_ctd"); } }
+        private bool? _explicitNullValueWarmCtd = default!;
         /// <summary>Whether to send emails only on weekdays</summary>
-        public bool? WeekdayOnly { get; set; }
+        public bool? WeekdayOnly { get => _explicitNullValueWeekdayOnly; set { _explicitNullValueWeekdayOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("weekday_only"); else _explicitNullProperties?.Remove("weekday_only"); } }
+        private bool? _explicitNullValueWeekdayOnly = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmupAdvanced"/> and sets the default values.
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmupAdvanced CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmupAdvanced();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmupAdvanced(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("spam_save_rate", SpamSaveRate);
             writer.WriteBoolValue("warm_ctd", WarmCtd);
             writer.WriteBoolValue("weekday_only", WeekdayOnly);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

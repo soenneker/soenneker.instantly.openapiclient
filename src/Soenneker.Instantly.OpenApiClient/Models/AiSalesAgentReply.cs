@@ -12,9 +12,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiSalesAgentReply : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action_pending") is { } nullNodeActionPending && nullNodeActionPending.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionPending = null;
+            if (parseNode.GetChildNode("error_code") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
+            if (parseNode.GetChildNode("feedback_positive") is { } nullNodeFeedbackPositive && nullNodeFeedbackPositive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedbackPositive = null;
+            if (parseNode.GetChildNode("feedback_text") is { } nullNodeFeedbackText && nullNodeFeedbackText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedbackText = null;
+            if (parseNode.GetChildNode("is_followup") is { } nullNodeIsFollowup && nullNodeIsFollowup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFollowup = null;
+            if (parseNode.GetChildNode("sending_status") is { } nullNodeSendingStatus && nullNodeSendingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendingStatus = null;
+        }
+
         /// <summary>Whether this reply requires pending action from the user (nullable)</summary>
-        public bool? ActionPending { get; set; }
+        public bool? ActionPending { get => _explicitNullValueActionPending; set { _explicitNullValueActionPending = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_pending"); else _explicitNullProperties?.Remove("action_pending"); } }
+        private bool? _explicitNullValueActionPending = default!;
         /// <summary>ID of the AI agent that generated this reply (nullable)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,18 +42,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Confidence score for this AI-generated reply (nullable, 0-100)</summary>
         public double? ConfidenceScore { get; private set; }
         /// <summary>Error code for the email sending process (nullable)</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyErrorCode? ErrorCode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyErrorCode? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReplyErrorCode? _explicitNullValueErrorCode = default!;
         /// <summary>Estimated time (in seconds) saved by the AI in generating this reply (nullable)</summary>
         public double? EstimatedTimeSavedSeconds { get; private set; }
         /// <summary>Whether the feedback on the reply was positive (nullable)</summary>
-        public bool? FeedbackPositive { get; set; }
+        public bool? FeedbackPositive { get => _explicitNullValueFeedbackPositive; set { _explicitNullValueFeedbackPositive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback_positive"); else _explicitNullProperties?.Remove("feedback_positive"); } }
+        private bool? _explicitNullValueFeedbackPositive = default!;
         /// <summary>Feedback text left by a user for this reply (nullable)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FeedbackText { get; set; }
+        public string? FeedbackText { get => _explicitNullValueFeedbackText; set { _explicitNullValueFeedbackText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback_text"); else _explicitNullProperties?.Remove("feedback_text"); } }
+        private string? _explicitNullValueFeedbackText = default!;
 #nullable restore
 #else
-        public string FeedbackText { get; set; }
+        public string FeedbackText { get => _explicitNullValueFeedbackText; set { _explicitNullValueFeedbackText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feedback_text"); else _explicitNullProperties?.Remove("feedback_text"); } }
+        private string _explicitNullValueFeedbackText = default!;
 #endif
         /// <summary>Time taken (in seconds) for AI to generate the reply (nullable)</summary>
         public double? GenerationLagSeconds { get; private set; }
@@ -78,7 +96,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether this reply was automatically sent as an email (nullable)</summary>
         public bool? IsAutomaticEmail { get; private set; }
         /// <summary>Whether this reply is an automatic follow-up to a previous reply (nullable)</summary>
-        public bool? IsFollowup { get; set; }
+        public bool? IsFollowup { get => _explicitNullValueIsFollowup; set { _explicitNullValueIsFollowup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_followup"); else _explicitNullProperties?.Remove("is_followup"); } }
+        private bool? _explicitNullValueIsFollowup = default!;
         /// <summary>Lead email address this reply is associated with</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,7 +125,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string RequiresHitlReason { get; private set; }
 #endif
         /// <summary>Status of the email sending process</summary>
-        public double? SendingStatus { get; set; }
+        public double? SendingStatus { get => _explicitNullValueSendingStatus; set { _explicitNullValueSendingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sending_status"); else _explicitNullProperties?.Remove("sending_status"); } }
+        private double? _explicitNullValueSendingStatus = default!;
         /// <summary>Conversation thread identifier (nullable)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -147,7 +167,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReply CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReply();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentReply(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -195,7 +215,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("feedback_positive", FeedbackPositive);
             writer.WriteStringValue("feedback_text", FeedbackText);
             writer.WriteBoolValue("is_followup", IsFollowup);
-            writer.WriteDoubleValue("sending_status", SendingStatus);
+            writer.WriteDoubleValue("sending_status", SendingStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

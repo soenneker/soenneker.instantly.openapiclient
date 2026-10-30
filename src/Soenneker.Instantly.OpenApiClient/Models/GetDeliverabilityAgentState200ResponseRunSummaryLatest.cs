@@ -11,51 +11,85 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDeliverabilityAgentState200ResponseRunSummaryLatest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("checks") is { } nullNodeChecks && nullNodeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checks = null;
+            if (parseNode.GetChildNode("completed_at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("completed_checks") is { } nullNodeCompletedChecks && nullNodeCompletedChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedChecks = null;
+            if (parseNode.GetChildNode("cycle_id") is { } nullNodeCycleId && nullNodeCycleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CycleId = null;
+            if (parseNode.GetChildNode("failed_count") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
+            if (parseNode.GetChildNode("feed_items") is { } nullNodeFeedItems && nullNodeFeedItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeedItems = null;
+            if (parseNode.GetChildNode("healthy_count") is { } nullNodeHealthyCount && nullNodeHealthyCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthyCount = null;
+            if (parseNode.GetChildNode("info_count") is { } nullNodeInfoCount && nullNodeInfoCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InfoCount = null;
+            if (parseNode.GetChildNode("needs_attention_count") is { } nullNodeNeedsAttentionCount && nullNodeNeedsAttentionCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeedsAttentionCount = null;
+            if (parseNode.GetChildNode("started_at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("total_checks") is { } nullNodeTotalChecks && nullNodeTotalChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalChecks = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestChecksItem>? Checks { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestChecksItem>? Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestChecksItem>? _explicitNullValueChecks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestChecksItem> Checks { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestChecksItem> Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestChecksItem> _explicitNullValueChecks = default!;
 #endif
         /// <summary>The completed_at property</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
+        private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The completed_checks property</summary>
-        public double? CompletedChecks { get; set; }
+        public double? CompletedChecks { get => _explicitNullValueCompletedChecks; set { _explicitNullValueCompletedChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_checks"); else _explicitNullProperties?.Remove("completed_checks"); } }
+        private double? _explicitNullValueCompletedChecks = default!;
         /// <summary>The cycle_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CycleId { get; set; }
+        public string? CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
+        private string? _explicitNullValueCycleId = default!;
 #nullable restore
 #else
-        public string CycleId { get; set; }
+        public string CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }
+        private string _explicitNullValueCycleId = default!;
 #endif
         /// <summary>The failed_count property</summary>
-        public double? FailedCount { get; set; }
+        public double? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_count"); else _explicitNullProperties?.Remove("failed_count"); } }
+        private double? _explicitNullValueFailedCount = default!;
         /// <summary>The feed_items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestFeedItemsItem>? FeedItems { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestFeedItemsItem>? FeedItems { get => _explicitNullValueFeedItems; set { _explicitNullValueFeedItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feed_items"); else _explicitNullProperties?.Remove("feed_items"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestFeedItemsItem>? _explicitNullValueFeedItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestFeedItemsItem> FeedItems { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestFeedItemsItem> FeedItems { get => _explicitNullValueFeedItems; set { _explicitNullValueFeedItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feed_items"); else _explicitNullProperties?.Remove("feed_items"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestFeedItemsItem> _explicitNullValueFeedItems = default!;
 #endif
         /// <summary>The healthy_count property</summary>
-        public double? HealthyCount { get; set; }
+        public double? HealthyCount { get => _explicitNullValueHealthyCount; set { _explicitNullValueHealthyCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthy_count"); else _explicitNullProperties?.Remove("healthy_count"); } }
+        private double? _explicitNullValueHealthyCount = default!;
         /// <summary>The info_count property</summary>
-        public double? InfoCount { get; set; }
+        public double? InfoCount { get => _explicitNullValueInfoCount; set { _explicitNullValueInfoCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("info_count"); else _explicitNullProperties?.Remove("info_count"); } }
+        private double? _explicitNullValueInfoCount = default!;
         /// <summary>The needs_attention_count property</summary>
-        public double? NeedsAttentionCount { get; set; }
+        public double? NeedsAttentionCount { get => _explicitNullValueNeedsAttentionCount; set { _explicitNullValueNeedsAttentionCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("needs_attention_count"); else _explicitNullProperties?.Remove("needs_attention_count"); } }
+        private double? _explicitNullValueNeedsAttentionCount = default!;
         /// <summary>The started_at property</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started_at"); else _explicitNullProperties?.Remove("started_at"); } }
+        private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestStatus? Status { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestStatus? _explicitNullValueStatus = default!;
         /// <summary>The total_checks property</summary>
-        public double? TotalChecks { get; set; }
+        public double? TotalChecks { get => _explicitNullValueTotalChecks; set { _explicitNullValueTotalChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_checks"); else _explicitNullProperties?.Remove("total_checks"); } }
+        private double? _explicitNullValueTotalChecks = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatest"/> and sets the default values.
         /// </summary>
@@ -71,7 +105,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,6 +148,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummaryLatestStatus>("status", Status);
             writer.WriteDoubleValue("total_checks", TotalChecks);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

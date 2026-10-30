@@ -12,65 +12,108 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListInboxManagerActivity200ResponseItemsItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action_pending") is { } nullNodeActionPending && nullNodeActionPending.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionPending = null;
+            if (parseNode.GetChildNode("activity_type") is { } nullNodeActivityType && nullNodeActivityType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivityType = null;
+            if (parseNode.GetChildNode("error_code") is { } nullNodeErrorCode && nullNodeErrorCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCode = null;
+            if (parseNode.GetChildNode("estimated_time_saved_seconds") is { } nullNodeEstimatedTimeSavedSeconds && nullNodeEstimatedTimeSavedSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedTimeSavedSeconds = null;
+            if (parseNode.GetChildNode("followup_number") is { } nullNodeFollowupNumber && nullNodeFollowupNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowupNumber = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("information_requested") is { } nullNodeInformationRequested && nullNodeInformationRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InformationRequested = null;
+            if (parseNode.GetChildNode("is_followup") is { } nullNodeIsFollowup && nullNodeIsFollowup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFollowup = null;
+            if (parseNode.GetChildNode("job_type") is { } nullNodeJobType && nullNodeJobType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobType = null;
+            if (parseNode.GetChildNode("lead_email") is { } nullNodeLeadEmail && nullNodeLeadEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadEmail = null;
+            if (parseNode.GetChildNode("recovery_method") is { } nullNodeRecoveryMethod && nullNodeRecoveryMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoveryMethod = null;
+            if (parseNode.GetChildNode("requires_hitl") is { } nullNodeRequiresHitl && nullNodeRequiresHitl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiresHitl = null;
+            if (parseNode.GetChildNode("revenue_recovered") is { } nullNodeRevenueRecovered && nullNodeRevenueRecovered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevenueRecovered = null;
+            if (parseNode.GetChildNode("sending_status") is { } nullNodeSendingStatus && nullNodeSendingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendingStatus = null;
+            if (parseNode.GetChildNode("thread_id") is { } nullNodeThreadId && nullNodeThreadId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreadId = null;
+            if (parseNode.GetChildNode("timestamp_created") is { } nullNodeTimestampCreated && nullNodeTimestampCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampCreated = null;
+        }
+
         /// <summary>Whether the activity still requires action from the user</summary>
-        public bool? ActionPending { get; set; }
+        public bool? ActionPending { get => _explicitNullValueActionPending; set { _explicitNullValueActionPending = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_pending"); else _explicitNullProperties?.Remove("action_pending"); } }
+        private bool? _explicitNullValueActionPending = default!;
         /// <summary>Kind of activity</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemActivityType? ActivityType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemActivityType? ActivityType { get => _explicitNullValueActivityType; set { _explicitNullValueActivityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_type"); else _explicitNullProperties?.Remove("activity_type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemActivityType? _explicitNullValueActivityType = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Error code for the email sending process</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode? ErrorCode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode? _explicitNullValueErrorCode = default!;
         /// <summary>Estimated time saved by the agent, in seconds</summary>
-        public double? EstimatedTimeSavedSeconds { get; set; }
+        public double? EstimatedTimeSavedSeconds { get => _explicitNullValueEstimatedTimeSavedSeconds; set { _explicitNullValueEstimatedTimeSavedSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_time_saved_seconds"); else _explicitNullProperties?.Remove("estimated_time_saved_seconds"); } }
+        private double? _explicitNullValueEstimatedTimeSavedSeconds = default!;
         /// <summary>Position of this follow-up in its sequence</summary>
-        public double? FollowupNumber { get; set; }
+        public double? FollowupNumber { get => _explicitNullValueFollowupNumber; set { _explicitNullValueFollowupNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followup_number"); else _explicitNullProperties?.Remove("followup_number"); } }
+        private double? _explicitNullValueFollowupNumber = default!;
         /// <summary>Activity ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Text the agent used to request more information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InformationRequested { get; set; }
+        public string? InformationRequested { get => _explicitNullValueInformationRequested; set { _explicitNullValueInformationRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("information_requested"); else _explicitNullProperties?.Remove("information_requested"); } }
+        private string? _explicitNullValueInformationRequested = default!;
 #nullable restore
 #else
-        public string InformationRequested { get; set; }
+        public string InformationRequested { get => _explicitNullValueInformationRequested; set { _explicitNullValueInformationRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("information_requested"); else _explicitNullProperties?.Remove("information_requested"); } }
+        private string _explicitNullValueInformationRequested = default!;
 #endif
         /// <summary>Whether the entry is an automatic follow-up</summary>
-        public bool? IsFollowup { get; set; }
+        public bool? IsFollowup { get => _explicitNullValueIsFollowup; set { _explicitNullValueIsFollowup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_followup"); else _explicitNullProperties?.Remove("is_followup"); } }
+        private bool? _explicitNullValueIsFollowup = default!;
         /// <summary>Work type: 1 = inbox reply, 2 = inbox follow-up, 3 = no-show follow-up. Null for recoveries.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType? JobType { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType? JobType { get => _explicitNullValueJobType; set { _explicitNullValueJobType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_type"); else _explicitNullProperties?.Remove("job_type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType? _explicitNullValueJobType = default!;
         /// <summary>Lead email address the activity relates to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LeadEmail { get; set; }
+        public string? LeadEmail { get => _explicitNullValueLeadEmail; set { _explicitNullValueLeadEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_email"); else _explicitNullProperties?.Remove("lead_email"); } }
+        private string? _explicitNullValueLeadEmail = default!;
 #nullable restore
 #else
-        public string LeadEmail { get; set; }
+        public string LeadEmail { get => _explicitNullValueLeadEmail; set { _explicitNullValueLeadEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead_email"); else _explicitNullProperties?.Remove("lead_email"); } }
+        private string _explicitNullValueLeadEmail = default!;
 #endif
         /// <summary>How the lead was recovered. Only set for recoveries.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod? RecoveryMethod { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod? RecoveryMethod { get => _explicitNullValueRecoveryMethod; set { _explicitNullValueRecoveryMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery_method"); else _explicitNullProperties?.Remove("recovery_method"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod? _explicitNullValueRecoveryMethod = default!;
         /// <summary>Whether the activity requires human-in-the-loop review</summary>
-        public bool? RequiresHitl { get; set; }
+        public bool? RequiresHitl { get => _explicitNullValueRequiresHitl; set { _explicitNullValueRequiresHitl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_hitl"); else _explicitNullProperties?.Remove("requires_hitl"); } }
+        private bool? _explicitNullValueRequiresHitl = default!;
         /// <summary>Revenue recovered by this recovery, if known</summary>
-        public double? RevenueRecovered { get; set; }
+        public double? RevenueRecovered { get => _explicitNullValueRevenueRecovered; set { _explicitNullValueRevenueRecovered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revenue_recovered"); else _explicitNullProperties?.Remove("revenue_recovered"); } }
+        private double? _explicitNullValueRevenueRecovered = default!;
         /// <summary>Email sending status: -1 = failed, 1 = sent, 2 = scheduled</summary>
-        public double? SendingStatus { get; set; }
+        public double? SendingStatus { get => _explicitNullValueSendingStatus; set { _explicitNullValueSendingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sending_status"); else _explicitNullProperties?.Remove("sending_status"); } }
+        private double? _explicitNullValueSendingStatus = default!;
         /// <summary>Conversation thread identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ThreadId { get; set; }
+        public string? ThreadId { get => _explicitNullValueThreadId; set { _explicitNullValueThreadId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_id"); else _explicitNullProperties?.Remove("thread_id"); } }
+        private string? _explicitNullValueThreadId = default!;
 #nullable restore
 #else
-        public string ThreadId { get; set; }
+        public string ThreadId { get => _explicitNullValueThreadId; set { _explicitNullValueThreadId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("thread_id"); else _explicitNullProperties?.Remove("thread_id"); } }
+        private string _explicitNullValueThreadId = default!;
 #endif
         /// <summary>When the activity happened</summary>
-        public DateTimeOffset? TimestampCreated { get; set; }
+        public DateTimeOffset? TimestampCreated { get => _explicitNullValueTimestampCreated; set { _explicitNullValueTimestampCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created"); else _explicitNullProperties?.Remove("timestamp_created"); } }
+        private DateTimeOffset? _explicitNullValueTimestampCreated = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItem"/> and sets the default values.
         /// </summary>
@@ -86,7 +129,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -137,6 +180,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("sending_status", SendingStatus);
             writer.WriteStringValue("thread_id", ThreadId);
             writer.WriteDateTimeOffsetValue("timestamp_created", TimestampCreated);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

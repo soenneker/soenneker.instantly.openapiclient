@@ -11,74 +11,114 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PatchAccountRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
+            if (parseNode.GetChildNode("enable_slow_ramp") is { } nullNodeEnableSlowRamp && nullNodeEnableSlowRamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSlowRamp = null;
+            if (parseNode.GetChildNode("first_name") is { } nullNodeFirstName && nullNodeFirstName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstName = null;
+            if (parseNode.GetChildNode("inbox_placement_test_limit") is { } nullNodeInboxPlacementTestLimit && nullNodeInboxPlacementTestLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InboxPlacementTestLimit = null;
+            if (parseNode.GetChildNode("last_name") is { } nullNodeLastName && nullNodeLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastName = null;
+            if (parseNode.GetChildNode("remove_tracking_domain") is { } nullNodeRemoveTrackingDomain && nullNodeRemoveTrackingDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoveTrackingDomain = null;
+            if (parseNode.GetChildNode("reply_to") is { } nullNodeReplyTo && nullNodeReplyTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyTo = null;
+            if (parseNode.GetChildNode("sending_gap") is { } nullNodeSendingGap && nullNodeSendingGap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendingGap = null;
+            if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
+            if (parseNode.GetChildNode("skip_cname_check") is { } nullNodeSkipCnameCheck && nullNodeSkipCnameCheck.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipCnameCheck = null;
+            if (parseNode.GetChildNode("tracking_domain_name") is { } nullNodeTrackingDomainName && nullNodeTrackingDomainName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackingDomainName = null;
+            if (parseNode.GetChildNode("tracking_domain_status") is { } nullNodeTrackingDomainStatus && nullNodeTrackingDomainStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackingDomainStatus = null;
+            if (parseNode.GetChildNode("warmup") is { } nullNodeWarmup && nullNodeWarmup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warmup = null;
+        }
+
         /// <summary>Daily email sending limit</summary>
-        public double? DailyLimit { get; set; }
+        public double? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
+        private double? _explicitNullValueDailyLimit = default!;
         /// <summary>Whether to enable slow ramp up for sending limits</summary>
-        public bool? EnableSlowRamp { get; set; }
+        public bool? EnableSlowRamp { get => _explicitNullValueEnableSlowRamp; set { _explicitNullValueEnableSlowRamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_slow_ramp"); else _explicitNullProperties?.Remove("enable_slow_ramp"); } }
+        private bool? _explicitNullValueEnableSlowRamp = default!;
         /// <summary>First name associated with the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstName { get; set; }
+        public string? FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
+        private string? _explicitNullValueFirstName = default!;
 #nullable restore
 #else
-        public string FirstName { get; set; }
+        public string FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
+        private string _explicitNullValueFirstName = default!;
 #endif
         /// <summary>The limit for inbox placement tests</summary>
-        public double? InboxPlacementTestLimit { get; set; }
+        public double? InboxPlacementTestLimit { get => _explicitNullValueInboxPlacementTestLimit; set { _explicitNullValueInboxPlacementTestLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inbox_placement_test_limit"); else _explicitNullProperties?.Remove("inbox_placement_test_limit"); } }
+        private double? _explicitNullValueInboxPlacementTestLimit = default!;
         /// <summary>Last name associated with the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastName { get; set; }
+        public string? LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_name"); else _explicitNullProperties?.Remove("last_name"); } }
+        private string? _explicitNullValueLastName = default!;
 #nullable restore
 #else
-        public string LastName { get; set; }
+        public string LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_name"); else _explicitNullProperties?.Remove("last_name"); } }
+        private string _explicitNullValueLastName = default!;
 #endif
         /// <summary>The remove_tracking_domain property</summary>
-        public bool? RemoveTrackingDomain { get; set; }
+        public bool? RemoveTrackingDomain { get => _explicitNullValueRemoveTrackingDomain; set { _explicitNullValueRemoveTrackingDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remove_tracking_domain"); else _explicitNullProperties?.Remove("remove_tracking_domain"); } }
+        private bool? _explicitNullValueRemoveTrackingDomain = default!;
         /// <summary>Custom reply-to email address for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReplyTo { get; set; }
+        public string? ReplyTo { get => _explicitNullValueReplyTo; set { _explicitNullValueReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to"); else _explicitNullProperties?.Remove("reply_to"); } }
+        private string? _explicitNullValueReplyTo = default!;
 #nullable restore
 #else
-        public string ReplyTo { get; set; }
+        public string ReplyTo { get => _explicitNullValueReplyTo; set { _explicitNullValueReplyTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_to"); else _explicitNullProperties?.Remove("reply_to"); } }
+        private string _explicitNullValueReplyTo = default!;
 #endif
         /// <summary>The gap between emails sent from this account in minutes (minimum wait time when used with multiple campaigns)</summary>
-        public double? SendingGap { get; set; }
+        public double? SendingGap { get => _explicitNullValueSendingGap; set { _explicitNullValueSendingGap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sending_gap"); else _explicitNullProperties?.Remove("sending_gap"); } }
+        private double? _explicitNullValueSendingGap = default!;
         /// <summary>Email signature for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Signature { get; set; }
+        public string? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private string? _explicitNullValueSignature = default!;
 #nullable restore
 #else
-        public string Signature { get; set; }
+        public string Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private string _explicitNullValueSignature = default!;
 #endif
         /// <summary>The skip_cname_check property</summary>
-        public bool? SkipCnameCheck { get; set; }
+        public bool? SkipCnameCheck { get => _explicitNullValueSkipCnameCheck; set { _explicitNullValueSkipCnameCheck = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_cname_check"); else _explicitNullProperties?.Remove("skip_cname_check"); } }
+        private bool? _explicitNullValueSkipCnameCheck = default!;
         /// <summary>Tracking domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrackingDomainName { get; set; }
+        public string? TrackingDomainName { get => _explicitNullValueTrackingDomainName; set { _explicitNullValueTrackingDomainName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking_domain_name"); else _explicitNullProperties?.Remove("tracking_domain_name"); } }
+        private string? _explicitNullValueTrackingDomainName = default!;
 #nullable restore
 #else
-        public string TrackingDomainName { get; set; }
+        public string TrackingDomainName { get => _explicitNullValueTrackingDomainName; set { _explicitNullValueTrackingDomainName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking_domain_name"); else _explicitNullProperties?.Remove("tracking_domain_name"); } }
+        private string _explicitNullValueTrackingDomainName = default!;
 #endif
         /// <summary>Tracking domain status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrackingDomainStatus { get; set; }
+        public string? TrackingDomainStatus { get => _explicitNullValueTrackingDomainStatus; set { _explicitNullValueTrackingDomainStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking_domain_status"); else _explicitNullProperties?.Remove("tracking_domain_status"); } }
+        private string? _explicitNullValueTrackingDomainStatus = default!;
 #nullable restore
 #else
-        public string TrackingDomainStatus { get; set; }
+        public string TrackingDomainStatus { get => _explicitNullValueTrackingDomainStatus; set { _explicitNullValueTrackingDomainStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking_domain_status"); else _explicitNullProperties?.Remove("tracking_domain_status"); } }
+        private string _explicitNullValueTrackingDomainStatus = default!;
 #endif
         /// <summary>Warmup configuration for the account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup? Warmup { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup? Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup? _explicitNullValueWarmup = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup Warmup { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup Warmup { get => _explicitNullValueWarmup; set { _explicitNullValueWarmup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warmup"); else _explicitNullProperties?.Remove("warmup"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup _explicitNullValueWarmup = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -88,7 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -132,7 +172,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("skip_cname_check", SkipCnameCheck);
             writer.WriteStringValue("tracking_domain_name", TrackingDomainName);
             writer.WriteStringValue("tracking_domain_status", TrackingDomainStatus);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup>("warmup", Warmup);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchAccountRequestWarmup>("warmup", Warmup);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

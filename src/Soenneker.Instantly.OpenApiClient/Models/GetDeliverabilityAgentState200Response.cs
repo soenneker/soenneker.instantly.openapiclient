@@ -11,48 +11,70 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDeliverabilityAgentState200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activity_feed") is { } nullNodeActivityFeed && nullNodeActivityFeed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivityFeed = null;
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("current_activity") is { } nullNodeCurrentActivity && nullNodeCurrentActivity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentActivity = null;
+            if (parseNode.GetChildNode("run_summary") is { } nullNodeRunSummary && nullNodeRunSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunSummary = null;
+            if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
+        }
+
         /// <summary>The activity_feed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseActivityFeed? ActivityFeed { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseActivityFeed? ActivityFeed { get => _explicitNullValueActivityFeed; set { _explicitNullValueActivityFeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_feed"); else _explicitNullProperties?.Remove("activity_feed"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseActivityFeed? _explicitNullValueActivityFeed = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseActivityFeed ActivityFeed { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseActivityFeed ActivityFeed { get => _explicitNullValueActivityFeed; set { _explicitNullValueActivityFeed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activity_feed"); else _explicitNullProperties?.Remove("activity_feed"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseActivityFeed _explicitNullValueActivityFeed = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>The current_activity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity? CurrentActivity { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity? CurrentActivity { get => _explicitNullValueCurrentActivity; set { _explicitNullValueCurrentActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_activity"); else _explicitNullProperties?.Remove("current_activity"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity? _explicitNullValueCurrentActivity = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity CurrentActivity { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity CurrentActivity { get => _explicitNullValueCurrentActivity; set { _explicitNullValueCurrentActivity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_activity"); else _explicitNullProperties?.Remove("current_activity"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity _explicitNullValueCurrentActivity = default!;
 #endif
         /// <summary>The run_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary? RunSummary { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary? RunSummary { get => _explicitNullValueRunSummary; set { _explicitNullValueRunSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_summary"); else _explicitNullProperties?.Remove("run_summary"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary? _explicitNullValueRunSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary RunSummary { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary RunSummary { get => _explicitNullValueRunSummary; set { _explicitNullValueRunSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_summary"); else _explicitNullProperties?.Remove("run_summary"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary _explicitNullValueRunSummary = default!;
 #endif
         /// <summary>The schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule? Schedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule? _explicitNullValueSchedule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule Schedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule _explicitNullValueSchedule = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200Response"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseCurrentActivity>("current_activity", CurrentActivity);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseRunSummary>("run_summary", RunSummary);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentState200ResponseSchedule>("schedule", Schedule);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

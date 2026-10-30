@@ -12,27 +12,52 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetInboxManagerAnalyticsSummaryByDate200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("follow_ups_count") is { } nullNodeFollowUpsCount && nullNodeFollowUpsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowUpsCount = null;
+            if (parseNode.GetChildNode("human_intervention") is { } nullNodeHumanIntervention && nullNodeHumanIntervention.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HumanIntervention = null;
+            if (parseNode.GetChildNode("info_requested") is { } nullNodeInfoRequested && nullNodeInfoRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InfoRequested = null;
+            if (parseNode.GetChildNode("no_show_follow_ups_generated") is { } nullNodeNoShowFollowUpsGenerated && nullNodeNoShowFollowUpsGenerated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowFollowUpsGenerated = null;
+            if (parseNode.GetChildNode("no_show_total_leads_recovered") is { } nullNodeNoShowTotalLeadsRecovered && nullNodeNoShowTotalLeadsRecovered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShowTotalLeadsRecovered = null;
+            if (parseNode.GetChildNode("replies_count") is { } nullNodeRepliesCount && nullNodeRepliesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepliesCount = null;
+            if (parseNode.GetChildNode("total_actions") is { } nullNodeTotalActions && nullNodeTotalActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalActions = null;
+            if (parseNode.GetChildNode("unique_conversations") is { } nullNodeUniqueConversations && nullNodeUniqueConversations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueConversations = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Day the counters belong to</summary>
-        public Date? Date { get; set; }
+        public Date? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        private Date? _explicitNullValueDate = default!;
         /// <summary>Follow-ups generated</summary>
-        public double? FollowUpsCount { get; set; }
+        public double? FollowUpsCount { get => _explicitNullValueFollowUpsCount; set { _explicitNullValueFollowUpsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("follow_ups_count"); else _explicitNullProperties?.Remove("follow_ups_count"); } }
+        private double? _explicitNullValueFollowUpsCount = default!;
         /// <summary>Actions that required human review</summary>
-        public double? HumanIntervention { get; set; }
+        public double? HumanIntervention { get => _explicitNullValueHumanIntervention; set { _explicitNullValueHumanIntervention = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_intervention"); else _explicitNullProperties?.Remove("human_intervention"); } }
+        private double? _explicitNullValueHumanIntervention = default!;
         /// <summary>Actions where the agent requested more information</summary>
-        public double? InfoRequested { get; set; }
+        public double? InfoRequested { get => _explicitNullValueInfoRequested; set { _explicitNullValueInfoRequested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("info_requested"); else _explicitNullProperties?.Remove("info_requested"); } }
+        private double? _explicitNullValueInfoRequested = default!;
         /// <summary>No-show recovery follow-ups generated</summary>
-        public double? NoShowFollowUpsGenerated { get; set; }
+        public double? NoShowFollowUpsGenerated { get => _explicitNullValueNoShowFollowUpsGenerated; set { _explicitNullValueNoShowFollowUpsGenerated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_follow_ups_generated"); else _explicitNullProperties?.Remove("no_show_follow_ups_generated"); } }
+        private double? _explicitNullValueNoShowFollowUpsGenerated = default!;
         /// <summary>Leads recovered by no-show follow-ups</summary>
-        public double? NoShowTotalLeadsRecovered { get; set; }
+        public double? NoShowTotalLeadsRecovered { get => _explicitNullValueNoShowTotalLeadsRecovered; set { _explicitNullValueNoShowTotalLeadsRecovered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show_total_leads_recovered"); else _explicitNullProperties?.Remove("no_show_total_leads_recovered"); } }
+        private double? _explicitNullValueNoShowTotalLeadsRecovered = default!;
         /// <summary>Replies generated</summary>
-        public double? RepliesCount { get; set; }
+        public double? RepliesCount { get => _explicitNullValueRepliesCount; set { _explicitNullValueRepliesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replies_count"); else _explicitNullProperties?.Remove("replies_count"); } }
+        private double? _explicitNullValueRepliesCount = default!;
         /// <summary>Total actions taken by the agent</summary>
-        public double? TotalActions { get; set; }
+        public double? TotalActions { get => _explicitNullValueTotalActions; set { _explicitNullValueTotalActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_actions"); else _explicitNullProperties?.Remove("total_actions"); } }
+        private double? _explicitNullValueTotalActions = default!;
         /// <summary>Distinct conversation threads the agent acted on</summary>
-        public double? UniqueConversations { get; set; }
+        public double? UniqueConversations { get => _explicitNullValueUniqueConversations; set { _explicitNullValueUniqueConversations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_conversations"); else _explicitNullProperties?.Remove("unique_conversations"); } }
+        private double? _explicitNullValueUniqueConversations = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummaryByDate200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -48,7 +73,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummaryByDate200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummaryByDate200ResponseSchemaItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetInboxManagerAnalyticsSummaryByDate200ResponseSchemaItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,6 +110,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("replies_count", RepliesCount);
             writer.WriteDoubleValue("total_actions", TotalActions);
             writer.WriteDoubleValue("unique_conversations", UniqueConversations);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

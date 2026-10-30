@@ -11,57 +11,112 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetCampaignAnalyticsOverview200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bounced_count") is { } nullNodeBouncedCount && nullNodeBouncedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BouncedCount = null;
+            if (parseNode.GetChildNode("completed_count") is { } nullNodeCompletedCount && nullNodeCompletedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedCount = null;
+            if (parseNode.GetChildNode("contacted_count") is { } nullNodeContactedCount && nullNodeContactedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactedCount = null;
+            if (parseNode.GetChildNode("emails_sent_count") is { } nullNodeEmailsSentCount && nullNodeEmailsSentCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailsSentCount = null;
+            if (parseNode.GetChildNode("link_click_count") is { } nullNodeLinkClickCount && nullNodeLinkClickCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkClickCount = null;
+            if (parseNode.GetChildNode("link_click_count_unique") is { } nullNodeLinkClickCountUnique && nullNodeLinkClickCountUnique.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkClickCountUnique = null;
+            if (parseNode.GetChildNode("link_click_count_unique_by_step") is { } nullNodeLinkClickCountUniqueByStep && nullNodeLinkClickCountUniqueByStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkClickCountUniqueByStep = null;
+            if (parseNode.GetChildNode("new_leads_contacted_count") is { } nullNodeNewLeadsContactedCount && nullNodeNewLeadsContactedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewLeadsContactedCount = null;
+            if (parseNode.GetChildNode("open_count") is { } nullNodeOpenCount && nullNodeOpenCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenCount = null;
+            if (parseNode.GetChildNode("open_count_unique") is { } nullNodeOpenCountUnique && nullNodeOpenCountUnique.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenCountUnique = null;
+            if (parseNode.GetChildNode("open_count_unique_by_step") is { } nullNodeOpenCountUniqueByStep && nullNodeOpenCountUniqueByStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenCountUniqueByStep = null;
+            if (parseNode.GetChildNode("reply_count") is { } nullNodeReplyCount && nullNodeReplyCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyCount = null;
+            if (parseNode.GetChildNode("reply_count_automatic") is { } nullNodeReplyCountAutomatic && nullNodeReplyCountAutomatic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyCountAutomatic = null;
+            if (parseNode.GetChildNode("reply_count_automatic_unique") is { } nullNodeReplyCountAutomaticUnique && nullNodeReplyCountAutomaticUnique.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyCountAutomaticUnique = null;
+            if (parseNode.GetChildNode("reply_count_automatic_unique_by_step") is { } nullNodeReplyCountAutomaticUniqueByStep && nullNodeReplyCountAutomaticUniqueByStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyCountAutomaticUniqueByStep = null;
+            if (parseNode.GetChildNode("reply_count_unique") is { } nullNodeReplyCountUnique && nullNodeReplyCountUnique.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyCountUnique = null;
+            if (parseNode.GetChildNode("reply_count_unique_by_step") is { } nullNodeReplyCountUniqueByStep && nullNodeReplyCountUniqueByStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplyCountUniqueByStep = null;
+            if (parseNode.GetChildNode("total_closed") is { } nullNodeTotalClosed && nullNodeTotalClosed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalClosed = null;
+            if (parseNode.GetChildNode("total_interested") is { } nullNodeTotalInterested && nullNodeTotalInterested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalInterested = null;
+            if (parseNode.GetChildNode("total_meeting_booked") is { } nullNodeTotalMeetingBooked && nullNodeTotalMeetingBooked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalMeetingBooked = null;
+            if (parseNode.GetChildNode("total_meeting_completed") is { } nullNodeTotalMeetingCompleted && nullNodeTotalMeetingCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalMeetingCompleted = null;
+            if (parseNode.GetChildNode("total_opportunities") is { } nullNodeTotalOpportunities && nullNodeTotalOpportunities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalOpportunities = null;
+            if (parseNode.GetChildNode("total_opportunity_value") is { } nullNodeTotalOpportunityValue && nullNodeTotalOpportunityValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalOpportunityValue = null;
+            if (parseNode.GetChildNode("unsubscribed_count") is { } nullNodeUnsubscribedCount && nullNodeUnsubscribedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnsubscribedCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of bounced leads</summary>
-        public int? BouncedCount { get; set; }
+        public int? BouncedCount { get => _explicitNullValueBouncedCount; set { _explicitNullValueBouncedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bounced_count"); else _explicitNullProperties?.Remove("bounced_count"); } }
+        private int? _explicitNullValueBouncedCount = default!;
         /// <summary>The number of leads that the campaign was completed for</summary>
-        public int? CompletedCount { get; set; }
+        public int? CompletedCount { get => _explicitNullValueCompletedCount; set { _explicitNullValueCompletedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_count"); else _explicitNullProperties?.Remove("completed_count"); } }
+        private int? _explicitNullValueCompletedCount = default!;
         /// <summary>The total number of unique leads contacted</summary>
-        public int? ContactedCount { get; set; }
+        public int? ContactedCount { get => _explicitNullValueContactedCount; set { _explicitNullValueContactedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacted_count"); else _explicitNullProperties?.Remove("contacted_count"); } }
+        private int? _explicitNullValueContactedCount = default!;
         /// <summary>The total number of sent emails</summary>
-        public int? EmailsSentCount { get; set; }
+        public int? EmailsSentCount { get => _explicitNullValueEmailsSentCount; set { _explicitNullValueEmailsSentCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails_sent_count"); else _explicitNullProperties?.Remove("emails_sent_count"); } }
+        private int? _explicitNullValueEmailsSentCount = default!;
         /// <summary>The number of links that got clicked</summary>
-        public int? LinkClickCount { get; set; }
+        public int? LinkClickCount { get => _explicitNullValueLinkClickCount; set { _explicitNullValueLinkClickCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_click_count"); else _explicitNullProperties?.Remove("link_click_count"); } }
+        private int? _explicitNullValueLinkClickCount = default!;
         /// <summary>The number of links that got clicked (for the first time)</summary>
-        public int? LinkClickCountUnique { get; set; }
+        public int? LinkClickCountUnique { get => _explicitNullValueLinkClickCountUnique; set { _explicitNullValueLinkClickCountUnique = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_click_count_unique"); else _explicitNullProperties?.Remove("link_click_count_unique"); } }
+        private int? _explicitNullValueLinkClickCountUnique = default!;
         /// <summary>The unique number of links that got clicked, per step (counted once per lead, step, and campaign)</summary>
-        public int? LinkClickCountUniqueByStep { get; set; }
+        public int? LinkClickCountUniqueByStep { get => _explicitNullValueLinkClickCountUniqueByStep; set { _explicitNullValueLinkClickCountUniqueByStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_click_count_unique_by_step"); else _explicitNullProperties?.Remove("link_click_count_unique_by_step"); } }
+        private int? _explicitNullValueLinkClickCountUniqueByStep = default!;
         /// <summary>The total number of new leads contacted</summary>
-        public int? NewLeadsContactedCount { get; set; }
+        public int? NewLeadsContactedCount { get => _explicitNullValueNewLeadsContactedCount; set { _explicitNullValueNewLeadsContactedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_leads_contacted_count"); else _explicitNullProperties?.Remove("new_leads_contacted_count"); } }
+        private int? _explicitNullValueNewLeadsContactedCount = default!;
         /// <summary>The total number of times the emails were opened, including duplicates</summary>
-        public int? OpenCount { get; set; }
+        public int? OpenCount { get => _explicitNullValueOpenCount; set { _explicitNullValueOpenCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_count"); else _explicitNullProperties?.Remove("open_count"); } }
+        private int? _explicitNullValueOpenCount = default!;
         /// <summary>The number of emails that got opened (for the first time only)</summary>
-        public int? OpenCountUnique { get; set; }
+        public int? OpenCountUnique { get => _explicitNullValueOpenCountUnique; set { _explicitNullValueOpenCountUnique = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_count_unique"); else _explicitNullProperties?.Remove("open_count_unique"); } }
+        private int? _explicitNullValueOpenCountUnique = default!;
         /// <summary>The unique number of times the emails were opened (counted once per lead, step, and campaign)</summary>
-        public int? OpenCountUniqueByStep { get; set; }
+        public int? OpenCountUniqueByStep { get => _explicitNullValueOpenCountUniqueByStep; set { _explicitNullValueOpenCountUniqueByStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_count_unique_by_step"); else _explicitNullProperties?.Remove("open_count_unique_by_step"); } }
+        private int? _explicitNullValueOpenCountUniqueByStep = default!;
         /// <summary>The total number of replies received (if a lead replies multiple times, each reply is counted)</summary>
-        public int? ReplyCount { get; set; }
+        public int? ReplyCount { get => _explicitNullValueReplyCount; set { _explicitNullValueReplyCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_count"); else _explicitNullProperties?.Remove("reply_count"); } }
+        private int? _explicitNullValueReplyCount = default!;
         /// <summary>The total number of automatic replies received (e.g., out-of-office)</summary>
-        public int? ReplyCountAutomatic { get; set; }
+        public int? ReplyCountAutomatic { get => _explicitNullValueReplyCountAutomatic; set { _explicitNullValueReplyCountAutomatic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_count_automatic"); else _explicitNullProperties?.Remove("reply_count_automatic"); } }
+        private int? _explicitNullValueReplyCountAutomatic = default!;
         /// <summary>The number of unique leads that sent automatic replies</summary>
-        public int? ReplyCountAutomaticUnique { get; set; }
+        public int? ReplyCountAutomaticUnique { get => _explicitNullValueReplyCountAutomaticUnique; set { _explicitNullValueReplyCountAutomaticUnique = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_count_automatic_unique"); else _explicitNullProperties?.Remove("reply_count_automatic_unique"); } }
+        private int? _explicitNullValueReplyCountAutomaticUnique = default!;
         /// <summary>The unique number of automatic replies per step (counted once per lead, step, and campaign)</summary>
-        public int? ReplyCountAutomaticUniqueByStep { get; set; }
+        public int? ReplyCountAutomaticUniqueByStep { get => _explicitNullValueReplyCountAutomaticUniqueByStep; set { _explicitNullValueReplyCountAutomaticUniqueByStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_count_automatic_unique_by_step"); else _explicitNullProperties?.Remove("reply_count_automatic_unique_by_step"); } }
+        private int? _explicitNullValueReplyCountAutomaticUniqueByStep = default!;
         /// <summary>The number of unique replies (first reply per lead). Excludes automatic replies.</summary>
-        public int? ReplyCountUnique { get; set; }
+        public int? ReplyCountUnique { get => _explicitNullValueReplyCountUnique; set { _explicitNullValueReplyCountUnique = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_count_unique"); else _explicitNullProperties?.Remove("reply_count_unique"); } }
+        private int? _explicitNullValueReplyCountUnique = default!;
         /// <summary>The number of unique replies per step (first reply per lead per step). Excludes automatic replies.</summary>
-        public int? ReplyCountUniqueByStep { get; set; }
+        public int? ReplyCountUniqueByStep { get => _explicitNullValueReplyCountUniqueByStep; set { _explicitNullValueReplyCountUniqueByStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reply_count_unique_by_step"); else _explicitNullProperties?.Remove("reply_count_unique_by_step"); } }
+        private int? _explicitNullValueReplyCountUniqueByStep = default!;
         /// <summary>The total number of closed opportunities created</summary>
-        public int? TotalClosed { get; set; }
+        public int? TotalClosed { get => _explicitNullValueTotalClosed; set { _explicitNullValueTotalClosed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_closed"); else _explicitNullProperties?.Remove("total_closed"); } }
+        private int? _explicitNullValueTotalClosed = default!;
         /// <summary>The total number of interested opportunities created</summary>
-        public int? TotalInterested { get; set; }
+        public int? TotalInterested { get => _explicitNullValueTotalInterested; set { _explicitNullValueTotalInterested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_interested"); else _explicitNullProperties?.Remove("total_interested"); } }
+        private int? _explicitNullValueTotalInterested = default!;
         /// <summary>The total number of meeting booked opportunities created</summary>
-        public int? TotalMeetingBooked { get; set; }
+        public int? TotalMeetingBooked { get => _explicitNullValueTotalMeetingBooked; set { _explicitNullValueTotalMeetingBooked = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_meeting_booked"); else _explicitNullProperties?.Remove("total_meeting_booked"); } }
+        private int? _explicitNullValueTotalMeetingBooked = default!;
         /// <summary>The total number of meeting completed opportunities created</summary>
-        public int? TotalMeetingCompleted { get; set; }
+        public int? TotalMeetingCompleted { get => _explicitNullValueTotalMeetingCompleted; set { _explicitNullValueTotalMeetingCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_meeting_completed"); else _explicitNullProperties?.Remove("total_meeting_completed"); } }
+        private int? _explicitNullValueTotalMeetingCompleted = default!;
         /// <summary>The total number of unique opportunities created</summary>
-        public int? TotalOpportunities { get; set; }
+        public int? TotalOpportunities { get => _explicitNullValueTotalOpportunities; set { _explicitNullValueTotalOpportunities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_opportunities"); else _explicitNullProperties?.Remove("total_opportunities"); } }
+        private int? _explicitNullValueTotalOpportunities = default!;
         /// <summary>The total value of opportunities created</summary>
-        public double? TotalOpportunityValue { get; set; }
+        public double? TotalOpportunityValue { get => _explicitNullValueTotalOpportunityValue; set { _explicitNullValueTotalOpportunityValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_opportunity_value"); else _explicitNullProperties?.Remove("total_opportunity_value"); } }
+        private double? _explicitNullValueTotalOpportunityValue = default!;
         /// <summary>The number of unsubscribed leads</summary>
-        public int? UnsubscribedCount { get; set; }
+        public int? UnsubscribedCount { get => _explicitNullValueUnsubscribedCount; set { _explicitNullValueUnsubscribedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unsubscribed_count"); else _explicitNullProperties?.Remove("unsubscribed_count"); } }
+        private int? _explicitNullValueUnsubscribedCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response"/> and sets the default values.
         /// </summary>
@@ -77,7 +132,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignAnalyticsOverview200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,6 +199,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteIntValue("total_opportunities", TotalOpportunities);
             writer.WriteDoubleValue("total_opportunity_value", TotalOpportunityValue);
             writer.WriteIntValue("unsubscribed_count", UnsubscribedCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

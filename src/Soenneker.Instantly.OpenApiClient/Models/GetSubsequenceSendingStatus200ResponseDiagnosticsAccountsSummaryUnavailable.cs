@@ -12,17 +12,32 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetSubsequenceSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("daily_limit_hit") is { } nullNodeDailyLimitHit && nullNodeDailyLimitHit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimitHit = null;
+            if (parseNode.GetChildNode("disconnected") is { } nullNodeDisconnected && nullNodeDisconnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disconnected = null;
+            if (parseNode.GetChildNode("global_gap_not_met") is { } nullNodeGlobalGapNotMet && nullNodeGlobalGapNotMet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalGapNotMet = null;
+            if (parseNode.GetChildNode("slow_ramp_limit_hit") is { } nullNodeSlowRampLimitHit && nullNodeSlowRampLimitHit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlowRampLimitHit = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Accounts that hit their configured daily sending limit</summary>
-        public double? DailyLimitHit { get; set; }
+        public double? DailyLimitHit { get => _explicitNullValueDailyLimitHit; set { _explicitNullValueDailyLimitHit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit_hit"); else _explicitNullProperties?.Remove("daily_limit_hit"); } }
+        private double? _explicitNullValueDailyLimitHit = default!;
         /// <summary>Accounts that are disconnected</summary>
-        public double? Disconnected { get; set; }
+        public double? Disconnected { get => _explicitNullValueDisconnected; set { _explicitNullValueDisconnected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disconnected"); else _explicitNullProperties?.Remove("disconnected"); } }
+        private double? _explicitNullValueDisconnected = default!;
         /// <summary>Accounts waiting for global sending gap</summary>
-        public double? GlobalGapNotMet { get; set; }
+        public double? GlobalGapNotMet { get => _explicitNullValueGlobalGapNotMet; set { _explicitNullValueGlobalGapNotMet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_gap_not_met"); else _explicitNullProperties?.Remove("global_gap_not_met"); } }
+        private double? _explicitNullValueGlobalGapNotMet = default!;
         /// <summary>Accounts that hit the dynamic slow ramp limit (warmup feature)</summary>
-        public double? SlowRampLimitHit { get; set; }
+        public double? SlowRampLimitHit { get => _explicitNullValueSlowRampLimitHit; set { _explicitNullValueSlowRampLimitHit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slow_ramp_limit_hit"); else _explicitNullProperties?.Remove("slow_ramp_limit_hit"); } }
+        private double? _explicitNullValueSlowRampLimitHit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsAccountsSummaryUnavailable(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("disconnected", Disconnected);
             writer.WriteDoubleValue("global_gap_not_met", GlobalGapNotMet);
             writer.WriteDoubleValue("slow_ramp_limit_hit", SlowRampLimitHit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

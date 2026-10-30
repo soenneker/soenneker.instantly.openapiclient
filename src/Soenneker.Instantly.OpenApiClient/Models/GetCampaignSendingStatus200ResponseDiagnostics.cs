@@ -12,114 +12,162 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetCampaignSendingStatus200ResponseDiagnostics : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accounts_summary") is { } nullNodeAccountsSummary && nullNodeAccountsSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountsSummary = null;
+            if (parseNode.GetChildNode("campaign_daily_limit") is { } nullNodeCampaignDailyLimit && nullNodeCampaignDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignDailyLimit = null;
+            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("domain_limiter") is { } nullNodeDomainLimiter && nullNodeDomainLimiter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainLimiter = null;
+            if (parseNode.GetChildNode("esp_routing_status") is { } nullNodeEspRoutingStatus && nullNodeEspRoutingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EspRoutingStatus = null;
+            if (parseNode.GetChildNode("follow_ups_waiting") is { } nullNodeFollowUpsWaiting && nullNodeFollowUpsWaiting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowUpsWaiting = null;
+            if (parseNode.GetChildNode("issue_tracking") is { } nullNodeIssueTracking && nullNodeIssueTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueTracking = null;
+            if (parseNode.GetChildNode("last_updated") is { } nullNodeLastUpdated && nullNodeLastUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUpdated = null;
+            if (parseNode.GetChildNode("leads_status") is { } nullNodeLeadsStatus && nullNodeLeadsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsStatus = null;
+            if (parseNode.GetChildNode("new_lead_limit") is { } nullNodeNewLeadLimit && nullNodeNewLeadLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewLeadLimit = null;
+            if (parseNode.GetChildNode("schedule_status") is { } nullNodeScheduleStatus && nullNodeScheduleStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduleStatus = null;
+            if (parseNode.GetChildNode("send_one_by_one") is { } nullNodeSendOneByOne && nullNodeSendOneByOne.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendOneByOne = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("subsequence_id") is { } nullNodeSubsequenceId && nullNodeSubsequenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubsequenceId = null;
+        }
+
         /// <summary>Summary of sending account availability. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary? AccountsSummary { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary? AccountsSummary { get => _explicitNullValueAccountsSummary; set { _explicitNullValueAccountsSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts_summary"); else _explicitNullProperties?.Remove("accounts_summary"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary? _explicitNullValueAccountsSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary AccountsSummary { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary AccountsSummary { get => _explicitNullValueAccountsSummary; set { _explicitNullValueAccountsSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts_summary"); else _explicitNullProperties?.Remove("accounts_summary"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary _explicitNullValueAccountsSummary = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Campaign daily sending limit status. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit? CampaignDailyLimit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit? CampaignDailyLimit { get => _explicitNullValueCampaignDailyLimit; set { _explicitNullValueCampaignDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_daily_limit"); else _explicitNullProperties?.Remove("campaign_daily_limit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit? _explicitNullValueCampaignDailyLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit CampaignDailyLimit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit CampaignDailyLimit { get => _explicitNullValueCampaignDailyLimit; set { _explicitNullValueCampaignDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_daily_limit"); else _explicitNullProperties?.Remove("campaign_daily_limit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit _explicitNullValueCampaignDailyLimit = default!;
 #endif
         /// <summary>The campaign ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get; set; }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get; set; }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>Per-domain sending limit status. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsDomainLimiter? DomainLimiter { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsDomainLimiter? DomainLimiter { get => _explicitNullValueDomainLimiter; set { _explicitNullValueDomainLimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_limiter"); else _explicitNullProperties?.Remove("domain_limiter"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsDomainLimiter? _explicitNullValueDomainLimiter = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsDomainLimiter DomainLimiter { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsDomainLimiter DomainLimiter { get => _explicitNullValueDomainLimiter; set { _explicitNullValueDomainLimiter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_limiter"); else _explicitNullProperties?.Remove("domain_limiter"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsDomainLimiter _explicitNullValueDomainLimiter = default!;
 #endif
         /// <summary>ESP routing status. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus? EspRoutingStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus? EspRoutingStatus { get => _explicitNullValueEspRoutingStatus; set { _explicitNullValueEspRoutingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("esp_routing_status"); else _explicitNullProperties?.Remove("esp_routing_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus? _explicitNullValueEspRoutingStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus EspRoutingStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus EspRoutingStatus { get => _explicitNullValueEspRoutingStatus; set { _explicitNullValueEspRoutingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("esp_routing_status"); else _explicitNullProperties?.Remove("esp_routing_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsEspRoutingStatus _explicitNullValueEspRoutingStatus = default!;
 #endif
         /// <summary>Follow-up emails waiting status. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting? FollowUpsWaiting { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting? FollowUpsWaiting { get => _explicitNullValueFollowUpsWaiting; set { _explicitNullValueFollowUpsWaiting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("follow_ups_waiting"); else _explicitNullProperties?.Remove("follow_ups_waiting"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting? _explicitNullValueFollowUpsWaiting = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting FollowUpsWaiting { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting FollowUpsWaiting { get => _explicitNullValueFollowUpsWaiting; set { _explicitNullValueFollowUpsWaiting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("follow_ups_waiting"); else _explicitNullProperties?.Remove("follow_ups_waiting"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsFollowUpsWaiting _explicitNullValueFollowUpsWaiting = default!;
 #endif
         /// <summary>Tracks persistence of the current issue</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking? IssueTracking { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking? IssueTracking { get => _explicitNullValueIssueTracking; set { _explicitNullValueIssueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_tracking"); else _explicitNullProperties?.Remove("issue_tracking"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking? _explicitNullValueIssueTracking = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking IssueTracking { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking IssueTracking { get => _explicitNullValueIssueTracking; set { _explicitNullValueIssueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_tracking"); else _explicitNullProperties?.Remove("issue_tracking"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsIssueTracking _explicitNullValueIssueTracking = default!;
 #endif
         /// <summary>ISO timestamp of when this data was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastUpdated { get; set; }
+        public string? LastUpdated { get => _explicitNullValueLastUpdated; set { _explicitNullValueLastUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_updated"); else _explicitNullProperties?.Remove("last_updated"); } }
+        private string? _explicitNullValueLastUpdated = default!;
 #nullable restore
 #else
-        public string LastUpdated { get; set; }
+        public string LastUpdated { get => _explicitNullValueLastUpdated; set { _explicitNullValueLastUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_updated"); else _explicitNullProperties?.Remove("last_updated"); } }
+        private string _explicitNullValueLastUpdated = default!;
 #endif
         /// <summary>Lead availability status. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus? LeadsStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus? LeadsStatus { get => _explicitNullValueLeadsStatus; set { _explicitNullValueLeadsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_status"); else _explicitNullProperties?.Remove("leads_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus? _explicitNullValueLeadsStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus LeadsStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus LeadsStatus { get => _explicitNullValueLeadsStatus; set { _explicitNullValueLeadsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_status"); else _explicitNullProperties?.Remove("leads_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsLeadsStatus _explicitNullValueLeadsStatus = default!;
 #endif
         /// <summary>New lead daily limit status. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsNewLeadLimit? NewLeadLimit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsNewLeadLimit? NewLeadLimit { get => _explicitNullValueNewLeadLimit; set { _explicitNullValueNewLeadLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_lead_limit"); else _explicitNullProperties?.Remove("new_lead_limit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsNewLeadLimit? _explicitNullValueNewLeadLimit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsNewLeadLimit NewLeadLimit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsNewLeadLimit NewLeadLimit { get => _explicitNullValueNewLeadLimit; set { _explicitNullValueNewLeadLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_lead_limit"); else _explicitNullProperties?.Remove("new_lead_limit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsNewLeadLimit _explicitNullValueNewLeadLimit = default!;
 #endif
         /// <summary>Campaign schedule status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus? ScheduleStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus? ScheduleStatus { get => _explicitNullValueScheduleStatus; set { _explicitNullValueScheduleStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule_status"); else _explicitNullProperties?.Remove("schedule_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus? _explicitNullValueScheduleStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus ScheduleStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus ScheduleStatus { get => _explicitNullValueScheduleStatus; set { _explicitNullValueScheduleStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule_status"); else _explicitNullProperties?.Remove("schedule_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus _explicitNullValueScheduleStatus = default!;
 #endif
         /// <summary>Send one-by-one settings. May be missing when campaign is out of schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne? SendOneByOne { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne? SendOneByOne { get => _explicitNullValueSendOneByOne; set { _explicitNullValueSendOneByOne = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_one_by_one"); else _explicitNullProperties?.Remove("send_one_by_one"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne? _explicitNullValueSendOneByOne = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne SendOneByOne { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne SendOneByOne { get => _explicitNullValueSendOneByOne; set { _explicitNullValueSendOneByOne = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_one_by_one"); else _explicitNullProperties?.Remove("send_one_by_one"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne _explicitNullValueSendOneByOne = default!;
 #endif
         /// <summary>Status code explaining why the campaign is not sending or sending slower</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsStatus? Status { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsStatus? _explicitNullValueStatus = default!;
         /// <summary>The subsequence ID (only present for subsequence endpoints)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubsequenceId { get; set; }
+        public string? SubsequenceId { get => _explicitNullValueSubsequenceId; set { _explicitNullValueSubsequenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsequence_id"); else _explicitNullProperties?.Remove("subsequence_id"); } }
+        private string? _explicitNullValueSubsequenceId = default!;
 #nullable restore
 #else
-        public string SubsequenceId { get; set; }
+        public string SubsequenceId { get => _explicitNullValueSubsequenceId; set { _explicitNullValueSubsequenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsequence_id"); else _explicitNullProperties?.Remove("subsequence_id"); } }
+        private string _explicitNullValueSubsequenceId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnostics"/> and sets the default values.
@@ -136,7 +184,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnostics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnostics();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnostics(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -183,6 +233,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsSendOneByOne>("send_one_by_one", SendOneByOne);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsStatus>("status", Status);
             writer.WriteStringValue("subsequence_id", SubsequenceId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

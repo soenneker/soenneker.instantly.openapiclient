@@ -27603,6 +27603,264 @@
         }
       }
     },
+    "/api/v2/custom-tags/search": {
+      "post": {
+        "operationId": "searchCustomTagsByResources",
+        "summary": "List custom tags assigned to resources",
+        "tags": [
+          "CustomTag"
+        ],
+        "description": "Returns custom tags assigned to any of the provided resources.\n\n\nRequires one of the following scopes: \u0060custom_tags:read\u0060, \u0060custom_tags:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "resource_ids"
+                ],
+                "properties": {
+                  "resource_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 10000,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "account@example.com"
+                    },
+                    "description": "Resource IDs to match against."
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10,
+                    "example": 100
+                  },
+                  "starting_after": {
+                    "type": "string",
+                    "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The list of Custom Tag",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "The list of Custom Tag",
+                      "items": {
+                        "$ref": "#/components/schemas/CustomTag"
+                      }
+                    },
+                    "next_starting_after": {
+                      "type": "string",
+                      "examples": [
+                        "f9cc070d-8dba-4341-b847-f083c358e460",
+                        "1970-01-01T00:00:00.000Z"
+                      ],
+                      "description": "The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/custom-tags/{id}": {
       "get": {
         "operationId": "getCustomTag",
@@ -28720,7 +28978,7 @@
         "tags": [
           "DFYEmailAccountOrder"
         ],
-        "description": "Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- No subscription plan is required, but the workspace must have a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -94748,6 +95006,30 @@
         "parameters": [
           {
             "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "example": 0
+            },
+            "example": 0,
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "description": "Number of AI jobs and of integration jobs to skip"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "example": 10
+            },
+            "example": 10,
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "description": "Maximum number of AI jobs and of integration jobs to return"
+          },
+          {
+            "schema": {
               "type": "string",
               "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
@@ -94785,10 +95067,7 @@
                       },
                       "resource_type": {
                         "type": "number",
-                        "description": "Type of the resource (1 for Campaign, 2 for List)",
                         "enum": [
-                          "CAMPAIGN",
-                          "LIST",
                           1,
                           2
                         ],
@@ -94796,6 +95075,7 @@
                           "1": "Campaign",
                           "2": "List"
                         },
+                        "description": "Type of the resource (1 for Campaign, 2 for List)",
                         "example": 1
                       },
                       "output_column": {
@@ -96225,6 +96505,19 @@
                     "creditsAvailable": {
                       "type": "number",
                       "example": 250
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "CREDIT_RESERVATION_CONFLICT"
+                      ],
+                      "description": "Present only when the workspace\u0027s own in-flight jobs hold the credits. Absent for a genuine shortage.",
+                      "example": "CREDIT_RESERVATION_CONFLICT"
+                    },
+                    "creditsReserved": {
+                      "type": "number",
+                      "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
+                      "example": 4000
                     }
                   }
                 }
@@ -97950,8 +98243,6 @@
                     },
                     "enrichment_payload": {
                       "type": "object",
-                      "description": "Enrichment types",
-                      "minProperties": 1,
                       "properties": {
                         "work_email_enrichment": {
                           "type": "boolean",
@@ -98012,7 +98303,9 @@
                           "example": true
                         }
                       },
-                      "additionalProperties": true
+                      "additionalProperties": true,
+                      "description": "Enrichment types",
+                      "minProperties": 1
                     },
                     "auto_update": {
                       "type": "boolean",
@@ -98026,8 +98319,34 @@
                     },
                     "search_filters": {
                       "type": "object",
-                      "description": "Search filters used to create this enrichment (only present for enrichments created from SuperSearch)",
-                      "additionalProperties": true
+                      "additionalProperties": true,
+                      "description": "Search filters used to create this enrichment (only present for enrichments created from SuperSearch)"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the enrichment",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "organization_id": {
+                      "type": "string",
+                      "description": "Organization ID that created this enrichment",
+                      "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "timestamp_created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the enrichment was created",
+                      "example": "1970-01-01T00:00:00.000Z"
+                    },
+                    "resource_type": {
+                      "type": "number",
+                      "description": "Type of the entity to enrich leads into",
+                      "example": 1
+                    },
+                    "skip_rows_without_email": {
+                      "type": "boolean",
+                      "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+                      "example": true
                     }
                   },
                   "required": [
@@ -98868,10 +99187,6 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "search_filters",
-                  "limit"
-                ],
                 "properties": {
                   "search_filters": {
                     "type": "object",
@@ -100693,11 +101008,11 @@
                   },
                   "custom_flow": {
                     "type": "array",
-                    "description": "Ordered list of providers for waterfall enrichment (enabled platforms only). When sent, it must be a non-empty list of distinct provider ids, spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry.",
                     "items": {
                       "type": "string",
                       "example": "instantly"
                     },
+                    "description": "Ordered list of providers for waterfall enrichment (enabled platforms only). When sent, it must be a non-empty list of distinct provider ids, spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact. An empty list, a repeated id or any other value is refused with a 400 that names each invalid entry.",
                     "example": [
                       "instantly",
                       "findymail",
@@ -100863,7 +101178,7 @@
                     "example": "My List"
                   },
                   "limit": {
-                    "type": "number",
+                    "type": "integer",
                     "minimum": 1,
                     "maximum": 1000000,
                     "description": "Maximum number of leads to import",
@@ -100871,10 +101186,15 @@
                   },
                   "ai_enrichment": {
                     "type": "object",
-                    "description": "AI enrichment configuration. Keys are output column names, values are enrichment details.",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "description": "AI enrichment configuration. Keys are output column names, values are enrichment details."
                   }
-                }
+                },
+                "required": [
+                  "search_filters",
+                  "limit"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -100914,8 +101234,8 @@
                     },
                     "search_filters": {
                       "type": "object",
-                      "description": "The search filters used for enrichment",
-                      "additionalProperties": true
+                      "additionalProperties": true,
+                      "description": "The search filters used for enrichment"
                     },
                     "limit": {
                       "type": "number",
@@ -100929,11 +101249,11 @@
                     },
                     "custom_flow": {
                       "type": "array",
-                      "description": "Custom flow to apply to the enrichment",
                       "items": {
                         "type": "string",
                         "example": "instantly"
-                      }
+                      },
+                      "description": "Custom flow to apply to the enrichment"
                     },
                     "background_job_id": {
                       "type": [
@@ -101006,12 +101326,11 @@
             }
           },
           "402": {
-            "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two.",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -101022,40 +101341,37 @@
                     },
                     "error": {
                       "type": "string",
+                      "enum": [
+                        "Insufficient credits"
+                      ],
                       "example": "Insufficient credits"
                     },
                     "message": {
                       "type": "string",
                       "example": "Insufficient credits"
                     },
-                    "errorCode": {
-                      "type": "string",
-                      "description": "Present only when the workspace\u0027s own in-flight enrichment jobs hold the credits. Absent for a genuine shortage.",
-                      "enum": [
-                        "CREDIT_RESERVATION_CONFLICT"
-                      ],
-                      "example": "CREDIT_RESERVATION_CONFLICT"
-                    },
                     "creditsRequired": {
                       "type": "number",
-                      "example": 50
+                      "example": 15000
                     },
                     "creditsAvailable": {
                       "type": "number",
-                      "description": "Balance net of credits held by in-flight jobs.",
-                      "example": 10
+                      "example": 250
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "CREDIT_RESERVATION_CONFLICT"
+                      ],
+                      "description": "Present only when the workspace\u0027s own in-flight jobs hold the credits. Absent for a genuine shortage.",
+                      "example": "CREDIT_RESERVATION_CONFLICT"
                     },
                     "creditsReserved": {
                       "type": "number",
-                      "description": "Credits currently held by the workspace\u0027s in-flight enrichment jobs.",
+                      "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
                       "example": 4000
                     }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
+                  }
                 }
               }
             }
@@ -101066,7 +101382,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "The workspace has reached its plan lead limit, in which case \u0060leadsRemaining\u0060 and \u0060leadsRequested\u0060 are present and \u0060error\u0060 is \u0022Lead limit reached\u0022; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and \u0060message\u0060 explains why.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -101095,7 +101410,8 @@
                     "statusCode",
                     "error",
                     "message"
-                  ]
+                  ],
+                  "description": "The workspace has reached its plan lead limit, in which case \u0060leadsRemaining\u0060 and \u0060leadsRequested\u0060 are present and \u0060error\u0060 is \u0022Lead limit reached\u0022; or the request used a search filter the workspace does not have access to, in which case those two fields are absent and \u0060message\u0060 explains why."
                 }
               }
             }
@@ -105872,23 +106188,27 @@
         "parameters": [
           {
             "schema": {
-              "type": "number",
+              "type": "integer",
+              "minimum": 0,
               "example": 0
             },
             "example": 0,
             "in": "query",
             "name": "offset",
-            "required": false
+            "required": false,
+            "description": "Number of entries to skip, newest first"
           },
           {
             "schema": {
-              "type": "number",
+              "type": "integer",
+              "minimum": 0,
               "example": 10
             },
             "example": 10,
             "in": "query",
             "name": "limit",
-            "required": false
+            "required": false,
+            "description": "Maximum number of entries to return; every entry when omitted or 0"
           },
           {
             "schema": {
@@ -105911,7 +106231,51 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "additionalProperties": true
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "ID of the history entry",
+                        "example": "000000000000000000000000"
+                      },
+                      "resource_id": {
+                        "type": "string",
+                        "description": "ID of the list or campaign the entry belongs to",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "description": "ID of the workspace that owns the resource",
+                        "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                      },
+                      "reason": {
+                        "type": [
+                          "null",
+                          "string"
+                        ],
+                        "description": "What happened to the resource",
+                        "example": "Credits deducted: 10 tokens for the enrichment job"
+                      },
+                      "timestamp": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "description": "When the entry was recorded, as an ISO 8601 string or epoch milliseconds",
+                        "example": "1970-01-01T00:00:00.000Z"
+                      }
+                    },
+                    "required": [
+                      "_id",
+                      "resource_id",
+                      "organization_id"
+                    ]
                   }
                 }
               }
@@ -106678,6 +107042,19 @@
                     "creditsAvailable": {
                       "type": "number",
                       "example": 250
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "CREDIT_RESERVATION_CONFLICT"
+                      ],
+                      "description": "Present only when the workspace\u0027s own in-flight jobs hold the credits. Absent for a genuine shortage.",
+                      "example": "CREDIT_RESERVATION_CONFLICT"
+                    },
+                    "creditsReserved": {
+                      "type": "number",
+                      "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
+                      "example": 4000
                     }
                   }
                 }

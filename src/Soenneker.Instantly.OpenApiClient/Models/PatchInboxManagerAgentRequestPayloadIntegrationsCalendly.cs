@@ -12,56 +12,83 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchInboxManagerAgentRequestPayloadIntegrationsCalendly : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("calendar_name") is { } nullNodeCalendarName && nullNodeCalendarName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CalendarName = null;
+            if (parseNode.GetChildNode("calendar_uri") is { } nullNodeCalendarUri && nullNodeCalendarUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CalendarUri = null;
+            if (parseNode.GetChildNode("connection_id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("connection_name") is { } nullNodeConnectionName && nullNodeConnectionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionName = null;
+            if (parseNode.GetChildNode("custom_questions") is { } nullNodeCustomQuestions && nullNodeCustomQuestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomQuestions = null;
+            if (parseNode.GetChildNode("disable_auto_booking") is { } nullNodeDisableAutoBooking && nullNodeDisableAutoBooking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableAutoBooking = null;
+            if (parseNode.GetChildNode("scheduling_url") is { } nullNodeSchedulingUrl && nullNodeSchedulingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulingUrl = null;
+        }
+
         /// <summary>Display name of the Calendly event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CalendarName { get; set; }
+        public string? CalendarName { get => _explicitNullValueCalendarName; set { _explicitNullValueCalendarName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendar_name"); else _explicitNullProperties?.Remove("calendar_name"); } }
+        private string? _explicitNullValueCalendarName = default!;
 #nullable restore
 #else
-        public string CalendarName { get; set; }
+        public string CalendarName { get => _explicitNullValueCalendarName; set { _explicitNullValueCalendarName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendar_name"); else _explicitNullProperties?.Remove("calendar_name"); } }
+        private string _explicitNullValueCalendarName = default!;
 #endif
         /// <summary>URI of the Calendly event type to book</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CalendarUri { get; set; }
+        public string? CalendarUri { get => _explicitNullValueCalendarUri; set { _explicitNullValueCalendarUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendar_uri"); else _explicitNullProperties?.Remove("calendar_uri"); } }
+        private string? _explicitNullValueCalendarUri = default!;
 #nullable restore
 #else
-        public string CalendarUri { get; set; }
+        public string CalendarUri { get => _explicitNullValueCalendarUri; set { _explicitNullValueCalendarUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calendar_uri"); else _explicitNullProperties?.Remove("calendar_uri"); } }
+        private string _explicitNullValueCalendarUri = default!;
 #endif
         /// <summary>Calendly app connection ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_id"); else _explicitNullProperties?.Remove("connection_id"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>Display name of the Calendly connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionName { get; set; }
+        public string? ConnectionName { get => _explicitNullValueConnectionName; set { _explicitNullValueConnectionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_name"); else _explicitNullProperties?.Remove("connection_name"); } }
+        private string? _explicitNullValueConnectionName = default!;
 #nullable restore
 #else
-        public string ConnectionName { get; set; }
+        public string ConnectionName { get => _explicitNullValueConnectionName; set { _explicitNullValueConnectionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_name"); else _explicitNullProperties?.Remove("connection_name"); } }
+        private string _explicitNullValueConnectionName = default!;
 #endif
         /// <summary>Custom questions configured on the Calendly event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem>? CustomQuestions { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem>? CustomQuestions { get => _explicitNullValueCustomQuestions; set { _explicitNullValueCustomQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_questions"); else _explicitNullProperties?.Remove("custom_questions"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem>? _explicitNullValueCustomQuestions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem> CustomQuestions { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem> CustomQuestions { get => _explicitNullValueCustomQuestions; set { _explicitNullValueCustomQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_questions"); else _explicitNullProperties?.Remove("custom_questions"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem> _explicitNullValueCustomQuestions = default!;
 #endif
         /// <summary>When true, the agent shares the scheduling link instead of booking directly</summary>
-        public bool? DisableAutoBooking { get; set; }
+        public bool? DisableAutoBooking { get => _explicitNullValueDisableAutoBooking; set { _explicitNullValueDisableAutoBooking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_auto_booking"); else _explicitNullProperties?.Remove("disable_auto_booking"); } }
+        private bool? _explicitNullValueDisableAutoBooking = default!;
         /// <summary>Public scheduling URL of the selected event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SchedulingUrl { get; set; }
+        public string? SchedulingUrl { get => _explicitNullValueSchedulingUrl; set { _explicitNullValueSchedulingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_url"); else _explicitNullProperties?.Remove("scheduling_url"); } }
+        private string? _explicitNullValueSchedulingUrl = default!;
 #nullable restore
 #else
-        public string SchedulingUrl { get; set; }
+        public string SchedulingUrl { get => _explicitNullValueSchedulingUrl; set { _explicitNullValueSchedulingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_url"); else _explicitNullProperties?.Remove("scheduling_url"); } }
+        private string _explicitNullValueSchedulingUrl = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -71,7 +98,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendly(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,7 +132,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxManagerAgentRequestPayloadIntegrationsCalendlyCustomQuestionsItem>("custom_questions", CustomQuestions);
             writer.WriteBoolValue("disable_auto_booking", DisableAutoBooking);
-            writer.WriteStringValue("scheduling_url", SchedulingUrl);
+            writer.WriteStringValue("scheduling_url", SchedulingUrl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,65 +11,105 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetCompanyList200Response : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("company_count") is { } nullNodeCompanyCount && nullNodeCompanyCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyCount = null;
+            if (parseNode.GetChildNode("company_list_id") is { } nullNodeCompanyListId && nullNodeCompanyListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanyListId = null;
+            if (parseNode.GetChildNode("company_source_id") is { } nullNodeCompanySourceId && nullNodeCompanySourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompanySourceId = null;
+            if (parseNode.GetChildNode("credit_cost_per_saved_record") is { } nullNodeCreditCostPerSavedRecord && nullNodeCreditCostPerSavedRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditCostPerSavedRecord = null;
+            if (parseNode.GetChildNode("credits_charged") is { } nullNodeCreditsCharged && nullNodeCreditsCharged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreditsCharged = null;
+            if (parseNode.GetChildNode("filters") is { } nullNodeFilters && nullNodeFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filters = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("provider_id") is { } nullNodeProviderId && nullNodeProviderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderId = null;
+            if (parseNode.GetChildNode("requested_count") is { } nullNodeRequestedCount && nullNodeRequestedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedCount = null;
+            if (parseNode.GetChildNode("saved_count") is { } nullNodeSavedCount && nullNodeSavedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SavedCount = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("terminal_reason") is { } nullNodeTerminalReason && nullNodeTerminalReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TerminalReason = null;
+            if (parseNode.GetChildNode("timestamp_created") is { } nullNodeTimestampCreated && nullNodeTimestampCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampCreated = null;
+            if (parseNode.GetChildNode("timestamp_updated") is { } nullNodeTimestampUpdated && nullNodeTimestampUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampUpdated = null;
+        }
+
         /// <summary>The company_count property</summary>
-        public int? CompanyCount { get; set; }
+        public int? CompanyCount { get => _explicitNullValueCompanyCount; set { _explicitNullValueCompanyCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_count"); else _explicitNullProperties?.Remove("company_count"); } }
+        private int? _explicitNullValueCompanyCount = default!;
         /// <summary>The company_list_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CompanyListId { get; set; }
+        public string? CompanyListId { get => _explicitNullValueCompanyListId; set { _explicitNullValueCompanyListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_list_id"); else _explicitNullProperties?.Remove("company_list_id"); } }
+        private string? _explicitNullValueCompanyListId = default!;
 #nullable restore
 #else
-        public string CompanyListId { get; set; }
+        public string CompanyListId { get => _explicitNullValueCompanyListId; set { _explicitNullValueCompanyListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_list_id"); else _explicitNullProperties?.Remove("company_list_id"); } }
+        private string _explicitNullValueCompanyListId = default!;
 #endif
         /// <summary>The company_source_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CompanySourceId { get; set; }
+        public string? CompanySourceId { get => _explicitNullValueCompanySourceId; set { _explicitNullValueCompanySourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_source_id"); else _explicitNullProperties?.Remove("company_source_id"); } }
+        private string? _explicitNullValueCompanySourceId = default!;
 #nullable restore
 #else
-        public string CompanySourceId { get; set; }
+        public string CompanySourceId { get => _explicitNullValueCompanySourceId; set { _explicitNullValueCompanySourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("company_source_id"); else _explicitNullProperties?.Remove("company_source_id"); } }
+        private string _explicitNullValueCompanySourceId = default!;
 #endif
         /// <summary>The credit_cost_per_saved_record property</summary>
-        public int? CreditCostPerSavedRecord { get; set; }
+        public int? CreditCostPerSavedRecord { get => _explicitNullValueCreditCostPerSavedRecord; set { _explicitNullValueCreditCostPerSavedRecord = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credit_cost_per_saved_record"); else _explicitNullProperties?.Remove("credit_cost_per_saved_record"); } }
+        private int? _explicitNullValueCreditCostPerSavedRecord = default!;
         /// <summary>The credits_charged property</summary>
-        public int? CreditsCharged { get; set; }
+        public int? CreditsCharged { get => _explicitNullValueCreditsCharged; set { _explicitNullValueCreditsCharged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credits_charged"); else _explicitNullProperties?.Remove("credits_charged"); } }
+        private int? _explicitNullValueCreditsCharged = default!;
         /// <summary>Filters the list was built with, keyed by filter key. Since INS-9685 an entry of a filter backed by a remote catalog — `company_technology_slug_or`, `industry_or` — is returned as `{ value, label }` instead of a plain string, so a saved list can render the human name without a provider call. Entries stored before that change are still returned as plain strings, and both forms are accepted on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseFilters? Filters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseFilters? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseFilters? _explicitNullValueFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseFilters Filters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseFilters Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseFilters _explicitNullValueFilters = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The provider_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProviderId { get; set; }
+        public string? ProviderId { get => _explicitNullValueProviderId; set { _explicitNullValueProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_id"); else _explicitNullProperties?.Remove("provider_id"); } }
+        private string? _explicitNullValueProviderId = default!;
 #nullable restore
 #else
-        public string ProviderId { get; set; }
+        public string ProviderId { get => _explicitNullValueProviderId; set { _explicitNullValueProviderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_id"); else _explicitNullProperties?.Remove("provider_id"); } }
+        private string _explicitNullValueProviderId = default!;
 #endif
         /// <summary>The requested_count property</summary>
-        public int? RequestedCount { get; set; }
+        public int? RequestedCount { get => _explicitNullValueRequestedCount; set { _explicitNullValueRequestedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_count"); else _explicitNullProperties?.Remove("requested_count"); } }
+        private int? _explicitNullValueRequestedCount = default!;
         /// <summary>The saved_count property</summary>
-        public int? SavedCount { get; set; }
+        public int? SavedCount { get => _explicitNullValueSavedCount; set { _explicitNullValueSavedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("saved_count"); else _explicitNullProperties?.Remove("saved_count"); } }
+        private int? _explicitNullValueSavedCount = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseStatus? Status { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseStatus? _explicitNullValueStatus = default!;
         /// <summary>The terminal_reason property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseTerminalReason? TerminalReason { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseTerminalReason? TerminalReason { get => _explicitNullValueTerminalReason; set { _explicitNullValueTerminalReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("terminal_reason"); else _explicitNullProperties?.Remove("terminal_reason"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseTerminalReason? _explicitNullValueTerminalReason = default!;
         /// <summary>The timestamp_created property</summary>
-        public DateTimeOffset? TimestampCreated { get; set; }
+        public DateTimeOffset? TimestampCreated { get => _explicitNullValueTimestampCreated; set { _explicitNullValueTimestampCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created"); else _explicitNullProperties?.Remove("timestamp_created"); } }
+        private DateTimeOffset? _explicitNullValueTimestampCreated = default!;
         /// <summary>The timestamp_updated property</summary>
-        public DateTimeOffset? TimestampUpdated { get; set; }
+        public DateTimeOffset? TimestampUpdated { get => _explicitNullValueTimestampUpdated; set { _explicitNullValueTimestampUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_updated"); else _explicitNullProperties?.Remove("timestamp_updated"); } }
+        private DateTimeOffset? _explicitNullValueTimestampUpdated = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -78,7 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -124,7 +164,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCompanyList200ResponseTerminalReason>("terminal_reason", TerminalReason);
             writer.WriteDateTimeOffsetValue("timestamp_created", TimestampCreated);
-            writer.WriteDateTimeOffsetValue("timestamp_updated", TimestampUpdated);
+            writer.WriteDateTimeOffsetValue("timestamp_updated", TimestampUpdated);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,19 +11,36 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("airmail") is { } nullNodeAirmail && nullNodeAirmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Airmail = null;
+            if (parseNode.GetChildNode("custom_imap_smtp") is { } nullNodeCustomImapSmtp && nullNodeCustomImapSmtp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomImapSmtp = null;
+            if (parseNode.GetChildNode("google") is { } nullNodeGoogle && nullNodeGoogle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Google = null;
+            if (parseNode.GetChildNode("microsoft") is { } nullNodeMicrosoft && nullNodeMicrosoft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Microsoft = null;
+            if (parseNode.GetChildNode("other") is { } nullNodeOther && nullNodeOther.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Other = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The airmail property</summary>
-        public double? Airmail { get; set; }
+        public double? Airmail { get => _explicitNullValueAirmail; set { _explicitNullValueAirmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("airmail"); else _explicitNullProperties?.Remove("airmail"); } }
+        private double? _explicitNullValueAirmail = default!;
         /// <summary>The custom_imap_smtp property</summary>
-        public double? CustomImapSmtp { get; set; }
+        public double? CustomImapSmtp { get => _explicitNullValueCustomImapSmtp; set { _explicitNullValueCustomImapSmtp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_imap_smtp"); else _explicitNullProperties?.Remove("custom_imap_smtp"); } }
+        private double? _explicitNullValueCustomImapSmtp = default!;
         /// <summary>The google property</summary>
-        public double? Google { get; set; }
+        public double? Google { get => _explicitNullValueGoogle; set { _explicitNullValueGoogle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google"); else _explicitNullProperties?.Remove("google"); } }
+        private double? _explicitNullValueGoogle = default!;
         /// <summary>The microsoft property</summary>
-        public double? Microsoft { get; set; }
+        public double? Microsoft { get => _explicitNullValueMicrosoft; set { _explicitNullValueMicrosoft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft"); else _explicitNullProperties?.Remove("microsoft"); } }
+        private double? _explicitNullValueMicrosoft = default!;
         /// <summary>The other property</summary>
-        public double? Other { get; set; }
+        public double? Other { get => _explicitNullValueOther; set { _explicitNullValueOther = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("other"); else _explicitNullProperties?.Remove("other"); } }
+        private double? _explicitNullValueOther = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts"/> and sets the default values.
         /// </summary>
@@ -39,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("google", Google);
             writer.WriteDoubleValue("microsoft", Microsoft);
             writer.WriteDoubleValue("other", Other);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

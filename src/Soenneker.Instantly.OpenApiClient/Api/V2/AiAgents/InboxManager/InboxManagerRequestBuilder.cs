@@ -72,6 +72,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerAgents200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -107,6 +109,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.InboxManager
                 { "403", global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgent403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgent404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxManagerAgent429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.AiInboxManager.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

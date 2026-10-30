@@ -12,61 +12,100 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiAgentPayloadAnyOf4 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("configuration_type") is { } nullNodeConfigurationType && nullNodeConfigurationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigurationType = null;
+            if (parseNode.GetChildNode("followup_business_days_only") is { } nullNodeFollowupBusinessDaysOnly && nullNodeFollowupBusinessDaysOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowupBusinessDaysOnly = null;
+            if (parseNode.GetChildNode("followup_delay") is { } nullNodeFollowupDelay && nullNodeFollowupDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowupDelay = null;
+            if (parseNode.GetChildNode("followup_delay_unit") is { } nullNodeFollowupDelayUnit && nullNodeFollowupDelayUnit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FollowupDelayUnit = null;
+            if (parseNode.GetChildNode("handle_followup") is { } nullNodeHandleFollowup && nullNodeHandleFollowup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HandleFollowup = null;
+            if (parseNode.GetChildNode("handle_objections") is { } nullNodeHandleObjections && nullNodeHandleObjections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HandleObjections = null;
+            if (parseNode.GetChildNode("integrations") is { } nullNodeIntegrations && nullNodeIntegrations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Integrations = null;
+            if (parseNode.GetChildNode("monthly_credit_budget") is { } nullNodeMonthlyCreditBudget && nullNodeMonthlyCreditBudget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyCreditBudget = null;
+            if (parseNode.GetChildNode("no_show") is { } nullNodeNoShow && nullNodeNoShow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoShow = null;
+            if (parseNode.GetChildNode("respond_to_automatic_emails") is { } nullNodeRespondToAutomaticEmails && nullNodeRespondToAutomaticEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RespondToAutomaticEmails = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("trigger_on_labels") is { } nullNodeTriggerOnLabels && nullNodeTriggerOnLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerOnLabels = null;
+            if (parseNode.GetChildNode("trigger_on_labels_enabled") is { } nullNodeTriggerOnLabelsEnabled && nullNodeTriggerOnLabelsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerOnLabelsEnabled = null;
+            if (parseNode.GetChildNode("trigger_on_labels_mode") is { } nullNodeTriggerOnLabelsMode && nullNodeTriggerOnLabelsMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerOnLabelsMode = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Type of the AI agent configuration</summary>
-        public double? ConfigurationType { get; set; }
+        public double? ConfigurationType { get => _explicitNullValueConfigurationType; set { _explicitNullValueConfigurationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_type"); else _explicitNullProperties?.Remove("configuration_type"); } }
+        private double? _explicitNullValueConfigurationType = default!;
         /// <summary>Whether to send follow-up emails only on business days (Mon-Fri)</summary>
-        public bool? FollowupBusinessDaysOnly { get; set; }
+        public bool? FollowupBusinessDaysOnly { get => _explicitNullValueFollowupBusinessDaysOnly; set { _explicitNullValueFollowupBusinessDaysOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followup_business_days_only"); else _explicitNullProperties?.Remove("followup_business_days_only"); } }
+        private bool? _explicitNullValueFollowupBusinessDaysOnly = default!;
         /// <summary>How long to wait before each follow-up email, in `followup_delay_unit`. Measured from the agent&apos;s last email to the lead. Use 1 to 90 days or 1 to 2160 hours. If the lead asks for a specific time, the agent uses that time instead. `null` (the default) lets the agent pick the timing (about 3 days).</summary>
-        public int? FollowupDelay { get; set; }
+        public int? FollowupDelay { get => _explicitNullValueFollowupDelay; set { _explicitNullValueFollowupDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followup_delay"); else _explicitNullProperties?.Remove("followup_delay"); } }
+        private int? _explicitNullValueFollowupDelay = default!;
         /// <summary>Unit of `followup_delay`. Defaults to `days`.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4FollowupDelayUnit? FollowupDelayUnit { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4FollowupDelayUnit? FollowupDelayUnit { get => _explicitNullValueFollowupDelayUnit; set { _explicitNullValueFollowupDelayUnit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("followup_delay_unit"); else _explicitNullProperties?.Remove("followup_delay_unit"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4FollowupDelayUnit? _explicitNullValueFollowupDelayUnit = default!;
         /// <summary>Whether to handle follow-up emails</summary>
-        public bool? HandleFollowup { get; set; }
+        public bool? HandleFollowup { get => _explicitNullValueHandleFollowup; set { _explicitNullValueHandleFollowup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle_followup"); else _explicitNullProperties?.Remove("handle_followup"); } }
+        private bool? _explicitNullValueHandleFollowup = default!;
         /// <summary>Whether to handle objections, declines, or negative replies</summary>
-        public bool? HandleObjections { get; set; }
+        public bool? HandleObjections { get => _explicitNullValueHandleObjections; set { _explicitNullValueHandleObjections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle_objections"); else _explicitNullProperties?.Remove("handle_objections"); } }
+        private bool? _explicitNullValueHandleObjections = default!;
         /// <summary>Configurations for app integrations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsProperty? Integrations { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsProperty? Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsProperty? _explicitNullValueIntegrations = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsProperty Integrations { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsProperty Integrations { get => _explicitNullValueIntegrations; set { _explicitNullValueIntegrations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrations"); else _explicitNullProperties?.Remove("integrations"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4IntegrationsProperty _explicitNullValueIntegrations = default!;
 #endif
         /// <summary>Monthly AI credit budget for this agent (null = unlimited)</summary>
-        public double? MonthlyCreditBudget { get; set; }
+        public double? MonthlyCreditBudget { get => _explicitNullValueMonthlyCreditBudget; set { _explicitNullValueMonthlyCreditBudget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_credit_budget"); else _explicitNullProperties?.Remove("monthly_credit_budget"); } }
+        private double? _explicitNullValueMonthlyCreditBudget = default!;
         /// <summary>No-show recovery feature configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShow? NoShow { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShow? NoShow { get => _explicitNullValueNoShow; set { _explicitNullValueNoShow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show"); else _explicitNullProperties?.Remove("no_show"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShow? _explicitNullValueNoShow = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShow NoShow { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShow NoShow { get => _explicitNullValueNoShow; set { _explicitNullValueNoShow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_show"); else _explicitNullProperties?.Remove("no_show"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4NoShow _explicitNullValueNoShow = default!;
 #endif
         /// <summary>Whether to respond to automatic emails</summary>
-        public bool? RespondToAutomaticEmails { get; set; }
+        public bool? RespondToAutomaticEmails { get => _explicitNullValueRespondToAutomaticEmails; set { _explicitNullValueRespondToAutomaticEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("respond_to_automatic_emails"); else _explicitNullProperties?.Remove("respond_to_automatic_emails"); } }
+        private bool? _explicitNullValueRespondToAutomaticEmails = default!;
         /// <summary>List of tags to use for AI Agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Array of interest_status values to trigger the agent on</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TriggerOnLabels { get; set; }
+        public List<double?>? TriggerOnLabels { get => _explicitNullValueTriggerOnLabels; set { _explicitNullValueTriggerOnLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_on_labels"); else _explicitNullProperties?.Remove("trigger_on_labels"); } }
+        private List<double?>? _explicitNullValueTriggerOnLabels = default!;
 #nullable restore
 #else
-        public List<double?> TriggerOnLabels { get; set; }
+        public List<double?> TriggerOnLabels { get => _explicitNullValueTriggerOnLabels; set { _explicitNullValueTriggerOnLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_on_labels"); else _explicitNullProperties?.Remove("trigger_on_labels"); } }
+        private List<double?> _explicitNullValueTriggerOnLabels = default!;
 #endif
         /// <summary>Whether to activate the agent only for specific interest labels</summary>
-        public bool? TriggerOnLabelsEnabled { get; set; }
+        public bool? TriggerOnLabelsEnabled { get => _explicitNullValueTriggerOnLabelsEnabled; set { _explicitNullValueTriggerOnLabelsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_on_labels_enabled"); else _explicitNullProperties?.Remove("trigger_on_labels_enabled"); } }
+        private bool? _explicitNullValueTriggerOnLabelsEnabled = default!;
         /// <summary>Whether to include or exclude the selected labels. Defaults to include.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4TriggerOnLabelsMode? TriggerOnLabelsMode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4TriggerOnLabelsMode? TriggerOnLabelsMode { get => _explicitNullValueTriggerOnLabelsMode; set { _explicitNullValueTriggerOnLabelsMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_on_labels_mode"); else _explicitNullProperties?.Remove("trigger_on_labels_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4TriggerOnLabelsMode? _explicitNullValueTriggerOnLabelsMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4"/> and sets the default values.
         /// </summary>
@@ -82,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,6 +168,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<double?>("trigger_on_labels", TriggerOnLabels);
             writer.WriteBoolValue("trigger_on_labels_enabled", TriggerOnLabelsEnabled);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf4TriggerOnLabelsMode>("trigger_on_labels_mode", TriggerOnLabelsMode);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

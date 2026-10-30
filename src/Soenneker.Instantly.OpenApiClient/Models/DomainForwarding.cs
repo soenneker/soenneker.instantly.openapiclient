@@ -12,7 +12,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DomainForwarding : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("forwarding_domain") is { } nullNodeForwardingDomain && nullNodeForwardingDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingDomain = null;
+            if (parseNode.GetChildNode("forwarding_mode") is { } nullNodeForwardingMode && nullNodeForwardingMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingMode = null;
+        }
+
         /// <summary>The domain the forwarding configuration applies to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,13 +33,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Destination domain visitors are forwarded to. Null when no forwarding is configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForwardingDomain { get; set; }
+        public string? ForwardingDomain { get => _explicitNullValueForwardingDomain; set { _explicitNullValueForwardingDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_domain"); else _explicitNullProperties?.Remove("forwarding_domain"); } }
+        private string? _explicitNullValueForwardingDomain = default!;
 #nullable restore
 #else
-        public string ForwardingDomain { get; set; }
+        public string ForwardingDomain { get => _explicitNullValueForwardingDomain; set { _explicitNullValueForwardingDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_domain"); else _explicitNullProperties?.Remove("forwarding_domain"); } }
+        private string _explicitNullValueForwardingDomain = default!;
 #endif
         /// <summary>How the forwarding domain is applied. Null when no forwarding is configured.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode? ForwardingMode { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode? ForwardingMode { get => _explicitNullValueForwardingMode; set { _explicitNullValueForwardingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_mode"); else _explicitNullProperties?.Remove("forwarding_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode? _explicitNullValueForwardingMode = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +51,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +74,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("forwarding_domain", ForwardingDomain);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode>("forwarding_mode", ForwardingMode);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode>("forwarding_mode", ForwardingMode);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

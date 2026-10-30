@@ -11,32 +11,48 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDeliverabilityAgentStateById200ResponseCurrentActivity : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("completed_summary") is { } nullNodeCompletedSummary && nullNodeCompletedSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedSummary = null;
+            if (parseNode.GetChildNode("queued") is { } nullNodeQueued && nullNodeQueued.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queued = null;
+        }
+
         /// <summary>The active property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive? Active { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive? _explicitNullValueActive = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive Active { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive _explicitNullValueActive = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The completed_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary? CompletedSummary { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary? CompletedSummary { get => _explicitNullValueCompletedSummary; set { _explicitNullValueCompletedSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_summary"); else _explicitNullProperties?.Remove("completed_summary"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary? _explicitNullValueCompletedSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary CompletedSummary { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary CompletedSummary { get => _explicitNullValueCompletedSummary; set { _explicitNullValueCompletedSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_summary"); else _explicitNullProperties?.Remove("completed_summary"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary _explicitNullValueCompletedSummary = default!;
 #endif
         /// <summary>The queued property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem>? Queued { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem>? Queued { get => _explicitNullValueQueued; set { _explicitNullValueQueued = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queued"); else _explicitNullProperties?.Remove("queued"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem>? _explicitNullValueQueued = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem> Queued { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem> Queued { get => _explicitNullValueQueued; set { _explicitNullValueQueued = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queued"); else _explicitNullProperties?.Remove("queued"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem> _explicitNullValueQueued = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivity(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityActive>("active", Active);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityCompletedSummary>("completed_summary", CompletedSummary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgentStateById200ResponseCurrentActivityQueuedItem>("queued", Queued);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

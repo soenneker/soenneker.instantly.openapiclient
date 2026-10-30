@@ -12,11 +12,24 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Workspace : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("add_unsub_to_block") is { } nullNodeAddUnsubToBlock && nullNodeAddUnsubToBlock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddUnsubToBlock = null;
+            if (parseNode.GetChildNode("default_opportunity_value") is { } nullNodeDefaultOpportunityValue && nullNodeDefaultOpportunityValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultOpportunityValue = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("org_logo_url") is { } nullNodeOrgLogoUrl && nullNodeOrgLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgLogoUrl = null;
+        }
+
         /// <summary>Whether to add unsubscribes to block list</summary>
-        public bool? AddUnsubToBlock { get; set; }
+        public bool? AddUnsubToBlock { get => _explicitNullValueAddUnsubToBlock; set { _explicitNullValueAddUnsubToBlock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_unsub_to_block"); else _explicitNullProperties?.Remove("add_unsub_to_block"); } }
+        private bool? _explicitNullValueAddUnsubToBlock = default!;
         /// <summary>Default value for opportunities</summary>
-        public double? DefaultOpportunityValue { get; set; }
+        public double? DefaultOpportunityValue { get => _explicitNullValueDefaultOpportunityValue; set { _explicitNullValueDefaultOpportunityValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_opportunity_value"); else _explicitNullProperties?.Remove("default_opportunity_value"); } }
+        private double? _explicitNullValueDefaultOpportunityValue = default!;
         /// <summary>Unique identifier for the workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,10 +41,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Name of the workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The domain for the white label agency mode</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,10 +59,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>URL to workspace logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrgLogoUrl { get; set; }
+        public string? OrgLogoUrl { get => _explicitNullValueOrgLogoUrl; set { _explicitNullValueOrgLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_logo_url"); else _explicitNullProperties?.Remove("org_logo_url"); } }
+        private string? _explicitNullValueOrgLogoUrl = default!;
 #nullable restore
 #else
-        public string OrgLogoUrl { get; set; }
+        public string OrgLogoUrl { get => _explicitNullValueOrgLogoUrl; set { _explicitNullValueOrgLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_logo_url"); else _explicitNullProperties?.Remove("org_logo_url"); } }
+        private string _explicitNullValueOrgLogoUrl = default!;
 #endif
         /// <summary>User ID of the workspace owner</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -127,7 +144,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.Workspace CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.Workspace();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.Workspace(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -166,7 +183,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("add_unsub_to_block", AddUnsubToBlock);
             writer.WriteDoubleValue("default_opportunity_value", DefaultOpportunityValue);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("org_logo_url", OrgLogoUrl);
+            writer.WriteStringValue("org_logo_url", OrgLogoUrl);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

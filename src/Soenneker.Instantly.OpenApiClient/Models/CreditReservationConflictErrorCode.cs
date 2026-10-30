@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>Present only when the workspace&apos;s own in-flight enrichment jobs hold the credits. Absent for a genuine shortage.</summary>
+    /// <summary>Present only when the workspace&apos;s own in-flight jobs hold the credits. Absent for a genuine shortage.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreditReservationConflictErrorCode
     {

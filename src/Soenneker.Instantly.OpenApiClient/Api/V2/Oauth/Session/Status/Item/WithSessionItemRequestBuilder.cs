@@ -49,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Session.Status.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetOAuthSessionStatus200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetOAuthSessionStatus200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetOAuthSessionStatus200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetOAuthSessionStatus200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Poll this endpoint to check the OAuth session result. Works for both Google and Microsoft OAuth sessions. Returns pending while waiting, success with account details when complete, or error if something went wrong. Sessions expire after 10 minutes.

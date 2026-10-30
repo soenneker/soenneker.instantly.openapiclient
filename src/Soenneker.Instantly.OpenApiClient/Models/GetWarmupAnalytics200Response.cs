@@ -11,24 +11,37 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetWarmupAnalytics200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("aggregate_data") is { } nullNodeAggregateData && nullNodeAggregateData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AggregateData = null;
+            if (parseNode.GetChildNode("email_date_data") is { } nullNodeEmailDateData && nullNodeEmailDateData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailDateData = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The aggregate_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData? AggregateData { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData? AggregateData { get => _explicitNullValueAggregateData; set { _explicitNullValueAggregateData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregate_data"); else _explicitNullProperties?.Remove("aggregate_data"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData? _explicitNullValueAggregateData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData AggregateData { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData AggregateData { get => _explicitNullValueAggregateData; set { _explicitNullValueAggregateData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aggregate_data"); else _explicitNullProperties?.Remove("aggregate_data"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData _explicitNullValueAggregateData = default!;
 #endif
         /// <summary>The email_date_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData? EmailDateData { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData? EmailDateData { get => _explicitNullValueEmailDateData; set { _explicitNullValueEmailDateData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_date_data"); else _explicitNullProperties?.Remove("email_date_data"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData? _explicitNullValueEmailDateData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData EmailDateData { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData EmailDateData { get => _explicitNullValueEmailDateData; set { _explicitNullValueEmailDateData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_date_data"); else _explicitNullProperties?.Remove("email_date_data"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData _explicitNullValueEmailDateData = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200Response"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseAggregateData>("aggregate_data", AggregateData);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWarmupAnalytics200ResponseEmailDateData>("email_date_data", EmailDateData);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

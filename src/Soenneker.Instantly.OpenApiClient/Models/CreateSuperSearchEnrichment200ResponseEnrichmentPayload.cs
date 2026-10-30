@@ -12,25 +12,43 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSuperSearchEnrichment200ResponseEnrichmentPayload : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_flow") is { } nullNodeCustomFlow && nullNodeCustomFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomFlow = null;
+            if (parseNode.GetChildNode("email_verification") is { } nullNodeEmailVerification && nullNodeEmailVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailVerification = null;
+            if (parseNode.GetChildNode("fully_enriched_profile") is { } nullNodeFullyEnrichedProfile && nullNodeFullyEnrichedProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullyEnrichedProfile = null;
+            if (parseNode.GetChildNode("joblisting") is { } nullNodeJoblisting && nullNodeJoblisting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Joblisting = null;
+            if (parseNode.GetChildNode("work_email_enrichment") is { } nullNodeWorkEmailEnrichment && nullNodeWorkEmailEnrichment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkEmailEnrichment = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The custom_flow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomFlow { get; set; }
+        public List<string>? CustomFlow { get => _explicitNullValueCustomFlow; set { _explicitNullValueCustomFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_flow"); else _explicitNullProperties?.Remove("custom_flow"); } }
+        private List<string>? _explicitNullValueCustomFlow = default!;
 #nullable restore
 #else
-        public List<string> CustomFlow { get; set; }
+        public List<string> CustomFlow { get => _explicitNullValueCustomFlow; set { _explicitNullValueCustomFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_flow"); else _explicitNullProperties?.Remove("custom_flow"); } }
+        private List<string> _explicitNullValueCustomFlow = default!;
 #endif
         /// <summary>Whether email verification is enabled</summary>
-        public bool? EmailVerification { get; set; }
+        public bool? EmailVerification { get => _explicitNullValueEmailVerification; set { _explicitNullValueEmailVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_verification"); else _explicitNullProperties?.Remove("email_verification"); } }
+        private bool? _explicitNullValueEmailVerification = default!;
         /// <summary>Whether fully enriched profile is enabled</summary>
-        public bool? FullyEnrichedProfile { get; set; }
+        public bool? FullyEnrichedProfile { get => _explicitNullValueFullyEnrichedProfile; set { _explicitNullValueFullyEnrichedProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fully_enriched_profile"); else _explicitNullProperties?.Remove("fully_enriched_profile"); } }
+        private bool? _explicitNullValueFullyEnrichedProfile = default!;
         /// <summary>Whether job listing enrichment is enabled</summary>
-        public bool? Joblisting { get; set; }
+        public bool? Joblisting { get => _explicitNullValueJoblisting; set { _explicitNullValueJoblisting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("joblisting"); else _explicitNullProperties?.Remove("joblisting"); } }
+        private bool? _explicitNullValueJoblisting = default!;
         /// <summary>Whether work email enrichment is enabled</summary>
-        public bool? WorkEmailEnrichment { get; set; }
+        public bool? WorkEmailEnrichment { get => _explicitNullValueWorkEmailEnrichment; set { _explicitNullValueWorkEmailEnrichment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("work_email_enrichment"); else _explicitNullProperties?.Remove("work_email_enrichment"); } }
+        private bool? _explicitNullValueWorkEmailEnrichment = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload"/> and sets the default values.
         /// </summary>
@@ -46,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichment200ResponseEnrichmentPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,6 +93,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("fully_enriched_profile", FullyEnrichedProfile);
             writer.WriteBoolValue("joblisting", Joblisting);
             writer.WriteBoolValue("work_email_enrichment", WorkEmailEnrichment);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

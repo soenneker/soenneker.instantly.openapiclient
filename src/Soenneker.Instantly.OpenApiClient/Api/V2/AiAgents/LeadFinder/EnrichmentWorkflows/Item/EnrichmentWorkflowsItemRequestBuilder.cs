@@ -59,6 +59,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.Enrichmen
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadFinderAgentEnrichmentWorkflowV2402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadFinderAgentEnrichmentWorkflowV2404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadFinderAgentEnrichmentWorkflowV2429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadFinderAgentEnrichmentWorkflowV2200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadFinderAgentEnrichmentWorkflowV2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Item;
+using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Search;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomTagsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The toggleResource property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource.ToggleResourceRequestBuilder ToggleResource
         {
@@ -78,6 +84,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListCustomTag200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -113,6 +121,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag404Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateCustomTag429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.CustomTag>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.CustomTag.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

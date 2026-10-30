@@ -11,22 +11,35 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetSalesAgentLeadResearch200ResponseResearch : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("grounding") is { } nullNodeGrounding && nullNodeGrounding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grounding = null;
+            if (parseNode.GetChildNode("sources") is { } nullNodeSources && nullNodeSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sources = null;
+        }
+
         /// <summary>The grounding property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem>? Grounding { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem>? Grounding { get => _explicitNullValueGrounding; set { _explicitNullValueGrounding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grounding"); else _explicitNullProperties?.Remove("grounding"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem>? _explicitNullValueGrounding = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem> Grounding { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem> Grounding { get => _explicitNullValueGrounding; set { _explicitNullValueGrounding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grounding"); else _explicitNullProperties?.Remove("grounding"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem> _explicitNullValueGrounding = default!;
 #endif
         /// <summary>The sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem>? Sources { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem>? Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem>? _explicitNullValueSources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem> Sources { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem> Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem> _explicitNullValueSources = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearch(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +73,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchGroundingItem>("grounding", Grounding);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem>("sources", Sources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentLeadResearch200ResponseResearchSourcesItem>("sources", Sources);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

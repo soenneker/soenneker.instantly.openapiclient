@@ -11,23 +11,39 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetSubsequenceAnalytics200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("emails_sent") is { } nullNodeEmailsSent && nullNodeEmailsSent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailsSent = null;
+            if (parseNode.GetChildNode("subsequence_id") is { } nullNodeSubsequenceId && nullNodeSubsequenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubsequenceId = null;
+            if (parseNode.GetChildNode("unique_opens") is { } nullNodeUniqueOpens && nullNodeUniqueOpens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueOpens = null;
+            if (parseNode.GetChildNode("unique_replies") is { } nullNodeUniqueReplies && nullNodeUniqueReplies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueReplies = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The emails_sent property</summary>
-        public double? EmailsSent { get; set; }
+        public double? EmailsSent { get => _explicitNullValueEmailsSent; set { _explicitNullValueEmailsSent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails_sent"); else _explicitNullProperties?.Remove("emails_sent"); } }
+        private double? _explicitNullValueEmailsSent = default!;
         /// <summary>The subsequence_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubsequenceId { get; set; }
+        public string? SubsequenceId { get => _explicitNullValueSubsequenceId; set { _explicitNullValueSubsequenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsequence_id"); else _explicitNullProperties?.Remove("subsequence_id"); } }
+        private string? _explicitNullValueSubsequenceId = default!;
 #nullable restore
 #else
-        public string SubsequenceId { get; set; }
+        public string SubsequenceId { get => _explicitNullValueSubsequenceId; set { _explicitNullValueSubsequenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsequence_id"); else _explicitNullProperties?.Remove("subsequence_id"); } }
+        private string _explicitNullValueSubsequenceId = default!;
 #endif
         /// <summary>The unique_opens property</summary>
-        public double? UniqueOpens { get; set; }
+        public double? UniqueOpens { get => _explicitNullValueUniqueOpens; set { _explicitNullValueUniqueOpens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_opens"); else _explicitNullProperties?.Remove("unique_opens"); } }
+        private double? _explicitNullValueUniqueOpens = default!;
         /// <summary>The unique_replies property</summary>
-        public double? UniqueReplies { get; set; }
+        public double? UniqueReplies { get => _explicitNullValueUniqueReplies; set { _explicitNullValueUniqueReplies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_replies"); else _explicitNullProperties?.Remove("unique_replies"); } }
+        private double? _explicitNullValueUniqueReplies = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceAnalytics200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceAnalytics200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceAnalytics200ResponseSchemaItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceAnalytics200ResponseSchemaItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("subsequence_id", SubsequenceId);
             writer.WriteDoubleValue("unique_opens", UniqueOpens);
             writer.WriteDoubleValue("unique_replies", UniqueReplies);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

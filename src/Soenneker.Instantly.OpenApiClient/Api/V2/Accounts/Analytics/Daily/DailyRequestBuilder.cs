@@ -63,6 +63,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Accounts.Analytics.Daily
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetDailyAccountAnalytics404Response.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.Instantly.OpenApiClient.Models.GetDailyAccountAnalytics413Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetDailyAccountAnalytics429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetDailyAccountAnalytics200ResponseSchemaItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetDailyAccountAnalytics200ResponseSchemaItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();

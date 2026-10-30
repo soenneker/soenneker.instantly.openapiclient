@@ -12,23 +12,44 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetVerificationStats200ResponseStats : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("catch_all") is { } nullNodeCatchAll && nullNodeCatchAll.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CatchAll = null;
+            if (parseNode.GetChildNode("invalid") is { } nullNodeInvalid && nullNodeInvalid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invalid = null;
+            if (parseNode.GetChildNode("job_change") is { } nullNodeJobChange && nullNodeJobChange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobChange = null;
+            if (parseNode.GetChildNode("risky") is { } nullNodeRisky && nullNodeRisky.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Risky = null;
+            if (parseNode.GetChildNode("verification_job_pending_leadfinder") is { } nullNodeVerificationJobPendingLeadfinder && nullNodeVerificationJobPendingLeadfinder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationJobPendingLeadfinder = null;
+            if (parseNode.GetChildNode("verification_job_pending_user") is { } nullNodeVerificationJobPendingUser && nullNodeVerificationJobPendingUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationJobPendingUser = null;
+            if (parseNode.GetChildNode("verified") is { } nullNodeVerified && nullNodeVerified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verified = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Count of catch all leads</summary>
-        public double? CatchAll { get; set; }
+        public double? CatchAll { get => _explicitNullValueCatchAll; set { _explicitNullValueCatchAll = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("catch_all"); else _explicitNullProperties?.Remove("catch_all"); } }
+        private double? _explicitNullValueCatchAll = default!;
         /// <summary>Count of invalid leads</summary>
-        public double? Invalid { get; set; }
+        public double? Invalid { get => _explicitNullValueInvalid; set { _explicitNullValueInvalid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid"); else _explicitNullProperties?.Remove("invalid"); } }
+        private double? _explicitNullValueInvalid = default!;
         /// <summary>Count of job change leads</summary>
-        public double? JobChange { get; set; }
+        public double? JobChange { get => _explicitNullValueJobChange; set { _explicitNullValueJobChange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_change"); else _explicitNullProperties?.Remove("job_change"); } }
+        private double? _explicitNullValueJobChange = default!;
         /// <summary>Count of risky leads</summary>
-        public double? Risky { get; set; }
+        public double? Risky { get => _explicitNullValueRisky; set { _explicitNullValueRisky = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risky"); else _explicitNullProperties?.Remove("risky"); } }
+        private double? _explicitNullValueRisky = default!;
         /// <summary>Count of verification job pending leads for leadfinder</summary>
-        public double? VerificationJobPendingLeadfinder { get; set; }
+        public double? VerificationJobPendingLeadfinder { get => _explicitNullValueVerificationJobPendingLeadfinder; set { _explicitNullValueVerificationJobPendingLeadfinder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_job_pending_leadfinder"); else _explicitNullProperties?.Remove("verification_job_pending_leadfinder"); } }
+        private double? _explicitNullValueVerificationJobPendingLeadfinder = default!;
         /// <summary>Count of verification job pending leads for user</summary>
-        public double? VerificationJobPendingUser { get; set; }
+        public double? VerificationJobPendingUser { get => _explicitNullValueVerificationJobPendingUser; set { _explicitNullValueVerificationJobPendingUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification_job_pending_user"); else _explicitNullProperties?.Remove("verification_job_pending_user"); } }
+        private double? _explicitNullValueVerificationJobPendingUser = default!;
         /// <summary>Count of verified leads</summary>
-        public double? Verified { get; set; }
+        public double? Verified { get => _explicitNullValueVerified; set { _explicitNullValueVerified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified"); else _explicitNullProperties?.Remove("verified"); } }
+        private double? _explicitNullValueVerified = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetVerificationStats200ResponseStats"/> and sets the default values.
         /// </summary>
@@ -44,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetVerificationStats200ResponseStats CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetVerificationStats200ResponseStats();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetVerificationStats200ResponseStats(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +98,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("verification_job_pending_leadfinder", VerificationJobPendingLeadfinder);
             writer.WriteDoubleValue("verification_job_pending_user", VerificationJobPendingUser);
             writer.WriteDoubleValue("verified", Verified);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

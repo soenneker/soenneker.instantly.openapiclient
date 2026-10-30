@@ -11,27 +11,42 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MoveLeadsRequestQueriesItemValues : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("lead-status") is { } nullNodeLeadStatus && nullNodeLeadStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadStatus = null;
+            if (parseNode.GetChildNode("occurrence-count") is { } nullNodeOccurrenceCount && nullNodeOccurrenceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OccurrenceCount = null;
+            if (parseNode.GetChildNode("occurrence-days") is { } nullNodeOccurrenceDays && nullNodeOccurrenceDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OccurrenceDays = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Only for `lead-status`: compares the lead status. `status` is required with `condition`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus? LeadStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus? LeadStatus { get => _explicitNullValueLeadStatus; set { _explicitNullValueLeadStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead-status"); else _explicitNullProperties?.Remove("lead-status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus? _explicitNullValueLeadStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus LeadStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus LeadStatus { get => _explicitNullValueLeadStatus; set { _explicitNullValueLeadStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lead-status"); else _explicitNullProperties?.Remove("lead-status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus _explicitNullValueLeadStatus = default!;
 #endif
         /// <summary>Compares how many times the activity happened. Without `count`, it compares with 0, so `{ &quot;condition&quot;: &quot;more&quot; }` means at least once. Ignored by `last-contacted`, `lead-status-change` and `lead-status`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount? OccurrenceCount { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount? OccurrenceCount { get => _explicitNullValueOccurrenceCount; set { _explicitNullValueOccurrenceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-count"); else _explicitNullProperties?.Remove("occurrence-count"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount? _explicitNullValueOccurrenceCount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount OccurrenceCount { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount OccurrenceCount { get => _explicitNullValueOccurrenceCount; set { _explicitNullValueOccurrenceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-count"); else _explicitNullProperties?.Remove("occurrence-count"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount _explicitNullValueOccurrenceCount = default!;
 #endif
         /// <summary>Only leads whose last matching activity was in the past this many days.</summary>
-        public double? OccurrenceDays { get; set; }
+        public double? OccurrenceDays { get => _explicitNullValueOccurrenceDays; set { _explicitNullValueOccurrenceDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occurrence-days"); else _explicitNullProperties?.Remove("occurrence-days"); } }
+        private double? _explicitNullValueOccurrenceDays = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValues"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValues CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValues();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValues(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesLeadStatus>("lead-status", LeadStatus);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.MoveLeadsRequestQueriesItemValuesOccurrenceCount>("occurrence-count", OccurrenceCount);
             writer.WriteDoubleValue("occurrence-days", OccurrenceDays);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

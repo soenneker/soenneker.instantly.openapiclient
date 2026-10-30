@@ -11,63 +11,96 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateLeadFinderAgentRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ai_enrichment") is { } nullNodeAiEnrichment && nullNodeAiEnrichment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiEnrichment = null;
+            if (parseNode.GetChildNode("ai_enrichment_workflow") is { } nullNodeAiEnrichmentWorkflow && nullNodeAiEnrichmentWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiEnrichmentWorkflow = null;
+            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("fallback_search_filters") is { } nullNodeFallbackSearchFilters && nullNodeFallbackSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackSearchFilters = null;
+            if (parseNode.GetChildNode("min_active_leads") is { } nullNodeMinActiveLeads && nullNodeMinActiveLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinActiveLeads = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("on_exhaustion") is { } nullNodeOnExhaustion && nullNodeOnExhaustion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnExhaustion = null;
+            if (parseNode.GetChildNode("search_filters") is { } nullNodeSearchFilters && nullNodeSearchFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchFilters = null;
+            if (parseNode.GetChildNode("show_one_lead_per_company") is { } nullNodeShowOneLeadPerCompany && nullNodeShowOneLeadPerCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOneLeadPerCompany = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+        }
+
         /// <summary>AI enrichment columns filled on every top-up, keyed by output column name. Leads are held back until they are filled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestAiEnrichment? AiEnrichment { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestAiEnrichment? AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestAiEnrichment? _explicitNullValueAiEnrichment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestAiEnrichment AiEnrichment { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestAiEnrichment AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestAiEnrichment _explicitNullValueAiEnrichment = default!;
 #endif
         /// <summary>Workflow template the enrichment chain was loaded from — a built-in key or `custom:&lt;id&gt;`. Display-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AiEnrichmentWorkflow { get; set; }
+        public string? AiEnrichmentWorkflow { get => _explicitNullValueAiEnrichmentWorkflow; set { _explicitNullValueAiEnrichmentWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment_workflow"); else _explicitNullProperties?.Remove("ai_enrichment_workflow"); } }
+        private string? _explicitNullValueAiEnrichmentWorkflow = default!;
 #nullable restore
 #else
-        public string AiEnrichmentWorkflow { get; set; }
+        public string AiEnrichmentWorkflow { get => _explicitNullValueAiEnrichmentWorkflow; set { _explicitNullValueAiEnrichmentWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment_workflow"); else _explicitNullProperties?.Remove("ai_enrichment_workflow"); } }
+        private string _explicitNullValueAiEnrichmentWorkflow = default!;
 #endif
         /// <summary>Campaign the agent keeps topped up. A campaign can have at most one active agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get; set; }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get; set; }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>Broadened audience used when the primary search is exhausted. Required when `on_exhaustion` is `fallback`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFilters? FallbackSearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFilters? FallbackSearchFilters { get => _explicitNullValueFallbackSearchFilters; set { _explicitNullValueFallbackSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_search_filters"); else _explicitNullProperties?.Remove("fallback_search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFilters? _explicitNullValueFallbackSearchFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFilters FallbackSearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFilters FallbackSearchFilters { get => _explicitNullValueFallbackSearchFilters; set { _explicitNullValueFallbackSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_search_filters"); else _explicitNullProperties?.Remove("fallback_search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestFallbackSearchFilters _explicitNullValueFallbackSearchFilters = default!;
 #endif
         /// <summary>Threshold below which the agent tops up the campaign</summary>
-        public double? MinActiveLeads { get; set; }
+        public double? MinActiveLeads { get => _explicitNullValueMinActiveLeads; set { _explicitNullValueMinActiveLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_active_leads"); else _explicitNullProperties?.Remove("min_active_leads"); } }
+        private double? _explicitNullValueMinActiveLeads = default!;
         /// <summary>Name of the agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>What the agent does when the search runs out of new leads</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestOnExhaustion? OnExhaustion { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestOnExhaustion? OnExhaustion { get => _explicitNullValueOnExhaustion; set { _explicitNullValueOnExhaustion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_exhaustion"); else _explicitNullProperties?.Remove("on_exhaustion"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestOnExhaustion? _explicitNullValueOnExhaustion = default!;
         /// <summary>Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters? SearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters? SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters? _explicitNullValueSearchFilters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters SearchFilters { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters SearchFilters { get => _explicitNullValueSearchFilters; set { _explicitNullValueSearchFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_filters"); else _explicitNullProperties?.Remove("search_filters"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters _explicitNullValueSearchFilters = default!;
 #endif
         /// <summary>Deliver at most one lead per company in each top-up. Defaults to true.</summary>
-        public bool? ShowOneLeadPerCompany { get; set; }
+        public bool? ShowOneLeadPerCompany { get => _explicitNullValueShowOneLeadPerCompany; set { _explicitNullValueShowOneLeadPerCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_one_lead_per_company"); else _explicitNullProperties?.Remove("show_one_lead_per_company"); } }
+        private bool? _explicitNullValueShowOneLeadPerCompany = default!;
         /// <summary>Entry point the agent was created from, for adoption attribution.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSource? Source { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSource? _explicitNullValueSource = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -76,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,7 +147,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestOnExhaustion>("on_exhaustion", OnExhaustion);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSearchFilters>("search_filters", SearchFilters);
             writer.WriteBoolValue("show_one_lead_per_company", ShowOneLeadPerCompany);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateLeadFinderAgentRequestSource>("source", Source);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

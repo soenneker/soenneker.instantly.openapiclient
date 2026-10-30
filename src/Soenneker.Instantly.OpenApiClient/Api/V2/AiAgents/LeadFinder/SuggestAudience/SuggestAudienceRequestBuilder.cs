@@ -65,6 +65,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.LeadFinder.SuggestAu
                 { "422", global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2422Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2429Response.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2502Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.SuggestLeadFinderAudienceV2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

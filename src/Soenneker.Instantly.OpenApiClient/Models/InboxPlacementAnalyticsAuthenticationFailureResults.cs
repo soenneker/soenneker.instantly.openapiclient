@@ -12,32 +12,48 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InboxPlacementAnalyticsAuthenticationFailureResults : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authentication_results") is { } nullNodeAuthenticationResults && nullNodeAuthenticationResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationResults = null;
+            if (parseNode.GetChildNode("dkim_signature") is { } nullNodeDkimSignature && nullNodeDkimSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DkimSignature = null;
+            if (parseNode.GetChildNode("received_spf") is { } nullNodeReceivedSpf && nullNodeReceivedSpf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceivedSpf = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Authentication results</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthenticationResults { get; set; }
+        public string? AuthenticationResults { get => _explicitNullValueAuthenticationResults; set { _explicitNullValueAuthenticationResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authentication_results"); else _explicitNullProperties?.Remove("authentication_results"); } }
+        private string? _explicitNullValueAuthenticationResults = default!;
 #nullable restore
 #else
-        public string AuthenticationResults { get; set; }
+        public string AuthenticationResults { get => _explicitNullValueAuthenticationResults; set { _explicitNullValueAuthenticationResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authentication_results"); else _explicitNullProperties?.Remove("authentication_results"); } }
+        private string _explicitNullValueAuthenticationResults = default!;
 #endif
         /// <summary>DKIM signature</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DkimSignature { get; set; }
+        public string? DkimSignature { get => _explicitNullValueDkimSignature; set { _explicitNullValueDkimSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim_signature"); else _explicitNullProperties?.Remove("dkim_signature"); } }
+        private string? _explicitNullValueDkimSignature = default!;
 #nullable restore
 #else
-        public string DkimSignature { get; set; }
+        public string DkimSignature { get => _explicitNullValueDkimSignature; set { _explicitNullValueDkimSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim_signature"); else _explicitNullProperties?.Remove("dkim_signature"); } }
+        private string _explicitNullValueDkimSignature = default!;
 #endif
         /// <summary>Received SPF</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReceivedSpf { get; set; }
+        public string? ReceivedSpf { get => _explicitNullValueReceivedSpf; set { _explicitNullValueReceivedSpf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_spf"); else _explicitNullProperties?.Remove("received_spf"); } }
+        private string? _explicitNullValueReceivedSpf = default!;
 #nullable restore
 #else
-        public string ReceivedSpf { get; set; }
+        public string ReceivedSpf { get => _explicitNullValueReceivedSpf; set { _explicitNullValueReceivedSpf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_spf"); else _explicitNullProperties?.Remove("received_spf"); } }
+        private string _explicitNullValueReceivedSpf = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults"/> and sets the default values.
@@ -54,7 +70,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.InboxPlacementAnalyticsAuthenticationFailureResults(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("authentication_results", AuthenticationResults);
             writer.WriteStringValue("dkim_signature", DkimSignature);
             writer.WriteStringValue("received_spf", ReceivedSpf);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

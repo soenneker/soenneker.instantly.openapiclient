@@ -11,23 +11,39 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeployDeliverabilityAgent200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("already_deployed") is { } nullNodeAlreadyDeployed && nullNodeAlreadyDeployed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlreadyDeployed = null;
+            if (parseNode.GetChildNode("initial_cycle_enqueued") is { } nullNodeInitialCycleEnqueued && nullNodeInitialCycleEnqueued.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialCycleEnqueued = null;
+            if (parseNode.GetChildNode("promo_credits_granted") is { } nullNodePromoCreditsGranted && nullNodePromoCreditsGranted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromoCreditsGranted = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An AI agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>Whether the workspace already had an active Deliverability Agent.</summary>
-        public bool? AlreadyDeployed { get; set; }
+        public bool? AlreadyDeployed { get => _explicitNullValueAlreadyDeployed; set { _explicitNullValueAlreadyDeployed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("already_deployed"); else _explicitNullProperties?.Remove("already_deployed"); } }
+        private bool? _explicitNullValueAlreadyDeployed = default!;
         /// <summary>Whether an immediate initial Deliverability Agent cycle was successfully scheduled.</summary>
-        public bool? InitialCycleEnqueued { get; set; }
+        public bool? InitialCycleEnqueued { get => _explicitNullValueInitialCycleEnqueued; set { _explicitNullValueInitialCycleEnqueued = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_cycle_enqueued"); else _explicitNullProperties?.Remove("initial_cycle_enqueued"); } }
+        private bool? _explicitNullValueInitialCycleEnqueued = default!;
         /// <summary>Instantly credits granted by an active limited-time promotion, if any.</summary>
-        public double? PromoCreditsGranted { get; set; }
+        public double? PromoCreditsGranted { get => _explicitNullValuePromoCreditsGranted; set { _explicitNullValuePromoCreditsGranted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("promo_credits_granted"); else _explicitNullProperties?.Remove("promo_credits_granted"); } }
+        private double? _explicitNullValuePromoCreditsGranted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeployDeliverabilityAgent200Response"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.DeployDeliverabilityAgent200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.DeployDeliverabilityAgent200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.DeployDeliverabilityAgent200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("already_deployed", AlreadyDeployed);
             writer.WriteBoolValue("initial_cycle_enqueued", InitialCycleEnqueued);
             writer.WriteDoubleValue("promo_credits_granted", PromoCreditsGranted);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

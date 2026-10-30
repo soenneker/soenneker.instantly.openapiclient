@@ -5526,6 +5526,78 @@
         }
       }
     },
+    "/api/v2/custom-tags/search": {
+      "post": {
+        "tags": [
+          "CustomTag"
+        ],
+        "summary": "List custom tags assigned to resources",
+        "description": "Returns custom tags assigned to any of the provided resources.\n\n\nRequires one of the following scopes: \u0060custom_tags:read\u0060, \u0060custom_tags:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "SearchCustomTagsByResources",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchCustomTagsByResourcesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The list of Custom Tag",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchCustomTagsByResources200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchCustomTagsByResources401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchCustomTagsByResources402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchCustomTagsByResources404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchCustomTagsByResources429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/custom-tags/{id}": {
       "get": {
         "tags": [
@@ -5844,7 +5916,7 @@
           "DFYEmailAccountOrder"
         ],
         "summary": "Place a DFY email account order",
-        "description": "Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- The workspace must have an active free trial, paid CRM plan, or Outreach entitlement, and a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "description": "Place a Done-For-You (DFY) email account order for your workspace.\n\n**Order types**\n- \u0060dfy\u0060: Buy new DFY accounts on new custom domains.\n- \u0060pre_warmed_up\u0060: Buy available pre-warmed domains returned by \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060.\n- \u0060extra_accounts\u0060: Add mailboxes to domains you already ordered. All active accounts on a domain must use the same \u0060email_provider\u0060.\n\n**Provider limits and pricing**\n- \u00601\u0060 Google: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00602\u0060 AirMail: up to 5 mailboxes per domain; per-mailbox monthly pricing.\n- \u00603\u0060 Microsoft/Outlook: 50-100 mailboxes per new DFY domain; per-domain monthly pricing; extra-account orders are not supported.\n\n**Before ordering**\n- Regular DFY domains must use supported TLDs: .com, .org.\n- Check new-domain availability with \u0060/dfy-email-account-orders/domains/check\u0060.\n- Domains containing trademarks of well-known companies are restricted and cannot be ordered.\n- For pre-warmed orders, choose a domain from \u0060/dfy-email-account-orders/domains/pre-warmed-up-list\u0060; if none are available, use a regular \u0060dfy\u0060 order instead.\n- No subscription plan is required, but the workspace must have a default payment method.\n\n\nRequires one of the following scopes: \u0060dfy_email_account_orders:create\u0060, \u0060dfy_email_account_orders:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
         "operationId": "CreateDfyEmailAccountOrder",
         "requestBody": {
           "content": {
@@ -20451,6 +20523,28 @@
         "operationId": "GetAiEnrichmentForResource",
         "parameters": [
           {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of AI jobs and of integration jobs to skip",
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "example": 0
+            },
+            "example": 0
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of AI jobs and of integration jobs to return",
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "example": 10
+            },
+            "example": 10
+          },
+          {
             "name": "resourceId",
             "in": "path",
             "description": "The ID of the list or campaign to retrieve the AI enrichment.",
@@ -21517,7 +21611,7 @@
             }
           },
           "402": {
-            "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two.",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -21871,8 +21965,10 @@
           {
             "name": "offset",
             "in": "query",
+            "description": "Number of entries to skip, newest first",
             "schema": {
-              "type": "number",
+              "minimum": 0,
+              "type": "integer",
               "example": 0
             },
             "example": 0
@@ -21880,8 +21976,10 @@
           {
             "name": "limit",
             "in": "query",
+            "description": "Maximum number of entries to return; every entry when omitted or 0",
             "schema": {
-              "type": "number",
+              "minimum": 0,
+              "type": "integer",
               "example": 10
             },
             "example": 10
@@ -37244,6 +37342,129 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ListCustomTag429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "SearchCustomTagsByResourcesRequest": {
+        "required": [
+          "resource_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_ids": {
+            "maxItems": 10000,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string",
+              "example": "account@example.com"
+            },
+            "description": "Resource IDs to match against."
+          },
+          "limit": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "default": 10,
+            "example": 100
+          },
+          "starting_after": {
+            "type": "string",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchCustomTagsByResources401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SearchCustomTagsByResources401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "SearchCustomTagsByResources402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SearchCustomTagsByResources402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "SearchCustomTagsByResources404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SearchCustomTagsByResources404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "SearchCustomTagsByResources429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/SearchCustomTagsByResources429ResponseStatusCode"
           },
           "error": {
             "$ref": "#/components/schemas/TooManyRequestsError"
@@ -60205,6 +60426,14 @@
           "creditsAvailable": {
             "type": "number",
             "example": 250
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CreditReservationConflictErrorCode"
+          },
+          "creditsReserved": {
+            "type": "number",
+            "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
+            "example": 4000
           }
         }
       },
@@ -60980,6 +61209,32 @@
           },
           "search_filters": {
             "$ref": "#/components/schemas/GetEnrichmentForResource200ResponseSearchFilters"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the enrichment",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "Organization ID that created this enrichment",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the enrichment was created",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "resource_type": {
+            "type": "number",
+            "description": "Type of the entity to enrich leads into",
+            "example": 1
+          },
+          "skip_rows_without_email": {
+            "type": "boolean",
+            "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+            "example": true
           }
         },
         "additionalProperties": false
@@ -61466,14 +61721,15 @@
           "limit": {
             "maximum": 1000000,
             "minimum": 1,
-            "type": "number",
+            "type": "integer",
             "description": "Maximum number of leads to import",
             "example": 100
           },
           "ai_enrichment": {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestAiEnrichment"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "EnrichLeadsFromSupersearch200Response": {
         "required": [
@@ -61564,43 +61820,35 @@
         }
       },
       "EnrichLeadsFromSupersearch402Response": {
-        "required": [
-          "statusCode",
-          "error",
-          "message"
-        ],
         "type": "object",
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/EnrichLeadsFromSupersearch402ResponseStatusCode"
           },
           "error": {
-            "type": "string",
-            "example": "Insufficient credits"
+            "$ref": "#/components/schemas/InsufficientCreditsError"
           },
           "message": {
             "type": "string",
             "example": "Insufficient credits"
           },
-          "errorCode": {
-            "$ref": "#/components/schemas/CreditReservationConflictErrorCode"
-          },
           "creditsRequired": {
             "type": "number",
-            "example": 50
+            "example": 15000
           },
           "creditsAvailable": {
             "type": "number",
-            "description": "Balance net of credits held by in-flight jobs.",
-            "example": 10
+            "example": 250
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CreditReservationConflictErrorCode"
           },
           "creditsReserved": {
             "type": "number",
-            "description": "Credits currently held by the workspace\u0027s in-flight enrichment jobs.",
+            "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
             "example": 4000
           }
-        },
-        "description": "The enrichment cannot start: either the workspace cannot afford it, or its own running enrichment jobs are holding the credits. \u0060errorCode\u0060 distinguishes the two."
+        }
       },
       "EnrichLeadsFromSupersearch403Response": {
         "required": [
@@ -62565,6 +62813,14 @@
           "creditsAvailable": {
             "type": "number",
             "example": 250
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CreditReservationConflictErrorCode"
+          },
+          "creditsReserved": {
+            "type": "number",
+            "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
+            "example": 4000
           }
         }
       },
@@ -63645,6 +63901,31 @@
         "additionalProperties": false
       },
       "ListCustomTag200Response": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomTag"
+            },
+            "description": "The list of Custom Tag"
+          },
+          "next_starting_after": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460",
+              "1970-01-01T00:00:00.000Z"
+            ],
+            "type": "string",
+            "description": "The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchCustomTagsByResources200Response": {
         "required": [
           "items"
         ],
@@ -65556,6 +65837,21 @@
             "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2"
           }
         ]
+      },
+      "GetEnrichmentHistory200ResponseItemTimestamp": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "When the entry was recorded, as an ISO 8601 string or epoch milliseconds",
+        "example": "1970-01-01T00:00:00.000Z"
       },
       "RunIntegrationActionRequestInputsAdditionalProperties": {
         "anyOf": [
@@ -76629,7 +76925,40 @@
         "additionalProperties": false
       },
       "GetEnrichmentHistory200ResponseItem": {
-        "type": "object"
+        "required": [
+          "_id",
+          "resource_id",
+          "organization_id"
+        ],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "ID of the history entry",
+            "example": "000000000000000000000000"
+          },
+          "resource_id": {
+            "type": "string",
+            "description": "ID of the list or campaign the entry belongs to",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "ID of the workspace that owns the resource",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "What happened to the resource",
+            "example": "Credits deducted: 10 tokens for the enrichment job"
+          },
+          "timestamp": {
+            "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseItemTimestamp"
+          }
+        }
       },
       "GetIntegrationProviders200ResponseItem": {
         "type": "object",
@@ -78578,7 +78907,40 @@
         "additionalProperties": false
       },
       "GetEnrichmentHistory200ResponseSchemaItem": {
-        "type": "object"
+        "required": [
+          "_id",
+          "resource_id",
+          "organization_id"
+        ],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "ID of the history entry",
+            "example": "000000000000000000000000"
+          },
+          "resource_id": {
+            "type": "string",
+            "description": "ID of the list or campaign the entry belongs to",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "ID of the workspace that owns the resource",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "What happened to the resource",
+            "example": "Credits deducted: 10 tokens for the enrichment job"
+          },
+          "timestamp": {
+            "$ref": "#/components/schemas/GetEnrichmentHistory200ResponseItemTimestamp"
+          }
+        }
       },
       "GetIntegrationProviders200ResponseSchemaItem": {
         "type": "object",
@@ -97281,6 +97643,46 @@
         "type": "number",
         "example": 429
       },
+      "SearchCustomTagsByResources401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "SearchCustomTagsByResources402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "SearchCustomTagsByResources404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "SearchCustomTagsByResources429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
       "GetCustomTag401ResponseStatusCode": {
         "examples": [
           401
@@ -107203,6 +107605,24 @@
           ]
         }
       },
+      "CreditReservationConflictErrorCode": {
+        "enum": [
+          "CREDIT_RESERVATION_CONFLICT"
+        ],
+        "type": "string",
+        "description": "Present only when the workspace\u0027s own in-flight jobs hold the credits. Absent for a genuine shortage.",
+        "example": "CREDIT_RESERVATION_CONFLICT",
+        "x-ms-enum": {
+          "name": "CreditReservationConflictErrorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CREDIT_RESERVATION_CONFLICT",
+              "name": "CreditReservationConflict"
+            }
+          ]
+        }
+      },
       "CreateCompanyList404ResponseStatusCode": {
         "examples": [
           404
@@ -107800,24 +108220,6 @@
         ],
         "type": "number",
         "example": 402
-      },
-      "CreditReservationConflictErrorCode": {
-        "enum": [
-          "CREDIT_RESERVATION_CONFLICT"
-        ],
-        "type": "string",
-        "description": "Present only when the workspace\u0027s own in-flight enrichment jobs hold the credits. Absent for a genuine shortage.",
-        "example": "CREDIT_RESERVATION_CONFLICT",
-        "x-ms-enum": {
-          "name": "CreditReservationConflictErrorCode",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "CREDIT_RESERVATION_CONFLICT",
-              "name": "CreditReservationConflict"
-            }
-          ]
-        }
       },
       "EnrichLeadsFromSupersearch404ResponseStatusCode": {
         "enum": [
@@ -116675,8 +117077,6 @@
       },
       "GetAiEnrichmentForResource200ResponseItemResourceType": {
         "enum": [
-          "CAMPAIGN",
-          "LIST",
           1,
           2
         ],
@@ -116686,20 +117086,6 @@
         "x-enumDescriptions": {
           "1": "Campaign",
           "2": "List"
-        },
-        "x-ms-enum": {
-          "name": "GetAiEnrichmentForResource200ResponseItemResourceType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "CAMPAIGN",
-              "name": "Campaign"
-            },
-            {
-              "value": "LIST",
-              "name": "List"
-            }
-          ]
         }
       },
       "ListCompanyListSources200ResponseItemCredentialSourcesItem": {

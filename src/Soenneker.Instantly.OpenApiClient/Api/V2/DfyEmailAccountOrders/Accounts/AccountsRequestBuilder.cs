@@ -65,6 +65,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders.Account
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrdersAccounts402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrdersAccounts404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrdersAccounts429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrdersAccounts200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListDfyEmailAccountOrdersAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

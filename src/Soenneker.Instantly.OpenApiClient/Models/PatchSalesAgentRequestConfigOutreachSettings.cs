@@ -12,53 +12,84 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchSalesAgentRequestConfigOutreachSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("campaign_schedule") is { } nullNodeCampaignSchedule && nullNodeCampaignSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignSchedule = null;
+            if (parseNode.GetChildNode("daily_limit") is { } nullNodeDailyLimit && nullNodeDailyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DailyLimit = null;
+            if (parseNode.GetChildNode("email_list") is { } nullNodeEmailList && nullNodeEmailList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailList = null;
+            if (parseNode.GetChildNode("email_tag_list") is { } nullNodeEmailTagList && nullNodeEmailTagList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailTagList = null;
+            if (parseNode.GetChildNode("first_email_text_only") is { } nullNodeFirstEmailTextOnly && nullNodeFirstEmailTextOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstEmailTextOnly = null;
+            if (parseNode.GetChildNode("match_lead_esp") is { } nullNodeMatchLeadEsp && nullNodeMatchLeadEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchLeadEsp = null;
+            if (parseNode.GetChildNode("open_tracking") is { } nullNodeOpenTracking && nullNodeOpenTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenTracking = null;
+            if (parseNode.GetChildNode("opt_out_settings") is { } nullNodeOptOutSettings && nullNodeOptOutSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptOutSettings = null;
+            if (parseNode.GetChildNode("prioritize_new_leads") is { } nullNodePrioritizeNewLeads && nullNodePrioritizeNewLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrioritizeNewLeads = null;
+            if (parseNode.GetChildNode("stop_on_reply") is { } nullNodeStopOnReply && nullNodeStopOnReply.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StopOnReply = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The campaign_schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsCampaignSchedule? CampaignSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsCampaignSchedule? CampaignSchedule { get => _explicitNullValueCampaignSchedule; set { _explicitNullValueCampaignSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_schedule"); else _explicitNullProperties?.Remove("campaign_schedule"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsCampaignSchedule? _explicitNullValueCampaignSchedule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsCampaignSchedule CampaignSchedule { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsCampaignSchedule CampaignSchedule { get => _explicitNullValueCampaignSchedule; set { _explicitNullValueCampaignSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_schedule"); else _explicitNullProperties?.Remove("campaign_schedule"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsCampaignSchedule _explicitNullValueCampaignSchedule = default!;
 #endif
         /// <summary>Daily email sending limit per campaign</summary>
-        public double? DailyLimit { get; set; }
+        public double? DailyLimit { get => _explicitNullValueDailyLimit; set { _explicitNullValueDailyLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("daily_limit"); else _explicitNullProperties?.Remove("daily_limit"); } }
+        private double? _explicitNullValueDailyLimit = default!;
         /// <summary>Sending account emails the agent&apos;s campaigns use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EmailList { get; set; }
+        public List<string>? EmailList { get => _explicitNullValueEmailList; set { _explicitNullValueEmailList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_list"); else _explicitNullProperties?.Remove("email_list"); } }
+        private List<string>? _explicitNullValueEmailList = default!;
 #nullable restore
 #else
-        public List<string> EmailList { get; set; }
+        public List<string> EmailList { get => _explicitNullValueEmailList; set { _explicitNullValueEmailList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_list"); else _explicitNullProperties?.Remove("email_list"); } }
+        private List<string> _explicitNullValueEmailList = default!;
 #endif
         /// <summary>Account tag ids used to select sending accounts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EmailTagList { get; set; }
+        public List<string>? EmailTagList { get => _explicitNullValueEmailTagList; set { _explicitNullValueEmailTagList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_tag_list"); else _explicitNullProperties?.Remove("email_tag_list"); } }
+        private List<string>? _explicitNullValueEmailTagList = default!;
 #nullable restore
 #else
-        public List<string> EmailTagList { get; set; }
+        public List<string> EmailTagList { get => _explicitNullValueEmailTagList; set { _explicitNullValueEmailTagList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_tag_list"); else _explicitNullProperties?.Remove("email_tag_list"); } }
+        private List<string> _explicitNullValueEmailTagList = default!;
 #endif
         /// <summary>Send the first email as plain text</summary>
-        public bool? FirstEmailTextOnly { get; set; }
+        public bool? FirstEmailTextOnly { get => _explicitNullValueFirstEmailTextOnly; set { _explicitNullValueFirstEmailTextOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_email_text_only"); else _explicitNullProperties?.Remove("first_email_text_only"); } }
+        private bool? _explicitNullValueFirstEmailTextOnly = default!;
         /// <summary>Match the sending account&apos;s email provider to the lead&apos;s provider</summary>
-        public bool? MatchLeadEsp { get; set; }
+        public bool? MatchLeadEsp { get => _explicitNullValueMatchLeadEsp; set { _explicitNullValueMatchLeadEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match_lead_esp"); else _explicitNullProperties?.Remove("match_lead_esp"); } }
+        private bool? _explicitNullValueMatchLeadEsp = default!;
         /// <summary>Track email opens</summary>
-        public bool? OpenTracking { get; set; }
+        public bool? OpenTracking { get => _explicitNullValueOpenTracking; set { _explicitNullValueOpenTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_tracking"); else _explicitNullProperties?.Remove("open_tracking"); } }
+        private bool? _explicitNullValueOpenTracking = default!;
         /// <summary>Opt-out settings appended to outgoing emails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings? OptOutSettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings? OptOutSettings { get => _explicitNullValueOptOutSettings; set { _explicitNullValueOptOutSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_settings"); else _explicitNullProperties?.Remove("opt_out_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings? _explicitNullValueOptOutSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings OptOutSettings { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings OptOutSettings { get => _explicitNullValueOptOutSettings; set { _explicitNullValueOptOutSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opt_out_settings"); else _explicitNullProperties?.Remove("opt_out_settings"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings _explicitNullValueOptOutSettings = default!;
 #endif
         /// <summary>Prioritize new leads over follow-ups</summary>
-        public bool? PrioritizeNewLeads { get; set; }
+        public bool? PrioritizeNewLeads { get => _explicitNullValuePrioritizeNewLeads; set { _explicitNullValuePrioritizeNewLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prioritize_new_leads"); else _explicitNullProperties?.Remove("prioritize_new_leads"); } }
+        private bool? _explicitNullValuePrioritizeNewLeads = default!;
         /// <summary>Stop contacting a lead after they reply</summary>
-        public bool? StopOnReply { get; set; }
+        public bool? StopOnReply { get => _explicitNullValueStopOnReply; set { _explicitNullValueStopOnReply = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop_on_reply"); else _explicitNullProperties?.Remove("stop_on_reply"); } }
+        private bool? _explicitNullValueStopOnReply = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettings"/> and sets the default values.
         /// </summary>
@@ -74,7 +105,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +144,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigOutreachSettingsOptOutSettings>("opt_out_settings", OptOutSettings);
             writer.WriteBoolValue("prioritize_new_leads", PrioritizeNewLeads);
             writer.WriteBoolValue("stop_on_reply", StopOnReply);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

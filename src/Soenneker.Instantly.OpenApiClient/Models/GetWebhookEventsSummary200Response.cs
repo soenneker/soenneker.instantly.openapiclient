@@ -11,19 +11,36 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetWebhookEventsSummary200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("failed_events") is { } nullNodeFailedEvents && nullNodeFailedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedEvents = null;
+            if (parseNode.GetChildNode("failure_rate") is { } nullNodeFailureRate && nullNodeFailureRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureRate = null;
+            if (parseNode.GetChildNode("successful_events") is { } nullNodeSuccessfulEvents && nullNodeSuccessfulEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessfulEvents = null;
+            if (parseNode.GetChildNode("success_rate") is { } nullNodeSuccessRate && nullNodeSuccessRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessRate = null;
+            if (parseNode.GetChildNode("total_events") is { } nullNodeTotalEvents && nullNodeTotalEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalEvents = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Total number of failed webhook events</summary>
-        public double? FailedEvents { get; set; }
+        public double? FailedEvents { get => _explicitNullValueFailedEvents; set { _explicitNullValueFailedEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_events"); else _explicitNullProperties?.Remove("failed_events"); } }
+        private double? _explicitNullValueFailedEvents = default!;
         /// <summary>Percentage (0-100) of failed webhook calls</summary>
-        public double? FailureRate { get; set; }
+        public double? FailureRate { get => _explicitNullValueFailureRate; set { _explicitNullValueFailureRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_rate"); else _explicitNullProperties?.Remove("failure_rate"); } }
+        private double? _explicitNullValueFailureRate = default!;
         /// <summary>Total number of successful webhook events</summary>
-        public double? SuccessfulEvents { get; set; }
+        public double? SuccessfulEvents { get => _explicitNullValueSuccessfulEvents; set { _explicitNullValueSuccessfulEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successful_events"); else _explicitNullProperties?.Remove("successful_events"); } }
+        private double? _explicitNullValueSuccessfulEvents = default!;
         /// <summary>Percentage (0-100) of successful webhook calls</summary>
-        public double? SuccessRate { get; set; }
+        public double? SuccessRate { get => _explicitNullValueSuccessRate; set { _explicitNullValueSuccessRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_rate"); else _explicitNullProperties?.Remove("success_rate"); } }
+        private double? _explicitNullValueSuccessRate = default!;
         /// <summary>Total number of webhook events</summary>
-        public double? TotalEvents { get; set; }
+        public double? TotalEvents { get => _explicitNullValueTotalEvents; set { _explicitNullValueTotalEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_events"); else _explicitNullProperties?.Remove("total_events"); } }
+        private double? _explicitNullValueTotalEvents = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetWebhookEventsSummary200Response"/> and sets the default values.
         /// </summary>
@@ -39,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetWebhookEventsSummary200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetWebhookEventsSummary200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetWebhookEventsSummary200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +85,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("successful_events", SuccessfulEvents);
             writer.WriteDoubleValue("success_rate", SuccessRate);
             writer.WriteDoubleValue("total_events", TotalEvents);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

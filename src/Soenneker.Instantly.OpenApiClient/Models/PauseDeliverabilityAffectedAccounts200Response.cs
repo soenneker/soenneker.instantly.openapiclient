@@ -11,35 +11,58 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PauseDeliverabilityAffectedAccounts200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("affected_account_count") is { } nullNodeAffectedAccountCount && nullNodeAffectedAccountCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AffectedAccountCount = null;
+            if (parseNode.GetChildNode("affected_domain_count") is { } nullNodeAffectedDomainCount && nullNodeAffectedDomainCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AffectedDomainCount = null;
+            if (parseNode.GetChildNode("item") is { } nullNodeItem && nullNodeItem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Item = null;
+            if (parseNode.GetChildNode("paused_account_count") is { } nullNodePausedAccountCount && nullNodePausedAccountCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedAccountCount = null;
+            if (parseNode.GetChildNode("paused_managed_account_count") is { } nullNodePausedManagedAccountCount && nullNodePausedManagedAccountCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedManagedAccountCount = null;
+            if (parseNode.GetChildNode("paused_provider_counts") is { } nullNodePausedProviderCounts && nullNodePausedProviderCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedProviderCounts = null;
+            if (parseNode.GetChildNode("paused_self_managed_account_count") is { } nullNodePausedSelfManagedAccountCount && nullNodePausedSelfManagedAccountCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedSelfManagedAccountCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The affected_account_count property</summary>
-        public double? AffectedAccountCount { get; set; }
+        public double? AffectedAccountCount { get => _explicitNullValueAffectedAccountCount; set { _explicitNullValueAffectedAccountCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_account_count"); else _explicitNullProperties?.Remove("affected_account_count"); } }
+        private double? _explicitNullValueAffectedAccountCount = default!;
         /// <summary>The affected_domain_count property</summary>
-        public double? AffectedDomainCount { get; set; }
+        public double? AffectedDomainCount { get => _explicitNullValueAffectedDomainCount; set { _explicitNullValueAffectedDomainCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("affected_domain_count"); else _explicitNullProperties?.Remove("affected_domain_count"); } }
+        private double? _explicitNullValueAffectedDomainCount = default!;
         /// <summary>The item property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponseItem? Item { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponseItem? Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponseItem? _explicitNullValueItem = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponseItem Item { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponseItem Item { get => _explicitNullValueItem; set { _explicitNullValueItem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("item"); else _explicitNullProperties?.Remove("item"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponseItem _explicitNullValueItem = default!;
 #endif
         /// <summary>The paused_account_count property</summary>
-        public double? PausedAccountCount { get; set; }
+        public double? PausedAccountCount { get => _explicitNullValuePausedAccountCount; set { _explicitNullValuePausedAccountCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_account_count"); else _explicitNullProperties?.Remove("paused_account_count"); } }
+        private double? _explicitNullValuePausedAccountCount = default!;
         /// <summary>The paused_managed_account_count property</summary>
-        public double? PausedManagedAccountCount { get; set; }
+        public double? PausedManagedAccountCount { get => _explicitNullValuePausedManagedAccountCount; set { _explicitNullValuePausedManagedAccountCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_managed_account_count"); else _explicitNullProperties?.Remove("paused_managed_account_count"); } }
+        private double? _explicitNullValuePausedManagedAccountCount = default!;
         /// <summary>The paused_provider_counts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts? PausedProviderCounts { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts? PausedProviderCounts { get => _explicitNullValuePausedProviderCounts; set { _explicitNullValuePausedProviderCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_provider_counts"); else _explicitNullProperties?.Remove("paused_provider_counts"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts? _explicitNullValuePausedProviderCounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts PausedProviderCounts { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts PausedProviderCounts { get => _explicitNullValuePausedProviderCounts; set { _explicitNullValuePausedProviderCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_provider_counts"); else _explicitNullProperties?.Remove("paused_provider_counts"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts _explicitNullValuePausedProviderCounts = default!;
 #endif
         /// <summary>The paused_self_managed_account_count property</summary>
-        public double? PausedSelfManagedAccountCount { get; set; }
+        public double? PausedSelfManagedAccountCount { get => _explicitNullValuePausedSelfManagedAccountCount; set { _explicitNullValuePausedSelfManagedAccountCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_self_managed_account_count"); else _explicitNullProperties?.Remove("paused_self_managed_account_count"); } }
+        private double? _explicitNullValuePausedSelfManagedAccountCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200Response"/> and sets the default values.
         /// </summary>
@@ -55,7 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("paused_managed_account_count", PausedManagedAccountCount);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAffectedAccounts200ResponsePausedProviderCounts>("paused_provider_counts", PausedProviderCounts);
             writer.WriteDoubleValue("paused_self_managed_account_count", PausedSelfManagedAccountCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

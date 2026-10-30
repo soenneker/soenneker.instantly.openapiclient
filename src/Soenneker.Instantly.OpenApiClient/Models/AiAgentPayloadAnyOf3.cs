@@ -12,43 +12,69 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiAgentPayloadAnyOf3 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ai_sdr_config") is { } nullNodeAiSdrConfig && nullNodeAiSdrConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiSdrConfig = null;
+            if (parseNode.GetChildNode("initial_scrape_ready") is { } nullNodeInitialScrapeReady && nullNodeInitialScrapeReady.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialScrapeReady = null;
+            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("master_lead_list_id") is { } nullNodeMasterLeadListId && nullNodeMasterLeadListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MasterLeadListId = null;
+            if (parseNode.GetChildNode("next_decision_time") is { } nullNodeNextDecisionTime && nullNodeNextDecisionTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextDecisionTime = null;
+            if (parseNode.GetChildNode("timestamp_last_action") is { } nullNodeTimestampLastAction && nullNodeTimestampLastAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampLastAction = null;
+            if (parseNode.GetChildNode("timestamp_last_decision") is { } nullNodeTimestampLastDecision && nullNodeTimestampLastDecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampLastDecision = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>AI Sales Agent agent config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig? AiSdrConfig { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig? AiSdrConfig { get => _explicitNullValueAiSdrConfig; set { _explicitNullValueAiSdrConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_sdr_config"); else _explicitNullProperties?.Remove("ai_sdr_config"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig? _explicitNullValueAiSdrConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig AiSdrConfig { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig AiSdrConfig { get => _explicitNullValueAiSdrConfig; set { _explicitNullValueAiSdrConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_sdr_config"); else _explicitNullProperties?.Remove("ai_sdr_config"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3AiSdrConfig _explicitNullValueAiSdrConfig = default!;
 #endif
         /// <summary>Whether initial scrape is ready</summary>
-        public bool? InitialScrapeReady { get; set; }
+        public bool? InitialScrapeReady { get => _explicitNullValueInitialScrapeReady; set { _explicitNullValueInitialScrapeReady = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_scrape_ready"); else _explicitNullProperties?.Remove("initial_scrape_ready"); } }
+        private bool? _explicitNullValueInitialScrapeReady = default!;
         /// <summary>SDR input (e.g. website URL or pitch deck reference)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Input { get; set; }
+        public string? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private string? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public string Input { get; set; }
+        public string Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private string _explicitNullValueInput = default!;
 #endif
         /// <summary>Master lead list ID for the SDR</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MasterLeadListId { get; set; }
+        public string? MasterLeadListId { get => _explicitNullValueMasterLeadListId; set { _explicitNullValueMasterLeadListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("master_lead_list_id"); else _explicitNullProperties?.Remove("master_lead_list_id"); } }
+        private string? _explicitNullValueMasterLeadListId = default!;
 #nullable restore
 #else
-        public string MasterLeadListId { get; set; }
+        public string MasterLeadListId { get => _explicitNullValueMasterLeadListId; set { _explicitNullValueMasterLeadListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("master_lead_list_id"); else _explicitNullProperties?.Remove("master_lead_list_id"); } }
+        private string _explicitNullValueMasterLeadListId = default!;
 #endif
         /// <summary>Scheduled time for next decision</summary>
-        public DateTimeOffset? NextDecisionTime { get; set; }
+        public DateTimeOffset? NextDecisionTime { get => _explicitNullValueNextDecisionTime; set { _explicitNullValueNextDecisionTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_decision_time"); else _explicitNullProperties?.Remove("next_decision_time"); } }
+        private DateTimeOffset? _explicitNullValueNextDecisionTime = default!;
         /// <summary>Timestamp of last SDR action</summary>
-        public DateTimeOffset? TimestampLastAction { get; set; }
+        public DateTimeOffset? TimestampLastAction { get => _explicitNullValueTimestampLastAction; set { _explicitNullValueTimestampLastAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_last_action"); else _explicitNullProperties?.Remove("timestamp_last_action"); } }
+        private DateTimeOffset? _explicitNullValueTimestampLastAction = default!;
         /// <summary>Timestamp of last SDR decision</summary>
-        public DateTimeOffset? TimestampLastDecision { get; set; }
+        public DateTimeOffset? TimestampLastDecision { get => _explicitNullValueTimestampLastDecision; set { _explicitNullValueTimestampLastDecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_last_decision"); else _explicitNullProperties?.Remove("timestamp_last_decision"); } }
+        private DateTimeOffset? _explicitNullValueTimestampLastDecision = default!;
         /// <summary>SDR source type</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3"/> and sets the default values.
         /// </summary>
@@ -64,7 +90,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +125,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("timestamp_last_action", TimestampLastAction);
             writer.WriteDateTimeOffsetValue("timestamp_last_decision", TimestampLastDecision);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentPayloadAnyOf3Type>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

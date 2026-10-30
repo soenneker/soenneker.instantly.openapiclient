@@ -61,6 +61,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries.Download
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry429Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Instantly.OpenApiClient.Models.DownloadBlockListEntry504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

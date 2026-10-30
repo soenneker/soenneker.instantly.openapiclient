@@ -12,21 +12,35 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSalesAgentRequestConfigEnrichmentSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enrichment_limit_per_run") is { } nullNodeEnrichmentLimitPerRun && nullNodeEnrichmentLimitPerRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrichmentLimitPerRun = null;
+            if (parseNode.GetChildNode("signal_targeting_categories") is { } nullNodeSignalTargetingCategories && nullNodeSignalTargetingCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignalTargetingCategories = null;
+            if (parseNode.GetChildNode("signal_targeting_enabled") is { } nullNodeSignalTargetingEnabled && nullNodeSignalTargetingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignalTargetingEnabled = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum number of leads to enrich per run</summary>
-        public double? EnrichmentLimitPerRun { get; set; }
+        public double? EnrichmentLimitPerRun { get => _explicitNullValueEnrichmentLimitPerRun; set { _explicitNullValueEnrichmentLimitPerRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrichment_limit_per_run"); else _explicitNullProperties?.Remove("enrichment_limit_per_run"); } }
+        private double? _explicitNullValueEnrichmentLimitPerRun = default!;
         /// <summary>Signal categories the agent prioritizes while signal targeting is on (AI Sales Agents only), each with a 90-day freshness window. Omit to use the default high-intent set (recent funding or acquisition, executive leadership change, pricing change, product launch, company expansion, buying intent on Reddit). An empty array prioritizes nothing; a non-empty array targets exactly those categories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem?>? SignalTargetingCategories { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem?>? SignalTargetingCategories { get => _explicitNullValueSignalTargetingCategories; set { _explicitNullValueSignalTargetingCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_targeting_categories"); else _explicitNullProperties?.Remove("signal_targeting_categories"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem?>? _explicitNullValueSignalTargetingCategories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem?> SignalTargetingCategories { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem?> SignalTargetingCategories { get => _explicitNullValueSignalTargetingCategories; set { _explicitNullValueSignalTargetingCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_targeting_categories"); else _explicitNullProperties?.Remove("signal_targeting_categories"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem?> _explicitNullValueSignalTargetingCategories = default!;
 #endif
         /// <summary>Whether the agent puts leads with recent buying signals first. AI Sales Agents only; other agent types ignore it. Defaults to true when omitted. Signals rank rather than filter: when fewer signal-carrying leads are available than the agent&apos;s daily target, the remainder is filled with other leads matching the ICP, so this never reduces the number of leads sourced. Set to false to stop prioritizing signals; the stored categories are kept for when it is turned back on.</summary>
-        public bool? SignalTargetingEnabled { get; set; }
+        public bool? SignalTargetingEnabled { get => _explicitNullValueSignalTargetingEnabled; set { _explicitNullValueSignalTargetingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signal_targeting_enabled"); else _explicitNullProperties?.Remove("signal_targeting_enabled"); } }
+        private bool? _explicitNullValueSignalTargetingEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettings"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("enrichment_limit_per_run", EnrichmentLimitPerRun);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigEnrichmentSettingsSignalTargetingCategoriesItem>("signal_targeting_categories", SignalTargetingCategories);
             writer.WriteBoolValue("signal_targeting_enabled", SignalTargetingEnabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

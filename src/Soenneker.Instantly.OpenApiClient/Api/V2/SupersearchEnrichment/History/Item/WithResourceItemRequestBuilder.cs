@@ -59,6 +59,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentHistory402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentHistory404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentHistory429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentHistory200ResponseSchemaItem>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentHistory200ResponseSchemaItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -97,14 +99,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.History
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithResourceItemRequestBuilderGetQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>Maximum number of entries to return; every entry when omitted or 0</summary>
             [QueryParameter("limit")]
-            public double? Limit { get; set; }
-            #pragma warning restore CS1591
-            #pragma warning disable CS1591
+            public int? Limit { get; set; }
+            /// <summary>Number of entries to skip, newest first</summary>
             [QueryParameter("offset")]
-            public double? Offset { get; set; }
-            #pragma warning restore CS1591
+            public int? Offset { get; set; }
         }
     }
 }

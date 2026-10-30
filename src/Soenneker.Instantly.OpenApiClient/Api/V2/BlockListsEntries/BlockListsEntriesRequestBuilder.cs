@@ -92,6 +92,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry429Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Instantly.OpenApiClient.Models.DeleteallBlockListEntry504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -124,6 +126,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry429Response.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry504Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListBlockListEntry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -157,6 +161,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntry402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntry404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.CreateBlockListEntry429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BlockListEntry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -67,6 +67,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Domains.Item.Forwarding
                 { "422", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDomainForwarding422Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDomainForwarding429Response.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Instantly.OpenApiClient.Models.DeleteDomainForwarding502Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -98,6 +100,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Domains.Item.Forwarding
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetDomainForwarding402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetDomainForwarding404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetDomainForwarding429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -137,6 +141,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Domains.Item.Forwarding
                 { "422", global::Soenneker.Instantly.OpenApiClient.Models.UpdateDomainForwarding422Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.UpdateDomainForwarding429Response.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Instantly.OpenApiClient.Models.UpdateDomainForwarding502Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.DomainForwarding.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

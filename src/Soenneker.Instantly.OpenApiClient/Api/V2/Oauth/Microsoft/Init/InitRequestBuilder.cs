@@ -55,6 +55,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.Microsoft.Init
             {
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth429Response.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.InitMicrosoftOAuth200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

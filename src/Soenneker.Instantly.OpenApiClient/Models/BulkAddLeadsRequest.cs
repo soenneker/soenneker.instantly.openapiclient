@@ -11,57 +11,87 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BulkAddLeadsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assigned_to") is { } nullNodeAssignedTo && nullNodeAssignedTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssignedTo = null;
+            if (parseNode.GetChildNode("blocklist_id") is { } nullNodeBlocklistId && nullNodeBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlocklistId = null;
+            if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("leads") is { } nullNodeLeads && nullNodeLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Leads = null;
+            if (parseNode.GetChildNode("list_id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
+            if (parseNode.GetChildNode("skip_if_in_campaign") is { } nullNodeSkipIfInCampaign && nullNodeSkipIfInCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipIfInCampaign = null;
+            if (parseNode.GetChildNode("skip_if_in_list") is { } nullNodeSkipIfInList && nullNodeSkipIfInList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipIfInList = null;
+            if (parseNode.GetChildNode("skip_if_in_workspace") is { } nullNodeSkipIfInWorkspace && nullNodeSkipIfInWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipIfInWorkspace = null;
+            if (parseNode.GetChildNode("verify_leads_on_import") is { } nullNodeVerifyLeadsOnImport && nullNodeVerifyLeadsOnImport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifyLeadsOnImport = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional user ID to assign all imported leads to. If omitted, leads are assigned to the campaign owner when `campaign_id` is defined, or the user making the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssignedTo { get; set; }
+        public string? AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        private string? _explicitNullValueAssignedTo = default!;
 #nullable restore
 #else
-        public string AssignedTo { get; set; }
+        public string AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
+        private string _explicitNullValueAssignedTo = default!;
 #endif
         /// <summary>Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlocklistId { get; set; }
+        public string? BlocklistId { get => _explicitNullValueBlocklistId; set { _explicitNullValueBlocklistId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist_id"); else _explicitNullProperties?.Remove("blocklist_id"); } }
+        private string? _explicitNullValueBlocklistId = default!;
 #nullable restore
 #else
-        public string BlocklistId { get; set; }
+        public string BlocklistId { get => _explicitNullValueBlocklistId; set { _explicitNullValueBlocklistId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist_id"); else _explicitNullProperties?.Remove("blocklist_id"); } }
+        private string _explicitNullValueBlocklistId = default!;
 #endif
         /// <summary>The unique identifier for the campaign to add leads to. Use this field OR `list_id`, but not both.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CampaignId { get; set; }
+        public string? CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        private string? _explicitNullValueCampaignId = default!;
 #nullable restore
 #else
-        public string CampaignId { get; set; }
+        public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
+        private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>An array of lead objects to create. When using `campaign_id`: Each lead object must contain an `email`. When using `list_id` Each lead object must contain at least one of the following: `email`, `first_name`, or `last_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>? Leads { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>? Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>? _explicitNullValueLeads = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem> Leads { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem> Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem> _explicitNullValueLeads = default!;
 #endif
         /// <summary>The unique identifier for the list to add leads to. Use this field OR `campaign_id`, but not both.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ListId { get; set; }
+        public string? ListId { get => _explicitNullValueListId; set { _explicitNullValueListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_id"); else _explicitNullProperties?.Remove("list_id"); } }
+        private string? _explicitNullValueListId = default!;
 #nullable restore
 #else
-        public string ListId { get; set; }
+        public string ListId { get => _explicitNullValueListId; set { _explicitNullValueListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_id"); else _explicitNullProperties?.Remove("list_id"); } }
+        private string _explicitNullValueListId = default!;
 #endif
         /// <summary>If true, any lead that already exists in ANY campaign in your workspace will be skipped.</summary>
-        public bool? SkipIfInCampaign { get; set; }
+        public bool? SkipIfInCampaign { get => _explicitNullValueSkipIfInCampaign; set { _explicitNullValueSkipIfInCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_if_in_campaign"); else _explicitNullProperties?.Remove("skip_if_in_campaign"); } }
+        private bool? _explicitNullValueSkipIfInCampaign = default!;
         /// <summary>If true, any lead that already exists in ANY list in your workspace will be skipped.</summary>
-        public bool? SkipIfInList { get; set; }
+        public bool? SkipIfInList { get => _explicitNullValueSkipIfInList; set { _explicitNullValueSkipIfInList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_if_in_list"); else _explicitNullProperties?.Remove("skip_if_in_list"); } }
+        private bool? _explicitNullValueSkipIfInList = default!;
         /// <summary>If true, any lead that already exists anywhere in your workspace (in any campaign or list) will be skipped. This option overrides the other &quot;skip_if&quot; flags.</summary>
-        public bool? SkipIfInWorkspace { get; set; }
+        public bool? SkipIfInWorkspace { get => _explicitNullValueSkipIfInWorkspace; set { _explicitNullValueSkipIfInWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_if_in_workspace"); else _explicitNullProperties?.Remove("skip_if_in_workspace"); } }
+        private bool? _explicitNullValueSkipIfInWorkspace = default!;
         /// <summary>If true, a background job will be created to verify the email addresses of the imported leads.</summary>
-        public bool? VerifyLeadsOnImport { get; set; }
+        public bool? VerifyLeadsOnImport { get => _explicitNullValueVerifyLeadsOnImport; set { _explicitNullValueVerifyLeadsOnImport = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verify_leads_on_import"); else _explicitNullProperties?.Remove("verify_leads_on_import"); } }
+        private bool? _explicitNullValueVerifyLeadsOnImport = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequest"/> and sets the default values.
         /// </summary>
@@ -77,7 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,6 +144,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("skip_if_in_list", SkipIfInList);
             writer.WriteBoolValue("skip_if_in_workspace", SkipIfInWorkspace);
             writer.WriteBoolValue("verify_leads_on_import", VerifyLeadsOnImport);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

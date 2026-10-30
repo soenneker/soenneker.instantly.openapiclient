@@ -12,69 +12,108 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSalesAgentRequest : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_type") is { } nullNodeAgentType && nullNodeAgentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentType = null;
+            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("initial_scrape_ready") is { } nullNodeInitialScrapeReady && nullNodeInitialScrapeReady.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialScrapeReady = null;
+            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("is_duplicate") is { } nullNodeIsDuplicate && nullNodeIsDuplicate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDuplicate = null;
+            if (parseNode.GetChildNode("master_lead_list_id") is { } nullNodeMasterLeadListId && nullNodeMasterLeadListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MasterLeadListId = null;
+            if (parseNode.GetChildNode("memory_from_workspace") is { } nullNodeMemoryFromWorkspace && nullNodeMemoryFromWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryFromWorkspace = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("self_improvement") is { } nullNodeSelfImprovement && nullNodeSelfImprovement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfImprovement = null;
+            if (parseNode.GetChildNode("source_ai_sdr_id") is { } nullNodeSourceAiSdrId && nullNodeSourceAiSdrId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceAiSdrId = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The outbound agent type to create; preserved on every read. 2 = Sales, 7 = Recruiting, 8 = Investment, 9 = User Research, 10 = Partnership. Required unless `is_duplicate` is true, in which case the type is inherited from the duplicated agent.</summary>
-        public double? AgentType { get; set; }
+        public double? AgentType { get => _explicitNullValueAgentType; set { _explicitNullValueAgentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_type"); else _explicitNullProperties?.Remove("agent_type"); } }
+        private double? _explicitNullValueAgentType = default!;
         /// <summary>Configuration for the AI Sales Agent including memory, enrichment settings, outreach settings, and autonomy settings. If not provided, default configuration will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfig? Config { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfig? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfig Config { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfig _explicitNullValueConfig = default!;
 #endif
         /// <summary>Description of the AI Sales Agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Whether the initial scrape is ready.</summary>
-        public bool? InitialScrapeReady { get; set; }
+        public bool? InitialScrapeReady { get => _explicitNullValueInitialScrapeReady; set { _explicitNullValueInitialScrapeReady = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial_scrape_ready"); else _explicitNullProperties?.Remove("initial_scrape_ready"); } }
+        private bool? _explicitNullValueInitialScrapeReady = default!;
         /// <summary>The input used for creation: URL for website scraping or text content for pitch deck extraction. Required unless memory_from_workspace is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Input { get; set; }
+        public string? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private string? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public string Input { get; set; }
+        public string Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private string _explicitNullValueInput = default!;
 #endif
         /// <summary>When true, duplicates an existing AI Sales Agent in this workspace. Must be sent together with source_ai_sdr_id.</summary>
-        public bool? IsDuplicate { get; set; }
+        public bool? IsDuplicate { get => _explicitNullValueIsDuplicate; set { _explicitNullValueIsDuplicate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_duplicate"); else _explicitNullProperties?.Remove("is_duplicate"); } }
+        private bool? _explicitNullValueIsDuplicate = default!;
         /// <summary>Master lead list ID for the AI Sales Agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MasterLeadListId { get; set; }
+        public string? MasterLeadListId { get => _explicitNullValueMasterLeadListId; set { _explicitNullValueMasterLeadListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("master_lead_list_id"); else _explicitNullProperties?.Remove("master_lead_list_id"); } }
+        private string? _explicitNullValueMasterLeadListId = default!;
 #nullable restore
 #else
-        public string MasterLeadListId { get; set; }
+        public string MasterLeadListId { get => _explicitNullValueMasterLeadListId; set { _explicitNullValueMasterLeadListId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("master_lead_list_id"); else _explicitNullProperties?.Remove("master_lead_list_id"); } }
+        private string _explicitNullValueMasterLeadListId = default!;
 #endif
         /// <summary>When true, skips the initial scrape and copies memory from the workspace business details, then creates an initial setup activity. When set, `type` and `input` are not required.</summary>
-        public bool? MemoryFromWorkspace { get; set; }
+        public bool? MemoryFromWorkspace { get => _explicitNullValueMemoryFromWorkspace; set { _explicitNullValueMemoryFromWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_from_workspace"); else _explicitNullProperties?.Remove("memory_from_workspace"); } }
+        private bool? _explicitNullValueMemoryFromWorkspace = default!;
         /// <summary>Name of the AI Sales Agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>When enabled, the agent learns from past campaign performance to iteratively improve its outreach strategy.</summary>
-        public bool? SelfImprovement { get; set; }
+        public bool? SelfImprovement { get => _explicitNullValueSelfImprovement; set { _explicitNullValueSelfImprovement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self_improvement"); else _explicitNullProperties?.Remove("self_improvement"); } }
+        private bool? _explicitNullValueSelfImprovement = default!;
         /// <summary>Required when is_duplicate is true: the id of the AI Sales Agent to copy from. Must exist in the current workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceAiSdrId { get; set; }
+        public string? SourceAiSdrId { get => _explicitNullValueSourceAiSdrId; set { _explicitNullValueSourceAiSdrId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_ai_sdr_id"); else _explicitNullProperties?.Remove("source_ai_sdr_id"); } }
+        private string? _explicitNullValueSourceAiSdrId = default!;
 #nullable restore
 #else
-        public string SourceAiSdrId { get; set; }
+        public string SourceAiSdrId { get => _explicitNullValueSourceAiSdrId; set { _explicitNullValueSourceAiSdrId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_ai_sdr_id"); else _explicitNullProperties?.Remove("source_ai_sdr_id"); } }
+        private string _explicitNullValueSourceAiSdrId = default!;
 #endif
         /// <summary>Optional initial status for the AI Sales Agent. Defaults to 0 (inactive).</summary>
-        public double? Status { get; set; }
+        public double? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private double? _explicitNullValueStatus = default!;
         /// <summary>The type of business details extraction method used (website scraping or pitch deck). Required unless memory_from_workspace is true.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestType? Type { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -83,7 +122,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -127,7 +166,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("self_improvement", SelfImprovement);
             writer.WriteStringValue("source_ai_sdr_id", SourceAiSdrId);
             writer.WriteDoubleValue("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

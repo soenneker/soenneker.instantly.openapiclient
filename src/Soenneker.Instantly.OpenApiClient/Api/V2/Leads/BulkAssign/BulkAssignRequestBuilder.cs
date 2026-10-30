@@ -63,6 +63,8 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Leads.BulkAssign
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeads402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeads404Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeads429Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeads202Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.BulkAssignLeads202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

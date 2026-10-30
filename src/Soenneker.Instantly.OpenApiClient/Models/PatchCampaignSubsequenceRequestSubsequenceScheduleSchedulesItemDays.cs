@@ -11,23 +11,44 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("5") is { } nullNodeFive && nullNodeFive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Five = null;
+            if (parseNode.GetChildNode("4") is { } nullNodeFour && nullNodeFour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Four = null;
+            if (parseNode.GetChildNode("1") is { } nullNodeOne && nullNodeOne.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) One = null;
+            if (parseNode.GetChildNode("6") is { } nullNodeSix && nullNodeSix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Six = null;
+            if (parseNode.GetChildNode("3") is { } nullNodeThree && nullNodeThree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Three = null;
+            if (parseNode.GetChildNode("2") is { } nullNodeTwo && nullNodeTwo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Two = null;
+            if (parseNode.GetChildNode("0") is { } nullNodeZero && nullNodeZero.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Zero = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Five property</summary>
-        public bool? Five { get; set; }
+        public bool? Five { get => _explicitNullValueFive; set { _explicitNullValueFive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("5"); else _explicitNullProperties?.Remove("5"); } }
+        private bool? _explicitNullValueFive = default!;
         /// <summary>The Four property</summary>
-        public bool? Four { get; set; }
+        public bool? Four { get => _explicitNullValueFour; set { _explicitNullValueFour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("4"); else _explicitNullProperties?.Remove("4"); } }
+        private bool? _explicitNullValueFour = default!;
         /// <summary>The One property</summary>
-        public bool? One { get; set; }
+        public bool? One { get => _explicitNullValueOne; set { _explicitNullValueOne = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("1"); else _explicitNullProperties?.Remove("1"); } }
+        private bool? _explicitNullValueOne = default!;
         /// <summary>The Six property</summary>
-        public bool? Six { get; set; }
+        public bool? Six { get => _explicitNullValueSix; set { _explicitNullValueSix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("6"); else _explicitNullProperties?.Remove("6"); } }
+        private bool? _explicitNullValueSix = default!;
         /// <summary>The Three property</summary>
-        public bool? Three { get; set; }
+        public bool? Three { get => _explicitNullValueThree; set { _explicitNullValueThree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("3"); else _explicitNullProperties?.Remove("3"); } }
+        private bool? _explicitNullValueThree = default!;
         /// <summary>The Two property</summary>
-        public bool? Two { get; set; }
+        public bool? Two { get => _explicitNullValueTwo; set { _explicitNullValueTwo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("2"); else _explicitNullProperties?.Remove("2"); } }
+        private bool? _explicitNullValueTwo = default!;
         /// <summary>The Zero property</summary>
-        public bool? Zero { get; set; }
+        public bool? Zero { get => _explicitNullValueZero; set { _explicitNullValueZero = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("0"); else _explicitNullProperties?.Remove("0"); } }
+        private bool? _explicitNullValueZero = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays"/> and sets the default values.
         /// </summary>
@@ -43,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceScheduleSchedulesItemDays(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("3", Three);
             writer.WriteBoolValue("2", Two);
             writer.WriteBoolValue("0", Zero);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

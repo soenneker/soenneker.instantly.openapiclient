@@ -12,7 +12,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiSalesAgentActivity : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action_status") is { } nullNodeActionStatus && nullNodeActionStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionStatus = null;
+        }
+
         /// <summary>Output data for frontend display (e.g., lead_email, campaign_name, etc.). For recommend_lead this carries the per-lead delivery_outcome: delivered, no_email_found, not_moved or skipped (the agent decided not to contact the prospect), plus refunded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,7 +38,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionPayloadProperty ActionPayload { get; private set; }
 #endif
         /// <summary>Status of the activity</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus? ActionStatus { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus? ActionStatus { get => _explicitNullValueActionStatus; set { _explicitNullValueActionStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_status"); else _explicitNullProperties?.Remove("action_status"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus? _explicitNullValueActionStatus = default!;
         /// <summary>Type of action performed</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionType? ActionType { get; private set; }
         /// <summary>AI confidence score for this activity (0-1)</summary>
@@ -137,7 +146,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivity();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivity(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -178,7 +187,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus>("action_status", ActionStatus);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiSalesAgentActivityActionStatus>("action_status", ActionStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

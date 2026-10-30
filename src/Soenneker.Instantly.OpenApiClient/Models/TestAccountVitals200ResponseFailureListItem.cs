@@ -11,35 +11,58 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TestAccountVitals200ResponseFailureListItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allPass") is { } nullNodeAllPass && nullNodeAllPass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllPass = null;
+            if (parseNode.GetChildNode("dkim") is { } nullNodeDkim && nullNodeDkim.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dkim = null;
+            if (parseNode.GetChildNode("dmarc") is { } nullNodeDmarc && nullNodeDmarc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dmarc = null;
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("indeterminate") is { } nullNodeIndeterminate && nullNodeIndeterminate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Indeterminate = null;
+            if (parseNode.GetChildNode("mx") is { } nullNodeMx && nullNodeMx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mx = null;
+            if (parseNode.GetChildNode("spf") is { } nullNodeSpf && nullNodeSpf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spf = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allPass property</summary>
-        public bool? AllPass { get; set; }
+        public bool? AllPass { get => _explicitNullValueAllPass; set { _explicitNullValueAllPass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allPass"); else _explicitNullProperties?.Remove("allPass"); } }
+        private bool? _explicitNullValueAllPass = default!;
         /// <summary>The dkim property</summary>
-        public bool? Dkim { get; set; }
+        public bool? Dkim { get => _explicitNullValueDkim; set { _explicitNullValueDkim = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dkim"); else _explicitNullProperties?.Remove("dkim"); } }
+        private bool? _explicitNullValueDkim = default!;
         /// <summary>The dmarc property</summary>
-        public bool? Dmarc { get; set; }
+        public bool? Dmarc { get => _explicitNullValueDmarc; set { _explicitNullValueDmarc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dmarc"); else _explicitNullProperties?.Remove("dmarc"); } }
+        private bool? _explicitNullValueDmarc = default!;
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>Records that could not be verified because the DNS resolver kept failing. They are reported as not passing, but the records may exist; re-run the test.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem?>? Indeterminate { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem?>? Indeterminate { get => _explicitNullValueIndeterminate; set { _explicitNullValueIndeterminate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indeterminate"); else _explicitNullProperties?.Remove("indeterminate"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem?>? _explicitNullValueIndeterminate = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem?> Indeterminate { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem?> Indeterminate { get => _explicitNullValueIndeterminate; set { _explicitNullValueIndeterminate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indeterminate"); else _explicitNullProperties?.Remove("indeterminate"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem?> _explicitNullValueIndeterminate = default!;
 #endif
         /// <summary>The mx property</summary>
-        public bool? Mx { get; set; }
+        public bool? Mx { get => _explicitNullValueMx; set { _explicitNullValueMx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mx"); else _explicitNullProperties?.Remove("mx"); } }
+        private bool? _explicitNullValueMx = default!;
         /// <summary>The spf property</summary>
-        public bool? Spf { get; set; }
+        public bool? Spf { get => _explicitNullValueSpf; set { _explicitNullValueSpf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spf"); else _explicitNullProperties?.Remove("spf"); } }
+        private bool? _explicitNullValueSpf = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem"/> and sets the default values.
         /// </summary>
@@ -55,7 +78,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItemIndeterminateItem>("indeterminate", Indeterminate);
             writer.WriteBoolValue("mx", Mx);
             writer.WriteBoolValue("spf", Spf);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

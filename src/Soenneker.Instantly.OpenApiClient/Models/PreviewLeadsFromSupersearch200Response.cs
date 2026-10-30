@@ -11,21 +11,35 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PreviewLeadsFromSupersearch200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("leads") is { } nullNodeLeads && nullNodeLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Leads = null;
+            if (parseNode.GetChildNode("number_of_leads") is { } nullNodeNumberOfLeads && nullNodeNumberOfLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfLeads = null;
+            if (parseNode.GetChildNode("number_of_redacted_results") is { } nullNodeNumberOfRedactedResults && nullNodeNumberOfRedactedResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfRedactedResults = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The leads matching the search criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem>? Leads { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem>? Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem>? _explicitNullValueLeads = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem> Leads { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem> Leads { get => _explicitNullValueLeads; set { _explicitNullValueLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads"); else _explicitNullProperties?.Remove("leads"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem> _explicitNullValueLeads = default!;
 #endif
         /// <summary>Number of leads found for this specific search. A value of 0 indicates that no leads match the criteria. Values greater than 1,000,000 are returned as 1,000,000.</summary>
-        public double? NumberOfLeads { get; set; }
+        public double? NumberOfLeads { get => _explicitNullValueNumberOfLeads; set { _explicitNullValueNumberOfLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_leads"); else _explicitNullProperties?.Remove("number_of_leads"); } }
+        private double? _explicitNullValueNumberOfLeads = default!;
         /// <summary>Number of results that were redacted/hidden (for trial users).</summary>
-        public double? NumberOfRedactedResults { get; set; }
+        public double? NumberOfRedactedResults { get => _explicitNullValueNumberOfRedactedResults; set { _explicitNullValueNumberOfRedactedResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_redacted_results"); else _explicitNullProperties?.Remove("number_of_redacted_results"); } }
+        private double? _explicitNullValueNumberOfRedactedResults = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch200ResponseLeadsItem>("leads", Leads);
             writer.WriteDoubleValue("number_of_leads", NumberOfLeads);
             writer.WriteDoubleValue("number_of_redacted_results", NumberOfRedactedResults);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,15 +11,28 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetLeadFinderAgentStats200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("leads_added_total") is { } nullNodeLeadsAddedTotal && nullNodeLeadsAddedTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsAddedTotal = null;
+            if (parseNode.GetChildNode("top_ups_completed") is { } nullNodeTopUpsCompleted && nullNodeTopUpsCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpsCompleted = null;
+            if (parseNode.GetChildNode("top_ups_failed") is { } nullNodeTopUpsFailed && nullNodeTopUpsFailed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpsFailed = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Total leads the agent has added to its campaign over its lifetime</summary>
-        public int? LeadsAddedTotal { get; set; }
+        public int? LeadsAddedTotal { get => _explicitNullValueLeadsAddedTotal; set { _explicitNullValueLeadsAddedTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_added_total"); else _explicitNullProperties?.Remove("leads_added_total"); } }
+        private int? _explicitNullValueLeadsAddedTotal = default!;
         /// <summary>Completed top-up runs</summary>
-        public int? TopUpsCompleted { get; set; }
+        public int? TopUpsCompleted { get => _explicitNullValueTopUpsCompleted; set { _explicitNullValueTopUpsCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_ups_completed"); else _explicitNullProperties?.Remove("top_ups_completed"); } }
+        private int? _explicitNullValueTopUpsCompleted = default!;
         /// <summary>Failed top-up runs</summary>
-        public int? TopUpsFailed { get; set; }
+        public int? TopUpsFailed { get => _explicitNullValueTopUpsFailed; set { _explicitNullValueTopUpsFailed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_ups_failed"); else _explicitNullProperties?.Remove("top_ups_failed"); } }
+        private int? _explicitNullValueTopUpsFailed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetLeadFinderAgentStats200Response"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetLeadFinderAgentStats200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetLeadFinderAgentStats200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetLeadFinderAgentStats200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteIntValue("leads_added_total", LeadsAddedTotal);
             writer.WriteIntValue("top_ups_completed", TopUpsCompleted);
             writer.WriteIntValue("top_ups_failed", TopUpsFailed);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

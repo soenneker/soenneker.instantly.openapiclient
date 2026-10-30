@@ -11,26 +11,41 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateCampaignRequestProviderRoutingRulesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("recipient_esp") is { } nullNodeRecipientEsp && nullNodeRecipientEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipientEsp = null;
+            if (parseNode.GetChildNode("sender_esp") is { } nullNodeSenderEsp && nullNodeSenderEsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SenderEsp = null;
+        }
+
         /// <summary>The action property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemAction? Action { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The recipient_esp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem?>? RecipientEsp { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem?>? RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem?>? _explicitNullValueRecipientEsp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem?> RecipientEsp { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem?> RecipientEsp { get => _explicitNullValueRecipientEsp; set { _explicitNullValueRecipientEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient_esp"); else _explicitNullProperties?.Remove("recipient_esp"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem?> _explicitNullValueRecipientEsp = default!;
 #endif
         /// <summary>The sender_esp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem?>? SenderEsp { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem?>? SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem?>? _explicitNullValueSenderEsp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem?> SenderEsp { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem?> SenderEsp { get => _explicitNullValueSenderEsp; set { _explicitNullValueSenderEsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sender_esp"); else _explicitNullProperties?.Remove("sender_esp"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem?> _explicitNullValueSenderEsp = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItem"/> and sets the default values.
@@ -47,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemAction>("action", Action);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemRecipientEspItem>("recipient_esp", RecipientEsp);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateCampaignRequestProviderRoutingRulesItemSenderEspItem>("sender_esp", SenderEsp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

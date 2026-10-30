@@ -12,48 +12,70 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetSalesAgentAnalytics200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("leads_found_per_day") is { } nullNodeLeadsFoundPerDay && nullNodeLeadsFoundPerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsFoundPerDay = null;
+            if (parseNode.GetChildNode("opportunities_per_day") is { } nullNodeOpportunitiesPerDay && nullNodeOpportunitiesPerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpportunitiesPerDay = null;
+            if (parseNode.GetChildNode("replies_per_day") is { } nullNodeRepliesPerDay && nullNodeRepliesPerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepliesPerDay = null;
+            if (parseNode.GetChildNode("total_email_activity_per_day") is { } nullNodeTotalEmailActivityPerDay && nullNodeTotalEmailActivityPerDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalEmailActivityPerDay = null;
+            if (parseNode.GetChildNode("totals") is { } nullNodeTotals && nullNodeTotals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Totals = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Daily leads found data points formatted for charts (array of {x: date, y: value})</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem>? LeadsFoundPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem>? LeadsFoundPerDay { get => _explicitNullValueLeadsFoundPerDay; set { _explicitNullValueLeadsFoundPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_found_per_day"); else _explicitNullProperties?.Remove("leads_found_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem>? _explicitNullValueLeadsFoundPerDay = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem> LeadsFoundPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem> LeadsFoundPerDay { get => _explicitNullValueLeadsFoundPerDay; set { _explicitNullValueLeadsFoundPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("leads_found_per_day"); else _explicitNullProperties?.Remove("leads_found_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem> _explicitNullValueLeadsFoundPerDay = default!;
 #endif
         /// <summary>Daily opportunities data points formatted for charts (array of {x: date, y: value})</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem>? OpportunitiesPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem>? OpportunitiesPerDay { get => _explicitNullValueOpportunitiesPerDay; set { _explicitNullValueOpportunitiesPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opportunities_per_day"); else _explicitNullProperties?.Remove("opportunities_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem>? _explicitNullValueOpportunitiesPerDay = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem> OpportunitiesPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem> OpportunitiesPerDay { get => _explicitNullValueOpportunitiesPerDay; set { _explicitNullValueOpportunitiesPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opportunities_per_day"); else _explicitNullProperties?.Remove("opportunities_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem> _explicitNullValueOpportunitiesPerDay = default!;
 #endif
         /// <summary>Daily replies data points formatted for charts (array of {x: date, y: value})</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem>? RepliesPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem>? RepliesPerDay { get => _explicitNullValueRepliesPerDay; set { _explicitNullValueRepliesPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replies_per_day"); else _explicitNullProperties?.Remove("replies_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem>? _explicitNullValueRepliesPerDay = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem> RepliesPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem> RepliesPerDay { get => _explicitNullValueRepliesPerDay; set { _explicitNullValueRepliesPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replies_per_day"); else _explicitNullProperties?.Remove("replies_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem> _explicitNullValueRepliesPerDay = default!;
 #endif
         /// <summary>Daily total email activity data points formatted for charts (array of {x: date, y: value})</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem>? TotalEmailActivityPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem>? TotalEmailActivityPerDay { get => _explicitNullValueTotalEmailActivityPerDay; set { _explicitNullValueTotalEmailActivityPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_email_activity_per_day"); else _explicitNullProperties?.Remove("total_email_activity_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem>? _explicitNullValueTotalEmailActivityPerDay = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem> TotalEmailActivityPerDay { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem> TotalEmailActivityPerDay { get => _explicitNullValueTotalEmailActivityPerDay; set { _explicitNullValueTotalEmailActivityPerDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_email_activity_per_day"); else _explicitNullProperties?.Remove("total_email_activity_per_day"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem> _explicitNullValueTotalEmailActivityPerDay = default!;
 #endif
         /// <summary>Totals over the selected date range</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals? Totals { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals? Totals { get => _explicitNullValueTotals; set { _explicitNullValueTotals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totals"); else _explicitNullProperties?.Remove("totals"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals? _explicitNullValueTotals = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals Totals { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals Totals { get => _explicitNullValueTotals; set { _explicitNullValueTotals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totals"); else _explicitNullProperties?.Remove("totals"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals _explicitNullValueTotals = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200Response"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseRepliesPerDayItem>("replies_per_day", RepliesPerDay);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotalEmailActivityPerDayItem>("total_email_activity_per_day", TotalEmailActivityPerDay);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseTotals>("totals", Totals);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

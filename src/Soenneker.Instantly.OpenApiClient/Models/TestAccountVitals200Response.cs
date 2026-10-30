@@ -11,32 +11,48 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TestAccountVitals200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("failure_list") is { } nullNodeFailureList && nullNodeFailureList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureList = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("success_list") is { } nullNodeSuccessList && nullNodeSuccessList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessList = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The failure_list property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>? FailureList { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>? FailureList { get => _explicitNullValueFailureList; set { _explicitNullValueFailureList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_list"); else _explicitNullProperties?.Remove("failure_list"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>? _explicitNullValueFailureList = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem> FailureList { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem> FailureList { get => _explicitNullValueFailureList; set { _explicitNullValueFailureList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_list"); else _explicitNullProperties?.Remove("failure_list"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem> _explicitNullValueFailureList = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The success_list property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>? SuccessList { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>? SuccessList { get => _explicitNullValueSuccessList; set { _explicitNullValueSuccessList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_list"); else _explicitNullProperties?.Remove("success_list"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>? _explicitNullValueSuccessList = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem> SuccessList { get; set; }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem> SuccessList { get => _explicitNullValueSuccessList; set { _explicitNullValueSuccessList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_list"); else _explicitNullProperties?.Remove("success_list"); } }
+        private List<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem> _explicitNullValueSuccessList = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseFailureListItem>("failure_list", FailureList);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.TestAccountVitals200ResponseSuccessListItem>("success_list", SuccessList);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

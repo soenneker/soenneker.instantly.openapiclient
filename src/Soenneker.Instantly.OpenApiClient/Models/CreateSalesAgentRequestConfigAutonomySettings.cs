@@ -12,15 +12,28 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSalesAgentRequestConfigAutonomySettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autopilot_mode") is { } nullNodeAutopilotMode && nullNodeAutopilotMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutopilotMode = null;
+            if (parseNode.GetChildNode("auto_reply_to_responses") is { } nullNodeAutoReplyToResponses && nullNodeAutoReplyToResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoReplyToResponses = null;
+            if (parseNode.GetChildNode("manual_leads_mode") is { } nullNodeManualLeadsMode && nullNodeManualLeadsMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManualLeadsMode = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable autopilot mode for autonomous decision-making</summary>
-        public bool? AutopilotMode { get; set; }
+        public bool? AutopilotMode { get => _explicitNullValueAutopilotMode; set { _explicitNullValueAutopilotMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autopilot_mode"); else _explicitNullProperties?.Remove("autopilot_mode"); } }
+        private bool? _explicitNullValueAutopilotMode = default!;
         /// <summary>Automatically respond to prospect replies with contextual messages</summary>
-        public bool? AutoReplyToResponses { get; set; }
+        public bool? AutoReplyToResponses { get => _explicitNullValueAutoReplyToResponses; set { _explicitNullValueAutoReplyToResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_reply_to_responses"); else _explicitNullProperties?.Remove("auto_reply_to_responses"); } }
+        private bool? _explicitNullValueAutoReplyToResponses = default!;
         /// <summary>When true, automatic lead discovery is disabled and the user uploads leads manually</summary>
-        public bool? ManualLeadsMode { get; set; }
+        public bool? ManualLeadsMode { get => _explicitNullValueManualLeadsMode; set { _explicitNullValueManualLeadsMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manual_leads_mode"); else _explicitNullProperties?.Remove("manual_leads_mode"); } }
+        private bool? _explicitNullValueManualLeadsMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigAutonomySettings"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigAutonomySettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigAutonomySettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.CreateSalesAgentRequestConfigAutonomySettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("autopilot_mode", AutopilotMode);
             writer.WriteBoolValue("auto_reply_to_responses", AutoReplyToResponses);
             writer.WriteBoolValue("manual_leads_mode", ManualLeadsMode);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

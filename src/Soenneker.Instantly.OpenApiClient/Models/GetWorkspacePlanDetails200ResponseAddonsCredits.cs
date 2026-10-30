@@ -11,37 +11,67 @@ namespace Soenneker.Instantly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetWorkspacePlanDetails200ResponseAddonsCredits : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annual_price_in_dollars") is { } nullNodeAnnualPriceInDollars && nullNodeAnnualPriceInDollars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualPriceInDollars = null;
+            if (parseNode.GetChildNode("annual_product_id") is { } nullNodeAnnualProductId && nullNodeAnnualProductId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualProductId = null;
+            if (parseNode.GetChildNode("annual_unit_credits") is { } nullNodeAnnualUnitCredits && nullNodeAnnualUnitCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualUnitCredits = null;
+            if (parseNode.GetChildNode("can_purchase") is { } nullNodeCanPurchase && nullNodeCanPurchase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanPurchase = null;
+            if (parseNode.GetChildNode("existing_quantity") is { } nullNodeExistingQuantity && nullNodeExistingQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingQuantity = null;
+            if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
+            if (parseNode.GetChildNode("max_quantity") is { } nullNodeMaxQuantity && nullNodeMaxQuantity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxQuantity = null;
+            if (parseNode.GetChildNode("monthly_price_in_dollars") is { } nullNodeMonthlyPriceInDollars && nullNodeMonthlyPriceInDollars.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthlyPriceInDollars = null;
+            if (parseNode.GetChildNode("product_id") is { } nullNodeProductId && nullNodeProductId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductId = null;
+            if (parseNode.GetChildNode("purchase_blocked_reason") is { } nullNodePurchaseBlockedReason && nullNodePurchaseBlockedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PurchaseBlockedReason = null;
+            if (parseNode.GetChildNode("unit_credits") is { } nullNodeUnitCredits && nullNodeUnitCredits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnitCredits = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Annual price for one Instantly Credits add-on unit in dollars.</summary>
-        public double? AnnualPriceInDollars { get; set; }
+        public double? AnnualPriceInDollars { get => _explicitNullValueAnnualPriceInDollars; set { _explicitNullValueAnnualPriceInDollars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_price_in_dollars"); else _explicitNullProperties?.Remove("annual_price_in_dollars"); } }
+        private double? _explicitNullValueAnnualPriceInDollars = default!;
         /// <summary>The annual product ID for the Instantly Credits add-on.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId? AnnualProductId { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId? AnnualProductId { get => _explicitNullValueAnnualProductId; set { _explicitNullValueAnnualProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_product_id"); else _explicitNullProperties?.Remove("annual_product_id"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId? _explicitNullValueAnnualProductId = default!;
         /// <summary>Number of additional annual credits included in one add-on unit.</summary>
-        public double? AnnualUnitCredits { get; set; }
+        public double? AnnualUnitCredits { get => _explicitNullValueAnnualUnitCredits; set { _explicitNullValueAnnualUnitCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_unit_credits"); else _explicitNullProperties?.Remove("annual_unit_credits"); } }
+        private double? _explicitNullValueAnnualUnitCredits = default!;
         /// <summary>Whether the workspace can purchase Instantly Credits add-ons.</summary>
-        public bool? CanPurchase { get; set; }
+        public bool? CanPurchase { get => _explicitNullValueCanPurchase; set { _explicitNullValueCanPurchase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_purchase"); else _explicitNullProperties?.Remove("can_purchase"); } }
+        private bool? _explicitNullValueCanPurchase = default!;
         /// <summary>Current quantity of Instantly Credits add-on units.</summary>
-        public double? ExistingQuantity { get; set; }
+        public double? ExistingQuantity { get => _explicitNullValueExistingQuantity; set { _explicitNullValueExistingQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_quantity"); else _explicitNullProperties?.Remove("existing_quantity"); } }
+        private double? _explicitNullValueExistingQuantity = default!;
         /// <summary>The current billing interval for the Instantly Credits add-on subscription.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval? Interval { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval? _explicitNullValueInterval = default!;
         /// <summary>Maximum additional units selectable in one update.</summary>
-        public double? MaxQuantity { get; set; }
+        public double? MaxQuantity { get => _explicitNullValueMaxQuantity; set { _explicitNullValueMaxQuantity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_quantity"); else _explicitNullProperties?.Remove("max_quantity"); } }
+        private double? _explicitNullValueMaxQuantity = default!;
         /// <summary>Monthly price for one Instantly Credits add-on unit in dollars.</summary>
-        public double? MonthlyPriceInDollars { get; set; }
+        public double? MonthlyPriceInDollars { get => _explicitNullValueMonthlyPriceInDollars; set { _explicitNullValueMonthlyPriceInDollars = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("monthly_price_in_dollars"); else _explicitNullProperties?.Remove("monthly_price_in_dollars"); } }
+        private double? _explicitNullValueMonthlyPriceInDollars = default!;
         /// <summary>The monthly product ID for the Instantly Credits add-on.</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId? ProductId { get; set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId? ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId? _explicitNullValueProductId = default!;
         /// <summary>Reason add-on purchase is blocked, null when purchase is allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PurchaseBlockedReason { get; set; }
+        public string? PurchaseBlockedReason { get => _explicitNullValuePurchaseBlockedReason; set { _explicitNullValuePurchaseBlockedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchase_blocked_reason"); else _explicitNullProperties?.Remove("purchase_blocked_reason"); } }
+        private string? _explicitNullValuePurchaseBlockedReason = default!;
 #nullable restore
 #else
-        public string PurchaseBlockedReason { get; set; }
+        public string PurchaseBlockedReason { get => _explicitNullValuePurchaseBlockedReason; set { _explicitNullValuePurchaseBlockedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchase_blocked_reason"); else _explicitNullProperties?.Remove("purchase_blocked_reason"); } }
+        private string _explicitNullValuePurchaseBlockedReason = default!;
 #endif
         /// <summary>Number of additional monthly credits included in one add-on unit.</summary>
-        public double? UnitCredits { get; set; }
+        public double? UnitCredits { get => _explicitNullValueUnitCredits; set { _explicitNullValueUnitCredits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unit_credits"); else _explicitNullProperties?.Remove("unit_credits"); } }
+        private double? _explicitNullValueUnitCredits = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits"/> and sets the default values.
         /// </summary>
@@ -57,7 +87,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public static global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCredits(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +128,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId>("product_id", ProductId);
             writer.WriteStringValue("purchase_blocked_reason", PurchaseBlockedReason);
             writer.WriteDoubleValue("unit_credits", UnitCredits);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
