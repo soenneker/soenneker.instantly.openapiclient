@@ -36,6 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share
         /// <summary>
         /// Share a campaign. This allows other users to create new campaigns based on this campaign. The campaign is being shared for 7 days, after which you&apos;ll have to call this endpoint again if you want to enable sharing on the campaign
         /// </summary>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ShareCampaign401Response">When receiving a 401 status code</exception>
@@ -44,11 +45,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ShareCampaign429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -61,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.Item.Share
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Share a campaign. This allows other users to create new campaigns based on this campaign. The campaign is being shared for 7 days, after which you&apos;ll have to call this endpoint again if you want to enable sharing on the campaign

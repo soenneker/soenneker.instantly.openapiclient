@@ -4575,6 +4575,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareCampaign204ResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "204"
           }
         }
       }
@@ -10482,6 +10493,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateLeadInterestStatus202Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -10636,6 +10658,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkAssignLeads202Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -20898,6 +20931,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCompanyList202Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       },
@@ -39907,77 +39951,14 @@
         }
       },
       "ForwardEmailRequest": {
-        "required": [
-          "reply_to_uuid",
-          "to_address_email_list",
-          "eaccount",
-          "subject"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf1"
+            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf2"
+            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf2Branch"
           }
-        ],
-        "properties": {
-          "eaccount": {
-            "type": "string",
-            "description": "The email account that will be used to send this email. It has to be an email account connected to your workspace",
-            "example": "jondoe@example.com"
-          },
-          "reply_to_uuid": {
-            "type": "string",
-            "description": "The id of the email you want to forward",
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          },
-          "to_address_email_list": {
-            "type": "string",
-            "description": "Comma-separated list of recipients that will receive the forwarded email",
-            "example": "recipient@example.com"
-          },
-          "subject": {
-            "type": "string",
-            "description": "Subject line of the forwarded email message",
-            "example": "Fwd: Interesting update"
-          },
-          "body": {
-            "$ref": "#/components/schemas/ForwardEmailRequestBody"
-          },
-          "cc_address_email_list": {
-            "type": "string",
-            "description": "Comma-separated list of CC email addresses",
-            "example": "cc@example.com"
-          },
-          "bcc_address_email_list": {
-            "type": "string",
-            "description": "Comma-separated list of BCC email addresses",
-            "example": "bcc@example.com"
-          },
-          "reply_to": {
-            "type": "string",
-            "description": "Reply-to email address that recipients should use when replying",
-            "format": "email",
-            "example": "reply@example.com"
-          },
-          "forwarded_attachments": {
-            "type": "string",
-            "description": "JSON-encoded forwarded attachment metadata from the original email",
-            "example": "[{\u0022filename\u0022:\u0022attachment.pdf\u0022,\u0022url\u0022:\u0022https://cdn.instantly.ai/example-attachment/file.pdf\u0022}]"
-          },
-          "include_original_body": {
-            "type": "boolean",
-            "description": "When true, append the original email headers and content after the provided body. Default: false.",
-            "example": true
-          },
-          "assigned_to": {
-            "type": "string",
-            "description": "The user id assigned to the lead",
-            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
-          }
-        }
+        ]
       },
       "ForwardEmail401Response": {
         "required": [
@@ -66031,23 +66012,14 @@
         "additionalProperties": false
       },
       "ForwardEmailRequestAnyOf1Body": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf1BodyAnyOf1"
+            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf1BodyAnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf1BodyAnyOf2"
+            "$ref": "#/components/schemas/ForwardEmailRequestAnyOf1BodyAnyOf2Branch"
           }
-        ],
-        "properties": {
-          "html": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          }
-        }
+        ]
       },
       "CreateInboxManagerAgentRequestGuidancesItemAnyOf1": {
         "required": [
@@ -66384,89 +66356,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2": {
@@ -66615,89 +66523,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "CountLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2": {
@@ -66820,89 +66664,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "PreviewLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2": {
@@ -67025,89 +66805,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "CreateSavedSearchRequestSearchFiltersSignalsItemOneOf2": {
@@ -67230,89 +66946,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "UpdateSavedSearchRequestSearchFiltersSignalsItemOneOf2": {
@@ -67483,89 +67135,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "CreateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2": {
@@ -67689,89 +67277,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "CreateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2": {
@@ -67895,89 +67419,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "UpdateLeadFinderAgentRequestSearchFiltersSignalsItemOneOf2": {
@@ -68101,89 +67561,25 @@
         "description": "Employee count less-than-or-equal range"
       },
       "UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf1"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf2"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/BetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Custom employee count bounded range"
       },
       "UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5": {
-        "required": [
-          "op"
-        ],
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf1"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch"
           },
           {
-            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf2"
+            "$ref": "#/components/schemas/UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch"
           }
         ],
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/PresetBetweenOp"
-          },
-          "min": {
-            "examples": [
-              50
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Minimum employee count (inclusive).",
-            "example": 50
-          },
-          "max": {
-            "examples": [
-              200
-            ],
-            "type": [
-              "null",
-              "number"
-            ],
-            "description": "Maximum employee count (inclusive).",
-            "example": 200
-          }
-        },
-        "additionalProperties": false,
         "description": "Preset employee count bounded range"
       },
       "UpdateLeadFinderAgentRequestFallbackSearchFiltersSignalsItemOneOf2": {
@@ -144418,6 +143814,1172 @@
             }
           ]
         }
+      },
+      "ForwardEmailRequestAnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "html": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "html"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "html": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              }
+            ]
+          },
+          "eaccount": {
+            "type": "string",
+            "description": "The email account that will be used to send this email. It has to be an email account connected to your workspace",
+            "example": "jondoe@example.com"
+          },
+          "reply_to_uuid": {
+            "type": "string",
+            "description": "The id of the email you want to forward",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "to_address_email_list": {
+            "type": "string",
+            "description": "Comma-separated list of recipients that will receive the forwarded email",
+            "example": "recipient@example.com"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject line of the forwarded email message",
+            "example": "Fwd: Interesting update"
+          },
+          "cc_address_email_list": {
+            "type": "string",
+            "description": "Comma-separated list of CC email addresses",
+            "example": "cc@example.com"
+          },
+          "bcc_address_email_list": {
+            "type": "string",
+            "description": "Comma-separated list of BCC email addresses",
+            "example": "bcc@example.com"
+          },
+          "reply_to": {
+            "type": "string",
+            "description": "Reply-to email address that recipients should use when replying",
+            "format": "email",
+            "example": "reply@example.com"
+          },
+          "forwarded_attachments": {
+            "type": "string",
+            "description": "JSON-encoded forwarded attachment metadata from the original email",
+            "example": "[{\u0022filename\u0022:\u0022attachment.pdf\u0022,\u0022url\u0022:\u0022https://cdn.instantly.ai/example-attachment/file.pdf\u0022}]"
+          },
+          "include_original_body": {
+            "type": "boolean",
+            "description": "When true, append the original email headers and content after the provided body. Default: false.",
+            "example": true
+          },
+          "assigned_to": {
+            "type": "string",
+            "description": "The user id assigned to the lead",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "required": [
+          "body",
+          "reply_to_uuid",
+          "to_address_email_list",
+          "eaccount",
+          "subject"
+        ]
+      },
+      "ForwardEmailRequestAnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "include_original_body": {
+            "enum": [
+              true
+            ],
+            "type": "boolean"
+          },
+          "eaccount": {
+            "type": "string",
+            "description": "The email account that will be used to send this email. It has to be an email account connected to your workspace",
+            "example": "jondoe@example.com"
+          },
+          "reply_to_uuid": {
+            "type": "string",
+            "description": "The id of the email you want to forward",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "to_address_email_list": {
+            "type": "string",
+            "description": "Comma-separated list of recipients that will receive the forwarded email",
+            "example": "recipient@example.com"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject line of the forwarded email message",
+            "example": "Fwd: Interesting update"
+          },
+          "body": {
+            "$ref": "#/components/schemas/ForwardEmailRequestBody"
+          },
+          "cc_address_email_list": {
+            "type": "string",
+            "description": "Comma-separated list of CC email addresses",
+            "example": "cc@example.com"
+          },
+          "bcc_address_email_list": {
+            "type": "string",
+            "description": "Comma-separated list of BCC email addresses",
+            "example": "bcc@example.com"
+          },
+          "reply_to": {
+            "type": "string",
+            "description": "Reply-to email address that recipients should use when replying",
+            "format": "email",
+            "example": "reply@example.com"
+          },
+          "forwarded_attachments": {
+            "type": "string",
+            "description": "JSON-encoded forwarded attachment metadata from the original email",
+            "example": "[{\u0022filename\u0022:\u0022attachment.pdf\u0022,\u0022url\u0022:\u0022https://cdn.instantly.ai/example-attachment/file.pdf\u0022}]"
+          },
+          "assigned_to": {
+            "type": "string",
+            "description": "The user id assigned to the lead",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "required": [
+          "include_original_body",
+          "reply_to_uuid",
+          "to_address_email_list",
+          "eaccount",
+          "subject"
+        ]
+      },
+      "ForwardEmailRequestAnyOf1BodyAnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "html": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "html"
+        ]
+      },
+      "ForwardEmailRequestAnyOf1BodyAnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "html": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "EnrichLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CountLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "PreviewLeadsFromSupersearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateSavedSearchRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "CreateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf4AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/BetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf1Branch": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "max": {
+            "examples": [
+              200
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Maximum employee count (inclusive).",
+            "example": 200
+          }
+        },
+        "required": [
+          "min",
+          "op"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateLeadFinderAgentRequestFallbackSearchFiltersEmployeeCountItemOneOf5AnyOf2Branch": {
+        "type": "object",
+        "properties": {
+          "max": {
+            "type": "number"
+          },
+          "op": {
+            "$ref": "#/components/schemas/PresetBetweenOp"
+          },
+          "min": {
+            "examples": [
+              50
+            ],
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Minimum employee count (inclusive).",
+            "example": 50
+          }
+        },
+        "required": [
+          "max",
+          "op"
+        ],
+        "additionalProperties": false
       },
       "EnrichLeadsFromSupersearchRequestSearchFiltersSignalsItemOneOf2KeywordsAnyOf2": {
         "type": "object",
