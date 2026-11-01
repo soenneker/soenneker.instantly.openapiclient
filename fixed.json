@@ -115305,6 +115305,7 @@
         "enum": [
           "pid_ls_v1",
           "pid_hg_v1",
+          "pid_hg_v2",
           "pid_g_v1",
           "pid_g_v2",
           "pid_nic_v1",
@@ -115342,6 +115343,7 @@
           "pid_g_v1": "Growth Plan",
           "pid_g_v2": "Growth Plan V2",
           "pid_hg_v1": "Hypergrowth Plan",
+          "pid_hg_v2": "Hypergrowth Plan V2",
           "pid_ls_v1": "LightSpeed Plan",
           "pid_nic_v1": "Instantly Credits Nano",
           "pid_nic_v1_annual": "Instantly Credits Nano Annual",
@@ -115382,6 +115384,10 @@
             {
               "value": "pid_hg_v1",
               "name": "PidHgV1"
+            },
+            {
+              "value": "pid_hg_v2",
+              "name": "PidHgV2"
             },
             {
               "value": "pid_g_v1",
@@ -129807,6 +129813,7 @@
         "enum": [
           "pid_ls_v1",
           "pid_hg_v1",
+          "pid_hg_v2",
           "pid_g_v1",
           "pid_g_v2",
           "pid_nic_v1",
@@ -129848,6 +129855,7 @@
           "pid_g_v1": "Growth Plan",
           "pid_g_v2": "Growth Plan V2",
           "pid_hg_v1": "Hypergrowth Plan",
+          "pid_hg_v2": "Hypergrowth Plan V2",
           "pid_ls_v1": "LightSpeed Plan",
           "pid_nic_v1": "Instantly Credits Nano",
           "pid_nic_v1_annual": "Instantly Credits Nano Annual",
@@ -129888,6 +129896,10 @@
             {
               "value": "pid_hg_v1",
               "name": "PidHgV1"
+            },
+            {
+              "value": "pid_hg_v2",
+              "name": "PidHgV2"
             },
             {
               "value": "pid_g_v1",

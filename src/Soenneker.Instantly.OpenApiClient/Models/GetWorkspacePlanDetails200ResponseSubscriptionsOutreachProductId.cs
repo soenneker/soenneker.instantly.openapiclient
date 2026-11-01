@@ -15,6 +15,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         PidHgV1,
         #pragma warning restore CS1591
+        [EnumMember(Value = "pid_hg_v2")]
+        #pragma warning disable CS1591
+        PidHgV2,
+        #pragma warning restore CS1591
         [EnumMember(Value = "pid_g_v1")]
         #pragma warning disable CS1591
         PidGV1,
