@@ -45,8 +45,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         private string _explicitNullValueForwardingDomain = default!;
 #endif
         /// <summary>How the forwarding domain is applied. Null when no forwarding is configured.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode? ForwardingMode { get => _explicitNullValueForwardingMode; set { _explicitNullValueForwardingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_mode"); else _explicitNullProperties?.Remove("forwarding_mode"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode? _explicitNullValueForwardingMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode ForwardingMode { get => _explicitNullValueForwardingMode; set { _explicitNullValueForwardingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_mode"); else _explicitNullProperties?.Remove("forwarding_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode _explicitNullValueForwardingMode = default!;
+#endif
         /// <summary>Indicates if the account is pre-warmed up</summary>
         public bool? IsPreWarmedUp { get => _explicitNullValueIsPreWarmedUp; set { _explicitNullValueIsPreWarmedUp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_pre_warmed_up"); else _explicitNullProperties?.Remove("is_pre_warmed_up"); } }
         private bool? _explicitNullValueIsPreWarmedUp = default!;
@@ -82,7 +89,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "forwarding_domain", n => { ForwardingDomain = n.GetStringValue(); } },
-                { "forwarding_mode", n => { ForwardingMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode>(); } },
+                { "forwarding_mode", n => { ForwardingMode = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode>(global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode.CreateFromDiscriminatorValue); } },
                 { "is_pre_warmed_up", n => { IsPreWarmedUp = n.GetBoolValue(); } },
                 { "timestamp_cancelled", n => { TimestampCancelled = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
@@ -97,7 +104,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("forwarding_domain", ForwardingDomain);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode>("forwarding_mode", ForwardingMode);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DfyEmailAccountOrderForwardingMode>("forwarding_mode", ForwardingMode);
             writer.WriteBoolValue("is_pre_warmed_up", IsPreWarmedUp);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

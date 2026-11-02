@@ -49,8 +49,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? CurrentPeriodEnd { get => _explicitNullValueCurrentPeriodEnd; set { _explicitNullValueCurrentPeriodEnd = value; AdditionalData?.Remove("current_period_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_period_end"); else _explicitNullProperties?.Remove("current_period_end"); } }
         private double? _explicitNullValueCurrentPeriodEnd = default!;
         /// <summary>The billing interval of the Instantly Credits subscription</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval? _explicitNullValueInterval = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval _explicitNullValueInterval = default!;
+#endif
         /// <summary>Instantly Credits plan name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,8 +82,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         private string _explicitNullValuePriceOptionId = default!;
 #endif
         /// <summary>The ID of the Instantly Credits plan subscribed to</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId? ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; AdditionalData?.Remove("product_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId? _explicitNullValueProductId = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; AdditionalData?.Remove("product_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId _explicitNullValueProductId = default!;
+#endif
         /// <summary>Total Instantly Credits included in the current plan</summary>
         public double? TotalCredits { get => _explicitNullValueTotalCredits; set { _explicitNullValueTotalCredits = value; AdditionalData?.Remove("total_credits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_credits"); else _explicitNullProperties?.Remove("total_credits"); } }
         private double? _explicitNullValueTotalCredits = default!;
@@ -108,11 +122,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "available_credits", n => { AvailableCredits = n.GetDoubleValue(); } },
                 { "cancel_at_time", n => { CancelAtTime = n.GetDoubleValue(); } },
                 { "current_period_end", n => { CurrentPeriodEnd = n.GetDoubleValue(); } },
-                { "interval", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterval = default; _explicitNullProperties?.Remove("interval"); AdditionalData["interval"] = unknown; } else { Interval = parsed; AdditionalData.Remove("interval"); } } },
+                { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval.CreateFromDiscriminatorValue); } },
                 { "plan_name", n => { PlanName = n.GetStringValue(); } },
                 { "price_in_dollars", n => { PriceInDollars = n.GetDoubleValue(); } },
                 { "price_option_id", n => { PriceOptionId = n.GetStringValue(); } },
-                { "product_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProductId = default; _explicitNullProperties?.Remove("product_id"); AdditionalData["product_id"] = unknown; } else { ProductId = parsed; AdditionalData.Remove("product_id"); } } },
+                { "product_id", n => { ProductId = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId.CreateFromDiscriminatorValue); } },
                 { "total_credits", n => { TotalCredits = n.GetDoubleValue(); } },
             };
         }
@@ -126,11 +140,11 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("available_credits", AvailableCredits);
             writer.WriteDoubleValue("cancel_at_time", CancelAtTime);
             writer.WriteDoubleValue("current_period_end", CurrentPeriodEnd);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval>("interval", Interval);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsInterval>("interval", Interval);
             writer.WriteStringValue("plan_name", PlanName);
             writer.WriteDoubleValue("price_in_dollars", PriceInDollars);
             writer.WriteStringValue("price_option_id", PriceOptionId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId>("product_id", ProductId);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCreditsProductId>("product_id", ProductId);
             writer.WriteDoubleValue("total_credits", TotalCredits);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

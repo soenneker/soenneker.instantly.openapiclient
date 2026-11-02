@@ -20,6 +20,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("moved_lead_emails") is null) { _explicitNullValueMovedLeadEmails = default!; _explicitNullProperties?.Remove("moved_lead_emails"); }
             else if (parseNode.GetChildNode("moved_lead_emails") is { } nullNodeMovedLeadEmails && nullNodeMovedLeadEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MovedLeadEmails = null;
+            if (parseNode.GetChildNode("skipped_blocklisted_emails") is null) { _explicitNullValueSkippedBlocklistedEmails = default!; _explicitNullProperties?.Remove("skipped_blocklisted_emails"); }
+            else if (parseNode.GetChildNode("skipped_blocklisted_emails") is { } nullNodeSkippedBlocklistedEmails && nullNodeSkippedBlocklistedEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedBlocklistedEmails = null;
+            if (parseNode.GetChildNode("skipped_duplicate_emails") is null) { _explicitNullValueSkippedDuplicateEmails = default!; _explicitNullProperties?.Remove("skipped_duplicate_emails"); }
+            else if (parseNode.GetChildNode("skipped_duplicate_emails") is { } nullNodeSkippedDuplicateEmails && nullNodeSkippedDuplicateEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedDuplicateEmails = null;
+            if (parseNode.GetChildNode("skipped_in_other_campaigns_emails") is null) { _explicitNullValueSkippedInOtherCampaignsEmails = default!; _explicitNullProperties?.Remove("skipped_in_other_campaigns_emails"); }
+            else if (parseNode.GetChildNode("skipped_in_other_campaigns_emails") is { } nullNodeSkippedInOtherCampaignsEmails && nullNodeSkippedInOtherCampaignsEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedInOtherCampaignsEmails = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,6 +39,36 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public List<string> MovedLeadEmails { get => _explicitNullValueMovedLeadEmails; set { _explicitNullValueMovedLeadEmails = value; AdditionalData?.Remove("moved_lead_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved_lead_emails"); else _explicitNullProperties?.Remove("moved_lead_emails"); } }
         private List<string> _explicitNullValueMovedLeadEmails = default!;
+#endif
+        /// <summary>For `move-leads` jobs that copy leads, up to the first 1,000 email addresses of leads that were not copied because they match the workspace block list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SkippedBlocklistedEmails { get => _explicitNullValueSkippedBlocklistedEmails; set { _explicitNullValueSkippedBlocklistedEmails = value; AdditionalData?.Remove("skipped_blocklisted_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_blocklisted_emails"); else _explicitNullProperties?.Remove("skipped_blocklisted_emails"); } }
+        private List<string>? _explicitNullValueSkippedBlocklistedEmails = default!;
+#nullable restore
+#else
+        public List<string> SkippedBlocklistedEmails { get => _explicitNullValueSkippedBlocklistedEmails; set { _explicitNullValueSkippedBlocklistedEmails = value; AdditionalData?.Remove("skipped_blocklisted_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_blocklisted_emails"); else _explicitNullProperties?.Remove("skipped_blocklisted_emails"); } }
+        private List<string> _explicitNullValueSkippedBlocklistedEmails = default!;
+#endif
+        /// <summary>For `move-leads` jobs, up to the first 1,000 email addresses of leads that were not moved because they are already in the destination campaign or list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SkippedDuplicateEmails { get => _explicitNullValueSkippedDuplicateEmails; set { _explicitNullValueSkippedDuplicateEmails = value; AdditionalData?.Remove("skipped_duplicate_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_duplicate_emails"); else _explicitNullProperties?.Remove("skipped_duplicate_emails"); } }
+        private List<string>? _explicitNullValueSkippedDuplicateEmails = default!;
+#nullable restore
+#else
+        public List<string> SkippedDuplicateEmails { get => _explicitNullValueSkippedDuplicateEmails; set { _explicitNullValueSkippedDuplicateEmails = value; AdditionalData?.Remove("skipped_duplicate_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_duplicate_emails"); else _explicitNullProperties?.Remove("skipped_duplicate_emails"); } }
+        private List<string> _explicitNullValueSkippedDuplicateEmails = default!;
+#endif
+        /// <summary>For `move-leads` jobs into a campaign with `check_duplicates`, up to the first 1,000 email addresses of leads that were not moved because they are already in another campaign of the workspace.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SkippedInOtherCampaignsEmails { get => _explicitNullValueSkippedInOtherCampaignsEmails; set { _explicitNullValueSkippedInOtherCampaignsEmails = value; AdditionalData?.Remove("skipped_in_other_campaigns_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_in_other_campaigns_emails"); else _explicitNullProperties?.Remove("skipped_in_other_campaigns_emails"); } }
+        private List<string>? _explicitNullValueSkippedInOtherCampaignsEmails = default!;
+#nullable restore
+#else
+        public List<string> SkippedInOtherCampaignsEmails { get => _explicitNullValueSkippedInOtherCampaignsEmails; set { _explicitNullValueSkippedInOtherCampaignsEmails = value; AdditionalData?.Remove("skipped_in_other_campaigns_emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_in_other_campaigns_emails"); else _explicitNullProperties?.Remove("skipped_in_other_campaigns_emails"); } }
+        private List<string> _explicitNullValueSkippedInOtherCampaignsEmails = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.BackgroundJobData"/> and sets the default values.
@@ -60,6 +96,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "moved_lead_emails", n => { MovedLeadEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "skipped_blocklisted_emails", n => { SkippedBlocklistedEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "skipped_duplicate_emails", n => { SkippedDuplicateEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "skipped_in_other_campaigns_emails", n => { SkippedInOtherCampaignsEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -70,6 +109,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("moved_lead_emails", MovedLeadEmails);
+            writer.WriteCollectionOfPrimitiveValues<string>("skipped_blocklisted_emails", SkippedBlocklistedEmails);
+            writer.WriteCollectionOfPrimitiveValues<string>("skipped_duplicate_emails", SkippedDuplicateEmails);
+            writer.WriteCollectionOfPrimitiveValues<string>("skipped_in_other_campaigns_emails", SkippedInOtherCampaignsEmails);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

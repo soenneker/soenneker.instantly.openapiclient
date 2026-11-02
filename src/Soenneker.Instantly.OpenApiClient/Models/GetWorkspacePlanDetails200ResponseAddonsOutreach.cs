@@ -49,8 +49,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? ExistingQuantity { get => _explicitNullValueExistingQuantity; set { _explicitNullValueExistingQuantity = value; AdditionalData?.Remove("existing_quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_quantity"); else _explicitNullProperties?.Remove("existing_quantity"); } }
         private double? _explicitNullValueExistingQuantity = default!;
         /// <summary>The current billing interval for the Outreach add-on subscription.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval? _explicitNullValueInterval = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval _explicitNullValueInterval = default!;
+#endif
         /// <summary>Maximum additional units selectable in one update.</summary>
         public double? MaxQuantity { get => _explicitNullValueMaxQuantity; set { _explicitNullValueMaxQuantity = value; AdditionalData?.Remove("max_quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_quantity"); else _explicitNullProperties?.Remove("max_quantity"); } }
         private double? _explicitNullValueMaxQuantity = default!;
@@ -108,7 +115,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "annual_discount_percent", n => { AnnualDiscountPercent = n.GetDoubleValue(); } },
                 { "can_purchase", n => { CanPurchase = n.GetBoolValue(); } },
                 { "existing_quantity", n => { ExistingQuantity = n.GetDoubleValue(); } },
-                { "interval", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterval = default; _explicitNullProperties?.Remove("interval"); AdditionalData["interval"] = unknown; } else { Interval = parsed; AdditionalData.Remove("interval"); } } },
+                { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval.CreateFromDiscriminatorValue); } },
                 { "max_quantity", n => { MaxQuantity = n.GetDoubleValue(); } },
                 { "monthly_pricing_tiers", n => { MonthlyPricingTiers = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "product_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddon25KlV1ProductId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProductId = default; _explicitNullProperties?.Remove("product_id"); AdditionalData["product_id"] = unknown; } else { ProductId = parsed; AdditionalData.Remove("product_id"); } } },
@@ -126,7 +133,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("annual_discount_percent", AnnualDiscountPercent);
             writer.WriteBoolValue("can_purchase", CanPurchase);
             writer.WriteDoubleValue("existing_quantity", ExistingQuantity);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval>("interval", Interval);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachInterval>("interval", Interval);
             writer.WriteDoubleValue("max_quantity", MaxQuantity);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsOutreachMonthlyPricingTiersItem>("monthly_pricing_tiers", MonthlyPricingTiers);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddon25KlV1ProductId>("product_id", ProductId);

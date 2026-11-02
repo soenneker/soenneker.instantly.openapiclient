@@ -5706,6 +5706,42 @@
                   "jane@example.com",
                   "john@example.com"
                 ]
+              },
+              "skipped_duplicate_emails": {
+                "type": "array",
+                "description": "For \u0060move-leads\u0060 jobs, up to the first 1,000 email addresses of leads that were not moved because they are already in the destination campaign or list.",
+                "items": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "jane@example.com"
+                },
+                "example": [
+                  "jane@example.com"
+                ]
+              },
+              "skipped_in_other_campaigns_emails": {
+                "type": "array",
+                "description": "For \u0060move-leads\u0060 jobs into a campaign with \u0060check_duplicates\u0060, up to the first 1,000 email addresses of leads that were not moved because they are already in another campaign of the workspace.",
+                "items": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "jane@example.com"
+                },
+                "example": [
+                  "jane@example.com"
+                ]
+              },
+              "skipped_blocklisted_emails": {
+                "type": "array",
+                "description": "For \u0060move-leads\u0060 jobs that copy leads, up to the first 1,000 email addresses of leads that were not copied because they match the workspace block list.",
+                "items": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "jane@example.com"
+                },
+                "example": [
+                  "jane@example.com"
+                ]
               }
             },
             "additionalProperties": true
@@ -25603,6 +25639,7 @@
                             "waiting_for_leads",
                             "daily_limit_met",
                             "account_daily_limit_met",
+                            "account_slow_ramp_limit_met",
                             "new_lead_limit_met",
                             "all_accounts_unhealthy",
                             "waiting_for_esp_match",
@@ -51417,6 +51454,7 @@
                             "waiting_for_leads",
                             "daily_limit_met",
                             "account_daily_limit_met",
+                            "account_slow_ramp_limit_met",
                             "new_lead_limit_met",
                             "all_accounts_unhealthy",
                             "waiting_for_esp_match",

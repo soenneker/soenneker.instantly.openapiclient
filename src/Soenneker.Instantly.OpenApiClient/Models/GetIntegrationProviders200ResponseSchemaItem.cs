@@ -50,8 +50,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whose key runs this provider for the requesting workspace. Null for an internal caller with no workspace to resolve against.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource? CredentialSource { get => _explicitNullValueCredentialSource; set { _explicitNullValueCredentialSource = value; AdditionalData?.Remove("credentialSource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialSource"); else _explicitNullProperties?.Remove("credentialSource"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource? _explicitNullValueCredentialSource = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource CredentialSource { get => _explicitNullValueCredentialSource; set { _explicitNullValueCredentialSource = value; AdditionalData?.Remove("credentialSource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentialSource"); else _explicitNullProperties?.Remove("credentialSource"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource _explicitNullValueCredentialSource = default!;
+#endif
         /// <summary>The creditCostPerAction property</summary>
         public double? CreditCostPerAction { get => _explicitNullValueCreditCostPerAction; set { _explicitNullValueCreditCostPerAction = value; AdditionalData?.Remove("creditCostPerAction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creditCostPerAction"); else _explicitNullProperties?.Remove("creditCostPerAction"); } }
         private double? _explicitNullValueCreditCostPerAction = default!;
@@ -113,7 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "credentialSource", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCredentialSource = default; _explicitNullProperties?.Remove("credentialSource"); AdditionalData["credentialSource"] = unknown; } else { CredentialSource = parsed; AdditionalData.Remove("credentialSource"); } } },
+                { "credentialSource", n => { CredentialSource = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>(global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource.CreateFromDiscriminatorValue); } },
                 { "creditCostPerAction", n => { CreditCostPerAction = n.GetDoubleValue(); } },
                 { "effectiveCostPerAction", n => { EffectiveCostPerAction = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -131,7 +138,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemActionsItem>("actions", Actions);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>("credentialSource", CredentialSource);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetIntegrationProviders200ResponseItemCredentialSource>("credentialSource", CredentialSource);
             writer.WriteDoubleValue("creditCostPerAction", CreditCostPerAction);
             writer.WriteDoubleValue("effectiveCostPerAction", EffectiveCostPerAction);
             writer.WriteStringValue("id", Id);

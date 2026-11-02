@@ -27,8 +27,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The filter to apply to the accounts.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter? _explicitNullValueFilter = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter _explicitNullValueFilter = default!;
+#endif
         /// <summary>The ID of the tag to filter accounts by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,7 +73,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filter", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFilter = default; _explicitNullProperties?.Remove("filter"); AdditionalData["filter"] = unknown; } else { Filter = parsed; AdditionalData.Remove("filter"); } } },
+                { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter>(global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter.CreateFromDiscriminatorValue); } },
                 { "tag_id", n => { TagId = n.GetStringValue(); } },
             };
         }
@@ -77,7 +84,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter>("filter", Filter);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DisableWarmupForAccountsRequestFilterFilter>("filter", Filter);
             writer.WriteStringValue("tag_id", TagId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

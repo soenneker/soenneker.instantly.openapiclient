@@ -61,8 +61,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Error code for the email sending process</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode? ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode? _explicitNullValueErrorCode = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode ErrorCode { get => _explicitNullValueErrorCode; set { _explicitNullValueErrorCode = value; AdditionalData?.Remove("error_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_code"); else _explicitNullProperties?.Remove("error_code"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode _explicitNullValueErrorCode = default!;
+#endif
         /// <summary>Estimated time saved by the agent, in seconds</summary>
         public double? EstimatedTimeSavedSeconds { get => _explicitNullValueEstimatedTimeSavedSeconds; set { _explicitNullValueEstimatedTimeSavedSeconds = value; AdditionalData?.Remove("estimated_time_saved_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated_time_saved_seconds"); else _explicitNullProperties?.Remove("estimated_time_saved_seconds"); } }
         private double? _explicitNullValueEstimatedTimeSavedSeconds = default!;
@@ -93,8 +100,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public bool? IsFollowup { get => _explicitNullValueIsFollowup; set { _explicitNullValueIsFollowup = value; AdditionalData?.Remove("is_followup"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_followup"); else _explicitNullProperties?.Remove("is_followup"); } }
         private bool? _explicitNullValueIsFollowup = default!;
         /// <summary>Work type: 1 = inbox reply, 2 = inbox follow-up, 3 = no-show follow-up. Null for recoveries.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType? JobType { get => _explicitNullValueJobType; set { _explicitNullValueJobType = value; AdditionalData?.Remove("job_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_type"); else _explicitNullProperties?.Remove("job_type"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType? _explicitNullValueJobType = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType JobType { get => _explicitNullValueJobType; set { _explicitNullValueJobType = value; AdditionalData?.Remove("job_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_type"); else _explicitNullProperties?.Remove("job_type"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType _explicitNullValueJobType = default!;
+#endif
         /// <summary>Lead email address the activity relates to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,8 +120,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         private string _explicitNullValueLeadEmail = default!;
 #endif
         /// <summary>How the lead was recovered. Only set for recoveries.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod? RecoveryMethod { get => _explicitNullValueRecoveryMethod; set { _explicitNullValueRecoveryMethod = value; AdditionalData?.Remove("recovery_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery_method"); else _explicitNullProperties?.Remove("recovery_method"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod? _explicitNullValueRecoveryMethod = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod RecoveryMethod { get => _explicitNullValueRecoveryMethod; set { _explicitNullValueRecoveryMethod = value; AdditionalData?.Remove("recovery_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery_method"); else _explicitNullProperties?.Remove("recovery_method"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod _explicitNullValueRecoveryMethod = default!;
+#endif
         /// <summary>Whether the activity requires human-in-the-loop review</summary>
         public bool? RequiresHitl { get => _explicitNullValueRequiresHitl; set { _explicitNullValueRequiresHitl = value; AdditionalData?.Remove("requires_hitl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requires_hitl"); else _explicitNullProperties?.Remove("requires_hitl"); } }
         private bool? _explicitNullValueRequiresHitl = default!;
@@ -157,15 +178,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "action_pending", n => { ActionPending = n.GetBoolValue(); } },
                 { "activity_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemActivityType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueActivityType = default; _explicitNullProperties?.Remove("activity_type"); AdditionalData["activity_type"] = unknown; } else { ActivityType = parsed; AdditionalData.Remove("activity_type"); } } },
-                { "error_code", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorCode = default; _explicitNullProperties?.Remove("error_code"); AdditionalData["error_code"] = unknown; } else { ErrorCode = parsed; AdditionalData.Remove("error_code"); } } },
+                { "error_code", n => { ErrorCode = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode>(global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode.CreateFromDiscriminatorValue); } },
                 { "estimated_time_saved_seconds", n => { EstimatedTimeSavedSeconds = n.GetDoubleValue(); } },
                 { "followup_number", n => { FollowupNumber = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "information_requested", n => { InformationRequested = n.GetStringValue(); } },
                 { "is_followup", n => { IsFollowup = n.GetBoolValue(); } },
-                { "job_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueJobType = default; _explicitNullProperties?.Remove("job_type"); AdditionalData["job_type"] = unknown; } else { JobType = parsed; AdditionalData.Remove("job_type"); } } },
+                { "job_type", n => { JobType = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType>(global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType.CreateFromDiscriminatorValue); } },
                 { "lead_email", n => { LeadEmail = n.GetStringValue(); } },
-                { "recovery_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRecoveryMethod = default; _explicitNullProperties?.Remove("recovery_method"); AdditionalData["recovery_method"] = unknown; } else { RecoveryMethod = parsed; AdditionalData.Remove("recovery_method"); } } },
+                { "recovery_method", n => { RecoveryMethod = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod>(global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod.CreateFromDiscriminatorValue); } },
                 { "requires_hitl", n => { RequiresHitl = n.GetBoolValue(); } },
                 { "revenue_recovered", n => { RevenueRecovered = n.GetDoubleValue(); } },
                 { "sending_status", n => { SendingStatus = n.GetDoubleValue(); } },
@@ -182,15 +203,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("action_pending", ActionPending);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemActivityType>("activity_type", ActivityType);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode>("error_code", ErrorCode);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemErrorCode>("error_code", ErrorCode);
             writer.WriteDoubleValue("estimated_time_saved_seconds", EstimatedTimeSavedSeconds);
             writer.WriteDoubleValue("followup_number", FollowupNumber);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("information_requested", InformationRequested);
             writer.WriteBoolValue("is_followup", IsFollowup);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType>("job_type", JobType);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemJobType>("job_type", JobType);
             writer.WriteStringValue("lead_email", LeadEmail);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod>("recovery_method", RecoveryMethod);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListInboxManagerActivity200ResponseItemsItemRecoveryMethod>("recovery_method", RecoveryMethod);
             writer.WriteBoolValue("requires_hitl", RequiresHitl);
             writer.WriteDoubleValue("revenue_recovered", RevenueRecovered);
             writer.WriteDoubleValue("sending_status", SendingStatus);

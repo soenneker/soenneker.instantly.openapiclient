@@ -30,8 +30,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         }
 
         /// <summary>The filter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter? _explicitNullValueFilter = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter _explicitNullValueFilter = default!;
+#endif
         /// <summary>The search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,7 +97,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filter", n => { Filter = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter>(); } },
+                { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter>(global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter.CreateFromDiscriminatorValue); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "tag_id", n => { TagId = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagId>(global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagId.CreateFromDiscriminatorValue); } },
                 { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -104,7 +111,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter>("filter", Filter);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2Filter>("filter", Filter);
             writer.WriteStringValue("search", Search);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilterOneOf2TagId>("tag_id", TagId);
             writer.WriteCollectionOfPrimitiveValues<string>("tag_ids", TagIds);

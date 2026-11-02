@@ -59,8 +59,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? ExistingQuantity { get => _explicitNullValueExistingQuantity; set { _explicitNullValueExistingQuantity = value; AdditionalData?.Remove("existing_quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_quantity"); else _explicitNullProperties?.Remove("existing_quantity"); } }
         private double? _explicitNullValueExistingQuantity = default!;
         /// <summary>The current billing interval for the Instantly Credits add-on subscription.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval? _explicitNullValueInterval = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval _explicitNullValueInterval = default!;
+#endif
         /// <summary>Maximum additional units selectable in one update.</summary>
         public double? MaxQuantity { get => _explicitNullValueMaxQuantity; set { _explicitNullValueMaxQuantity = value; AdditionalData?.Remove("max_quantity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_quantity"); else _explicitNullProperties?.Remove("max_quantity"); } }
         private double? _explicitNullValueMaxQuantity = default!;
@@ -113,7 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "annual_unit_credits", n => { AnnualUnitCredits = n.GetDoubleValue(); } },
                 { "can_purchase", n => { CanPurchase = n.GetBoolValue(); } },
                 { "existing_quantity", n => { ExistingQuantity = n.GetDoubleValue(); } },
-                { "interval", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterval = default; _explicitNullProperties?.Remove("interval"); AdditionalData["interval"] = unknown; } else { Interval = parsed; AdditionalData.Remove("interval"); } } },
+                { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval.CreateFromDiscriminatorValue); } },
                 { "max_quantity", n => { MaxQuantity = n.GetDoubleValue(); } },
                 { "monthly_price_in_dollars", n => { MonthlyPriceInDollars = n.GetDoubleValue(); } },
                 { "product_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProductId = default; _explicitNullProperties?.Remove("product_id"); AdditionalData["product_id"] = unknown; } else { ProductId = parsed; AdditionalData.Remove("product_id"); } } },
@@ -133,7 +140,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("annual_unit_credits", AnnualUnitCredits);
             writer.WriteBoolValue("can_purchase", CanPurchase);
             writer.WriteDoubleValue("existing_quantity", ExistingQuantity);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval>("interval", Interval);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddonsCreditsInterval>("interval", Interval);
             writer.WriteDoubleValue("max_quantity", MaxQuantity);
             writer.WriteDoubleValue("monthly_price_in_dollars", MonthlyPriceInDollars);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1ProductId>("product_id", ProductId);

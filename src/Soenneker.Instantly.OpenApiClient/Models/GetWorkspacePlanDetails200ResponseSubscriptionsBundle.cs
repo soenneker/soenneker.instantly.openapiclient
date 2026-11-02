@@ -52,8 +52,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? CurrentPeriodEnd { get => _explicitNullValueCurrentPeriodEnd; set { _explicitNullValueCurrentPeriodEnd = value; AdditionalData?.Remove("current_period_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_period_end"); else _explicitNullProperties?.Remove("current_period_end"); } }
         private double? _explicitNullValueCurrentPeriodEnd = default!;
         /// <summary>The interval property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval? _explicitNullValueInterval = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval _explicitNullValueInterval = default!;
+#endif
         /// <summary>The plan_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,8 +75,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? PriceInDollars { get => _explicitNullValuePriceInDollars; set { _explicitNullValuePriceInDollars = value; AdditionalData?.Remove("price_in_dollars"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("price_in_dollars"); else _explicitNullProperties?.Remove("price_in_dollars"); } }
         private double? _explicitNullValuePriceInDollars = default!;
         /// <summary>The product_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId? ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; AdditionalData?.Remove("product_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId? _explicitNullValueProductId = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId ProductId { get => _explicitNullValueProductId; set { _explicitNullValueProductId = value; AdditionalData?.Remove("product_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product_id"); else _explicitNullProperties?.Remove("product_id"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId _explicitNullValueProductId = default!;
+#endif
         /// <summary>Total bundled Outreach contact limit</summary>
         public double? TotalLeadLimit { get => _explicitNullValueTotalLeadLimit; set { _explicitNullValueTotalLeadLimit = value; AdditionalData?.Remove("total_lead_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_lead_limit"); else _explicitNullProperties?.Remove("total_lead_limit"); } }
         private double? _explicitNullValueTotalLeadLimit = default!;
@@ -102,10 +116,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "cancel_at_time", n => { CancelAtTime = n.GetDoubleValue(); } },
                 { "current_lead_count", n => { CurrentLeadCount = n.GetDoubleValue(); } },
                 { "current_period_end", n => { CurrentPeriodEnd = n.GetDoubleValue(); } },
-                { "interval", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterval = default; _explicitNullProperties?.Remove("interval"); AdditionalData["interval"] = unknown; } else { Interval = parsed; AdditionalData.Remove("interval"); } } },
+                { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval.CreateFromDiscriminatorValue); } },
                 { "plan_name", n => { PlanName = n.GetStringValue(); } },
                 { "price_in_dollars", n => { PriceInDollars = n.GetDoubleValue(); } },
-                { "product_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProductId = default; _explicitNullProperties?.Remove("product_id"); AdditionalData["product_id"] = unknown; } else { ProductId = parsed; AdditionalData.Remove("product_id"); } } },
+                { "product_id", n => { ProductId = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId.CreateFromDiscriminatorValue); } },
                 { "total_lead_limit", n => { TotalLeadLimit = n.GetDoubleValue(); } },
             };
         }
@@ -120,10 +134,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("cancel_at_time", CancelAtTime);
             writer.WriteDoubleValue("current_lead_count", CurrentLeadCount);
             writer.WriteDoubleValue("current_period_end", CurrentPeriodEnd);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval>("interval", Interval);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleInterval>("interval", Interval);
             writer.WriteStringValue("plan_name", PlanName);
             writer.WriteDoubleValue("price_in_dollars", PriceInDollars);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId>("product_id", ProductId);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundleProductId>("product_id", ProductId);
             writer.WriteDoubleValue("total_lead_limit", TotalLeadLimit);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

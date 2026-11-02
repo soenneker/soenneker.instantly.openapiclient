@@ -51,6 +51,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         AccountDailyLimitMet,
         #pragma warning restore CS1591
+        [EnumMember(Value = "account_slow_ramp_limit_met")]
+        #pragma warning disable CS1591
+        AccountSlowRampLimitMet,
+        #pragma warning restore CS1591
         [EnumMember(Value = "new_lead_limit_met")]
         #pragma warning disable CS1591
         NewLeadLimitMet,

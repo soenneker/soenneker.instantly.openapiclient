@@ -29,8 +29,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         }
 
         /// <summary>How much autonomy the agent runs with. Null for agent types that have no autonomy setting, and for agents whose mode is not configured yet.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode? ConfigurationMode { get => _explicitNullValueConfigurationMode; set { _explicitNullValueConfigurationMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_mode"); else _explicitNullProperties?.Remove("configuration_mode"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode? _explicitNullValueConfigurationMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode ConfigurationMode { get => _explicitNullValueConfigurationMode; set { _explicitNullValueConfigurationMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_mode"); else _explicitNullProperties?.Remove("configuration_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode _explicitNullValueConfigurationMode = default!;
+#endif
         /// <summary>Unique identifier for the AI agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,7 +96,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuration_mode", n => { ConfigurationMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode>(); } },
+                { "configuration_mode", n => { ConfigurationMode = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
@@ -105,7 +112,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode>("configuration_mode", ConfigurationMode);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentSummaryConfigurationMode>("configuration_mode", ConfigurationMode);
             writer.WriteStringValue("name", Name);
             writer.WriteDoubleValue("status", Status);
             writer.WriteDoubleValue("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

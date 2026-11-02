@@ -79,8 +79,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         private string _explicitNullValueCampaignId = default!;
 #endif
         /// <summary>Whether to send emails one by one or all together</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode? DeliveryMode { get => _explicitNullValueDeliveryMode; set { _explicitNullValueDeliveryMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_mode"); else _explicitNullProperties?.Remove("delivery_mode"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode? _explicitNullValueDeliveryMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode DeliveryMode { get => _explicitNullValueDeliveryMode; set { _explicitNullValueDeliveryMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivery_mode"); else _explicitNullProperties?.Remove("delivery_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode _explicitNullValueDeliveryMode = default!;
+#endif
         /// <summary>Description of the inbox placement test</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -219,7 +226,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestAutomationsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestAutomationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
-                { "delivery_mode", n => { DeliveryMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode>(); } },
+                { "delivery_mode", n => { DeliveryMode = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode>(global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "email_body", n => { EmailBody = n.GetStringValue(); } },
                 { "email_subject", n => { EmailSubject = n.GetStringValue(); } },
@@ -247,7 +254,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestAutomationsItem>("automations", Automations);
             writer.WriteStringValue("campaign_id", CampaignId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode>("delivery_mode", DeliveryMode);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateInboxPlacementTestRequestDeliveryMode>("delivery_mode", DeliveryMode);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("email_body", EmailBody);
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);

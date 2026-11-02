@@ -43,8 +43,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         private string _explicitNullValueForwardingDomain = default!;
 #endif
         /// <summary>How the forwarding domain is applied. Null when no forwarding is configured.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode? ForwardingMode { get => _explicitNullValueForwardingMode; set { _explicitNullValueForwardingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_mode"); else _explicitNullProperties?.Remove("forwarding_mode"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode? _explicitNullValueForwardingMode = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode ForwardingMode { get => _explicitNullValueForwardingMode; set { _explicitNullValueForwardingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwarding_mode"); else _explicitNullProperties?.Remove("forwarding_mode"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode _explicitNullValueForwardingMode = default!;
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "forwarding_domain", n => { ForwardingDomain = n.GetStringValue(); } },
-                { "forwarding_mode", n => { ForwardingMode = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode>(); } },
+                { "forwarding_mode", n => { ForwardingMode = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode>(global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,7 +83,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("forwarding_domain", ForwardingDomain);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode>("forwarding_mode", ForwardingMode);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.DomainForwardingForwardingMode>("forwarding_mode", ForwardingMode);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

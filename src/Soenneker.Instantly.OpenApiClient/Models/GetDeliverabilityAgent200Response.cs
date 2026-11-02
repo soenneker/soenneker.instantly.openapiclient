@@ -23,15 +23,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agent property</summary>
+        /// <summary>An AI agent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent? _explicitNullValueAgent = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent _explicitNullValueAgent = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent _explicitNullValueAgent = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200Response"/> and sets the default values.
@@ -58,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgent>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgent.CreateFromDiscriminatorValue); } },
+                { "agent", n => { Agent = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent>(global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgent>("agent", Agent);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetDeliverabilityAgent200ResponseAgent>("agent", Agent);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

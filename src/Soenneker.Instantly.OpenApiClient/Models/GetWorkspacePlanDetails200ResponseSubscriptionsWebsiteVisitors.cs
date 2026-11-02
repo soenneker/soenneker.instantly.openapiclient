@@ -47,8 +47,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public double? CurrentPeriodEnd { get => _explicitNullValueCurrentPeriodEnd; set { _explicitNullValueCurrentPeriodEnd = value; AdditionalData?.Remove("current_period_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_period_end"); else _explicitNullProperties?.Remove("current_period_end"); } }
         private double? _explicitNullValueCurrentPeriodEnd = default!;
         /// <summary>The interval property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval? Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval? _explicitNullValueInterval = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval Interval { get => _explicitNullValueInterval; set { _explicitNullValueInterval = value; AdditionalData?.Remove("interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interval"); else _explicitNullProperties?.Remove("interval"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval _explicitNullValueInterval = default!;
+#endif
         /// <summary>The plan_limit property</summary>
         public double? PlanLimit { get => _explicitNullValuePlanLimit; set { _explicitNullValuePlanLimit = value; AdditionalData?.Remove("plan_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_limit"); else _explicitNullProperties?.Remove("plan_limit"); } }
         private double? _explicitNullValuePlanLimit = default!;
@@ -103,7 +110,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "available_credits", n => { AvailableCredits = n.GetDoubleValue(); } },
                 { "cancel_at_time", n => { CancelAtTime = n.GetDoubleValue(); } },
                 { "current_period_end", n => { CurrentPeriodEnd = n.GetDoubleValue(); } },
-                { "interval", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInterval = default; _explicitNullProperties?.Remove("interval"); AdditionalData["interval"] = unknown; } else { Interval = parsed; AdditionalData.Remove("interval"); } } },
+                { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval.CreateFromDiscriminatorValue); } },
                 { "plan_limit", n => { PlanLimit = n.GetDoubleValue(); } },
                 { "plan_name", n => { PlanName = n.GetStringValue(); } },
                 { "price_in_dollars", n => { PriceInDollars = n.GetDoubleValue(); } },
@@ -120,7 +127,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("available_credits", AvailableCredits);
             writer.WriteDoubleValue("cancel_at_time", CancelAtTime);
             writer.WriteDoubleValue("current_period_end", CurrentPeriodEnd);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval>("interval", Interval);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsWebsiteVisitorsInterval>("interval", Interval);
             writer.WriteDoubleValue("plan_limit", PlanLimit);
             writer.WriteStringValue("plan_name", PlanName);
             writer.WriteDoubleValue("price_in_dollars", PriceInDollars);
