@@ -11,6 +11,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns;
+using Soenneker.Instantly.OpenApiClient.Api.V2.CreatorSearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTagMappings;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags;
@@ -24,6 +25,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads;
+using Soenneker.Instantly.OpenApiClient.Api.V2.LocalBusinessSearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences;
 using Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment;
@@ -90,6 +92,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns.CampaignsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The creatorSearch property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.CreatorSearch.CreatorSearchRequestBuilder CreatorSearch
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.CreatorSearch.CreatorSearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The crmActions property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.CrmActions.CrmActionsRequestBuilder CrmActions
         {
@@ -154,6 +161,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsRequestBuilder Leads
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The localBusinessSearch property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.LocalBusinessSearch.LocalBusinessSearchRequestBuilder LocalBusinessSearch
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.LocalBusinessSearch.LocalBusinessSearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oauth property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Oauth.OauthRequestBuilder Oauth
