@@ -101,7 +101,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTagMappings
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>The list of resource ids to filter custom tag mappings by. A resource id is the id of an account or a campaign.</summary>
+            /// <summary>The list of resource ids to filter custom tag mappings by. A resource id is the id of an account, a campaign or a workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("resource_ids")]

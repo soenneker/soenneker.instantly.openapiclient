@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
         {
         }
         /// <summary>
-        /// This can be used for both accounts and campaigns. Please check the `resource_type` field for more information.
+        /// This can be used for accounts, campaigns and workspaces. Please check the `resource_type` field for more information. Tagging a workspace requires a user-authenticated request and is not available with an API key. Workspaces you can tag are your own workspace and the workspaces that have accepted an invitation to your workspace group; any other workspace id is reported as not found. A workspace tag is stored in your workspace, so the workspace being tagged is not modified and does not see the tag.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResource200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags.ToggleResource
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResource200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResource200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This can be used for both accounts and campaigns. Please check the `resource_type` field for more information.
+        /// This can be used for accounts, campaigns and workspaces. Please check the `resource_type` field for more information. Tagging a workspace requires a user-authenticated request and is not available with an API key. Workspaces you can tag are your own workspace and the workspaces that have accepted an invitation to your workspace group; any other workspace id is reported as not found. A workspace tag is stored in your workspace, so the workspace being tagged is not modified and does not see the tag.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

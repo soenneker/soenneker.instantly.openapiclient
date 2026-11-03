@@ -17,8 +17,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("billing_shared") is null) { _explicitNullValueBillingShared = default!; _explicitNullProperties?.Remove("billing_shared"); }
+            else if (parseNode.GetChildNode("billing_shared") is { } nullNodeBillingShared && nullNodeBillingShared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingShared = null;
             if (parseNode.GetChildNode("has_admin_workspace") is null) { _explicitNullValueHasAdminWorkspace = default!; _explicitNullProperties?.Remove("has_admin_workspace"); }
             else if (parseNode.GetChildNode("has_admin_workspace") is { } nullNodeHasAdminWorkspace && nullNodeHasAdminWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasAdminWorkspace = null;
+            if (parseNode.GetChildNode("has_pending_invitation") is null) { _explicitNullValueHasPendingInvitation = default!; _explicitNullProperties?.Remove("has_pending_invitation"); }
+            else if (parseNode.GetChildNode("has_pending_invitation") is { } nullNodeHasPendingInvitation && nullNodeHasPendingInvitation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasPendingInvitation = null;
+            if (parseNode.GetChildNode("pending_admin_workspace_name") is null) { _explicitNullValuePendingAdminWorkspaceName = default!; _explicitNullProperties?.Remove("pending_admin_workspace_name"); }
+            else if (parseNode.GetChildNode("pending_admin_workspace_name") is { } nullNodePendingAdminWorkspaceName && nullNodePendingAdminWorkspaceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingAdminWorkspaceName = null;
             if (parseNode.GetChildNode("workspace_group_member_id") is null) { _explicitNullValueWorkspaceGroupMemberId = default!; _explicitNullProperties?.Remove("workspace_group_member_id"); }
             else if (parseNode.GetChildNode("workspace_group_member_id") is { } nullNodeWorkspaceGroupMemberId && nullNodeWorkspaceGroupMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceGroupMemberId = null;
             if (parseNode.GetChildNode("workspace_name") is null) { _explicitNullValueWorkspaceName = default!; _explicitNullProperties?.Remove("workspace_name"); }
@@ -27,9 +33,25 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether this workspace draws on the admin workspace&apos;s credits and add-ons rather than its own. Omitted when the workspace has no admin workspace, because the setting does not apply.</summary>
+        public bool? BillingShared { get => _explicitNullValueBillingShared; set { _explicitNullValueBillingShared = value; AdditionalData?.Remove("billing_shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_shared"); else _explicitNullProperties?.Remove("billing_shared"); } }
+        private bool? _explicitNullValueBillingShared = default!;
         /// <summary>Whether the current workspace has an admin workspace</summary>
         public bool? HasAdminWorkspace { get => _explicitNullValueHasAdminWorkspace; set { _explicitNullValueHasAdminWorkspace = value; AdditionalData?.Remove("has_admin_workspace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_admin_workspace"); else _explicitNullProperties?.Remove("has_admin_workspace"); } }
         private bool? _explicitNullValueHasAdminWorkspace = default!;
+        /// <summary>Whether this workspace has been invited to another workspace&apos;s group and has not yet accepted or rejected. A pending invitation blocks the workspace from adding sub workspaces of its own, so it is reported separately from has_admin_workspace, which covers accepted memberships only.</summary>
+        public bool? HasPendingInvitation { get => _explicitNullValueHasPendingInvitation; set { _explicitNullValueHasPendingInvitation = value; AdditionalData?.Remove("has_pending_invitation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_pending_invitation"); else _explicitNullProperties?.Remove("has_pending_invitation"); } }
+        private bool? _explicitNullValueHasPendingInvitation = default!;
+        /// <summary>The name of the workspace whose invitation is awaiting an answer. Omitted unless has_pending_invitation is true.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PendingAdminWorkspaceName { get => _explicitNullValuePendingAdminWorkspaceName; set { _explicitNullValuePendingAdminWorkspaceName = value; AdditionalData?.Remove("pending_admin_workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_admin_workspace_name"); else _explicitNullProperties?.Remove("pending_admin_workspace_name"); } }
+        private string? _explicitNullValuePendingAdminWorkspaceName = default!;
+#nullable restore
+#else
+        public string PendingAdminWorkspaceName { get => _explicitNullValuePendingAdminWorkspaceName; set { _explicitNullValuePendingAdminWorkspaceName = value; AdditionalData?.Remove("pending_admin_workspace_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_admin_workspace_name"); else _explicitNullProperties?.Remove("pending_admin_workspace_name"); } }
+        private string _explicitNullValuePendingAdminWorkspaceName = default!;
+#endif
         /// <summary>The id of the workspace group member. You can use it to leave the admin workspace by calling the DELETE /workspace-group-members/:id endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +97,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "billing_shared", n => { BillingShared = n.GetBoolValue(); } },
                 { "has_admin_workspace", n => { HasAdminWorkspace = n.GetBoolValue(); } },
+                { "has_pending_invitation", n => { HasPendingInvitation = n.GetBoolValue(); } },
+                { "pending_admin_workspace_name", n => { PendingAdminWorkspaceName = n.GetStringValue(); } },
                 { "workspace_group_member_id", n => { WorkspaceGroupMemberId = n.GetStringValue(); } },
                 { "workspace_name", n => { WorkspaceName = n.GetStringValue(); } },
             };
@@ -87,7 +112,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("billing_shared", BillingShared);
             writer.WriteBoolValue("has_admin_workspace", HasAdminWorkspace);
+            writer.WriteBoolValue("has_pending_invitation", HasPendingInvitation);
+            writer.WriteStringValue("pending_admin_workspace_name", PendingAdminWorkspaceName);
             writer.WriteStringValue("workspace_group_member_id", WorkspaceGroupMemberId);
             writer.WriteStringValue("workspace_name", WorkspaceName);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

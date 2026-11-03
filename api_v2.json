@@ -6554,7 +6554,7 @@
               "null",
               "string"
             ],
-            "description": "Plan ID of a legacy CRM subscription. The CRM plan is no longer sold; CRM is included in Hyper Growth and higher plans.",
+            "description": "Plan ID of the workspace CRM subscription, if any. CRM is included in Hyper Growth and higher plans.",
             "readOnly": true,
             "example": "pid_crm_hg"
           },
@@ -6741,6 +6741,11 @@
             },
             "example": "accepted"
           },
+          "billing_shared": {
+            "type": "boolean",
+            "description": "Whether the sub workspace draws on the admin workspace\u0027s credits and add-ons rather than buying its own. Defaults to true.",
+            "example": true
+          },
           "timestamp_created": {
             "type": "string",
             "readOnly": true,
@@ -6777,6 +6782,7 @@
           "admin_workspace_id",
           "sub_workspace_id",
           "status",
+          "billing_shared",
           "timestamp_created",
           "timestamp_updated"
         ],
@@ -27153,7 +27159,7 @@
             "in": "query",
             "name": "resource_ids",
             "required": false,
-            "description": "The list of resource ids to filter custom tag mappings by. A resource id is the id of an account or a campaign."
+            "description": "The list of resource ids to filter custom tag mappings by. A resource id is the id of an account, a campaign or a workspace."
           }
         ],
         "responses": {
@@ -27739,7 +27745,7 @@
             "in": "query",
             "name": "resource_ids",
             "required": false,
-            "description": "The list of resource ids to filter custom tags by. A resource id is the id of an account or a campaign."
+            "description": "The list of resource ids to filter custom tags by. A resource id is the id of an account, a campaign or a workspace."
           },
           {
             "schema": {
@@ -28932,7 +28938,7 @@
         "tags": [
           "CustomTag"
         ],
-        "description": "This can be used for both accounts and campaigns. Please check the \u0060resource_type\u0060 field for more information.",
+        "description": "This can be used for accounts, campaigns and workspaces. Please check the \u0060resource_type\u0060 field for more information. Tagging a workspace requires a user-authenticated request and is not available with an API key. Workspaces you can tag are your own workspace and the workspaces that have accepted an invitation to your workspace group; any other workspace id is reported as not found. A workspace tag is stored in your workspace, so the workspace being tagged is not modified and does not see the tag.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -28960,7 +28966,7 @@
                     "x-enumDescriptions": {
                       "1": "Account",
                       "2": "Campaign",
-                      "3": "Workspace"
+                      "3": "Workspace. Requires a user-authenticated request; not available with an API key."
                     },
                     "example": 1
                   },
@@ -28971,7 +28977,7 @@
                       "type": "string",
                       "example": "resource-1"
                     },
-                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign. Required unless \u0060selected_all\u0060 is \u0060true\u0060."
+                    "description": "The list of resource ids to assign or unassign. A resource id is the id of an account, a campaign or a workspace, matching \u0060resource_type\u0060. Required unless \u0060selected_all\u0060 is \u0060true\u0060."
                   },
                   "excluded_resource_ids": {
                     "type": "array",
@@ -57173,6 +57179,11 @@
                     "type": "string",
                     "description": "The id of the sub workspace",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "billing_shared": {
+                    "type": "boolean",
+                    "description": "Whether the sub workspace draws on the admin workspace\u0027s credits and add-ons rather than buying its own. Defaults to true.",
+                    "example": true
                   }
                 },
                 "required": [
@@ -58157,11 +58168,27 @@
                       "description": "The id of the workspace group member. You can use it to leave the admin workspace by calling the DELETE /workspace-group-members/:id endpoint",
                       "type": "string",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                    },
+                    "billing_shared": {
+                      "description": "Whether this workspace draws on the admin workspace\u0027s credits and add-ons rather than its own. Omitted when the workspace has no admin workspace, because the setting does not apply.",
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "has_pending_invitation": {
+                      "description": "Whether this workspace has been invited to another workspace\u0027s group and has not yet accepted or rejected. A pending invitation blocks the workspace from adding sub workspaces of its own, so it is reported separately from has_admin_workspace, which covers accepted memberships only.",
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "pending_admin_workspace_name": {
+                      "description": "The name of the workspace whose invitation is awaiting an answer. Omitted unless has_pending_invitation is true.",
+                      "type": "string",
+                      "example": "My Workspace"
                     }
                   },
                   "required": [
                     "workspace_name",
-                    "has_admin_workspace"
+                    "has_admin_workspace",
+                    "has_pending_invitation"
                   ]
                 }
               }
@@ -74756,7 +74783,6 @@
                   },
                   "search_filters": {
                     "type": "object",
-                    "description": "Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -74768,7 +74794,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -74824,6 +74849,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -74840,15 +74866,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -74907,6 +74932,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -74923,8 +74949,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -74987,6 +75012,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -75003,14 +75029,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
                             },
+                            "description": "Locations to include or exclude in the search",
                             "additionalProperties": false
                           }
                         ]
@@ -75095,7 +75121,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -75128,7 +75153,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -75161,11 +75185,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -75198,11 +75222,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -75241,6 +75265,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -75262,12 +75288,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -75306,6 +75330,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -75327,11 +75353,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -75439,11 +75465,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. Cannot be combined with \u0060jobListing\u0060 on this endpoint."
                       },
                       "title": {
@@ -75518,7 +75544,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -75569,11 +75594,11 @@
                             "description": "Business types of the lead company to exclude from the search"
                           }
                         },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "additionalProperties": false
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -75608,6 +75633,7 @@
                             "description": "Customer types of the lead company to exclude from the search"
                           }
                         },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "additionalProperties": false
                       },
                       "look_alike": {
@@ -76516,9 +76542,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -76555,7 +76578,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -76566,11 +76588,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -76597,6 +76623,7 @@
                         "example": "contact"
                       }
                     },
+                    "description": "Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.",
                     "allOf": [
                       {
                         "not": {
@@ -76680,7 +76707,6 @@
                   },
                   "fallback_search_filters": {
                     "type": "object",
-                    "description": "Broadened audience used when the primary search is exhausted. Required when \u0060on_exhaustion\u0060 is \u0060fallback\u0060.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -76692,7 +76718,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -76748,6 +76773,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -76764,15 +76790,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -76831,6 +76856,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -76847,8 +76873,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -76911,6 +76936,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -76927,14 +76953,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
                             },
+                            "description": "Locations to include or exclude in the search",
                             "additionalProperties": false
                           }
                         ]
@@ -77019,7 +77045,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -77052,7 +77077,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -77085,11 +77109,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -77122,11 +77146,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -77165,6 +77189,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -77186,12 +77212,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -77230,6 +77254,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -77251,11 +77277,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -77363,11 +77389,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. Cannot be combined with \u0060jobListing\u0060 on this endpoint."
                       },
                       "title": {
@@ -77442,7 +77468,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -77493,11 +77518,11 @@
                             "description": "Business types of the lead company to exclude from the search"
                           }
                         },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "additionalProperties": false
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -77532,6 +77557,7 @@
                             "description": "Customer types of the lead company to exclude from the search"
                           }
                         },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "additionalProperties": false
                       },
                       "look_alike": {
@@ -78440,9 +78466,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -78479,7 +78502,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -78490,11 +78512,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -78521,6 +78547,7 @@
                         "example": "contact"
                       }
                     },
+                    "description": "Broadened audience used when the primary search is exhausted. Required when \u0060on_exhaustion\u0060 is \u0060fallback\u0060.",
                     "allOf": [
                       {
                         "not": {
@@ -79256,7 +79283,6 @@
                   },
                   "search_filters": {
                     "type": "object",
-                    "description": "Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -79268,7 +79294,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -79324,6 +79349,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -79340,15 +79366,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -79407,6 +79432,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -79423,8 +79449,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -79487,6 +79512,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -79503,14 +79529,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
                             },
+                            "description": "Locations to include or exclude in the search",
                             "additionalProperties": false
                           }
                         ]
@@ -79595,7 +79621,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -79628,7 +79653,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -79661,11 +79685,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -79698,11 +79722,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -79741,6 +79765,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -79762,12 +79788,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -79806,6 +79830,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -79827,11 +79853,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -79939,11 +79965,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. Cannot be combined with \u0060jobListing\u0060 on this endpoint."
                       },
                       "title": {
@@ -80018,7 +80044,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -80069,11 +80094,11 @@
                             "description": "Business types of the lead company to exclude from the search"
                           }
                         },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "additionalProperties": false
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -80108,6 +80133,7 @@
                             "description": "Customer types of the lead company to exclude from the search"
                           }
                         },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "additionalProperties": false
                       },
                       "look_alike": {
@@ -81016,9 +81042,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -81055,7 +81078,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -81066,11 +81088,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -81097,6 +81123,7 @@
                         "example": "contact"
                       }
                     },
+                    "description": "Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.",
                     "allOf": [
                       {
                         "not": {
@@ -81182,7 +81209,6 @@
                     "anyOf": [
                       {
                         "type": "object",
-                        "description": "Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.",
                         "properties": {
                           "company_list_id": {
                             "type": "string",
@@ -81197,7 +81223,6 @@
                             "oneOf": [
                               {
                                 "type": "array",
-                                "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                                 "items": {
                                   "oneOf": [
                                     {
@@ -81253,6 +81278,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -81269,15 +81295,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
-                                }
+                                },
+                                "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                               },
                               {
                                 "type": "object",
-                                "description": "Locations to include or exclude in the search",
                                 "properties": {
                                   "include": {
                                     "type": "array",
@@ -81336,6 +81361,7 @@
                                               "example": "United States"
                                             }
                                           },
+                                          "additionalProperties": false,
                                           "anyOf": [
                                             {
                                               "required": [
@@ -81352,8 +81378,7 @@
                                                 "country"
                                               ]
                                             }
-                                          ],
-                                          "additionalProperties": false
+                                          ]
                                         }
                                       ]
                                     },
@@ -81416,6 +81441,7 @@
                                               "example": "United States"
                                             }
                                           },
+                                          "additionalProperties": false,
                                           "anyOf": [
                                             {
                                               "required": [
@@ -81432,14 +81458,14 @@
                                                 "country"
                                               ]
                                             }
-                                          ],
-                                          "additionalProperties": false
+                                          ]
                                         }
                                       ]
                                     },
                                     "description": "Locations to exclude from the search"
                                   }
                                 },
+                                "description": "Locations to include or exclude in the search",
                                 "additionalProperties": false
                               }
                             ]
@@ -81534,7 +81560,6 @@
                           },
                           "employeeCount": {
                             "type": "array",
-                            "description": "Employee count filters.",
                             "items": {
                               "oneOf": [
                                 {
@@ -81567,7 +81592,6 @@
                                 },
                                 {
                                   "type": "object",
-                                  "description": "Employee count greater-than-or-equal range",
                                   "properties": {
                                     "op": {
                                       "type": "string",
@@ -81600,11 +81624,11 @@
                                     "op",
                                     "min"
                                   ],
-                                  "additionalProperties": false
+                                  "additionalProperties": false,
+                                  "description": "Employee count greater-than-or-equal range"
                                 },
                                 {
                                   "type": "object",
-                                  "description": "Employee count less-than-or-equal range",
                                   "properties": {
                                     "op": {
                                       "type": "string",
@@ -81637,11 +81661,11 @@
                                     "op",
                                     "max"
                                   ],
-                                  "additionalProperties": false
+                                  "additionalProperties": false,
+                                  "description": "Employee count less-than-or-equal range"
                                 },
                                 {
                                   "type": "object",
-                                  "description": "Custom employee count bounded range",
                                   "properties": {
                                     "op": {
                                       "type": "string",
@@ -81680,6 +81704,8 @@
                                   "required": [
                                     "op"
                                   ],
+                                  "additionalProperties": false,
+                                  "description": "Custom employee count bounded range",
                                   "anyOf": [
                                     {
                                       "required": [
@@ -81701,12 +81727,10 @@
                                         }
                                       }
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 },
                                 {
                                   "type": "object",
-                                  "description": "Preset employee count bounded range",
                                   "properties": {
                                     "op": {
                                       "type": "string",
@@ -81745,6 +81769,8 @@
                                   "required": [
                                     "op"
                                   ],
+                                  "additionalProperties": false,
+                                  "description": "Preset employee count bounded range",
                                   "anyOf": [
                                     {
                                       "required": [
@@ -81766,11 +81792,11 @@
                                         }
                                       }
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Employee count filters."
                           },
                           "revenue": {
                             "type": "array",
@@ -81892,7 +81918,6 @@
                           },
                           "jobListingFilter": {
                             "type": "array",
-                            "deprecated": true,
                             "items": {
                               "type": "string",
                               "examples": [
@@ -81901,6 +81926,7 @@
                               ],
                               "example": "Software Engineer"
                             },
+                            "deprecated": true,
                             "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. Cannot be combined with \u0060jobListing\u0060 on this endpoint."
                           },
                           "title": {
@@ -82005,7 +82031,6 @@
                           },
                           "businessType": {
                             "type": "object",
-                            "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -82063,11 +82088,11 @@
                                 "description": "Business types of the lead company to exclude from the search"
                               }
                             },
+                            "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                             "additionalProperties": false
                           },
                           "customerType": {
                             "type": "object",
-                            "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -82108,6 +82133,7 @@
                                 "description": "Customer types of the lead company to exclude from the search"
                               }
                             },
+                            "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                             "additionalProperties": false
                           },
                           "look_alike": {
@@ -83076,9 +83102,6 @@
                                 },
                                 {
                                   "type": "object",
-                                  "required": [
-                                    "key"
-                                  ],
                                   "properties": {
                                     "key": {
                                       "type": "string",
@@ -83115,7 +83138,6 @@
                                         },
                                         {
                                           "type": "object",
-                                          "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                           "additionalProperties": {
                                             "type": "array",
                                             "items": {
@@ -83126,11 +83148,15 @@
                                               ],
                                               "example": "security"
                                             }
-                                          }
+                                          },
+                                          "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                         }
                                       ]
                                     }
                                   },
+                                  "required": [
+                                    "key"
+                                  ],
                                   "additionalProperties": false
                                 }
                               ]
@@ -83167,6 +83193,7 @@
                             "example": "contact"
                           }
                         },
+                        "description": "Audience search filters in the SuperSearch format. Unknown keys are rejected: the search would otherwise silently ignore them and return unfiltered results. Enum values are matched literally, including spacing.",
                         "examples": [
                           {
                             "title": {
@@ -108893,7 +108920,6 @@
                 "properties": {
                   "search_filters": {
                     "type": "object",
-                    "description": "Search filters to find leads.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -108905,7 +108931,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -108961,6 +108986,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -108977,15 +109003,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -109044,6 +109069,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -109060,8 +109086,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -109124,6 +109149,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -109140,14 +109166,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
-                            }
+                            },
+                            "description": "Locations to include or exclude in the search"
                           }
                         ]
                       },
@@ -109231,7 +109257,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -109264,7 +109289,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -109297,11 +109321,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -109334,11 +109358,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -109377,6 +109401,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -109398,12 +109424,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -109442,6 +109466,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -109463,11 +109489,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -109575,11 +109601,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence."
                       },
                       "title": {
@@ -109652,7 +109678,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -109702,11 +109727,11 @@
                             },
                             "description": "Business types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -109740,7 +109765,8 @@
                             },
                             "description": "Customer types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
                       },
                       "look_alike": {
                         "type": "string",
@@ -110612,9 +110638,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -110651,7 +110674,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -110662,11 +110684,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -110692,7 +110718,8 @@
                         "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
                         "example": "contact"
                       }
-                    }
+                    },
+                    "description": "Search filters to find leads."
                   },
                   "search_name": {
                     "type": "string",
@@ -111602,7 +111629,6 @@
                 "properties": {
                   "search_filters": {
                     "type": "object",
-                    "description": "Search filters to find leads.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -111614,7 +111640,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -111670,6 +111695,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -111686,15 +111712,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -111753,6 +111778,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -111769,8 +111795,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -111833,6 +111858,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -111849,14 +111875,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
-                            }
+                            },
+                            "description": "Locations to include or exclude in the search"
                           }
                         ]
                       },
@@ -111940,7 +111966,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -111973,7 +111998,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -112006,11 +112030,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -112043,11 +112067,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -112086,6 +112110,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -112107,12 +112133,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -112151,6 +112175,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -112172,11 +112198,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -112284,11 +112310,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence."
                       },
                       "title": {
@@ -112361,7 +112387,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -112411,11 +112436,11 @@
                             },
                             "description": "Business types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -112449,7 +112474,8 @@
                             },
                             "description": "Customer types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
                       },
                       "look_alike": {
                         "type": "string",
@@ -113321,9 +113347,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -113360,7 +113383,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -113371,11 +113393,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -113401,7 +113427,8 @@
                         "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
                         "example": "contact"
                       }
-                    }
+                    },
+                    "description": "Search filters to find leads."
                   },
                   "skip_owned_leads": {
                     "type": "boolean",
@@ -113414,10 +113441,10 @@
                     "example": true
                   }
                 },
-                "additionalProperties": false,
                 "required": [
                   "search_filters"
-                ]
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -113714,7 +113741,6 @@
                 "properties": {
                   "search_filters": {
                     "type": "object",
-                    "description": "Search filters to find leads.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -113726,7 +113752,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -113782,6 +113807,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -113798,15 +113824,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -113865,6 +113890,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -113881,8 +113907,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -113945,6 +113970,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -113961,14 +113987,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
-                            }
+                            },
+                            "description": "Locations to include or exclude in the search"
                           }
                         ]
                       },
@@ -114052,7 +114078,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -114085,7 +114110,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -114118,11 +114142,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -114155,11 +114179,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -114198,6 +114222,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -114219,12 +114245,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -114263,6 +114287,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -114284,11 +114310,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -114396,11 +114422,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence."
                       },
                       "title": {
@@ -114473,7 +114499,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -114523,11 +114548,11 @@
                             },
                             "description": "Business types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -114561,7 +114586,8 @@
                             },
                             "description": "Customer types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
                       },
                       "look_alike": {
                         "type": "string",
@@ -115433,9 +115459,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -115472,7 +115495,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -115483,11 +115505,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -115513,7 +115539,8 @@
                         "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
                         "example": "contact"
                       }
-                    }
+                    },
+                    "description": "Search filters to find leads."
                   },
                   "skip_owned_leads": {
                     "type": "boolean",
@@ -115526,10 +115553,10 @@
                     "example": true
                   }
                 },
-                "additionalProperties": false,
                 "required": [
                   "search_filters"
-                ]
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -117593,7 +117620,6 @@
                   },
                   "search_filters": {
                     "type": "object",
-                    "description": "Search filters to find leads.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -117605,7 +117631,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -117661,6 +117686,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -117677,15 +117703,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -117744,6 +117769,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -117760,8 +117786,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -117824,6 +117849,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -117840,14 +117866,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
-                            }
+                            },
+                            "description": "Locations to include or exclude in the search"
                           }
                         ]
                       },
@@ -117931,7 +117957,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -117964,7 +117989,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -117997,11 +118021,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -118034,11 +118058,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -118077,6 +118101,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -118098,12 +118124,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -118142,6 +118166,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -118163,11 +118189,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -118275,11 +118301,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence."
                       },
                       "title": {
@@ -118352,7 +118378,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -118402,11 +118427,11 @@
                             },
                             "description": "Business types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -118440,7 +118465,8 @@
                             },
                             "description": "Customer types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
                       },
                       "look_alike": {
                         "type": "string",
@@ -119312,9 +119338,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -119351,7 +119374,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -119362,11 +119384,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -119392,7 +119418,8 @@
                         "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
                         "example": "contact"
                       }
-                    }
+                    },
+                    "description": "Search filters to find leads."
                   }
                 },
                 "required": [
@@ -120853,7 +120880,6 @@
                   },
                   "search_filters": {
                     "type": "object",
-                    "description": "Search filters to find leads.",
                     "properties": {
                       "company_list_id": {
                         "type": "string",
@@ -120865,7 +120891,6 @@
                         "oneOf": [
                           {
                             "type": "array",
-                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties.",
                             "items": {
                               "oneOf": [
                                 {
@@ -120921,6 +120946,7 @@
                                       "example": "United States"
                                     }
                                   },
+                                  "additionalProperties": false,
                                   "anyOf": [
                                     {
                                       "required": [
@@ -120937,15 +120963,14 @@
                                         "country"
                                       ]
                                     }
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               ]
-                            }
+                            },
+                            "description": "Legacy format: Array of locations to include in the search. For new integrations, use the object format with include/exclude properties."
                           },
                           {
                             "type": "object",
-                            "description": "Locations to include or exclude in the search",
                             "properties": {
                               "include": {
                                 "type": "array",
@@ -121004,6 +121029,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -121020,8 +121046,7 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
@@ -121084,6 +121109,7 @@
                                           "example": "United States"
                                         }
                                       },
+                                      "additionalProperties": false,
                                       "anyOf": [
                                         {
                                           "required": [
@@ -121100,14 +121126,14 @@
                                             "country"
                                           ]
                                         }
-                                      ],
-                                      "additionalProperties": false
+                                      ]
                                     }
                                   ]
                                 },
                                 "description": "Locations to exclude from the search"
                               }
-                            }
+                            },
+                            "description": "Locations to include or exclude in the search"
                           }
                         ]
                       },
@@ -121191,7 +121217,6 @@
                       },
                       "employeeCount": {
                         "type": "array",
-                        "description": "Employee count filters.",
                         "items": {
                           "oneOf": [
                             {
@@ -121224,7 +121249,6 @@
                             },
                             {
                               "type": "object",
-                              "description": "Employee count greater-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -121257,11 +121281,11 @@
                                 "op",
                                 "min"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count greater-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Employee count less-than-or-equal range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -121294,11 +121318,11 @@
                                 "op",
                                 "max"
                               ],
-                              "additionalProperties": false
+                              "additionalProperties": false,
+                              "description": "Employee count less-than-or-equal range"
                             },
                             {
                               "type": "object",
-                              "description": "Custom employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -121337,6 +121361,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Custom employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -121358,12 +121384,10 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             },
                             {
                               "type": "object",
-                              "description": "Preset employee count bounded range",
                               "properties": {
                                 "op": {
                                   "type": "string",
@@ -121402,6 +121426,8 @@
                               "required": [
                                 "op"
                               ],
+                              "additionalProperties": false,
+                              "description": "Preset employee count bounded range",
                               "anyOf": [
                                 {
                                   "required": [
@@ -121423,11 +121449,11 @@
                                     }
                                   }
                                 }
-                              ],
-                              "additionalProperties": false
+                              ]
                             }
                           ]
-                        }
+                        },
+                        "description": "Employee count filters."
                       },
                       "revenue": {
                         "type": "array",
@@ -121535,11 +121561,11 @@
                       },
                       "jobListingFilter": {
                         "type": "array",
-                        "deprecated": true,
                         "items": {
                           "type": "string",
                           "example": "Software Engineer"
                         },
+                        "deprecated": true,
                         "description": "Deprecated compatibility key for Job Listing filters. Use \u0060jobListing\u0060 instead. If both keys are present, \u0060jobListing\u0060 takes precedence."
                       },
                       "title": {
@@ -121612,7 +121638,6 @@
                       },
                       "businessType": {
                         "type": "object",
-                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -121662,11 +121687,11 @@
                             },
                             "description": "Business types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Business type of the lead company. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the types, \u0060exclude\u0060 drops them and keeps companies with no label."
                       },
                       "customerType": {
                         "type": "object",
-                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c.",
                         "properties": {
                           "include": {
                             "type": "array",
@@ -121700,7 +121725,8 @@
                             },
                             "description": "Customer types of the lead company to exclude from the search"
                           }
-                        }
+                        },
+                        "description": "Who the lead company sells to. Any-of on each side: \u0060include\u0060 returns only companies labelled with one of the values, \u0060exclude\u0060 drops them and keeps companies with no label. A company selling to both holds both values, so \u0022B2B only\u0022 is include b2b with exclude b2c."
                       },
                       "look_alike": {
                         "type": "string",
@@ -122572,9 +122598,6 @@
                             },
                             {
                               "type": "object",
-                              "required": [
-                                "key"
-                              ],
                               "properties": {
                                 "key": {
                                   "type": "string",
@@ -122611,7 +122634,6 @@
                                     },
                                     {
                                       "type": "object",
-                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060.",
                                       "additionalProperties": {
                                         "type": "array",
                                         "items": {
@@ -122622,11 +122644,15 @@
                                           ],
                                           "example": "security"
                                         }
-                                      }
+                                      },
+                                      "description": "Per-field map of keyword tokens. Each property name is a keyword index field; each value is the list of tokens to OR-match within that field. Records must have at least one matching token in EACH selected field \u2014 fields act as additional filters. Example: \u0060{ \u0022objection_type\u0022: [\u0022security\u0022], \u0022buying_stage\u0022: [\u0022consideration\u0022] }\u0060."
                                     }
                                   ]
                                 }
                               },
+                              "required": [
+                                "key"
+                              ],
                               "additionalProperties": false
                             }
                           ]
@@ -122652,7 +122678,8 @@
                         "description": "Whether to filter/display by contact location or company HQ location. Defaults to contact.",
                         "example": "contact"
                       }
-                    }
+                    },
+                    "description": "Search filters to find leads."
                   }
                 },
                 "additionalProperties": false,

@@ -5268,7 +5268,7 @@
           {
             "name": "resource_ids",
             "in": "query",
-            "description": "The list of resource ids to filter custom tag mappings by. A resource id is the id of an account or a campaign.",
+            "description": "The list of resource ids to filter custom tag mappings by. A resource id is the id of an account, a campaign or a workspace.",
             "schema": {
               "type": "string",
               "example": "id1,id2,id3"
@@ -5465,7 +5465,7 @@
           {
             "name": "resource_ids",
             "in": "query",
-            "description": "The list of resource ids to filter custom tags by. A resource id is the id of an account or a campaign.",
+            "description": "The list of resource ids to filter custom tags by. A resource id is the id of an account, a campaign or a workspace.",
             "schema": {
               "type": "string",
               "example": "id1,id2,id3"
@@ -5855,7 +5855,7 @@
           "CustomTag"
         ],
         "summary": "Assign or unassign tags to resources",
-        "description": "This can be used for both accounts and campaigns. Please check the \u0060resource_type\u0060 field for more information.",
+        "description": "This can be used for accounts, campaigns and workspaces. Please check the \u0060resource_type\u0060 field for more information. Tagging a workspace requires a user-authenticated request and is not available with an API key. Workspaces you can tag are your own workspace and the workspaces that have accepted an invitation to your workspace group; any other workspace id is reported as not found. A workspace tag is stored in your workspace, so the workspace being tagged is not modified and does not see the tag.",
         "operationId": "ToggleTagResource",
         "requestBody": {
           "content": {
@@ -26410,7 +26410,7 @@
               "null",
               "string"
             ],
-            "description": "Plan ID of a legacy CRM subscription. The CRM plan is no longer sold; CRM is included in Hyper Growth and higher plans.",
+            "description": "Plan ID of the workspace CRM subscription, if any. CRM is included in Hyper Growth and higher plans.",
             "readOnly": true,
             "example": "pid_crm_hg"
           },
@@ -26524,6 +26524,7 @@
           "admin_workspace_id",
           "sub_workspace_id",
           "status",
+          "billing_shared",
           "timestamp_created",
           "timestamp_updated"
         ],
@@ -26548,6 +26549,11 @@
           },
           "status": {
             "$ref": "#/components/schemas/WorkspaceGroupMemberStatus"
+          },
+          "billing_shared": {
+            "type": "boolean",
+            "description": "Whether the sub workspace draws on the admin workspace\u0027s credits and add-ons rather than buying its own. Defaults to true.",
+            "example": true
           },
           "timestamp_created": {
             "type": "string",
@@ -38339,7 +38345,7 @@
               "type": "string",
               "example": "resource-1"
             },
-            "description": "The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign. Required unless \u0060selected_all\u0060 is \u0060true\u0060."
+            "description": "The list of resource ids to assign or unassign. A resource id is the id of an account, a campaign or a workspace, matching \u0060resource_type\u0060. Required unless \u0060selected_all\u0060 is \u0060true\u0060."
           },
           "excluded_resource_ids": {
             "minItems": 1,
@@ -49677,6 +49683,11 @@
             "type": "string",
             "description": "The id of the sub workspace",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "billing_shared": {
+            "type": "boolean",
+            "description": "Whether the sub workspace draws on the admin workspace\u0027s credits and add-ons rather than buying its own. Defaults to true.",
+            "example": true
           }
         },
         "additionalProperties": false,
@@ -50099,7 +50110,8 @@
       "GetAdminWorkspaceGroupMember200Response": {
         "required": [
           "workspace_name",
-          "has_admin_workspace"
+          "has_admin_workspace",
+          "has_pending_invitation"
         ],
         "type": "object",
         "properties": {
@@ -50117,6 +50129,21 @@
             "type": "string",
             "description": "The id of the workspace group member. You can use it to leave the admin workspace by calling the DELETE /workspace-group-members/:id endpoint",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "billing_shared": {
+            "type": "boolean",
+            "description": "Whether this workspace draws on the admin workspace\u0027s credits and add-ons rather than its own. Omitted when the workspace has no admin workspace, because the setting does not apply.",
+            "example": true
+          },
+          "has_pending_invitation": {
+            "type": "boolean",
+            "description": "Whether this workspace has been invited to another workspace\u0027s group and has not yet accepted or rejected. A pending invitation blocks the workspace from adding sub workspaces of its own, so it is reported separately from has_admin_workspace, which covers accepted memberships only.",
+            "example": true
+          },
+          "pending_admin_workspace_name": {
+            "type": "string",
+            "description": "The name of the workspace whose invitation is awaiting an answer. Omitted unless has_pending_invitation is true.",
+            "example": "My Workspace"
           }
         }
       },
@@ -102421,7 +102448,7 @@
         "x-enumDescriptions": {
           "1": "Account",
           "2": "Campaign",
-          "3": "Workspace"
+          "3": "Workspace. Requires a user-authenticated request; not available with an API key."
         }
       },
       "ToggleTagResource401ResponseStatusCode": {

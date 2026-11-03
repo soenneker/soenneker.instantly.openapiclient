@@ -58,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilter Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ToggleTagResourceRequestFilter _explicitNullValueFilter = default!;
 #endif
-        /// <summary>The list of resource ids to assign or unassign. A resource id is the id of an account or a campaign. Required unless `selected_all` is `true`.</summary>
+        /// <summary>The list of resource ids to assign or unassign. A resource id is the id of an account, a campaign or a workspace, matching `resource_type`. Required unless `selected_all` is `true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ResourceIds { get => _explicitNullValueResourceIds; set { _explicitNullValueResourceIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_ids"); else _explicitNullProperties?.Remove("resource_ids"); } }

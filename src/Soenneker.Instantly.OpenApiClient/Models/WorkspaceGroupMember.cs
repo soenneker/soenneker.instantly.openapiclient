@@ -18,6 +18,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("billing_shared") is null) { _explicitNullValueBillingShared = default!; _explicitNullProperties?.Remove("billing_shared"); }
+            else if (parseNode.GetChildNode("billing_shared") is { } nullNodeBillingShared && nullNodeBillingShared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingShared = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
             else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
             if (parseNode.GetChildNode("sub_workspace_id") is null) { _explicitNullValueSubWorkspaceId = default!; _explicitNullProperties?.Remove("sub_workspace_id"); }
@@ -40,6 +42,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string AdminWorkspaceName { get; private set; }
 #endif
+        /// <summary>Whether the sub workspace draws on the admin workspace&apos;s credits and add-ons rather than buying its own. Defaults to true.</summary>
+        public bool? BillingShared { get => _explicitNullValueBillingShared; set { _explicitNullValueBillingShared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_shared"); else _explicitNullProperties?.Remove("billing_shared"); } }
+        private bool? _explicitNullValueBillingShared = default!;
         /// <summary>The unique identifier of the workspace group member</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +98,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             {
                 { "admin_workspace_id", n => { AdminWorkspaceId = n.GetStringValue(); } },
                 { "admin_workspace_name", n => { AdminWorkspaceName = n.GetStringValue(); } },
+                { "billing_shared", n => { BillingShared = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus>(); } },
                 { "sub_workspace_id", n => { SubWorkspaceId = n.GetStringValue(); } },
@@ -108,6 +114,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("billing_shared", BillingShared);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.WorkspaceGroupMemberStatus>("status", Status);
             writer.WriteStringValue("sub_workspace_id", SubWorkspaceId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
