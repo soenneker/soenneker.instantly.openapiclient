@@ -23,6 +23,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("cancel_at_time") is { } nullNodeCancelAtTime && nullNodeCancelAtTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelAtTime = null;
             if (parseNode.GetChildNode("current_period_end") is null) { _explicitNullValueCurrentPeriodEnd = default!; _explicitNullProperties?.Remove("current_period_end"); }
             else if (parseNode.GetChildNode("current_period_end") is { } nullNodeCurrentPeriodEnd && nullNodeCurrentPeriodEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPeriodEnd = null;
+            if (parseNode.GetChildNode("included_with_crm") is null) { _explicitNullValueIncludedWithCrm = default!; _explicitNullProperties?.Remove("included_with_crm"); }
+            else if (parseNode.GetChildNode("included_with_crm") is { } nullNodeIncludedWithCrm && nullNodeIncludedWithCrm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludedWithCrm = null;
             if (parseNode.GetChildNode("interval") is null) { _explicitNullValueInterval = default!; _explicitNullProperties?.Remove("interval"); }
             else if (parseNode.GetChildNode("interval") is { } nullNodeInterval && nullNodeInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Interval = null;
             if (parseNode.GetChildNode("plan_limit") is null) { _explicitNullValuePlanLimit = default!; _explicitNullProperties?.Remove("plan_limit"); }
@@ -46,6 +48,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The current_period_end property</summary>
         public double? CurrentPeriodEnd { get => _explicitNullValueCurrentPeriodEnd; set { _explicitNullValueCurrentPeriodEnd = value; AdditionalData?.Remove("current_period_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_period_end"); else _explicitNullProperties?.Remove("current_period_end"); } }
         private double? _explicitNullValueCurrentPeriodEnd = default!;
+        /// <summary>Whether Hyper Growth Inbox Placement is included with a paid CRM plan</summary>
+        public bool? IncludedWithCrm { get => _explicitNullValueIncludedWithCrm; set { _explicitNullValueIncludedWithCrm = value; AdditionalData?.Remove("included_with_crm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included_with_crm"); else _explicitNullProperties?.Remove("included_with_crm"); } }
+        private bool? _explicitNullValueIncludedWithCrm = default!;
         /// <summary>The interval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +115,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "available_credits", n => { AvailableCredits = n.GetDoubleValue(); } },
                 { "cancel_at_time", n => { CancelAtTime = n.GetDoubleValue(); } },
                 { "current_period_end", n => { CurrentPeriodEnd = n.GetDoubleValue(); } },
+                { "included_with_crm", n => { IncludedWithCrm = n.GetBoolValue(); } },
                 { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval.CreateFromDiscriminatorValue); } },
                 { "plan_limit", n => { PlanLimit = n.GetDoubleValue(); } },
                 { "plan_name", n => { PlanName = n.GetStringValue(); } },
@@ -127,6 +133,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("available_credits", AvailableCredits);
             writer.WriteDoubleValue("cancel_at_time", CancelAtTime);
             writer.WriteDoubleValue("current_period_end", CurrentPeriodEnd);
+            writer.WriteBoolValue("included_with_crm", IncludedWithCrm);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsInboxPlacementInterval>("interval", Interval);
             writer.WriteDoubleValue("plan_limit", PlanLimit);
             writer.WriteStringValue("plan_name", PlanName);

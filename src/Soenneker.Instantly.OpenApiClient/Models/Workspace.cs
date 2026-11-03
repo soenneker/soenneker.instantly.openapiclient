@@ -94,7 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string PlanIdBundle { get; private set; }
 #endif
-        /// <summary>Plan ID for CRM</summary>
+        /// <summary>Plan ID of a legacy CRM subscription. The CRM plan is no longer sold; CRM is included in Hyper Growth and higher plans.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PlanIdCrm { get; private set; }

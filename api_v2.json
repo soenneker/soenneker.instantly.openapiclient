@@ -6554,9 +6554,9 @@
               "null",
               "string"
             ],
-            "description": "Plan ID for CRM",
+            "description": "Plan ID of a legacy CRM subscription. The CRM plan is no longer sold; CRM is included in Hyper Growth and higher plans.",
             "readOnly": true,
-            "example": "pid_crm_v1"
+            "example": "pid_crm_hg"
           },
           "plan_id_website_visitor": {
             "type": [
@@ -56445,6 +56445,11 @@
                                 "number"
                               ],
                               "example": null
+                            },
+                            "included_with_crm": {
+                              "type": "boolean",
+                              "description": "Whether Hyper Growth Inbox Placement is included with a paid CRM plan",
+                              "example": false
                             }
                           }
                         }
