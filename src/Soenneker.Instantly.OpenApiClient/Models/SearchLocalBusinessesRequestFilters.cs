@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A search needs a category, a query or a name, and a location (a city, a state, or `lat`/`long`).
+    /// A search needs a category, a query or a name, and a location (a city, a state, or `lat`/`long`). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchLocalBusinessesRequestFilters : IAdditionalDataHolder, IParsable

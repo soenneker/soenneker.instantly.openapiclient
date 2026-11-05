@@ -39,6 +39,14 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         OutOfSchedule,
         #pragma warning restore CS1591
+        [EnumMember(Value = "waiting_for_lead_timezone_window")]
+        #pragma warning disable CS1591
+        WaitingForLeadTimezoneWindow,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_lead_timezone_configuration")]
+        #pragma warning disable CS1591
+        InvalidLeadTimezoneConfiguration,
+        #pragma warning restore CS1591
         [EnumMember(Value = "waiting_for_leads")]
         #pragma warning disable CS1591
         WaitingForLeads,

@@ -56,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The count property</summary>
         public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
-        /// <summary>A search needs a category, a query or a name, and a location (a city, a state, or `lat`/`long`).</summary>
+        /// <summary>A search needs a category, a query or a name, and a location (a city, a state, or `lat`/`long`). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ConvertLocalBusinessesRequestFilters? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }

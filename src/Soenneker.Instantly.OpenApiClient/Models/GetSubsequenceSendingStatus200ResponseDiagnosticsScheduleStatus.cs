@@ -20,6 +20,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("in_schedule") is null) { _explicitNullValueInSchedule = default!; _explicitNullProperties?.Remove("in_schedule"); }
             else if (parseNode.GetChildNode("in_schedule") is { } nullNodeInSchedule && nullNodeInSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InSchedule = null;
+            if (parseNode.GetChildNode("invalid_lead_timezone_configuration") is null) { _explicitNullValueInvalidLeadTimezoneConfiguration = default!; _explicitNullProperties?.Remove("invalid_lead_timezone_configuration"); }
+            else if (parseNode.GetChildNode("invalid_lead_timezone_configuration") is { } nullNodeInvalidLeadTimezoneConfiguration && nullNodeInvalidLeadTimezoneConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidLeadTimezoneConfiguration = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,6 +29,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether the campaign is currently within scheduled sending hours</summary>
         public bool? InSchedule { get => _explicitNullValueInSchedule; set { _explicitNullValueInSchedule = value; AdditionalData?.Remove("in_schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_schedule"); else _explicitNullProperties?.Remove("in_schedule"); } }
         private bool? _explicitNullValueInSchedule = default!;
+        /// <summary>The invalid_lead_timezone_configuration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InvalidLeadTimezoneConfiguration { get => _explicitNullValueInvalidLeadTimezoneConfiguration; set { _explicitNullValueInvalidLeadTimezoneConfiguration = value; AdditionalData?.Remove("invalid_lead_timezone_configuration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_lead_timezone_configuration"); else _explicitNullProperties?.Remove("invalid_lead_timezone_configuration"); } }
+        private string? _explicitNullValueInvalidLeadTimezoneConfiguration = default!;
+#nullable restore
+#else
+        public string InvalidLeadTimezoneConfiguration { get => _explicitNullValueInvalidLeadTimezoneConfiguration; set { _explicitNullValueInvalidLeadTimezoneConfiguration = value; AdditionalData?.Remove("invalid_lead_timezone_configuration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalid_lead_timezone_configuration"); else _explicitNullProperties?.Remove("invalid_lead_timezone_configuration"); } }
+        private string _explicitNullValueInvalidLeadTimezoneConfiguration = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsScheduleStatus"/> and sets the default values.
         /// </summary>
@@ -53,6 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "in_schedule", n => { InSchedule = n.GetBoolValue(); } },
+                { "invalid_lead_timezone_configuration", n => { InvalidLeadTimezoneConfiguration = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -63,6 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("in_schedule", InSchedule);
+            writer.WriteStringValue("invalid_lead_timezone_configuration", InvalidLeadTimezoneConfiguration);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

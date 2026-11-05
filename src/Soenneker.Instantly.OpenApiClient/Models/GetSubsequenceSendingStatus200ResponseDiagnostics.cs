@@ -38,6 +38,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("leads_status") is { } nullNodeLeadsStatus && nullNodeLeadsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LeadsStatus = null;
             if (parseNode.GetChildNode("new_lead_limit") is null) { _explicitNullValueNewLeadLimit = default!; _explicitNullProperties?.Remove("new_lead_limit"); }
             else if (parseNode.GetChildNode("new_lead_limit") is { } nullNodeNewLeadLimit && nullNodeNewLeadLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewLeadLimit = null;
+            if (parseNode.GetChildNode("next_open_at") is null) { _explicitNullValueNextOpenAt = default!; _explicitNullProperties?.Remove("next_open_at"); }
+            else if (parseNode.GetChildNode("next_open_at") is { } nullNodeNextOpenAt && nullNodeNextOpenAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextOpenAt = null;
             if (parseNode.GetChildNode("schedule_status") is null) { _explicitNullValueScheduleStatus = default!; _explicitNullProperties?.Remove("schedule_status"); }
             else if (parseNode.GetChildNode("schedule_status") is { } nullNodeScheduleStatus && nullNodeScheduleStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduleStatus = null;
             if (parseNode.GetChildNode("send_one_by_one") is null) { _explicitNullValueSendOneByOne = default!; _explicitNullProperties?.Remove("send_one_by_one"); }
@@ -150,6 +152,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsNewLeadLimit NewLeadLimit { get => _explicitNullValueNewLeadLimit; set { _explicitNullValueNewLeadLimit = value; AdditionalData?.Remove("new_lead_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_lead_limit"); else _explicitNullProperties?.Remove("new_lead_limit"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsNewLeadLimit _explicitNullValueNewLeadLimit = default!;
 #endif
+        /// <summary>Next lead timezone sending window opening time (ISO timestamp), when known</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NextOpenAt { get => _explicitNullValueNextOpenAt; set { _explicitNullValueNextOpenAt = value; AdditionalData?.Remove("next_open_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_open_at"); else _explicitNullProperties?.Remove("next_open_at"); } }
+        private string? _explicitNullValueNextOpenAt = default!;
+#nullable restore
+#else
+        public string NextOpenAt { get => _explicitNullValueNextOpenAt; set { _explicitNullValueNextOpenAt = value; AdditionalData?.Remove("next_open_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_open_at"); else _explicitNullProperties?.Remove("next_open_at"); } }
+        private string _explicitNullValueNextOpenAt = default!;
+#endif
         /// <summary>Campaign schedule status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -220,6 +232,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "last_updated", n => { LastUpdated = n.GetStringValue(); } },
                 { "leads_status", n => { LeadsStatus = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsLeadsStatus>(global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsLeadsStatus.CreateFromDiscriminatorValue); } },
                 { "new_lead_limit", n => { NewLeadLimit = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsNewLeadLimit>(global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsNewLeadLimit.CreateFromDiscriminatorValue); } },
+                { "next_open_at", n => { NextOpenAt = n.GetStringValue(); } },
                 { "schedule_status", n => { ScheduleStatus = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsScheduleStatus>(global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsScheduleStatus.CreateFromDiscriminatorValue); } },
                 { "send_one_by_one", n => { SendOneByOne = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsSendOneByOne>(global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsSendOneByOne.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
@@ -243,6 +256,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("last_updated", LastUpdated);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsLeadsStatus>("leads_status", LeadsStatus);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsNewLeadLimit>("new_lead_limit", NewLeadLimit);
+            writer.WriteStringValue("next_open_at", NextOpenAt);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsScheduleStatus>("schedule_status", ScheduleStatus);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsSendOneByOne>("send_one_by_one", SendOneByOne);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.GetSubsequenceSendingStatus200ResponseDiagnosticsStatus>("status", Status);

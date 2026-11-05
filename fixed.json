@@ -72252,6 +72252,13 @@
             "description": "ISO timestamp of when this data was last updated",
             "example": "1970-01-01T00:00:00.000Z"
           },
+          "next_open_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Next lead timezone sending window opening time (ISO timestamp), when known"
+          },
           "status": {
             "$ref": "#/components/schemas/GetCampaignSendingStatus200ResponseDiagnosticsStatus"
           },
@@ -73516,6 +73523,13 @@
             "type": "string",
             "description": "ISO timestamp of when this data was last updated",
             "example": "1970-01-01T00:00:00.000Z"
+          },
+          "next_open_at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Next lead timezone sending window opening time (ISO timestamp), when known"
           },
           "status": {
             "$ref": "#/components/schemas/GetSubsequenceSendingStatus200ResponseDiagnosticsStatus"
@@ -76732,7 +76746,7 @@
             "description": "Only records refreshed within this many months"
           }
         },
-        "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060)."
+        "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields."
       },
       "SearchLocalBusinesses200ResponseItemsItem": {
         "title": "Local Business",
@@ -77141,7 +77155,7 @@
             "description": "Only records refreshed within this many months"
           }
         },
-        "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060)."
+        "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields."
       },
       "ConvertLocalBusinesses200ResponseJob": {
         "required": [
@@ -81405,6 +81419,13 @@
       "GetCampaignSendingStatus200ResponseDiagnosticsScheduleStatus": {
         "type": "object",
         "properties": {
+          "invalid_lead_timezone_configuration": {
+            "examples": [
+              "Unsupported fallback timezone"
+            ],
+            "type": "string",
+            "example": "Unsupported fallback timezone"
+          },
           "in_schedule": {
             "examples": [
               true
@@ -82379,6 +82400,13 @@
       "GetSubsequenceSendingStatus200ResponseDiagnosticsScheduleStatus": {
         "type": "object",
         "properties": {
+          "invalid_lead_timezone_configuration": {
+            "examples": [
+              "Unsupported fallback timezone"
+            ],
+            "type": "string",
+            "example": "Unsupported fallback timezone"
+          },
           "in_schedule": {
             "examples": [
               true
@@ -119463,6 +119491,8 @@
           "campaign_accounts_unhealthy",
           "campaign_account_suspended",
           "out_of_schedule",
+          "waiting_for_lead_timezone_window",
+          "invalid_lead_timezone_configuration",
           "waiting_for_leads",
           "daily_limit_met",
           "account_daily_limit_met",
@@ -119516,6 +119546,14 @@
             {
               "value": "out_of_schedule",
               "name": "OutOfSchedule"
+            },
+            {
+              "value": "waiting_for_lead_timezone_window",
+              "name": "WaitingForLeadTimezoneWindow"
+            },
+            {
+              "value": "invalid_lead_timezone_configuration",
+              "name": "InvalidLeadTimezoneConfiguration"
             },
             {
               "value": "waiting_for_leads",
@@ -121531,6 +121569,8 @@
           "campaign_accounts_unhealthy",
           "campaign_account_suspended",
           "out_of_schedule",
+          "waiting_for_lead_timezone_window",
+          "invalid_lead_timezone_configuration",
           "waiting_for_leads",
           "daily_limit_met",
           "account_daily_limit_met",
@@ -121584,6 +121624,14 @@
             {
               "value": "out_of_schedule",
               "name": "OutOfSchedule"
+            },
+            {
+              "value": "waiting_for_lead_timezone_window",
+              "name": "WaitingForLeadTimezoneWindow"
+            },
+            {
+              "value": "invalid_lead_timezone_configuration",
+              "name": "InvalidLeadTimezoneConfiguration"
             },
             {
               "value": "waiting_for_leads",

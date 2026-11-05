@@ -25952,6 +25952,13 @@
                           ],
                           "example": "1970-01-01T00:00:00.000Z"
                         },
+                        "next_open_at": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "Next lead timezone sending window opening time (ISO timestamp), when known"
+                        },
                         "status": {
                           "type": [
                             "null",
@@ -25967,6 +25974,8 @@
                             "campaign_accounts_unhealthy",
                             "campaign_account_suspended",
                             "out_of_schedule",
+                            "waiting_for_lead_timezone_window",
+                            "invalid_lead_timezone_configuration",
                             "waiting_for_leads",
                             "daily_limit_met",
                             "account_daily_limit_met",
@@ -26166,6 +26175,13 @@
                           "type": "object",
                           "description": "Campaign schedule status",
                           "properties": {
+                            "invalid_lead_timezone_configuration": {
+                              "type": "string",
+                              "examples": [
+                                "Unsupported fallback timezone"
+                              ],
+                              "example": "Unsupported fallback timezone"
+                            },
                             "in_schedule": {
                               "type": "boolean",
                               "description": "Whether the campaign is currently within scheduled sending hours",
@@ -51767,6 +51783,13 @@
                           ],
                           "example": "1970-01-01T00:00:00.000Z"
                         },
+                        "next_open_at": {
+                          "type": [
+                            "null",
+                            "string"
+                          ],
+                          "description": "Next lead timezone sending window opening time (ISO timestamp), when known"
+                        },
                         "status": {
                           "type": [
                             "null",
@@ -51782,6 +51805,8 @@
                             "campaign_accounts_unhealthy",
                             "campaign_account_suspended",
                             "out_of_schedule",
+                            "waiting_for_lead_timezone_window",
+                            "invalid_lead_timezone_configuration",
                             "waiting_for_leads",
                             "daily_limit_met",
                             "account_daily_limit_met",
@@ -51981,6 +52006,13 @@
                           "type": "object",
                           "description": "Campaign schedule status",
                           "properties": {
+                            "invalid_lead_timezone_configuration": {
+                              "type": "string",
+                              "examples": [
+                                "Unsupported fallback timezone"
+                              ],
+                              "example": "Unsupported fallback timezone"
+                            },
                             "in_schedule": {
                               "type": "boolean",
                               "description": "Whether the campaign is currently within scheduled sending hours",
@@ -101571,7 +101603,7 @@
                   "filters": {
                     "type": "object",
                     "additionalProperties": true,
-                    "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060).",
+                    "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.",
                     "properties": {
                       "query": {
                         "type": [
@@ -103068,7 +103100,7 @@
                   "filters": {
                     "type": "object",
                     "additionalProperties": true,
-                    "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060).",
+                    "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.",
                     "properties": {
                       "query": {
                         "type": [
