@@ -5967,7 +5967,9 @@
               "import-subscribers-from-crm",
               "resync-subscriber-crm-tags",
               "journey-ai-build",
-              "delete-leads"
+              "delete-leads",
+              "delete-lead-label",
+              "move-leads-preview"
             ],
             "x-enumDescriptions": {
               "move-leads": "Move Leads",
@@ -5980,7 +5982,9 @@
               "import-subscribers-from-crm": "Import Subscribers From CRM",
               "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags",
               "journey-ai-build": "AI journey build or edit",
-              "delete-leads": "Delete Leads"
+              "delete-leads": "Delete Leads",
+              "delete-lead-label": "Move the leads and emails of a deleted lead label",
+              "move-leads-preview": "Preview a send of leads to a campaign"
             },
             "example": "move-leads"
           },
@@ -6002,7 +6006,8 @@
               "broadcast",
               "subscriber-group-sync",
               "subscriber-group",
-              "journey"
+              "journey",
+              "lead-label"
             ],
             "x-enumDescriptions": {
               "list": "The entity is a lead list",
@@ -6011,7 +6016,8 @@
               "broadcast": "The entity is an email-marketing broadcast",
               "subscriber-group-sync": "The entity is a subscriber-group sync",
               "subscriber-group": "The entity is a subscriber group",
-              "journey": "The entity is an email-marketing journey"
+              "journey": "The entity is an email-marketing journey",
+              "lead-label": "The entity is a lead label"
             },
             "example": "list"
           },
@@ -7583,7 +7589,10 @@
               54,
               55,
               56,
-              57
+              57,
+              58,
+              59,
+              60
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -7636,7 +7645,10 @@
               "54": "Website custom domain removed",
               "55": "Personalized website link created",
               "56": "Website personal link visit tracking changed",
-              "57": "Personalized website links revoked"
+              "57": "Personalized website links revoked",
+              "58": "Re-authenticated before a sensitive account action",
+              "59": "New password required by Instantly",
+              "60": "New password requirement lifted by Instantly"
             },
             "example": 1
           },
@@ -15732,6 +15744,97 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action, or a signed-in browser session must re-authenticate before creating an API key)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Present when a signed-in browser session must re-authenticate before retrying.",
+                      "examples": [
+                        "REAUTH_REQUIRED"
+                      ],
+                      "example": "REAUTH_REQUIRED"
+                    },
+                    "required_level": {
+                      "type": "string",
+                      "enum": [
+                        "pwd",
+                        "mfa"
+                      ],
+                      "examples": [
+                        "mfa"
+                      ],
+                      "example": "mfa"
+                    },
+                    "methods": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "password",
+                          "google",
+                          "apple",
+                          "totp",
+                          "recovery_code"
+                        ],
+                        "examples": [
+                          "totp"
+                        ],
+                        "example": "totp"
+                      },
+                      "examples": [
+                        [
+                          "totp",
+                          "recovery_code"
+                        ]
+                      ],
+                      "example": [
+                        "totp",
+                        "recovery_code"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -16647,7 +16750,9 @@
                 "import-subscribers-from-crm",
                 "resync-subscriber-crm-tags",
                 "journey-ai-build",
-                "delete-leads"
+                "delete-leads",
+                "delete-lead-label",
+                "move-leads-preview"
               ],
               "example": "move-leads"
             },
@@ -16667,7 +16772,8 @@
                 "broadcast",
                 "subscriber-group-sync",
                 "subscriber-group",
-                "journey"
+                "journey",
+                "lead-label"
               ],
               "example": "list"
             },
@@ -22393,10 +22499,10 @@
                       "properties": {
                         "background_job_id": {
                           "type": "string",
-                          "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
                           "examples": [
                             "000000000000000000000000"
                           ],
+                          "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
                           "example": "000000000000000000000000"
                         }
                       }
@@ -41503,7 +41609,7 @@
         "tags": [
           "LeadLabel"
         ],
-        "description": "Requires one of the following scopes: \u0060lead-labels:delete\u0060, \u0060lead-labels:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "description": "Deletes the label right away. Its leads and Unibox emails move to \u0060reassigned_status\u0060 in a background job over the next few minutes.\n\nRequires one of the following scopes: \u0060lead-labels:delete\u0060, \u0060lead-labels:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -41541,7 +41647,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadLabel"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/LeadLabel"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "background_job_id": {
+                          "type": "string",
+                          "examples": [
+                            "000000000000000000000000"
+                          ],
+                          "description": "The background job that moves the label\u0027s leads and emails to \u0060reassigned_status\u0060. Check its progress with \u0060GET /background-jobs/:id\u0060.",
+                          "example": "000000000000000000000000"
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -42987,10 +43110,10 @@
                       "properties": {
                         "background_job_id": {
                           "type": "string",
-                          "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
                           "examples": [
                             "000000000000000000000000"
                           ],
+                          "description": "Set when more than 1,000 leads are deleted: a background job does the delete. Check its progress with \u0060GET /background-jobs/:id\u0060.",
                           "example": "000000000000000000000000"
                         }
                       }
@@ -43606,7 +43729,7 @@
                   },
                   "blocklist_id": {
                     "type": "string",
-                    "description": "The ID of the blocklist to check for the lead.",
+                    "description": "Optional. The lead is always checked against your workspace blocklist; any other blocklist ID is ignored.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "verify_leads_for_lead_finder": {
@@ -47423,7 +47546,7 @@
                       "string",
                       "null"
                     ],
-                    "description": "Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.",
+                    "description": "Optional. Leads are always checked against your workspace blocklist; any other blocklist ID is ignored.",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                   },
                   "assigned_to": {

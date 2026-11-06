@@ -34,9 +34,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
         {
         }
         /// <summary>
-        /// Requires one of the following scopes: `lead-labels:delete`, `lead-labels:all`, `all:delete`, `all:all`
+        /// Deletes the label right away. Its leads and Unibox emails move to `reassigned_status` in a background job over the next few minutes.Requires one of the following scopes: `lead-labels:delete`, `lead-labels:all`, `all:delete`, `all:all`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabel200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabel429Response">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel?> DeleteAsync(global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabelRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabel200Response?> DeleteAsync(global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabelRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel> DeleteAsync(global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabelRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabel200Response> DeleteAsync(global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabelRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -64,7 +64,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabel200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.DeleteLeadLabel200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Requires one of the following scopes: `lead-labels:read`, `lead-labels:all`, `all:read`, `all:all`
@@ -131,7 +131,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.LeadLabel.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Requires one of the following scopes: `lead-labels:delete`, `lead-labels:all`, `all:delete`, `all:all`
+        /// Deletes the label right away. Its leads and Unibox emails move to `reassigned_status` in a background job over the next few minutes.Requires one of the following scopes: `lead-labels:delete`, `lead-labels:all`, `all:delete`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

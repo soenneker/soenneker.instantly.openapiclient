@@ -1807,6 +1807,16 @@
               }
             }
           },
+          "403": {
+            "description": "This request is forbidden (the API key scope or workspace plan does not allow this action, or a signed-in browser session must re-authenticate before creating an API key)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateApiKey403Response"
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -9230,7 +9240,7 @@
           "LeadLabel"
         ],
         "summary": "Delete lead label",
-        "description": "Requires one of the following scopes: \u0060lead-labels:delete\u0060, \u0060lead-labels:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
+        "description": "Deletes the label right away. Its leads and Unibox emails move to \u0060reassigned_status\u0060 in a background job over the next few minutes.\n\nRequires one of the following scopes: \u0060lead-labels:delete\u0060, \u0060lead-labels:all\u0060, \u0060all:delete\u0060, \u0060all:all\u0060",
         "operationId": "DeleteLeadLabel",
         "parameters": [
           {
@@ -9260,7 +9270,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadLabel"
+                  "$ref": "#/components/schemas/DeleteLeadLabel200Response"
                 }
               }
             }
@@ -33143,6 +33153,56 @@
           }
         }
       },
+      "CreateApiKey403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateApiKey403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Forbidden"
+            ],
+            "type": "string",
+            "example": "Forbidden"
+          },
+          "error_code": {
+            "examples": [
+              "REAUTH_REQUIRED"
+            ],
+            "type": "string",
+            "description": "Present when a signed-in browser session must re-authenticate before retrying.",
+            "example": "REAUTH_REQUIRED"
+          },
+          "required_level": {
+            "$ref": "#/components/schemas/CreateApiKey403ResponseRequiredLevel"
+          },
+          "methods": {
+            "examples": [
+              [
+                "totp",
+                "recovery_code"
+              ]
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateApiKey403ResponseMethodsItem"
+            },
+            "example": [
+              "totp",
+              "recovery_code"
+            ]
+          }
+        }
+      },
       "CreateApiKey404Response": {
         "required": [
           "statusCode",
@@ -43345,6 +43405,24 @@
           }
         }
       },
+      "DeleteLeadLabel200Response": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LeadLabel"
+          }
+        ],
+        "properties": {
+          "background_job_id": {
+            "examples": [
+              "000000000000000000000000"
+            ],
+            "type": "string",
+            "description": "The background job that moves the label\u0027s leads and emails to \u0060reassigned_status\u0060. Check its progress with \u0060GET /background-jobs/:id\u0060.",
+            "example": "000000000000000000000000"
+          }
+        }
+      },
       "DeleteLeadLabel401Response": {
         "required": [
           "statusCode",
@@ -44349,7 +44427,7 @@
           },
           "blocklist_id": {
             "type": "string",
-            "description": "The ID of the blocklist to check for the lead.",
+            "description": "Optional. The lead is always checked against your workspace blocklist; any other blocklist ID is ignored.",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "verify_leads_for_lead_finder": {
@@ -46195,7 +46273,7 @@
               "null",
               "string"
             ],
-            "description": "Optional blocklist ID to check leads against. If omitted, the workspace default blocklist is used.",
+            "description": "Optional. Leads are always checked against your workspace blocklist; any other blocklist ID is ignored.",
             "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           },
           "assigned_to": {
@@ -94599,7 +94677,9 @@
           "import-subscribers-from-crm",
           "resync-subscriber-crm-tags",
           "journey-ai-build",
-          "delete-leads"
+          "delete-leads",
+          "delete-lead-label",
+          "move-leads-preview"
         ],
         "type": "string",
         "description": "Type of background job",
@@ -94615,7 +94695,9 @@
           "import-subscribers-from-crm": "Import Subscribers From CRM",
           "resync-subscriber-crm-tags": "Re-sync Subscriber CRM Tags",
           "journey-ai-build": "AI journey build or edit",
-          "delete-leads": "Delete Leads"
+          "delete-leads": "Delete Leads",
+          "delete-lead-label": "Move the leads and emails of a deleted lead label",
+          "move-leads-preview": "Preview a send of leads to a campaign"
         },
         "x-ms-enum": {
           "name": "BackgroundJobType",
@@ -94664,6 +94746,14 @@
             {
               "value": "delete-leads",
               "name": "DeleteLeads"
+            },
+            {
+              "value": "delete-lead-label",
+              "name": "DeleteLeadLabel"
+            },
+            {
+              "value": "move-leads-preview",
+              "name": "MoveLeadsPreview"
             }
           ]
         }
@@ -94676,7 +94766,8 @@
           "broadcast",
           "subscriber-group-sync",
           "subscriber-group",
-          "journey"
+          "journey",
+          "lead-label"
         ],
         "type": "string",
         "description": "Type of entity",
@@ -94688,7 +94779,8 @@
           "broadcast": "The entity is an email-marketing broadcast",
           "subscriber-group-sync": "The entity is a subscriber-group sync",
           "subscriber-group": "The entity is a subscriber group",
-          "journey": "The entity is an email-marketing journey"
+          "journey": "The entity is an email-marketing journey",
+          "lead-label": "The entity is a lead label"
         },
         "x-ms-enum": {
           "name": "BackgroundJobEntityType",
@@ -94721,6 +94813,10 @@
             {
               "value": "journey",
               "name": "Journey"
+            },
+            {
+              "value": "lead-label",
+              "name": "LeadLabel"
             }
           ]
         }
@@ -95305,7 +95401,10 @@
           54,
           55,
           56,
-          57
+          57,
+          58,
+          59,
+          60
         ],
         "type": "number",
         "description": "Type of activity performed",
@@ -95362,7 +95461,10 @@
           "54": "Website custom domain removed",
           "55": "Personalized website link created",
           "56": "Website personal link visit tracking changed",
-          "57": "Personalized website links revoked"
+          "57": "Personalized website links revoked",
+          "58": "Re-authenticated before a sensitive account action",
+          "59": "New password required by Instantly",
+          "60": "New password requirement lifted by Instantly"
         }
       },
       "AiAgentGuidanceStatus": {
@@ -100593,6 +100695,91 @@
         ],
         "type": "number",
         "example": 402
+      },
+      "CreateApiKey403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "example": 403
+      },
+      "ForbiddenError": {
+        "examples": [
+          "Forbidden"
+        ],
+        "enum": [
+          "Forbidden"
+        ],
+        "type": "string",
+        "example": "Forbidden"
+      },
+      "CreateApiKey403ResponseRequiredLevel": {
+        "examples": [
+          "mfa"
+        ],
+        "enum": [
+          "pwd",
+          "mfa"
+        ],
+        "type": "string",
+        "example": "mfa",
+        "x-ms-enum": {
+          "name": "CreateApiKey403ResponseRequiredLevel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pwd",
+              "name": "Pwd"
+            },
+            {
+              "value": "mfa",
+              "name": "Mfa"
+            }
+          ]
+        }
+      },
+      "CreateApiKey403ResponseMethodsItem": {
+        "examples": [
+          "totp"
+        ],
+        "enum": [
+          "password",
+          "google",
+          "apple",
+          "totp",
+          "recovery_code"
+        ],
+        "type": "string",
+        "example": "totp",
+        "x-ms-enum": {
+          "name": "CreateApiKey403ResponseMethodsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "password",
+              "name": "Password"
+            },
+            {
+              "value": "google",
+              "name": "Google"
+            },
+            {
+              "value": "apple",
+              "name": "Apple"
+            },
+            {
+              "value": "totp",
+              "name": "Totp"
+            },
+            {
+              "value": "recovery_code",
+              "name": "RecoveryCode"
+            }
+          ]
+        }
       },
       "CreateApiKey404ResponseStatusCode": {
         "examples": [
@@ -106639,16 +106826,6 @@
         ],
         "type": "number",
         "example": 403
-      },
-      "ForbiddenError": {
-        "examples": [
-          "Forbidden"
-        ],
-        "enum": [
-          "Forbidden"
-        ],
-        "type": "string",
-        "example": "Forbidden"
       },
       "GetSubsequenceStepsAnalytics404ResponseStatusCode": {
         "examples": [
@@ -150791,7 +150968,9 @@
           "import-subscribers-from-crm",
           "resync-subscriber-crm-tags",
           "journey-ai-build",
-          "delete-leads"
+          "delete-leads",
+          "delete-lead-label",
+          "move-leads-preview"
         ],
         "type": "string",
         "example": "move-leads",
@@ -150842,6 +151021,14 @@
             {
               "value": "delete-leads",
               "name": "DeleteLeads"
+            },
+            {
+              "value": "delete-lead-label",
+              "name": "DeleteLeadLabel"
+            },
+            {
+              "value": "move-leads-preview",
+              "name": "MoveLeadsPreview"
             }
           ]
         }
@@ -150854,7 +151041,8 @@
           "broadcast",
           "subscriber-group-sync",
           "subscriber-group",
-          "journey"
+          "journey",
+          "lead-label"
         ],
         "type": "string",
         "example": "list",
@@ -150889,6 +151077,10 @@
             {
               "value": "journey",
               "name": "Journey"
+            },
+            {
+              "value": "lead-label",
+              "name": "LeadLabel"
             }
           ]
         }

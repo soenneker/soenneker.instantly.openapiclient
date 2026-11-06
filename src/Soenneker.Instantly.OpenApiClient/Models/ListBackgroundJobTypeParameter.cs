@@ -52,5 +52,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         DeleteLeads,
         #pragma warning restore CS1591
+        [EnumMember(Value = "delete-lead-label")]
+        #pragma warning disable CS1591
+        DeleteLeadLabel,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "move-leads-preview")]
+        #pragma warning disable CS1591
+        MoveLeadsPreview,
+        #pragma warning restore CS1591
     }
 }

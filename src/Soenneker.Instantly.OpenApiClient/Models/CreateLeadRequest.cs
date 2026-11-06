@@ -70,7 +70,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string AssignedTo { get => _explicitNullValueAssignedTo; set { _explicitNullValueAssignedTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assigned_to"); else _explicitNullProperties?.Remove("assigned_to"); } }
         private string _explicitNullValueAssignedTo = default!;
 #endif
-        /// <summary>The ID of the blocklist to check for the lead.</summary>
+        /// <summary>Optional. The lead is always checked against your workspace blocklist; any other blocklist ID is ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BlocklistId { get => _explicitNullValueBlocklistId; set { _explicitNullValueBlocklistId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocklist_id"); else _explicitNullProperties?.Remove("blocklist_id"); } }

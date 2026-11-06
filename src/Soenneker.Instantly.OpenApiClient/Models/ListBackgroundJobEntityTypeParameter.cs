@@ -36,5 +36,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         Journey,
         #pragma warning restore CS1591
+        [EnumMember(Value = "lead-label")]
+        #pragma warning disable CS1591
+        LeadLabel,
+        #pragma warning restore CS1591
     }
 }
