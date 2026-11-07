@@ -3437,7 +3437,7 @@
           "Campaign"
         ],
         "summary": "Activate(start), or resume a campaign",
-        "description": "Requires one of the following scopes: \u0060campaigns:update\u0060, \u0060campaigns:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Activate(start), or resume a campaign. Subsequences that stopped sending because the campaign had no usable sending accounts resume with it.\n\n\nRequires one of the following scopes: \u0060campaigns:update\u0060, \u0060campaigns:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "ActivateCampaign",
         "parameters": [
           {
@@ -11451,7 +11451,7 @@
           "CampaignSubsequence"
         ],
         "summary": "Resume a paused subsequence",
-        "description": "Resume a paused subsequence\n\n\nRequires one of the following scopes: \u0060subsequences:update\u0060, \u0060subsequences:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Resume a paused subsequence, or one that stopped sending because its campaign had no usable sending accounts.\n\n\nRequires one of the following scopes: \u0060subsequences:update\u0060, \u0060subsequences:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "operationId": "ResumeSubsequence",
         "parameters": [
           {
