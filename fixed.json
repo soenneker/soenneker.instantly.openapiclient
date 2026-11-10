@@ -22636,6 +22636,16 @@
               }
             }
           },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSuperSearchEnrichment400Response"
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -22647,7 +22657,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "Default Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -22662,6 +22672,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateSuperSearchEnrichment404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSuperSearchEnrichment409Response"
                 }
               }
             }
@@ -61467,6 +61487,9 @@
               "null",
               "string"
             ]
+          },
+          "progress": {
+            "$ref": "#/components/schemas/GetCreatorOutreachBatch200ResponseProgress"
           }
         },
         "additionalProperties": false
@@ -64354,7 +64377,7 @@
           "limit": {
             "maximum": 1000000,
             "minimum": 1,
-            "type": "number",
+            "type": "integer",
             "description": "Maximum number of leads to enrich.",
             "example": 100
           },
@@ -64376,7 +64399,8 @@
           "integration_actions": {
             "$ref": "#/components/schemas/CreateSuperSearchEnrichmentRequestIntegrationActions"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CreateSuperSearchEnrichment200Response": {
         "required": [
@@ -64386,6 +64410,26 @@
         ],
         "type": "object",
         "properties": {
+          "auto_update": {
+            "type": "boolean",
+            "description": "Whether leads added to the list will be automatically enriched",
+            "example": false
+          },
+          "in_progress": {
+            "type": "boolean",
+            "description": "Whether the enrichment is in progress",
+            "example": false
+          },
+          "resource_type": {
+            "type": "number",
+            "description": "Type of the entity to enrich leads into",
+            "example": 1
+          },
+          "skip_rows_without_email": {
+            "type": "boolean",
+            "description": "Whether the fully enriched profile enrichment will run even if we don\u0027t find an email",
+            "example": true
+          },
           "id": {
             "type": "string",
             "description": "Unique identifier for the enrichment",
@@ -64420,6 +64464,38 @@
         },
         "additionalProperties": false
       },
+      "CreateSuperSearchEnrichment400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number",
+            "example": 400
+          },
+          "code": {
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) on a body that fails validation.",
+            "example": "FST_ERR_VALIDATION"
+          },
+          "error": {
+            "type": "string",
+            "example": "MISSING_REQUIRED_FIELDS_FOR_ENRICHMENT"
+          },
+          "message": {
+            "type": "string",
+            "example": "No leads here have the fields this enrichment needs."
+          },
+          "provider": {
+            "type": "string",
+            "description": "Present when a connection the integration actions need is missing or unusable: the provider it belongs to.",
+            "example": "findymail"
+          }
+        }
+      },
       "CreateSuperSearchEnrichment401Response": {
         "required": [
           "statusCode",
@@ -64444,25 +64520,33 @@
         }
       },
       "CreateSuperSearchEnrichment402Response": {
-        "required": [
-          "statusCode",
-          "error",
-          "message"
-        ],
         "type": "object",
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/CreateSuperSearchEnrichment402ResponseStatusCode"
           },
           "error": {
-            "$ref": "#/components/schemas/PaymentRequiredError"
+            "$ref": "#/components/schemas/InsufficientCreditsError"
           },
           "message": {
-            "examples": [
-              "Workspace does not have an active paid plan"
-            ],
             "type": "string",
-            "example": "Workspace does not have an active paid plan"
+            "example": "Insufficient credits"
+          },
+          "creditsRequired": {
+            "type": "number",
+            "example": 15000
+          },
+          "creditsAvailable": {
+            "type": "number",
+            "example": 250
+          },
+          "errorCode": {
+            "$ref": "#/components/schemas/CreditReservationConflictErrorCode"
+          },
+          "creditsReserved": {
+            "type": "number",
+            "description": "Credits currently held by the workspace\u0027s in-flight jobs.",
+            "example": 4000
           }
         }
       },
@@ -64486,6 +64570,38 @@
             ],
             "type": "string",
             "example": "Resource not found"
+          }
+        }
+      },
+      "CreateSuperSearchEnrichment409Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number",
+            "example": 409
+          },
+          "error": {
+            "type": "string",
+            "example": "Conflict"
+          },
+          "message": {
+            "type": "string",
+            "example": "Enrichment type \u0027work_email_enrichment\u0027 already exists for this resource"
+          },
+          "activeJobId": {
+            "type": "string",
+            "description": "Present when the same request was sent on the list less than a minute ago: the id of the job it created.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "activeJobStatus": {
+            "type": "number",
+            "description": "Present with \u0060activeJobId\u0060: that job\u0027s current status, e.g. 1 = pending, 2 = in progress.",
+            "example": 1
           }
         }
       },
@@ -76338,6 +76454,9 @@
               "null",
               "string"
             ]
+          },
+          "progress": {
+            "$ref": "#/components/schemas/CreateCreatorOutreachBatch200ResponseBatchProgress"
           }
         },
         "additionalProperties": false
@@ -76399,6 +76518,9 @@
               "null",
               "string"
             ]
+          },
+          "progress": {
+            "$ref": "#/components/schemas/CreateCreatorOutreachBatch202ResponseBatchProgress"
           }
         },
         "additionalProperties": false
@@ -76720,6 +76842,31 @@
         },
         "additionalProperties": false,
         "description": "How the last conversion run went; null until one has run"
+      },
+      "GetCreatorOutreachBatch200ResponseProgress": {
+        "required": [
+          "stage",
+          "done",
+          "total"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "stage": {
+            "$ref": "#/components/schemas/GetCreatorOutreachBatch200ResponseProgressStage"
+          },
+          "done": {
+            "type": "integer",
+            "description": "Creators found (\u0060search\u0060) or checked for an email (\u0060lookup\u0060) so far"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Creators asked for (\u0060search\u0060) or to check (\u0060lookup\u0060)"
+          }
+        },
+        "description": "While a conversion runs: \u0060search\u0060 while it finds creators, then \u0060lookup\u0060 while it finds their emails"
       },
       "SearchLocalBusinessesRequestFilters": {
         "type": "object",
@@ -77790,7 +77937,31 @@
         "description": "Search filters used to create this enrichment (only present for enrichments created from SuperSearch)"
       },
       "CreateSuperSearchEnrichmentRequestFiltersItem": {
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "column_name": {
+            "type": "string",
+            "example": "country"
+          },
+          "type": {
+            "type": "number",
+            "example": 1
+          },
+          "value": {
+            "items": {
+              "type": "string"
+            },
+            "description": "The value to match: a string, or a list of strings.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array"
+              }
+            ]
+          }
+        }
       },
       "CreateSuperSearchEnrichmentRequestIntegrationActions": {
         "minProperties": 1,
@@ -85832,6 +86003,31 @@
         "additionalProperties": false,
         "description": "How the last conversion run went; null until one has run"
       },
+      "CreateCreatorOutreachBatch200ResponseBatchProgress": {
+        "required": [
+          "stage",
+          "done",
+          "total"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "stage": {
+            "$ref": "#/components/schemas/CreateCreatorOutreachBatch200ResponseBatchProgressStage"
+          },
+          "done": {
+            "type": "integer",
+            "description": "Creators found (\u0060search\u0060) or checked for an email (\u0060lookup\u0060) so far"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Creators asked for (\u0060search\u0060) or to check (\u0060lookup\u0060)"
+          }
+        },
+        "description": "While a conversion runs: \u0060search\u0060 while it finds creators, then \u0060lookup\u0060 while it finds their emails"
+      },
       "CreateCreatorOutreachBatch202ResponseBatchFilters": {
         "type": "object",
         "properties": {
@@ -86149,6 +86345,31 @@
         },
         "additionalProperties": false,
         "description": "How the last conversion run went; null until one has run"
+      },
+      "CreateCreatorOutreachBatch202ResponseBatchProgress": {
+        "required": [
+          "stage",
+          "done",
+          "total"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "stage": {
+            "$ref": "#/components/schemas/CreateCreatorOutreachBatch202ResponseBatchProgressStage"
+          },
+          "done": {
+            "type": "integer",
+            "description": "Creators found (\u0060search\u0060) or checked for an email (\u0060lookup\u0060) so far"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Creators asked for (\u0060search\u0060) or to check (\u0060lookup\u0060)"
+          }
+        },
+        "description": "While a conversion runs: \u0060search\u0060 while it finds creators, then \u0060lookup\u0060 while it finds their emails"
       },
       "GetCreatorOutreachBatch200ResponseFiltersFollowers": {
         "type": "object",
@@ -91110,7 +91331,8 @@
           "mapping": {
             "$ref": "#/components/schemas/CreateSuperSearchEnrichmentRequestIntegrationActionsAdditionalPropertiesAdditionalPropertiesMapping"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "GetIntegrationProviders200ResponseItemActionsItemInputsItem": {
         "type": "object",
@@ -95404,7 +95626,8 @@
           57,
           58,
           59,
-          60
+          60,
+          66
         ],
         "type": "number",
         "description": "Type of activity performed",
@@ -95464,7 +95687,8 @@
           "57": "Personalized website links revoked",
           "58": "Re-authenticated before a sensitive account action",
           "59": "New password required by Instantly",
-          "60": "New password requirement lifted by Instantly"
+          "60": "New password requirement lifted by Instantly",
+          "66": "Leads sent to an AI agent for approval"
         }
       },
       "AiAgentGuidanceStatus": {
@@ -113952,7 +114176,7 @@
           "custom_flow"
         ],
         "type": "string",
-        "description": "Enrichment type to add to the resource",
+        "description": "Enrichment type to add to the resource. Mutually exclusive with \u0060integration_actions\u0060.",
         "example": "email_verification",
         "x-enumDescriptions": {
           "work_email_enrichment": "Work Email Enrichment",
@@ -114023,9 +114247,6 @@
         "example": 401
       },
       "CreateSuperSearchEnrichment402ResponseStatusCode": {
-        "examples": [
-          402
-        ],
         "enum": [
           402
         ],
@@ -123470,6 +123691,27 @@
             {
               "value": "youtube",
               "name": "Youtube"
+            }
+          ]
+        }
+      },
+      "GetCreatorOutreachBatch200ResponseProgressStage": {
+        "enum": [
+          "search",
+          "lookup"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "GetCreatorOutreachBatch200ResponseProgressStage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "search",
+              "name": "Search"
+            },
+            {
+              "value": "lookup",
+              "name": "Lookup"
             }
           ]
         }
@@ -138514,6 +138756,27 @@
           ]
         }
       },
+      "CreateCreatorOutreachBatch200ResponseBatchProgressStage": {
+        "enum": [
+          "search",
+          "lookup"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CreateCreatorOutreachBatch200ResponseBatchProgressStage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "search",
+              "name": "Search"
+            },
+            {
+              "value": "lookup",
+              "name": "Lookup"
+            }
+          ]
+        }
+      },
       "CreateCreatorOutreachBatch202ResponseBatchFiltersAccountType": {
         "enum": [
           "creator",
@@ -138563,6 +138826,27 @@
             {
               "value": "youtube",
               "name": "Youtube"
+            }
+          ]
+        }
+      },
+      "CreateCreatorOutreachBatch202ResponseBatchProgressStage": {
+        "enum": [
+          "search",
+          "lookup"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CreateCreatorOutreachBatch202ResponseBatchProgressStage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "search",
+              "name": "Search"
+            },
+            {
+              "value": "lookup",
+              "name": "Lookup"
             }
           ]
         }

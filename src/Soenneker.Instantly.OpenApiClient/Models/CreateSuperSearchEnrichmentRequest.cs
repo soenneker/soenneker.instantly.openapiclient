@@ -9,7 +9,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CreateSuperSearchEnrichmentRequest : IAdditionalDataHolder, IParsable
+    public partial class CreateSuperSearchEnrichmentRequest : IParsable
     #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
@@ -31,61 +31,52 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Ordered email providers for a `custom_flow` enrichment. Required when `type` is `custom_flow`; ignored for every other type. A non-empty list of distinct ids, each spelled exactly as one of: instantly, findymail, leadmagic, icypeas, prospeo, contactout, wiza, bettercontact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CustomFlow { get => _explicitNullValueCustomFlow; set { _explicitNullValueCustomFlow = value; AdditionalData?.Remove("custom_flow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_flow"); else _explicitNullProperties?.Remove("custom_flow"); } }
+        public List<string>? CustomFlow { get => _explicitNullValueCustomFlow; set { _explicitNullValueCustomFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_flow"); else _explicitNullProperties?.Remove("custom_flow"); } }
         private List<string>? _explicitNullValueCustomFlow = default!;
 #nullable restore
 #else
-        public List<string> CustomFlow { get => _explicitNullValueCustomFlow; set { _explicitNullValueCustomFlow = value; AdditionalData?.Remove("custom_flow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_flow"); else _explicitNullProperties?.Remove("custom_flow"); } }
+        public List<string> CustomFlow { get => _explicitNullValueCustomFlow; set { _explicitNullValueCustomFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_flow"); else _explicitNullProperties?.Remove("custom_flow"); } }
         private List<string> _explicitNullValueCustomFlow = default!;
 #endif
         /// <summary>Filters to apply to the enrichment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; AdditionalData?.Remove("filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>? _explicitNullValueFilters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem> Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; AdditionalData?.Remove("filters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
+        public List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem> Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem> _explicitNullValueFilters = default!;
 #endif
         /// <summary>Provider-keyed integration actions to run against the resource. Mutually exclusive with `type` — either run a built-in enrichment via `type` or supply `integration_actions` to run one or more provider actions. Outer keys are provider IDs (e.g. `findymail`, `apify`); inner keys are action IDs offered by that provider (e.g. `findymail_find_email`). Each action requires a `mapping` object whose keys are the action&apos;s declared input fields and whose values are the lead column names to read from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions? IntegrationActions { get => _explicitNullValueIntegrationActions; set { _explicitNullValueIntegrationActions = value; AdditionalData?.Remove("integration_actions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_actions"); else _explicitNullProperties?.Remove("integration_actions"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions? IntegrationActions { get => _explicitNullValueIntegrationActions; set { _explicitNullValueIntegrationActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_actions"); else _explicitNullProperties?.Remove("integration_actions"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions? _explicitNullValueIntegrationActions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions IntegrationActions { get => _explicitNullValueIntegrationActions; set { _explicitNullValueIntegrationActions = value; AdditionalData?.Remove("integration_actions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_actions"); else _explicitNullProperties?.Remove("integration_actions"); } }
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions IntegrationActions { get => _explicitNullValueIntegrationActions; set { _explicitNullValueIntegrationActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integration_actions"); else _explicitNullProperties?.Remove("integration_actions"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions _explicitNullValueIntegrationActions = default!;
 #endif
         /// <summary>Maximum number of leads to enrich.</summary>
-        public double? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
-        private double? _explicitNullValueLimit = default!;
+        public int? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        private int? _explicitNullValueLimit = default!;
         /// <summary>Unique identifier for the resource (list or campaign)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; AdditionalData?.Remove("resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
+        public string? ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
         private string? _explicitNullValueResourceId = default!;
 #nullable restore
 #else
-        public string ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; AdditionalData?.Remove("resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
+        public string ResourceId { get => _explicitNullValueResourceId; set { _explicitNullValueResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_id"); else _explicitNullProperties?.Remove("resource_id"); } }
         private string _explicitNullValueResourceId = default!;
 #endif
-        /// <summary>Enrichment type to add to the resource</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        /// <summary>Enrichment type to add to the resource. Mutually exclusive with `integration_actions`.</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType? _explicitNullValueType = default!;
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequest"/> and sets the default values.
-        /// </summary>
-        public CreateSuperSearchEnrichmentRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -107,9 +98,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "custom_flow", n => { CustomFlow = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "integration_actions", n => { IntegrationActions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions>(global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions.CreateFromDiscriminatorValue); } },
-                { "limit", n => { Limit = n.GetDoubleValue(); } },
+                { "limit", n => { Limit = n.GetIntValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
-                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType>(); } },
             };
         }
         /// <summary>
@@ -122,11 +113,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("custom_flow", CustomFlow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestFiltersItem>("filters", Filters);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestIntegrationActions>("integration_actions", IntegrationActions);
-            writer.WriteDoubleValue("limit", Limit);
+            writer.WriteIntValue("limit", Limit);
             writer.WriteStringValue("resource_id", ResourceId);
-            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType>("type", Type);
-            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateSuperSearchEnrichmentRequestType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -33,6 +33,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("list_id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
             if (parseNode.GetChildNode("platform") is null) { _explicitNullValuePlatform = default!; _explicitNullProperties?.Remove("platform"); }
             else if (parseNode.GetChildNode("platform") is { } nullNodePlatform && nullNodePlatform.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Platform = null;
+            if (parseNode.GetChildNode("progress") is null) { _explicitNullValueProgress = default!; _explicitNullProperties?.Remove("progress"); }
+            else if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
             if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
             else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
             if (parseNode.GetChildNode("run") is null) { _explicitNullValueRun = default!; _explicitNullProperties?.Remove("run"); }
@@ -116,6 +118,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The platform property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchPlatform? Platform { get => _explicitNullValuePlatform; set { _explicitNullValuePlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform"); else _explicitNullProperties?.Remove("platform"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchPlatform? _explicitNullValuePlatform = default!;
+        /// <summary>While a conversion runs: `search` while it finds creators, then `lookup` while it finds their emails</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress? _explicitNullValueProgress = default!;
+#nullable restore
+#else
+        public global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress _explicitNullValueProgress = default!;
+#endif
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -168,6 +180,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "lead_ids", n => { LeadIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "platform", n => { Platform = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchPlatform>(); } },
+                { "progress", n => { Progress = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress.CreateFromDiscriminatorValue); } },
                 { "query", n => { Query = n.GetStringValue(); } },
                 { "run", n => { Run = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchRun>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchRun.CreateFromDiscriminatorValue); } },
                 { "search_kind", n => { SearchKind = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchSearchKind>(); } },
@@ -189,6 +202,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("lead_ids", LeadIds);
             writer.WriteStringValue("list_id", ListId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchPlatform>("platform", Platform);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchProgress>("progress", Progress);
             writer.WriteStringValue("query", Query);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchRun>("run", Run);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch200ResponseBatchSearchKind>("search_kind", SearchKind);

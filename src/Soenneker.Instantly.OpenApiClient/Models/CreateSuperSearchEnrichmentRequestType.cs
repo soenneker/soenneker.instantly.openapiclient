@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>Enrichment type to add to the resource</summary>
+    /// <summary>Enrichment type to add to the resource. Mutually exclusive with `integration_actions`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateSuperSearchEnrichmentRequestType
     {
