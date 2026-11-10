@@ -46320,6 +46320,13 @@
             "type": "boolean",
             "description": "If true, any lead that already exists in ANY list in your workspace will be skipped.",
             "example": false
+          },
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "Optional. Makes retries safe: a retry with the same key and the same leads to the same campaign or list does not insert the leads again, and reports the leads it already created in \u0060created_leads\u0060 and \u0060leads_uploaded\u0060. A key is permanent: use a new one for every batch. A lead is recognised by its position in \u0060leads\u0060 and its email (or name), so resend the same array.",
+            "example": "import-2026-11-10-chunk-3"
           }
         }
       },

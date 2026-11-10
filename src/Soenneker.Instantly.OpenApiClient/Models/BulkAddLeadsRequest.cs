@@ -23,6 +23,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("blocklist_id") is { } nullNodeBlocklistId && nullNodeBlocklistId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlocklistId = null;
             if (parseNode.GetChildNode("campaign_id") is null) { _explicitNullValueCampaignId = default!; _explicitNullProperties?.Remove("campaign_id"); }
             else if (parseNode.GetChildNode("campaign_id") is { } nullNodeCampaignId && nullNodeCampaignId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CampaignId = null;
+            if (parseNode.GetChildNode("idempotency_key") is null) { _explicitNullValueIdempotencyKey = default!; _explicitNullProperties?.Remove("idempotency_key"); }
+            else if (parseNode.GetChildNode("idempotency_key") is { } nullNodeIdempotencyKey && nullNodeIdempotencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdempotencyKey = null;
             if (parseNode.GetChildNode("leads") is null) { _explicitNullValueLeads = default!; _explicitNullProperties?.Remove("leads"); }
             else if (parseNode.GetChildNode("leads") is { } nullNodeLeads && nullNodeLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Leads = null;
             if (parseNode.GetChildNode("list_id") is null) { _explicitNullValueListId = default!; _explicitNullProperties?.Remove("list_id"); }
@@ -68,6 +70,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string CampaignId { get => _explicitNullValueCampaignId; set { _explicitNullValueCampaignId = value; AdditionalData?.Remove("campaign_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign_id"); else _explicitNullProperties?.Remove("campaign_id"); } }
         private string _explicitNullValueCampaignId = default!;
+#endif
+        /// <summary>Optional. Makes retries safe: a retry with the same key and the same leads to the same campaign or list does not insert the leads again, and reports the leads it already created in `created_leads` and `leads_uploaded`. A key is permanent: use a new one for every batch. A lead is recognised by its position in `leads` and its email (or name), so resend the same array.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; AdditionalData?.Remove("idempotency_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
+        private string? _explicitNullValueIdempotencyKey = default!;
+#nullable restore
+#else
+        public string IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; AdditionalData?.Remove("idempotency_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
+        private string _explicitNullValueIdempotencyKey = default!;
 #endif
         /// <summary>An array of lead objects to create. When using `campaign_id`: Each lead object must contain an `email`. When using `list_id` Each lead object must contain at least one of the following: `email`, `first_name`, or `last_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -129,6 +141,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "assigned_to", n => { AssignedTo = n.GetStringValue(); } },
                 { "blocklist_id", n => { BlocklistId = n.GetStringValue(); } },
                 { "campaign_id", n => { CampaignId = n.GetStringValue(); } },
+                { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "leads", n => { Leads = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>(global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "skip_if_in_campaign", n => { SkipIfInCampaign = n.GetBoolValue(); } },
@@ -147,6 +160,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("assigned_to", AssignedTo);
             writer.WriteStringValue("blocklist_id", BlocklistId);
             writer.WriteStringValue("campaign_id", CampaignId);
+            writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeadsRequestLeadsItem>("leads", Leads);
             writer.WriteStringValue("list_id", ListId);
             writer.WriteBoolValue("skip_if_in_campaign", SkipIfInCampaign);
