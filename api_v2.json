@@ -8465,6 +8465,7 @@
               "push_lead",
               "recommend_lead",
               "recommend_autopilot",
+              "recommend_lead_quality",
               "warning",
               "initial_setup_scrape",
               "initial_setup_campaigns",
@@ -8487,6 +8488,7 @@
               "push_lead": "Push Lead",
               "recommend_lead": "Recommend Lead",
               "recommend_autopilot": "Recommend Autopilot",
+              "recommend_lead_quality": "Recommend Prospect Filters",
               "warning": "Warning",
               "initial_setup_scrape": "Initial Setup Scrape",
               "initial_setup_campaigns": "Initial Setup Campaigns",
@@ -66153,6 +66155,7 @@
                   "push_lead",
                   "recommend_lead",
                   "recommend_autopilot",
+                  "recommend_lead_quality",
                   "warning",
                   "initial_setup_scrape",
                   "initial_setup_campaigns",
@@ -66170,6 +66173,7 @@
                   "push_lead": "Add a new lead to a campaign",
                   "recommend_lead": "Recommend a previewed lead for the user to approve before enrichment",
                   "recommend_autopilot": "Recommend turning on autopilot; approving it turns autopilot on",
+                  "recommend_lead_quality": "Recommend turning on the prospect filters the plan includes; approving it turns them on",
                   "initial_setup_scrape": "Initial setup: scrape website to understand business",
                   "initial_setup_campaigns": "Initial setup: prepare initial campaigns",
                   "initial_setup_enrich": "Initial setup: enrich initial leads",
@@ -66449,7 +66453,7 @@
         "tags": [
           "AISalesAgent"
         ],
-        "description": "Approve a pending AI Sales Agent activity action. Approving a \u0060recommend_autopilot\u0060 activity turns on autopilot for the agent. Returns 404 when the activity does not exist or is not pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Approve a pending AI Sales Agent activity action. Approving a \u0060recommend_autopilot\u0060 activity turns on autopilot for the agent, and a \u0060recommend_lead_quality\u0060 activity turns on its prospect filters. Returns 404 when the activity does not exist or is not pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "parameters": [
           {
             "schema": {
@@ -66965,7 +66969,7 @@
         "tags": [
           "AISalesAgent"
         ],
-        "description": "Approve multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 activities are skipped: approve them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Approve multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 and \u0060recommend_lead_quality\u0060 activities are skipped: approve them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -67270,7 +67274,7 @@
         "tags": [
           "AISalesAgent"
         ],
-        "description": "Reject multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 activities are skipped: reject them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Reject multiple pending AI Sales Agent activity actions. \u0060recommend_autopilot\u0060 and \u0060recommend_lead_quality\u0060 activities are skipped: reject them one at a time. Returns 404 when none of the activities exist or none are pending.\n\n\nRequires one of the following scopes: \u0060ai_sdr:update\u0060, \u0060ai_sdr:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -101822,7 +101826,7 @@
                   "filters": {
                     "type": "object",
                     "additionalProperties": true,
-                    "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.",
+                    "description": "A search needs a category, a query or a name, and a location (a city, a state, a country, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.",
                     "properties": {
                       "query": {
                         "type": [
@@ -101924,7 +101928,7 @@
                             "example": 10
                           }
                         },
-                        "description": "A city or state, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
+                        "description": "A city, a state or a country, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
                       },
                       "keywords": {
                         "type": [
@@ -102235,7 +102239,7 @@
                               "example": 10
                             }
                           },
-                          "description": "A city or state, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
+                          "description": "A city, a state or a country, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
                         },
                         "keywords": {
                           "type": "array",
@@ -102642,7 +102646,7 @@
                               "example": 10
                             }
                           },
-                          "description": "A city or state, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
+                          "description": "A city, a state or a country, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
                         },
                         "keywords": {
                           "type": "array",
@@ -103319,7 +103323,7 @@
                   "filters": {
                     "type": "object",
                     "additionalProperties": true,
-                    "description": "A search needs a category, a query or a name, and a location (a city, a state, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.",
+                    "description": "A search needs a category, a query or a name, and a location (a city, a state, a country, or \u0060lat\u0060/\u0060long\u0060). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.",
                     "properties": {
                       "query": {
                         "type": [
@@ -103421,7 +103425,7 @@
                             "example": 10
                           }
                         },
-                        "description": "A city or state, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
+                        "description": "A city, a state or a country, or a point and a radius. Build it from \u0060GET /local-business-search/places\u0060."
                       },
                       "keywords": {
                         "type": [
@@ -103530,6 +103534,11 @@
                     "type": "string",
                     "minLength": 8,
                     "maxLength": 80
+                  },
+                  "skip_owned_leads": {
+                    "type": "boolean",
+                    "description": "Skip businesses that are already a lead in the current workspace. A skipped business is not charged.",
+                    "example": true
                   }
                 }
               }

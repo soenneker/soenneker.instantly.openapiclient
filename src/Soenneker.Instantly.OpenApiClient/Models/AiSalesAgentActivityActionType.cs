@@ -39,6 +39,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         RecommendAutopilot,
         #pragma warning restore CS1591
+        [EnumMember(Value = "recommend_lead_quality")]
+        #pragma warning disable CS1591
+        RecommendLeadQuality,
+        #pragma warning restore CS1591
         [EnumMember(Value = "warning")]
         #pragma warning disable CS1591
         Warning,

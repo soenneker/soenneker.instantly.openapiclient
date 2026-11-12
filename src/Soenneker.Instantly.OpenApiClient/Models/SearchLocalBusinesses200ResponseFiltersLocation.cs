@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A city or state, or a point and a radius. Build it from `GET /local-business-search/places`.
+    /// A city, a state or a country, or a point and a radius. Build it from `GET /local-business-search/places`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchLocalBusinesses200ResponseFiltersLocation : IParsable

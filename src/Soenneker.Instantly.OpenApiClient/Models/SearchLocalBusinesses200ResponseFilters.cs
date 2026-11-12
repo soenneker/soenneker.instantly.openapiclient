@@ -77,7 +77,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<string> Keywords { get => _explicitNullValueKeywords; set { _explicitNullValueKeywords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keywords"); else _explicitNullProperties?.Remove("keywords"); } }
         private List<string> _explicitNullValueKeywords = default!;
 #endif
-        /// <summary>A city or state, or a point and a radius. Build it from `GET /local-business-search/places`.</summary>
+        /// <summary>A city, a state or a country, or a point and a radius. Build it from `GET /local-business-search/places`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.SearchLocalBusinesses200ResponseFiltersLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }

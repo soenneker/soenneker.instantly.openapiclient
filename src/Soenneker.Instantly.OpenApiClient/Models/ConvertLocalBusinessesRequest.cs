@@ -31,6 +31,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("list_id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
             if (parseNode.GetChildNode("list_name") is null) { _explicitNullValueListName = default!; _explicitNullProperties?.Remove("list_name"); }
             else if (parseNode.GetChildNode("list_name") is { } nullNodeListName && nullNodeListName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListName = null;
+            if (parseNode.GetChildNode("skip_owned_leads") is null) { _explicitNullValueSkipOwnedLeads = default!; _explicitNullProperties?.Remove("skip_owned_leads"); }
+            else if (parseNode.GetChildNode("skip_owned_leads") is { } nullNodeSkipOwnedLeads && nullNodeSkipOwnedLeads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipOwnedLeads = null;
         }
 
         /// <summary>The campaign_id property</summary>
@@ -56,7 +58,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The count property</summary>
         public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
-        /// <summary>A search needs a category, a query or a name, and a location (a city, a state, or `lat`/`long`). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.</summary>
+        /// <summary>A search needs a category, a query or a name, and a location (a city, a state, a country, or `lat`/`long`). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ConvertLocalBusinessesRequestFilters? Filters { get => _explicitNullValueFilters; set { _explicitNullValueFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filters"); else _explicitNullProperties?.Remove("filters"); } }
@@ -96,6 +98,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string ListName { get => _explicitNullValueListName; set { _explicitNullValueListName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("list_name"); else _explicitNullProperties?.Remove("list_name"); } }
         private string _explicitNullValueListName = default!;
 #endif
+        /// <summary>Skip businesses that are already a lead in the current workspace. A skipped business is not charged.</summary>
+        public bool? SkipOwnedLeads { get => _explicitNullValueSkipOwnedLeads; set { _explicitNullValueSkipOwnedLeads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_owned_leads"); else _explicitNullProperties?.Remove("skip_owned_leads"); } }
+        private bool? _explicitNullValueSkipOwnedLeads = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -121,6 +126,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "list_id", n => { ListId = n.GetStringValue(); } },
                 { "list_name", n => { ListName = n.GetStringValue(); } },
+                { "skip_owned_leads", n => { SkipOwnedLeads = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -136,7 +142,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ConvertLocalBusinessesRequestFilters>("filters", Filters);
             writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteStringValue("list_id", ListId);
-            writer.WriteStringValue("list_name", ListName);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteStringValue("list_name", ListName);
+            writer.WriteBoolValue("skip_owned_leads", SkipOwnedLeads);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

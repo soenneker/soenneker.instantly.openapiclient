@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// A search needs a category, a query or a name, and a location (a city, a state, or `lat`/`long`). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.
+    /// A search needs a category, a query or a name, and a location (a city, a state, a country, or `lat`/`long`). Unknown fields are dropped and values out of range are clamped. A minimum above its maximum (rating, reviews or locations) answers 400 naming both fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConvertLocalBusinessesRequestFilters : IAdditionalDataHolder, IParsable
@@ -80,7 +80,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<string> Keywords { get => _explicitNullValueKeywords; set { _explicitNullValueKeywords = value; AdditionalData?.Remove("keywords"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keywords"); else _explicitNullProperties?.Remove("keywords"); } }
         private List<string> _explicitNullValueKeywords = default!;
 #endif
-        /// <summary>A city or state, or a point and a radius. Build it from `GET /local-business-search/places`.</summary>
+        /// <summary>A city, a state or a country, or a point and a radius. Build it from `GET /local-business-search/places`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.ConvertLocalBusinessesRequestFiltersLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
