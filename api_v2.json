@@ -10557,17 +10557,6 @@
           },
           {
             "schema": {
-              "type": "boolean",
-              "example": true
-            },
-            "example": true,
-            "in": "query",
-            "name": "include_tags",
-            "required": false,
-            "description": "Include tags in the response. If true, the response will include the tags assigned to each account."
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "ACC_FILTER_PAUSED",
@@ -10626,6 +10615,17 @@
             "name": "filter",
             "required": false,
             "description": "The filter to apply to the accounts."
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "example": true,
+            "in": "query",
+            "name": "include_tags",
+            "required": false,
+            "description": "Include tags in the response. If true, the response will include the tags assigned to each account."
           },
           {
             "schema": {
@@ -78935,6 +78935,42 @@
                         "body must have required property \u0027name\u0027"
                       ],
                       "example": "body must have required property \u0027name\u0027"
+                    },
+                    "field": {
+                      "type": "string",
+                      "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+                      "examples": [
+                        "domains"
+                      ],
+                      "example": "domains"
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "Items, terms or characters sent for that filter.",
+                      "examples": [
+                        100001
+                      ],
+                      "example": 100001
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "The most the filter accepts.",
+                      "examples": [
+                        100000
+                      ],
+                      "example": 100000
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "items",
+                        "characters"
+                      ],
+                      "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+                      "examples": [
+                        "items"
+                      ],
+                      "example": "items"
                     }
                   },
                   "required": [
@@ -83597,6 +83633,42 @@
                         "body must have required property \u0027name\u0027"
                       ],
                       "example": "body must have required property \u0027name\u0027"
+                    },
+                    "field": {
+                      "type": "string",
+                      "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+                      "examples": [
+                        "domains"
+                      ],
+                      "example": "domains"
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "Items, terms or characters sent for that filter.",
+                      "examples": [
+                        100001
+                      ],
+                      "example": 100001
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "The most the filter accepts.",
+                      "examples": [
+                        100000
+                      ],
+                      "example": 100000
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "items",
+                        "characters"
+                      ],
+                      "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+                      "examples": [
+                        "items"
+                      ],
+                      "example": "items"
                     }
                   },
                   "required": [
@@ -111399,6 +111471,70 @@
               }
             }
           },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "example": "FST_ERR_VALIDATION"
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "body must have required property \u0027name\u0027"
+                    },
+                    "field": {
+                      "type": "string",
+                      "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+                      "example": "domains"
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "Items, terms or characters sent for that filter.",
+                      "example": 100001
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "The most the filter accepts.",
+                      "example": 100000
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "items",
+                        "characters"
+                      ],
+                      "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+                      "example": "items"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -113856,6 +113992,70 @@
               }
             }
           },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "example": "FST_ERR_VALIDATION"
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "body must have required property \u0027name\u0027"
+                    },
+                    "field": {
+                      "type": "string",
+                      "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+                      "example": "domains"
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "Items, terms or characters sent for that filter.",
+                      "example": 100001
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "The most the filter accepts.",
+                      "example": 100000
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "items",
+                        "characters"
+                      ],
+                      "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+                      "example": "items"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -116034,6 +116234,70 @@
                       "description": "The leads matching the search criteria"
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        400
+                      ],
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+                      "example": "FST_ERR_VALIDATION"
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Request"
+                      ],
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "body must have required property \u0027name\u0027"
+                    },
+                    "field": {
+                      "type": "string",
+                      "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+                      "example": "domains"
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "Items, terms or characters sent for that filter.",
+                      "example": 100001
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "The most the filter accepts.",
+                      "example": 100000
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "items",
+                        "characters"
+                      ],
+                      "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+                      "example": "items"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
                 }
               }
             }

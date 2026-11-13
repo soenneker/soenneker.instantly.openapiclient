@@ -40,6 +40,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch403Response">When receiving a 403 status code</exception>
@@ -59,6 +60,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Preview
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch402Response.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Instantly.OpenApiClient.Models.PreviewLeadsFromSupersearch403Response.CreateFromDiscriminatorValue },

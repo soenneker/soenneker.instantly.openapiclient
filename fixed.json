@@ -263,16 +263,6 @@
             "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
           },
           {
-            "name": "include_tags",
-            "in": "query",
-            "description": "Include tags in the response. If true, the response will include the tags assigned to each account.",
-            "schema": {
-              "type": "boolean",
-              "example": true
-            },
-            "example": true
-          },
-          {
             "name": "filter",
             "in": "query",
             "description": "The filter to apply to the accounts.",
@@ -308,6 +298,16 @@
                 "value": "ACC_FILTER_W_ERROR"
               }
             }
+          },
+          {
+            "name": "include_tags",
+            "in": "query",
+            "description": "Include tags in the response. If true, the response will include the tags assigned to each account.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "example": true
           },
           {
             "name": "sort_by",
@@ -22812,6 +22812,16 @@
               }
             }
           },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnrichLeadsFromSupersearch400Response"
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -22986,6 +22996,16 @@
               }
             }
           },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountLeadsFromSupersearch400Response"
+                }
+              }
+            }
+          },
           "401": {
             "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
             "content": {
@@ -23086,6 +23106,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PreviewLeadsFromSupersearch200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewLeadsFromSupersearch400Response"
                 }
               }
             }
@@ -56802,6 +56832,33 @@
             ],
             "type": "string",
             "example": "body must have required property \u0027name\u0027"
+          },
+          "field": {
+            "examples": [
+              "domains"
+            ],
+            "type": "string",
+            "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+            "example": "domains"
+          },
+          "size": {
+            "examples": [
+              100001
+            ],
+            "type": "integer",
+            "description": "Items, terms or characters sent for that filter.",
+            "example": 100001
+          },
+          "limit": {
+            "examples": [
+              100000
+            ],
+            "type": "integer",
+            "description": "The most the filter accepts.",
+            "example": 100000
+          },
+          "unit": {
+            "$ref": "#/components/schemas/CreateLeadFinderAgent400ResponseUnit"
           }
         }
       },
@@ -57110,6 +57167,33 @@
             ],
             "type": "string",
             "example": "body must have required property \u0027name\u0027"
+          },
+          "field": {
+            "examples": [
+              "domains"
+            ],
+            "type": "string",
+            "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+            "example": "domains"
+          },
+          "size": {
+            "examples": [
+              100001
+            ],
+            "type": "integer",
+            "description": "Items, terms or characters sent for that filter.",
+            "example": 100001
+          },
+          "limit": {
+            "examples": [
+              100000
+            ],
+            "type": "integer",
+            "description": "The most the filter accepts.",
+            "example": 100000
+          },
+          "unit": {
+            "$ref": "#/components/schemas/UpdateLeadFinderAgent400ResponseUnit"
           }
         }
       },
@@ -64899,6 +64983,49 @@
           }
         }
       },
+      "EnrichLeadsFromSupersearch400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearch400ResponseStatusCode"
+          },
+          "code": {
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          },
+          "field": {
+            "type": "string",
+            "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+            "example": "domains"
+          },
+          "size": {
+            "type": "integer",
+            "description": "Items, terms or characters sent for that filter.",
+            "example": 100001
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The most the filter accepts.",
+            "example": 100000
+          },
+          "unit": {
+            "$ref": "#/components/schemas/EnrichLeadsFromSupersearch400ResponseUnit"
+          }
+        }
+      },
       "EnrichLeadsFromSupersearch401Response": {
         "required": [
           "statusCode",
@@ -65284,6 +65411,49 @@
           }
         }
       },
+      "CountLeadsFromSupersearch400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch400ResponseStatusCode"
+          },
+          "code": {
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          },
+          "field": {
+            "type": "string",
+            "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+            "example": "domains"
+          },
+          "size": {
+            "type": "integer",
+            "description": "Items, terms or characters sent for that filter.",
+            "example": 100001
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The most the filter accepts.",
+            "example": 100000
+          },
+          "unit": {
+            "$ref": "#/components/schemas/CountLeadsFromSupersearch400ResponseUnit"
+          }
+        }
+      },
       "CountLeadsFromSupersearch401Response": {
         "required": [
           "statusCode",
@@ -65457,6 +65627,49 @@
               "$ref": "#/components/schemas/PreviewLeadsFromSupersearch200ResponseLeadsItem"
             },
             "description": "The leads matching the search criteria"
+          }
+        }
+      },
+      "PreviewLeadsFromSupersearch400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch400ResponseStatusCode"
+          },
+          "code": {
+            "type": "string",
+            "description": "Fastify\u0027s validation code (\u0060FST_ERR_VALIDATION\u0060) or a route-specific error code.",
+            "example": "FST_ERR_VALIDATION"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          },
+          "field": {
+            "type": "string",
+            "description": "The request filter key that is over its limit, for example \u0060domains\u0060 or \u0060keyword_filter.include\u0060.",
+            "example": "domains"
+          },
+          "size": {
+            "type": "integer",
+            "description": "Items, terms or characters sent for that filter.",
+            "example": 100001
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The most the filter accepts.",
+            "example": 100000
+          },
+          "unit": {
+            "$ref": "#/components/schemas/PreviewLeadsFromSupersearch400ResponseUnit"
           }
         }
       },
@@ -110999,6 +111212,32 @@
         "type": "number",
         "example": 400
       },
+      "CreateLeadFinderAgent400ResponseUnit": {
+        "examples": [
+          "items"
+        ],
+        "enum": [
+          "items",
+          "characters"
+        ],
+        "type": "string",
+        "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+        "example": "items",
+        "x-ms-enum": {
+          "name": "CreateLeadFinderAgent400ResponseUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "items",
+              "name": "Items"
+            },
+            {
+              "value": "characters",
+              "name": "Characters"
+            }
+          ]
+        }
+      },
       "CreateLeadFinderAgent401ResponseStatusCode": {
         "examples": [
           401
@@ -111141,6 +111380,32 @@
         ],
         "type": "number",
         "example": 400
+      },
+      "UpdateLeadFinderAgent400ResponseUnit": {
+        "examples": [
+          "items"
+        ],
+        "enum": [
+          "items",
+          "characters"
+        ],
+        "type": "string",
+        "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+        "example": "items",
+        "x-ms-enum": {
+          "name": "UpdateLeadFinderAgent400ResponseUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "items",
+              "name": "Items"
+            },
+            {
+              "value": "characters",
+              "name": "Characters"
+            }
+          ]
+        }
       },
       "UpdateLeadFinderAgent401ResponseStatusCode": {
         "examples": [
@@ -114340,6 +114605,36 @@
         "description": "Resource type: 1=Campaign, 2=List (default)",
         "example": 2
       },
+      "EnrichLeadsFromSupersearch400ResponseStatusCode": {
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "example": 400
+      },
+      "EnrichLeadsFromSupersearch400ResponseUnit": {
+        "enum": [
+          "items",
+          "characters"
+        ],
+        "type": "string",
+        "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+        "example": "items",
+        "x-ms-enum": {
+          "name": "EnrichLeadsFromSupersearch400ResponseUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "items",
+              "name": "Items"
+            },
+            {
+              "value": "characters",
+              "name": "Characters"
+            }
+          ]
+        }
+      },
       "EnrichLeadsFromSupersearch401ResponseStatusCode": {
         "examples": [
           401
@@ -114455,6 +114750,36 @@
         "type": "number",
         "example": 429
       },
+      "CountLeadsFromSupersearch400ResponseStatusCode": {
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "example": 400
+      },
+      "CountLeadsFromSupersearch400ResponseUnit": {
+        "enum": [
+          "items",
+          "characters"
+        ],
+        "type": "string",
+        "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+        "example": "items",
+        "x-ms-enum": {
+          "name": "CountLeadsFromSupersearch400ResponseUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "items",
+              "name": "Items"
+            },
+            {
+              "value": "characters",
+              "name": "Characters"
+            }
+          ]
+        }
+      },
       "CountLeadsFromSupersearch401ResponseStatusCode": {
         "examples": [
           401
@@ -114536,6 +114861,36 @@
         ],
         "type": "number",
         "example": 429
+      },
+      "PreviewLeadsFromSupersearch400ResponseStatusCode": {
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "example": 400
+      },
+      "PreviewLeadsFromSupersearch400ResponseUnit": {
+        "enum": [
+          "items",
+          "characters"
+        ],
+        "type": "string",
+        "description": "What \u0060size\u0060 and \u0060limit\u0060 count: list items or terms, or characters in one value.",
+        "example": "items",
+        "x-ms-enum": {
+          "name": "PreviewLeadsFromSupersearch400ResponseUnit",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "items",
+              "name": "Items"
+            },
+            {
+              "value": "characters",
+              "name": "Characters"
+            }
+          ]
+        }
       },
       "PreviewLeadsFromSupersearch401ResponseStatusCode": {
         "examples": [
