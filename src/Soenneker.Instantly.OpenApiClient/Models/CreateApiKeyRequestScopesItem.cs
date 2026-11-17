@@ -692,6 +692,18 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         EmailMarketingEventsColonRead,
         #pragma warning restore CS1591
+        [EnumMember(Value = "email_marketing_conversions:all")]
+        #pragma warning disable CS1591
+        EmailMarketingConversionsColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_marketing_conversions:read")]
+        #pragma warning disable CS1591
+        EmailMarketingConversionsColonRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_marketing_conversions:update")]
+        #pragma warning disable CS1591
+        EmailMarketingConversionsColonUpdate,
+        #pragma warning restore CS1591
         [EnumMember(Value = "security_tokens:all")]
         #pragma warning disable CS1591
         SecurityTokensColonAll,

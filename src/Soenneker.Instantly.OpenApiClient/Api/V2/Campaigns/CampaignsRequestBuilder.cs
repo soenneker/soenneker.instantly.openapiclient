@@ -53,7 +53,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,include_ai_sales_agent_campaigns*,limit*,search*,starting_after*,status*,tag_ids*}", pathParameters)
+        public CampaignsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,include_ai_sales_agent_campaigns*,limit*,search*,sort_column*,sort_order*,starting_after*,status*,tag_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,include_ai_sales_agent_campaigns*,limit*,search*,starting_after*,status*,tag_ids*}", rawUrl)
+        public CampaignsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/campaigns{?ai_sales_agent_id*,exclude_status*,include_ai_sales_agent_campaigns*,limit*,search*,sort_column*,sort_order*,starting_after*,status*,tag_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -215,6 +215,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
+            /// <summary>Column to sort campaigns by. Defaults to `id`. Use `timestamp_created` for chronological order.</summary>
+            [QueryParameter("sort_column")]
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListCampaignSortColumnParameter? SortColumn { get; set; }
+            /// <summary>Sort direction. Defaults to `desc`.</summary>
+            [QueryParameter("sort_order")]
+            public global::Soenneker.Instantly.OpenApiClient.Models.ListCampaignSortOrderParameter? SortOrder { get; set; }
             /// <summary>The ID of the last item in the previous page - used for pagination. You can use the value of the `next_starting_after` field from the previous response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

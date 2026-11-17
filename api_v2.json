@@ -955,6 +955,14 @@
             "description": "Whether to insert an unsubscribe header in emails",
             "example": false
           },
+          "same_domain_sender_failover": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Send a follow-up from another account on the same domain when the account that last emailed the lead has hit its daily sending limit or slow ramp limit. Off by default: the follow-up waits for that account. API only; \u0060null\u0060 means off.\n\nWhen on:\n- A switch happens only when that account hits its daily sending limit or slow ramp limit, or is removed from the campaign. For any other reason, such as the gap between sends, the follow-up waits.\n- The other account must be in this campaign and on the exact same domain. \u0060mail.acme.com\u0060 and \u0060acme.com\u0060 are different domains.\n- The follow-up stays in the same email thread.\n- Each lead gets emails from at most 2 accounts in this campaign, including subsequences. The account that emailed the lead most recently is tried first.\n- Counting starts when you turn this on. The account that last emailed the lead is the first of the 2; earlier accounts do not count.\n- If none of the lead\u0027s accounts can send, the follow-up waits. It does not use a third account or another domain, except in the cases below.\n- For this campaign, the workspace setting \u0022Sticky sending accounts for leads\u0022 is ignored.\n\nExceptions:\n- If every account the lead can use was removed from the campaign, a sender is picked as usual. It may be on another domain and may start a new thread. This keeps the campaign from stalling.\n- In rare cases a lead can get a third account: when the lead enters or leaves a subsequence, is moved or re-added to the campaign, when this setting is turned off and on again, or when a send is interrupted before it is confirmed.",
+            "example": false
+          },
           "allow_risky_contacts": {
             "type": [
               "null",
@@ -5178,6 +5186,9 @@
                 "email_marketing_events:all",
                 "email_marketing_events:create",
                 "email_marketing_events:read",
+                "email_marketing_conversions:all",
+                "email_marketing_conversions:read",
+                "email_marketing_conversions:update",
                 "security_tokens:all",
                 "security_tokens:create",
                 "security_tokens:read",
@@ -7593,7 +7604,17 @@
               58,
               59,
               60,
-              66
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -7650,7 +7671,17 @@
               "58": "Re-authenticated before a sensitive account action",
               "59": "New password required by Instantly",
               "60": "New password requirement lifted by Instantly",
-              "66": "Leads sent to an AI agent for approval"
+              "66": "Leads sent to an AI agent for approval",
+              "67": "Knowledge Base page created",
+              "68": "Knowledge Base page edited",
+              "69": "Knowledge Base page deleted",
+              "70": "Knowledge Base source added",
+              "71": "Knowledge Base source updated",
+              "72": "Knowledge Base source removed",
+              "73": "Knowledge Base item removed",
+              "74": "Knowledge Base cleared",
+              "75": "Business profile moved to the Knowledge Base",
+              "76": "File uploaded to the Knowledge Base"
             },
             "example": 1
           },
@@ -9566,6 +9597,337 @@
         "type": "object",
         "properties": {},
         "required": [],
+        "additionalProperties": false
+      },
+      "Conversion": {
+        "title": "Conversion",
+        "description": "A conversion event received for a person, credited to the emails they got before it.",
+        "x-tags": [
+          "Schemas",
+          "Conversion"
+        ],
+        "type": "object",
+        "properties": {
+          "conversion_id": {
+            "type": "string",
+            "description": "Receipt ID of the conversion event",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "person_id": {
+            "type": "string",
+            "description": "Person who converted",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "source": {
+            "type": "string",
+            "description": "Producer of the conversion event",
+            "readOnly": true,
+            "example": "api"
+          },
+          "event_name": {
+            "type": "string",
+            "description": "Name of the conversion event",
+            "readOnly": true,
+            "example": "subscription_started"
+          },
+          "occurred_at": {
+            "type": "string",
+            "description": "When the conversion happened",
+            "readOnly": true,
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "attribution": {
+            "type": "string",
+            "description": "direct: clicked an email before converting; influenced: opened one; received: only got emails; none: got no email in the lookback window",
+            "readOnly": true,
+            "enum": [
+              "direct",
+              "influenced",
+              "received",
+              "none"
+            ],
+            "example": "direct"
+          },
+          "last_touch": {
+            "type": "object",
+            "description": "The email clicked most recently, else the one opened most recently, else the one delivered most recently",
+            "readOnly": true,
+            "properties": {
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "journey",
+                  "broadcast"
+                ],
+                "example": "journey"
+              },
+              "email_id": {
+                "type": "string",
+                "description": "ID of the sent email",
+                "example": "email-8f3a"
+              },
+              "journey_id": {
+                "type": "string",
+                "description": "Journey that sent the email",
+                "example": "journey-12ab"
+              },
+              "version": {
+                "type": "integer",
+                "description": "Journey version that sent the email",
+                "example": 3
+              },
+              "step_id": {
+                "type": "string",
+                "description": "Journey step that sent the email",
+                "example": "step-1"
+              },
+              "run_id": {
+                "type": "string",
+                "description": "Journey run that sent the email",
+                "example": "run-77cd"
+              },
+              "broadcast_id": {
+                "type": "string",
+                "description": "Broadcast that sent the email",
+                "example": "broadcast-42ef"
+              },
+              "sent_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "1970-01-01T00:00:00.000Z"
+              },
+              "delivered_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "1970-01-01T00:00:00.000Z"
+              },
+              "opened_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "First recorded open",
+                "example": "1970-01-01T00:00:00.000Z"
+              },
+              "clicked_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Latest click before the conversion, across links",
+                "example": "1970-01-01T00:00:00.000Z"
+              }
+            },
+            "required": [
+              "origin",
+              "email_id",
+              "sent_at"
+            ]
+          },
+          "emails_in_window": {
+            "type": "integer",
+            "description": "Emails sent to the person within the lookback window",
+            "readOnly": true,
+            "example": 3
+          },
+          "lookback_days": {
+            "type": "integer",
+            "description": "Lookback window the conversion was classified with, or the shorter lookback_days asked for",
+            "readOnly": true,
+            "example": 30
+          },
+          "group_by_property": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Event property the group value was read from",
+            "readOnly": true,
+            "example": "plan"
+          },
+          "group_value": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Value of the group-by property on the event",
+            "readOnly": true,
+            "example": "starter"
+          },
+          "history_complete": {
+            "type": "boolean",
+            "description": "False when the person\u0027s email history was too long to read in full, so an earlier email may be missing",
+            "readOnly": true,
+            "example": true
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Current email of the person; only for API keys that can also read people, and absent once the person is deleted",
+            "readOnly": true,
+            "example": "ana@example.com"
+          },
+          "days_since_last_touch": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Days from the last touch (its latest send, delivery, open or click) to the conversion",
+            "readOnly": true,
+            "example": 2.5
+          },
+          "properties": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Properties of the conversion event; text values are cut to 200 characters",
+            "readOnly": true,
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            },
+            "example": {
+              "plan": "starter",
+              "seats": 3
+            }
+          },
+          "touches": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "description": "Every email sent to the person in the lookback window, newest first, at most 50; only with include_touches",
+            "readOnly": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "origin": {
+                  "type": "string",
+                  "enum": [
+                    "journey",
+                    "broadcast"
+                  ],
+                  "examples": [
+                    "journey"
+                  ],
+                  "example": "journey"
+                },
+                "email_id": {
+                  "type": "string",
+                  "description": "ID of the sent email",
+                  "examples": [
+                    "email-8f3a"
+                  ],
+                  "example": "email-8f3a"
+                },
+                "journey_id": {
+                  "type": "string",
+                  "description": "Journey that sent the email",
+                  "examples": [
+                    "journey-12ab"
+                  ],
+                  "example": "journey-12ab"
+                },
+                "version": {
+                  "type": "integer",
+                  "description": "Journey version that sent the email",
+                  "examples": [
+                    3
+                  ],
+                  "example": 3
+                },
+                "step_id": {
+                  "type": "string",
+                  "description": "Journey step that sent the email",
+                  "examples": [
+                    "step-1"
+                  ],
+                  "example": "step-1"
+                },
+                "run_id": {
+                  "type": "string",
+                  "description": "Journey run that sent the email",
+                  "examples": [
+                    "run-77cd"
+                  ],
+                  "example": "run-77cd"
+                },
+                "broadcast_id": {
+                  "type": "string",
+                  "description": "Broadcast that sent the email",
+                  "examples": [
+                    "broadcast-42ef"
+                  ],
+                  "example": "broadcast-42ef"
+                },
+                "sent_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "examples": [
+                    "1970-01-01T00:00:00.000Z"
+                  ],
+                  "example": "1970-01-01T00:00:00.000Z"
+                },
+                "delivered_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "examples": [
+                    "1970-01-01T00:00:00.000Z"
+                  ],
+                  "example": "1970-01-01T00:00:00.000Z"
+                },
+                "opened_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "First recorded open",
+                  "examples": [
+                    "1970-01-01T00:00:00.000Z"
+                  ],
+                  "example": "1970-01-01T00:00:00.000Z"
+                },
+                "clicked_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Latest click before the conversion, across links",
+                  "examples": [
+                    "1970-01-01T00:00:00.000Z"
+                  ],
+                  "example": "1970-01-01T00:00:00.000Z"
+                }
+              },
+              "required": [
+                "origin",
+                "email_id",
+                "sent_at"
+              ]
+            }
+          },
+          "touches_truncated": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "True when more than 50 emails were sent in the window, so the oldest are missing from touches",
+            "readOnly": true,
+            "example": true
+          }
+        },
+        "required": [
+          "conversion_id",
+          "person_id",
+          "source",
+          "event_name",
+          "occurred_at",
+          "attribution",
+          "emails_in_window",
+          "lookback_days",
+          "history_complete"
+        ],
         "additionalProperties": false
       },
       "EngageItem": {
@@ -15574,6 +15936,9 @@
                         "email_marketing_events:all",
                         "email_marketing_events:create",
                         "email_marketing_events:read",
+                        "email_marketing_conversions:all",
+                        "email_marketing_conversions:read",
+                        "email_marketing_conversions:update",
                         "security_tokens:all",
                         "security_tokens:create",
                         "security_tokens:read",
@@ -20112,6 +20477,14 @@
                     "description": "Whether to insert an unsubscribe header in emails",
                     "example": false
                   },
+                  "same_domain_sender_failover": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Send a follow-up from another account on the same domain when the account that last emailed the lead has hit its daily sending limit or slow ramp limit. Off by default: the follow-up waits for that account. API only; \u0060null\u0060 means off.\n\nWhen on:\n- A switch happens only when that account hits its daily sending limit or slow ramp limit, or is removed from the campaign. For any other reason, such as the gap between sends, the follow-up waits.\n- The other account must be in this campaign and on the exact same domain. \u0060mail.acme.com\u0060 and \u0060acme.com\u0060 are different domains.\n- The follow-up stays in the same email thread.\n- Each lead gets emails from at most 2 accounts in this campaign, including subsequences. The account that emailed the lead most recently is tried first.\n- Counting starts when you turn this on. The account that last emailed the lead is the first of the 2; earlier accounts do not count.\n- If none of the lead\u0027s accounts can send, the follow-up waits. It does not use a third account or another domain, except in the cases below.\n- For this campaign, the workspace setting \u0022Sticky sending accounts for leads\u0022 is ignored.\n\nExceptions:\n- If every account the lead can use was removed from the campaign, a sender is picked as usual. It may be on another domain and may start a new thread. This keeps the campaign from stalling.\n- In rare cases a lead can get a third account: when the lead enters or leaves a subsequence, is moved or re-added to the campaign, when this setting is turned off and on again, or when a send is interrupted before it is confirmed.",
+                    "example": false
+                  },
                   "allow_risky_contacts": {
                     "type": [
                       "boolean",
@@ -20641,6 +21014,38 @@
             "name": "include_ai_sales_agent_campaigns",
             "required": false,
             "description": "Campaigns managed by an AI Sales Agent are excluded from the results by default. Set to true to include them."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "id",
+                "timestamp_created"
+              ],
+              "default": "id",
+              "example": "timestamp_created"
+            },
+            "example": "timestamp_created",
+            "in": "query",
+            "name": "sort_column",
+            "required": false,
+            "description": "Column to sort campaigns by. Defaults to \u0060id\u0060. Use \u0060timestamp_created\u0060 for chronological order."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc",
+              "example": "desc"
+            },
+            "example": "desc",
+            "in": "query",
+            "name": "sort_order",
+            "required": false,
+            "description": "Sort direction. Defaults to \u0060desc\u0060."
           }
         ],
         "responses": {
@@ -22072,6 +22477,14 @@
                       "null"
                     ],
                     "description": "Whether to insert an unsubscribe header in emails",
+                    "example": false
+                  },
+                  "same_domain_sender_failover": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Send a follow-up from another account on the same domain when the account that last emailed the lead has hit its daily sending limit or slow ramp limit. Off by default: the follow-up waits for that account. API only; \u0060null\u0060 means off.\n\nWhen on:\n- A switch happens only when that account hits its daily sending limit or slow ramp limit, or is removed from the campaign. For any other reason, such as the gap between sends, the follow-up waits.\n- The other account must be in this campaign and on the exact same domain. \u0060mail.acme.com\u0060 and \u0060acme.com\u0060 are different domains.\n- The follow-up stays in the same email thread.\n- Each lead gets emails from at most 2 accounts in this campaign, including subsequences. The account that emailed the lead most recently is tried first.\n- Counting starts when you turn this on. The account that last emailed the lead is the first of the 2; earlier accounts do not count.\n- If none of the lead\u0027s accounts can send, the follow-up waits. It does not use a third account or another domain, except in the cases below.\n- For this campaign, the workspace setting \u0022Sticky sending accounts for leads\u0022 is ignored.\n\nExceptions:\n- If every account the lead can use was removed from the campaign, a sender is picked as usual. It may be on another domain and may start a new thread. This keeps the campaign from stalling.\n- In rare cases a lead can get a third account: when the lead enters or leaves a subsequence, is moved or re-added to the campaign, when this setting is turned off and on again, or when a send is interrupted before it is confirmed.",
                     "example": false
                   },
                   "allow_risky_contacts": {
@@ -92272,6 +92685,556 @@
         }
       }
     },
+    "/api/v2/ai-agents/deliverability/{id}/pause": {
+      "post": {
+        "operationId": "pauseDeliverabilityAgent",
+        "summary": "Pause an AI Deliverability Agent",
+        "tags": [
+          "AIDeliverabilityAgent"
+        ],
+        "description": "Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. Its feed items stay available. Pausing an agent that is not active returns it unchanged.\n\n\nRequires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "AI Deliverability Agent ID. Call \u0060GET /api/v2/ai-agents/deliverability\u0060 and use the returned \u0060agent.id\u0060 value to retrieve the workspace default agent ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The AI Deliverability Agent after the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "examples": [
+                    {
+                      "agent": {
+                        "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                        "organization_id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                        "name": "Deliverability Agent",
+                        "payload": {
+                          "integrations": {
+                            "slack": null
+                          }
+                        },
+                        "type": 3,
+                        "timestamp_created": "1970-01-01T00:00:00.000Z",
+                        "timestamp_updated": "1970-01-01T00:00:00.000Z",
+                        "status": 1
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "agent": {
+                      "$ref": "#/components/schemas/AIDeliverabilityAgent"
+                    }
+                  },
+                  "required": [
+                    "agent"
+                  ],
+                  "example": {
+                    "agent": {
+                      "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                      "organization_id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                      "name": "Deliverability Agent",
+                      "payload": {
+                        "integrations": {
+                          "slack": null
+                        }
+                      },
+                      "type": 3,
+                      "timestamp_created": "1970-01-01T00:00:00.000Z",
+                      "timestamp_updated": "1970-01-01T00:00:00.000Z",
+                      "status": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ai-agents/deliverability/{id}/resume": {
+      "post": {
+        "operationId": "resumeDeliverabilityAgent",
+        "summary": "Resume an AI Deliverability Agent",
+        "tags": [
+          "AIDeliverabilityAgent"
+        ],
+        "description": "Resume a paused AI Deliverability Agent. The agent continues on its regular schedule and does not start a run immediately; the next run starts when it is due. Resuming an agent that is not paused returns it unchanged.\n\n\nRequires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "AI Deliverability Agent ID. Call \u0060GET /api/v2/ai-agents/deliverability\u0060 and use the returned \u0060agent.id\u0060 value to retrieve the workspace default agent ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The AI Deliverability Agent after the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "examples": [
+                    {
+                      "agent": {
+                        "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                        "organization_id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                        "name": "Deliverability Agent",
+                        "payload": {
+                          "integrations": {
+                            "slack": null
+                          }
+                        },
+                        "type": 3,
+                        "timestamp_created": "1970-01-01T00:00:00.000Z",
+                        "timestamp_updated": "1970-01-01T00:00:00.000Z",
+                        "status": 1
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "agent": {
+                      "$ref": "#/components/schemas/AIDeliverabilityAgent"
+                    }
+                  },
+                  "required": [
+                    "agent"
+                  ],
+                  "example": {
+                    "agent": {
+                      "id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                      "organization_id": "f9cc070d-8dba-4341-b847-f083c358e460",
+                      "name": "Deliverability Agent",
+                      "payload": {
+                        "integrations": {
+                          "slack": null
+                        }
+                      },
+                      "type": 3,
+                      "timestamp_created": "1970-01-01T00:00:00.000Z",
+                      "timestamp_updated": "1970-01-01T00:00:00.000Z",
+                      "status": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The workspace plan does not include the AI Deliverability Agent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        403
+                      ],
+                      "examples": [
+                        403
+                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ],
+                      "examples": [
+                        "Forbidden"
+                      ],
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Upgrade to the Hyper Growth plan to deploy the Deliverability Agent."
+                      ],
+                      "example": "Upgrade to the Hyper Growth plan to deploy the Deliverability Agent."
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/ai-agents/deliverability/{id}/state": {
       "get": {
         "operationId": "getDeliverabilityAgentStateById",
@@ -101877,6 +102840,1686 @@
         }
       }
     },
+    "/api/v2/email-marketing/conversion-settings": {
+      "get": {
+        "operationId": "getConversionSettings",
+        "summary": "Get conversion settings",
+        "tags": [
+          "Conversion"
+        ],
+        "description": "Returns the events counted as conversions and how far back an email counts towards each.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:read\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "responses": {
+          "200": {
+            "description": "The conversion settings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "conversions": {
+                      "type": "array",
+                      "description": "Events counted as conversions",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string",
+                            "enum": [
+                              "instantly",
+                              "api",
+                              "calendly",
+                              "typeform",
+                              "shopify",
+                              "woocommerce",
+                              "wix",
+                              "jotform",
+                              "intercom",
+                              "pipedrive",
+                              "salesforce",
+                              "hubspot",
+                              "highlevel",
+                              "leadconnector",
+                              "zoho_crm"
+                            ],
+                            "description": "Producer of the conversion event",
+                            "examples": [
+                              "api"
+                            ],
+                            "example": "api"
+                          },
+                          "event_name": {
+                            "type": "string",
+                            "description": "Name of the conversion event",
+                            "examples": [
+                              "subscription_started"
+                            ],
+                            "minLength": 2,
+                            "maxLength": 60,
+                            "pattern": "^[A-Za-z0-9._-]\u002B$",
+                            "example": "subscription_started"
+                          },
+                          "group_by_property": {
+                            "type": "string",
+                            "description": "Event property whose value the summary can group by",
+                            "examples": [
+                              "plan"
+                            ],
+                            "minLength": 1,
+                            "maxLength": 100,
+                            "example": "plan"
+                          },
+                          "lookback_days": {
+                            "type": "integer",
+                            "description": "How many days before the conversion an email counts towards it",
+                            "examples": [
+                              30
+                            ],
+                            "minimum": 1,
+                            "maximum": 365,
+                            "default": 30,
+                            "example": 30
+                          }
+                        },
+                        "required": [
+                          "source",
+                          "event_name",
+                          "lookback_days"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "When the settings were last saved; absent until the first save",
+                      "examples": [
+                        "1970-01-01T00:00:00.000Z"
+                      ],
+                      "example": "1970-01-01T00:00:00.000Z"
+                    }
+                  },
+                  "required": [
+                    "conversions"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "name: Invalid domain name format"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "VALIDATION_ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "updateConversionSettings",
+        "summary": "Replace conversion settings",
+        "tags": [
+          "Conversion"
+        ],
+        "description": "Replaces the events counted as conversions, up to 5. Applies to events received from now on; recorded conversions keep their attribution.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:update\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversions": {
+                    "type": "array",
+                    "description": "Replaces the saved conversion events. An empty list turns conversion tracking off.",
+                    "maxItems": 5,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "source": {
+                          "type": "string",
+                          "enum": [
+                            "instantly",
+                            "api",
+                            "calendly",
+                            "typeform",
+                            "shopify",
+                            "woocommerce",
+                            "wix",
+                            "jotform",
+                            "intercom",
+                            "pipedrive",
+                            "salesforce",
+                            "hubspot",
+                            "highlevel",
+                            "leadconnector",
+                            "zoho_crm"
+                          ],
+                          "description": "Producer of the conversion event",
+                          "example": "api"
+                        },
+                        "event_name": {
+                          "type": "string",
+                          "description": "Name of the conversion event",
+                          "minLength": 2,
+                          "maxLength": 60,
+                          "pattern": "^[A-Za-z0-9._-]\u002B$",
+                          "example": "subscription_started"
+                        },
+                        "group_by_property": {
+                          "type": "string",
+                          "description": "Event property whose value the summary can group by",
+                          "minLength": 1,
+                          "maxLength": 100,
+                          "example": "plan"
+                        },
+                        "lookback_days": {
+                          "type": "integer",
+                          "description": "How many days before the conversion an email counts towards it",
+                          "minimum": 1,
+                          "maximum": 365,
+                          "default": 30,
+                          "example": 30
+                        }
+                      },
+                      "required": [
+                        "source",
+                        "event_name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "conversions"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The saved conversion settings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "conversions": {
+                      "type": "array",
+                      "description": "Events counted as conversions",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string",
+                            "enum": [
+                              "instantly",
+                              "api",
+                              "calendly",
+                              "typeform",
+                              "shopify",
+                              "woocommerce",
+                              "wix",
+                              "jotform",
+                              "intercom",
+                              "pipedrive",
+                              "salesforce",
+                              "hubspot",
+                              "highlevel",
+                              "leadconnector",
+                              "zoho_crm"
+                            ],
+                            "description": "Producer of the conversion event",
+                            "examples": [
+                              "api"
+                            ],
+                            "example": "api"
+                          },
+                          "event_name": {
+                            "type": "string",
+                            "description": "Name of the conversion event",
+                            "examples": [
+                              "subscription_started"
+                            ],
+                            "minLength": 2,
+                            "maxLength": 60,
+                            "pattern": "^[A-Za-z0-9._-]\u002B$",
+                            "example": "subscription_started"
+                          },
+                          "group_by_property": {
+                            "type": "string",
+                            "description": "Event property whose value the summary can group by",
+                            "examples": [
+                              "plan"
+                            ],
+                            "minLength": 1,
+                            "maxLength": 100,
+                            "example": "plan"
+                          },
+                          "lookback_days": {
+                            "type": "integer",
+                            "description": "How many days before the conversion an email counts towards it",
+                            "examples": [
+                              30
+                            ],
+                            "minimum": 1,
+                            "maximum": 365,
+                            "default": 30,
+                            "example": 30
+                          }
+                        },
+                        "required": [
+                          "source",
+                          "event_name",
+                          "lookback_days"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "When the settings were last saved; absent until the first save",
+                      "examples": [
+                        "1970-01-01T00:00:00.000Z"
+                      ],
+                      "example": "1970-01-01T00:00:00.000Z"
+                    }
+                  },
+                  "required": [
+                    "conversions"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "name: Invalid domain name format"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "VALIDATION_ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The settings changed during the update; read them and retry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "examples": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "examples": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Conversion settings changed during the update; read them and retry"
+                      ],
+                      "example": "Conversion settings changed during the update; read them and retry"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/email-marketing/conversions": {
+      "get": {
+        "operationId": "listConversions",
+        "summary": "List conversions",
+        "tags": [
+          "Conversion"
+        ],
+        "description": "Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the person clicked, opened or only received it, and the event\u0027s properties. The person\u0027s email is included for API keys that can also read people.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:read\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "example": "1970-01-01T00:00:00.000Z",
+            "in": "query",
+            "name": "start_date",
+            "required": true,
+            "description": "First UTC day of the period (YYYY-MM-DD)"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "example": "1970-01-01T00:00:00.000Z",
+            "in": "query",
+            "name": "end_date",
+            "required": true,
+            "description": "Last UTC day of the period (YYYY-MM-DD); the period spans at most 366 days, both ends included"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "instantly",
+                "api",
+                "calendly",
+                "typeform",
+                "shopify",
+                "woocommerce",
+                "wix",
+                "jotform",
+                "intercom",
+                "pipedrive",
+                "salesforce",
+                "hubspot",
+                "highlevel",
+                "leadconnector",
+                "zoho_crm"
+              ],
+              "example": "api"
+            },
+            "example": "api",
+            "in": "query",
+            "name": "source",
+            "required": false,
+            "description": "Producer of the conversion event"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 60,
+              "pattern": "^[A-Za-z0-9._-]\u002B$",
+              "example": "subscription_started"
+            },
+            "example": "subscription_started",
+            "in": "query",
+            "name": "event_name",
+            "required": false,
+            "description": "Name of the conversion event"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "direct",
+                "influenced",
+                "received",
+                "none"
+              ],
+              "example": "direct"
+            },
+            "example": "direct",
+            "in": "query",
+            "name": "attribution",
+            "required": false,
+            "description": "Only conversions with this attribution"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "example": "journey-12ab"
+            },
+            "example": "journey-12ab",
+            "in": "query",
+            "name": "journey_id",
+            "required": false,
+            "description": "Only conversions credited to this journey"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "example": "broadcast-42ef"
+            },
+            "example": "broadcast-42ef",
+            "in": "query",
+            "name": "broadcast_id",
+            "required": false,
+            "description": "Only conversions credited to this broadcast"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "example": "starter"
+            },
+            "example": "starter",
+            "in": "query",
+            "name": "group_value",
+            "required": false,
+            "description": "Only conversions with this group value"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 365,
+              "example": 7
+            },
+            "example": 7,
+            "in": "query",
+            "name": "lookback_days",
+            "required": false,
+            "description": "Credit each conversion again from the emails sent this many days before it; ignored when longer than the window it was recorded with"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "example": true
+            },
+            "example": true,
+            "in": "query",
+            "name": "include_touches",
+            "required": false,
+            "description": "Add every email sent in the window to each conversion"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50,
+              "example": 50
+            },
+            "example": 50,
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "description": "Page size"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512,
+              "example": "2026-08-20T10:00:00.000Z#0198c2a4"
+            },
+            "example": "2026-08-20T10:00:00.000Z#0198c2a4",
+            "in": "query",
+            "name": "starting_after",
+            "required": false,
+            "description": "The next_starting_after value of the previous page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Conversion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "The list of Conversion",
+                      "items": {
+                        "$ref": "#/components/schemas/Conversion"
+                      }
+                    },
+                    "next_starting_after": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "description": "The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "name: Invalid domain name format"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "VALIDATION_ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/email-marketing/conversions/summary": {
+      "get": {
+        "operationId": "getConversionsSummary",
+        "summary": "Get conversions summary",
+        "tags": [
+          "Conversion"
+        ],
+        "description": "Counts the conversions in a UTC date range per attribution, optionally split by the last email\u0027s journey, journey step or broadcast, or by the group value.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:read\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "example": "1970-01-01T00:00:00.000Z",
+            "in": "query",
+            "name": "start_date",
+            "required": true,
+            "description": "First UTC day of the period (YYYY-MM-DD)"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "1970-01-01T00:00:00.000Z"
+            },
+            "example": "1970-01-01T00:00:00.000Z",
+            "in": "query",
+            "name": "end_date",
+            "required": true,
+            "description": "Last UTC day of the period (YYYY-MM-DD); the period spans at most 366 days, both ends included"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "instantly",
+                "api",
+                "calendly",
+                "typeform",
+                "shopify",
+                "woocommerce",
+                "wix",
+                "jotform",
+                "intercom",
+                "pipedrive",
+                "salesforce",
+                "hubspot",
+                "highlevel",
+                "leadconnector",
+                "zoho_crm"
+              ],
+              "example": "api"
+            },
+            "example": "api",
+            "in": "query",
+            "name": "source",
+            "required": false,
+            "description": "Producer of the conversion event"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 60,
+              "pattern": "^[A-Za-z0-9._-]\u002B$",
+              "example": "subscription_started"
+            },
+            "example": "subscription_started",
+            "in": "query",
+            "name": "event_name",
+            "required": false,
+            "description": "Name of the conversion event"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "journey",
+                "step",
+                "broadcast",
+                "group_value"
+              ],
+              "example": "journey"
+            },
+            "example": "journey",
+            "in": "query",
+            "name": "group_by",
+            "required": false,
+            "description": "Split the totals by the last email\u0027s journey, journey step or broadcast, or by the group value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversion totals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totals": {
+                      "type": "object",
+                      "properties": {
+                        "total": {
+                          "type": "integer",
+                          "description": "All conversions",
+                          "examples": [
+                            12
+                          ],
+                          "example": 12
+                        },
+                        "direct": {
+                          "type": "integer",
+                          "description": "Clicked an email before converting",
+                          "examples": [
+                            5
+                          ],
+                          "example": 5
+                        },
+                        "influenced": {
+                          "type": "integer",
+                          "description": "Opened but did not click an email before converting",
+                          "examples": [
+                            4
+                          ],
+                          "example": 4
+                        },
+                        "received": {
+                          "type": "integer",
+                          "description": "Only received emails before converting",
+                          "examples": [
+                            2
+                          ],
+                          "example": 2
+                        },
+                        "none": {
+                          "type": "integer",
+                          "description": "Got no email in the lookback window",
+                          "examples": [
+                            1
+                          ],
+                          "example": 1
+                        }
+                      },
+                      "required": [
+                        "total",
+                        "direct",
+                        "influenced",
+                        "received",
+                        "none"
+                      ]
+                    },
+                    "distinct_people": {
+                      "type": "integer",
+                      "description": "People behind the conversions; absent when the period holds too many conversions to count them",
+                      "examples": [
+                        11
+                      ],
+                      "example": 11
+                    },
+                    "history_incomplete": {
+                      "type": "integer",
+                      "description": "Conversions whose email history was too long to read in full, so an earlier email may be missing",
+                      "examples": [
+                        0
+                      ],
+                      "example": 0
+                    },
+                    "groups": {
+                      "type": "array",
+                      "description": "Totals per group and conversion event, largest first, at most 1000; present only when group_by is set",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "total": {
+                            "type": "integer",
+                            "description": "All conversions",
+                            "examples": [
+                              12
+                            ],
+                            "example": 12
+                          },
+                          "direct": {
+                            "type": "integer",
+                            "description": "Clicked an email before converting",
+                            "examples": [
+                              5
+                            ],
+                            "example": 5
+                          },
+                          "influenced": {
+                            "type": "integer",
+                            "description": "Opened but did not click an email before converting",
+                            "examples": [
+                              4
+                            ],
+                            "example": 4
+                          },
+                          "received": {
+                            "type": "integer",
+                            "description": "Only received emails before converting",
+                            "examples": [
+                              2
+                            ],
+                            "example": 2
+                          },
+                          "none": {
+                            "type": "integer",
+                            "description": "Got no email in the lookback window",
+                            "examples": [
+                              1
+                            ],
+                            "example": 1
+                          },
+                          "source": {
+                            "type": "string",
+                            "examples": [
+                              "api"
+                            ],
+                            "example": "api"
+                          },
+                          "event_name": {
+                            "type": "string",
+                            "examples": [
+                              "subscription_started"
+                            ],
+                            "example": "subscription_started"
+                          },
+                          "journey_id": {
+                            "type": "string",
+                            "examples": [
+                              "journey-12ab"
+                            ],
+                            "example": "journey-12ab"
+                          },
+                          "version": {
+                            "type": "integer",
+                            "examples": [
+                              3
+                            ],
+                            "example": 3
+                          },
+                          "step_id": {
+                            "type": "string",
+                            "examples": [
+                              "step-1"
+                            ],
+                            "example": "step-1"
+                          },
+                          "broadcast_id": {
+                            "type": "string",
+                            "examples": [
+                              "broadcast-42ef"
+                            ],
+                            "example": "broadcast-42ef"
+                          },
+                          "group_value": {
+                            "type": "string",
+                            "examples": [
+                              "starter"
+                            ],
+                            "example": "starter"
+                          },
+                          "journey_name": {
+                            "type": "string",
+                            "description": "Absent when the journey was deleted",
+                            "examples": [
+                              "Welcome series"
+                            ],
+                            "example": "Welcome series"
+                          },
+                          "broadcast_name": {
+                            "type": "string",
+                            "description": "Absent when the broadcast was deleted",
+                            "examples": [
+                              "August newsletter"
+                            ],
+                            "example": "August newsletter"
+                          }
+                        },
+                        "required": [
+                          "total",
+                          "direct",
+                          "influenced",
+                          "received",
+                          "none",
+                          "source",
+                          "event_name"
+                        ]
+                      }
+                    },
+                    "groups_truncated": {
+                      "type": "boolean",
+                      "description": "True when more groups exist than were returned; present only when group_by is set",
+                      "examples": [
+                        false
+                      ],
+                      "example": false
+                    }
+                  },
+                  "required": [
+                    "totals",
+                    "history_incomplete"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "name: Invalid domain name format"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "VALIDATION_ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        401
+                      ],
+                      "examples": [
+                        401
+                      ],
+                      "example": 401
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Unauthorized"
+                      ],
+                      "examples": [
+                        "Unauthorized"
+                      ],
+                      "example": "Unauthorized"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Missing Authorization header"
+                      ],
+                      "example": "Missing Authorization header"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        402
+                      ],
+                      "examples": [
+                        402
+                      ],
+                      "example": 402
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Payment Required"
+                      ],
+                      "examples": [
+                        "Payment Required"
+                      ],
+                      "example": "Payment Required"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Workspace does not have an active paid plan"
+                      ],
+                      "example": "Workspace does not have an active paid plan"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        404
+                      ],
+                      "examples": [
+                        404
+                      ],
+                      "example": 404
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Not Found"
+                      ],
+                      "examples": [
+                        "Not Found"
+                      ],
+                      "example": "Not Found"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Resource not found"
+                      ],
+                      "example": "Resource not found"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        429
+                      ],
+                      "examples": [
+                        429
+                      ],
+                      "example": 429
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Too Many Requests"
+                      ],
+                      "examples": [
+                        "Too Many Requests"
+                      ],
+                      "example": "Too Many Requests"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Rate limit exceeded"
+                      ],
+                      "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v2/local-business-search/search": {
       "post": {
         "operationId": "searchLocalBusinesses",
@@ -108284,6 +110927,18 @@
                       "type": "boolean",
                       "description": "Whether the enrichment is in progress",
                       "example": false
+                    },
+                    "done": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Leads the running enrichment has finished so far. Present only while \u0060in_progress\u0060 is true.",
+                      "example": 3
+                    },
+                    "total": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Leads the running enrichment will process in all. Present only while \u0060in_progress\u0060 is true.",
+                      "example": 50
                     },
                     "has_no_leads": {
                       "type": "boolean",
@@ -124529,6 +127184,11 @@
       "name": "CRMActions",
       "description": "CRM related actions",
       "x-group": "CRM Actions"
+    },
+    {
+      "name": "Conversion",
+      "description": "A conversion event received for a person, credited to the emails they got before it.",
+      "x-group": "Conversion"
     },
     {
       "name": "EngageItem",

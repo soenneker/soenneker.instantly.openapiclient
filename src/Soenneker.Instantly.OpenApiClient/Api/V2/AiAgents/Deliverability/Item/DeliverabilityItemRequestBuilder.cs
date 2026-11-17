@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.FeedItems;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.Pause;
+using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.Resume;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.State;
 using Soenneker.Instantly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -23,6 +25,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.FeedItems.FeedItemsRequestBuilder FeedItems
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.FeedItems.FeedItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pause property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.Pause.PauseRequestBuilder Pause
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.Pause.PauseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The resume property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.Resume.ResumeRequestBuilder Resume
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The state property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.State.StateRequestBuilder State

@@ -19,6 +19,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("auto_update") is null) { _explicitNullValueAutoUpdate = default!; _explicitNullProperties?.Remove("auto_update"); }
             else if (parseNode.GetChildNode("auto_update") is { } nullNodeAutoUpdate && nullNodeAutoUpdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoUpdate = null;
+            if (parseNode.GetChildNode("done") is null) { _explicitNullValueDone = default!; _explicitNullProperties?.Remove("done"); }
+            else if (parseNode.GetChildNode("done") is { } nullNodeDone && nullNodeDone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Done = null;
             if (parseNode.GetChildNode("enrichment_payload") is null) { _explicitNullValueEnrichmentPayload = default!; _explicitNullProperties?.Remove("enrichment_payload"); }
             else if (parseNode.GetChildNode("enrichment_payload") is { } nullNodeEnrichmentPayload && nullNodeEnrichmentPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrichmentPayload = null;
             if (parseNode.GetChildNode("exists") is null) { _explicitNullValueExists = default!; _explicitNullProperties?.Remove("exists"); }
@@ -45,11 +47,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("skip_rows_without_email") is { } nullNodeSkipRowsWithoutEmail && nullNodeSkipRowsWithoutEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipRowsWithoutEmail = null;
             if (parseNode.GetChildNode("timestamp_created") is null) { _explicitNullValueTimestampCreated = default!; _explicitNullProperties?.Remove("timestamp_created"); }
             else if (parseNode.GetChildNode("timestamp_created") is { } nullNodeTimestampCreated && nullNodeTimestampCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimestampCreated = null;
+            if (parseNode.GetChildNode("total") is null) { _explicitNullValueTotal = default!; _explicitNullProperties?.Remove("total"); }
+            else if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
         }
 
         /// <summary>Whether leads added to the list will be automatically enriched</summary>
         public bool? AutoUpdate { get => _explicitNullValueAutoUpdate; set { _explicitNullValueAutoUpdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_update"); else _explicitNullProperties?.Remove("auto_update"); } }
         private bool? _explicitNullValueAutoUpdate = default!;
+        /// <summary>Leads the running enrichment has finished so far. Present only while `in_progress` is true.</summary>
+        public int? Done { get => _explicitNullValueDone; set { _explicitNullValueDone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("done"); else _explicitNullProperties?.Remove("done"); } }
+        private int? _explicitNullValueDone = default!;
         /// <summary>Enrichment types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,6 +138,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Timestamp when the enrichment was created</summary>
         public DateTimeOffset? TimestampCreated { get => _explicitNullValueTimestampCreated; set { _explicitNullValueTimestampCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp_created"); else _explicitNullProperties?.Remove("timestamp_created"); } }
         private DateTimeOffset? _explicitNullValueTimestampCreated = default!;
+        /// <summary>Leads the running enrichment will process in all. Present only while `in_progress` is true.</summary>
+        public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private int? _explicitNullValueTotal = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -150,6 +160,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_update", n => { AutoUpdate = n.GetBoolValue(); } },
+                { "done", n => { Done = n.GetIntValue(); } },
                 { "enrichment_payload", n => { EnrichmentPayload = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload>(global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload.CreateFromDiscriminatorValue); } },
                 { "exists", n => { Exists = n.GetBoolValue(); } },
                 { "has_no_leads", n => { HasNoLeads = n.GetBoolValue(); } },
@@ -163,6 +174,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "search_filters", n => { SearchFilters = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>(global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters.CreateFromDiscriminatorValue); } },
                 { "skip_rows_without_email", n => { SkipRowsWithoutEmail = n.GetBoolValue(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
+                { "total", n => { Total = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -173,6 +185,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_update", AutoUpdate);
+            writer.WriteIntValue("done", Done);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayload>("enrichment_payload", EnrichmentPayload);
             writer.WriteBoolValue("exists", Exists);
             writer.WriteBoolValue("has_no_leads", HasNoLeads);
@@ -185,7 +198,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseSearchFilters>("search_filters", SearchFilters);
             writer.WriteBoolValue("skip_rows_without_email", SkipRowsWithoutEmail);
-            writer.WriteDateTimeOffsetValue("timestamp_created", TimestampCreated);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteDateTimeOffsetValue("timestamp_created", TimestampCreated);
+            writer.WriteIntValue("total", Total);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

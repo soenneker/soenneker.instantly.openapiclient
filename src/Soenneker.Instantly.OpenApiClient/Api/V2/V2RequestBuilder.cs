@@ -17,6 +17,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTagMappings;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags;
 using Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Domains;
+using Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing;
 using Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails;
 using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics;
@@ -121,6 +122,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Domains.DomainsRequestBuilder Domains
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Domains.DomainsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The emailMarketing property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.EmailMarketingRequestBuilder EmailMarketing
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.EmailMarketingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The emails property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder Emails
