@@ -86,7 +86,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "consecutive_loops_with_issue", n => { ConsecutiveLoopsWithIssue = n.GetDoubleValue(); } },
                 { "current_status_code", n => { CurrentStatusCode = n.GetStringValue(); } },

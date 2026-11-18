@@ -126,7 +126,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "blocklist_used", n => { BlocklistUsed = n.GetStringValue(); } },
                 { "created_leads", n => { CreatedLeads = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem>(global::Soenneker.Instantly.OpenApiClient.Models.BulkAddLeads200ResponseCreatedLeadsItem.CreateFromDiscriminatorValue)?.AsList(); } },

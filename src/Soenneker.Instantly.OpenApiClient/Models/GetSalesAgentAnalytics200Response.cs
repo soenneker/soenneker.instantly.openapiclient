@@ -105,7 +105,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "leads_found_per_day", n => { LeadsFoundPerDay = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseLeadsFoundPerDayItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "opportunities_per_day", n => { OpportunitiesPerDay = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetSalesAgentAnalytics200ResponseOpportunitiesPerDayItem.CreateFromDiscriminatorValue)?.AsList(); } },

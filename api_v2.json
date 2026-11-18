@@ -119901,6 +119901,13 @@
                   "app_connection_id": {
                     "type": "string",
                     "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+                  },
+                  "idempotency_key": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "description": "Retries that send the same key with the same provider, action and inputs join one run and are charged once. A key stays valid for one hour, the time completed runs are retained.",
+                    "example": "enrich-row-42"
                   }
                 },
                 "required": [
@@ -120164,6 +120171,50 @@
               }
             }
           },
+          "409": {
+            "description": "The idempotency_key already paid for a run whose result is no longer retained; send a new key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        409
+                      ],
+                      "examples": [
+                        409
+                      ],
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ],
+                      "examples": [
+                        "Conflict"
+                      ],
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Idempotency key has expired; use a new key"
+                      ],
+                      "example": "Idempotency key has expired; use a new key"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
           "429": {
             "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
             "content": {
@@ -120197,6 +120248,94 @@
                         "Rate limit exceeded"
                       ],
                       "example": "Rate limit exceeded"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        502
+                      ],
+                      "example": 502
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Bad Gateway"
+                      ],
+                      "example": "Bad Gateway"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Integration provider did not respond in time"
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "enum": [
+                        "PROVIDER_ERROR",
+                        "PROVIDER_TIMEOUT"
+                      ],
+                      "description": "Stable code clients match on: the provider failed, or did not answer before the provider timeout.",
+                      "example": "PROVIDER_TIMEOUT"
+                    }
+                  },
+                  "required": [
+                    "statusCode",
+                    "error",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Another request with the same idempotency_key is still starting the run; retry after the Retry-After seconds",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "enum": [
+                        503
+                      ],
+                      "examples": [
+                        503
+                      ],
+                      "example": 503
+                    },
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "Service Unavailable"
+                      ],
+                      "examples": [
+                        "Service Unavailable"
+                      ],
+                      "example": "Service Unavailable"
+                    },
+                    "message": {
+                      "type": "string",
+                      "examples": [
+                        "Integration run is not ready; retry with the same idempotency key"
+                      ],
+                      "example": "Integration run is not ready; retry with the same idempotency key"
                     }
                   },
                   "required": [

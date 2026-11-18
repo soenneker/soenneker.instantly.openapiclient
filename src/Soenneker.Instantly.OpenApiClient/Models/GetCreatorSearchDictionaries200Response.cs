@@ -107,7 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "brands", n => { Brands = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetCreatorSearchDictionaries200ResponseBrandsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetCreatorSearchDictionaries200ResponseBrandsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "hashtags", n => { Hashtags = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.GetCreatorSearchDictionaries200ResponseHashtagsItem>(global::Soenneker.Instantly.OpenApiClient.Models.GetCreatorSearchDictionaries200ResponseHashtagsItem.CreateFromDiscriminatorValue)?.AsList(); } },

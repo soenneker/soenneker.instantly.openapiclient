@@ -110,7 +110,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions.CreateFromDiscriminatorValue); } },

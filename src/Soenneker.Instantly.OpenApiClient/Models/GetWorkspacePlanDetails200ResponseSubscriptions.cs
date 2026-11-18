@@ -116,7 +116,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "bundle", n => { Bundle = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsBundle.CreateFromDiscriminatorValue); } },
                 { "credits", n => { Credits = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseSubscriptionsCredits.CreateFromDiscriminatorValue); } },

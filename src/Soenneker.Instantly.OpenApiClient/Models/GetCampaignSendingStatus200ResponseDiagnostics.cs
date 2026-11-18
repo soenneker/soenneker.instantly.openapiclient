@@ -220,7 +220,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "accounts_summary", n => { AccountsSummary = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary>(global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsAccountsSummary.CreateFromDiscriminatorValue); } },
                 { "campaign_daily_limit", n => { CampaignDailyLimit = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit>(global::Soenneker.Instantly.OpenApiClient.Models.GetCampaignSendingStatus200ResponseDiagnosticsCampaignDailyLimit.CreateFromDiscriminatorValue); } },

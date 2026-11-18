@@ -76,7 +76,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "automations", n => { Automations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTestRequestAutomationsItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchInboxPlacementTestRequestAutomationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },

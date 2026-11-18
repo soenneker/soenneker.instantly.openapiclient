@@ -108,7 +108,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "cancel_at_time", n => { CancelAtTime = n.GetDoubleValue(); } },
                 { "current_period_end", n => { CurrentPeriodEnd = n.GetDoubleValue(); } },

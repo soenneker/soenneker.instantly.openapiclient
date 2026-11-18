@@ -93,7 +93,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "moved_lead_emails", n => { MovedLeadEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "skipped_blocklisted_emails", n => { SkippedBlocklistedEmails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

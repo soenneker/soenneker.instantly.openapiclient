@@ -84,7 +84,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "advanced", n => { Advanced = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced>(global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupAdvanced.CreateFromDiscriminatorValue); } },
                 { "increment", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.AccountWarmupIncrement>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIncrement = default; _explicitNullProperties?.Remove("increment"); AdditionalData["increment"] = unknown; } else { Increment = parsed; AdditionalData.Remove("increment"); } } },

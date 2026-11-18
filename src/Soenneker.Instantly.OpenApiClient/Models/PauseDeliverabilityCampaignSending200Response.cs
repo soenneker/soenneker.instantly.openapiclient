@@ -91,7 +91,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "affected_account_count", n => { AffectedAccountCount = n.GetDoubleValue(); } },
                 { "already_paused_account_count", n => { AlreadyPausedAccountCount = n.GetDoubleValue(); } },

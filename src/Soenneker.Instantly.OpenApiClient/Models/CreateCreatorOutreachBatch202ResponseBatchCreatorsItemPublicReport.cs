@@ -107,7 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "audience", n => { Audience = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch202ResponseBatchCreatorsItemPublicReportAudience>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch202ResponseBatchCreatorsItemPublicReportAudience.CreateFromDiscriminatorValue); } },
                 { "collaborations", n => { Collaborations = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch202ResponseBatchCreatorsItemPublicReportCollaborationsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateCreatorOutreachBatch202ResponseBatchCreatorsItemPublicReportCollaborationsItem.CreateFromDiscriminatorValue)?.AsList(); } },

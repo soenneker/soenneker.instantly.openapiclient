@@ -126,7 +126,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "basic_guidance_options", n => { BasicGuidanceOptions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptions>(global::Soenneker.Instantly.OpenApiClient.Models.AiAgentGuidanceBasicGuidanceOptions.CreateFromDiscriminatorValue); } },

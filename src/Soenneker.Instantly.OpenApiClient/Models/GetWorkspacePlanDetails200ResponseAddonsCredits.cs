@@ -113,7 +113,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "annual_price_in_dollars", n => { AnnualPriceInDollars = n.GetDoubleValue(); } },
                 { "annual_product_id", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PidAddonIc50Kv1AnnualAnnualProductId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAnnualProductId = default; _explicitNullProperties?.Remove("annual_product_id"); AdditionalData["annual_product_id"] = unknown; } else { AnnualProductId = parsed; AdditionalData.Remove("annual_product_id"); } } },

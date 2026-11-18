@@ -153,7 +153,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "autonomy_settings", n => { AutonomySettings = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigAutonomySettings>(global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigAutonomySettings.CreateFromDiscriminatorValue); } },
                 { "enrichment_settings", n => { EnrichmentSettings = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigEnrichmentSettings>(global::Soenneker.Instantly.OpenApiClient.Models.PatchSalesAgentRequestConfigEnrichmentSettings.CreateFromDiscriminatorValue); } },

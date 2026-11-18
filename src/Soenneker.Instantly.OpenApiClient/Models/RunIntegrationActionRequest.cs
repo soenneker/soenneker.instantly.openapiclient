@@ -23,6 +23,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("app_connection_id") is { } nullNodeAppConnectionId && nullNodeAppConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppConnectionId = null;
             if (parseNode.GetChildNode("credential_source") is null) { _explicitNullValueCredentialSource = default!; _explicitNullProperties?.Remove("credential_source"); }
             else if (parseNode.GetChildNode("credential_source") is { } nullNodeCredentialSource && nullNodeCredentialSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CredentialSource = null;
+            if (parseNode.GetChildNode("idempotency_key") is null) { _explicitNullValueIdempotencyKey = default!; _explicitNullProperties?.Remove("idempotency_key"); }
+            else if (parseNode.GetChildNode("idempotency_key") is { } nullNodeIdempotencyKey && nullNodeIdempotencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdempotencyKey = null;
             if (parseNode.GetChildNode("inputs") is null) { _explicitNullValueInputs = default!; _explicitNullProperties?.Remove("inputs"); }
             else if (parseNode.GetChildNode("inputs") is { } nullNodeInputs && nullNodeInputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inputs = null;
             if (parseNode.GetChildNode("provider_id") is null) { _explicitNullValueProviderId = default!; _explicitNullProperties?.Remove("provider_id"); }
@@ -52,6 +54,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Which credentials to run this action with. Providers marked requiresUserConnection only accept &quot;workspace_key&quot;.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestCredentialSource? CredentialSource { get => _explicitNullValueCredentialSource; set { _explicitNullValueCredentialSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential_source"); else _explicitNullProperties?.Remove("credential_source"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestCredentialSource? _explicitNullValueCredentialSource = default!;
+        /// <summary>Retries that send the same key with the same provider, action and inputs join one run and are charged once. A key stays valid for one hour, the time completed runs are retained.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
+        private string? _explicitNullValueIdempotencyKey = default!;
+#nullable restore
+#else
+        public string IdempotencyKey { get => _explicitNullValueIdempotencyKey; set { _explicitNullValueIdempotencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idempotency_key"); else _explicitNullProperties?.Remove("idempotency_key"); } }
+        private string _explicitNullValueIdempotencyKey = default!;
+#endif
         /// <summary>The inputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,11 +100,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "action_id", n => { ActionId = n.GetStringValue(); } },
                 { "app_connection_id", n => { AppConnectionId = n.GetStringValue(); } },
                 { "credential_source", n => { CredentialSource = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestCredentialSource>(); } },
+                { "idempotency_key", n => { IdempotencyKey = n.GetStringValue(); } },
                 { "inputs", n => { Inputs = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestInputs>(global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestInputs.CreateFromDiscriminatorValue); } },
                 { "provider_id", n => { ProviderId = n.GetStringValue(); } },
             };
@@ -107,6 +120,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteStringValue("action_id", ActionId);
             writer.WriteStringValue("app_connection_id", AppConnectionId);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestCredentialSource>("credential_source", CredentialSource);
+            writer.WriteStringValue("idempotency_key", IdempotencyKey);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequestInputs>("inputs", Inputs);
             writer.WriteStringValue("provider_id", ProviderId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

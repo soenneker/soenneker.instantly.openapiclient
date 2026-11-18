@@ -92,7 +92,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "addons", n => { Addons = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddons>(global::Soenneker.Instantly.OpenApiClient.Models.GetWorkspacePlanDetails200ResponseAddons.CreateFromDiscriminatorValue); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },

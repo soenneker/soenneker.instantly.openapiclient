@@ -44,7 +44,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integra
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction402Response">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction502Response">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction503Response">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction200Response?> PostAsync(global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationActionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +65,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.SupersearchEnrichment.Integra
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction402Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction429Response.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction502Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Instantly.OpenApiClient.Models.RunIntegrationAction503Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
