@@ -41,7 +41,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LeadLabelsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/lead-labels{?interest_status*,limit*,search*,starting_after*}", pathParameters)
+        public LeadLabelsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/lead-labels{?interest_status*,interest_status_value*,limit*,search*,starting_after*,starting_after_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LeadLabelsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/lead-labels{?interest_status*,limit*,search*,starting_after*}", rawUrl)
+        public LeadLabelsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v2/lead-labels{?interest_status*,interest_status_value*,limit*,search*,starting_after*,starting_after_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -177,6 +177,9 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
             /// <summary>The interest status to filter lead labels by.</summary>
             [QueryParameter("interest_status")]
             public global::Soenneker.Instantly.OpenApiClient.Models.ListLeadLabelInterestStatusParameter? InterestStatus { get; set; }
+            /// <summary>Filter labels by their exact interest status value.</summary>
+            [QueryParameter("interest_status_value")]
+            public int? InterestStatusValue { get; set; }
             /// <summary>The number of items to return</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
@@ -199,6 +202,16 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels
 #else
             [QueryParameter("starting_after")]
             public string StartingAfter { get; set; }
+#endif
+            /// <summary>The last label ID from the previous page. When set, results continue after this ID and starting_after is ignored.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("starting_after_id")]
+            public string? StartingAfterId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("starting_after_id")]
+            public string StartingAfterId { get; set; }
 #endif
         }
     }

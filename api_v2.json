@@ -41324,6 +41324,17 @@
           },
           {
             "schema": {
+              "type": "integer",
+              "example": 1001
+            },
+            "example": 1001,
+            "in": "query",
+            "name": "interest_status_value",
+            "required": false,
+            "description": "Filter labels by their exact interest status value."
+          },
+          {
+            "schema": {
               "type": "string",
               "enum": [
                 "positive",
@@ -41337,6 +41348,17 @@
             "name": "interest_status",
             "required": false,
             "description": "The interest status to filter lead labels by."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
+            "in": "query",
+            "name": "starting_after_id",
+            "required": false,
+            "description": "The last label ID from the previous page. When set, results continue after this ID and starting_after is ignored."
           }
         ],
         "responses": {

@@ -9034,6 +9034,16 @@
             "example": "Hot Lead"
           },
           {
+            "name": "interest_status_value",
+            "in": "query",
+            "description": "Filter labels by their exact interest status value.",
+            "schema": {
+              "type": "integer",
+              "example": 1001
+            },
+            "example": 1001
+          },
+          {
             "name": "interest_status",
             "in": "query",
             "description": "The interest status to filter lead labels by.",
@@ -9041,6 +9051,16 @@
               "$ref": "#/components/schemas/ListLeadLabelInterestStatusParameter"
             },
             "example": "positive"
+          },
+          {
+            "name": "starting_after_id",
+            "in": "query",
+            "description": "The last label ID from the previous page. When set, results continue after this ID and starting_after is ignored.",
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
           }
         ],
         "responses": {
