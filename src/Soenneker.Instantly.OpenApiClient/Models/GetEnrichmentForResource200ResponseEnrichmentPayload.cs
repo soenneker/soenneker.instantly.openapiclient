@@ -46,7 +46,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ai_enrichment property</summary>
+        /// <summary>Settings of each AI column, keyed by output column name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetEnrichmentForResource200ResponseEnrichmentPayloadAiEnrichment? AiEnrichment { get => _explicitNullValueAiEnrichment; set { _explicitNullValueAiEnrichment = value; AdditionalData?.Remove("ai_enrichment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_enrichment"); else _explicitNullProperties?.Remove("ai_enrichment"); } }
