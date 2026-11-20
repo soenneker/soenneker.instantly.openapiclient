@@ -37,7 +37,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public global::Soenneker.Instantly.OpenApiClient.Models.AiAgent Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; AdditionalData?.Remove("agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.AiAgent _explicitNullValueAgent = default!;
 #endif
-        /// <summary>The cycle_id property</summary>
+        /// <summary>The id requested for this run. If a cycle is already open or pending, the agent continues that cycle under its own id instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CycleId { get => _explicitNullValueCycleId; set { _explicitNullValueCycleId = value; AdditionalData?.Remove("cycle_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cycle_id"); else _explicitNullProperties?.Remove("cycle_id"); } }

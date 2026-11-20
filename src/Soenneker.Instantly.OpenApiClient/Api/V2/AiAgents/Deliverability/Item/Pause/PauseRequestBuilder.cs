@@ -34,7 +34,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.
         {
         }
         /// <summary>
-        /// Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. Its feed items stay available. Pausing an agent that is not active returns it unchanged.Requires one of the following scopes: `ai_agents:update`, `ai_agents:all`, `all:update`, `all:all`
+        /// Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. A paused agent is not charged. Its feed items stay available. Pausing an agent that is not active returns it unchanged.Requires one of the following scopes: `ai_agents:update`, `ai_agents:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAgent200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents.Deliverability.Item.
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAgent200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.PauseDeliverabilityAgent200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. Its feed items stay available. Pausing an agent that is not active returns it unchanged.Requires one of the following scopes: `ai_agents:update`, `ai_agents:all`, `all:update`, `all:all`
+        /// Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. A paused agent is not charged. Its feed items stay available. Pausing an agent that is not active returns it unchanged.Requires one of the following scopes: `ai_agents:update`, `ai_agents:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -7614,7 +7614,11 @@
               73,
               74,
               75,
-              76
+              76,
+              77,
+              78,
+              79,
+              80
             ],
             "x-enumDescriptions": {
               "1": "User login",
@@ -7681,7 +7685,11 @@
               "73": "Knowledge Base item removed",
               "74": "Knowledge Base cleared",
               "75": "Business profile moved to the Knowledge Base",
-              "76": "File uploaded to the Knowledge Base"
+              "76": "File uploaded to the Knowledge Base",
+              "77": "Sequencer platform credentials updated",
+              "78": "Sequencer platform disconnected",
+              "79": "Mailbox export started",
+              "80": "Sequencer platform connected"
             },
             "example": 1
           },
@@ -91358,6 +91366,7 @@
                     },
                     "cycle_id": {
                       "type": "string",
+                      "description": "The id requested for this run. If a cycle is already open or pending, the agent continues that cycle under its own id instead.",
                       "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                     },
                     "run_cycle_enqueued": {
@@ -91420,7 +91429,7 @@
             }
           },
           "402": {
-            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "description": "The workspace does not have an active paid plan, or not enough Instantly credits for a run.",
             "content": {
               "application/json": {
                 "schema": {
@@ -91449,9 +91458,9 @@
                     "message": {
                       "type": "string",
                       "examples": [
-                        "Workspace does not have an active paid plan"
+                        "Not enough Instantly credits: each Deliverability Agent run needs 5 credits"
                       ],
-                      "example": "Workspace does not have an active paid plan"
+                      "example": "Not enough Instantly credits: each Deliverability Agent run needs 5 credits"
                     }
                   },
                   "required": [
@@ -92714,7 +92723,7 @@
         "tags": [
           "AIDeliverabilityAgent"
         ],
-        "description": "Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. Its feed items stay available. Pausing an agent that is not active returns it unchanged.\n\n\nRequires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Pause an active AI Deliverability Agent. The agent stops its scheduled runs, and a run in progress stops within a few minutes. A paused agent is not charged. Its feed items stay available. Pausing an agent that is not active returns it unchanged.\n\n\nRequires one of the following scopes: \u0060ai_agents:update\u0060, \u0060ai_agents:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "parameters": [
           {
             "schema": {
