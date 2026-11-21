@@ -8,6 +8,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.AgentItems;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AiAgents;
 using Soenneker.Instantly.OpenApiClient.Api.V2.ApiKeys;
 using Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Automation;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs;
 using Soenneker.Instantly.OpenApiClient.Api.V2.BlockListsEntries;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Campaigns;
@@ -77,6 +78,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs.AuditLogsRequestBuilder AuditLogs
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.AuditLogs.AuditLogsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The automation property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Automation.AutomationRequestBuilder Automation
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Automation.AutomationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The backgroundJobs property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.BackgroundJobs.BackgroundJobsRequestBuilder BackgroundJobs

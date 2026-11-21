@@ -19914,6 +19914,16 @@
               }
             }
           },
+          "403": {
+            "description": "The workspace plan does not include Deliverability Agent runs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunDeliverabilityAgentNow403Response"
+                }
+              }
+            }
+          },
           "404": {
             "description": "The requested resource was not found",
             "content": {
@@ -20645,6 +20655,1533 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListDeliverabilityAgentFeedItems429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/control-nodes": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Discover native workflow control nodes",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflowControlNodes",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowControlNodes200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowControlNodes401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowControlNodes402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowControlNodes404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowControlNodes429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/resources": {
+      "post": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Read connection resource options",
+        "description": "Read-only lookup for dynamic node fields. Use resourceSlug or resourceId from ui_schema. For built-in integrations, input contains the resource query parameters. For marketplace integrations, input contains dependent field values; search, cursor and limit control pagination. Returns the provider result in data.\n\n\nRequires one of the following scopes: \u0060automation_app_connections:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetWorkflowResourceOptions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetWorkflowResourceOptionsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowResourceOptions200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowResourceOptions401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowResourceOptions402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowResourceOptions404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowResourceOptions429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/integrations": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "List workflow integrations",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflowIntegrations",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowIntegrations200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowIntegrations401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowIntegrations402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowIntegrations404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowIntegrations429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/actions": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "List integration actions",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflowActions",
+        "parameters": [
+          {
+            "name": "app_id",
+            "in": "query",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "description": "Node kind",
+            "schema": {
+              "$ref": "#/components/schemas/ListWorkflowActionsKindParameter"
+            },
+            "example": "value"
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "description": "Event ID from the integration catalog",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Optional published connector version or version track",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowActions200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowActions401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowActions402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowActions404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowActions429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/triggers": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "List integration triggers",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflowTriggers",
+        "parameters": [
+          {
+            "name": "app_id",
+            "in": "query",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "description": "Node kind",
+            "schema": {
+              "$ref": "#/components/schemas/ListWorkflowTriggersKindParameter"
+            },
+            "example": "value"
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "description": "Event ID from the integration catalog",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Optional published connector version or version track",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTriggers200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTriggers401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTriggers402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTriggers404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTriggers429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/node-schema": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Get a workflow node schema",
+        "description": "Returns the builder input schema, output schema when available, output example and connection requirement. A null output_schema means only an example is available; validate resolved values with a test run.\n\n\nRequires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetWorkflowNodeSchema",
+        "parameters": [
+          {
+            "name": "app_id",
+            "in": "query",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "description": "Node kind",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/GetWorkflowNodeSchemaKindParameter"
+            },
+            "example": "value"
+          },
+          {
+            "name": "event_id",
+            "in": "query",
+            "description": "Event ID from the integration catalog",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Optional published connector version or version track",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowNodeSchema200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowNodeSchema401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowNodeSchema402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowNodeSchema404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowNodeSchema429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/connections": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "List available workflow app connections",
+        "description": "Requires one of the following scopes: \u0060automation_app_connections:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflowConnections",
+        "parameters": [
+          {
+            "name": "app_id",
+            "in": "query",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "starting_after",
+            "in": "query",
+            "description": "Resource ID",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Connector version",
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowConnections200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowConnections401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowConnections402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowConnections404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowConnections429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/authoring/validate": {
+      "post": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Validate a workflow definition without executing it",
+        "description": "Checks graph structure, integration inputs, token references and workspace connection ownership. Does not verify live credentials or resolved token values. Activation also requires saved test outputs.\n\n\nRequires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ValidateWorkflowDefinition",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflowDefinition200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflowDefinition401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflowDefinition402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflowDefinition404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflowDefinition429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflows/{id}/triggers/{triggerNodeId}/webhook-url": {
+      "post": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Get a saved trigger\u2019s manual webhook setup URL",
+        "description": "Returns or creates the stable URL for a saved manual webhook trigger. Requires workflow update and app connection read scopes. Does not activate the workflow or rotate existing URLs.\n\n\nRequires one of the following scopes: \u0060automation_workflows:update\u0060, \u0060automation_workflows:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "operationId": "GetWorkflowTriggerWebhookUrl",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "triggerNodeId",
+            "in": "path",
+            "description": "Saved trigger node ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflows/{id}/test": {
+      "post": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Run a workflow test with real actions",
+        "description": "Runs the saved workflow using supplied trigger data, including real provider writes and credit usage. Does not activate the workflow. Reuse run_id for retries; a run ID identifies one request for 24 hours.\n\n\nRequires one of the following scopes: \u0060automation_workflows:all\u0060, \u0060all:all\u0060",
+        "operationId": "TestWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestWorkflowRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWorkflow200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWorkflow401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWorkflow402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWorkflow404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWorkflow429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflows/{id}/test-runs/{runId}": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Get a correlated workflow test result",
+        "description": "Returns the exact test execution and per-node outputs. Run handles expire after 24 hours; execution IDs remain available in workflow history. Waiting runs can require an approval or delay.\n\n\nRequires one of the following scopes: \u0060automation_workflow_executions:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetWorkflowTestRun",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          },
+          {
+            "name": "runId",
+            "in": "path",
+            "description": "Resource ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "value"
+            },
+            "example": "value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTestRun200ResponseSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTestRun401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTestRun402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTestRun404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflowTestRun429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflow-templates": {
+      "post": {
+        "tags": [
+          "WorkflowTemplate"
+        ],
+        "summary": "Save an automation as a template",
+        "description": "Saves a workflow as a reusable template. Provide \u0060workflow_id\u0060 to snapshot an existing automation (preferred) or \u0060flow\u0060 to supply the configuration directly. App connections and stored step output are removed before the template is saved.\n\n\nRequires one of the following scopes: \u0060automation_workflow_templates:create\u0060, \u0060automation_workflow_templates:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "operationId": "CreateAutomationWorkflowTemplate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAutomationWorkflowTemplateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The requested WorkflowTemplate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflow-template-categories": {
+      "get": {
+        "tags": [
+          "WorkflowTemplateCategory"
+        ],
+        "summary": "List workflowtemplatecategory",
+        "description": "Requires one of the following scopes: \u0060automation_workflow_templates:read\u0060, \u0060automation_workflow_templates:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflowTemplateCategory",
+        "parameters": [
+          {
+            "name": "include_empty",
+            "in": "query",
+            "description": "Also return active categories that no template uses yet. Use this when offering categories to pick from; omit it for a catalog filter, which should only list categories with something in them.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of WorkflowTemplateCategory",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTemplateCategory200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTemplateCategory401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTemplateCategory402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTemplateCategory404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflowTemplateCategory429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflows": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "List workflow",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ListWorkflow",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of items to return",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 10
+            },
+            "example": 10
+          },
+          {
+            "name": "starting_after",
+            "in": "query",
+            "description": "The ID of the last item in the previous page - used for pagination. You can use the value of the \u0060next_starting_after\u0060 field from the previous response.",
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of workflow IDs to filter by",
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460,f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search by name or description",
+            "schema": {
+              "type": "string",
+              "example": "Add Lead to Campaign"
+            },
+            "example": "Add Lead to Campaign"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The status of the job. Multiple statuses can be provided as a comma-separated list. Valid statuses are: DRAFT, ACTIVE, PAUSED, 0, 1, 2",
+            "schema": {
+              "type": "string",
+              "example": "1,0,2"
+            },
+            "example": "1,0,2"
+          },
+          {
+            "name": "sort_column",
+            "in": "query",
+            "description": "The column to sort the results by",
+            "schema": {
+              "$ref": "#/components/schemas/ListWorkflowSortColumnParameter"
+            },
+            "example": "timestamp_created"
+          },
+          {
+            "name": "sort_order",
+            "in": "query",
+            "description": "The order to sort the results by",
+            "schema": {
+              "$ref": "#/components/schemas/ListWorkflowSortOrderParameter"
+            },
+            "example": "timestamp_updated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Workflow",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflow200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflow401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflow402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflow404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkflow429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Create workflow",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:create\u0060, \u0060automation_workflows:all\u0060, \u0060all:create\u0060, \u0060all:all\u0060",
+        "operationId": "CreateWorkflow",
+        "requestBody": {
+          "description": "The Workflow to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWorkflowRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The Workflow",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workflow"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body (e.g. missing required fields, or invalid field values)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkflow400Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkflow401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkflow402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkflow404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkflow429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflows/{id}": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Get workflow",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "GetWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the requested item",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Workflow",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workflow"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflow401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflow402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflow404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkflow429Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Patch workflow",
+        "description": "Requires one of the following scopes: \u0060automation_workflows:update\u0060, \u0060automation_workflows:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "operationId": "PatchWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the item to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchWorkflowRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated Workflow",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workflow"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchWorkflow401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchWorkflow402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchWorkflow404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchWorkflow429Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/automation/workflows/{id}/validate": {
+      "post": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Validate a saved workflow",
+        "description": "Checks the saved workflow against the same readiness rules used for activation. Does not modify or execute the workflow. This checks configuration and graph readiness; it does not verify live provider credentials or guarantee execution success.\n\n\nRequires one of the following scopes: \u0060automation_workflows:read\u0060, \u0060automation_workflows:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "operationId": "ValidateWorkflow",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Workflow ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+            },
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflow200Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "This request is unauthorized (either the Authorization header is missing or invalid, or the API key has been revoked)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflow401Response"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "This request cannot be fulfilled because the workspace does not have an active paid plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflow402Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflow404Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "You have exceeded the rate limit. Please check the rate limit docs for more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateWorkflow429Response"
                 }
               }
             }
@@ -27240,6 +28777,75 @@
           "Workspace"
         ]
       },
+      "Workflow": {
+        "title": "Workflow",
+        "required": [
+          "id",
+          "name",
+          "organization_id",
+          "status",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the workflow (uuidv7).",
+            "readOnly": true,
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "name": {
+            "type": "string",
+            "description": "The human-readable name of the workflow.",
+            "example": "My Workflow"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "ID of the organization this workflow belongs to.",
+            "readOnly": true,
+            "example": "org-1"
+          },
+          "status": {
+            "type": "number",
+            "description": "The status of the workflow (0 = draft, 1 = active, 2 = paused).",
+            "example": 1
+          },
+          "flow": {
+            "$ref": "#/components/schemas/WorkflowFlow"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/WorkflowMetaProperty"
+          },
+          "pause_reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Reason the workflow was paused (e.g. \u0022out_of_credits\u0022). Null when not paused or paused manually.",
+            "readOnly": true,
+            "example": "out_of_credits"
+          },
+          "timestamp_created": {
+            "type": "string",
+            "description": "Timestamp when the workflow was created.",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "timestamp_updated": {
+            "type": "string",
+            "description": "Timestamp when the workflow was last updated.",
+            "readOnly": true,
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines an automation workflow with its configuration, status, and associated meta data.",
+        "x-tags": [
+          "Schemas",
+          "Workflow"
+        ]
+      },
       "SuperSearchEnrichment": {
         "title": "SuperSearch Enrichment",
         "required": [
@@ -29957,6 +31563,19 @@
         "description": "Plan ID for verification service",
         "readOnly": true
       },
+      "WorkflowFlow": {
+        "type": "object",
+        "properties": {
+          "concurrency": {
+            "$ref": "#/components/schemas/WorkflowFlowConcurrency"
+          }
+        },
+        "description": "The workflow configuration storing nodes and edges.",
+        "example": {
+          "nodes": [],
+          "edges": []
+        }
+      },
       "WorkspaceMemberName": {
         "type": "object",
         "properties": {
@@ -30777,6 +32396,20 @@
             "type": "object"
           }
         ]
+      },
+      "WorkflowFlowConcurrency": {
+        "type": "object",
+        "properties": {
+          "entity_key": {
+            "pattern": "^[a-zA-Z0-9_-]\u002B(\\.[a-zA-Z0-9_-]\u002B)*$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Dot-separated path in the raw trigger event data (for example lead_email or contact.id). Omit or set to null to disable. Missing or invalid event values fail the run before actions execute."
+          }
+        },
+        "description": "Optional per-entity mutual exclusion. Runs with the same key wait for the previous run, including delays and approvals. Arrival order and exactly-once delivery are not guaranteed."
       },
       "CampaignSubsequenceSubsequenceScheduleSchedulesItem": {
         "required": [
@@ -60458,6 +62091,29 @@
           }
         }
       },
+      "RunDeliverabilityAgentNow403Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/RunDeliverabilityAgentNow403ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ForbiddenError"
+          },
+          "message": {
+            "examples": [
+              "Upgrade to the Hyper Growth plan to run the Deliverability Agent."
+            ],
+            "type": "string",
+            "example": "Upgrade to the Hyper Growth plan to run the Deliverability Agent."
+          }
+        }
+      },
       "RunDeliverabilityAgentNow404Response": {
         "required": [
           "statusCode",
@@ -61440,6 +63096,1886 @@
         "properties": {
           "statusCode": {
             "$ref": "#/components/schemas/ListDeliverabilityAgentFeedItems429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflowControlNodes401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowControlNodes401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflowControlNodes402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowControlNodes402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflowControlNodes404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowControlNodes404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflowControlNodes429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowControlNodes429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetWorkflowResourceOptionsRequest": {
+        "required": [
+          "connection_id",
+          "resource_id"
+        ],
+        "type": "object",
+        "properties": {
+          "connection_id": {
+            "type": "string",
+            "description": "Resource ID",
+            "example": "value"
+          },
+          "resource_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string",
+            "description": "Resource identifier",
+            "example": "value"
+          },
+          "input": {
+            "$ref": "#/components/schemas/GetWorkflowResourceOptionsRequestInput"
+          },
+          "version": {
+            "type": "string",
+            "description": "Connector version or track",
+            "example": "value"
+          },
+          "search": {
+            "maxLength": 500,
+            "type": "string",
+            "description": "Search term",
+            "example": "value"
+          },
+          "cursor": {
+            "type": "string",
+            "description": "Next page cursor",
+            "example": "value"
+          },
+          "limit": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "example": 30
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetWorkflowResourceOptions401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowResourceOptions401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetWorkflowResourceOptions402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowResourceOptions402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetWorkflowResourceOptions404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowResourceOptions404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetWorkflowResourceOptions429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowResourceOptions429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflowIntegrations401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowIntegrations401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflowIntegrations402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowIntegrations402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflowIntegrations404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowIntegrations404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflowIntegrations429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowIntegrations429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflowActions401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowActions401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflowActions402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowActions402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflowActions404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowActions404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflowActions429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowActions429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflowTriggers401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTriggers401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflowTriggers402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTriggers402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflowTriggers404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTriggers404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflowTriggers429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTriggers429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetWorkflowNodeSchema401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowNodeSchema401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetWorkflowNodeSchema402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowNodeSchema402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetWorkflowNodeSchema404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowNodeSchema404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetWorkflowNodeSchema429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowNodeSchema429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflowConnections401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowConnections401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflowConnections402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowConnections402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflowConnections404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowConnections404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflowConnections429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowConnections429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ValidateWorkflowDefinitionRequest": {
+        "required": [
+          "flow"
+        ],
+        "type": "object",
+        "properties": {
+          "flow": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlow"
+          }
+        }
+      },
+      "ValidateWorkflowDefinition401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinition401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ValidateWorkflowDefinition402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinition402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ValidateWorkflowDefinition404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinition404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ValidateWorkflowDefinition429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinition429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetWorkflowTriggerWebhookUrl401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetWorkflowTriggerWebhookUrl402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetWorkflowTriggerWebhookUrl404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetWorkflowTriggerWebhookUrl429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTriggerWebhookUrl429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "TestWorkflowRequest": {
+        "required": [
+          "initial_payload",
+          "trigger_node_id",
+          "run_id"
+        ],
+        "type": "object",
+        "properties": {
+          "initial_payload": {
+            "$ref": "#/components/schemas/TestWorkflowRequestInitialPayload"
+          },
+          "trigger_node_id": {
+            "type": "string",
+            "description": "Trigger node ID",
+            "example": "value"
+          },
+          "run_id": {
+            "type": "string",
+            "description": "Resource ID",
+            "example": "value"
+          }
+        }
+      },
+      "TestWorkflow401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/TestWorkflow401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "TestWorkflow402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/TestWorkflow402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "TestWorkflow404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/TestWorkflow404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "TestWorkflow429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/TestWorkflow429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetWorkflowTestRun401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTestRun401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetWorkflowTestRun402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTestRun402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetWorkflowTestRun404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTestRun404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetWorkflowTestRun429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflowTestRun429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "CreateAutomationWorkflowTemplateRequest": {
+        "required": [
+          "name",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string",
+            "example": "Weekly pipeline digest"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string",
+            "example": "Posts a summary of new opportunities to Slack every Monday."
+          },
+          "long_description": {
+            "maxLength": 20000,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Rich description shown in the template preview. Accepts a small HTML subset (headings, bold, italic, lists, links); anything else is stripped on write.",
+            "example": "\u003Ch2\u003EWhat it does\u003C/h2\u003E\u003Cp\u003EPosts a summary to \u003Cstrong\u003ESlack\u003C/strong\u003E every Monday.\u003C/p\u003E"
+          },
+          "category": {
+            "minLength": 1,
+            "type": "string",
+            "example": "outreach"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/CreateAutomationWorkflowTemplateRequestVisibility"
+          },
+          "workflow_id": {
+            "type": "string",
+            "description": "Snapshot this workflow. Preferred over sending a flow.",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          },
+          "flow": {
+            "$ref": "#/components/schemas/CreateAutomationWorkflowTemplateRequestFlow"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAutomationWorkflowTemplate401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "CreateAutomationWorkflowTemplate402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "CreateAutomationWorkflowTemplate404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "CreateAutomationWorkflowTemplate429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateAutomationWorkflowTemplate429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflowTemplateCategory401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTemplateCategory401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflowTemplateCategory402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTemplateCategory402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflowTemplateCategory404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTemplateCategory404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflowTemplateCategory429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflowTemplateCategory429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ListWorkflow401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflow401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ListWorkflow402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflow402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ListWorkflow404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflow404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ListWorkflow429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ListWorkflow429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "CreateWorkflowRequest": {
+        "title": "CreateWorkflow",
+        "required": [
+          "name",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The human-readable name of the workflow.",
+            "example": "My Workflow"
+          },
+          "status": {
+            "type": "number",
+            "description": "The status of the workflow (0 = draft, 1 = active, 2 = paused).",
+            "example": 1
+          },
+          "flow": {
+            "$ref": "#/components/schemas/CreateWorkflowRequestFlow"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Workflow to create"
+      },
+      "CreateWorkflow400Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateWorkflow400ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/BadRequestError"
+          },
+          "message": {
+            "examples": [
+              "body must have required property \u0027name\u0027"
+            ],
+            "type": "string",
+            "example": "body must have required property \u0027name\u0027"
+          }
+        }
+      },
+      "CreateWorkflow401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateWorkflow401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "CreateWorkflow402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateWorkflow402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "CreateWorkflow404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateWorkflow404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "CreateWorkflow429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/CreateWorkflow429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "GetWorkflow401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflow401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "GetWorkflow402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflow402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "GetWorkflow404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflow404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "GetWorkflow429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/GetWorkflow429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "PatchWorkflowRequest": {
+        "minProperties": 1,
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The human-readable name of the workflow.",
+            "example": "My Workflow"
+          },
+          "status": {
+            "type": "number",
+            "description": "The status of the workflow (0 = draft, 1 = active, 2 = paused).",
+            "example": 1
+          },
+          "flow": {
+            "$ref": "#/components/schemas/PatchWorkflowRequestFlow"
+          },
+          "expected_revision": {
+            "type": "string",
+            "description": "Optional timestamp_updated from the last read. A stale revision returns 409 without saving. When set, flow.dashboard is ignored and the stored dashboard is kept.",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchWorkflow401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchWorkflow401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "PatchWorkflow402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchWorkflow402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "PatchWorkflow404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchWorkflow404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "PatchWorkflow429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/PatchWorkflow429ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/TooManyRequestsError"
+          },
+          "message": {
+            "examples": [
+              "Rate limit exceeded"
+            ],
+            "type": "string",
+            "example": "Rate limit exceeded"
+          }
+        }
+      },
+      "ValidateWorkflow200Response": {
+        "required": [
+          "valid",
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean",
+            "description": "Whether activation readiness checks pass.",
+            "example": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Trigger: Please complete the test and save step"
+            },
+            "description": "Configuration problems to fix before activating or testing the workflow."
+          }
+        }
+      },
+      "ValidateWorkflow401Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflow401ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/UnauthorizedError"
+          },
+          "message": {
+            "examples": [
+              "Missing Authorization header"
+            ],
+            "type": "string",
+            "example": "Missing Authorization header"
+          }
+        }
+      },
+      "ValidateWorkflow402Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflow402ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/PaymentRequiredError"
+          },
+          "message": {
+            "examples": [
+              "Workspace does not have an active paid plan"
+            ],
+            "type": "string",
+            "example": "Workspace does not have an active paid plan"
+          }
+        }
+      },
+      "ValidateWorkflow404Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflow404ResponseStatusCode"
+          },
+          "error": {
+            "$ref": "#/components/schemas/NotFoundError"
+          },
+          "message": {
+            "examples": [
+              "Resource not found"
+            ],
+            "type": "string",
+            "example": "Resource not found"
+          }
+        }
+      },
+      "ValidateWorkflow429Response": {
+        "required": [
+          "statusCode",
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "$ref": "#/components/schemas/ValidateWorkflow429ResponseStatusCode"
           },
           "error": {
             "$ref": "#/components/schemas/TooManyRequestsError"
@@ -69858,6 +73394,92 @@
           }
         }
       },
+      "ListWorkflowControlNodes200ResponseSchema": {
+        "type": "object"
+      },
+      "GetWorkflowResourceOptions200ResponseSchema": {
+        "type": "object"
+      },
+      "ListWorkflowIntegrations200ResponseSchema": {
+        "type": "object"
+      },
+      "ListWorkflowActions200ResponseSchema": {
+        "type": "object"
+      },
+      "ListWorkflowTriggers200ResponseSchema": {
+        "type": "object"
+      },
+      "GetWorkflowNodeSchema200ResponseSchema": {
+        "type": "object"
+      },
+      "ListWorkflowConnections200ResponseSchema": {
+        "type": "object"
+      },
+      "ValidateWorkflowDefinition200ResponseSchema": {
+        "type": "object"
+      },
+      "GetWorkflowTriggerWebhookUrl200ResponseSchema": {
+        "type": "object"
+      },
+      "TestWorkflow200ResponseSchema": {
+        "type": "object"
+      },
+      "GetWorkflowTestRun200ResponseSchema": {
+        "type": "object"
+      },
+      "CreateAutomationWorkflowTemplate200Response": {
+        "type": "string"
+      },
+      "ListWorkflowTemplateCategory200Response": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of WorkflowTemplateCategory"
+          },
+          "next_starting_after": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460",
+              "1970-01-01T00:00:00.000Z"
+            ],
+            "type": "string",
+            "description": "The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListWorkflow200Response": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Workflow"
+            },
+            "description": "The list of Workflow"
+          },
+          "next_starting_after": {
+            "examples": [
+              "f9cc070d-8dba-4341-b847-f083c358e460",
+              "1970-01-01T00:00:00.000Z"
+            ],
+            "type": "string",
+            "description": "The filter for getting the next items after this one, this could either be a UUID, a timestamp, on an email depending on the specific API",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateCreatorOutreachBatch403ResponseSchema": {
         "type": "object"
       },
@@ -74102,6 +77724,11 @@
         ],
         "description": "Blacklist report for the SMTP IP address. Only present when record_type is 2 (received)."
       },
+      "WorkflowMetaProperty": {
+        "type": "object",
+        "description": "Additional meta information for the workflow (e.g., associated apps, run statistics).",
+        "readOnly": true
+      },
       "SuperSearchEnrichmentEnrichmentPayloadProperty": {
         "type": "object",
         "description": "Enrichment payload"
@@ -78090,6 +81717,64 @@
             "format": "date-time",
             "example": "1970-01-01T00:00:00.000Z"
           }
+        }
+      },
+      "GetWorkflowResourceOptionsRequestInput": {
+        "type": "object"
+      },
+      "ValidateWorkflowDefinitionRequestFlow": {
+        "required": [
+          "nodes",
+          "edges"
+        ],
+        "type": "object",
+        "properties": {
+          "nodes": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItem"
+            }
+          },
+          "edges": {
+            "maxItems": 2000,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowEdgesItem"
+            }
+          }
+        }
+      },
+      "TestWorkflowRequestInitialPayload": {
+        "type": "object"
+      },
+      "CreateAutomationWorkflowTemplateRequestFlow": {
+        "type": "object"
+      },
+      "CreateWorkflowRequestFlow": {
+        "type": "object",
+        "properties": {
+          "concurrency": {
+            "$ref": "#/components/schemas/CreateWorkflowRequestFlowConcurrency"
+          }
+        },
+        "description": "The workflow configuration storing nodes and edges.",
+        "example": {
+          "nodes": [],
+          "edges": []
+        }
+      },
+      "PatchWorkflowRequestFlow": {
+        "type": "object",
+        "properties": {
+          "concurrency": {
+            "$ref": "#/components/schemas/PatchWorkflowRequestFlowConcurrency"
+          }
+        },
+        "description": "The workflow configuration storing nodes and edges.",
+        "example": {
+          "nodes": [],
+          "edges": []
         }
       },
       "SearchCreatorsRequestFilters": {
@@ -87897,6 +91582,85 @@
           "object"
         ]
       },
+      "ValidateWorkflowDefinitionRequestFlowNodesItem": {
+        "required": [
+          "id",
+          "type",
+          "data",
+          "position"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Stable canvas node ID",
+            "example": "value"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemType"
+          },
+          "position": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemPosition"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemData"
+          }
+        }
+      },
+      "ValidateWorkflowDefinitionRequestFlowEdgesItem": {
+        "required": [
+          "id",
+          "source",
+          "target"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Edge ID",
+            "example": "value"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source node ID",
+            "example": "value"
+          },
+          "target": {
+            "type": "string",
+            "description": "Target node ID",
+            "example": "value"
+          }
+        }
+      },
+      "CreateWorkflowRequestFlowConcurrency": {
+        "type": "object",
+        "properties": {
+          "entity_key": {
+            "pattern": "^[a-zA-Z0-9_-]\u002B(\\.[a-zA-Z0-9_-]\u002B)*$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Dot-separated path in the raw trigger event data (for example lead_email or contact.id). Omit or set to null to disable. Missing or invalid event values fail the run before actions execute."
+          }
+        },
+        "description": "Optional per-entity mutual exclusion. Runs with the same key wait for the previous run, including delays and approvals. Arrival order and exactly-once delivery are not guaranteed."
+      },
+      "PatchWorkflowRequestFlowConcurrency": {
+        "type": "object",
+        "properties": {
+          "entity_key": {
+            "pattern": "^[a-zA-Z0-9_-]\u002B(\\.[a-zA-Z0-9_-]\u002B)*$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Dot-separated path in the raw trigger event data (for example lead_email or contact.id). Omit or set to null to disable. Missing or invalid event values fail the run before actions execute."
+          }
+        },
+        "description": "Optional per-entity mutual exclusion. Runs with the same key wait for the previous run, including delays and approvals. Arrival order and exactly-once delivery are not guaranteed."
+      },
       "SearchCreatorsRequestFiltersFollowers": {
         "type": "object",
         "properties": {
@@ -92888,6 +96652,45 @@
           "object"
         ]
       },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemPosition": {
+        "required": [
+          "x",
+          "y"
+        ],
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number",
+            "example": 0
+          },
+          "y": {
+            "type": "number",
+            "example": 0
+          }
+        }
+      },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemData": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemDataApp"
+          },
+          "event": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemDataEvent"
+          },
+          "input": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemDataInput"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ValidateWorkflowDefinitionRequestFlowNodesItemDataMeta"
+          },
+          "app_connection_id": {
+            "type": "string",
+            "description": "Existing workspace connection ID",
+            "example": "value"
+          }
+        }
+      },
       "CreateCreatorOutreachBatchRequestSearchFiltersFollowers": {
         "type": "object",
         "properties": {
@@ -94718,6 +98521,18 @@
           "null",
           "object"
         ]
+      },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemDataApp": {
+        "type": "object"
+      },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemDataEvent": {
+        "type": "object"
+      },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemDataInput": {
+        "type": "object"
+      },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemDataMeta": {
+        "type": "object"
       },
       "CreateCreatorOutreachBatch200ResponseBatchCreatorsItemPublicReportAudience": {
         "type": "object",
@@ -96576,6 +100391,11 @@
           "email_templates:read",
           "email_templates:update",
           "email_templates:delete",
+          "automation_app_connections:all",
+          "automation_app_connections:create",
+          "automation_app_connections:read",
+          "automation_app_connections:update",
+          "automation_app_connections:delete",
           "workspaces:all",
           "workspaces:create",
           "workspaces:read",
@@ -96586,6 +100406,21 @@
           "workspace_billing:read",
           "workspace_billing:update",
           "workspace_billing:delete",
+          "automation_workflows:all",
+          "automation_workflows:create",
+          "automation_workflows:read",
+          "automation_workflows:update",
+          "automation_workflows:delete",
+          "automation_workflow_executions:all",
+          "automation_workflow_executions:create",
+          "automation_workflow_executions:read",
+          "automation_workflow_executions:update",
+          "automation_workflow_executions:delete",
+          "automation_workflow_templates:all",
+          "automation_workflow_templates:create",
+          "automation_workflow_templates:read",
+          "automation_workflow_templates:update",
+          "automation_workflow_templates:delete",
           "workspace_group_members:all",
           "workspace_group_members:create",
           "workspace_group_members:read",
@@ -97097,6 +100932,26 @@
               "name": "EmailTemplatesColonDelete"
             },
             {
+              "value": "automation_app_connections:all",
+              "name": "AutomationAppConnectionsColonAll"
+            },
+            {
+              "value": "automation_app_connections:create",
+              "name": "AutomationAppConnectionsColonCreate"
+            },
+            {
+              "value": "automation_app_connections:read",
+              "name": "AutomationAppConnectionsColonRead"
+            },
+            {
+              "value": "automation_app_connections:update",
+              "name": "AutomationAppConnectionsColonUpdate"
+            },
+            {
+              "value": "automation_app_connections:delete",
+              "name": "AutomationAppConnectionsColonDelete"
+            },
+            {
               "value": "workspaces:all",
               "name": "WorkspacesColonAll"
             },
@@ -97135,6 +100990,66 @@
             {
               "value": "workspace_billing:delete",
               "name": "WorkspaceBillingColonDelete"
+            },
+            {
+              "value": "automation_workflows:all",
+              "name": "AutomationWorkflowsColonAll"
+            },
+            {
+              "value": "automation_workflows:create",
+              "name": "AutomationWorkflowsColonCreate"
+            },
+            {
+              "value": "automation_workflows:read",
+              "name": "AutomationWorkflowsColonRead"
+            },
+            {
+              "value": "automation_workflows:update",
+              "name": "AutomationWorkflowsColonUpdate"
+            },
+            {
+              "value": "automation_workflows:delete",
+              "name": "AutomationWorkflowsColonDelete"
+            },
+            {
+              "value": "automation_workflow_executions:all",
+              "name": "AutomationWorkflowExecutionsColonAll"
+            },
+            {
+              "value": "automation_workflow_executions:create",
+              "name": "AutomationWorkflowExecutionsColonCreate"
+            },
+            {
+              "value": "automation_workflow_executions:read",
+              "name": "AutomationWorkflowExecutionsColonRead"
+            },
+            {
+              "value": "automation_workflow_executions:update",
+              "name": "AutomationWorkflowExecutionsColonUpdate"
+            },
+            {
+              "value": "automation_workflow_executions:delete",
+              "name": "AutomationWorkflowExecutionsColonDelete"
+            },
+            {
+              "value": "automation_workflow_templates:all",
+              "name": "AutomationWorkflowTemplatesColonAll"
+            },
+            {
+              "value": "automation_workflow_templates:create",
+              "name": "AutomationWorkflowTemplatesColonCreate"
+            },
+            {
+              "value": "automation_workflow_templates:read",
+              "name": "AutomationWorkflowTemplatesColonRead"
+            },
+            {
+              "value": "automation_workflow_templates:update",
+              "name": "AutomationWorkflowTemplatesColonUpdate"
+            },
+            {
+              "value": "automation_workflow_templates:delete",
+              "name": "AutomationWorkflowTemplatesColonDelete"
             },
             {
               "value": "workspace_group_members:all",
@@ -102913,6 +106828,11 @@
           "email_templates:read",
           "email_templates:update",
           "email_templates:delete",
+          "automation_app_connections:all",
+          "automation_app_connections:create",
+          "automation_app_connections:read",
+          "automation_app_connections:update",
+          "automation_app_connections:delete",
           "workspaces:all",
           "workspaces:create",
           "workspaces:read",
@@ -102923,6 +106843,21 @@
           "workspace_billing:read",
           "workspace_billing:update",
           "workspace_billing:delete",
+          "automation_workflows:all",
+          "automation_workflows:create",
+          "automation_workflows:read",
+          "automation_workflows:update",
+          "automation_workflows:delete",
+          "automation_workflow_executions:all",
+          "automation_workflow_executions:create",
+          "automation_workflow_executions:read",
+          "automation_workflow_executions:update",
+          "automation_workflow_executions:delete",
+          "automation_workflow_templates:all",
+          "automation_workflow_templates:create",
+          "automation_workflow_templates:read",
+          "automation_workflow_templates:update",
+          "automation_workflow_templates:delete",
           "workspace_group_members:all",
           "workspace_group_members:create",
           "workspace_group_members:read",
@@ -103434,6 +107369,26 @@
               "name": "EmailTemplatesColonDelete"
             },
             {
+              "value": "automation_app_connections:all",
+              "name": "AutomationAppConnectionsColonAll"
+            },
+            {
+              "value": "automation_app_connections:create",
+              "name": "AutomationAppConnectionsColonCreate"
+            },
+            {
+              "value": "automation_app_connections:read",
+              "name": "AutomationAppConnectionsColonRead"
+            },
+            {
+              "value": "automation_app_connections:update",
+              "name": "AutomationAppConnectionsColonUpdate"
+            },
+            {
+              "value": "automation_app_connections:delete",
+              "name": "AutomationAppConnectionsColonDelete"
+            },
+            {
               "value": "workspaces:all",
               "name": "WorkspacesColonAll"
             },
@@ -103472,6 +107427,66 @@
             {
               "value": "workspace_billing:delete",
               "name": "WorkspaceBillingColonDelete"
+            },
+            {
+              "value": "automation_workflows:all",
+              "name": "AutomationWorkflowsColonAll"
+            },
+            {
+              "value": "automation_workflows:create",
+              "name": "AutomationWorkflowsColonCreate"
+            },
+            {
+              "value": "automation_workflows:read",
+              "name": "AutomationWorkflowsColonRead"
+            },
+            {
+              "value": "automation_workflows:update",
+              "name": "AutomationWorkflowsColonUpdate"
+            },
+            {
+              "value": "automation_workflows:delete",
+              "name": "AutomationWorkflowsColonDelete"
+            },
+            {
+              "value": "automation_workflow_executions:all",
+              "name": "AutomationWorkflowExecutionsColonAll"
+            },
+            {
+              "value": "automation_workflow_executions:create",
+              "name": "AutomationWorkflowExecutionsColonCreate"
+            },
+            {
+              "value": "automation_workflow_executions:read",
+              "name": "AutomationWorkflowExecutionsColonRead"
+            },
+            {
+              "value": "automation_workflow_executions:update",
+              "name": "AutomationWorkflowExecutionsColonUpdate"
+            },
+            {
+              "value": "automation_workflow_executions:delete",
+              "name": "AutomationWorkflowExecutionsColonDelete"
+            },
+            {
+              "value": "automation_workflow_templates:all",
+              "name": "AutomationWorkflowTemplatesColonAll"
+            },
+            {
+              "value": "automation_workflow_templates:create",
+              "name": "AutomationWorkflowTemplatesColonCreate"
+            },
+            {
+              "value": "automation_workflow_templates:read",
+              "name": "AutomationWorkflowTemplatesColonRead"
+            },
+            {
+              "value": "automation_workflow_templates:update",
+              "name": "AutomationWorkflowTemplatesColonUpdate"
+            },
+            {
+              "value": "automation_workflow_templates:delete",
+              "name": "AutomationWorkflowTemplatesColonDelete"
             },
             {
               "value": "workspace_group_members:all",
@@ -114861,6 +118876,16 @@
         "type": "number",
         "example": 402
       },
+      "RunDeliverabilityAgentNow403ResponseStatusCode": {
+        "examples": [
+          403
+        ],
+        "enum": [
+          403
+        ],
+        "type": "number",
+        "example": 403
+      },
       "RunDeliverabilityAgentNow404ResponseStatusCode": {
         "examples": [
           404
@@ -115272,6 +119297,758 @@
         "example": 404
       },
       "ListDeliverabilityAgentFeedItems429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflowControlNodes401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflowControlNodes402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflowControlNodes404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflowControlNodes429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "GetWorkflowResourceOptions401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "GetWorkflowResourceOptions402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "GetWorkflowResourceOptions404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "GetWorkflowResourceOptions429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflowIntegrations401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflowIntegrations402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflowIntegrations404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflowIntegrations429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflowActions401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflowActions402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflowActions404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflowActions429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflowTriggers401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflowTriggers402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflowTriggers404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflowTriggers429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "GetWorkflowNodeSchema401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "GetWorkflowNodeSchema402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "GetWorkflowNodeSchema404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "GetWorkflowNodeSchema429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflowConnections401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflowConnections402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflowConnections404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflowConnections429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ValidateWorkflowDefinition401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ValidateWorkflowDefinition402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ValidateWorkflowDefinition404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ValidateWorkflowDefinition429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "GetWorkflowTriggerWebhookUrl401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "GetWorkflowTriggerWebhookUrl402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "GetWorkflowTriggerWebhookUrl404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "GetWorkflowTriggerWebhookUrl429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "TestWorkflow401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "TestWorkflow402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "TestWorkflow404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "TestWorkflow429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "GetWorkflowTestRun401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "GetWorkflowTestRun402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "GetWorkflowTestRun404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "GetWorkflowTestRun429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "CreateAutomationWorkflowTemplateRequestVisibility": {
+        "enum": [
+          "private",
+          "public"
+        ],
+        "type": "string",
+        "example": "private",
+        "x-ms-enum": {
+          "name": "CreateAutomationWorkflowTemplateRequestVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "private",
+              "name": "PrivateValue"
+            },
+            {
+              "value": "public",
+              "name": "PublicValue"
+            }
+          ]
+        }
+      },
+      "CreateAutomationWorkflowTemplate401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "CreateAutomationWorkflowTemplate402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "CreateAutomationWorkflowTemplate404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "CreateAutomationWorkflowTemplate429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflowTemplateCategory401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflowTemplateCategory402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflowTemplateCategory404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflowTemplateCategory429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ListWorkflow401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ListWorkflow402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ListWorkflow404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ListWorkflow429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "CreateWorkflow400ResponseStatusCode": {
+        "examples": [
+          400
+        ],
+        "enum": [
+          400
+        ],
+        "type": "number",
+        "example": 400
+      },
+      "CreateWorkflow401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "CreateWorkflow402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "CreateWorkflow404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "CreateWorkflow429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "GetWorkflow401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "GetWorkflow402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "GetWorkflow404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "GetWorkflow429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "PatchWorkflow401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "PatchWorkflow402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "PatchWorkflow404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "PatchWorkflow429ResponseStatusCode": {
+        "examples": [
+          429
+        ],
+        "enum": [
+          429
+        ],
+        "type": "number",
+        "example": 429
+      },
+      "ValidateWorkflow401ResponseStatusCode": {
+        "examples": [
+          401
+        ],
+        "enum": [
+          401
+        ],
+        "type": "number",
+        "example": 401
+      },
+      "ValidateWorkflow402ResponseStatusCode": {
+        "examples": [
+          402
+        ],
+        "enum": [
+          402
+        ],
+        "type": "number",
+        "example": 402
+      },
+      "ValidateWorkflow404ResponseStatusCode": {
+        "examples": [
+          404
+        ],
+        "enum": [
+          404
+        ],
+        "type": "number",
+        "example": 404
+      },
+      "ValidateWorkflow429ResponseStatusCode": {
         "examples": [
           429
         ],
@@ -142243,6 +147020,64 @@
           ]
         }
       },
+      "ValidateWorkflowDefinitionRequestFlowNodesItemType": {
+        "enum": [
+          "trigger",
+          "action",
+          "condition",
+          "delay",
+          "switch",
+          "loop",
+          "while_do",
+          "merge",
+          "approval"
+        ],
+        "type": "string",
+        "description": "Canvas node type",
+        "example": "value",
+        "x-ms-enum": {
+          "name": "ValidateWorkflowDefinitionRequestFlowNodesItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            },
+            {
+              "value": "action",
+              "name": "Action"
+            },
+            {
+              "value": "condition",
+              "name": "Condition"
+            },
+            {
+              "value": "delay",
+              "name": "Delay"
+            },
+            {
+              "value": "switch",
+              "name": "SwitchValue"
+            },
+            {
+              "value": "loop",
+              "name": "Loop"
+            },
+            {
+              "value": "while_do",
+              "name": "WhileDo"
+            },
+            {
+              "value": "merge",
+              "name": "Merge"
+            },
+            {
+              "value": "approval",
+              "name": "Approval"
+            }
+          ]
+        }
+      },
       "SearchCreators200ResponseItemsItemContentItemMediaType": {
         "enum": [
           "image",
@@ -155750,6 +160585,130 @@
           ]
         }
       },
+      "ListWorkflowActionsKindParameter": {
+        "enum": [
+          "action",
+          "trigger"
+        ],
+        "type": "string",
+        "example": "value",
+        "x-ms-enum": {
+          "name": "ListWorkflowActionsKindParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "action",
+              "name": "Action"
+            },
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            }
+          ]
+        }
+      },
+      "ListWorkflowTriggersKindParameter": {
+        "enum": [
+          "action",
+          "trigger"
+        ],
+        "type": "string",
+        "example": "value",
+        "x-ms-enum": {
+          "name": "ListWorkflowTriggersKindParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "action",
+              "name": "Action"
+            },
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            }
+          ]
+        }
+      },
+      "GetWorkflowNodeSchemaKindParameter": {
+        "enum": [
+          "action",
+          "trigger"
+        ],
+        "type": "string",
+        "example": "value",
+        "x-ms-enum": {
+          "name": "GetWorkflowNodeSchemaKindParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "action",
+              "name": "Action"
+            },
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            }
+          ]
+        }
+      },
+      "ListWorkflowSortColumnParameter": {
+        "enum": [
+          "timestamp_created",
+          "timestamp_updated",
+          "name"
+        ],
+        "type": "string",
+        "example": "timestamp_created",
+        "x-enumDescriptions": {
+          "name": "Name",
+          "timestamp_created": "Timestamp Created",
+          "timestamp_updated": "Timestamp Updated"
+        },
+        "x-ms-enum": {
+          "name": "ListWorkflowSortColumnParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "timestamp_created",
+              "name": "TimestampCreated"
+            },
+            {
+              "value": "timestamp_updated",
+              "name": "TimestampUpdated"
+            },
+            {
+              "value": "name",
+              "name": "Name"
+            }
+          ]
+        }
+      },
+      "ListWorkflowSortOrderParameter": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "timestamp_updated",
+        "x-enumDescriptions": {
+          "asc": "Ascending",
+          "desc": "Descending"
+        },
+        "x-ms-enum": {
+          "name": "ListWorkflowSortOrderParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
       "GetCreatorSearchDictionariesPlatformParameter": {
         "enum": [
           "instagram",
@@ -157511,6 +162470,11 @@
       "x-group": "Workspace"
     },
     {
+      "name": "Workflow",
+      "description": "Defines an automation workflow with its configuration, status, and associated meta data.",
+      "x-group": "Workflow"
+    },
+    {
       "name": "SuperSearchEnrichment",
       "description": "An enrichment can take different forms, such as email enrichment or LinkedIn enrichment. Leads may be imported from SuperSearch using the dedicated endpoint, or enriched directly within a list or campaign by attaching an enrichment to it.",
       "x-group": "SuperSearch Enrichment"
@@ -158280,6 +163244,11 @@
       },
       "additionalProperties": false
     },
+    "WorkflowMeta": {
+      "type": "object",
+      "description": "Additional meta information for the workflow (e.g., associated apps, run statistics).",
+      "readOnly": true
+    },
     "SuperSearchEnrichmentEnrichmentPayload": {
       "type": "object",
       "description": "Enrichment payload"
@@ -158687,6 +163656,39 @@
         "$ref": "#/components/schemas/GetInboxManagerAnalyticsSummaryByDate200ResponseItem"
       },
       "description": "Daily aggregates for the agent over the requested window"
+    },
+    "ListWorkflowControlNodes200Response": {
+      "type": "object"
+    },
+    "GetWorkflowResourceOptions200Response": {
+      "type": "object"
+    },
+    "ListWorkflowIntegrations200Response": {
+      "type": "object"
+    },
+    "ListWorkflowActions200Response": {
+      "type": "object"
+    },
+    "ListWorkflowTriggers200Response": {
+      "type": "object"
+    },
+    "GetWorkflowNodeSchema200Response": {
+      "type": "object"
+    },
+    "ListWorkflowConnections200Response": {
+      "type": "object"
+    },
+    "ValidateWorkflowDefinition200Response": {
+      "type": "object"
+    },
+    "GetWorkflowTriggerWebhookUrl200Response": {
+      "type": "object"
+    },
+    "TestWorkflow200Response": {
+      "type": "object"
+    },
+    "GetWorkflowTestRun200Response": {
+      "type": "object"
     },
     "CreateCreatorOutreachBatch403Response": {
       "type": "object"

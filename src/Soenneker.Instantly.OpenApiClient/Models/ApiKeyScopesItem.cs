@@ -440,6 +440,26 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         EmailTemplatesColonDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "automation_app_connections:all")]
+        #pragma warning disable CS1591
+        AutomationAppConnectionsColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_app_connections:create")]
+        #pragma warning disable CS1591
+        AutomationAppConnectionsColonCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_app_connections:read")]
+        #pragma warning disable CS1591
+        AutomationAppConnectionsColonRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_app_connections:update")]
+        #pragma warning disable CS1591
+        AutomationAppConnectionsColonUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_app_connections:delete")]
+        #pragma warning disable CS1591
+        AutomationAppConnectionsColonDelete,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workspaces:all")]
         #pragma warning disable CS1591
         WorkspacesColonAll,
@@ -479,6 +499,66 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         [EnumMember(Value = "workspace_billing:delete")]
         #pragma warning disable CS1591
         WorkspaceBillingColonDelete,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflows:all")]
+        #pragma warning disable CS1591
+        AutomationWorkflowsColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflows:create")]
+        #pragma warning disable CS1591
+        AutomationWorkflowsColonCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflows:read")]
+        #pragma warning disable CS1591
+        AutomationWorkflowsColonRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflows:update")]
+        #pragma warning disable CS1591
+        AutomationWorkflowsColonUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflows:delete")]
+        #pragma warning disable CS1591
+        AutomationWorkflowsColonDelete,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_executions:all")]
+        #pragma warning disable CS1591
+        AutomationWorkflowExecutionsColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_executions:create")]
+        #pragma warning disable CS1591
+        AutomationWorkflowExecutionsColonCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_executions:read")]
+        #pragma warning disable CS1591
+        AutomationWorkflowExecutionsColonRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_executions:update")]
+        #pragma warning disable CS1591
+        AutomationWorkflowExecutionsColonUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_executions:delete")]
+        #pragma warning disable CS1591
+        AutomationWorkflowExecutionsColonDelete,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_templates:all")]
+        #pragma warning disable CS1591
+        AutomationWorkflowTemplatesColonAll,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_templates:create")]
+        #pragma warning disable CS1591
+        AutomationWorkflowTemplatesColonCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_templates:read")]
+        #pragma warning disable CS1591
+        AutomationWorkflowTemplatesColonRead,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_templates:update")]
+        #pragma warning disable CS1591
+        AutomationWorkflowTemplatesColonUpdate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "automation_workflow_templates:delete")]
+        #pragma warning disable CS1591
+        AutomationWorkflowTemplatesColonDelete,
         #pragma warning restore CS1591
         [EnumMember(Value = "workspace_group_members:all")]
         #pragma warning disable CS1591
