@@ -21,8 +21,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
             if (parseNode.GetChildNode("order_type") is null) { _explicitNullValueOrderType = default!; _explicitNullProperties?.Remove("order_type"); }
             else if (parseNode.GetChildNode("order_type") is { } nullNodeOrderType && nullNodeOrderType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderType = null;
+            if (parseNode.GetChildNode("payment_confirmation") is null) { _explicitNullValuePaymentConfirmation = default!; _explicitNullProperties?.Remove("payment_confirmation"); }
+            else if (parseNode.GetChildNode("payment_confirmation") is { } nullNodePaymentConfirmation && nullNodePaymentConfirmation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentConfirmation = null;
             if (parseNode.GetChildNode("simulation") is null) { _explicitNullValueSimulation = default!; _explicitNullProperties?.Remove("simulation"); }
             else if (parseNode.GetChildNode("simulation") is { } nullNodeSimulation && nullNodeSimulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Simulation = null;
+            if (parseNode.GetChildNode("use_stripe_checkout") is null) { _explicitNullValueUseStripeCheckout = default!; _explicitNullProperties?.Remove("use_stripe_checkout"); }
+            else if (parseNode.GetChildNode("use_stripe_checkout") is { } nullNodeUseStripeCheckout && nullNodeUseStripeCheckout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseStripeCheckout = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,9 +44,22 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The type of order to place. Please check the docs because this endpoint performs different actions based on the order type.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestOrderType? OrderType { get => _explicitNullValueOrderType; set { _explicitNullValueOrderType = value; AdditionalData?.Remove("order_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_type"); else _explicitNullProperties?.Remove("order_type"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestOrderType? _explicitNullValueOrderType = default!;
+        /// <summary>The payment confirmation returned by a browser order simulation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PaymentConfirmation { get => _explicitNullValuePaymentConfirmation; set { _explicitNullValuePaymentConfirmation = value; AdditionalData?.Remove("payment_confirmation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_confirmation"); else _explicitNullProperties?.Remove("payment_confirmation"); } }
+        private string? _explicitNullValuePaymentConfirmation = default!;
+#nullable restore
+#else
+        public string PaymentConfirmation { get => _explicitNullValuePaymentConfirmation; set { _explicitNullValuePaymentConfirmation = value; AdditionalData?.Remove("payment_confirmation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_confirmation"); else _explicitNullProperties?.Remove("payment_confirmation"); } }
+        private string _explicitNullValuePaymentConfirmation = default!;
+#endif
         /// <summary>Whether to run a simulation of the order ot not. If set to true, the order will NOT be placed, your card will NOT be charged, and only a price quote will be returned. We will still check the validity of the order and the accounts, and return the results of the validation (if the order_is_valid field is true, then the order would be valid and could be placed).</summary>
         public bool? Simulation { get => _explicitNullValueSimulation; set { _explicitNullValueSimulation = value; AdditionalData?.Remove("simulation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation"); else _explicitNullProperties?.Remove("simulation"); } }
         private bool? _explicitNullValueSimulation = default!;
+        /// <summary>Pay through hosted checkout instead of charging a saved card. Browser orders only.</summary>
+        public bool? UseStripeCheckout { get => _explicitNullValueUseStripeCheckout; set { _explicitNullValueUseStripeCheckout = value; AdditionalData?.Remove("use_stripe_checkout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_stripe_checkout"); else _explicitNullProperties?.Remove("use_stripe_checkout"); } }
+        private bool? _explicitNullValueUseStripeCheckout = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequest"/> and sets the default values.
         /// </summary>
@@ -67,11 +84,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "order_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestOrderType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOrderType = default; _explicitNullProperties?.Remove("order_type"); AdditionalData["order_type"] = unknown; } else { OrderType = parsed; AdditionalData.Remove("order_type"); } } },
+                { "payment_confirmation", n => { PaymentConfirmation = n.GetStringValue(); } },
                 { "simulation", n => { Simulation = n.GetBoolValue(); } },
+                { "use_stripe_checkout", n => { UseStripeCheckout = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -83,7 +102,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestItemsItem>("items", Items);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrderRequestOrderType>("order_type", OrderType);
+            writer.WriteStringValue("payment_confirmation", PaymentConfirmation);
             writer.WriteBoolValue("simulation", Simulation);
+            writer.WriteBoolValue("use_stripe_checkout", UseStripeCheckout);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -49,7 +49,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The broadcast_id property</summary>
+        /// <summary>Broadcast of the group; set when grouping by broadcast</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BroadcastId { get => _explicitNullValueBroadcastId; set { _explicitNullValueBroadcastId = value; AdditionalData?.Remove("broadcast_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("broadcast_id"); else _explicitNullProperties?.Remove("broadcast_id"); } }
@@ -72,7 +72,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Clicked an email before converting</summary>
         public int? Direct { get => _explicitNullValueDirect; set { _explicitNullValueDirect = value; AdditionalData?.Remove("direct"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direct"); else _explicitNullProperties?.Remove("direct"); } }
         private int? _explicitNullValueDirect = default!;
-        /// <summary>The event_name property</summary>
+        /// <summary>Name of the conversion event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EventName { get => _explicitNullValueEventName; set { _explicitNullValueEventName = value; AdditionalData?.Remove("event_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_name"); else _explicitNullProperties?.Remove("event_name"); } }
@@ -82,7 +82,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string EventName { get => _explicitNullValueEventName; set { _explicitNullValueEventName = value; AdditionalData?.Remove("event_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_name"); else _explicitNullProperties?.Remove("event_name"); } }
         private string _explicitNullValueEventName = default!;
 #endif
-        /// <summary>The group_value property</summary>
+        /// <summary>Group value of the group; set when grouping by group value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupValue { get => _explicitNullValueGroupValue; set { _explicitNullValueGroupValue = value; AdditionalData?.Remove("group_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_value"); else _explicitNullProperties?.Remove("group_value"); } }
@@ -95,7 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Opened but did not click an email before converting</summary>
         public int? Influenced { get => _explicitNullValueInfluenced; set { _explicitNullValueInfluenced = value; AdditionalData?.Remove("influenced"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("influenced"); else _explicitNullProperties?.Remove("influenced"); } }
         private int? _explicitNullValueInfluenced = default!;
-        /// <summary>The journey_id property</summary>
+        /// <summary>Journey of the group; set when grouping by journey or step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JourneyId { get => _explicitNullValueJourneyId; set { _explicitNullValueJourneyId = value; AdditionalData?.Remove("journey_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("journey_id"); else _explicitNullProperties?.Remove("journey_id"); } }
@@ -121,7 +121,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Only received emails before converting</summary>
         public int? Received { get => _explicitNullValueReceived; set { _explicitNullValueReceived = value; AdditionalData?.Remove("received"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received"); else _explicitNullProperties?.Remove("received"); } }
         private int? _explicitNullValueReceived = default!;
-        /// <summary>The source property</summary>
+        /// <summary>Producer of the conversion event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
@@ -131,7 +131,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private string _explicitNullValueSource = default!;
 #endif
-        /// <summary>The step_id property</summary>
+        /// <summary>Journey step of the group; set when grouping by step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; AdditionalData?.Remove("step_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
@@ -144,7 +144,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>All conversions</summary>
         public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; AdditionalData?.Remove("total"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
         private int? _explicitNullValueTotal = default!;
-        /// <summary>The version property</summary>
+        /// <summary>Journey version of the group; set when grouping by step</summary>
         public int? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private int? _explicitNullValueVersion = default!;
         /// <summary>

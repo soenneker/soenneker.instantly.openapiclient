@@ -44,13 +44,13 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.GetConversionsSummary200ResponseGroupsItem> Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; AdditionalData?.Remove("groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetConversionsSummary200ResponseGroupsItem> _explicitNullValueGroups = default!;
 #endif
-        /// <summary>True when more groups exist than were returned; present only when group_by is set</summary>
+        /// <summary>True when there were too many groups to read in full: groups are missing and the returned groups can have incomplete counts. Present only when group_by is set.</summary>
         public bool? GroupsTruncated { get => _explicitNullValueGroupsTruncated; set { _explicitNullValueGroupsTruncated = value; AdditionalData?.Remove("groups_truncated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups_truncated"); else _explicitNullProperties?.Remove("groups_truncated"); } }
         private bool? _explicitNullValueGroupsTruncated = default!;
         /// <summary>Conversions whose email history was too long to read in full, so an earlier email may be missing</summary>
         public int? HistoryIncomplete { get => _explicitNullValueHistoryIncomplete; set { _explicitNullValueHistoryIncomplete = value; AdditionalData?.Remove("history_incomplete"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_incomplete"); else _explicitNullProperties?.Remove("history_incomplete"); } }
         private int? _explicitNullValueHistoryIncomplete = default!;
-        /// <summary>The totals property</summary>
+        /// <summary>Conversions in the period, by attribution</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.GetConversionsSummary200ResponseTotals? Totals { get => _explicitNullValueTotals; set { _explicitNullValueTotals = value; AdditionalData?.Remove("totals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totals"); else _explicitNullProperties?.Remove("totals"); } }

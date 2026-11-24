@@ -40,7 +40,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions
         {
         }
         /// <summary>
-        /// Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the person clicked, opened or only received it, and the event&apos;s properties. The person&apos;s email is included for API keys that can also read people.Requires one of the following scopes: `email_marketing_conversions:read`, `email_marketing_conversions:all`, `all:read`, `all:all`
+        /// Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the contact clicked, opened or only received it, and the event&apos;s properties. The contact&apos;s email is included for API keys that can also read contacts. With a filter, a page can be short or empty while `next_starting_after` is still set: keep paging until it is null.Requires one of the following scopes: `email_marketing_conversions:read`, `email_marketing_conversions:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,8 +48,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions408Response">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.ListConversions500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.ListConversions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions.ConversionsRequestBuilder.ConversionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,15 +69,19 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions
                 { "400", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions404Response.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions408Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Instantly.OpenApiClient.Models.ListConversions500Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.ListConversions200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.ListConversions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the person clicked, opened or only received it, and the event&apos;s properties. The person&apos;s email is included for API keys that can also read people.Requires one of the following scopes: `email_marketing_conversions:read`, `email_marketing_conversions:all`, `all:read`, `all:all`
+        /// Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the contact clicked, opened or only received it, and the event&apos;s properties. The contact&apos;s email is included for API keys that can also read contacts. With a filter, a page can be short or empty while `next_starting_after` is still set: keep paging until it is null.Requires one of the following scopes: `email_marketing_conversions:read`, `email_marketing_conversions:all`, `all:read`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +109,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions
             return new global::Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions.ConversionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the person clicked, opened or only received it, and the event&apos;s properties. The person&apos;s email is included for API keys that can also read people.Requires one of the following scopes: `email_marketing_conversions:read`, `email_marketing_conversions:all`, `all:read`, `all:all`
+        /// Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the contact clicked, opened or only received it, and the event&apos;s properties. The contact&apos;s email is included for API keys that can also read contacts. With a filter, a page can be short or empty while `next_starting_after` is still set: keep paging until it is null.Requires one of the following scopes: `email_marketing_conversions:read`, `email_marketing_conversions:all`, `all:read`, `all:all`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConversionsRequestBuilderGetQueryParameters 
@@ -155,10 +163,10 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions
             [QueryParameter("journey_id")]
             public string JourneyId { get; set; }
 #endif
-            /// <summary>Page size</summary>
+            /// <summary>Most conversions to return, 1 to 100. Default 50. With a filter, a page can be short or empty while `next_starting_after` is still set: keep paging until it is null.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Credit each conversion again from the emails sent this many days before it; ignored when longer than the window it was recorded with</summary>
+            /// <summary>Credit each conversion again from the emails sent this many days before it. Ignored when longer than the window it was recorded with, and for a conversion whose stored emails are missing or do not reach back that far.</summary>
             [QueryParameter("lookback_days")]
             public int? LookbackDays { get; set; }
             /// <summary>Producer of the conversion event</summary>
@@ -167,7 +175,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.Conversions
             /// <summary>First UTC day of the period (YYYY-MM-DD)</summary>
             [QueryParameter("start_date")]
             public Date? StartDate { get; set; }
-            /// <summary>The next_starting_after value of the previous page</summary>
+            /// <summary>The `next_starting_after` value of the previous page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("starting_after")]

@@ -51,6 +51,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("order_items") is { } nullNodeOrderItems && nullNodeOrderItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderItems = null;
             if (parseNode.GetChildNode("order_placed") is null) { _explicitNullValueOrderPlaced = default!; _explicitNullProperties?.Remove("order_placed"); }
             else if (parseNode.GetChildNode("order_placed") is { } nullNodeOrderPlaced && nullNodeOrderPlaced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderPlaced = null;
+            if (parseNode.GetChildNode("payment_confirmation") is null) { _explicitNullValuePaymentConfirmation = default!; _explicitNullProperties?.Remove("payment_confirmation"); }
+            else if (parseNode.GetChildNode("payment_confirmation") is { } nullNodePaymentConfirmation && nullNodePaymentConfirmation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentConfirmation = null;
             if (parseNode.GetChildNode("payment_failure_reason") is null) { _explicitNullValuePaymentFailureReason = default!; _explicitNullProperties?.Remove("payment_failure_reason"); }
             else if (parseNode.GetChildNode("payment_failure_reason") is { } nullNodePaymentFailureReason && nullNodePaymentFailureReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentFailureReason = null;
             if (parseNode.GetChildNode("payment_method_brand") is null) { _explicitNullValuePaymentMethodBrand = default!; _explicitNullProperties?.Remove("payment_method_brand"); }
@@ -221,6 +223,16 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Whether the order was placed or not. If true, then the order was placed successfully. If false, then the order was not placed due to an error or simulation mode was enabled.</summary>
         public bool? OrderPlaced { get => _explicitNullValueOrderPlaced; set { _explicitNullValueOrderPlaced = value; AdditionalData?.Remove("order_placed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order_placed"); else _explicitNullProperties?.Remove("order_placed"); } }
         private bool? _explicitNullValueOrderPlaced = default!;
+        /// <summary>Confirmation for the quoted total and saved payment method on browser orders.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PaymentConfirmation { get => _explicitNullValuePaymentConfirmation; set { _explicitNullValuePaymentConfirmation = value; AdditionalData?.Remove("payment_confirmation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_confirmation"); else _explicitNullProperties?.Remove("payment_confirmation"); } }
+        private string? _explicitNullValuePaymentConfirmation = default!;
+#nullable restore
+#else
+        public string PaymentConfirmation { get => _explicitNullValuePaymentConfirmation; set { _explicitNullValuePaymentConfirmation = value; AdditionalData?.Remove("payment_confirmation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_confirmation"); else _explicitNullProperties?.Remove("payment_confirmation"); } }
+        private string _explicitNullValuePaymentConfirmation = default!;
+#endif
         /// <summary>A safe, provider-independent payment failure reason. Present only when a payment attempt failed.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason? PaymentFailureReason { get => _explicitNullValuePaymentFailureReason; set { _explicitNullValuePaymentFailureReason = value; AdditionalData?.Remove("payment_failure_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_failure_reason"); else _explicitNullProperties?.Remove("payment_failure_reason"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason? _explicitNullValuePaymentFailureReason = default!;
@@ -357,7 +369,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(36)
+            return new Dictionary<string, Action<IParseNode>>(37)
             {
                 { "blacklist_domains", n => { BlacklistDomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "blacklist_keywords", n => { BlacklistKeywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -376,6 +388,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "order_is_valid", n => { OrderIsValid = n.GetBoolValue(); } },
                 { "order_items", n => { OrderItems = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>(global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "order_placed", n => { OrderPlaced = n.GetBoolValue(); } },
+                { "payment_confirmation", n => { PaymentConfirmation = n.GetStringValue(); } },
                 { "payment_failure_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePaymentFailureReason = default; _explicitNullProperties?.Remove("payment_failure_reason"); AdditionalData["payment_failure_reason"] = unknown; } else { PaymentFailureReason = parsed; AdditionalData.Remove("payment_failure_reason"); } } },
                 { "payment_method_brand", n => { PaymentMethodBrand = n.GetStringValue(); } },
                 { "payment_method_last_4_digits", n => { PaymentMethodLast4Digits = n.GetStringValue(); } },
@@ -421,6 +434,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("order_is_valid", OrderIsValid);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponseOrderItemsItem>("order_items", OrderItems);
             writer.WriteBoolValue("order_placed", OrderPlaced);
+            writer.WriteStringValue("payment_confirmation", PaymentConfirmation);
             writer.WriteEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.CreateDfyEmailAccountOrder200ResponsePaymentFailureReason>("payment_failure_reason", PaymentFailureReason);
             writer.WriteStringValue("payment_method_brand", PaymentMethodBrand);
             writer.WriteStringValue("payment_method_last_4_digits", PaymentMethodLast4Digits);

@@ -68,5 +68,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         ZohoCrm,
         #pragma warning restore CS1591
+        [EnumMember(Value = "attio")]
+        #pragma warning disable CS1591
+        Attio,
+        #pragma warning restore CS1591
     }
 }

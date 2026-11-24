@@ -8,10 +8,11 @@ using System.IO;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
+    /// <summary>
+    /// The request is invalid. `message` names the field and the problem. `code` is `FST_ERR_VALIDATION` when the request does not match this schema and `VALIDATION_ERROR` when a value is refused after that. A request the resource&apos;s current state does not allow, such as pausing a broadcast that is not sending, has its own `code` named on that operation. `code` is absent on a few request-level checks.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class GetConversionsSummary400Response : ApiException, IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -30,7 +31,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The code property</summary>
+        /// <summary>Machine-readable error code. Branch on this, not on the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; AdditionalData?.Remove("code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }

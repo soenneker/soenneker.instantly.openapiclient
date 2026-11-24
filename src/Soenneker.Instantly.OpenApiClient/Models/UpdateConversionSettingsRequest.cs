@@ -21,7 +21,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("conversions") is { } nullNodeConversions && nullNodeConversions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conversions = null;
         }
 
-        /// <summary>Replaces the saved conversion events. An empty list turns conversion tracking off.</summary>
+        /// <summary>Replaces the saved conversion events. An empty list turns conversion tracking off. Each `source` and `event_name` pair may appear once; a repeat gives 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettingsRequestConversionsItem>? Conversions { get => _explicitNullValueConversions; set { _explicitNullValueConversions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conversions"); else _explicitNullProperties?.Remove("conversions"); } }

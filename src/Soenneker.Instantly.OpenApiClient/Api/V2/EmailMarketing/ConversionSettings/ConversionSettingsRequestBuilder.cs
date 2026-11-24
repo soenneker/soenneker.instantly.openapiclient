@@ -42,8 +42,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.ConversionSett
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings408Response">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -59,15 +63,19 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.ConversionSett
                 { "400", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings404Response.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings408Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings500Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings200Response>(requestInfo, global::Soenneker.Instantly.OpenApiClient.Models.GetConversionSettings200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Replaces the events counted as conversions, up to 5. Applies to events received from now on; recorded conversions keep their attribution.Requires one of the following scopes: `email_marketing_conversions:update`, `email_marketing_conversions:all`, `all:update`, `all:all`
+        /// Replaces the events counted as conversions, up to 5. Each `source` and `event_name` pair may appear once. Applies to events received from now on; recorded conversions keep their attribution.Requires one of the following scopes: `email_marketing_conversions:update`, `email_marketing_conversions:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -76,9 +84,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.ConversionSett
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings401Response">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings402Response">When receiving a 402 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings408Response">When receiving a 408 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings409Response">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings500Response">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings200Response?> PutAsync(global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettingsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -95,9 +106,12 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.ConversionSett
                 { "400", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings401Response.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings402Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings404Response.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings408Response.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings409Response.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Instantly.OpenApiClient.Models.UpdateConversionSettings500Response.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
@@ -123,7 +137,7 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.ConversionSett
             return requestInfo;
         }
         /// <summary>
-        /// Replaces the events counted as conversions, up to 5. Applies to events received from now on; recorded conversions keep their attribution.Requires one of the following scopes: `email_marketing_conversions:update`, `email_marketing_conversions:all`, `all:update`, `all:all`
+        /// Replaces the events counted as conversions, up to 5. Each `source` and `event_name` pair may appear once. Applies to events received from now on; recorded conversions keep their attribution.Requires one of the following scopes: `email_marketing_conversions:update`, `email_marketing_conversions:all`, `all:update`, `all:all`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

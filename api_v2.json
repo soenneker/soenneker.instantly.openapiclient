@@ -9784,6 +9784,7 @@
                   "journey",
                   "broadcast"
                 ],
+                "description": "Whether a journey or a broadcast sent the email",
                 "example": "journey"
               },
               "email_id": {
@@ -9794,7 +9795,7 @@
               "journey_id": {
                 "type": "string",
                 "description": "Journey that sent the email",
-                "example": "journey-12ab"
+                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
               },
               "version": {
                 "type": "integer",
@@ -9814,16 +9815,18 @@
               "broadcast_id": {
                 "type": "string",
                 "description": "Broadcast that sent the email",
-                "example": "broadcast-42ef"
+                "example": "f9cc070d-8dba-4341-b847-f083c358e460"
               },
               "sent_at": {
                 "type": "string",
                 "format": "date-time",
+                "description": "When the email was sent",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "delivered_at": {
                 "type": "string",
                 "format": "date-time",
+                "description": "When the email was delivered",
                 "example": "1970-01-01T00:00:00.000Z"
               },
               "opened_at": {
@@ -9937,6 +9940,7 @@
                   "examples": [
                     "journey"
                   ],
+                  "description": "Whether a journey or a broadcast sent the email",
                   "example": "journey"
                 },
                 "email_id": {
@@ -9951,9 +9955,9 @@
                   "type": "string",
                   "description": "Journey that sent the email",
                   "examples": [
-                    "journey-12ab"
+                    "f9cc070d-8dba-4341-b847-f083c358e460"
                   ],
-                  "example": "journey-12ab"
+                  "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                 },
                 "version": {
                   "type": "integer",
@@ -9983,9 +9987,9 @@
                   "type": "string",
                   "description": "Broadcast that sent the email",
                   "examples": [
-                    "broadcast-42ef"
+                    "f9cc070d-8dba-4341-b847-f083c358e460"
                   ],
-                  "example": "broadcast-42ef"
+                  "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                 },
                 "sent_at": {
                   "type": "string",
@@ -9993,6 +9997,7 @@
                   "examples": [
                     "1970-01-01T00:00:00.000Z"
                   ],
+                  "description": "When the email was sent",
                   "example": "1970-01-01T00:00:00.000Z"
                 },
                 "delivered_at": {
@@ -10001,6 +10006,7 @@
                   "examples": [
                     "1970-01-01T00:00:00.000Z"
                   ],
+                  "description": "When the email was delivered",
                   "example": "1970-01-01T00:00:00.000Z"
                 },
                 "opened_at": {
@@ -30118,6 +30124,17 @@
                     },
                     "example": "dfy"
                   },
+                  "payment_confirmation": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$",
+                    "description": "The payment confirmation returned by a browser order simulation.",
+                    "example": "0000000000000000000000000000000000000000000000000000000000000000"
+                  },
+                  "use_stripe_checkout": {
+                    "type": "boolean",
+                    "description": "Pay through hosted checkout instead of charging a saved card. Browser orders only.",
+                    "example": true
+                  },
                   "simulation": {
                     "type": "boolean",
                     "description": "Whether to run a simulation of the order ot not. If set to true, the order will NOT be placed, your card will NOT be charged, and only a price quote will be returned. We will still check the validity of the order and the accounts, and return the results of the validation (if the order_is_valid field is true, then the order would be valid and could be placed).",
@@ -30450,6 +30467,11 @@
                       "type": "string",
                       "description": "The name on the card used for the order",
                       "example": "John Doe"
+                    },
+                    "payment_confirmation": {
+                      "type": "string",
+                      "description": "Confirmation for the quoted total and saved payment method on browser orders.",
+                      "example": "0000000000000000000000000000000000000000000000000000000000000000"
                     },
                     "checkout_required": {
                       "type": "boolean",
@@ -107556,7 +107578,8 @@
                               "hubspot",
                               "highlevel",
                               "leadconnector",
-                              "zoho_crm"
+                              "zoho_crm",
+                              "attio"
                             ],
                             "description": "Producer of the conversion event",
                             "examples": [
@@ -107577,12 +107600,13 @@
                           },
                           "group_by_property": {
                             "type": "string",
-                            "description": "Event property whose value the summary can group by",
+                            "description": "Event property whose value the summary can group by, 1 to 100 characters. A blank value gives 400.",
                             "examples": [
                               "plan"
                             ],
                             "minLength": 1,
                             "maxLength": 100,
+                            "pattern": "\\S",
                             "example": "plan"
                           },
                           "lookback_days": {
@@ -107623,11 +107647,12 @@
             }
           },
           "400": {
-            "description": "Default Response",
+            "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -107639,10 +107664,11 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "name: Invalid domain name format"
+                      "example": "limit: must be at most 50"
                     },
                     "code": {
                       "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
                       "example": "VALIDATION_ERROR"
                     }
                   }
@@ -107738,46 +107764,117 @@
               }
             }
           },
-          "404": {
-            "description": "The requested resource was not found",
+          "403": {
+            "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
-                      "enum": [
-                        404
-                      ],
-                      "examples": [
-                        404
-                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace suspended due to a high bounce or spam complaint rate. Please contact support."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "WORKSPACE_SUSPENDED"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The resource does not exist in this workspace.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The resource does not exist in this workspace.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
                       "example": "Not Found"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
-                      ],
-                      "example": "Resource not found"
+                      "example": "Not found"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "NOT_FOUND"
                     }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 408
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Request Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request conflicts with the current state of the resource.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "The resource has changed. Reload it and try again."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "CONFLICT"
+                    }
+                  }
                 }
               }
             }
@@ -107825,6 +107922,31 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -107834,7 +107956,7 @@
         "tags": [
           "Conversion"
         ],
-        "description": "Replaces the events counted as conversions, up to 5. Applies to events received from now on; recorded conversions keep their attribution.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:update\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
+        "description": "Replaces the events counted as conversions, up to 5. Each \u0060source\u0060 and \u0060event_name\u0060 pair may appear once. Applies to events received from now on; recorded conversions keep their attribution.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:update\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:update\u0060, \u0060all:all\u0060",
         "requestBody": {
           "content": {
             "application/json": {
@@ -107843,7 +107965,7 @@
                 "properties": {
                   "conversions": {
                     "type": "array",
-                    "description": "Replaces the saved conversion events. An empty list turns conversion tracking off.",
+                    "description": "Replaces the saved conversion events. An empty list turns conversion tracking off. Each \u0060source\u0060 and \u0060event_name\u0060 pair may appear once; a repeat gives 400.",
                     "maxItems": 5,
                     "items": {
                       "type": "object",
@@ -107865,7 +107987,8 @@
                             "hubspot",
                             "highlevel",
                             "leadconnector",
-                            "zoho_crm"
+                            "zoho_crm",
+                            "attio"
                           ],
                           "description": "Producer of the conversion event",
                           "example": "api"
@@ -107880,9 +108003,10 @@
                         },
                         "group_by_property": {
                           "type": "string",
-                          "description": "Event property whose value the summary can group by",
+                          "description": "Event property whose value the summary can group by, 1 to 100 characters. A blank value gives 400.",
                           "minLength": 1,
                           "maxLength": 100,
+                          "pattern": "\\S",
                           "example": "plan"
                         },
                         "lookback_days": {
@@ -107942,7 +108066,8 @@
                               "hubspot",
                               "highlevel",
                               "leadconnector",
-                              "zoho_crm"
+                              "zoho_crm",
+                              "attio"
                             ],
                             "description": "Producer of the conversion event",
                             "examples": [
@@ -107963,12 +108088,13 @@
                           },
                           "group_by_property": {
                             "type": "string",
-                            "description": "Event property whose value the summary can group by",
+                            "description": "Event property whose value the summary can group by, 1 to 100 characters. A blank value gives 400.",
                             "examples": [
                               "plan"
                             ],
                             "minLength": 1,
                             "maxLength": 100,
+                            "pattern": "\\S",
                             "example": "plan"
                           },
                           "lookback_days": {
@@ -108009,11 +108135,12 @@
             }
           },
           "400": {
-            "description": "Default Response",
+            "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -108025,10 +108152,11 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "name: Invalid domain name format"
+                      "example": "limit: must be at most 50"
                     },
                     "code": {
                       "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
                       "example": "VALIDATION_ERROR"
                     }
                   }
@@ -108124,90 +108252,117 @@
               }
             }
           },
-          "404": {
-            "description": "The requested resource was not found",
+          "403": {
+            "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
-                      "enum": [
-                        404
-                      ],
-                      "examples": [
-                        404
-                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace suspended due to a high bounce or spam complaint rate. Please contact support."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "WORKSPACE_SUSPENDED"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The resource does not exist in this workspace.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The resource does not exist in this workspace.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
                       "example": "Not Found"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
-                      ],
-                      "example": "Resource not found"
+                      "example": "Not found"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "NOT_FOUND"
                     }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 408
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Request Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
                 }
               }
             }
           },
           "409": {
-            "description": "The settings changed during the update; read them and retry",
+            "description": "The settings changed during the update; read them and retry.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The settings changed during the update; read them and retry.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
-                      "enum": [
-                        409
-                      ],
-                      "examples": [
-                        409
-                      ],
                       "example": 409
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Conflict"
-                      ],
-                      "examples": [
-                        "Conflict"
-                      ],
                       "example": "Conflict"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Conversion settings changed during the update; read them and retry"
-                      ],
-                      "example": "Conversion settings changed during the update; read them and retry"
+                      "example": "The resource has changed. Reload it and try again."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "CONFLICT"
                     }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
+                  }
                 }
               }
             }
@@ -108255,6 +108410,31 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -108266,7 +108446,7 @@
         "tags": [
           "Conversion"
         ],
-        "description": "Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the person clicked, opened or only received it, and the event\u0027s properties. The person\u0027s email is included for API keys that can also read people.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:read\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
+        "description": "Lists the conversions recorded in a UTC date range, newest first, each with the last email before it, whether the contact clicked, opened or only received it, and the event\u0027s properties. The contact\u0027s email is included for API keys that can also read contacts. With a filter, a page can be short or empty while \u0060next_starting_after\u0060 is still set: keep paging until it is null.\n\n\nRequires one of the following scopes: \u0060email_marketing_conversions:read\u0060, \u0060email_marketing_conversions:all\u0060, \u0060all:read\u0060, \u0060all:all\u0060",
         "parameters": [
           {
             "schema": {
@@ -108310,7 +108490,8 @@
                 "hubspot",
                 "highlevel",
                 "leadconnector",
-                "zoho_crm"
+                "zoho_crm",
+                "attio"
               ],
               "example": "api"
             },
@@ -108356,9 +108537,9 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 64,
-              "example": "journey-12ab"
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
-            "example": "journey-12ab",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
             "in": "query",
             "name": "journey_id",
             "required": false,
@@ -108369,9 +108550,9 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 64,
-              "example": "broadcast-42ef"
+              "example": "f9cc070d-8dba-4341-b847-f083c358e460"
             },
-            "example": "broadcast-42ef",
+            "example": "f9cc070d-8dba-4341-b847-f083c358e460",
             "in": "query",
             "name": "broadcast_id",
             "required": false,
@@ -108401,7 +108582,7 @@
             "in": "query",
             "name": "lookback_days",
             "required": false,
-            "description": "Credit each conversion again from the emails sent this many days before it; ignored when longer than the window it was recorded with"
+            "description": "Credit each conversion again from the emails sent this many days before it. Ignored when longer than the window it was recorded with, and for a conversion whose stored emails are missing or do not reach back that far."
           },
           {
             "schema": {
@@ -108427,20 +108608,20 @@
             "in": "query",
             "name": "limit",
             "required": false,
-            "description": "Page size"
+            "description": "Most conversions to return, 1 to 100. Default 50. With a filter, a page can be short or empty while \u0060next_starting_after\u0060 is still set: keep paging until it is null."
           },
           {
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 512,
+              "maxLength": 256,
               "example": "2026-08-20T10:00:00.000Z#0198c2a4"
             },
             "example": "2026-08-20T10:00:00.000Z#0198c2a4",
             "in": "query",
             "name": "starting_after",
             "required": false,
-            "description": "The next_starting_after value of the previous page"
+            "description": "The \u0060next_starting_after\u0060 value of the previous page"
           }
         ],
         "responses": {
@@ -108475,11 +108656,12 @@
             }
           },
           "400": {
-            "description": "Default Response",
+            "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -108491,10 +108673,11 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "name: Invalid domain name format"
+                      "example": "limit: must be at most 50"
                     },
                     "code": {
                       "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
                       "example": "VALIDATION_ERROR"
                     }
                   }
@@ -108590,46 +108773,117 @@
               }
             }
           },
-          "404": {
-            "description": "The requested resource was not found",
+          "403": {
+            "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
-                      "enum": [
-                        404
-                      ],
-                      "examples": [
-                        404
-                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace suspended due to a high bounce or spam complaint rate. Please contact support."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "WORKSPACE_SUSPENDED"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The resource does not exist in this workspace.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The resource does not exist in this workspace.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
                       "example": "Not Found"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
-                      ],
-                      "example": "Resource not found"
+                      "example": "Not found"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "NOT_FOUND"
                     }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 408
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Request Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request conflicts with the current state of the resource.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "The resource has changed. Reload it and try again."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "CONFLICT"
+                    }
+                  }
                 }
               }
             }
@@ -108674,6 +108928,31 @@
                     "error",
                     "message"
                   ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
                 }
               }
             }
@@ -108732,7 +109011,8 @@
                 "hubspot",
                 "highlevel",
                 "leadconnector",
-                "zoho_crm"
+                "zoho_crm",
+                "attio"
               ],
               "example": "api"
             },
@@ -108784,6 +109064,7 @@
                   "properties": {
                     "totals": {
                       "type": "object",
+                      "description": "Conversions in the period, by attribution",
                       "properties": {
                         "total": {
                           "type": "integer",
@@ -108901,6 +109182,7 @@
                             "examples": [
                               "api"
                             ],
+                            "description": "Producer of the conversion event",
                             "example": "api"
                           },
                           "event_name": {
@@ -108908,20 +109190,23 @@
                             "examples": [
                               "subscription_started"
                             ],
+                            "description": "Name of the conversion event",
                             "example": "subscription_started"
                           },
                           "journey_id": {
                             "type": "string",
                             "examples": [
-                              "journey-12ab"
+                              "f9cc070d-8dba-4341-b847-f083c358e460"
                             ],
-                            "example": "journey-12ab"
+                            "description": "Journey of the group; set when grouping by journey or step",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                           },
                           "version": {
                             "type": "integer",
                             "examples": [
                               3
                             ],
+                            "description": "Journey version of the group; set when grouping by step",
                             "example": 3
                           },
                           "step_id": {
@@ -108929,20 +109214,23 @@
                             "examples": [
                               "step-1"
                             ],
+                            "description": "Journey step of the group; set when grouping by step",
                             "example": "step-1"
                           },
                           "broadcast_id": {
                             "type": "string",
                             "examples": [
-                              "broadcast-42ef"
+                              "f9cc070d-8dba-4341-b847-f083c358e460"
                             ],
-                            "example": "broadcast-42ef"
+                            "description": "Broadcast of the group; set when grouping by broadcast",
+                            "example": "f9cc070d-8dba-4341-b847-f083c358e460"
                           },
                           "group_value": {
                             "type": "string",
                             "examples": [
                               "starter"
                             ],
+                            "description": "Group value of the group; set when grouping by group value",
                             "example": "starter"
                           },
                           "journey_name": {
@@ -108975,7 +109263,7 @@
                     },
                     "groups_truncated": {
                       "type": "boolean",
-                      "description": "True when more groups exist than were returned; present only when group_by is set",
+                      "description": "True when there were too many groups to read in full: groups are missing and the returned groups can have incomplete counts. Present only when group_by is set.",
                       "examples": [
                         false
                       ],
@@ -108991,11 +109279,12 @@
             }
           },
           "400": {
-            "description": "Default Response",
+            "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The request is invalid. \u0060message\u0060 names the field and the problem. \u0060code\u0060 is \u0060FST_ERR_VALIDATION\u0060 when the request does not match this schema and \u0060VALIDATION_ERROR\u0060 when a value is refused after that. A request the resource\u0027s current state does not allow, such as pausing a broadcast that is not sending, has its own \u0060code\u0060 named on that operation. \u0060code\u0060 is absent on a few request-level checks.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
@@ -109007,10 +109296,11 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "name: Invalid domain name format"
+                      "example": "limit: must be at most 50"
                     },
                     "code": {
                       "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
                       "example": "VALIDATION_ERROR"
                     }
                   }
@@ -109106,46 +109396,117 @@
               }
             }
           },
-          "404": {
-            "description": "The requested resource was not found",
+          "403": {
+            "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "The workspace may not perform this action, for example while it is suspended. A key without the required scope gets a 401.",
                   "properties": {
                     "statusCode": {
                       "type": "number",
-                      "enum": [
-                        404
-                      ],
-                      "examples": [
-                        404
-                      ],
+                      "example": 403
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Forbidden"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workspace suspended due to a high bounce or spam complaint rate. Please contact support."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "WORKSPACE_SUSPENDED"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The resource does not exist in this workspace.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The resource does not exist in this workspace.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
                       "example": 404
                     },
                     "error": {
                       "type": "string",
-                      "enum": [
-                        "Not Found"
-                      ],
-                      "examples": [
-                        "Not Found"
-                      ],
                       "example": "Not Found"
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Resource not found"
-                      ],
-                      "example": "Resource not found"
+                      "example": "Not found"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "NOT_FOUND"
                     }
-                  },
-                  "required": [
-                    "statusCode",
-                    "error",
-                    "message"
-                  ]
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request timed out. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 408
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Request Timeout"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "The request conflicts with the current state of the resource.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 409
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Conflict"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "The resource has changed. Reload it and try again."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Machine-readable error code. Branch on this, not on the message.",
+                      "example": "CONFLICT"
+                    }
+                  }
                 }
               }
             }
@@ -109190,6 +109551,31 @@
                     "error",
                     "message"
                   ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An internal error occurred. The outcome is unknown: a write may or may not have been applied. Read the resource back before retrying.",
+                  "properties": {
+                    "statusCode": {
+                      "type": "number",
+                      "example": 500
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
                 }
               }
             }

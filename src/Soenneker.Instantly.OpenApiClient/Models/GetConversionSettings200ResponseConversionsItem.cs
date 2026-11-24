@@ -37,7 +37,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string EventName { get => _explicitNullValueEventName; set { _explicitNullValueEventName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_name"); else _explicitNullProperties?.Remove("event_name"); } }
         private string _explicitNullValueEventName = default!;
 #endif
-        /// <summary>Event property whose value the summary can group by</summary>
+        /// <summary>Event property whose value the summary can group by, 1 to 100 characters. A blank value gives 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupByProperty { get => _explicitNullValueGroupByProperty; set { _explicitNullValueGroupByProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by_property"); else _explicitNullProperties?.Remove("group_by_property"); } }

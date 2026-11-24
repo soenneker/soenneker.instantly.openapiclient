@@ -56,7 +56,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Latest click before the conversion, across links</summary>
         public DateTimeOffset? ClickedAt { get => _explicitNullValueClickedAt; set { _explicitNullValueClickedAt = value; AdditionalData?.Remove("clicked_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clicked_at"); else _explicitNullProperties?.Remove("clicked_at"); } }
         private DateTimeOffset? _explicitNullValueClickedAt = default!;
-        /// <summary>The delivered_at property</summary>
+        /// <summary>When the email was delivered</summary>
         public DateTimeOffset? DeliveredAt { get => _explicitNullValueDeliveredAt; set { _explicitNullValueDeliveredAt = value; AdditionalData?.Remove("delivered_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delivered_at"); else _explicitNullProperties?.Remove("delivered_at"); } }
         private DateTimeOffset? _explicitNullValueDeliveredAt = default!;
         /// <summary>ID of the sent email</summary>
@@ -82,7 +82,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>First recorded open</summary>
         public DateTimeOffset? OpenedAt { get => _explicitNullValueOpenedAt; set { _explicitNullValueOpenedAt = value; AdditionalData?.Remove("opened_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("opened_at"); else _explicitNullProperties?.Remove("opened_at"); } }
         private DateTimeOffset? _explicitNullValueOpenedAt = default!;
-        /// <summary>The origin property</summary>
+        /// <summary>Whether a journey or a broadcast sent the email</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.ConversionTouchesItemOrigin? Origin { get => _explicitNullValueOrigin; set { _explicitNullValueOrigin = value; AdditionalData?.Remove("origin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("origin"); else _explicitNullProperties?.Remove("origin"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.ConversionTouchesItemOrigin? _explicitNullValueOrigin = default!;
         /// <summary>Journey run that sent the email</summary>
@@ -95,7 +95,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; AdditionalData?.Remove("run_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
         private string _explicitNullValueRunId = default!;
 #endif
-        /// <summary>The sent_at property</summary>
+        /// <summary>When the email was sent</summary>
         public DateTimeOffset? SentAt { get => _explicitNullValueSentAt; set { _explicitNullValueSentAt = value; AdditionalData?.Remove("sent_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sent_at"); else _explicitNullProperties?.Remove("sent_at"); } }
         private DateTimeOffset? _explicitNullValueSentAt = default!;
         /// <summary>Journey step that sent the email</summary>
