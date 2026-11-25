@@ -31,6 +31,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("sequences") is null) { _explicitNullValueSequences = default!; _explicitNullProperties?.Remove("sequences"); }
             else if (parseNode.GetChildNode("sequences") is { } nullNodeSequences && nullNodeSequences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sequences = null;
+            if (parseNode.GetChildNode("skip_lead_reactivation") is null) { _explicitNullValueSkipLeadReactivation = default!; _explicitNullProperties?.Remove("skip_lead_reactivation"); }
+            else if (parseNode.GetChildNode("skip_lead_reactivation") is { } nullNodeSkipLeadReactivation && nullNodeSkipLeadReactivation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipLeadReactivation = null;
             if (parseNode.GetChildNode("subsequence_schedule") is null) { _explicitNullValueSubsequenceSchedule = default!; _explicitNullProperties?.Remove("subsequence_schedule"); }
             else if (parseNode.GetChildNode("subsequence_schedule") is { } nullNodeSubsequenceSchedule && nullNodeSubsequenceSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubsequenceSchedule = null;
         }
@@ -84,6 +86,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem> Sequences { get => _explicitNullValueSequences; set { _explicitNullValueSequences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequences"); else _explicitNullProperties?.Remove("sequences"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem> _explicitNullValueSequences = default!;
 #endif
+        /// <summary>Adding a step to a sequence of a launched campaign reactivates the campaign&apos;s completed leads, except those who replied, have an interest status or completed because their company replied. Set `true` to keep them completed. Ignored when no step is added.</summary>
+        public bool? SkipLeadReactivation { get => _explicitNullValueSkipLeadReactivation; set { _explicitNullValueSkipLeadReactivation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_lead_reactivation"); else _explicitNullProperties?.Remove("skip_lead_reactivation"); } }
+        private bool? _explicitNullValueSkipLeadReactivation = default!;
         /// <summary>Schedule configuration for the subsequence. When omitted on create, inherits the parent campaign&apos;s schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,7 +115,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(8)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestAutoVariantSelect.CreateFromDiscriminatorValue); } },
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestConditions.CreateFromDiscriminatorValue); } },
@@ -119,6 +124,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "ignore_account_daily_limit", n => { IgnoreAccountDailyLimit = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "skip_lead_reactivation", n => { SkipLeadReactivation = n.GetBoolValue(); } },
                 { "subsequence_schedule", n => { SubsequenceSchedule = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule.CreateFromDiscriminatorValue); } },
             };
         }
@@ -136,6 +142,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteBoolValue("ignore_account_daily_limit", IgnoreAccountDailyLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSequencesItem>("sequences", Sequences);
+            writer.WriteBoolValue("skip_lead_reactivation", SkipLeadReactivation);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignSubsequenceRequestSubsequenceSchedule>("subsequence_schedule", SubsequenceSchedule);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

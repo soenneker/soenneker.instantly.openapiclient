@@ -69,6 +69,8 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("same_domain_sender_failover") is { } nullNodeSameDomainSenderFailover && nullNodeSameDomainSenderFailover.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SameDomainSenderFailover = null;
             if (parseNode.GetChildNode("sequences") is null) { _explicitNullValueSequences = default!; _explicitNullProperties?.Remove("sequences"); }
             else if (parseNode.GetChildNode("sequences") is { } nullNodeSequences && nullNodeSequences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sequences = null;
+            if (parseNode.GetChildNode("skip_lead_reactivation") is null) { _explicitNullValueSkipLeadReactivation = default!; _explicitNullProperties?.Remove("skip_lead_reactivation"); }
+            else if (parseNode.GetChildNode("skip_lead_reactivation") is { } nullNodeSkipLeadReactivation && nullNodeSkipLeadReactivation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipLeadReactivation = null;
             if (parseNode.GetChildNode("stop_for_company") is null) { _explicitNullValueStopForCompany = default!; _explicitNullProperties?.Remove("stop_for_company"); }
             else if (parseNode.GetChildNode("stop_for_company") is { } nullNodeStopForCompany && nullNodeStopForCompany.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StopForCompany = null;
             if (parseNode.GetChildNode("stop_on_auto_reply") is null) { _explicitNullValueStopOnAutoReply = default!; _explicitNullProperties?.Remove("stop_on_auto_reply"); }
@@ -234,6 +236,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestSequencesItem> Sequences { get => _explicitNullValueSequences; set { _explicitNullValueSequences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sequences"); else _explicitNullProperties?.Remove("sequences"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestSequencesItem> _explicitNullValueSequences = default!;
 #endif
+        /// <summary>Adding a step to a sequence of a launched campaign reactivates the campaign&apos;s completed leads, except those who replied, have an interest status or completed because their company replied. Set `true` to keep them completed. Ignored when no step is added.</summary>
+        public bool? SkipLeadReactivation { get => _explicitNullValueSkipLeadReactivation; set { _explicitNullValueSkipLeadReactivation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_lead_reactivation"); else _explicitNullProperties?.Remove("skip_lead_reactivation"); } }
+        private bool? _explicitNullValueSkipLeadReactivation = default!;
         /// <summary>Whether to stop the campaign for the entire company(domain) when a lead replies</summary>
         public bool? StopForCompany { get => _explicitNullValueStopForCompany; set { _explicitNullValueStopForCompany = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stop_for_company"); else _explicitNullProperties?.Remove("stop_for_company"); } }
         private bool? _explicitNullValueStopForCompany = default!;
@@ -262,7 +267,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(30)
+            return new Dictionary<string, Action<IParseNode>>(31)
             {
                 { "allow_risky_contacts", n => { AllowRiskyContacts = n.GetBoolValue(); } },
                 { "auto_variant_select", n => { AutoVariantSelect = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestAutoVariantSelect>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestAutoVariantSelect.CreateFromDiscriminatorValue); } },
@@ -290,6 +295,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "random_wait_max", n => { RandomWaitMax = n.GetDoubleValue(); } },
                 { "same_domain_sender_failover", n => { SameDomainSenderFailover = n.GetBoolValue(); } },
                 { "sequences", n => { Sequences = n.GetCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestSequencesItem>(global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestSequencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "skip_lead_reactivation", n => { SkipLeadReactivation = n.GetBoolValue(); } },
                 { "stop_for_company", n => { StopForCompany = n.GetBoolValue(); } },
                 { "stop_on_auto_reply", n => { StopOnAutoReply = n.GetBoolValue(); } },
                 { "stop_on_reply", n => { StopOnReply = n.GetBoolValue(); } },
@@ -329,6 +335,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             writer.WriteDoubleValue("random_wait_max", RandomWaitMax);
             writer.WriteBoolValue("same_domain_sender_failover", SameDomainSenderFailover);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Instantly.OpenApiClient.Models.PatchCampaignRequestSequencesItem>("sequences", Sequences);
+            writer.WriteBoolValue("skip_lead_reactivation", SkipLeadReactivation);
             writer.WriteBoolValue("stop_for_company", StopForCompany);
             writer.WriteBoolValue("stop_on_auto_reply", StopOnAutoReply);
             writer.WriteBoolValue("stop_on_reply", StopOnReply);
