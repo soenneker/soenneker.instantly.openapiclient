@@ -8957,7 +8957,8 @@
               "lead_out_of_office",
               "lead_wrong_person",
               "lead_no_show",
-              "supersearch_enrichment_completed"
+              "supersearch_enrichment_completed",
+              "reply_agent_needs_action"
             ],
             "example": "email_sent"
           },
@@ -61379,7 +61380,8 @@
                 "lead_meeting_completed",
                 "lead_closed",
                 "lead_out_of_office",
-                "lead_wrong_person"
+                "lead_wrong_person",
+                "reply_agent_needs_action"
               ],
               "example": "all_events"
             },
@@ -61671,7 +61673,8 @@
                       "lead_out_of_office",
                       "lead_wrong_person",
                       "lead_no_show",
-                      "supersearch_enrichment_completed"
+                      "supersearch_enrichment_completed",
+                      "reply_agent_needs_action"
                     ],
                     "example": "email_sent"
                   },
@@ -62216,7 +62219,8 @@
                       "lead_out_of_office",
                       "lead_wrong_person",
                       "lead_no_show",
-                      "supersearch_enrichment_completed"
+                      "supersearch_enrichment_completed",
+                      "reply_agent_needs_action"
                     ],
                     "example": "email_sent"
                   },

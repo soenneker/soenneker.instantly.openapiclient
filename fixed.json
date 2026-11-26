@@ -145366,7 +145366,8 @@
           "lead_out_of_office",
           "lead_wrong_person",
           "lead_no_show",
-          "supersearch_enrichment_completed"
+          "supersearch_enrichment_completed",
+          "reply_agent_needs_action"
         ],
         "type": [
           "null",
@@ -145453,6 +145454,10 @@
             {
               "value": "supersearch_enrichment_completed",
               "name": "SupersearchEnrichmentCompleted"
+            },
+            {
+              "value": "reply_agent_needs_action",
+              "name": "ReplyAgentNeedsAction"
             }
           ]
         }
@@ -160425,7 +160430,8 @@
           "lead_out_of_office",
           "lead_wrong_person",
           "lead_no_show",
-          "supersearch_enrichment_completed"
+          "supersearch_enrichment_completed",
+          "reply_agent_needs_action"
         ],
         "type": [
           "null",
@@ -160512,6 +160518,10 @@
             {
               "value": "supersearch_enrichment_completed",
               "name": "SupersearchEnrichmentCompleted"
+            },
+            {
+              "value": "reply_agent_needs_action",
+              "name": "ReplyAgentNeedsAction"
             }
           ]
         }
@@ -160626,7 +160636,8 @@
           "lead_out_of_office",
           "lead_wrong_person",
           "lead_no_show",
-          "supersearch_enrichment_completed"
+          "supersearch_enrichment_completed",
+          "reply_agent_needs_action"
         ],
         "type": [
           "null",
@@ -160713,6 +160724,10 @@
             {
               "value": "supersearch_enrichment_completed",
               "name": "SupersearchEnrichmentCompleted"
+            },
+            {
+              "value": "reply_agent_needs_action",
+              "name": "ReplyAgentNeedsAction"
             }
           ]
         }
@@ -214179,7 +214194,8 @@
           "lead_meeting_completed",
           "lead_closed",
           "lead_out_of_office",
-          "lead_wrong_person"
+          "lead_wrong_person",
+          "reply_agent_needs_action"
         ],
         "type": "string",
         "example": "all_events",
@@ -214254,6 +214270,10 @@
             {
               "value": "lead_wrong_person",
               "name": "LeadWrongPerson"
+            },
+            {
+              "value": "reply_agent_needs_action",
+              "name": "ReplyAgentNeedsAction"
             }
           ]
         }

@@ -83,5 +83,9 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         SupersearchEnrichmentCompleted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "reply_agent_needs_action")]
+        #pragma warning disable CS1591
+        ReplyAgentNeedsAction,
+        #pragma warning restore CS1591
     }
 }
