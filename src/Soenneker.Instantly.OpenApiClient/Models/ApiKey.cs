@@ -61,12 +61,12 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ApiKeyScopesItem?>? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
-        private List<global::Soenneker.Instantly.OpenApiClient.Models.ApiKeyScopesItem?>? _explicitNullValueScopes = default!;
+        public List<string>? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private List<string>? _explicitNullValueScopes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Instantly.OpenApiClient.Models.ApiKeyScopesItem?> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
-        private List<global::Soenneker.Instantly.OpenApiClient.Models.ApiKeyScopesItem?> _explicitNullValueScopes = default!;
+        public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private List<string> _explicitNullValueScopes = default!;
 #endif
         /// <summary>The timestamp_created property</summary>
         public DateTimeOffset? TimestampCreated { get; private set; }
@@ -94,7 +94,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
-                { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.ApiKeyScopesItem>()?.AsList(); } },
+                { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
             };
@@ -107,7 +107,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Instantly.OpenApiClient.Models.ApiKeyScopesItem>("scopes", Scopes);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

@@ -34,15 +34,15 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>When it happened</summary>
         public DateTimeOffset? At { get => _explicitNullValueAt; set { _explicitNullValueAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("at"); else _explicitNullProperties?.Remove("at"); } }
         private DateTimeOffset? _explicitNullValueAt = default!;
-        /// <summary>A contact in the workspace: one email address with its consent, tags and custom attributes, used by broadcasts, journeys and segments. Optional fields with no value are left out of responses. The contact list, contact imports and tags page with `cursor`: pass the previous page&apos;s `next_cursor` until there is none. A contact&apos;s emails page with `starting_after` and `next_starting_after`.</summary>
+        /// <summary>A contact in the workspace: one email address with its consent, tags and custom attributes. Segments, and the broadcasts and journeys that target them, read contacts. Optional fields with no value are left out of responses. The contact list, contact imports and tags page with `cursor`: pass the previous page&apos;s `next_cursor` until there is none. A contact&apos;s emails page with `starting_after` and `next_starting_after`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.Person? Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.Person? _explicitNullValuePerson = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.Contact? Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.Contact? _explicitNullValuePerson = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.Person Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.Person _explicitNullValuePerson = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.Contact Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.Contact _explicitNullValuePerson = default!;
 #endif
         /// <summary>The contact this send belongs to, when known.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,7 +103,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "at", n => { At = n.GetDateTimeOffsetValue(); } },
-                { "person", n => { Person = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Person>(global::Soenneker.Instantly.OpenApiClient.Models.Person.CreateFromDiscriminatorValue); } },
+                { "person", n => { Person = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Contact>(global::Soenneker.Instantly.OpenApiClient.Models.Contact.CreateFromDiscriminatorValue); } },
                 { "person_id", n => { PersonId = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListBroadcastPeople200ResponseItemsItemReason>(global::Soenneker.Instantly.OpenApiClient.Models.ListBroadcastPeople200ResponseItemsItemReason.CreateFromDiscriminatorValue); } },
                 { "recipient", n => { Recipient = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListBroadcastPeople200ResponseItemsItemRecipient>(global::Soenneker.Instantly.OpenApiClient.Models.ListBroadcastPeople200ResponseItemsItemRecipient.CreateFromDiscriminatorValue); } },
@@ -118,7 +118,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("at", At);
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Person>("person", Person);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.Contact>("person", Person);
             writer.WriteStringValue("person_id", PersonId);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListBroadcastPeople200ResponseItemsItemReason>("reason", Reason);
             writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ListBroadcastPeople200ResponseItemsItemRecipient>("recipient", Recipient);

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Subscriber tags the step applies or removes as a run passes through it. Tag steps only. A draft may leave this incomplete; activation requires a direction and at least one tag.
+    /// Contact tags the step applies or removes as a run passes through it. Tag steps only. A draft may leave this incomplete; activation requires a direction and at least one tag.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class JourneyDraftStepResponseTag : IParsable
@@ -24,10 +24,10 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("tag_ids") is { } nullNodeTagIds && nullNodeTagIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagIds = null;
         }
 
-        /// <summary>Whether the step adds the tags to the subscriber or takes them off.</summary>
+        /// <summary>Whether the step adds the tags to the contact or takes them off.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.JourneyDraftStepResponseTagAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.JourneyDraftStepResponseTagAction? _explicitNullValueAction = default!;
-        /// <summary>Subscriber tag IDs the step applies or removes. Repeating a tag the subscriber already has, or removing one they do not have, changes nothing.</summary>
+        /// <summary>Contact tag IDs the step applies or removes. Repeating a tag the contact already has, or removing one they do not have, changes nothing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? TagIds { get => _explicitNullValueTagIds; set { _explicitNullValueTagIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_ids"); else _explicitNullProperties?.Remove("tag_ids"); } }

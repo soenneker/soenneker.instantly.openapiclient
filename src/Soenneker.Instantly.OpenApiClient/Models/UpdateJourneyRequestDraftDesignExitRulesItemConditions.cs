@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Conditions evaluated against the exit event and the subscriber once the event is applied.
+    /// Conditions evaluated against the exit event and the contact once the event is applied.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateJourneyRequestDraftDesignExitRulesItemConditions : IParsable

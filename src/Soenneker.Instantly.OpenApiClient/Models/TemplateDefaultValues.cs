@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Default first_name and last_name to use when a subscriber does not have these values. Ignored on create: set them with an update.
+    /// Default first_name and last_name to use when a contact does not have these values. Ignored on create: set them with an update.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TemplateDefaultValues : IAdditionalDataHolder, IParsable
@@ -26,7 +26,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Default first name shown when subscriber has no first name (1 to 50 characters). Null clears it.</summary>
+        /// <summary>Default first name shown when the contact has no first name (1 to 50 characters). Null clears it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; AdditionalData?.Remove("first_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
@@ -36,7 +36,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; AdditionalData?.Remove("first_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
         private string _explicitNullValueFirstName = default!;
 #endif
-        /// <summary>Default last name shown when subscriber has no last name (1 to 50 characters). Null clears it.</summary>
+        /// <summary>Default last name shown when the contact has no last name (1 to 50 characters). Null clears it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; AdditionalData?.Remove("last_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_name"); else _explicitNullProperties?.Remove("last_name"); } }

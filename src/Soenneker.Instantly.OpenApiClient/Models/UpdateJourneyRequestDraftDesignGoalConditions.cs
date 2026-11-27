@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
     /// <summary>
-    /// Conditions evaluated against the goal event and subscriber at match time.
+    /// Conditions evaluated against the goal event and the contact at match time.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateJourneyRequestDraftDesignGoalConditions : IParsable

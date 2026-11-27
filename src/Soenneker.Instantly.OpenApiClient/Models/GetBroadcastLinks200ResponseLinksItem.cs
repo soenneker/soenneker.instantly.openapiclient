@@ -35,7 +35,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Total clicks including repeat clicks</summary>
         public double? TotalClickCount { get => _explicitNullValueTotalClickCount; set { _explicitNullValueTotalClickCount = value; AdditionalData?.Remove("total_click_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_click_count"); else _explicitNullProperties?.Remove("total_click_count"); } }
         private double? _explicitNullValueTotalClickCount = default!;
-        /// <summary>Unique subscribers who clicked</summary>
+        /// <summary>Unique recipients who clicked</summary>
         public double? UniqueClickCount { get => _explicitNullValueUniqueClickCount; set { _explicitNullValueUniqueClickCount = value; AdditionalData?.Remove("unique_click_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_click_count"); else _explicitNullProperties?.Remove("unique_click_count"); } }
         private double? _explicitNullValueUniqueClickCount = default!;
         /// <summary>The clicked link URL</summary>

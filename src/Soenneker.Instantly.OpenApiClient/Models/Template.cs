@@ -54,7 +54,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string CreatedBy { get; private set; }
 #endif
-        /// <summary>Default first_name and last_name to use when a subscriber does not have these values. Ignored on create: set them with an update.</summary>
+        /// <summary>Default first_name and last_name to use when a contact does not have these values. Ignored on create: set them with an update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.TemplateDefaultValues? DefaultValues { get => _explicitNullValueDefaultValues; set { _explicitNullValueDefaultValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_values"); else _explicitNullProperties?.Remove("default_values"); } }

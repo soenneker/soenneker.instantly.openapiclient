@@ -48,7 +48,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Projected number of emails to send</summary>
         public double? ProjectedSent { get => _explicitNullValueProjectedSent; set { _explicitNullValueProjectedSent = value; AdditionalData?.Remove("projected_sent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("projected_sent"); else _explicitNullProperties?.Remove("projected_sent"); } }
         private double? _explicitNullValueProjectedSent = default!;
-        /// <summary>Remaining unsent subscribers after this day</summary>
+        /// <summary>Remaining unsent recipients after this day</summary>
         public double? Remaining { get => _explicitNullValueRemaining; set { _explicitNullValueRemaining = value; AdditionalData?.Remove("remaining"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remaining"); else _explicitNullProperties?.Remove("remaining"); } }
         private double? _explicitNullValueRemaining = default!;
         /// <summary>

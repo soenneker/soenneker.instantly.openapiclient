@@ -171,7 +171,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string Subject { get => _explicitNullValueSubject; set { _explicitNullValueSubject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject"); else _explicitNullProperties?.Remove("subject"); } }
         private string _explicitNullValueSubject = default!;
 #endif
-        /// <summary>ID of the subscriber group to send to. Either subscribers_id or segment_id, but not both, is required when scheduling or sending the broadcast. Null clears it on update; create rejects null.</summary>
+        /// <summary>ID of a legacy subscriber group to send to; new broadcasts use segment_id. Either subscribers_id or segment_id, but not both, is required when scheduling or sending the broadcast. Null clears it on update; create rejects null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubscribersId { get => _explicitNullValueSubscribersId; set { _explicitNullValueSubscribersId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscribers_id"); else _explicitNullProperties?.Remove("subscribers_id"); } }

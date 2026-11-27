@@ -18,7 +18,6 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTagMappings;
 using Soenneker.Instantly.OpenApiClient.Api.V2.CustomTags;
 using Soenneker.Instantly.OpenApiClient.Api.V2.DfyEmailAccountOrders;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Domains;
-using Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing;
 using Soenneker.Instantly.OpenApiClient.Api.V2.EmailVerification;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Emails;
 using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementAnalytics;
@@ -27,6 +26,7 @@ using Soenneker.Instantly.OpenApiClient.Api.V2.InboxPlacementTests;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLabels;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LeadLists;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Leads;
+using Soenneker.Instantly.OpenApiClient.Api.V2.Lifecycle;
 using Soenneker.Instantly.OpenApiClient.Api.V2.LocalBusinessSearch;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Oauth;
 using Soenneker.Instantly.OpenApiClient.Api.V2.Subsequences;
@@ -129,11 +129,6 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Domains.DomainsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The emailMarketing property</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.EmailMarketingRequestBuilder EmailMarketing
-        {
-            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.EmailMarketing.EmailMarketingRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The emails property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Emails.EmailsRequestBuilder Emails
         {
@@ -173,6 +168,11 @@ namespace Soenneker.Instantly.OpenApiClient.Api.V2
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsRequestBuilder Leads
         {
             get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Leads.LeadsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lifecycle property</summary>
+        public global::Soenneker.Instantly.OpenApiClient.Api.V2.Lifecycle.LifecycleRequestBuilder Lifecycle
+        {
+            get => new global::Soenneker.Instantly.OpenApiClient.Api.V2.Lifecycle.LifecycleRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The localBusinessSearch property</summary>
         public global::Soenneker.Instantly.OpenApiClient.Api.V2.LocalBusinessSearch.LocalBusinessSearchRequestBuilder LocalBusinessSearch

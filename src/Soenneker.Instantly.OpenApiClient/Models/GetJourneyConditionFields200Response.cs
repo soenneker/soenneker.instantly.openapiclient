@@ -29,7 +29,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
             else if (parseNode.GetChildNode("trigger_properties_truncated") is { } nullNodeTriggerPropertiesTruncated && nullNodeTriggerPropertiesTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPropertiesTruncated = null;
         }
 
-        /// <summary>Custom attribute names observed on subscribers in this workspace</summary>
+        /// <summary>Custom attribute names observed on contacts in this workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Instantly.OpenApiClient.Models.GetJourneyConditionFields200ResponseCustomAttributesItem>? CustomAttributes { get => _explicitNullValueCustomAttributes; set { _explicitNullValueCustomAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_attributes"); else _explicitNullProperties?.Remove("custom_attributes"); } }
@@ -42,7 +42,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>True when the custom attribute catalog hit its name cap and may be incomplete</summary>
         public bool? CustomAttributesTruncated { get => _explicitNullValueCustomAttributesTruncated; set { _explicitNullValueCustomAttributesTruncated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_attributes_truncated"); else _explicitNullProperties?.Remove("custom_attributes_truncated"); } }
         private bool? _explicitNullValueCustomAttributesTruncated = default!;
-        /// <summary>Built-in subscriber fields available to every condition</summary>
+        /// <summary>Built-in contact fields available to every condition</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SubscriberFields { get => _explicitNullValueSubscriberFields; set { _explicitNullValueSubscriberFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_fields"); else _explicitNullProperties?.Remove("subscriber_fields"); } }

@@ -61,7 +61,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public List<global::Soenneker.Instantly.OpenApiClient.Models.GetBroadcastWarmup200ResponseScheduleItem> Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private List<global::Soenneker.Instantly.OpenApiClient.Models.GetBroadcastWarmup200ResponseScheduleItem> _explicitNullValueSchedule = default!;
 #endif
-        /// <summary>Net subscriber count. 0 while a segment audience is still being resolved, when progress and schedule are null.</summary>
+        /// <summary>Net recipient count. 0 while a segment audience is still being resolved, when progress and schedule are null.</summary>
         public double? SubscriberCount { get => _explicitNullValueSubscriberCount; set { _explicitNullValueSubscriberCount = value; AdditionalData?.Remove("subscriber_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_count"); else _explicitNullProperties?.Remove("subscriber_count"); } }
         private double? _explicitNullValueSubscriberCount = default!;
         /// <summary>Current warmup state. Null means not started yet.</summary>

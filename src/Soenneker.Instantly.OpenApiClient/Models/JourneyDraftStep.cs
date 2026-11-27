@@ -159,7 +159,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         /// <summary>Split variant. `condition` forks the journey into two to ten branches; the first whose conditions match wins. `attribute` forks it into one branch per value of `operand`, plus a default branch. `ab_test` deals every run into one of two to five versions by `percent`.</summary>
         public global::Soenneker.Instantly.OpenApiClient.Models.JourneyDraftStepSplitType? SplitType { get => _explicitNullValueSplitType; set { _explicitNullValueSplitType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("split_type"); else _explicitNullProperties?.Remove("split_type"); } }
         private global::Soenneker.Instantly.OpenApiClient.Models.JourneyDraftStepSplitType? _explicitNullValueSplitType = default!;
-        /// <summary>Subscriber tags the step applies or removes as a run passes through it. Tag steps only. A draft may leave this incomplete; activation requires a direction and at least one tag.</summary>
+        /// <summary>Contact tags the step applies or removes as a run passes through it. Tag steps only. A draft may leave this incomplete; activation requires a direction and at least one tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Instantly.OpenApiClient.Models.JourneyDraftStepTag? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }

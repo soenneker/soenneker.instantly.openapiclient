@@ -108,7 +108,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
 #else
         public string UserId { get; private set; }
 #endif
-        /// <summary>Name of the user who performed the activity</summary>
+        /// <summary>Name of the user who performed the activity, or email or user ID when unavailable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserName { get; private set; }

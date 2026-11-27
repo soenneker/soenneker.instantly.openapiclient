@@ -27,23 +27,23 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         }
 
         /// <summary>Source of the current consent status</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PersonConsentSource? ConsentSource { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ContactConsentSource? ConsentSource { get; private set; }
         /// <summary>Current workspace-wide marketing consent status</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PersonConsentStatus? ConsentStatus { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ContactConsentStatus? ConsentStatus { get; private set; }
         /// <summary>Timestamp of the last consent status transition</summary>
         public DateTimeOffset? ConsentUpdatedAt { get; private set; }
         /// <summary>Typed custom attributes keyed by attribute name. At most 250 attributes. Attribute names are at most 128 bytes (UTF-8) and text values at most 4,096 bytes. The whole contact record is capped at about 300 KB, so a contact cannot hold the maximum number of attributes at the maximum size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty? CustomAttributes { get => _explicitNullValueCustomAttributes; set { _explicitNullValueCustomAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_attributes"); else _explicitNullProperties?.Remove("custom_attributes"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty? _explicitNullValueCustomAttributes = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty? CustomAttributes { get => _explicitNullValueCustomAttributes; set { _explicitNullValueCustomAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_attributes"); else _explicitNullProperties?.Remove("custom_attributes"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty? _explicitNullValueCustomAttributes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty CustomAttributes { get => _explicitNullValueCustomAttributes; set { _explicitNullValueCustomAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_attributes"); else _explicitNullProperties?.Remove("custom_attributes"); } }
-        private global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty _explicitNullValueCustomAttributes = default!;
+        public global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty CustomAttributes { get => _explicitNullValueCustomAttributes; set { _explicitNullValueCustomAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_attributes"); else _explicitNullProperties?.Remove("custom_attributes"); } }
+        private global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty _explicitNullValueCustomAttributes = default!;
 #endif
         /// <summary>Current email delivery eligibility status</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PersonDeliveryStatus? DeliveryStatus { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ContactDeliveryStatus? DeliveryStatus { get; private set; }
         /// <summary>Canonical normalized email address</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +62,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public string FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
         private string _explicitNullValueFirstName = default!;
 #endif
-        /// <summary>IDs of the static groups the contact belongs to</summary>
+        /// <summary>IDs of the legacy subscriber groups the contact belongs to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? GroupIds { get; private set; }
@@ -89,7 +89,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         private string _explicitNullValueLastName = default!;
 #endif
         /// <summary>Source that originally created the contact</summary>
-        public global::Soenneker.Instantly.OpenApiClient.Models.PersonOrigin? Origin { get; private set; }
+        public global::Soenneker.Instantly.OpenApiClient.Models.ContactOrigin? Origin { get; private set; }
         /// <summary>IDs of the tags the contact has</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,17 +128,17 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(15)
             {
-                { "consent_source", n => { ConsentSource = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PersonConsentSource>(); } },
-                { "consent_status", n => { ConsentStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PersonConsentStatus>(); } },
+                { "consent_source", n => { ConsentSource = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ContactConsentSource>(); } },
+                { "consent_status", n => { ConsentStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ContactConsentStatus>(); } },
                 { "consent_updated_at", n => { ConsentUpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "custom_attributes", n => { CustomAttributes = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty>(global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty.CreateFromDiscriminatorValue); } },
-                { "delivery_status", n => { DeliveryStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PersonDeliveryStatus>(); } },
+                { "custom_attributes", n => { CustomAttributes = n.GetObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty>(global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty.CreateFromDiscriminatorValue); } },
+                { "delivery_status", n => { DeliveryStatus = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ContactDeliveryStatus>(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "group_ids", n => { GroupIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
-                { "origin", n => { Origin = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.PersonOrigin>(); } },
+                { "origin", n => { Origin = n.GetEnumValue<global::Soenneker.Instantly.OpenApiClient.Models.ContactOrigin>(); } },
                 { "tag_ids", n => { TagIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "timestamp_created", n => { TimestampCreated = n.GetDateTimeOffsetValue(); } },
                 { "timestamp_updated", n => { TimestampUpdated = n.GetDateTimeOffsetValue(); } },
@@ -152,7 +152,7 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.PersonCustomAttributesProperty>("custom_attributes", CustomAttributes);
+            writer.WriteObjectValue<global::Soenneker.Instantly.OpenApiClient.Models.ContactCustomAttributesProperty>("custom_attributes", CustomAttributes);
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("last_name", LastName);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

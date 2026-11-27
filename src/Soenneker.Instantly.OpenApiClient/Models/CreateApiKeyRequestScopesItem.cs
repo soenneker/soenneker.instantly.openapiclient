@@ -760,205 +760,165 @@ namespace Soenneker.Instantly.OpenApiClient.Models
         #pragma warning disable CS1591
         WebhookEventsColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_groups:all")]
+        [EnumMember(Value = "lifecycle_contacts:all")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupsColonAll,
+        LifecycleContactsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_groups:create")]
+        [EnumMember(Value = "lifecycle_contacts:create")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupsColonCreate,
+        LifecycleContactsColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_groups:read")]
+        [EnumMember(Value = "lifecycle_contacts:read")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupsColonRead,
+        LifecycleContactsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_groups:update")]
+        [EnumMember(Value = "lifecycle_contacts:update")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupsColonUpdate,
+        LifecycleContactsColonUpdate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_groups:delete")]
+        [EnumMember(Value = "lifecycle_contacts:delete")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupsColonDelete,
+        LifecycleContactsColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_group_imports:all")]
+        [EnumMember(Value = "lifecycle_broadcasts:all")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupImportsColonAll,
+        LifecycleBroadcastsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_group_imports:create")]
+        [EnumMember(Value = "lifecycle_broadcasts:create")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupImportsColonCreate,
+        LifecycleBroadcastsColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_group_imports:read")]
+        [EnumMember(Value = "lifecycle_broadcasts:read")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupImportsColonRead,
+        LifecycleBroadcastsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_group_imports:update")]
+        [EnumMember(Value = "lifecycle_broadcasts:update")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupImportsColonUpdate,
+        LifecycleBroadcastsColonUpdate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscriber_group_imports:delete")]
+        [EnumMember(Value = "lifecycle_broadcasts:delete")]
         #pragma warning disable CS1591
-        EmailMarketingSubscriberGroupImportsColonDelete,
+        LifecycleBroadcastsColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscribers:all")]
+        [EnumMember(Value = "lifecycle_domains:all")]
         #pragma warning disable CS1591
-        EmailMarketingSubscribersColonAll,
+        LifecycleDomainsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscribers:create")]
+        [EnumMember(Value = "lifecycle_domains:create")]
         #pragma warning disable CS1591
-        EmailMarketingSubscribersColonCreate,
+        LifecycleDomainsColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscribers:read")]
+        [EnumMember(Value = "lifecycle_domains:read")]
         #pragma warning disable CS1591
-        EmailMarketingSubscribersColonRead,
+        LifecycleDomainsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscribers:update")]
+        [EnumMember(Value = "lifecycle_domains:update")]
         #pragma warning disable CS1591
-        EmailMarketingSubscribersColonUpdate,
+        LifecycleDomainsColonUpdate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_subscribers:delete")]
+        [EnumMember(Value = "lifecycle_domains:delete")]
         #pragma warning disable CS1591
-        EmailMarketingSubscribersColonDelete,
+        LifecycleDomainsColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_broadcasts:all")]
+        [EnumMember(Value = "lifecycle_templates:all")]
         #pragma warning disable CS1591
-        EmailMarketingBroadcastsColonAll,
+        LifecycleTemplatesColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_broadcasts:create")]
+        [EnumMember(Value = "lifecycle_templates:create")]
         #pragma warning disable CS1591
-        EmailMarketingBroadcastsColonCreate,
+        LifecycleTemplatesColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_broadcasts:read")]
+        [EnumMember(Value = "lifecycle_templates:read")]
         #pragma warning disable CS1591
-        EmailMarketingBroadcastsColonRead,
+        LifecycleTemplatesColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_broadcasts:update")]
+        [EnumMember(Value = "lifecycle_templates:update")]
         #pragma warning disable CS1591
-        EmailMarketingBroadcastsColonUpdate,
+        LifecycleTemplatesColonUpdate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_broadcasts:delete")]
+        [EnumMember(Value = "lifecycle_templates:delete")]
         #pragma warning disable CS1591
-        EmailMarketingBroadcastsColonDelete,
+        LifecycleTemplatesColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_domains:all")]
+        [EnumMember(Value = "lifecycle_template_assets:all")]
         #pragma warning disable CS1591
-        EmailMarketingDomainsColonAll,
+        LifecycleTemplateAssetsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_domains:create")]
+        [EnumMember(Value = "lifecycle_template_assets:create")]
         #pragma warning disable CS1591
-        EmailMarketingDomainsColonCreate,
+        LifecycleTemplateAssetsColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_domains:read")]
+        [EnumMember(Value = "lifecycle_template_assets:read")]
         #pragma warning disable CS1591
-        EmailMarketingDomainsColonRead,
+        LifecycleTemplateAssetsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_domains:update")]
+        [EnumMember(Value = "lifecycle_template_assets:update")]
         #pragma warning disable CS1591
-        EmailMarketingDomainsColonUpdate,
+        LifecycleTemplateAssetsColonUpdate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_domains:delete")]
+        [EnumMember(Value = "lifecycle_template_assets:delete")]
         #pragma warning disable CS1591
-        EmailMarketingDomainsColonDelete,
+        LifecycleTemplateAssetsColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_templates:all")]
+        [EnumMember(Value = "lifecycle_metrics:all")]
         #pragma warning disable CS1591
-        EmailMarketingTemplatesColonAll,
+        LifecycleMetricsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_templates:create")]
+        [EnumMember(Value = "lifecycle_metrics:read")]
         #pragma warning disable CS1591
-        EmailMarketingTemplatesColonCreate,
+        LifecycleMetricsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_templates:read")]
+        [EnumMember(Value = "lifecycle_journeys:all")]
         #pragma warning disable CS1591
-        EmailMarketingTemplatesColonRead,
+        LifecycleJourneysColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_templates:update")]
+        [EnumMember(Value = "lifecycle_journeys:create")]
         #pragma warning disable CS1591
-        EmailMarketingTemplatesColonUpdate,
+        LifecycleJourneysColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_templates:delete")]
+        [EnumMember(Value = "lifecycle_journeys:read")]
         #pragma warning disable CS1591
-        EmailMarketingTemplatesColonDelete,
+        LifecycleJourneysColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_template_assets:all")]
+        [EnumMember(Value = "lifecycle_journeys:update")]
         #pragma warning disable CS1591
-        EmailMarketingTemplateAssetsColonAll,
+        LifecycleJourneysColonUpdate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_template_assets:create")]
+        [EnumMember(Value = "lifecycle_journeys:delete")]
         #pragma warning disable CS1591
-        EmailMarketingTemplateAssetsColonCreate,
+        LifecycleJourneysColonDelete,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_template_assets:read")]
+        [EnumMember(Value = "lifecycle_journeys:activate")]
         #pragma warning disable CS1591
-        EmailMarketingTemplateAssetsColonRead,
+        LifecycleJourneysColonActivate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_template_assets:update")]
+        [EnumMember(Value = "lifecycle_journeys:pause")]
         #pragma warning disable CS1591
-        EmailMarketingTemplateAssetsColonUpdate,
+        LifecycleJourneysColonPause,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_template_assets:delete")]
+        [EnumMember(Value = "lifecycle_events:all")]
         #pragma warning disable CS1591
-        EmailMarketingTemplateAssetsColonDelete,
+        LifecycleEventsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_metrics:all")]
+        [EnumMember(Value = "lifecycle_events:create")]
         #pragma warning disable CS1591
-        EmailMarketingMetricsColonAll,
+        LifecycleEventsColonCreate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_metrics:read")]
+        [EnumMember(Value = "lifecycle_events:read")]
         #pragma warning disable CS1591
-        EmailMarketingMetricsColonRead,
+        LifecycleEventsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:all")]
+        [EnumMember(Value = "lifecycle_conversions:all")]
         #pragma warning disable CS1591
-        EmailMarketingJourneysColonAll,
+        LifecycleConversionsColonAll,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:create")]
+        [EnumMember(Value = "lifecycle_conversions:read")]
         #pragma warning disable CS1591
-        EmailMarketingJourneysColonCreate,
+        LifecycleConversionsColonRead,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:read")]
+        [EnumMember(Value = "lifecycle_conversions:update")]
         #pragma warning disable CS1591
-        EmailMarketingJourneysColonRead,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:update")]
-        #pragma warning disable CS1591
-        EmailMarketingJourneysColonUpdate,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:delete")]
-        #pragma warning disable CS1591
-        EmailMarketingJourneysColonDelete,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:activate")]
-        #pragma warning disable CS1591
-        EmailMarketingJourneysColonActivate,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_journeys:pause")]
-        #pragma warning disable CS1591
-        EmailMarketingJourneysColonPause,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_events:all")]
-        #pragma warning disable CS1591
-        EmailMarketingEventsColonAll,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_events:create")]
-        #pragma warning disable CS1591
-        EmailMarketingEventsColonCreate,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_events:read")]
-        #pragma warning disable CS1591
-        EmailMarketingEventsColonRead,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_conversions:all")]
-        #pragma warning disable CS1591
-        EmailMarketingConversionsColonAll,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_conversions:read")]
-        #pragma warning disable CS1591
-        EmailMarketingConversionsColonRead,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "email_marketing_conversions:update")]
-        #pragma warning disable CS1591
-        EmailMarketingConversionsColonUpdate,
+        LifecycleConversionsColonUpdate,
         #pragma warning restore CS1591
         [EnumMember(Value = "security_tokens:all")]
         #pragma warning disable CS1591

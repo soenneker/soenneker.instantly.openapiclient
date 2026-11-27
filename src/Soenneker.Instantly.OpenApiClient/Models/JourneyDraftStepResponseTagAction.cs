@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Instantly.OpenApiClient.Models
 {
-    /// <summary>Whether the step adds the tags to the subscriber or takes them off.</summary>
+    /// <summary>Whether the step adds the tags to the contact or takes them off.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum JourneyDraftStepResponseTagAction
     {
